@@ -22,7 +22,9 @@ A failing validation is a build failure. The loaders in `lib/data.ts` also valid
 
 ```
 app/
-  globals.css
+  globals.css                Design tokens (@theme), type scale, layout utilities. Tune numbers here.
+  fonts.ts                   Self-hosted Inter and Noto Sans Devanagari via next/font/local
+  icon.svg                   Favicon
   (en)/                      English tree, served at the root. Own root layout: <html lang="en-IN">
     layout.tsx
     page.tsx                 /
@@ -36,14 +38,19 @@ app/
     about/                   /about/
   hi/                        Hindi tree, same paths under /hi/. Own root layout: <html lang="hi-IN">
 components/
-  *.tsx                      Shared component stubs from the spec (Header, LeadForm, SourceStamp, ...)
+  *.tsx                      Shared components from the spec (Header, LeadForm, SourceStamp, ...)
                              plus the six trust components (TrustBar, BrokerCard, WhyWeExist,
-                             HowWeWork, Reviews, Badges)
+                             HowWeWork, Reviews, Badges). LocalityMap is the only client
+                             component; it lazy-loads Leaflet so it ships on map pages only.
   templates/                 One template per page type. Route files in both trees are thin
-                             wrappers that pass locale="en" or locale="hi" to these.
+                             wrappers that pass locale="en" or locale="hi" to these. Home and
+                             city hub are complete; the rest render their data as JSON until
+                             build step 3.
 content/
   guides/*.mdx               English guides
   hi/guides/*.mdx            Hindi guides (separate files, written not translated)
+lib/
+  content.ts                 Hand-authored homepage blocks per language (hero, situations, tools, checklist)
 data/*.json                  All entity data (see below)
 docs/BUILD-SPEC.md           Build spec
 lib/
@@ -68,7 +75,7 @@ Every record carries `sources[]` (`{label, url, accessedAt}`, at least one, http
 | File | What it holds |
 | --- | --- |
 | `data/cities.json` | One record per city: names in both scripts, centre point, intro, broker note, and the anchor points (temple, airport, station, roads) that drive times are measured to. |
-| `data/localities.json` | One record per locality or village: rates, asking range, land use, drive times, narrative, fit, pros/cons/risks, broker note, score. Feeds the locality template. |
+| `data/localities.json` | One record per locality or village: rates, asking range, land use, drive times, narrative, fit (`{rating, reason, reasonHi}` per use), pros/cons/risks, broker note, score. Feeds the locality template. |
 | `data/projects.json` | Government projects: agency, status, budget, dates, extent, GeoJSON footprint, affected localities with impact level, dated milestones. |
 | `data/circleRates.json` | One object per published circle-rate schedule per city, rates in the units the government publishes. Old schedules stay for revision history. |
 | `data/stampDutyRules.json` | Stamp duty %, registration fee % and cap, and rebate per buyer category (male / female / joint) for UP. |

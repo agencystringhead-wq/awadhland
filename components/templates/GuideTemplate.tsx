@@ -12,11 +12,15 @@ export function GuideTemplate({ locale, slug }: { locale: Locale; slug: string }
   if (!guide) notFound();
   const fm = guide.frontmatter;
   return (
-    <PageShell locale={locale} alternate={guideAlternate(locale, fm.pairedSlug, fm.cityIds)}>
-      <Breadcrumb items={[{ label: ui[locale].home, href: localePath(locale, "/") }, { label: ui[locale].guides }, { label: fm.title }]} />
-      <h1>{fm.title}</h1>
-      <DataDump data={{ frontmatter: fm, file: guide.file }} />
-      <FAQ items={fm.faq} />
+    <PageShell locale={locale} alternate={guideAlternate(locale, fm.pairedSlug, fm.cityIds)} pageLabel={fm.title}>
+      <div className="container-site pb-12">
+        <Breadcrumb
+          items={[{ label: ui[locale].home, href: localePath(locale, "/") }, { label: ui[locale].guides }, { label: fm.title }]}
+        />
+        <h1>{fm.title}</h1>
+        <DataDump data={{ frontmatter: fm, file: guide.file }} />
+        <FAQ items={fm.faq} />
+      </div>
     </PageShell>
   );
 }

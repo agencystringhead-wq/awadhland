@@ -1,8 +1,63 @@
-# feat/scaffold: repo scaffold (build order step 1)
+# feat/scaffold: repo scaffold (build order steps 1 and 2)
 
 ## Summary
 
 Step 1 of the build order in `docs/BUILD-SPEC.md`: a Next.js 15 static export with Zod-validated data, two locale route trees, typed component stubs and Ayodhya seed data. Every seed route builds to static HTML in both English and Hindi.
+
+Step 2 (second commit set): design tokens, self-hosted fonts, styled versions of every shared and trust component, and the two hand-authored templates, homepage (Template 1) and city hub (Template 2), with a Leaflet map and a build-time SVG price trend. Also adds the `fit.<use>.reason` field from the step 1 open questions.
+
+## Step 2: what changed
+
+- **`fit.reason`.** `fit.residential | commercial | investment` is now `{ rating, reason, reasonHi }` in the spec data model, `lib/schemas.ts` and both seed localities. The spec was changed first (Template 3 row 6 and the localities example).
+- **Design tokens** in `app/globals.css` under `@theme`, all tunable by number (listed under "CSS values" below). Cream background, deep green accent, near-black text, 16px card radius, Inter 600 headings.
+- **Fonts self-hosted.** `app/fonts.ts` uses `next/font/local` on the woff2 files from `@fontsource-variable/inter` and `@fontsource-variable/noto-sans-devanagari`. Three woff2 files land in `out/_next/static/media`; no font request leaves the site. The Hindi tree uses the Devanagari subset with Inter as the per-glyph fallback for Latin digits and names.
+- **Components.** All 25 shared and trust components are styled and take real data. New: `CityCard` (homepage section 4), `PriceTrend` (hub section 6), `Section` (page rhythm). `LocalityMap` is the only client component: Leaflet + OSM tiles, circle markers coloured by price band, popup with rate and link, and it lazy-loads Leaflet so the library and its CSS (11 kB) ship only on map pages. It renders a plain link list first, so the page works without JavaScript. The mobile menu is a `<details>` element, also no JavaScript.
+- **Homepage** implements all 11 sections of Template 1. Counters and "what changed" are computed at build. Hand-authored copy (hero, six situations, four tools, six-point checklist) lives in `lib/content.ts`, written per language.
+- **City hub** implements all 11 sections of Template 2: hero with price-band range and counters, map, top-10 high-potential list with score and one-line reason, project cards, top-10 circle-rate summary with `SourceStamp`, price trend, broker note, guides and updates for the city, all localities grouped by tehsil, lead form prefilled with the city.
+- **Build output.** Every route still ships 103 kB first-load JS except the hub at 107 kB (the map wrapper). Verified visually in the browser: home and hub in both languages at 1280px and 375px, and the mobile menu.
+
+## Step 2: interpretations and open items
+
+1. **Header "Guides" and "Tools" link to homepage anchors** (`/#guides`, `/#tools`). The spec's URL table has no `/guides/` or `/tools/` index page. Tell me if you want index pages added to the spec.
+2. **Links to pages from later steps.** Cards link to `/guides/<launch-list slug>/`, `/tools/<slug>/`, `/methodology/`, `/contact/`, `/disclaimer/`, `/privacy/` and `/terms/`. These are the spec's fixed URLs and 404 until steps 4, 5 and the standard pages land. Kept rather than hidden so the templates are final.
+3. **High-potential "one-line reason".** No field exists; the hub uses `fit.investment.reason`, falling back to the first sentence of `narrative.drivers[0]`.
+4. **RERA projects counter** on the hub hero is omitted: there is no RERA field on projects or localities yet.
+5. **Price band on city cards** is computed as min asking low to max asking high across the city's buildable localities, in ₹/sq ft.
+6. **Lead form** renders WhatsApp and call with a one-line note until the JotForm embed in step 7. The `data-city` / `data-locality` / `data-context` prefill attributes are already on the section.
+7. **`lang` cookie** from the URL rules is still deferred; it needs a first-party inline script and belongs with step 6/7.
+8. **Read time** is computed now (200 wpm on the raw MDX body) because the guide cards need it.
+9. **Hindi copy.** Interface labels and the homepage copy blocks were drafted by a model and need a person's pass. Broker-voice blocks (`WhyWeExist` heading and Hindi pillars, `HowWeWork` Hindi steps) stay marked TODO rather than machine-written, per Template 9.
+10. **Prettier** was added as a devDependency for formatting; no config file, defaults plus `--print-width 140`.
+11. **Favicon**: `app/icon.svg` (green square, "A") so dev and export stop 404ing on `/favicon.ico`. Replace with the real mark when branding lands.
+
+## Step 2: CSS values (before → after)
+
+Before step 2 the only CSS was the body font size (16px English, 17px Hindi). After:
+
+| Token | Value |
+| --- | --- |
+| `--color-cream` (page background) | `#f7f2e8` |
+| `--color-cream-deep` (hero bands, table heads) | `#efe7d8` |
+| `--color-card` | `#fffdf9` |
+| `--color-ink` / `--color-ink-soft` / `--color-muted` | `#1d1b17` / `#4d4842` / `#7a736a` |
+| `--color-line` (borders) | `#e2d9c8` |
+| `--color-accent` / `--color-accent-deep` / `--color-accent-soft` | `#1f4d3a` / `#163a2c` / `#dfe9e1` |
+| `--color-maroon` / `--color-maroon-soft` (reserved, unused yet) | `#7d2b2b` / `#f0dcdc` |
+| `--color-whatsapp` | `#1f8a4c` |
+| Price band chips low / mid / high / premium | `#dfe9e1` / `#f2e6c4` / `#f4d9c3` / `#eccfcf`; map markers `#5f8f6b` / `#c9a53a` / `#d0763c` / `#9c3a3a` |
+| Status chips announced / approved / under-construction / partially-open / complete / stalled | `#e6e1d7` / `#dbe4ee` / `#f2e6c4` / `#d8e9e6` / `#dfe9e1` / `#eccfcf` |
+| `--radius-card` / `--radius-chip` | 16px / 999px |
+| `--shadow-card` | `0 1px 2px rgb(29 27 23 / .04), 0 6px 20px rgb(29 27 23 / .06)` |
+| `--container-site` | 1120px |
+| Gutter | 16px mobile, 24px ≥768px |
+| Section padding (`--section-gap`) | 64px desktop, 40px mobile |
+| `h1` / `h2` / `h3` | 40px / 26px / 18px desktop; 30px / 22px / 18px mobile; weight 600, line-height 1.2, letter-spacing −0.01em |
+| Body | 16px English, 17px Hindi, line-height 1.6 |
+| Header height | 64px, sticky, `bg-cream/95` with backdrop blur |
+| Buttons | radius 999px; primary 24px × 12px padding, 16px text; compact 14px × 8px, 14px text |
+| Chips | 13px, weight 600, 2px × 10px padding |
+| Map | 420px tall; marker radius 9px, 2px cream stroke |
+| Broker photo | 96px on `BrokerCard`, 56px on `BrokerNote` |
 
 ## What's in it
 

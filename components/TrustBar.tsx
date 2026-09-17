@@ -3,23 +3,33 @@ import type { TeamMember } from "@/lib/schemas";
 
 export type TrustBarProps = {
   locale: Locale;
-  broker: Pick<TeamMember, "yearsActive" | "reraNumber">;
+  broker: Pick<TeamMember, "yearsActive" | "reraNumber" | "reraUrl">;
 };
 
-/** Stub. One line under the header on homepage and city hubs. Hindi line to be written by a person. */
+/** One line under the header on homepage and city hubs (spec Template 9). Hindi line is a person's job. */
 export function TrustBar({ locale, broker }: TrustBarProps) {
   const items =
     locale === "hi"
-      ? ["TODO: हिंदी ट्रस्ट लाइन किसी व्यक्ति द्वारा लिखी जाए", `${broker.yearsActive} वर्ष`]
-      : [
-          "UP RERA registered",
-          `${broker.yearsActive} years in Ayodhya`,
-          "Real person on WhatsApp",
-          "Every rate sourced",
-        ];
+      ? ["यूपी रेरा पंजीकृत", `${broker.yearsActive} वर्ष अयोध्या में`, "व्हाट्सऐप पर असली व्यक्ति", "हर रेट का स्रोत"]
+      : ["UP RERA registered", `${broker.yearsActive} years in Ayodhya`, "Real person on WhatsApp", "Every rate sourced"];
   return (
-    <p data-component="TrustBar" data-rera={broker.reraNumber ?? undefined}>
-      {items.join(" · ")}
+    <p data-component="TrustBar" className="flex flex-wrap items-center gap-x-3 gap-y-1 text-sm text-ink-soft">
+      {items.map((item, i) => (
+        <span key={item} className="flex items-center gap-3">
+          {i > 0 && (
+            <span aria-hidden="true" className="text-line">
+              ·
+            </span>
+          )}
+          {i === 0 && broker.reraUrl ? (
+            <a href={broker.reraUrl} rel="noopener" className="font-medium">
+              {item}
+            </a>
+          ) : (
+            item
+          )}
+        </span>
+      ))}
     </p>
   );
 }

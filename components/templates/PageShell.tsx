@@ -8,22 +8,29 @@ import type { Alternate } from "@/lib/routes";
 export type PageShellProps = {
   locale: Locale;
   alternate: Alternate;
+  /** Human name of the page, used in the prefilled WhatsApp message */
+  pageLabel: string;
   children: ReactNode;
 };
 
 /** Header, main, footer. Used by every page in both trees. */
-export function PageShell({ locale, alternate, children }: PageShellProps) {
+export function PageShell({ locale, alternate, pageLabel, children }: PageShellProps) {
   const cities = getCities();
+  const broker = getBroker();
   return (
     <>
-      <Header locale={locale} alternate={alternate} cities={cities} broker={getBroker()} />
+      <Header locale={locale} alternate={alternate} cities={cities} broker={broker} pageLabel={pageLabel} />
       <main>{children}</main>
-      <Footer locale={locale} cities={cities} localities={getBuildableLocalities(locale).buildable} />
+      <Footer locale={locale} cities={cities} localities={getBuildableLocalities(locale).buildable} broker={broker} />
     </>
   );
 }
 
-/** Scaffold-only: prints the loaded record so each route can be checked before its template exists. */
+/** Scaffold-only: prints the loaded record so each route can be checked before its template exists (steps 3+). */
 export function DataDump({ data }: { data: unknown }) {
-  return <pre data-component="DataDump">{JSON.stringify(data, null, 2)}</pre>;
+  return (
+    <pre data-component="DataDump" className="card mt-6 overflow-x-auto p-4 text-xs leading-relaxed text-ink-soft">
+      {JSON.stringify(data, null, 2)}
+    </pre>
+  );
 }

@@ -16,22 +16,24 @@ export function LocalityTemplate({ locale, cityId, localityId }: { locale: Local
   const name = pick(locale, locality.name, locality.nameHi);
   const cityName = pick(locale, city.name, city.nameHi);
   return (
-    <PageShell locale={locale} alternate={localityAlternate(locale, city.id, locality.id)}>
-      <Breadcrumb
-        items={[
-          { label: ui[locale].home, href: localePath(locale, "/") },
-          { label: cityName, href: localePath(locale, `/${city.id}/`) },
-          { label: name },
-        ]}
-      />
-      <h1>{name}</h1>
-      <DataDump data={locality} />
-      <SourceStamp
-        locale={locale}
-        sources={locality.sources}
-        updatedAt={locality.updatedAt}
-        effectiveFrom={locality.circleRate?.effectiveFrom}
-      />
+    <PageShell locale={locale} alternate={localityAlternate(locale, city.id, locality.id)} pageLabel={`${name}, ${cityName}`}>
+      <div className="container-site pb-12">
+        <Breadcrumb
+          items={[
+            { label: ui[locale].home, href: localePath(locale, "/") },
+            { label: cityName, href: localePath(locale, `/${city.id}/`) },
+            { label: name },
+          ]}
+        />
+        <h1>{name}</h1>
+        <DataDump data={locality} />
+        <SourceStamp
+          locale={locale}
+          sources={locality.sources}
+          updatedAt={locality.updatedAt}
+          effectiveFrom={locality.circleRate?.effectiveFrom}
+        />
+      </div>
     </PageShell>
   );
 }

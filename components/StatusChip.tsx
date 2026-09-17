@@ -1,7 +1,6 @@
 import type { Locale } from "@/lib/i18n";
 import type { ProjectStatus } from "@/lib/schemas";
 
-/** Colour map for status and price band chips is defined once, in step 2. */
 export const statusLabels: Record<ProjectStatus, Record<Locale, string>> = {
   announced: { en: "Announced", hi: "घोषित" },
   approved: { en: "Approved", hi: "स्वीकृत" },
@@ -11,15 +10,24 @@ export const statusLabels: Record<ProjectStatus, Record<Locale, string>> = {
   stalled: { en: "Stalled", hi: "रुका हुआ" },
 };
 
+/** Colour map defined once (spec Shared components). Token names live in app/globals.css. */
+const statusClass: Record<ProjectStatus, string> = {
+  announced: "bg-status-announced",
+  approved: "bg-status-approved",
+  "under-construction": "bg-status-under-construction",
+  "partially-open": "bg-status-partially-open",
+  complete: "bg-status-complete",
+  stalled: "bg-status-stalled",
+};
+
 export type StatusChipProps = {
   locale: Locale;
   status: ProjectStatus;
 };
 
-/** Stub. */
 export function StatusChip({ locale, status }: StatusChipProps) {
   return (
-    <span data-component="StatusChip" data-status={status}>
+    <span data-component="StatusChip" data-status={status} className={`chip ${statusClass[status]}`}>
       {statusLabels[status][locale]}
     </span>
   );

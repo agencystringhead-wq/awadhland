@@ -57,6 +57,20 @@ export const getLocality = (cityId: string, id: string) =>
 /** Localities that pass the thin-page guard for this locale, plus the ids that were skipped. */
 export const getBuildableLocalities = (locale: Locale) => partitionLocalities(dataset.localities, locale);
 
+/** Aggregates for city cards and hub heroes, from the localities that pass the guard in this locale. */
+export function getCityStats(cityId: string, locale: Locale) {
+  const localities = partitionLocalities(getLocalitiesByCity(cityId), locale).buildable;
+  const ranges = localities.flatMap((l) => (l.askingRange ? [l.askingRange] : []));
+  return {
+    localityCount: localities.length,
+    projectCount: dataset.projects.filter((p) => p.cityId === cityId).length,
+    /** ₹ per sq ft across the city's localities, or null when no asking ranges are recorded */
+    askingRange:
+      ranges.length > 0 ? { low: Math.min(...ranges.map((r) => r.low)), high: Math.max(...ranges.map((r) => r.high)) } : null,
+    topLocalities: [...localities].filter((l) => l.score !== undefined).sort((a, b) => b.score! - a.score!),
+  };
+}
+
 /* projects */
 export const getProjects = () => dataset.projects;
 export const getProject = (id: string) => dataset.projects.find((p) => p.id === id);
@@ -83,6 +97,28 @@ export const getUpdate = (id: string) => dataset.updates.find((u) => u.id === id
 export const getPriceObservations = () => dataset.priceObservations;
 export const getPriceObservationsByLocality = (localityId: string) =>
   dataset.priceObservations.filter((o) => o.localityId === localityId).sort((a, b) => a.date.localeCompare(b.date));
+
+/**
+ * Median of (low + high) / 2 across a city's localities per observation date, oldest first.
+ * Feeds the hub price-trend chart; grows as observations are added.
+ */
+export function getCityPriceSeries(cityId: string): { date: string; median: number; count: number }[] {
+  const localityIds = new Set(getLocalitiesByCity(cityId).map((l) => l.id));
+  const byDate = new Map<string, number[]>();
+  for (const o of dataset.priceObservations) {
+    if (!localityIds.has(o.localityId)) continue;
+    const mids = byDate.get(o.date) ?? [];
+    mids.push((o.low + o.high) / 2);
+    byDate.set(o.date, mids);
+  }
+  return [...byDate.entries()]
+    .map(([date, mids]) => {
+      const s = [...mids].sort((a, b) => a - b);
+      const m = s.length % 2 ? s[(s.length - 1) / 2] : (s[s.length / 2 - 1] + s[s.length / 2]) / 2;
+      return { date, median: Math.round(m), count: s.length };
+    })
+    .sort((a, b) => a.date.localeCompare(b.date));
+}
 
 /* team */
 export const getTeam = () => dataset.team;

@@ -8,7 +8,13 @@ import matter from "gray-matter";
 import { z } from "zod";
 import { guideFrontmatterSchema, type GuideFrontmatter, type Locale } from "./schemas";
 
-export type Guide = { frontmatter: GuideFrontmatter; body: string; file: string };
+export type Guide = { frontmatter: GuideFrontmatter; body: string; file: string; readTimeMin: number };
+
+/** Whole minutes at 200 words per minute, minimum 1. Counted on the raw MDX body. */
+export function readTimeMin(body: string): number {
+  const words = body.split(/\s+/).filter(Boolean).length;
+  return Math.max(1, Math.round(words / 200));
+}
 
 export const GUIDE_DIRS: Record<Locale, string> = {
   en: path.join("content", "guides"),
@@ -43,7 +49,7 @@ export function readGuides(locale: Locale, root = process.cwd()): { guides: Guid
     const fm = result.data;
     if (`${fm.slug}.mdx` !== name) errors.push(`${file}: slug "${fm.slug}" does not match file name`);
     if (fm.lang !== locale) errors.push(`${file}: lang "${fm.lang}" but file is in the ${locale} tree`);
-    guides.push({ frontmatter: fm, body: parsed.content, file });
+    guides.push({ frontmatter: fm, body: parsed.content, file, readTimeMin: readTimeMin(parsed.content) });
   }
   return { guides, errors };
 }

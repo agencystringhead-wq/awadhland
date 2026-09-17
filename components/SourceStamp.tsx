@@ -10,16 +10,18 @@ export type SourceStampProps = {
   effectiveFrom?: string;
 };
 
-/** Stub. "Source · effective date · page updated". Required on every data page (CLAUDE.md). */
+/** "Source · effective date · page updated". Required on every data page (CLAUDE.md). */
 export function SourceStamp({ locale, sources, updatedAt, effectiveFrom }: SourceStampProps) {
   const t = ui[locale];
   return (
-    <p data-component="SourceStamp">
+    <p data-component="SourceStamp" className="mt-8 border-t border-line pt-4 text-sm text-muted">
       {t.source}:{" "}
       {sources.map((s, i) => (
         <span key={s.url + s.label}>
           {i > 0 && ", "}
-          <a href={s.url}>{s.label}</a>
+          <a href={s.url} rel="noopener">
+            {s.label}
+          </a>
         </span>
       ))}
       {effectiveFrom && (

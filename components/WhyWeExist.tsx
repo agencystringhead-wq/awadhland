@@ -9,12 +9,15 @@ export type WhyWeExistProps = {
   pillars: Pillar[];
 };
 
-/** Default copy from spec Template 9. Broker-voice copy: the Hindi version must be written by a person, not a model. */
+/**
+ * Default copy from spec Template 9. The heading is broker-voice copy and the Hindi pillars must be
+ * written by a person, not a model (spec Template 9 rules), so those stay marked TODO.
+ */
 export const whyWeExistCopy: Record<Locale, { heading: string; pillars: Pillar[] }> = {
   en: {
     heading: "TODO: heading in the broker's voice",
     pillars: [
-      { title: "Verified", body: "Every rate, distance and project has a source and date." },
+      { title: "Verified", body: "Every rate, distance and project has a source and a date." },
       { title: "Plain", body: "Hindi and English, no jargon, no pressure." },
       { title: "Local", body: "Native to the region, on the ground every week, will walk the plot with you." },
     ],
@@ -29,15 +32,15 @@ export const whyWeExistCopy: Record<Locale, { heading: string; pillars: Pillar[]
   },
 };
 
-/** Stub. */
 export function WhyWeExist({ locale, heading, pillars }: WhyWeExistProps) {
   return (
     <section data-component="WhyWeExist" data-locale={locale}>
-      <h2>{heading}</h2>
-      <ul>
+      <h2 className="max-w-3xl">{heading}</h2>
+      <ul className="mt-6 grid gap-4 md:grid-cols-3">
         {pillars.map((p, i) => (
-          <li key={i}>
-            <strong>{p.title}</strong> {p.body}
+          <li key={i} className="card p-5">
+            <h3 className="text-accent">{p.title}</h3>
+            <p className="mt-1.5 text-ink-soft">{p.body}</p>
           </li>
         ))}
       </ul>
