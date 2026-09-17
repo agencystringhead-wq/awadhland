@@ -43,14 +43,38 @@ export function checkIntegrity(d: Dataset): string[] {
   const unique = (file: string, ids: string[]) => {
     for (const id of duplicates(ids)) err(file, `duplicate id "${id}"`);
   };
-  unique("cities.json", d.cities.map((c) => c.id));
-  unique("localities.json", d.localities.map((l) => l.id));
-  unique("projects.json", d.projects.map((p) => p.id));
-  unique("circleRates.json", d.circleRates.map((s) => s.id));
-  unique("stampDutyRules.json", d.stampDutyRules.map((r) => r.id));
-  unique("updates.json", d.updates.map((u) => u.id));
-  unique("priceObservations.json", d.priceObservations.map((o) => o.id));
-  unique("team.json", d.team.map((t) => t.id));
+  unique(
+    "cities.json",
+    d.cities.map((c) => c.id),
+  );
+  unique(
+    "localities.json",
+    d.localities.map((l) => l.id),
+  );
+  unique(
+    "projects.json",
+    d.projects.map((p) => p.id),
+  );
+  unique(
+    "circleRates.json",
+    d.circleRates.map((s) => s.id),
+  );
+  unique(
+    "stampDutyRules.json",
+    d.stampDutyRules.map((r) => r.id),
+  );
+  unique(
+    "updates.json",
+    d.updates.map((u) => u.id),
+  );
+  unique(
+    "priceObservations.json",
+    d.priceObservations.map((o) => o.id),
+  );
+  unique(
+    "team.json",
+    d.team.map((t) => t.id),
+  );
 
   const cityIds = new Set(d.cities.map((c) => c.id));
   const localityById = new Map(d.localities.map((l) => [l.id, l]));
@@ -63,7 +87,8 @@ export function checkIntegrity(d: Dataset): string[] {
 
   for (const l of d.localities) {
     const at = `${l.id}`;
-    if ((RESERVED_LOCALITY_IDS as readonly string[]).includes(l.id)) err("localities.json", `locality id "${l.id}" is a reserved URL segment`);
+    if ((RESERVED_LOCALITY_IDS as readonly string[]).includes(l.id))
+      err("localities.json", `locality id "${l.id}" is a reserved URL segment`);
     const city = d.cities.find((c) => c.id === l.cityId);
     if (!city) err("localities.json", `${at}: unknown cityId "${l.cityId}"`);
     if (l.parentLocalityId !== null) {
@@ -87,17 +112,20 @@ export function checkIntegrity(d: Dataset): string[] {
     }
     for (const i of p.impacts) {
       if (!localityById.has(i.localityId)) err("projects.json", `${p.id}: impacts references unknown locality "${i.localityId}"`);
-      if (!p.affectedLocalityIds.includes(i.localityId)) err("projects.json", `${p.id}: impact locality "${i.localityId}" is not in affectedLocalityIds`);
+      if (!p.affectedLocalityIds.includes(i.localityId))
+        err("projects.json", `${p.id}: impact locality "${i.localityId}" is not in affectedLocalityIds`);
     }
   }
 
   for (const s of d.circleRates) {
     if (!cityIds.has(s.cityId)) err("circleRates.json", `${s.id}: unknown cityId "${s.cityId}"`);
-    for (const id of duplicates(s.rates.map((r) => r.localityId))) err("circleRates.json", `${s.id}: locality "${id}" appears twice in one schedule`);
+    for (const id of duplicates(s.rates.map((r) => r.localityId)))
+      err("circleRates.json", `${s.id}: locality "${id}" appears twice in one schedule`);
     for (const r of s.rates) {
       const loc = localityById.get(r.localityId);
       if (!loc) err("circleRates.json", `${s.id}: unknown localityId "${r.localityId}"`);
-      else if (loc.cityId !== s.cityId) err("circleRates.json", `${s.id}: locality "${r.localityId}" belongs to ${loc.cityId}, not ${s.cityId}`);
+      else if (loc.cityId !== s.cityId)
+        err("circleRates.json", `${s.id}: locality "${r.localityId}" belongs to ${loc.cityId}, not ${s.cityId}`);
     }
   }
   const scheduleKeys = d.circleRates.map((s) => `${s.cityId}@${s.effectiveFrom}`);

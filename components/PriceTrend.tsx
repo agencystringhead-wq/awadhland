@@ -63,7 +63,13 @@ export function PriceTrend({ locale, series }: PriceTrendProps) {
         {series.map((p, i) => (
           <g key={p.date}>
             <circle cx={xs[i]} cy={y(p.median)} r={4} fill="#1f4d3a" stroke="#fffdf9" strokeWidth={2} />
-            <text x={xs[i]} y={H - 10} textAnchor={i === 0 ? "start" : i === series.length - 1 ? "end" : "middle"} fontSize={12} fill="#7a736a">
+            <text
+              x={xs[i]}
+              y={H - 10}
+              textAnchor={i === 0 ? "start" : i === series.length - 1 ? "end" : "middle"}
+              fontSize={12}
+              fill="#7a736a"
+            >
               {formatDate(p.date, locale)}
             </text>
           </g>

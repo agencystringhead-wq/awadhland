@@ -28,7 +28,10 @@ export function readGuides(locale: Locale, root = process.cwd()): { guides: Guid
   const errors: string[] = [];
   if (!fs.existsSync(dir)) return { guides, errors };
 
-  for (const name of fs.readdirSync(dir).filter((f) => f.endsWith(".mdx")).sort()) {
+  for (const name of fs
+    .readdirSync(dir)
+    .filter((f) => f.endsWith(".mdx"))
+    .sort()) {
     const file = path.join(GUIDE_DIRS[locale], name).split(path.sep).join("/");
     let parsed: matter.GrayMatterFile<string>;
     try {
@@ -38,9 +41,7 @@ export function readGuides(locale: Locale, root = process.cwd()): { guides: Guid
       continue;
     }
     // gray-matter turns unquoted YAML dates into Date objects; the schema expects YYYY-MM-DD strings.
-    const data = Object.fromEntries(
-      Object.entries(parsed.data).map(([k, v]) => [k, v instanceof Date ? v.toISOString().slice(0, 10) : v]),
-    );
+    const data = Object.fromEntries(Object.entries(parsed.data).map(([k, v]) => [k, v instanceof Date ? v.toISOString().slice(0, 10) : v]));
     const result = guideFrontmatterSchema.safeParse(data);
     if (!result.success) {
       errors.push(`${file}:\n${z.prettifyError(result.error)}`);
@@ -55,10 +56,7 @@ export function readGuides(locale: Locale, root = process.cwd()): { guides: Guid
 }
 
 /** author must be a team id or "wwiser"; cityIds must exist; pairedSlug must exist in the other tree. */
-export function checkGuideReferences(
-  byLocale: Record<Locale, Guide[]>,
-  refs: { cityIds: Set<string>; teamIds: Set<string> },
-): string[] {
+export function checkGuideReferences(byLocale: Record<Locale, Guide[]>, refs: { cityIds: Set<string>; teamIds: Set<string> }): string[] {
   const errors: string[] = [];
   for (const locale of ["en", "hi"] as const) {
     const other = locale === "en" ? "hi" : "en";
@@ -69,7 +67,8 @@ export function checkGuideReferences(
       seen.add(fm.slug);
       if (fm.author !== "wwiser" && !refs.teamIds.has(fm.author)) errors.push(`${file}: author "${fm.author}" is not in team.json`);
       for (const id of fm.cityIds) if (!refs.cityIds.has(id)) errors.push(`${file}: unknown cityId "${id}"`);
-      if (fm.pairedSlug && !otherSlugs.has(fm.pairedSlug)) errors.push(`${file}: pairedSlug "${fm.pairedSlug}" not found in the ${other} tree`);
+      if (fm.pairedSlug && !otherSlugs.has(fm.pairedSlug))
+        errors.push(`${file}: pairedSlug "${fm.pairedSlug}" not found in the ${other} tree`);
       if (fm.updatedAt < fm.publishedAt) errors.push(`${file}: updatedAt is before publishedAt`);
     }
   }

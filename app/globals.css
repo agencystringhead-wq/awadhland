@@ -175,6 +175,32 @@ a:hover {
   }
 }
 
+/* Print: data pages print as a clean document (spec Template 5 "fast and printable"). */
+@media print {
+  html {
+    background: #fff;
+  }
+  header,
+  footer,
+  .no-print,
+  [data-component="LeadForm"],
+  [data-component="LocalityMap"],
+  [data-component="Breadcrumb"] {
+    display: none !important;
+  }
+  .card {
+    box-shadow: none;
+    break-inside: avoid;
+  }
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+  .section {
+    padding-block: 1rem;
+  }
+}
+
 /* Native summary marker off; the Header draws its own Menu button. */
 summary::-webkit-details-marker {
   display: none;

@@ -1,10 +1,32 @@
-# feat/scaffold: repo scaffold (build order steps 1 and 2)
+# feat/scaffold: repo scaffold (build order steps 1 to 3)
 
 ## Summary
 
 Step 1 of the build order in `docs/BUILD-SPEC.md`: a Next.js 15 static export with Zod-validated data, two locale route trees, typed component stubs and Ayodhya seed data. Every seed route builds to static HTML in both English and Hindi.
 
 Step 2 (second commit set): design tokens, self-hosted fonts, styled versions of every shared and trust component, and the two hand-authored templates, homepage (Template 1) and city hub (Template 2), with a Leaflet map and a build-time SVG price trend. Also adds the `fit.<use>.reason` field from the step 1 open questions.
+
+Step 3 (third commit set): the locality (Template 3), project (Template 4), circle-rate (Template 5) and updates (Template 8) templates, every section the spec lists, built once with seed data and checked in both trees.
+
+## Step 3: what changed
+
+- **Locality page** (`LocalityTemplate`): all 13 sections. Key facts with per-rate source links; distances to every city anchor (straight-line at build from lat/lng, drive times from `driveTimes`); narrative; projects within 5 km by footprint centroid (`lib/geo.ts`); who-it-suits columns with the new `fit.reason`; pros, cons, watch-outs (only when present); broker note; six nearest localities that have a page in this locale; generated FAQ (`lib/faq.ts`, 4 to 6 Q&As written per language, asked only when the record has the answer); source stamp; lead form prefilled with city and locality. Village records get a "Part of" link when the parent is built.
+- **Project page** (`ProjectTemplate`): header with agency and status chip; fact box with empty values omitted; description; footprint polygon over the affected localities on the map; effect-on-land table with level chips; timeline with per-milestone source; related updates; related projects (same city or agency); lead form with `interested near <project>`.
+- **Circle-rate page** (`CircleRatesTemplate`): header with effective date, source document, archived copy and revision count; the stamp-duty rules table where the calculator will sit; the full table, now sortable by column, filterable by tehsil and land type, with a print button and print stylesheet; the explainer; revision history (past schedules only); FAQ; lead form.
+- **Updates**: index with client-side filters for city, agency, type and year over the prerendered list, entry count and last date, and a digest block; entry page with source and archived-copy links, summary, affected localities and projects (linked only when built in this locale), previous/next, and the lead CTA.
+- **Client code added:** `CircleRateTable` (sort/filter/print) and `UpdatesList` (filters). Both are first-party, prerendered at build, and only hide or reorder rows. Still no third-party script outside Leaflet on map pages.
+- **Labels:** `lib/labels.ts` holds display strings for fit ratings, land use, impact levels and buyer categories in both languages.
+
+## Step 3: interpretations and open items
+
+1. **Stamp-duty calculator (Template 5 section 2)** is the step 5 tool; that section shows the stamp-duty rules it will read, with a one-line note. Not a stub of the calculator.
+2. **Circle-rate pagination at 100 rows** (Template 5 rules) is not built. The spec's URL table has no chunk URLs, and there are two rows of data. Design it when the real schedule lands in step 8; the table already takes a `rows` slice.
+3. **Explainer copy** lives in `lib/content.ts`, not MDX, until step 4 adds the MDX pipeline.
+4. **RERA projects within 3 km** (Template 3 key facts) is omitted: no RERA field exists on any record.
+5. **Projects nearby** uses the footprint centroid for distance. A project with no geometry counts as nearby only if it lists the locality in `affectedLocalityIds`, and shows no distance.
+6. **Generated FAQ** stops at six items and skips RERA (no data). Questions are written per language, not translated.
+7. **Prev/next on updates** is chronological across all cities, not per city.
+8. **Subscribe block** on the updates index is a WhatsApp fallback until the JotForm digest form in step 7.
 
 ## Step 2: what changed
 

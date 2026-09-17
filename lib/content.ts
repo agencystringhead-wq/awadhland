@@ -5,6 +5,29 @@
  */
 import type { Locale } from "./schemas";
 
+/**
+ * Circle-rate page explainer (spec Template 5, section 4). The spec wants this as MDX; it moves to
+ * content/ when the MDX pipeline lands in step 4. Written per language.
+ */
+export const circleRatesCopy: Record<Locale, { paragraphs: string[] }> = {
+  en: {
+    paragraphs: [
+      "A circle rate is the minimum value per unit of land that the Uttar Pradesh government assigns to each locality for stamp duty. Registrars use it as the floor: the duty on a sale is charged on the higher of the circle value and the price in the agreement.",
+      "The market rate is what buyers actually pay. On busy roads it can be several times the circle rate; in interior villages it can sit close to it. The gap between the two tells you how much of a plot's price is location premium and how much is the government's own valuation.",
+      "Rates are published in the unit the government uses: rupees per square metre for residential and commercial land, rupees per hectare for agricultural land. This page keeps those units and never stores converted values, so the numbers can be checked against the source document line by line.",
+      "The state revises the schedule roughly once a year per district. Each revision is a new schedule here, not an edit of the old one, so past values stay available for comparison.",
+    ],
+  },
+  hi: {
+    paragraphs: [
+      "सर्किल रेट वह न्यूनतम मूल्य है जो उत्तर प्रदेश सरकार हर इलाक़े की ज़मीन के लिए स्टाम्प ड्यूटी के वास्ते तय करती है। रजिस्ट्रार इसे न्यूनतम आधार मानता है: सौदे पर ड्यूटी सर्किल मूल्य और अनुबंध की क़ीमत में जो ज़्यादा हो, उस पर लगती है।",
+      "बाज़ार भाव वह है जो ख़रीदार असल में देता है। व्यस्त सड़कों पर यह सर्किल रेट से कई गुना हो सकता है; अंदर के गाँवों में इसके आसपास। दोनों का फ़र्क़ बताता है कि प्लॉट की क़ीमत में कितना हिस्सा जगह का प्रीमियम है और कितना सरकार का अपना मूल्यांकन।",
+      "रेट उसी इकाई में प्रकाशित होते हैं जो सरकार इस्तेमाल करती है: रिहायशी और व्यावसायिक ज़मीन के लिए रुपये प्रति वर्ग मीटर, कृषि भूमि के लिए रुपये प्रति हेक्टेयर। यह पेज वही इकाइयाँ रखता है और बदले हुए मान कभी नहीं रखता, ताकि हर आँकड़ा मूल दस्तावेज़ से पंक्ति दर पंक्ति मिलाया जा सके।",
+      "राज्य हर ज़िले में लगभग साल में एक बार सूची संशोधित करता है। हर संशोधन यहाँ नई सूची के रूप में जुड़ता है, पुरानी में बदलाव नहीं होता, इसलिए पिछले मान तुलना के लिए बने रहते हैं।",
+    ],
+  },
+};
+
 export type Situation = { title: string; body: string; guideSlug: string };
 export type Tool = { slug: string; title: string; body: string };
 export type ChecklistItem = { title: string; body: string };
@@ -57,18 +80,36 @@ export const homeCopy: Record<
       },
     ],
     tools: [
-      { slug: "stamp-duty-calculator", title: "Stamp duty calculator", body: "Circle value, stamp duty, registration fee and total for a UP land purchase." },
+      {
+        slug: "stamp-duty-calculator",
+        title: "Stamp duty calculator",
+        body: "Circle value, stamp duty, registration fee and total for a UP land purchase.",
+      },
       { slug: "circle-rate-lookup", title: "Circle rate lookup", body: "Type a locality, get its current rates and the effective date." },
-      { slug: "land-safety-checklist", title: "Land safety checklist", body: "Every check with an explanation. Print it or save it as a PDF." },
-      { slug: "plot-yield-calculator", title: "Plot yield calculator", body: "Compare a plot against FD returns over 5 or 10 years with your own growth assumption." },
+      {
+        slug: "land-safety-checklist",
+        title: "Land safety checklist",
+        body: "Every check with an explanation. Print it or save it as a PDF.",
+      },
+      {
+        slug: "plot-yield-calculator",
+        title: "Plot yield calculator",
+        body: "Compare a plot against FD returns over 5 or 10 years with your own growth assumption.",
+      },
     ],
     checklist: [
       { title: "Khatauni", body: "The seller's name must be on the current khatauni, not a relative's or a company's." },
       { title: "Encumbrance", body: "No loan, lien or pending case against the plot in the sub-registrar's records." },
       { title: "Mutation", body: "The last sale must already be mutated in the revenue record, or you inherit the gap." },
       { title: "Master-plan land use", body: "A plot sold as residential can still be agricultural or green belt in the master plan." },
-      { title: "Gram Sabha or ceiling land", body: "Some land cannot be sold at all. Check the category in the khatauni before anything else." },
-      { title: "RERA for plotted projects", body: "A plotted development above the size threshold needs UP RERA registration. Ask for the number." },
+      {
+        title: "Gram Sabha or ceiling land",
+        body: "Some land cannot be sold at all. Check the category in the khatauni before anything else.",
+      },
+      {
+        title: "RERA for plotted projects",
+        body: "A plotted development above the size threshold needs UP RERA registration. Ask for the number.",
+      },
     ],
     checklistGuideSlug: "how-to-check-if-land-in-up-is-safe-to-buy",
   },
@@ -109,10 +150,18 @@ export const homeCopy: Record<
       },
     ],
     tools: [
-      { slug: "stamp-duty-calculator", title: "स्टाम्प ड्यूटी कैलकुलेटर", body: "यूपी में ज़मीन ख़रीद पर सर्किल मूल्य, स्टाम्प ड्यूटी, रजिस्ट्री शुल्क और कुल रक़म।" },
+      {
+        slug: "stamp-duty-calculator",
+        title: "स्टाम्प ड्यूटी कैलकुलेटर",
+        body: "यूपी में ज़मीन ख़रीद पर सर्किल मूल्य, स्टाम्प ड्यूटी, रजिस्ट्री शुल्क और कुल रक़म।",
+      },
       { slug: "circle-rate-lookup", title: "सर्किल रेट खोज", body: "इलाक़े का नाम लिखें, मौजूदा रेट और लागू तारीख़ पाएँ।" },
       { slug: "land-safety-checklist", title: "ज़मीन सुरक्षा चेकलिस्ट", body: "हर जाँच समझाई हुई। प्रिंट करें या पीडीएफ़ में रखें।" },
-      { slug: "plot-yield-calculator", title: "प्लॉट रिटर्न कैलकुलेटर", body: "अपनी बढ़त की धारणा से 5 या 10 साल में प्लॉट की तुलना एफ़डी से करें।" },
+      {
+        slug: "plot-yield-calculator",
+        title: "प्लॉट रिटर्न कैलकुलेटर",
+        body: "अपनी बढ़त की धारणा से 5 या 10 साल में प्लॉट की तुलना एफ़डी से करें।",
+      },
     ],
     checklist: [
       { title: "खतौनी", body: "मौजूदा खतौनी में बेचने वाले का ही नाम हो, किसी रिश्तेदार या कंपनी का नहीं।" },

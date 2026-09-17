@@ -43,14 +43,17 @@ components/
                              HowWeWork, Reviews, Badges). LocalityMap is the only client
                              component; it lazy-loads Leaflet so it ships on map pages only.
   templates/                 One template per page type. Route files in both trees are thin
-                             wrappers that pass locale="en" or locale="hi" to these. Home and
-                             city hub are complete; the rest render their data as JSON until
-                             build step 3.
+                             wrappers that pass locale="en" or locale="hi" to these. All are
+                             complete except Guide (MDX body in step 4) and About (story,
+                             checklist and photos with the standard pages).
 content/
   guides/*.mdx               English guides
   hi/guides/*.mdx            Hindi guides (separate files, written not translated)
 lib/
-  content.ts                 Hand-authored homepage blocks per language (hero, situations, tools, checklist)
+  content.ts                 Hand-authored copy per language: homepage blocks, circle-rate explainer
+  faq.ts                     Generated Q&As for locality and circle-rate pages
+  geo.ts                     Distance and footprint centroid, computed at build
+  labels.ts                  Display labels for enum values in both languages
 data/*.json                  All entity data (see below)
 docs/BUILD-SPEC.md           Build spec
 lib/

@@ -49,25 +49,9 @@ const lng = z.number().min(-180).max(180);
 
 export const priceBand = z.enum(["low", "mid", "high", "premium"]);
 export const fitRating = z.enum(["good", "mixed", "poor"]);
-export const landUse = z.enum([
-  "residential",
-  "commercial",
-  "mixed",
-  "agricultural",
-  "industrial",
-  "institutional",
-  "green-belt",
-  "other",
-]);
+export const landUse = z.enum(["residential", "commercial", "mixed", "agricultural", "industrial", "institutional", "green-belt", "other"]);
 export const agency = z.enum(["ADA", "LDA", "GDA", "UPEIDA", "NHAI", "UPSIDA", "other"]);
-export const projectStatus = z.enum([
-  "announced",
-  "approved",
-  "under-construction",
-  "partially-open",
-  "complete",
-  "stalled",
-]);
+export const projectStatus = z.enum(["announced", "approved", "under-construction", "partially-open", "complete", "stalled"]);
 export const impactLevel = z.enum(["strong", "moderate", "mild"]);
 export const updateType = z.enum(["circle-rate", "master-plan", "project", "rera", "policy", "court"]);
 export const buyerCategory = z.enum(["male", "female", "joint"]);
@@ -139,7 +123,10 @@ export const localitySchema = z
     name: z.string().min(1),
     nameHi: z.string().min(1).optional(),
     tehsil: z.string().min(1).optional(),
-    pincode: z.string().regex(/^\d{6}$/, "expected 6-digit pincode").optional(),
+    pincode: z
+      .string()
+      .regex(/^\d{6}$/, "expected 6-digit pincode")
+      .optional(),
     // lat/lng, circleRate, landUse and narrative are optional in the schema so that
     // incomplete records validate and are skipped by the thin-page guard (lib/guards.ts)
     // instead of failing the build.
@@ -253,7 +240,7 @@ export const projectSchema = z
   })
   .strict()
   .refine((p) => p.agency !== "other" || !!p.agencyName, {
-    message: "agencyName is required when agency is \"other\"",
+    message: 'agencyName is required when agency is "other"',
     path: ["agencyName"],
   });
 
@@ -349,7 +336,7 @@ export const updateSchema = z
     path: ["id"],
   })
   .refine((u) => u.agency !== "other" || !!u.agencyName, {
-    message: "agencyName is required when agency is \"other\"",
+    message: 'agencyName is required when agency is "other"',
     path: ["agencyName"],
   });
 

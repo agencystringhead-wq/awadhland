@@ -37,7 +37,10 @@ export function LeadForm({ locale, broker, pageLabel, city, locality, context }:
       <p className="mt-2 max-w-prose text-ink-soft">{t.leadFormNote}</p>
       <div className="mt-5 flex flex-wrap gap-3">
         <WhatsAppButton number={broker.whatsapp} text={whatsappText(locale, pageLabel)} label={t.talkOnWhatsapp} />
-        <a href={`tel:${broker.phone}`} className="btn border border-accent bg-card text-accent-deep hover:bg-accent hover:text-white text-base px-6 py-3">
+        <a
+          href={`tel:${broker.phone}`}
+          className="btn border border-accent bg-card text-accent-deep hover:bg-accent hover:text-white text-base px-6 py-3"
+        >
           {t.call}
         </a>
       </div>

@@ -52,8 +52,7 @@ export const getCity = (id: string) => dataset.cities.find((c) => c.id === id);
 /* localities */
 export const getLocalities = () => dataset.localities;
 export const getLocalitiesByCity = (cityId: string) => dataset.localities.filter((l) => l.cityId === cityId);
-export const getLocality = (cityId: string, id: string) =>
-  dataset.localities.find((l) => l.cityId === cityId && l.id === id);
+export const getLocality = (cityId: string, id: string) => dataset.localities.find((l) => l.cityId === cityId && l.id === id);
 /** Localities that pass the thin-page guard for this locale, plus the ids that were skipped. */
 export const getBuildableLocalities = (locale: Locale) => partitionLocalities(dataset.localities, locale);
 
@@ -65,8 +64,7 @@ export function getCityStats(cityId: string, locale: Locale) {
     localityCount: localities.length,
     projectCount: dataset.projects.filter((p) => p.cityId === cityId).length,
     /** ₹ per sq ft across the city's localities, or null when no asking ranges are recorded */
-    askingRange:
-      ranges.length > 0 ? { low: Math.min(...ranges.map((r) => r.low)), high: Math.max(...ranges.map((r) => r.high)) } : null,
+    askingRange: ranges.length > 0 ? { low: Math.min(...ranges.map((r) => r.low)), high: Math.max(...ranges.map((r) => r.high)) } : null,
     topLocalities: [...localities].filter((l) => l.score !== undefined).sort((a, b) => b.score! - a.score!),
   };
 }
@@ -80,9 +78,7 @@ export const getProjectsByCity = (cityId: string) => dataset.projects.filter((p)
 export const getCircleRateSchedules = () => dataset.circleRates;
 /** All schedules for a city, newest effectiveFrom first. The first entry is the current schedule. */
 export const getCircleRateSchedulesByCity = (cityId: string) =>
-  dataset.circleRates
-    .filter((s) => s.cityId === cityId)
-    .sort((a, b) => b.effectiveFrom.localeCompare(a.effectiveFrom));
+  dataset.circleRates.filter((s) => s.cityId === cityId).sort((a, b) => b.effectiveFrom.localeCompare(a.effectiveFrom));
 export const getCurrentCircleRateSchedule = (cityId: string) => getCircleRateSchedulesByCity(cityId)[0];
 
 /* stamp duty */

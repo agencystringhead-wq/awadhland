@@ -24,7 +24,13 @@ export function BrokerCard({ locale, broker, areas, googleRating, pageLabel }: B
       <div className="mt-3 flex items-start gap-4">
         {/* Plain img on purpose: media is pre-encoded WebP on R2 (CLAUDE.md), and next/image adds client JS. */}
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src={broker.photo} alt={primaryName} width={96} height={96} className="size-24 shrink-0 rounded-card bg-cream-deep object-cover" />
+        <img
+          src={broker.photo}
+          alt={primaryName}
+          width={96}
+          height={96}
+          className="size-24 shrink-0 rounded-card bg-cream-deep object-cover"
+        />
         <div className="min-w-0">
           <h3 className="text-xl">{primaryName}</h3>
           <p lang={locale === "hi" ? "en" : "hi"} className="text-ink-soft">

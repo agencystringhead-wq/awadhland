@@ -2,13 +2,7 @@
  * generateStaticParams sources and cross-tree links. Both route trees call these with their
  * own locale, so /app/(en) and /app/hi always build from the same rules.
  */
-import {
-  getBuildableLocalities,
-  getCircleRateSchedules,
-  getCities,
-  getProjects,
-  getUpdates,
-} from "./data";
+import { getBuildableLocalities, getCircleRateSchedules, getCities, getProjects, getUpdates } from "./data";
 import { logSkippedLocalities } from "./guards";
 import { getGuides } from "./guides";
 import { localePath, otherLocale, type Locale } from "./i18n";
@@ -27,7 +21,11 @@ function nonEmpty<T>(route: string, params: T[]): T[] {
   return params;
 }
 
-export const cityParams = () => nonEmpty("/[city]/", getCities().map((c) => ({ city: c.id })));
+export const cityParams = () =>
+  nonEmpty(
+    "/[city]/",
+    getCities().map((c) => ({ city: c.id })),
+  );
 
 /** Applies the thin-page guard and logs skipped ids for this locale. */
 export function localityParams(locale: Locale) {
@@ -40,14 +38,28 @@ export function localityParams(locale: Locale) {
 }
 
 export const circleRateParams = () =>
-  nonEmpty("/[city]/circle-rates/", [...new Set(getCircleRateSchedules().map((s) => s.cityId))].map((city) => ({ city })));
+  nonEmpty(
+    "/[city]/circle-rates/",
+    [...new Set(getCircleRateSchedules().map((s) => s.cityId))].map((city) => ({ city })),
+  );
 
-export const projectParams = () => nonEmpty("/projects/[slug]/", getProjects().map((p) => ({ slug: p.id })));
+export const projectParams = () =>
+  nonEmpty(
+    "/projects/[slug]/",
+    getProjects().map((p) => ({ slug: p.id })),
+  );
 
 export const guideParams = (locale: Locale) =>
-  nonEmpty(`${localePath(locale, "/")}guides/[slug]/`, getGuides(locale).map((g) => ({ slug: g.frontmatter.slug })));
+  nonEmpty(
+    `${localePath(locale, "/")}guides/[slug]/`,
+    getGuides(locale).map((g) => ({ slug: g.frontmatter.slug })),
+  );
 
-export const updateParams = () => nonEmpty("/updates/[slug]/", getUpdates().map((u) => ({ slug: u.id })));
+export const updateParams = () =>
+  nonEmpty(
+    "/updates/[slug]/",
+    getUpdates().map((u) => ({ slug: u.id })),
+  );
 
 /** Ids of localities that have a page in this locale. */
 export const builtLocalityIds = (locale: Locale) => new Set(getBuildableLocalities(locale).buildable.map((l) => l.id));

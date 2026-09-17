@@ -79,7 +79,11 @@ export function Header({ locale, alternate, cities, broker, pageLabel }: HeaderP
             <div className="absolute right-0 mt-2 w-64 card p-3">
               <nav aria-label="Main" className="flex flex-col">
                 {nav.map((n) => (
-                  <a key={n.href + n.label} href={n.href} className="rounded-lg px-3 py-2 text-[15px] font-medium text-ink no-underline hover:bg-cream-deep">
+                  <a
+                    key={n.href + n.label}
+                    href={n.href}
+                    className="rounded-lg px-3 py-2 text-[15px] font-medium text-ink no-underline hover:bg-cream-deep"
+                  >
                     {n.label}
                   </a>
                 ))}
