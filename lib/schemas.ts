@@ -122,6 +122,15 @@ export const circleRateOnLocalitySchema = z
   })
   .strict();
 
+/** Rating plus the one line why (spec Template 3, section 6). */
+export const fitEntrySchema = z
+  .object({
+    rating: fitRating,
+    reason: z.string().min(1),
+    reasonHi: z.string().min(1).optional(),
+  })
+  .strict();
+
 export const localitySchema = z
   .object({
     id: slug,
@@ -161,9 +170,9 @@ export const localitySchema = z
       .optional(),
     fit: z
       .object({
-        residential: fitRating,
-        commercial: fitRating,
-        investment: fitRating,
+        residential: fitEntrySchema,
+        commercial: fitEntrySchema,
+        investment: fitEntrySchema,
       })
       .strict()
       .optional(),
@@ -469,6 +478,7 @@ export type Locale = z.infer<typeof locale>;
 export type PriceBand = z.infer<typeof priceBand>;
 export type ProjectStatus = z.infer<typeof projectStatus>;
 export type FitRating = z.infer<typeof fitRating>;
+export type FitEntry = z.infer<typeof fitEntrySchema>;
 
 /* ------------------------------------------------------------ file registry */
 

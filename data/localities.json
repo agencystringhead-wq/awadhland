@@ -32,7 +32,23 @@
         "यहाँ ज़्यादातर पूछताछ रिहायशी है: लखनऊ और यूपी के बाहर के परिवार जो मंदिर से थोड़ी दूरी पर घर चाहते हैं लेकिन शहर के बीच वाले दाम नहीं देना चाहते। सड़क से एक-दो गली अंदर के प्लॉट काफ़ी सस्ते हैं और वहाँ सर्किल रेट से फ़र्क़ सबसे कम है।"
       ]
     },
-    "fit": { "residential": "good", "commercial": "mixed", "investment": "good" },
+    "fit": {
+      "residential": {
+        "rating": "good",
+        "reason": "Short drive to the temple and airport without core-city prices; interior lanes suit family plots",
+        "reasonHi": "मंदिर और एयरपोर्ट पास, शहर के बीच वाले दाम नहीं; अंदर की गलियाँ पारिवारिक प्लॉट के लिए ठीक"
+      },
+      "commercial": {
+        "rating": "mixed",
+        "reason": "Road-facing frontage works for retail and lodging, but it is priced for it; interior plots do not",
+        "reasonHi": "सड़क से लगा फ़्रंट दुकान और होटल के लिए ठीक, पर दाम भी उसी हिसाब से; अंदर के प्लॉट नहीं"
+      },
+      "investment": {
+        "rating": "good",
+        "reason": "Airport and road widening still feeding demand; interior plots sit closest to circle rate",
+        "reasonHi": "एयरपोर्ट और सड़क चौड़ीकरण से माँग बनी हुई; अंदर के प्लॉट सर्किल रेट के सबसे पास"
+      }
+    },
     "pros": ["Direct road link to the temple side and to Faizabad town", "Short drive to the airport"],
     "prosHi": ["मंदिर वाले हिस्से और फैजाबाद शहर से सीधा सड़क संपर्क", "एयरपोर्ट तक कम दूरी"],
     "cons": ["Road-facing plots are priced well above interior plots", "Traffic on festival days"],
@@ -84,7 +100,23 @@
         "सिविल लाइंस पुराने फैजाबाद का स्थापित प्रशासनिक इलाक़ा है: कचहरी, दफ़्तर और बड़े प्लॉट पर पुराने बंगले। यहाँ ख़ाली ज़मीन बहुत कम आती है, इसलिए दाम उन्हीं गिने-चुने प्लॉट और दोबारा बनने के लिए बिकने वाले पुराने मकानों से तय होते हैं।"
       ]
     },
-    "fit": { "residential": "good", "commercial": "good", "investment": "mixed" },
+    "fit": {
+      "residential": {
+        "rating": "good",
+        "reason": "Settled area with schools, courts and full services; best for a house to live in now",
+        "reasonHi": "स्कूल, कचहरी और पूरी सुविधाओं वाला बसा इलाक़ा; अभी रहने के लिए घर बनाने को सबसे ठीक"
+      },
+      "commercial": {
+        "rating": "good",
+        "reason": "Steady office and rental demand from the administrative cluster",
+        "reasonHi": "प्रशासनिक दफ़्तरों के कारण ऑफ़िस और किराए की माँग स्थिर"
+      },
+      "investment": {
+        "rating": "mixed",
+        "reason": "Little vacant land and prices already high, so upside is slower than the growth corridors",
+        "reasonHi": "ख़ाली ज़मीन कम और दाम पहले से ऊँचे, इसलिए बढ़त नए इलाक़ों से धीमी"
+      }
+    },
     "pros": ["Settled neighbourhood with full civic infrastructure"],
     "prosHi": ["पूरी नागरिक सुविधाओं वाला बसा हुआ इलाक़ा"],
     "cons": ["Very few vacant plots", "Older properties often have multiple heirs on the title"],

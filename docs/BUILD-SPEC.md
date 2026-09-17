@@ -100,7 +100,7 @@ The workhorse. Fully data-driven from one record in `localities.json`; no hand-a
 | 3 | Distances | Table of distance and drive time to city anchors: Ayodhya = Ram Mandir, airport, Ayodhya Dham station, ring road, NH-27; Lucknow = Shaheed Path, airport, Charbagh, Gomti Nagar, outer ring road; Gorakhpur = AIIMS, airport, railway station, Fertilizer belt, NH-28. Computed once at build from lat/lng, drive times entered manually | `lat`, `lng`, `anchors[]` |
 | 4 | Why the price is moving | Two to four paragraphs on drivers: projects, road widening, land-use change, demand type | `narrative.drivers` |
 | 5 | Projects nearby | Cards for government projects within 5 km, distance shown | `projects.json` filtered by distance |
-| 6 | Who it suits | Three columns: residential, commercial, investment, each with a fit rating (good / mixed / poor) and one line why | `fit.residential`, `fit.commercial`, `fit.investment` |
+| 6 | Who it suits | Three columns: residential, commercial, investment, each with a fit rating (good / mixed / poor) and one line why | `fit.<use>.rating`, `fit.<use>.reason`, `fit.<use>.reasonHi` |
 | 7 | Pros and cons | Two short lists | `pros[]`, `cons[]` |
 | 8 | Watch-outs | Dispute history, Gram Sabha land presence, ceiling land, flood zone, if known. Rendered only when data exists | `risks[]` |
 | 9 | Broker note | Dated, first-person, from the broker | `brokerNote`, `brokerNoteDate` |
@@ -325,7 +325,11 @@ All entity data lives in `/data/*.json`, validated with Zod at build. A failed v
   "landUse": "residential", "landUseSource": "ADA Master Plan 2031",
   "driveTimes": { "ram-mandir": 18, "airport": 25 },
   "narrative": { "drivers": ["..."], "driversHi": ["..."] },
-  "fit": { "residential": "good", "commercial": "mixed", "investment": "good" },
+  "fit": {
+    "residential": { "rating": "good", "reason": "...", "reasonHi": "..." },
+    "commercial": { "rating": "mixed", "reason": "...", "reasonHi": "..." },
+    "investment": { "rating": "good", "reason": "...", "reasonHi": "..." }
+  },
   "pros": [], "cons": [], "risks": [],
   "brokerNote": "...", "brokerNoteHi": "...", "brokerNoteDate": "2026-09-10",
   "score": 72,
