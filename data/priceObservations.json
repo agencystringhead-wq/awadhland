@@ -1,0 +1,18 @@
+[
+  {
+    "id": "faizabad-road-2026-09-01-broker",
+    "localityId": "faizabad-road",
+    "date": "2026-09-01",
+    "low": 4500,
+    "high": 9000,
+    "unit": "sqft",
+    "source": "broker",
+    "sources": [
+      { "label": "Broker field observation, September 2026", "url": "https://awadhland.com/methodology/", "accessedAt": "2026-09-10" }
+    ],
+    "updatedAt": "2026-09-10",
+    "todo": [
+      "Seed observation: illustrative range; replace with the broker's dated observation. The methodology URL is a placeholder until that page exists"
+    ]
+  }
+]

@@ -1,0 +1,104 @@
+[
+  {
+    "id": "faizabad-road",
+    "cityId": "ayodhya",
+    "parentLocalityId": null,
+    "name": "Faizabad Road",
+    "nameHi": "फैजाबाद रोड",
+    "tehsil": "Sadar",
+    "pincode": "224001",
+    "lat": 26.78,
+    "lng": 82.15,
+    "priceBand": "mid",
+    "askingRange": { "low": 4500, "high": 9000, "unit": "sqft", "asOf": "2026-09-01" },
+    "circleRate": {
+      "residential": 12000,
+      "commercial": 24000,
+      "agricultural": 4500000,
+      "unit": "sqm|hectare",
+      "effectiveFrom": "2026-08-01",
+      "sourceUrl": "https://igrsup.gov.in/"
+    },
+    "landUse": "residential",
+    "landUseSource": "ADA Master Plan 2031",
+    "driveTimes": { "ram-mandir": 18, "airport": 25, "ayodhya-dham-station": 20 },
+    "narrative": {
+      "drivers": [
+        "Faizabad Road links the old Faizabad town with the temple side of the city, so it picks up demand from both ends. Road widening and the airport a short drive to the south-west have pulled asking prices up fastest on plots with direct road frontage.",
+        "Most enquiries here are residential: families from Lucknow and outside UP who want a house within a short drive of the temple without paying core-city prices. Interior plots one or two lanes back are noticeably cheaper and are where the gap to circle rate is smallest."
+      ],
+      "driversHi": [
+        "फैजाबाद रोड पुराने फैजाबाद शहर को मंदिर वाले हिस्से से जोड़ती है, इसलिए यहाँ दोनों तरफ़ से माँग आती है। सड़क चौड़ी होने और दक्षिण-पश्चिम में पास ही एयरपोर्ट होने से सड़क से सीधे लगे प्लॉट के दाम सबसे तेज़ बढ़े हैं।",
+        "यहाँ ज़्यादातर पूछताछ रिहायशी है: लखनऊ और यूपी के बाहर के परिवार जो मंदिर से थोड़ी दूरी पर घर चाहते हैं लेकिन शहर के बीच वाले दाम नहीं देना चाहते। सड़क से एक-दो गली अंदर के प्लॉट काफ़ी सस्ते हैं और वहाँ सर्किल रेट से फ़र्क़ सबसे कम है।"
+      ]
+    },
+    "fit": { "residential": "good", "commercial": "mixed", "investment": "good" },
+    "pros": ["Direct road link to the temple side and to Faizabad town", "Short drive to the airport"],
+    "prosHi": ["मंदिर वाले हिस्से और फैजाबाद शहर से सीधा सड़क संपर्क", "एयरपोर्ट तक कम दूरी"],
+    "cons": ["Road-facing plots are priced well above interior plots", "Traffic on festival days"],
+    "consHi": ["सड़क से लगे प्लॉट अंदर के प्लॉट से काफ़ी महँगे हैं", "त्योहारों के दिनों में भारी ट्रैफ़िक"],
+    "risks": [],
+    "brokerNote": "On Faizabad Road I tell buyers to walk one lane back from the main road. You give up the frontage, but you often save a third of the price and the land records are usually simpler.",
+    "brokerNoteHi": "फैजाबाद रोड पर मैं ख़रीदारों से कहता हूँ कि मुख्य सड़क से एक गली अंदर देखें। सड़क का फ़्रंट नहीं मिलेगा, लेकिन अक्सर एक तिहाई तक पैसा बचता है और ज़मीन के काग़ज़ भी आम तौर पर सीधे होते हैं।",
+    "brokerNoteDate": "2026-09-10",
+    "score": 72,
+    "sources": [
+      { "label": "IGRSUP circle rate schedule, Ayodhya", "url": "https://igrsup.gov.in/", "accessedAt": "2026-09-10" },
+      { "label": "District Ayodhya, Government of Uttar Pradesh", "url": "https://ayodhya.nic.in/", "accessedAt": "2026-09-10" }
+    ],
+    "updatedAt": "2026-09-10",
+    "todo": [
+      "Seed record: circle rates, asking range, drive times and score are illustrative; replace with the parsed IGRSUP schedule and broker observations",
+      "Source URLs point at portal home pages; replace with the exact schedule PDF and ADA Master Plan 2031 document",
+      "Hindi narrative and broker note to be written or checked by a person"
+    ]
+  },
+  {
+    "id": "civil-lines",
+    "cityId": "ayodhya",
+    "parentLocalityId": null,
+    "name": "Civil Lines",
+    "nameHi": "सिविल लाइंस",
+    "tehsil": "Sadar",
+    "pincode": "224001",
+    "lat": 26.773,
+    "lng": 82.14,
+    "priceBand": "high",
+    "askingRange": { "low": 7000, "high": 13000, "unit": "sqft", "asOf": "2026-09-01" },
+    "circleRate": {
+      "residential": 18000,
+      "commercial": 36000,
+      "agricultural": 6000000,
+      "unit": "sqm|hectare",
+      "effectiveFrom": "2026-08-01",
+      "sourceUrl": "https://igrsup.gov.in/"
+    },
+    "landUse": "mixed",
+    "landUseSource": "ADA Master Plan 2031",
+    "driveTimes": { "ram-mandir": 22, "airport": 20, "ayodhya-dham-station": 24 },
+    "narrative": {
+      "drivers": [
+        "Civil Lines is the established administrative end of old Faizabad: courts, offices and older bungalows on large plots. Very little vacant land comes up, so prices move on the few plots that do, and on older houses sold for redevelopment."
+      ],
+      "driversHi": [
+        "सिविल लाइंस पुराने फैजाबाद का स्थापित प्रशासनिक इलाक़ा है: कचहरी, दफ़्तर और बड़े प्लॉट पर पुराने बंगले। यहाँ ख़ाली ज़मीन बहुत कम आती है, इसलिए दाम उन्हीं गिने-चुने प्लॉट और दोबारा बनने के लिए बिकने वाले पुराने मकानों से तय होते हैं।"
+      ]
+    },
+    "fit": { "residential": "good", "commercial": "good", "investment": "mixed" },
+    "pros": ["Settled neighbourhood with full civic infrastructure"],
+    "prosHi": ["पूरी नागरिक सुविधाओं वाला बसा हुआ इलाक़ा"],
+    "cons": ["Very few vacant plots", "Older properties often have multiple heirs on the title"],
+    "consHi": ["ख़ाली प्लॉट बहुत कम", "पुरानी संपत्तियों में अक्सर कई वारिस दर्ज होते हैं"],
+    "risks": ["Inheritance disputes are common on older bungalows; check the full chain of khatauni entries"],
+    "risksHi": ["पुराने बंगलों पर विरासत के विवाद आम हैं; खतौनी की पूरी कड़ी जाँचें"],
+    "score": 64,
+    "sources": [
+      { "label": "IGRSUP circle rate schedule, Ayodhya", "url": "https://igrsup.gov.in/", "accessedAt": "2026-09-10" }
+    ],
+    "updatedAt": "2026-09-10",
+    "todo": [
+      "Seed record: circle rates, asking range, coordinates, drive times and score are illustrative; replace with parsed IGRSUP data and broker observations",
+      "Confirm Civil Lines is listed under this name in the IGRSUP Ayodhya schedule"
+    ]
+  }
+]

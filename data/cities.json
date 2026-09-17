@@ -1,0 +1,31 @@
+[
+  {
+    "id": "ayodhya",
+    "name": "Ayodhya",
+    "nameHi": "अयोध्या",
+    "district": "Ayodhya",
+    "state": "UP",
+    "lat": 26.7922,
+    "lng": 82.1998,
+    "intro": "Ayodhya's land market has been repriced twice since 2019: first by the Supreme Court verdict, then by the temple opening, the airport and the station redevelopment. Plots along the main roads into the city now trade at several times their 2019 levels, while interior villages a few kilometres off the highway still sit close to circle rate. The gap between those two is where most buyers either find value or get burned.",
+    "introHi": "2019 के बाद अयोध्या में ज़मीन के दाम दो बार बदले हैं: पहले सुप्रीम कोर्ट के फ़ैसले से, फिर मंदिर, एयरपोर्ट और स्टेशन के नए निर्माण से। शहर में आने वाली मुख्य सड़कों पर प्लॉट 2019 के मुक़ाबले कई गुना दाम पर बिक रहे हैं, जबकि हाईवे से कुछ किलोमीटर अंदर के गाँव अब भी सर्किल रेट के आसपास हैं। इन दोनों के बीच का फ़र्क़ ही तय करता है कि ख़रीदार को फ़ायदा होगा या नुक़सान।",
+    "brokerNote": "Most calls I get are from people who saw a price on a hoarding near the temple and assume the whole district costs the same. It does not. Tell me your budget and what you want the land for, and I will show you where that money actually works.",
+    "brokerNoteHi": "मेरे पास आने वाले ज़्यादातर फ़ोन उन लोगों के होते हैं जिन्होंने मंदिर के पास किसी होर्डिंग पर दाम देखा और मान लिया कि पूरे ज़िले में यही रेट है। ऐसा नहीं है। अपना बजट और ज़मीन का इस्तेमाल बताइए, मैं दिखाऊँगा कि उस पैसे में सही ज़मीन कहाँ मिलेगी।",
+    "brokerNoteDate": "2026-09-10",
+    "anchors": [
+      { "id": "ram-mandir", "name": "Ram Mandir", "nameHi": "राम मंदिर", "lat": 26.7956, "lng": 82.1943 },
+      { "id": "airport", "name": "Maharishi Valmiki International Airport", "nameHi": "महर्षि वाल्मीकि अंतरराष्ट्रीय हवाई अड्डा", "lat": 26.7506, "lng": 82.1506 },
+      { "id": "ayodhya-dham-station", "name": "Ayodhya Dham Junction", "nameHi": "अयोध्या धाम जंक्शन", "lat": 26.7932, "lng": 82.2006 },
+      { "id": "ring-road", "name": "Ayodhya Ring Road", "nameHi": "अयोध्या रिंग रोड", "lat": 26.761, "lng": 82.118 },
+      { "id": "nh-27", "name": "NH-27 (Lucknow–Gorakhpur)", "nameHi": "एनएच-27 (लखनऊ–गोरखपुर)", "lat": 26.77, "lng": 82.125 }
+    ],
+    "sources": [
+      { "label": "District Ayodhya, Government of Uttar Pradesh", "url": "https://ayodhya.nic.in/", "accessedAt": "2026-09-10" }
+    ],
+    "updatedAt": "2026-09-10",
+    "todo": [
+      "Seed record: verify anchor coordinates on the ground; ring-road and nh-27 are single reference points on a corridor, pick the nearest access point per locality in step 3",
+      "brokerNote and brokerNoteHi are placeholder copy; replace with the broker's own words, Hindi written by a person"
+    ]
+  }
+]

@@ -1,0 +1,16 @@
+{
+  "version": 1,
+  "maxScore": 100,
+  "signals": [
+    { "key": "connectivity", "label": "Connectivity to anchors", "labelHi": "मुख्य स्थानों से जुड़ाव", "weight": 25, "direction": "positive" },
+    { "key": "masterPlanLandUse", "label": "Master-plan land use", "labelHi": "मास्टर प्लान में भू-उपयोग", "weight": 20, "direction": "positive" },
+    { "key": "priceMomentum", "label": "Price momentum", "labelHi": "दाम की रफ़्तार", "weight": 20, "direction": "positive" },
+    { "key": "governmentProjectProximity", "label": "Government project proximity", "labelHi": "सरकारी परियोजनाओं से नज़दीकी", "weight": 15, "direction": "positive" },
+    { "key": "reraCoverage", "label": "RERA coverage", "labelHi": "रेरा कवरेज", "weight": 10, "direction": "positive" },
+    { "key": "litigationRisk", "label": "Litigation and dispute risk", "labelHi": "मुक़दमे और विवाद का जोखिम", "weight": 10, "direction": "negative" }
+  ],
+  "sources": [
+    { "label": "Awadhland high-potential score methodology (docs/BUILD-SPEC.md, Template 2)", "url": "https://awadhland.com/methodology/", "accessedAt": "2026-09-17" }
+  ],
+  "updatedAt": "2026-09-17"
+}

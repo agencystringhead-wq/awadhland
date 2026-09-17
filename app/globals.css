@@ -1,0 +1,9 @@
+@import "tailwindcss";
+
+/* Styling is step 2. Only the per-locale body size from CLAUDE.md is set here. */
+html:lang(en) body {
+  font-size: 16px;
+}
+html:lang(hi) body {
+  font-size: 17px;
+}

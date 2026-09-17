@@ -1,0 +1,60 @@
+[
+  {
+    "id": "up-male",
+    "state": "UP",
+    "buyerCategory": "male",
+    "stampDutyPct": 7,
+    "registrationFeePct": 1,
+    "registrationFeeCap": null,
+    "rebate": null,
+    "effectiveFrom": "2026-01-01",
+    "sourceUrl": "https://igrsup.gov.in/",
+    "sources": [
+      { "label": "IGRSUP stamp and registration", "url": "https://igrsup.gov.in/", "accessedAt": "2026-09-10" }
+    ],
+    "updatedAt": "2026-09-10",
+    "todo": [
+      "PLACEHOLDER: confirm stamp duty %, registration fee %, registration fee cap and effectiveFrom against the current IGRSUP notification"
+    ]
+  },
+  {
+    "id": "up-female",
+    "state": "UP",
+    "buyerCategory": "female",
+    "stampDutyPct": 6,
+    "registrationFeePct": 1,
+    "registrationFeeCap": null,
+    "rebate": {
+      "description": "Stamp duty rebate for women buyers, up to a property value cap",
+      "pct": 1,
+      "maxPropertyValue": null
+    },
+    "effectiveFrom": "2026-01-01",
+    "sourceUrl": "https://igrsup.gov.in/",
+    "sources": [
+      { "label": "IGRSUP stamp and registration", "url": "https://igrsup.gov.in/", "accessedAt": "2026-09-10" }
+    ],
+    "updatedAt": "2026-09-10",
+    "todo": [
+      "PLACEHOLDER: confirm stamp duty %, women-buyer rebate %, the property value cap it applies up to, and whether stampDutyPct holds the net or gross rate"
+    ]
+  },
+  {
+    "id": "up-joint",
+    "state": "UP",
+    "buyerCategory": "joint",
+    "stampDutyPct": 6.5,
+    "registrationFeePct": 1,
+    "registrationFeeCap": null,
+    "rebate": null,
+    "effectiveFrom": "2026-01-01",
+    "sourceUrl": "https://igrsup.gov.in/",
+    "sources": [
+      { "label": "IGRSUP stamp and registration", "url": "https://igrsup.gov.in/", "accessedAt": "2026-09-10" }
+    ],
+    "updatedAt": "2026-09-10",
+    "todo": [
+      "PLACEHOLDER: confirm how UP treats joint male and female buyers (rebate on the female share, or full rate) and set the percentage accordingly"
+    ]
+  }
+]

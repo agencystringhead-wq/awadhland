@@ -1,0 +1,56 @@
+[
+  {
+    "id": "ayodhya-airport-expansion",
+    "cityId": "ayodhya",
+    "name": "Ayodhya Airport Expansion",
+    "nameHi": "अयोध्या एयरपोर्ट विस्तार",
+    "agency": "other",
+    "agencyName": "Airports Authority of India",
+    "status": "announced",
+    "budgetCr": null,
+    "announcedOn": null,
+    "expectedCompletion": null,
+    "extent": null,
+    "description": [
+      "Maharishi Valmiki International Airport, Ayodhya Dham, opened its first terminal at the end of 2023. The expansion tracked here covers the next phase: a larger terminal and runway works intended to take bigger aircraft and more daily flights.",
+      "For land buyers the airport matters in two ways. Land acquired for the expansion is off the market, and the roads that feed the airport tend to see commercial demand first: hotels, parking, warehousing and fuel.",
+      "This page will track each notice, approval and tender as it is published, with the source attached."
+    ],
+    "descriptionHi": [
+      "महर्षि वाल्मीकि अंतरराष्ट्रीय हवाई अड्डा, अयोध्या धाम का पहला टर्मिनल 2023 के अंत में शुरू हुआ। यहाँ जिस विस्तार को ट्रैक किया जा रहा है वह अगला चरण है: बड़ा टर्मिनल और रनवे का काम, ताकि बड़े विमान और ज़्यादा उड़ानें आ सकें।",
+      "ज़मीन ख़रीदने वालों के लिए एयरपोर्ट दो तरह से मायने रखता है। विस्तार के लिए अधिग्रहित ज़मीन बाज़ार से बाहर हो जाती है, और एयरपोर्ट तक जाने वाली सड़कों पर सबसे पहले व्यावसायिक माँग आती है: होटल, पार्किंग, गोदाम और पेट्रोल पंप।",
+      "यह पेज हर सूचना, मंज़ूरी और टेंडर को स्रोत के साथ दर्ज करेगा।"
+    ],
+    "geometry": {
+      "type": "Polygon",
+      "coordinates": [[[82.14, 26.744], [82.162, 26.744], [82.162, 26.758], [82.14, 26.758], [82.14, 26.744]]]
+    },
+    "affectedLocalityIds": ["faizabad-road", "civil-lines"],
+    "impacts": [
+      {
+        "localityId": "faizabad-road",
+        "level": "moderate",
+        "reason": "Closest seed locality to the airport approach road; commercial frontage demand likely to rise first",
+        "reasonHi": "एयरपोर्ट की पहुँच सड़क के सबसे पास; सड़क से लगी व्यावसायिक ज़मीन की माँग पहले बढ़ने की संभावना"
+      },
+      {
+        "localityId": "civil-lines",
+        "level": "mild",
+        "reason": "Already built up; effect limited to rental and hotel demand",
+        "reasonHi": "पहले से बसा हुआ इलाक़ा; असर किराए और होटल की माँग तक सीमित"
+      }
+    ],
+    "milestones": [
+      { "date": "2023-12-30", "text": "Phase 1 terminal inaugurated", "textHi": "पहले चरण के टर्मिनल का उद्घाटन", "sourceUrl": "https://www.aai.aero/" }
+    ],
+    "sources": [
+      { "label": "Airports Authority of India", "url": "https://www.aai.aero/", "accessedAt": "2026-09-10" }
+    ],
+    "updatedAt": "2026-09-10",
+    "todo": [
+      "Seed record: confirm expansion scope, status, budget, announced date, expected completion and extent from an AAI or state notification; budget, dates and extent are null until sourced",
+      "geometry is a rough box around the airport, not the real footprint",
+      "Milestone sourceUrl points at the AAI home page; replace with the specific press release"
+    ]
+  }
+]

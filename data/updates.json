@@ -1,0 +1,33 @@
+[
+  {
+    "id": "2026-09-ayodhya-airport-expansion-tracking",
+    "date": "2026-09-10",
+    "title": "Ayodhya airport expansion: what we are tracking and why it matters for land nearby",
+    "titleHi": "अयोध्या एयरपोर्ट विस्तार: हम क्या ट्रैक कर रहे हैं और आसपास की ज़मीन के लिए इसका मतलब",
+    "agency": "other",
+    "agencyName": "Airports Authority of India",
+    "type": "project",
+    "cityIds": ["ayodhya"],
+    "localityIds": ["faizabad-road"],
+    "projectIds": ["ayodhya-airport-expansion"],
+    "summary": [
+      "We have started a project page for the next phase of Maharishi Valmiki International Airport. Every notice, approval and tender will be logged there with a date and a link to the original document.",
+      "If you own or are considering land on the roads that feed the airport, the notices to watch are land acquisition and any change in master-plan land use along the approach roads.",
+      "Nothing in this entry changes a rate or a land use today. It is the starting point for the timeline."
+    ],
+    "summaryHi": [
+      "हमने महर्षि वाल्मीकि अंतरराष्ट्रीय हवाई अड्डे के अगले चरण के लिए एक प्रोजेक्ट पेज शुरू किया है। हर सूचना, मंज़ूरी और टेंडर वहाँ तारीख़ और मूल दस्तावेज़ के लिंक के साथ दर्ज होगा।",
+      "अगर एयरपोर्ट तक जाने वाली सड़कों पर आपकी ज़मीन है या आप ख़रीदने की सोच रहे हैं, तो भूमि अधिग्रहण और पहुँच सड़कों पर मास्टर प्लान में भू-उपयोग बदलाव की सूचनाओं पर नज़र रखें।",
+      "इस एंट्री से आज कोई रेट या भू-उपयोग नहीं बदलता। यह टाइमलाइन की शुरुआत है।"
+    ],
+    "sourceUrl": "https://www.aai.aero/",
+    "archiveUrl": null,
+    "sources": [
+      { "label": "Airports Authority of India", "url": "https://www.aai.aero/", "accessedAt": "2026-09-10" }
+    ],
+    "updatedAt": "2026-09-10",
+    "todo": [
+      "Seed entry: replace with a real dated notice, set sourceUrl to the notice itself and archiveUrl to the R2 copy"
+    ]
+  }
+]

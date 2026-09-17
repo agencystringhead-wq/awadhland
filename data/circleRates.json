@@ -1,0 +1,38 @@
+[
+  {
+    "id": "ayodhya-2026-08-01",
+    "cityId": "ayodhya",
+    "effectiveFrom": "2026-08-01",
+    "sourceUrl": "https://igrsup.gov.in/",
+    "archiveUrl": null,
+    "units": { "residential": "sqm", "commercial": "sqm", "agricultural": "hectare" },
+    "rates": [
+      {
+        "localityId": "faizabad-road",
+        "tehsil": "Sadar",
+        "residential": 12000,
+        "commercial": 24000,
+        "agricultural": 4500000,
+        "effectiveFrom": "2026-08-01",
+        "sourceUrl": "https://igrsup.gov.in/"
+      },
+      {
+        "localityId": "civil-lines",
+        "tehsil": "Sadar",
+        "residential": 18000,
+        "commercial": 36000,
+        "agricultural": 6000000,
+        "effectiveFrom": "2026-08-01",
+        "sourceUrl": "https://igrsup.gov.in/"
+      }
+    ],
+    "sources": [
+      { "label": "IGRSUP circle rate schedule, Ayodhya", "url": "https://igrsup.gov.in/", "accessedAt": "2026-09-10" }
+    ],
+    "updatedAt": "2026-09-10",
+    "todo": [
+      "Seed schedule: rates and effective date are illustrative; replace with output of scripts/parse-circle-rates.ts on the real Ayodhya PDF",
+      "Upload the schedule PDF to R2 and set archiveUrl"
+    ]
+  }
+]
