@@ -6,7 +6,7 @@ Land-buying authority site for Ayodhya, Lucknow and Gorakhpur. Static Next.js ex
 
 ## Quick start
 
-Node 20 (`.nvmrc`).
+Node 22 (`.nvmrc`).
 
 ```bash
 npm install

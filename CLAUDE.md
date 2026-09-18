@@ -4,7 +4,7 @@ Read `docs/BUILD-SPEC.md` before any structural change. It is the source of trut
 
 ## House rules
 
-- Next.js 15 App Router, TypeScript, Tailwind. `output: 'export'`. Node 20. No server routes, no ISR, no runtime fetching.
+- Next.js 15 App Router, TypeScript, Tailwind. `output: 'export'`. Node 22. No server routes, no ISR, no runtime fetching.
 - Deploys to Cloudflare Pages from GitHub (`agencystringhead-wq/awadhland`).
 - Work on feature branches. Open PRs into `main`. Never commit directly to `main`.
 - No `Co-Authored-By` lines in commits.
