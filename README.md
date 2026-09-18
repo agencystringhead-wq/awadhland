@@ -24,6 +24,24 @@ The site stays static. Enquiry forms (hero card, lead-form band, every `LeadForm
 
 Analytics is first-party and script-free: `whatsapp_click`, `call_click`, `lead_submit`, `lead_fail` and `digest_subscribe` go to the Worker's `/event` and land in a Workers Analytics Engine dataset. No cookies, no personal data. Page views are not tracked from the site; enable Cloudflare Web Analytics on the Pages project if they are wanted. Deploy and configuration steps are in `worker/README.md`.
 
+## Content workflow
+
+Every locality is `draft` or `live` (`status` in `data/localities.json`). Drafts render on every build with a notice, are `noindex`, and stay out of the sitemaps; `npm run validate` asserts this. Nothing scrapes a live site at build; data arrives through these steps.
+
+**Circle rates from the IGRSUP PDF.** Export the district's schedule to CSV (columns `locality, tehsil, residential, commercial, agricultural`, rates in the published units: ₹/sq m and ₹/hectare), then:
+
+```bash
+npm run rates:import -- --city ayodhya --effective 2026-08-01 --source https://igrsup.gov.in/<schedule.pdf> --csv path/to/ayodhya.csv --dry-run
+```
+
+The dry run reports rows that matched a locality (by id, name, Hindi name or `scripts/circle-rate-aliases.json`), rows that did not, and localities without a row. Fix aliases until nothing is unmatched, drop `--dry-run` to write a new dated schedule into `circleRates.json` (older schedules stay for the revision history) and each locality's `circleRate`. Add `--archive` with the R2 copy of the PDF. A sample CSV is in `scripts/samples/`.
+
+**Upgrading a draft to live.** After the schedule is in: fill `askingRange` (with `asOf`), `landUse` and `landUseSource` from the master plan, `driveTimes` per anchor, `narrative.drivers` and `driversHi` in the broker's words, `fit`, `pros`/`cons`/`risks` where known, `brokerNote` with its date; replace the placeholder `sources` with the real documents; delete the seed `todo` lines; set `status` to `live`. The page indexes on the next build.
+
+**Guides.** One MDX file per language under `content/guides/` and `content/hi/guides/`, written separately, never translated. Frontmatter is validated; bodies compile at validate time and may use `<CircleRate>`, `<Distance>`, `<ProjectCard>`, `<Callout>` and `<Checklist>`. Reference only `live` localities from guides, since draft figures are placeholders. Validate warns when a guide links fewer than three data pages.
+
+**Seeds.** `npm run seed:cities` regenerates missing draft records for the three cities and never overwrites an existing id.
+
 ## Folder structure
 
 ```

@@ -1,0 +1,22 @@
+{
+  "_comment": "Names as printed in the IGRSUP schedule → locality id, per city. Matching is case- and punctuation-insensitive; names and Hindi names in localities.json match automatically, so only spellings that differ go here.",
+  "ayodhya": {
+    "Faizabad Rd": "faizabad-road",
+    "फ़ैज़ाबाद रोड": "faizabad-road",
+    "Civil Line": "civil-lines",
+    "Naya Ghat / Ram ki Paidi": "naya-ghat",
+    "Bypass Road (NH 27)": "ayodhya-bypass-nh-27"
+  },
+  "lucknow": {
+    "Chinhat (Faizabad Road)": "faizabad-road-chinhat",
+    "Amausi": "amausi-airport",
+    "Vibhuti Khand": "gomti-nagar-vibhuti-khand",
+    "Vipul Khand": "gomti-nagar-vipul-khand"
+  },
+  "gorakhpur": {
+    "Kunraghat": "kunraghat-aiims",
+    "GIDA Sahjanwa": "gida",
+    "Jungle Kaudia": "jungle-kaudia-airport",
+    "HURL Fertilizer": "hurl-fertilizer-belt"
+  }
+}

@@ -10,6 +10,7 @@
     "validate": "tsx scripts/validate.ts",
     "og": "tsx scripts/generate-og.ts",
     "seed:cities": "tsx scripts/seed-cities.ts",
+    "rates:import": "tsx scripts/parse-circle-rates.ts",
     "images:cities": "tsx scripts/placeholder-city-images.ts",
     "prebuild": "npm run validate && npm run og",
     "build": "next build",
