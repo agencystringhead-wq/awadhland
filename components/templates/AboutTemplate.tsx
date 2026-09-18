@@ -8,7 +8,9 @@ import { Section } from "@/components/Section";
 import { SourceStamp } from "@/components/SourceStamp";
 import { TrustBar } from "@/components/TrustBar";
 import { WhyWeExist, whyWeExistCopy } from "@/components/WhyWeExist";
+import { JsonLd } from "@/components/JsonLd";
 import { homeStory } from "@/lib/content";
+import { person } from "@/lib/jsonld";
 import { getBroker, getCities, getReviews } from "@/lib/data";
 import { localePath, ui, type Locale } from "@/lib/i18n";
 import { sameAlternate } from "@/lib/routes";
@@ -22,6 +24,7 @@ export function AboutTemplate({ locale }: { locale: Locale }) {
   const pageLabel = t.about;
   return (
     <PageShell locale={locale} alternate={sameAlternate(locale, "/about/")} pageLabel={pageLabel}>
+      <JsonLd data={person(broker, locale, getReviews())} />
       <div className="container-site">
         <Breadcrumb items={[{ label: t.home, href: localePath(locale, "/") }, { label: t.about }]} />
         <h1>{t.about}</h1>

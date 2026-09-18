@@ -1,4 +1,7 @@
 import { notFound } from "next/navigation";
+import { JsonLd } from "@/components/JsonLd";
+import { article } from "@/lib/jsonld";
+import { SITE_URL } from "@/lib/i18n";
 import { Breadcrumb } from "@/components/Breadcrumb";
 import { LeadForm } from "@/components/LeadForm";
 import { Section } from "@/components/Section";
@@ -88,6 +91,17 @@ export function UpdateTemplate({ locale, slug }: { locale: Locale; slug: string 
 
   return (
     <PageShell locale={locale} alternate={sameAlternate(locale, `/updates/${u.id}/`)} pageLabel={title}>
+      <JsonLd
+        data={article({
+          headline: title,
+          description: pick(locale, u.summary, u.summaryHi)[0],
+          url: `${SITE_URL}${localePath(locale, `/updates/${u.id}/`)}`,
+          datePublished: u.date,
+          dateModified: u.updatedAt,
+          locale,
+          author: { name: "Awadhland", url: `${SITE_URL}/` },
+        })}
+      />
       {/* 1. Header */}
       <section className="border-b border-line bg-cream-deep/60">
         <div className="container-site pb-8 md:pb-10">

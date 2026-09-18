@@ -10,3 +10,6 @@ next-env.d.ts
 
 # dev-only placeholder media, never shipped (scripts/check-dev-assets.ts fails a CI build that references it)
 /public/dev/
+
+# Open Graph images, rendered at build by scripts/generate-og.ts
+/public/og/

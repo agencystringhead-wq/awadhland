@@ -1,3 +1,6 @@
+import { faqPage } from "@/lib/jsonld";
+import { JsonLd } from "./JsonLd";
+
 export type FAQItem = { q: string; a: string };
 
 export type FAQProps = {
@@ -5,11 +8,12 @@ export type FAQProps = {
   items: FAQItem[];
 };
 
-/** Visible Q&As; FAQPage JSON-LD from the same array is added in step 6. */
+/** Visible Q&As and FAQPage JSON-LD from the same array (spec "Shared components"). */
 export function FAQ({ title, items }: FAQProps) {
   if (items.length === 0) return null;
   return (
     <section data-component="FAQ">
+      <JsonLd data={faqPage(items)} />
       {title && <h2>{title}</h2>}
       <dl className="mt-4 divide-y divide-line card px-5">
         {items.map((item) => (

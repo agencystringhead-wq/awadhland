@@ -3,7 +3,10 @@ import { AuthorBox } from "@/components/AuthorBox";
 import { Breadcrumb } from "@/components/Breadcrumb";
 import { FAQ } from "@/components/FAQ";
 import { GuideCard } from "@/components/GuideCard";
+import { JsonLd } from "@/components/JsonLd";
 import { LeadForm } from "@/components/LeadForm";
+import { article } from "@/lib/jsonld";
+import { SITE_URL } from "@/lib/i18n";
 import { Section } from "@/components/Section";
 import { TableOfContents } from "@/components/TableOfContents";
 import { getBroker, getCities, getTeamMember } from "@/lib/data";
@@ -34,6 +37,18 @@ export async function GuideTemplate({ locale, slug }: { locale: Locale; slug: st
 
   return (
     <PageShell locale={locale} alternate={guideAlternate(locale, fm.pairedSlug, fm.cityIds)} pageLabel={pageLabel}>
+      <JsonLd
+        data={article({
+          headline: fm.title,
+          description: fm.summary,
+          url: `${SITE_URL}${localePath(locale, `/guides/${fm.slug}/`)}`,
+          datePublished: fm.publishedAt,
+          dateModified: fm.updatedAt,
+          locale,
+          author: author ? { name: authorName, url: `${SITE_URL}${localePath(locale, "/about/")}` } : { name: authorName },
+          image: hero,
+        })}
+      />
       {/* 1. Header */}
       <header className="border-b border-line bg-cream-deep/60">
         <div className="container-site pb-8 md:pb-10">
