@@ -175,6 +175,116 @@ a:hover {
   }
 }
 
+/*
+ * Guide body (Template 6). Body 17px English / 18px Hindi at 1.7 line-height; H2s carry ids for
+ * the table of contents and clear the 64px sticky header when jumped to. MDX blocks (Callout,
+ * Checklist, CircleRate, ProjectCard, MidArticleCta) set their own margins via .mdx-block.
+ */
+@utility prose-guide {
+  font-size: 1.0625rem; /* 17px */
+  line-height: 1.7;
+  & > p,
+  & > ul,
+  & > ol,
+  & > blockquote,
+  & > table,
+  & > pre {
+    margin-block: 1.1em;
+  }
+  & h2 {
+    margin-top: 2.4em;
+    margin-bottom: 0.6em;
+    scroll-margin-top: 5.5rem;
+  }
+  & h3 {
+    margin-top: 1.8em;
+    margin-bottom: 0.4em;
+  }
+  & > :first-child {
+    margin-top: 0;
+  }
+  & ul,
+  & ol {
+    padding-left: 1.4rem;
+  }
+  & ul {
+    list-style: disc;
+  }
+  & ol {
+    list-style: decimal;
+  }
+  & li + li {
+    margin-top: 0.4em;
+  }
+  & strong {
+    font-weight: 600;
+  }
+  & blockquote {
+    border-left: 4px solid var(--color-line);
+    padding-left: 1rem;
+    color: var(--color-ink-soft);
+  }
+  & table {
+    width: 100%;
+    font-size: 0.9375rem; /* 15px */
+    border-collapse: collapse;
+  }
+  & th,
+  & td {
+    border-bottom: 1px solid var(--color-line);
+    padding: 0.5rem 0.75rem;
+    text-align: left;
+    vertical-align: top;
+  }
+  & th {
+    background: var(--color-cream-deep);
+    font-weight: 600;
+  }
+  & code {
+    font-size: 0.9em;
+    background: var(--color-cream-deep);
+    border-radius: 4px;
+    padding: 0.1em 0.35em;
+  }
+  & img {
+    border-radius: var(--radius-card);
+    height: auto;
+    max-width: 100%;
+  }
+  & .mdx-block h3 {
+    margin-top: 0;
+  }
+  & .mdx-block p {
+    margin-block: 0;
+  }
+  & .mdx-block p + p {
+    margin-top: 0.75em;
+  }
+  & .mdx-block ul,
+  & .mdx-block ol {
+    margin-block: 0;
+  }
+  /* Checklist: unordered items get a tick, ordered items keep their numbers */
+  & .checklist ul {
+    list-style: none;
+    padding-left: 0;
+  }
+  & .checklist ul > li {
+    position: relative;
+    padding-left: 1.75rem;
+  }
+  & .checklist ul > li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: var(--color-accent);
+    font-weight: 600;
+  }
+}
+html:lang(hi) .prose-guide {
+  font-size: 1.125rem; /* 18px */
+}
+
 /* Print: data pages print as a clean document (spec Template 5 "fast and printable"). */
 @media print {
   html {
