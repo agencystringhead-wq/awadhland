@@ -6,6 +6,7 @@ import { getBuildableLocalities, getCircleRateSchedules, getCities, getProjects,
 import { logSkippedLocalities } from "./guards";
 import { getGuides } from "./guides";
 import { localePath, otherLocale, type Locale } from "./i18n";
+import { TOOL_SLUGS } from "./tools";
 
 /**
  * With output: 'export', Next fails an empty generateStaticParams with a misleading
@@ -53,6 +54,12 @@ export const guideParams = (locale: Locale) =>
   nonEmpty(
     `${localePath(locale, "/")}guides/[slug]/`,
     getGuides(locale).map((g) => ({ slug: g.frontmatter.slug })),
+  );
+
+export const toolParams = () =>
+  nonEmpty(
+    "/tools/[slug]/",
+    TOOL_SLUGS.map((slug) => ({ slug })),
   );
 
 export const updateParams = () =>

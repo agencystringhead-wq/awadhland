@@ -10,7 +10,7 @@ export type CalculatorProps = {
   result?: ReactNode;
 };
 
-/** Shared tool shell: inputs left, result right on desktop, stacked on mobile. Each tool passes its own compute in step 5. */
+/** Shared tool shell: inputs left, result right on desktop, stacked on mobile. Each tool passes its own inputs, result and JS-off fallback. */
 export function Calculator({ title, fallback, inputs, result }: CalculatorProps) {
   return (
     <section data-component="Calculator" className="card p-5 md:p-6">

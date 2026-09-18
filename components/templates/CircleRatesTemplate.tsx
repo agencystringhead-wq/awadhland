@@ -5,19 +5,21 @@ import { FAQ } from "@/components/FAQ";
 import { LeadForm } from "@/components/LeadForm";
 import { Section } from "@/components/Section";
 import { SourceStamp } from "@/components/SourceStamp";
+import { StampDutyCalculator } from "@/components/StampDutyCalculator";
 import { circleRatesCopy } from "@/lib/content";
 import { getBroker, getCircleRateSchedulesByCity, getCity, getLocalitiesByCity, getStampDutyRules } from "@/lib/data";
 import { circleRateFaq } from "@/lib/faq";
 import { formatDate, formatNumber, localePath, pick, ui, type Locale } from "@/lib/i18n";
 import { buyerCategoryLabels } from "@/lib/labels";
 import { builtLocalityIds, sameAlternate } from "@/lib/routes";
+import { stampDutyCalculatorData } from "@/lib/tools";
 import { PageShell } from "./PageShell";
 
 const th = "px-4 py-2.5 font-semibold";
 
 /**
- * Template 5: circle-rate page, one per city. The stamp duty calculator (section 2) is the step 5
- * tool; until then the section shows the rules it will use.
+ * Template 5: circle-rate page, one per city. Section 2 is the stamp duty calculator fixed to this
+ * city, with the rules it applies shown under it.
  */
 export function CircleRatesTemplate({ locale, cityId }: { locale: Locale; cityId: string }) {
   const city = getCity(cityId);
@@ -71,9 +73,17 @@ export function CircleRatesTemplate({ locale, cityId }: { locale: Locale; cityId
         </div>
       </section>
 
-      {/* 2. Calculator: step 5. The rules it will read are shown so the data is visible now. */}
+      {/* 2. Calculator, fixed to this city, with the rules it applies shown under it */}
       <Section title={t.stampDutyRules}>
-        <p className="mb-4 max-w-3xl text-ink-soft">{t.calculatorComing}</p>
+        <div className="mb-6">
+          <StampDutyCalculator
+            locale={locale}
+            data={stampDutyCalculatorData(locale, city.id)}
+            whatsapp={broker.whatsapp}
+            defaultCityId={city.id}
+            title={t.stampDuty}
+          />
+        </div>
         <div className="card overflow-x-auto">
           <table className="w-full text-[15px]">
             <thead className="bg-cream-deep text-left text-sm text-ink-soft">

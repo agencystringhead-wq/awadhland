@@ -174,3 +174,85 @@ export const homeCopy: Record<
     checklistGuideSlug: "how-to-check-if-land-in-up-is-safe-to-buy",
   },
 };
+
+/* ------------------------------------------------------------------- tools */
+
+export type ToolCopy = {
+  title: string;
+  /** one line under the h1 */
+  intro: string;
+  /** 400–800 word explainer under the tool (spec Template 7) */
+  explainer: string[];
+  faq: { q: string; a: string }[];
+};
+
+/**
+ * Tool page copy (spec Template 7), written per language. Keyed by tool slug; the slug list
+ * that actually builds lives in lib/tools.ts.
+ */
+export const toolCopy: Record<Locale, Record<"stamp-duty-calculator", ToolCopy>> = {
+  en: {
+    "stamp-duty-calculator": {
+      title: "Stamp duty calculator for land in UP",
+      intro: "Circle value, stamp duty, registration fee and the total payable at the registry for a plot in Ayodhya, Lucknow or Gorakhpur.",
+      explainer: [
+        "Stamp duty in Uttar Pradesh is charged on the value of the land, and the state sets a floor for that value: the circle rate. Every locality has one, published by the district's stamp and registration office (IGRSUP) and revised roughly once a year. The registrar takes the higher of the circle value and the price written in the sale deed, then applies the stamp duty percentage for the buyer's category and the registration fee on top.",
+        "This calculator does the first half of that sum. Pick the city and the locality, choose the land type, enter the area, and it multiplies the area by the published circle rate to give the circle value. Residential and commercial rates are published per square metre; agricultural rates per hectare. The calculator converts your area into the published unit and never the other way round, so the number it shows can be checked line by line against the schedule on the circle-rate page.",
+        "The buyer category matters. UP charges a lower rate to women buyers, with a cap on the property value the rebate applies to, and treats joint purchases separately. The rules the calculator applies are shown in the table on each circle-rate page with their effective date and source, and they are stored in the site's data with the same dates, so a change in the notification is a data change here, not a code change.",
+        "Two things the calculator cannot know. First, the price you actually agree. If it is above the circle value, duty is charged on your price, not on the circle value; add the difference yourself or send us the number. Second, exemptions and special cases: transfers within a family, land bought under a government scheme, and plots in a registered township can carry different rates or concessions. Those need the notification, not a calculator.",
+        "Registration fee is a separate charge from stamp duty. It is a percentage of the same value, sometimes with a cap, and it is paid at the sub-registrar's office along with the duty before the deed is signed. The total shown here is stamp duty plus registration fee: the amount that goes to the government at registry. Brokerage, lawyer's fees and mutation charges come on top and are agreed separately, in writing, before any site visit.",
+        "Use the result as a budget line, not a quote. Circle rates change on revision, and the schedule on this site is dated so you can see whether it is current. If a seller's price is far below the circle rate, the duty will still be charged on the circle value, and the gap itself is worth asking about.",
+      ],
+      faq: [
+        {
+          q: "Is stamp duty charged on the circle value or on the price I pay?",
+          a: "On whichever is higher. The calculator uses the circle value because that is the floor; if your agreed price is above it, the duty is charged on your price.",
+        },
+        {
+          q: "Why does the buyer category change the amount?",
+          a: "UP charges a lower stamp duty rate to women buyers, up to a cap on the property value, and applies its own rate to joint purchases. The rates and their effective dates are shown on each circle-rate page.",
+        },
+        {
+          q: "Which unit should I enter the area in?",
+          a: "Any of square feet, square metres, square yards, acres or hectares. The calculator converts to the unit the circle rate is published in: square metres for residential and commercial land, hectares for agricultural land.",
+        },
+        {
+          q: "Does the total include brokerage or lawyer's fees?",
+          a: "No. The total is stamp duty plus registration fee, the government charges at registry. Brokerage, legal fees and mutation charges are separate and should be agreed in writing beforehand.",
+        },
+      ],
+    },
+  },
+  hi: {
+    "stamp-duty-calculator": {
+      title: "यूपी में ज़मीन के लिए स्टाम्प ड्यूटी कैलकुलेटर",
+      intro: "अयोध्या, लखनऊ या गोरखपुर में प्लॉट के लिए सर्किल मूल्य, स्टाम्प ड्यूटी, रजिस्ट्री शुल्क और रजिस्ट्री पर देय कुल रक़म।",
+      explainer: [
+        "उत्तर प्रदेश में स्टाम्प ड्यूटी ज़मीन के मूल्य पर लगती है, और राज्य उस मूल्य की एक न्यूनतम सीमा तय करता है: सर्किल रेट। हर इलाक़े का अपना सर्किल रेट होता है, जिसे ज़िले का स्टाम्प एवं रजिस्ट्रेशन कार्यालय (आईजीआरएसयूपी) प्रकाशित करता है और लगभग साल में एक बार संशोधित करता है। रजिस्ट्रार सर्किल मूल्य और बैनामे में लिखे दाम में जो ज़्यादा हो उसे लेता है, फिर ख़रीदार की श्रेणी के हिसाब से स्टाम्प ड्यूटी का प्रतिशत लगाता है और ऊपर से रजिस्ट्री शुल्क।",
+        "यह कैलकुलेटर उस हिसाब का पहला आधा हिस्सा करता है। शहर और इलाक़ा चुनें, ज़मीन का प्रकार चुनें, क्षेत्रफल लिखें, और यह क्षेत्रफल को प्रकाशित सर्किल रेट से गुणा करके सर्किल मूल्य देता है। रिहायशी और व्यावसायिक रेट प्रति वर्ग मीटर प्रकाशित होते हैं; कृषि रेट प्रति हेक्टेयर। कैलकुलेटर आपके क्षेत्रफल को प्रकाशित इकाई में बदलता है, उल्टा कभी नहीं, इसलिए जो संख्या दिखती है उसे सर्किल रेट पेज की सूची से पंक्ति दर पंक्ति मिलाया जा सकता है।",
+        "ख़रीदार की श्रेणी मायने रखती है। यूपी महिला ख़रीदारों से कम दर लेता है, जिस पर संपत्ति मूल्य की एक सीमा लागू है, और संयुक्त ख़रीद को अलग तरह से देखता है। कैलकुलेटर जो नियम लगाता है वे हर सर्किल रेट पेज की तालिका में लागू तारीख़ और स्रोत के साथ दिखते हैं, और साइट के डेटा में उन्हीं तारीख़ों के साथ रखे हैं, इसलिए अधिसूचना में बदलाव यहाँ डेटा का बदलाव है, कोड का नहीं।",
+        "दो बातें कैलकुलेटर नहीं जान सकता। पहली, आप असल में कौन सा दाम तय करते हैं। अगर वह सर्किल मूल्य से ऊपर है, तो ड्यूटी आपके दाम पर लगेगी, सर्किल मूल्य पर नहीं; फ़र्क़ ख़ुद जोड़ लें या हमें संख्या भेजें। दूसरी, छूट और विशेष मामले: परिवार के भीतर हस्तांतरण, सरकारी योजना में ली गई ज़मीन, और पंजीकृत टाउनशिप के प्लॉट पर अलग दरें या रियायतें हो सकती हैं। उनके लिए अधिसूचना चाहिए, कैलकुलेटर नहीं।",
+        "रजिस्ट्री शुल्क स्टाम्प ड्यूटी से अलग है। यह उसी मूल्य का एक प्रतिशत है, कभी-कभी एक ऊपरी सीमा के साथ, और बैनामे पर दस्तख़त से पहले सब-रजिस्ट्रार दफ़्तर में ड्यूटी के साथ जमा होता है। यहाँ दिखाया गया कुल स्टाम्प ड्यूटी और रजिस्ट्री शुल्क का जोड़ है: वह रक़म जो रजिस्ट्री पर सरकार को जाती है। ब्रोकरेज, वकील की फ़ीस और दाख़िल-ख़ारिज का ख़र्च इसके ऊपर है और किसी भी साइट विज़िट से पहले लिखित में अलग से तय होता है।",
+        "नतीजे को बजट की एक पंक्ति मानें, कोटेशन नहीं। सर्किल रेट संशोधन पर बदलते हैं, और इस साइट की सूची तारीख़ के साथ है ताकि आप देख सकें कि वह मौजूदा है या नहीं। अगर बेचने वाले का दाम सर्किल रेट से बहुत नीचे है, तो ड्यूटी फिर भी सर्किल मूल्य पर लगेगी, और वह फ़र्क़ ख़ुद पूछने लायक़ है।",
+      ],
+      faq: [
+        {
+          q: "स्टाम्प ड्यूटी सर्किल मूल्य पर लगती है या मेरे दिए दाम पर?",
+          a: "जो ज़्यादा हो उस पर। कैलकुलेटर सर्किल मूल्य लेता है क्योंकि वही न्यूनतम है; आपका तय दाम उससे ऊपर है तो ड्यूटी आपके दाम पर लगेगी।",
+        },
+        {
+          q: "ख़रीदार की श्रेणी से रक़म क्यों बदलती है?",
+          a: "यूपी महिला ख़रीदारों से कम स्टाम्प ड्यूटी लेता है, संपत्ति मूल्य की एक सीमा तक, और संयुक्त ख़रीद पर अपनी दर लगाता है। दरें और उनकी लागू तारीख़ हर सर्किल रेट पेज पर दिखती हैं।",
+        },
+        {
+          q: "क्षेत्रफल किस इकाई में लिखूँ?",
+          a: "वर्ग फ़ुट, वर्ग मीटर, वर्ग गज, एकड़ या हेक्टेयर, कोई भी। कैलकुलेटर उसे उस इकाई में बदलता है जिसमें सर्किल रेट प्रकाशित है: रिहायशी और व्यावसायिक के लिए वर्ग मीटर, कृषि के लिए हेक्टेयर।",
+        },
+        {
+          q: "क्या कुल में ब्रोकरेज या वकील की फ़ीस शामिल है?",
+          a: "नहीं। कुल स्टाम्प ड्यूटी और रजिस्ट्री शुल्क का जोड़ है, यानी रजिस्ट्री पर सरकारी शुल्क। ब्रोकरेज, क़ानूनी फ़ीस और दाख़िल-ख़ारिज का ख़र्च अलग है और पहले लिखित में तय होना चाहिए।",
+        },
+      ],
+    },
+  },
+};
