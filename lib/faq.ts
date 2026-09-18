@@ -1,6 +1,6 @@
 /**
  * Q&As generated from records at build (spec Template 3 section 11, Template 5 section 6).
- * Visible FAQ now; FAQPage JSON-LD from the same arrays in step 6. Questions are written per
+ * The FAQ component renders these and emits FAQPage JSON-LD from the same array. Questions are written per
  * language, not translated, and only asked when the record has the answer.
  */
 import type { FAQItem } from "@/components/FAQ";

@@ -55,7 +55,7 @@ export function whatsappText(locale: Locale, pageLabel: string): string {
 }
 
 /**
- * Interface labels only. Page titles and meta descriptions are written per language in step 6.
+ * Interface labels only. Page titles and meta descriptions live in lib/pages.ts, written per language.
  * Hindi labels here are interface strings, not broker-voice copy.
  */
 export const ui = {

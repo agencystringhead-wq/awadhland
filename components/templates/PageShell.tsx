@@ -31,12 +31,3 @@ export function PageShell({ locale, alternate, pageLabel, children }: PageShellP
     </>
   );
 }
-
-/** Scaffold-only: prints the loaded record so each route can be checked before its template exists (steps 3+). */
-export function DataDump({ data }: { data: unknown }) {
-  return (
-    <pre data-component="DataDump" className="card mt-6 overflow-x-auto p-4 text-xs leading-relaxed text-ink-soft">
-      {JSON.stringify(data, null, 2)}
-    </pre>
-  );
-}

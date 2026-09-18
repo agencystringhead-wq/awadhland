@@ -3,7 +3,7 @@
  *
  * Minimum field set for a locality page: name, city, lat/lng, circle rate, land use,
  * at least one narrative paragraph. Records missing any of these are excluded from
- * generateStaticParams and (from step 6) the sitemap. The skipped ids are logged at build.
+ * generateStaticParams and the sitemaps (lib/pages.ts). The skipped ids are logged at build.
  *
  * Hindi pages additionally need nameHi and at least one Hindi narrative paragraph,
  * because the Hindi template reads those fields and must not fall back to English copy.

@@ -7,7 +7,7 @@ import type { Locale } from "./schemas";
 
 /**
  * Circle-rate page explainer (spec Template 5, section 4). The spec wants this as MDX; it moves to
- * content/ when the MDX pipeline lands in step 4. Written per language.
+ * content/ once the explainer needs data components. Written per language.
  */
 export const circleRatesCopy: Record<Locale, { paragraphs: string[] }> = {
   en: {
