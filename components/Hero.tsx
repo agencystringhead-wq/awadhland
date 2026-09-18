@@ -23,9 +23,8 @@ export const formatPhone = (e164: string) => e164.replace(/^(\+91)(\d{5})(\d{5})
  * card and the broker card under the copy; the portrait floats right, absolutely positioned at
  * ≥1180px with the vertical feather mask, and drops into the flow as a card below that.
  *
- * TODO(media): the portrait is the reference's own image under /public/dev/ (gitignored). Replace
- * with the real broker photo on R2 before launch; scripts/check-dev-assets.ts fails a CI build
- * while any /dev/ path is referenced.
+ * The portrait is broker.photo from team.json: a transparent-background cutout committed at
+ * 950 × 1183 (2× of the 475px render). TODO(media): move it to R2 once the bucket exists.
  */
 export function Hero({ locale, story, broker, reviewsUrl }: HeroProps) {
   const h = story.hero;
@@ -37,8 +36,8 @@ export function Hero({ locale, story, broker, reviewsUrl }: HeroProps) {
     <img
       src={broker.photo}
       alt={pick(locale, broker.name, broker.nameHi)}
-      width={860}
-      height={1219}
+      width={950}
+      height={1183}
       fetchPriority="high"
       className="h-auto w-full object-contain [mask-image:linear-gradient(#000_40%,rgba(0,0,0,.55)_66%,transparent_88%)]"
     />
