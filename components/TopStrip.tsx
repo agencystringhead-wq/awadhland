@@ -1,5 +1,6 @@
 import type { Locale } from "@/lib/i18n";
-import { pick, ui } from "@/lib/i18n";
+import { pick } from "@/lib/i18n";
+import { navCopy } from "@/lib/nav";
 import type { City, TeamMember } from "@/lib/schemas";
 
 export type TopStripProps = {
@@ -8,10 +9,10 @@ export type TopStripProps = {
   broker: Pick<TeamMember, "yearsActive" | "reraUrl">;
 };
 
-/** Five gold stars, 11px. */
-export function Stars({ size = 11, count = 5 }: { size?: number; count?: number }) {
+/** Five stars. Amber on the dark strip, gold elsewhere. */
+export function Stars({ size = 11, count = 5, className = "text-gold" }: { size?: number; count?: number; className?: string }) {
   return (
-    <span aria-hidden="true" className="inline-flex gap-0.5 text-gold">
+    <span aria-hidden="true" className={`inline-flex gap-0.5 ${className}`}>
       {Array.from({ length: count }, (_, i) => (
         <svg key={i} width={size} height={size} viewBox="0 0 20 20" fill="currentColor">
           <path d="M10 1.5l2.6 5.4 5.9.8-4.3 4.1 1.1 5.9L10 14.9l-5.3 2.8 1.1-5.9L1.5 7.7l5.9-.8z" />
@@ -22,42 +23,39 @@ export function Stars({ size = 11, count = 5 }: { size?: number; count?: number 
 }
 
 /**
- * Thin bar above the header: muted sand, small uppercase mono, items separated by 1px hairlines.
- * Left: RERA · hours · cities · every rate sourced. Right: stars + "Google reviews · N years".
- * The reference's strip is dark ink; the brief asks for muted sand, so sand it is.
+ * Tier 1 (docs/DESIGN-REFERENCE.md §15): dark strip, 45px, amber dot + bold first item, then
+ * hairline-separated items; right: stars + "UP RERA registered · N years". Below 1024px only the
+ * dot and the first item remain.
  */
 export function TopStrip({ locale, cities, broker }: TopStripProps) {
-  const t = ui[locale];
-  const left: { text: string; href?: string }[] = [
-    { text: t.reraRegisteredShort, href: broker.reraUrl ?? undefined },
-    { text: t.hours },
-    ...cities.map((c) => ({ text: pick(locale, c.name, c.nameHi) })),
-    { text: t.everyRateSourced },
-  ];
-  const sep = <span aria-hidden="true" className="mx-1 hidden h-3.5 w-px bg-line sm:inline-block" />;
+  const c = navCopy[locale].strip;
+  const items = [c.hours, cities.map((x) => pick(locale, x.name, x.nameHi)).join(" · "), c.sourced];
   return (
-    <div data-component="TopStrip" className="border-b border-line bg-sand">
-      <div className="container-site flex h-9 items-center justify-between gap-4 overflow-hidden">
-        <ul className="flex min-w-0 items-center gap-2.5 whitespace-nowrap caption-mono text-ink-soft">
-          {left.map((item, i) => (
-            <li key={item.text} className={`items-center gap-2.5 ${i < 2 ? "flex" : "hidden md:flex"}`}>
-              {i > 0 && sep}
-              {i === 0 && <span aria-hidden="true" className="dot-gold mr-0.5 size-1.5" />}
-              {item.href ? (
-                <a href={item.href} rel="noopener" className="text-ink no-underline hover:text-accent">
-                  {item.text}
-                </a>
-              ) : (
-                <span className={i === 0 ? "text-ink" : undefined}>{item.text}</span>
-              )}
-            </li>
+    <div data-component="TopStrip" className="strip-dark">
+      <div className="container-site relative flex h-[45px] items-center justify-between gap-6 whitespace-nowrap">
+        <div className="flex min-w-0 items-center gap-3.5">
+          <span className="flex items-center gap-2.5">
+            <span aria-hidden="true" className="dot-amber" />
+            <span className="font-semibold text-white [text-shadow:0_1px_0_rgba(0,0,0,.7),0_0_8px_rgba(255,200,140,.15)]">{c.taking}</span>
+          </span>
+          {items.map((item) => (
+            <span key={item} className="hidden items-center gap-3.5 lg:flex">
+              <span aria-hidden="true" className="strip-hairline" />
+              <span>{item}</span>
+            </span>
           ))}
-        </ul>
-        {/* TODO(reviews): rating and count come from data/reviews.json in Phase C; placeholder copy until then */}
-        <p className="hidden shrink-0 items-center gap-2.5 caption-mono text-ink-soft md:flex">
-          <Stars />
+        </div>
+        <p className="hidden shrink-0 items-center gap-2 text-[rgb(255_235_210_/_0.78)] lg:flex">
+          <Stars className="text-[oklch(86%_0.17_75)] [text-shadow:0_0_8px_oklch(78%_0.16_70_/_0.4)]" />
           <span>
-            {t.googleReviews} · {broker.yearsActive} {t.yearsShort}
+            {broker.reraUrl ? (
+              <a href={broker.reraUrl} rel="noopener" className="text-inherit no-underline hover:text-white">
+                {c.rera}
+              </a>
+            ) : (
+              c.rera
+            )}{" "}
+            · {broker.yearsActive} {c.years}
           </span>
         </p>
       </div>

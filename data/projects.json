@@ -23,9 +23,35 @@
     ],
     "geometry": {
       "type": "Polygon",
-      "coordinates": [[[82.14, 26.744], [82.162, 26.744], [82.162, 26.758], [82.14, 26.758], [82.14, 26.744]]]
+      "coordinates": [
+        [
+          [
+            82.14,
+            26.744
+          ],
+          [
+            82.162,
+            26.744
+          ],
+          [
+            82.162,
+            26.758
+          ],
+          [
+            82.14,
+            26.758
+          ],
+          [
+            82.14,
+            26.744
+          ]
+        ]
+      ]
     },
-    "affectedLocalityIds": ["faizabad-road", "civil-lines"],
+    "affectedLocalityIds": [
+      "faizabad-road",
+      "civil-lines"
+    ],
     "impacts": [
       {
         "localityId": "faizabad-road",
@@ -41,16 +67,892 @@
       }
     ],
     "milestones": [
-      { "date": "2023-12-30", "text": "Phase 1 terminal inaugurated", "textHi": "पहले चरण के टर्मिनल का उद्घाटन", "sourceUrl": "https://www.aai.aero/" }
+      {
+        "date": "2023-12-30",
+        "text": "Phase 1 terminal inaugurated",
+        "textHi": "पहले चरण के टर्मिनल का उद्घाटन",
+        "sourceUrl": "https://www.aai.aero/"
+      }
     ],
     "sources": [
-      { "label": "Airports Authority of India", "url": "https://www.aai.aero/", "accessedAt": "2026-09-10" }
+      {
+        "label": "Airports Authority of India",
+        "url": "https://www.aai.aero/",
+        "accessedAt": "2026-09-10"
+      }
     ],
     "updatedAt": "2026-09-10",
     "todo": [
       "Seed record: confirm expansion scope, status, budget, announced date, expected completion and extent from an AAI or state notification; budget, dates and extent are null until sourced",
       "geometry is a rough box around the airport, not the real footprint",
       "Milestone sourceUrl points at the AAI home page; replace with the specific press release"
+    ]
+  },
+  {
+    "id": "ayodhya-master-plan-2031",
+    "cityId": "ayodhya",
+    "name": "Ayodhya Master Plan 2031",
+    "nameHi": "अयोध्या मास्टर प्लान 2031",
+    "agency": "ADA",
+    "status": "announced",
+    "budgetCr": null,
+    "announcedOn": null,
+    "expectedCompletion": null,
+    "extent": null,
+    "description": [
+      "PLACEHOLDER (TODO): Ayodhya Master Plan 2031 is tracked here for its effect on land in the listed localities. Status, budget, dates, extent and the plain-language description are to be filled from the agency's notification before this record is treated as sourced."
+    ],
+    "descriptionHi": [
+      "प्लेसहोल्डर (TODO): अयोध्या मास्टर प्लान 2031 को सूचीबद्ध इलाक़ों की ज़मीन पर असर के लिए यहाँ ट्रैक किया जा रहा है। स्थिति, बजट, तारीख़ें, विस्तार और सरल भाषा में विवरण एजेंसी की अधिसूचना से भरे जाने हैं।"
+    ],
+    "geometry": null,
+    "affectedLocalityIds": [
+      "faizabad-road",
+      "ram-path",
+      "airport-road"
+    ],
+    "impacts": [
+      {
+        "localityId": "faizabad-road",
+        "level": "moderate",
+        "reason": "PLACEHOLDER: effect to be assessed",
+        "reasonHi": "प्लेसहोल्डर: असर का आकलन बाक़ी"
+      },
+      {
+        "localityId": "ram-path",
+        "level": "moderate",
+        "reason": "PLACEHOLDER: effect to be assessed",
+        "reasonHi": "प्लेसहोल्डर: असर का आकलन बाक़ी"
+      },
+      {
+        "localityId": "airport-road",
+        "level": "moderate",
+        "reason": "PLACEHOLDER: effect to be assessed",
+        "reasonHi": "प्लेसहोल्डर: असर का आकलन बाक़ी"
+      }
+    ],
+    "milestones": [],
+    "sources": [
+      {
+        "label": "PLACEHOLDER: agency notification to be linked",
+        "url": "https://up.gov.in/",
+        "accessedAt": "2026-09-18"
+      }
+    ],
+    "updatedAt": "2026-09-18",
+    "todo": [
+      "Seed record: status, budget, announced date, expected completion, extent, geometry, milestones and description are placeholders marked TODO; confirm from the agency's notification"
+    ]
+  },
+  {
+    "id": "ayodhya-greenfield-township",
+    "cityId": "ayodhya",
+    "name": "Ayodhya Greenfield Township",
+    "nameHi": "अयोध्या ग्रीनफ़ील्ड टाउनशिप",
+    "agency": "ADA",
+    "status": "announced",
+    "budgetCr": null,
+    "announcedOn": null,
+    "expectedCompletion": null,
+    "extent": null,
+    "description": [
+      "PLACEHOLDER (TODO): Ayodhya Greenfield Township is tracked here for its effect on land in the listed localities. Status, budget, dates, extent and the plain-language description are to be filled from the agency's notification before this record is treated as sourced."
+    ],
+    "descriptionHi": [
+      "प्लेसहोल्डर (TODO): अयोध्या ग्रीनफ़ील्ड टाउनशिप को सूचीबद्ध इलाक़ों की ज़मीन पर असर के लिए यहाँ ट्रैक किया जा रहा है। स्थिति, बजट, तारीख़ें, विस्तार और सरल भाषा में विवरण एजेंसी की अधिसूचना से भरे जाने हैं।"
+    ],
+    "geometry": null,
+    "affectedLocalityIds": [
+      "airport-road",
+      "masodha",
+      "barun-bypass"
+    ],
+    "impacts": [
+      {
+        "localityId": "airport-road",
+        "level": "moderate",
+        "reason": "PLACEHOLDER: effect to be assessed",
+        "reasonHi": "प्लेसहोल्डर: असर का आकलन बाक़ी"
+      },
+      {
+        "localityId": "masodha",
+        "level": "moderate",
+        "reason": "PLACEHOLDER: effect to be assessed",
+        "reasonHi": "प्लेसहोल्डर: असर का आकलन बाक़ी"
+      },
+      {
+        "localityId": "barun-bypass",
+        "level": "moderate",
+        "reason": "PLACEHOLDER: effect to be assessed",
+        "reasonHi": "प्लेसहोल्डर: असर का आकलन बाक़ी"
+      }
+    ],
+    "milestones": [],
+    "sources": [
+      {
+        "label": "PLACEHOLDER: agency notification to be linked",
+        "url": "https://up.gov.in/",
+        "accessedAt": "2026-09-18"
+      }
+    ],
+    "updatedAt": "2026-09-18",
+    "todo": [
+      "Seed record: status, budget, announced date, expected completion, extent, geometry, milestones and description are placeholders marked TODO; confirm from the agency's notification"
+    ]
+  },
+  {
+    "id": "84-kosi-parikrama-marg",
+    "cityId": "ayodhya",
+    "name": "84 Kosi Parikrama Marg",
+    "nameHi": "84 कोसी परिक्रमा मार्ग",
+    "agency": "NHAI",
+    "status": "announced",
+    "budgetCr": null,
+    "announcedOn": null,
+    "expectedCompletion": null,
+    "extent": null,
+    "description": [
+      "PLACEHOLDER (TODO): 84 Kosi Parikrama Marg is tracked here for its effect on land in the listed localities. Status, budget, dates, extent and the plain-language description are to be filled from the agency's notification before this record is treated as sourced."
+    ],
+    "descriptionHi": [
+      "प्लेसहोल्डर (TODO): 84 कोसी परिक्रमा मार्ग को सूचीबद्ध इलाक़ों की ज़मीन पर असर के लिए यहाँ ट्रैक किया जा रहा है। स्थिति, बजट, तारीख़ें, विस्तार और सरल भाषा में विवरण एजेंसी की अधिसूचना से भरे जाने हैं।"
+    ],
+    "geometry": null,
+    "affectedLocalityIds": [
+      "gosaiganj",
+      "rudauli-road",
+      "kumarganj-road"
+    ],
+    "impacts": [
+      {
+        "localityId": "gosaiganj",
+        "level": "moderate",
+        "reason": "PLACEHOLDER: effect to be assessed",
+        "reasonHi": "प्लेसहोल्डर: असर का आकलन बाक़ी"
+      },
+      {
+        "localityId": "rudauli-road",
+        "level": "moderate",
+        "reason": "PLACEHOLDER: effect to be assessed",
+        "reasonHi": "प्लेसहोल्डर: असर का आकलन बाक़ी"
+      },
+      {
+        "localityId": "kumarganj-road",
+        "level": "moderate",
+        "reason": "PLACEHOLDER: effect to be assessed",
+        "reasonHi": "प्लेसहोल्डर: असर का आकलन बाक़ी"
+      }
+    ],
+    "milestones": [],
+    "sources": [
+      {
+        "label": "PLACEHOLDER: agency notification to be linked",
+        "url": "https://up.gov.in/",
+        "accessedAt": "2026-09-18"
+      }
+    ],
+    "updatedAt": "2026-09-18",
+    "todo": [
+      "Seed record: status, budget, announced date, expected completion, extent, geometry, milestones and description are placeholders marked TODO; confirm from the agency's notification"
+    ]
+  },
+  {
+    "id": "14-kosi-parikrama-marg",
+    "cityId": "ayodhya",
+    "name": "14 Kosi Parikrama Marg",
+    "nameHi": "14 कोसी परिक्रमा मार्ग",
+    "agency": "other",
+    "agencyName": "UP PWD",
+    "status": "announced",
+    "budgetCr": null,
+    "announcedOn": null,
+    "expectedCompletion": null,
+    "extent": null,
+    "description": [
+      "PLACEHOLDER (TODO): 14 Kosi Parikrama Marg is tracked here for its effect on land in the listed localities. Status, budget, dates, extent and the plain-language description are to be filled from the agency's notification before this record is treated as sourced."
+    ],
+    "descriptionHi": [
+      "प्लेसहोल्डर (TODO): 14 कोसी परिक्रमा मार्ग को सूचीबद्ध इलाक़ों की ज़मीन पर असर के लिए यहाँ ट्रैक किया जा रहा है। स्थिति, बजट, तारीख़ें, विस्तार और सरल भाषा में विवरण एजेंसी की अधिसूचना से भरे जाने हैं।"
+    ],
+    "geometry": null,
+    "affectedLocalityIds": [
+      "naya-ghat",
+      "mahobra",
+      "darshan-nagar"
+    ],
+    "impacts": [
+      {
+        "localityId": "naya-ghat",
+        "level": "moderate",
+        "reason": "PLACEHOLDER: effect to be assessed",
+        "reasonHi": "प्लेसहोल्डर: असर का आकलन बाक़ी"
+      },
+      {
+        "localityId": "mahobra",
+        "level": "moderate",
+        "reason": "PLACEHOLDER: effect to be assessed",
+        "reasonHi": "प्लेसहोल्डर: असर का आकलन बाक़ी"
+      },
+      {
+        "localityId": "darshan-nagar",
+        "level": "moderate",
+        "reason": "PLACEHOLDER: effect to be assessed",
+        "reasonHi": "प्लेसहोल्डर: असर का आकलन बाक़ी"
+      }
+    ],
+    "milestones": [],
+    "sources": [
+      {
+        "label": "PLACEHOLDER: agency notification to be linked",
+        "url": "https://up.gov.in/",
+        "accessedAt": "2026-09-18"
+      }
+    ],
+    "updatedAt": "2026-09-18",
+    "todo": [
+      "Seed record: status, budget, announced date, expected completion, extent, geometry, milestones and description are placeholders marked TODO; confirm from the agency's notification"
+    ]
+  },
+  {
+    "id": "ayodhya-ring-road",
+    "cityId": "ayodhya",
+    "name": "Ayodhya Ring Road",
+    "nameHi": "अयोध्या रिंग रोड",
+    "agency": "NHAI",
+    "status": "announced",
+    "budgetCr": null,
+    "announcedOn": null,
+    "expectedCompletion": null,
+    "extent": null,
+    "description": [
+      "PLACEHOLDER (TODO): Ayodhya Ring Road is tracked here for its effect on land in the listed localities. Status, budget, dates, extent and the plain-language description are to be filled from the agency's notification before this record is treated as sourced."
+    ],
+    "descriptionHi": [
+      "प्लेसहोल्डर (TODO): अयोध्या रिंग रोड को सूचीबद्ध इलाक़ों की ज़मीन पर असर के लिए यहाँ ट्रैक किया जा रहा है। स्थिति, बजट, तारीख़ें, विस्तार और सरल भाषा में विवरण एजेंसी की अधिसूचना से भरे जाने हैं।"
+    ],
+    "geometry": null,
+    "affectedLocalityIds": [
+      "sohawal",
+      "masodha",
+      "bhadarsa-road"
+    ],
+    "impacts": [
+      {
+        "localityId": "sohawal",
+        "level": "moderate",
+        "reason": "PLACEHOLDER: effect to be assessed",
+        "reasonHi": "प्लेसहोल्डर: असर का आकलन बाक़ी"
+      },
+      {
+        "localityId": "masodha",
+        "level": "moderate",
+        "reason": "PLACEHOLDER: effect to be assessed",
+        "reasonHi": "प्लेसहोल्डर: असर का आकलन बाक़ी"
+      },
+      {
+        "localityId": "bhadarsa-road",
+        "level": "moderate",
+        "reason": "PLACEHOLDER: effect to be assessed",
+        "reasonHi": "प्लेसहोल्डर: असर का आकलन बाक़ी"
+      }
+    ],
+    "milestones": [],
+    "sources": [
+      {
+        "label": "PLACEHOLDER: agency notification to be linked",
+        "url": "https://up.gov.in/",
+        "accessedAt": "2026-09-18"
+      }
+    ],
+    "updatedAt": "2026-09-18",
+    "todo": [
+      "Seed record: status, budget, announced date, expected completion, extent, geometry, milestones and description are placeholders marked TODO; confirm from the agency's notification"
+    ]
+  },
+  {
+    "id": "awas-vikas-ayodhya-scheme",
+    "cityId": "ayodhya",
+    "name": "Awas Vikas Ayodhya Scheme",
+    "nameHi": "आवास विकास अयोध्या योजना",
+    "agency": "other",
+    "agencyName": "UP Awas Evam Vikas Parishad",
+    "status": "announced",
+    "budgetCr": null,
+    "announcedOn": null,
+    "expectedCompletion": null,
+    "extent": null,
+    "description": [
+      "PLACEHOLDER (TODO): Awas Vikas Ayodhya Scheme is tracked here for its effect on land in the listed localities. Status, budget, dates, extent and the plain-language description are to be filled from the agency's notification before this record is treated as sourced."
+    ],
+    "descriptionHi": [
+      "प्लेसहोल्डर (TODO): आवास विकास अयोध्या योजना को सूचीबद्ध इलाक़ों की ज़मीन पर असर के लिए यहाँ ट्रैक किया जा रहा है। स्थिति, बजट, तारीख़ें, विस्तार और सरल भाषा में विवरण एजेंसी की अधिसूचना से भरे जाने हैं।"
+    ],
+    "geometry": null,
+    "affectedLocalityIds": [
+      "lucknow-road",
+      "sohawal"
+    ],
+    "impacts": [
+      {
+        "localityId": "lucknow-road",
+        "level": "moderate",
+        "reason": "PLACEHOLDER: effect to be assessed",
+        "reasonHi": "प्लेसहोल्डर: असर का आकलन बाक़ी"
+      },
+      {
+        "localityId": "sohawal",
+        "level": "moderate",
+        "reason": "PLACEHOLDER: effect to be assessed",
+        "reasonHi": "प्लेसहोल्डर: असर का आकलन बाक़ी"
+      }
+    ],
+    "milestones": [],
+    "sources": [
+      {
+        "label": "PLACEHOLDER: agency notification to be linked",
+        "url": "https://up.gov.in/",
+        "accessedAt": "2026-09-18"
+      }
+    ],
+    "updatedAt": "2026-09-18",
+    "todo": [
+      "Seed record: status, budget, announced date, expected completion, extent, geometry, milestones and description are placeholders marked TODO; confirm from the agency's notification"
+    ]
+  },
+  {
+    "id": "lda-plot-schemes",
+    "cityId": "lucknow",
+    "name": "LDA Plot Schemes",
+    "nameHi": "एलडीए प्लॉट योजनाएँ",
+    "agency": "LDA",
+    "status": "announced",
+    "budgetCr": null,
+    "announcedOn": null,
+    "expectedCompletion": null,
+    "extent": null,
+    "description": [
+      "PLACEHOLDER (TODO): LDA Plot Schemes is tracked here for its effect on land in the listed localities. Status, budget, dates, extent and the plain-language description are to be filled from the agency's notification before this record is treated as sourced."
+    ],
+    "descriptionHi": [
+      "प्लेसहोल्डर (TODO): एलडीए प्लॉट योजनाएँ को सूचीबद्ध इलाक़ों की ज़मीन पर असर के लिए यहाँ ट्रैक किया जा रहा है। स्थिति, बजट, तारीख़ें, विस्तार और सरल भाषा में विवरण एजेंसी की अधिसूचना से भरे जाने हैं।"
+    ],
+    "geometry": null,
+    "affectedLocalityIds": [
+      "sultanpur-road",
+      "mohan-road",
+      "kanpur-road"
+    ],
+    "impacts": [
+      {
+        "localityId": "sultanpur-road",
+        "level": "moderate",
+        "reason": "PLACEHOLDER: effect to be assessed",
+        "reasonHi": "प्लेसहोल्डर: असर का आकलन बाक़ी"
+      },
+      {
+        "localityId": "mohan-road",
+        "level": "moderate",
+        "reason": "PLACEHOLDER: effect to be assessed",
+        "reasonHi": "प्लेसहोल्डर: असर का आकलन बाक़ी"
+      },
+      {
+        "localityId": "kanpur-road",
+        "level": "moderate",
+        "reason": "PLACEHOLDER: effect to be assessed",
+        "reasonHi": "प्लेसहोल्डर: असर का आकलन बाक़ी"
+      }
+    ],
+    "milestones": [],
+    "sources": [
+      {
+        "label": "PLACEHOLDER: agency notification to be linked",
+        "url": "https://up.gov.in/",
+        "accessedAt": "2026-09-18"
+      }
+    ],
+    "updatedAt": "2026-09-18",
+    "todo": [
+      "Seed record: status, budget, announced date, expected completion, extent, geometry, milestones and description are placeholders marked TODO; confirm from the agency's notification"
+    ]
+  },
+  {
+    "id": "awas-vikas-lucknow-schemes",
+    "cityId": "lucknow",
+    "name": "Awas Vikas Lucknow Schemes",
+    "nameHi": "आवास विकास लखनऊ योजनाएँ",
+    "agency": "other",
+    "agencyName": "UP Awas Evam Vikas Parishad",
+    "status": "announced",
+    "budgetCr": null,
+    "announcedOn": null,
+    "expectedCompletion": null,
+    "extent": null,
+    "description": [
+      "PLACEHOLDER (TODO): Awas Vikas Lucknow Schemes is tracked here for its effect on land in the listed localities. Status, budget, dates, extent and the plain-language description are to be filled from the agency's notification before this record is treated as sourced."
+    ],
+    "descriptionHi": [
+      "प्लेसहोल्डर (TODO): आवास विकास लखनऊ योजनाएँ को सूचीबद्ध इलाक़ों की ज़मीन पर असर के लिए यहाँ ट्रैक किया जा रहा है। स्थिति, बजट, तारीख़ें, विस्तार और सरल भाषा में विवरण एजेंसी की अधिसूचना से भरे जाने हैं।"
+    ],
+    "geometry": null,
+    "affectedLocalityIds": [
+      "vrindavan-yojana",
+      "raebareli-road"
+    ],
+    "impacts": [
+      {
+        "localityId": "vrindavan-yojana",
+        "level": "moderate",
+        "reason": "PLACEHOLDER: effect to be assessed",
+        "reasonHi": "प्लेसहोल्डर: असर का आकलन बाक़ी"
+      },
+      {
+        "localityId": "raebareli-road",
+        "level": "moderate",
+        "reason": "PLACEHOLDER: effect to be assessed",
+        "reasonHi": "प्लेसहोल्डर: असर का आकलन बाक़ी"
+      }
+    ],
+    "milestones": [],
+    "sources": [
+      {
+        "label": "PLACEHOLDER: agency notification to be linked",
+        "url": "https://up.gov.in/",
+        "accessedAt": "2026-09-18"
+      }
+    ],
+    "updatedAt": "2026-09-18",
+    "todo": [
+      "Seed record: status, budget, announced date, expected completion, extent, geometry, milestones and description are placeholders marked TODO; confirm from the agency's notification"
+    ]
+  },
+  {
+    "id": "lucknow-outer-ring-road",
+    "cityId": "lucknow",
+    "name": "Lucknow Outer Ring Road",
+    "nameHi": "लखनऊ आउटर रिंग रोड",
+    "agency": "NHAI",
+    "status": "announced",
+    "budgetCr": null,
+    "announcedOn": null,
+    "expectedCompletion": null,
+    "extent": null,
+    "description": [
+      "PLACEHOLDER (TODO): Lucknow Outer Ring Road is tracked here for its effect on land in the listed localities. Status, budget, dates, extent and the plain-language description are to be filled from the agency's notification before this record is treated as sourced."
+    ],
+    "descriptionHi": [
+      "प्लेसहोल्डर (TODO): लखनऊ आउटर रिंग रोड को सूचीबद्ध इलाक़ों की ज़मीन पर असर के लिए यहाँ ट्रैक किया जा रहा है। स्थिति, बजट, तारीख़ें, विस्तार और सरल भाषा में विवरण एजेंसी की अधिसूचना से भरे जाने हैं।"
+    ],
+    "geometry": null,
+    "affectedLocalityIds": [
+      "kursi-road",
+      "sitapur-road",
+      "sultanpur-road"
+    ],
+    "impacts": [
+      {
+        "localityId": "kursi-road",
+        "level": "moderate",
+        "reason": "PLACEHOLDER: effect to be assessed",
+        "reasonHi": "प्लेसहोल्डर: असर का आकलन बाक़ी"
+      },
+      {
+        "localityId": "sitapur-road",
+        "level": "moderate",
+        "reason": "PLACEHOLDER: effect to be assessed",
+        "reasonHi": "प्लेसहोल्डर: असर का आकलन बाक़ी"
+      },
+      {
+        "localityId": "sultanpur-road",
+        "level": "moderate",
+        "reason": "PLACEHOLDER: effect to be assessed",
+        "reasonHi": "प्लेसहोल्डर: असर का आकलन बाक़ी"
+      }
+    ],
+    "milestones": [],
+    "sources": [
+      {
+        "label": "PLACEHOLDER: agency notification to be linked",
+        "url": "https://up.gov.in/",
+        "accessedAt": "2026-09-18"
+      }
+    ],
+    "updatedAt": "2026-09-18",
+    "todo": [
+      "Seed record: status, budget, announced date, expected completion, extent, geometry, milestones and description are placeholders marked TODO; confirm from the agency's notification"
+    ]
+  },
+  {
+    "id": "shaheed-path-extension",
+    "cityId": "lucknow",
+    "name": "Shaheed Path Extension",
+    "nameHi": "शहीद पथ विस्तार",
+    "agency": "other",
+    "agencyName": "UP PWD",
+    "status": "announced",
+    "budgetCr": null,
+    "announcedOn": null,
+    "expectedCompletion": null,
+    "extent": null,
+    "description": [
+      "PLACEHOLDER (TODO): Shaheed Path Extension is tracked here for its effect on land in the listed localities. Status, budget, dates, extent and the plain-language description are to be filled from the agency's notification before this record is treated as sourced."
+    ],
+    "descriptionHi": [
+      "प्लेसहोल्डर (TODO): शहीद पथ विस्तार को सूचीबद्ध इलाक़ों की ज़मीन पर असर के लिए यहाँ ट्रैक किया जा रहा है। स्थिति, बजट, तारीख़ें, विस्तार और सरल भाषा में विवरण एजेंसी की अधिसूचना से भरे जाने हैं।"
+    ],
+    "geometry": null,
+    "affectedLocalityIds": [
+      "shaheed-path",
+      "sushant-golf-city"
+    ],
+    "impacts": [
+      {
+        "localityId": "shaheed-path",
+        "level": "moderate",
+        "reason": "PLACEHOLDER: effect to be assessed",
+        "reasonHi": "प्लेसहोल्डर: असर का आकलन बाक़ी"
+      },
+      {
+        "localityId": "sushant-golf-city",
+        "level": "moderate",
+        "reason": "PLACEHOLDER: effect to be assessed",
+        "reasonHi": "प्लेसहोल्डर: असर का आकलन बाक़ी"
+      }
+    ],
+    "milestones": [],
+    "sources": [
+      {
+        "label": "PLACEHOLDER: agency notification to be linked",
+        "url": "https://up.gov.in/",
+        "accessedAt": "2026-09-18"
+      }
+    ],
+    "updatedAt": "2026-09-18",
+    "todo": [
+      "Seed record: status, budget, announced date, expected completion, extent, geometry, milestones and description are placeholders marked TODO; confirm from the agency's notification"
+    ]
+  },
+  {
+    "id": "lucknow-kanpur-expressway",
+    "cityId": "lucknow",
+    "name": "Lucknow–Kanpur Expressway",
+    "nameHi": "लखनऊ–कानपुर एक्सप्रेसवे",
+    "agency": "NHAI",
+    "status": "announced",
+    "budgetCr": null,
+    "announcedOn": null,
+    "expectedCompletion": null,
+    "extent": null,
+    "description": [
+      "PLACEHOLDER (TODO): Lucknow–Kanpur Expressway is tracked here for its effect on land in the listed localities. Status, budget, dates, extent and the plain-language description are to be filled from the agency's notification before this record is treated as sourced."
+    ],
+    "descriptionHi": [
+      "प्लेसहोल्डर (TODO): लखनऊ–कानपुर एक्सप्रेसवे को सूचीबद्ध इलाक़ों की ज़मीन पर असर के लिए यहाँ ट्रैक किया जा रहा है। स्थिति, बजट, तारीख़ें, विस्तार और सरल भाषा में विवरण एजेंसी की अधिसूचना से भरे जाने हैं।"
+    ],
+    "geometry": null,
+    "affectedLocalityIds": [
+      "kanpur-road",
+      "amausi-airport",
+      "sarojini-nagar"
+    ],
+    "impacts": [
+      {
+        "localityId": "kanpur-road",
+        "level": "moderate",
+        "reason": "PLACEHOLDER: effect to be assessed",
+        "reasonHi": "प्लेसहोल्डर: असर का आकलन बाक़ी"
+      },
+      {
+        "localityId": "amausi-airport",
+        "level": "moderate",
+        "reason": "PLACEHOLDER: effect to be assessed",
+        "reasonHi": "प्लेसहोल्डर: असर का आकलन बाक़ी"
+      },
+      {
+        "localityId": "sarojini-nagar",
+        "level": "moderate",
+        "reason": "PLACEHOLDER: effect to be assessed",
+        "reasonHi": "प्लेसहोल्डर: असर का आकलन बाक़ी"
+      }
+    ],
+    "milestones": [],
+    "sources": [
+      {
+        "label": "PLACEHOLDER: agency notification to be linked",
+        "url": "https://up.gov.in/",
+        "accessedAt": "2026-09-18"
+      }
+    ],
+    "updatedAt": "2026-09-18",
+    "todo": [
+      "Seed record: status, budget, announced date, expected completion, extent, geometry, milestones and description are placeholders marked TODO; confirm from the agency's notification"
+    ]
+  },
+  {
+    "id": "gda-plot-schemes",
+    "cityId": "gorakhpur",
+    "name": "GDA Plot Schemes",
+    "nameHi": "जीडीए प्लॉट योजनाएँ",
+    "agency": "GDA",
+    "status": "announced",
+    "budgetCr": null,
+    "announcedOn": null,
+    "expectedCompletion": null,
+    "extent": null,
+    "description": [
+      "PLACEHOLDER (TODO): GDA Plot Schemes is tracked here for its effect on land in the listed localities. Status, budget, dates, extent and the plain-language description are to be filled from the agency's notification before this record is treated as sourced."
+    ],
+    "descriptionHi": [
+      "प्लेसहोल्डर (TODO): जीडीए प्लॉट योजनाएँ को सूचीबद्ध इलाक़ों की ज़मीन पर असर के लिए यहाँ ट्रैक किया जा रहा है। स्थिति, बजट, तारीख़ें, विस्तार और सरल भाषा में विवरण एजेंसी की अधिसूचना से भरे जाने हैं।"
+    ],
+    "geometry": null,
+    "affectedLocalityIds": [
+      "taramandal",
+      "rapti-nagar",
+      "khorabar"
+    ],
+    "impacts": [
+      {
+        "localityId": "taramandal",
+        "level": "moderate",
+        "reason": "PLACEHOLDER: effect to be assessed",
+        "reasonHi": "प्लेसहोल्डर: असर का आकलन बाक़ी"
+      },
+      {
+        "localityId": "rapti-nagar",
+        "level": "moderate",
+        "reason": "PLACEHOLDER: effect to be assessed",
+        "reasonHi": "प्लेसहोल्डर: असर का आकलन बाक़ी"
+      },
+      {
+        "localityId": "khorabar",
+        "level": "moderate",
+        "reason": "PLACEHOLDER: effect to be assessed",
+        "reasonHi": "प्लेसहोल्डर: असर का आकलन बाक़ी"
+      }
+    ],
+    "milestones": [],
+    "sources": [
+      {
+        "label": "PLACEHOLDER: agency notification to be linked",
+        "url": "https://up.gov.in/",
+        "accessedAt": "2026-09-18"
+      }
+    ],
+    "updatedAt": "2026-09-18",
+    "todo": [
+      "Seed record: status, budget, announced date, expected completion, extent, geometry, milestones and description are placeholders marked TODO; confirm from the agency's notification"
+    ]
+  },
+  {
+    "id": "gida-expansion",
+    "cityId": "gorakhpur",
+    "name": "GIDA Expansion",
+    "nameHi": "गीडा विस्तार",
+    "agency": "other",
+    "agencyName": "Gorakhpur Industrial Development Authority",
+    "status": "announced",
+    "budgetCr": null,
+    "announcedOn": null,
+    "expectedCompletion": null,
+    "extent": null,
+    "description": [
+      "PLACEHOLDER (TODO): GIDA Expansion is tracked here for its effect on land in the listed localities. Status, budget, dates, extent and the plain-language description are to be filled from the agency's notification before this record is treated as sourced."
+    ],
+    "descriptionHi": [
+      "प्लेसहोल्डर (TODO): गीडा विस्तार को सूचीबद्ध इलाक़ों की ज़मीन पर असर के लिए यहाँ ट्रैक किया जा रहा है। स्थिति, बजट, तारीख़ें, विस्तार और सरल भाषा में विवरण एजेंसी की अधिसूचना से भरे जाने हैं।"
+    ],
+    "geometry": null,
+    "affectedLocalityIds": [
+      "gida",
+      "sahjanwa"
+    ],
+    "impacts": [
+      {
+        "localityId": "gida",
+        "level": "moderate",
+        "reason": "PLACEHOLDER: effect to be assessed",
+        "reasonHi": "प्लेसहोल्डर: असर का आकलन बाक़ी"
+      },
+      {
+        "localityId": "sahjanwa",
+        "level": "moderate",
+        "reason": "PLACEHOLDER: effect to be assessed",
+        "reasonHi": "प्लेसहोल्डर: असर का आकलन बाक़ी"
+      }
+    ],
+    "milestones": [],
+    "sources": [
+      {
+        "label": "PLACEHOLDER: agency notification to be linked",
+        "url": "https://up.gov.in/",
+        "accessedAt": "2026-09-18"
+      }
+    ],
+    "updatedAt": "2026-09-18",
+    "todo": [
+      "Seed record: status, budget, announced date, expected completion, extent, geometry, milestones and description are placeholders marked TODO; confirm from the agency's notification"
+    ]
+  },
+  {
+    "id": "gorakhpur-link-expressway",
+    "cityId": "gorakhpur",
+    "name": "Gorakhpur Link Expressway",
+    "nameHi": "गोरखपुर लिंक एक्सप्रेसवे",
+    "agency": "UPEIDA",
+    "status": "announced",
+    "budgetCr": null,
+    "announcedOn": null,
+    "expectedCompletion": null,
+    "extent": null,
+    "description": [
+      "PLACEHOLDER (TODO): Gorakhpur Link Expressway is tracked here for its effect on land in the listed localities. Status, budget, dates, extent and the plain-language description are to be filled from the agency's notification before this record is treated as sourced."
+    ],
+    "descriptionHi": [
+      "प्लेसहोल्डर (TODO): गोरखपुर लिंक एक्सप्रेसवे को सूचीबद्ध इलाक़ों की ज़मीन पर असर के लिए यहाँ ट्रैक किया जा रहा है। स्थिति, बजट, तारीख़ें, विस्तार और सरल भाषा में विवरण एजेंसी की अधिसूचना से भरे जाने हैं।"
+    ],
+    "geometry": null,
+    "affectedLocalityIds": [
+      "jungle-kaudia-airport",
+      "khorabar",
+      "sahjanwa"
+    ],
+    "impacts": [
+      {
+        "localityId": "jungle-kaudia-airport",
+        "level": "moderate",
+        "reason": "PLACEHOLDER: effect to be assessed",
+        "reasonHi": "प्लेसहोल्डर: असर का आकलन बाक़ी"
+      },
+      {
+        "localityId": "khorabar",
+        "level": "moderate",
+        "reason": "PLACEHOLDER: effect to be assessed",
+        "reasonHi": "प्लेसहोल्डर: असर का आकलन बाक़ी"
+      },
+      {
+        "localityId": "sahjanwa",
+        "level": "moderate",
+        "reason": "PLACEHOLDER: effect to be assessed",
+        "reasonHi": "प्लेसहोल्डर: असर का आकलन बाक़ी"
+      }
+    ],
+    "milestones": [],
+    "sources": [
+      {
+        "label": "PLACEHOLDER: agency notification to be linked",
+        "url": "https://up.gov.in/",
+        "accessedAt": "2026-09-18"
+      }
+    ],
+    "updatedAt": "2026-09-18",
+    "todo": [
+      "Seed record: status, budget, announced date, expected completion, extent, geometry, milestones and description are placeholders marked TODO; confirm from the agency's notification"
+    ]
+  },
+  {
+    "id": "aiims-corridor",
+    "cityId": "gorakhpur",
+    "name": "AIIMS Corridor",
+    "nameHi": "एम्स कॉरिडोर",
+    "agency": "GDA",
+    "status": "announced",
+    "budgetCr": null,
+    "announcedOn": null,
+    "expectedCompletion": null,
+    "extent": null,
+    "description": [
+      "PLACEHOLDER (TODO): AIIMS Corridor is tracked here for its effect on land in the listed localities. Status, budget, dates, extent and the plain-language description are to be filled from the agency's notification before this record is treated as sourced."
+    ],
+    "descriptionHi": [
+      "प्लेसहोल्डर (TODO): एम्स कॉरिडोर को सूचीबद्ध इलाक़ों की ज़मीन पर असर के लिए यहाँ ट्रैक किया जा रहा है। स्थिति, बजट, तारीख़ें, विस्तार और सरल भाषा में विवरण एजेंसी की अधिसूचना से भरे जाने हैं।"
+    ],
+    "geometry": null,
+    "affectedLocalityIds": [
+      "kunraghat-aiims",
+      "deoria-road"
+    ],
+    "impacts": [
+      {
+        "localityId": "kunraghat-aiims",
+        "level": "moderate",
+        "reason": "PLACEHOLDER: effect to be assessed",
+        "reasonHi": "प्लेसहोल्डर: असर का आकलन बाक़ी"
+      },
+      {
+        "localityId": "deoria-road",
+        "level": "moderate",
+        "reason": "PLACEHOLDER: effect to be assessed",
+        "reasonHi": "प्लेसहोल्डर: असर का आकलन बाक़ी"
+      }
+    ],
+    "milestones": [],
+    "sources": [
+      {
+        "label": "PLACEHOLDER: agency notification to be linked",
+        "url": "https://up.gov.in/",
+        "accessedAt": "2026-09-18"
+      }
+    ],
+    "updatedAt": "2026-09-18",
+    "todo": [
+      "Seed record: status, budget, announced date, expected completion, extent, geometry, milestones and description are placeholders marked TODO; confirm from the agency's notification"
+    ]
+  },
+  {
+    "id": "hurl-fertilizer-plant",
+    "cityId": "gorakhpur",
+    "name": "HURL Fertilizer Plant",
+    "nameHi": "एचयूआरएल खाद कारखाना",
+    "agency": "other",
+    "agencyName": "Hindustan Urvarak & Rasayan Ltd",
+    "status": "announced",
+    "budgetCr": null,
+    "announcedOn": null,
+    "expectedCompletion": null,
+    "extent": null,
+    "description": [
+      "PLACEHOLDER (TODO): HURL Fertilizer Plant is tracked here for its effect on land in the listed localities. Status, budget, dates, extent and the plain-language description are to be filled from the agency's notification before this record is treated as sourced."
+    ],
+    "descriptionHi": [
+      "प्लेसहोल्डर (TODO): एचयूआरएल खाद कारखाना को सूचीबद्ध इलाक़ों की ज़मीन पर असर के लिए यहाँ ट्रैक किया जा रहा है। स्थिति, बजट, तारीख़ें, विस्तार और सरल भाषा में विवरण एजेंसी की अधिसूचना से भरे जाने हैं।"
+    ],
+    "geometry": null,
+    "affectedLocalityIds": [
+      "hurl-fertilizer-belt",
+      "jhungia",
+      "maharajganj-road"
+    ],
+    "impacts": [
+      {
+        "localityId": "hurl-fertilizer-belt",
+        "level": "moderate",
+        "reason": "PLACEHOLDER: effect to be assessed",
+        "reasonHi": "प्लेसहोल्डर: असर का आकलन बाक़ी"
+      },
+      {
+        "localityId": "jhungia",
+        "level": "moderate",
+        "reason": "PLACEHOLDER: effect to be assessed",
+        "reasonHi": "प्लेसहोल्डर: असर का आकलन बाक़ी"
+      },
+      {
+        "localityId": "maharajganj-road",
+        "level": "moderate",
+        "reason": "PLACEHOLDER: effect to be assessed",
+        "reasonHi": "प्लेसहोल्डर: असर का आकलन बाक़ी"
+      }
+    ],
+    "milestones": [],
+    "sources": [
+      {
+        "label": "PLACEHOLDER: agency notification to be linked",
+        "url": "https://up.gov.in/",
+        "accessedAt": "2026-09-18"
+      }
+    ],
+    "updatedAt": "2026-09-18",
+    "todo": [
+      "Seed record: status, budget, announced date, expected completion, extent, geometry, milestones and description are placeholders marked TODO; confirm from the agency's notification"
     ]
   }
 ]

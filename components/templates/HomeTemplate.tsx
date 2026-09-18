@@ -71,9 +71,9 @@ export function HomeTemplate({ locale }: { locale: Locale }) {
         </Section>
       )}
 
-      {/* C4. Cities: Ayodhya spans two columns */}
+      {/* C4. Cities in one row: Ayodhya spans two of four columns, Lucknow and Gorakhpur one each */}
       <Section size="lg" tone="surface" hairline {...story.cities}>
-        <div className="grid gap-6 lg:grid-cols-3">
+        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
           {cities.map((c, i) => (
             <CityCard key={c.id} locale={locale} city={c} stats={getCityStats(c.id, locale)} hero={i === 0} labels={story.cities} />
           ))}

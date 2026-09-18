@@ -20,7 +20,7 @@ export function CityCard({ locale, city, stats, hero = false, labels }: CityCard
   const t = ui[locale];
   const name = pick(locale, city.name, city.nameHi);
   return (
-    <article data-component="CityCard" className={`card flex flex-col p-7 ${hero ? "lg:col-span-2" : ""}`}>
+    <article data-component="CityCard" className={`card flex flex-col p-7 ${hero ? "md:col-span-2" : ""}`}>
       <div className="flex flex-wrap items-baseline gap-x-3">
         <h3 className={hero ? "text-[32px]" : "text-[26px]"}>
           <a href={localePath(locale, `/${city.id}/`)} className="text-ink no-underline hover:text-accent-deep">

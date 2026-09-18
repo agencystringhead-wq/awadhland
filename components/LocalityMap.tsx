@@ -65,7 +65,7 @@ export function LocalityMap({ locale, localities, overlay = null, height = 420 }
       group.addTo(map);
 
       if (overlay) {
-        L.geoJSON(overlay as GeoJSON.GeoJsonObject, { style: { color: "#1f4d3a", weight: 2, fillOpacity: 0.12 } })
+        L.geoJSON(overlay as GeoJSON.GeoJsonObject, { style: { color: "#c45f2a", weight: 2, fillOpacity: 0.12 } })
           .addTo(map)
           .addTo(group);
       }

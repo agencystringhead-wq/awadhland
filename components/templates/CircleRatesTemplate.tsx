@@ -74,7 +74,7 @@ export function CircleRatesTemplate({ locale, cityId }: { locale: Locale; cityId
       </section>
 
       {/* 2. Calculator, fixed to this city, with the rules it applies shown under it */}
-      <Section title={t.stampDutyRules}>
+      <Section id="stamp-duty" title={t.stampDutyRules}>
         <div className="mb-6">
           <StampDutyCalculator
             locale={locale}
@@ -128,7 +128,7 @@ export function CircleRatesTemplate({ locale, cityId }: { locale: Locale; cityId
       </Section>
 
       {/* 4. How circle rates work */}
-      <Section title={t.howCircleRatesWork}>
+      <Section id="how" title={t.howCircleRatesWork}>
         <div className="prose-site max-w-3xl text-[17px] leading-relaxed">
           {circleRatesCopy[locale].paragraphs.map((para, i) => (
             <p key={i}>{para}</p>
@@ -138,7 +138,7 @@ export function CircleRatesTemplate({ locale, cityId }: { locale: Locale; cityId
 
       {/* 5. Revision history: past schedules only */}
       {revisions.length > 0 && (
-        <Section title={t.revisionHistory}>
+        <Section id="revisions" title={t.revisionHistory}>
           <div className="card overflow-x-auto">
             <table className="w-full text-[15px]">
               <thead className="bg-cream-deep text-left text-sm text-ink-soft">

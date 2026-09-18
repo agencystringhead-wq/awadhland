@@ -59,10 +59,10 @@ export function PriceTrend({ locale, series }: PriceTrendProps) {
             </text>
           </g>
         ))}
-        <path d={path} fill="none" stroke="#1f4d3a" strokeWidth={2.5} strokeLinejoin="round" strokeLinecap="round" />
+        <path d={path} fill="none" stroke="#c45f2a" strokeWidth={2.5} strokeLinejoin="round" strokeLinecap="round" />
         {series.map((p, i) => (
           <g key={p.date}>
-            <circle cx={xs[i]} cy={y(p.median)} r={4} fill="#1f4d3a" stroke="#fffdf9" strokeWidth={2} />
+            <circle cx={xs[i]} cy={y(p.median)} r={4} fill="#c45f2a" stroke="#fbf7ef" strokeWidth={2} />
             <text
               x={xs[i]}
               y={H - 10}

@@ -5,7 +5,9 @@
  * not in lib/pages.ts, so they never reach a sitemap.
  */
 import { SITE_URL } from "./i18n";
-import { getAllPages, getPages, type PageEntry } from "./pages";
+import { getIndexablePages as getPages, type PageEntry } from "./pages";
+
+const getAllPages = () => [...getPages("en"), ...getPages("hi")];
 
 const esc = (s: string) => s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
 

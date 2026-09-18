@@ -20,6 +20,8 @@ export function metadataFor(locale: Locale, sitePath: string): Metadata {
   return {
     title: page.title,
     description: page.description,
+    // Draft localities render but must not be indexed (Step 3 D2).
+    ...(page.noindex ? { robots: { index: false, follow: true } } : {}),
     alternates: { canonical: page.url, languages },
     openGraph: {
       title: page.title,

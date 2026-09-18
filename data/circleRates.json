@@ -5,7 +5,11 @@
     "effectiveFrom": "2026-08-01",
     "sourceUrl": "https://igrsup.gov.in/",
     "archiveUrl": null,
-    "units": { "residential": "sqm", "commercial": "sqm", "agricultural": "hectare" },
+    "units": {
+      "residential": "sqm",
+      "commercial": "sqm",
+      "agricultural": "hectare"
+    },
     "rates": [
       {
         "localityId": "faizabad-road",
@@ -24,14 +28,817 @@
         "agricultural": 6000000,
         "effectiveFrom": "2026-08-01",
         "sourceUrl": "https://igrsup.gov.in/"
+      },
+      {
+        "localityId": "naya-ghat",
+        "tehsil": "Sadar",
+        "residential": 30000,
+        "commercial": 60000,
+        "agricultural": 9000000,
+        "effectiveFrom": "2026-08-01",
+        "sourceUrl": "https://igrsup.gov.in/"
+      },
+      {
+        "localityId": "ram-path",
+        "tehsil": "Sadar",
+        "residential": 30000,
+        "commercial": 60000,
+        "agricultural": 9000000,
+        "effectiveFrom": "2026-08-01",
+        "sourceUrl": "https://igrsup.gov.in/"
+      },
+      {
+        "localityId": "dharma-path",
+        "tehsil": "Sadar",
+        "residential": 30000,
+        "commercial": 60000,
+        "agricultural": 9000000,
+        "effectiveFrom": "2026-08-01",
+        "sourceUrl": "https://igrsup.gov.in/"
+      },
+      {
+        "localityId": "bhakti-path",
+        "tehsil": "Sadar",
+        "residential": 30000,
+        "commercial": 60000,
+        "agricultural": 9000000,
+        "effectiveFrom": "2026-08-01",
+        "sourceUrl": "https://igrsup.gov.in/"
+      },
+      {
+        "localityId": "sahadatganj",
+        "tehsil": "Sadar",
+        "residential": 18000,
+        "commercial": 36000,
+        "agricultural": 6000000,
+        "effectiveFrom": "2026-08-01",
+        "sourceUrl": "https://igrsup.gov.in/"
+      },
+      {
+        "localityId": "rikabganj",
+        "tehsil": "Sadar",
+        "residential": 18000,
+        "commercial": 36000,
+        "agricultural": 6000000,
+        "effectiveFrom": "2026-08-01",
+        "sourceUrl": "https://igrsup.gov.in/"
+      },
+      {
+        "localityId": "devkali",
+        "tehsil": "Sadar",
+        "residential": 12000,
+        "commercial": 24000,
+        "agricultural": 4500000,
+        "effectiveFrom": "2026-08-01",
+        "sourceUrl": "https://igrsup.gov.in/"
+      },
+      {
+        "localityId": "ranopali",
+        "tehsil": "Sadar",
+        "residential": 12000,
+        "commercial": 24000,
+        "agricultural": 4500000,
+        "effectiveFrom": "2026-08-01",
+        "sourceUrl": "https://igrsup.gov.in/"
+      },
+      {
+        "localityId": "ayodhya-bypass-nh-27",
+        "tehsil": "Sadar",
+        "residential": 12000,
+        "commercial": 24000,
+        "agricultural": 4500000,
+        "effectiveFrom": "2026-08-01",
+        "sourceUrl": "https://igrsup.gov.in/"
+      },
+      {
+        "localityId": "airport-road",
+        "tehsil": "Sadar",
+        "residential": 18000,
+        "commercial": 36000,
+        "agricultural": 6000000,
+        "effectiveFrom": "2026-08-01",
+        "sourceUrl": "https://igrsup.gov.in/"
+      },
+      {
+        "localityId": "lucknow-road",
+        "tehsil": "Sadar",
+        "residential": 12000,
+        "commercial": 24000,
+        "agricultural": 4500000,
+        "effectiveFrom": "2026-08-01",
+        "sourceUrl": "https://igrsup.gov.in/"
+      },
+      {
+        "localityId": "gosaiganj",
+        "tehsil": "Bikapur",
+        "residential": 6000,
+        "commercial": 12000,
+        "agricultural": 2500000,
+        "effectiveFrom": "2026-08-01",
+        "sourceUrl": "https://igrsup.gov.in/"
+      },
+      {
+        "localityId": "bikapur-road",
+        "tehsil": "Bikapur",
+        "residential": 6000,
+        "commercial": 12000,
+        "agricultural": 2500000,
+        "effectiveFrom": "2026-08-01",
+        "sourceUrl": "https://igrsup.gov.in/"
+      },
+      {
+        "localityId": "sohawal",
+        "tehsil": "Sohawal",
+        "residential": 6000,
+        "commercial": 12000,
+        "agricultural": 2500000,
+        "effectiveFrom": "2026-08-01",
+        "sourceUrl": "https://igrsup.gov.in/"
+      },
+      {
+        "localityId": "masodha",
+        "tehsil": "Sadar",
+        "residential": 6000,
+        "commercial": 12000,
+        "agricultural": 2500000,
+        "effectiveFrom": "2026-08-01",
+        "sourceUrl": "https://igrsup.gov.in/"
+      },
+      {
+        "localityId": "barun-bypass",
+        "tehsil": "Sadar",
+        "residential": 12000,
+        "commercial": 24000,
+        "agricultural": 4500000,
+        "effectiveFrom": "2026-08-01",
+        "sourceUrl": "https://igrsup.gov.in/"
+      },
+      {
+        "localityId": "deokali",
+        "tehsil": "Sadar",
+        "residential": 12000,
+        "commercial": 24000,
+        "agricultural": 4500000,
+        "effectiveFrom": "2026-08-01",
+        "sourceUrl": "https://igrsup.gov.in/"
+      },
+      {
+        "localityId": "mahobra",
+        "tehsil": "Sadar",
+        "residential": 6000,
+        "commercial": 12000,
+        "agricultural": 2500000,
+        "effectiveFrom": "2026-08-01",
+        "sourceUrl": "https://igrsup.gov.in/"
+      },
+      {
+        "localityId": "darshan-nagar",
+        "tehsil": "Sadar",
+        "residential": 6000,
+        "commercial": 12000,
+        "agricultural": 2500000,
+        "effectiveFrom": "2026-08-01",
+        "sourceUrl": "https://igrsup.gov.in/"
+      },
+      {
+        "localityId": "bhadarsa-road",
+        "tehsil": "Sadar",
+        "residential": 6000,
+        "commercial": 12000,
+        "agricultural": 2500000,
+        "effectiveFrom": "2026-08-01",
+        "sourceUrl": "https://igrsup.gov.in/"
+      },
+      {
+        "localityId": "rudauli-road",
+        "tehsil": "Sohawal",
+        "residential": 6000,
+        "commercial": 12000,
+        "agricultural": 2500000,
+        "effectiveFrom": "2026-08-01",
+        "sourceUrl": "https://igrsup.gov.in/"
+      },
+      {
+        "localityId": "kumarganj-road",
+        "tehsil": "Bikapur",
+        "residential": 6000,
+        "commercial": 12000,
+        "agricultural": 2500000,
+        "effectiveFrom": "2026-08-01",
+        "sourceUrl": "https://igrsup.gov.in/"
       }
     ],
     "sources": [
-      { "label": "IGRSUP circle rate schedule, Ayodhya", "url": "https://igrsup.gov.in/", "accessedAt": "2026-09-10" }
+      {
+        "label": "IGRSUP circle rate schedule, Ayodhya",
+        "url": "https://igrsup.gov.in/",
+        "accessedAt": "2026-09-10"
+      }
     ],
     "updatedAt": "2026-09-10",
     "todo": [
       "Seed schedule: rates and effective date are illustrative; replace with output of scripts/parse-circle-rates.ts on the real Ayodhya PDF",
+      "Upload the schedule PDF to R2 and set archiveUrl"
+    ]
+  },
+  {
+    "id": "lucknow-2026-08-01",
+    "cityId": "lucknow",
+    "effectiveFrom": "2026-08-01",
+    "sourceUrl": "https://igrsup.gov.in/",
+    "archiveUrl": null,
+    "units": {
+      "residential": "sqm",
+      "commercial": "sqm",
+      "agricultural": "hectare"
+    },
+    "rates": [
+      {
+        "localityId": "gomti-nagar",
+        "tehsil": "Sadar",
+        "residential": 30000,
+        "commercial": 60000,
+        "agricultural": 9000000,
+        "effectiveFrom": "2026-08-01",
+        "sourceUrl": "https://igrsup.gov.in/"
+      },
+      {
+        "localityId": "gomti-nagar-extension",
+        "tehsil": "Sadar",
+        "residential": 18000,
+        "commercial": 36000,
+        "agricultural": 6000000,
+        "effectiveFrom": "2026-08-01",
+        "sourceUrl": "https://igrsup.gov.in/"
+      },
+      {
+        "localityId": "sultanpur-road",
+        "tehsil": "Mohanlalganj",
+        "residential": 18000,
+        "commercial": 36000,
+        "agricultural": 6000000,
+        "effectiveFrom": "2026-08-01",
+        "sourceUrl": "https://igrsup.gov.in/"
+      },
+      {
+        "localityId": "shaheed-path",
+        "tehsil": "Sadar",
+        "residential": 30000,
+        "commercial": 60000,
+        "agricultural": 9000000,
+        "effectiveFrom": "2026-08-01",
+        "sourceUrl": "https://igrsup.gov.in/"
+      },
+      {
+        "localityId": "raebareli-road",
+        "tehsil": "Mohanlalganj",
+        "residential": 12000,
+        "commercial": 24000,
+        "agricultural": 4500000,
+        "effectiveFrom": "2026-08-01",
+        "sourceUrl": "https://igrsup.gov.in/"
+      },
+      {
+        "localityId": "kanpur-road",
+        "tehsil": "Sarojini Nagar",
+        "residential": 12000,
+        "commercial": 24000,
+        "agricultural": 4500000,
+        "effectiveFrom": "2026-08-01",
+        "sourceUrl": "https://igrsup.gov.in/"
+      },
+      {
+        "localityId": "mohan-road",
+        "tehsil": "Sadar",
+        "residential": 6000,
+        "commercial": 12000,
+        "agricultural": 2500000,
+        "effectiveFrom": "2026-08-01",
+        "sourceUrl": "https://igrsup.gov.in/"
+      },
+      {
+        "localityId": "deva-road",
+        "tehsil": "Sadar",
+        "residential": 12000,
+        "commercial": 24000,
+        "agricultural": 4500000,
+        "effectiveFrom": "2026-08-01",
+        "sourceUrl": "https://igrsup.gov.in/"
+      },
+      {
+        "localityId": "faizabad-road-chinhat",
+        "tehsil": "Sadar",
+        "residential": 18000,
+        "commercial": 36000,
+        "agricultural": 6000000,
+        "effectiveFrom": "2026-08-01",
+        "sourceUrl": "https://igrsup.gov.in/"
+      },
+      {
+        "localityId": "sitapur-road",
+        "tehsil": "Sadar",
+        "residential": 12000,
+        "commercial": 24000,
+        "agricultural": 4500000,
+        "effectiveFrom": "2026-08-01",
+        "sourceUrl": "https://igrsup.gov.in/"
+      },
+      {
+        "localityId": "hardoi-road",
+        "tehsil": "Sadar",
+        "residential": 6000,
+        "commercial": 12000,
+        "agricultural": 2500000,
+        "effectiveFrom": "2026-08-01",
+        "sourceUrl": "https://igrsup.gov.in/"
+      },
+      {
+        "localityId": "kursi-road",
+        "tehsil": "Bakshi Ka Talab",
+        "residential": 12000,
+        "commercial": 24000,
+        "agricultural": 4500000,
+        "effectiveFrom": "2026-08-01",
+        "sourceUrl": "https://igrsup.gov.in/"
+      },
+      {
+        "localityId": "iim-road",
+        "tehsil": "Sadar",
+        "residential": 12000,
+        "commercial": 24000,
+        "agricultural": 4500000,
+        "effectiveFrom": "2026-08-01",
+        "sourceUrl": "https://igrsup.gov.in/"
+      },
+      {
+        "localityId": "amausi-airport",
+        "tehsil": "Sarojini Nagar",
+        "residential": 18000,
+        "commercial": 36000,
+        "agricultural": 6000000,
+        "effectiveFrom": "2026-08-01",
+        "sourceUrl": "https://igrsup.gov.in/"
+      },
+      {
+        "localityId": "sushant-golf-city",
+        "tehsil": "Mohanlalganj",
+        "residential": 30000,
+        "commercial": 60000,
+        "agricultural": 9000000,
+        "effectiveFrom": "2026-08-01",
+        "sourceUrl": "https://igrsup.gov.in/"
+      },
+      {
+        "localityId": "vrindavan-yojana",
+        "tehsil": "Mohanlalganj",
+        "residential": 18000,
+        "commercial": 36000,
+        "agricultural": 6000000,
+        "effectiveFrom": "2026-08-01",
+        "sourceUrl": "https://igrsup.gov.in/"
+      },
+      {
+        "localityId": "jankipuram",
+        "tehsil": "Sadar",
+        "residential": 18000,
+        "commercial": 36000,
+        "agricultural": 6000000,
+        "effectiveFrom": "2026-08-01",
+        "sourceUrl": "https://igrsup.gov.in/"
+      },
+      {
+        "localityId": "aliganj",
+        "tehsil": "Sadar",
+        "residential": 30000,
+        "commercial": 60000,
+        "agricultural": 9000000,
+        "effectiveFrom": "2026-08-01",
+        "sourceUrl": "https://igrsup.gov.in/"
+      },
+      {
+        "localityId": "indira-nagar",
+        "tehsil": "Sadar",
+        "residential": 30000,
+        "commercial": 60000,
+        "agricultural": 9000000,
+        "effectiveFrom": "2026-08-01",
+        "sourceUrl": "https://igrsup.gov.in/"
+      },
+      {
+        "localityId": "chinhat",
+        "tehsil": "Sadar",
+        "residential": 12000,
+        "commercial": 24000,
+        "agricultural": 4500000,
+        "effectiveFrom": "2026-08-01",
+        "sourceUrl": "https://igrsup.gov.in/"
+      },
+      {
+        "localityId": "malihabad-road",
+        "tehsil": "Malihabad",
+        "residential": 6000,
+        "commercial": 12000,
+        "agricultural": 2500000,
+        "effectiveFrom": "2026-08-01",
+        "sourceUrl": "https://igrsup.gov.in/"
+      },
+      {
+        "localityId": "dubagga",
+        "tehsil": "Sadar",
+        "residential": 6000,
+        "commercial": 12000,
+        "agricultural": 2500000,
+        "effectiveFrom": "2026-08-01",
+        "sourceUrl": "https://igrsup.gov.in/"
+      },
+      {
+        "localityId": "bijnor-road",
+        "tehsil": "Sarojini Nagar",
+        "residential": 12000,
+        "commercial": 24000,
+        "agricultural": 4500000,
+        "effectiveFrom": "2026-08-01",
+        "sourceUrl": "https://igrsup.gov.in/"
+      },
+      {
+        "localityId": "ashiyana",
+        "tehsil": "Sadar",
+        "residential": 18000,
+        "commercial": 36000,
+        "agricultural": 6000000,
+        "effectiveFrom": "2026-08-01",
+        "sourceUrl": "https://igrsup.gov.in/"
+      },
+      {
+        "localityId": "alambagh",
+        "tehsil": "Sadar",
+        "residential": 18000,
+        "commercial": 36000,
+        "agricultural": 6000000,
+        "effectiveFrom": "2026-08-01",
+        "sourceUrl": "https://igrsup.gov.in/"
+      },
+      {
+        "localityId": "mahanagar",
+        "tehsil": "Sadar",
+        "residential": 30000,
+        "commercial": 60000,
+        "agricultural": 9000000,
+        "effectiveFrom": "2026-08-01",
+        "sourceUrl": "https://igrsup.gov.in/"
+      },
+      {
+        "localityId": "hazratganj",
+        "tehsil": "Sadar",
+        "residential": 30000,
+        "commercial": 60000,
+        "agricultural": 9000000,
+        "effectiveFrom": "2026-08-01",
+        "sourceUrl": "https://igrsup.gov.in/"
+      },
+      {
+        "localityId": "gomti-nagar-vibhuti-khand",
+        "tehsil": "Sadar",
+        "residential": 30000,
+        "commercial": 60000,
+        "agricultural": 9000000,
+        "effectiveFrom": "2026-08-01",
+        "sourceUrl": "https://igrsup.gov.in/"
+      },
+      {
+        "localityId": "gomti-nagar-vipul-khand",
+        "tehsil": "Sadar",
+        "residential": 30000,
+        "commercial": 60000,
+        "agricultural": 9000000,
+        "effectiveFrom": "2026-08-01",
+        "sourceUrl": "https://igrsup.gov.in/"
+      },
+      {
+        "localityId": "vikas-nagar",
+        "tehsil": "Sadar",
+        "residential": 18000,
+        "commercial": 36000,
+        "agricultural": 6000000,
+        "effectiveFrom": "2026-08-01",
+        "sourceUrl": "https://igrsup.gov.in/"
+      },
+      {
+        "localityId": "telibagh",
+        "tehsil": "Mohanlalganj",
+        "residential": 12000,
+        "commercial": 24000,
+        "agricultural": 4500000,
+        "effectiveFrom": "2026-08-01",
+        "sourceUrl": "https://igrsup.gov.in/"
+      },
+      {
+        "localityId": "bangla-bazar",
+        "tehsil": "Sadar",
+        "residential": 12000,
+        "commercial": 24000,
+        "agricultural": 4500000,
+        "effectiveFrom": "2026-08-01",
+        "sourceUrl": "https://igrsup.gov.in/"
+      },
+      {
+        "localityId": "sarojini-nagar",
+        "tehsil": "Sarojini Nagar",
+        "residential": 12000,
+        "commercial": 24000,
+        "agricultural": 4500000,
+        "effectiveFrom": "2026-08-01",
+        "sourceUrl": "https://igrsup.gov.in/"
+      },
+      {
+        "localityId": "bakshi-ka-talab",
+        "tehsil": "Bakshi Ka Talab",
+        "residential": 6000,
+        "commercial": 12000,
+        "agricultural": 2500000,
+        "effectiveFrom": "2026-08-01",
+        "sourceUrl": "https://igrsup.gov.in/"
+      },
+      {
+        "localityId": "itaunja",
+        "tehsil": "Bakshi Ka Talab",
+        "residential": 6000,
+        "commercial": 12000,
+        "agricultural": 2500000,
+        "effectiveFrom": "2026-08-01",
+        "sourceUrl": "https://igrsup.gov.in/"
+      },
+      {
+        "localityId": "kakori",
+        "tehsil": "Malihabad",
+        "residential": 6000,
+        "commercial": 12000,
+        "agricultural": 2500000,
+        "effectiveFrom": "2026-08-01",
+        "sourceUrl": "https://igrsup.gov.in/"
+      }
+    ],
+    "sources": [
+      {
+        "label": "IGRSUP circle rate schedule, Lucknow (TODO: link the PDF)",
+        "url": "https://igrsup.gov.in/",
+        "accessedAt": "2026-09-18"
+      }
+    ],
+    "updatedAt": "2026-09-18",
+    "todo": [
+      "Seed schedule: every row is a placeholder by price band; replace with output of scripts/parse-circle-rates.ts on the real Lucknow PDF (sourceUrl is TODO)",
+      "Upload the schedule PDF to R2 and set archiveUrl"
+    ]
+  },
+  {
+    "id": "gorakhpur-2026-08-01",
+    "cityId": "gorakhpur",
+    "effectiveFrom": "2026-08-01",
+    "sourceUrl": "https://igrsup.gov.in/",
+    "archiveUrl": null,
+    "units": {
+      "residential": "sqm",
+      "commercial": "sqm",
+      "agricultural": "hectare"
+    },
+    "rates": [
+      {
+        "localityId": "medical-college-road",
+        "tehsil": "Sadar",
+        "residential": 18000,
+        "commercial": 36000,
+        "agricultural": 6000000,
+        "effectiveFrom": "2026-08-01",
+        "sourceUrl": "https://igrsup.gov.in/"
+      },
+      {
+        "localityId": "kunraghat-aiims",
+        "tehsil": "Sadar",
+        "residential": 18000,
+        "commercial": 36000,
+        "agricultural": 6000000,
+        "effectiveFrom": "2026-08-01",
+        "sourceUrl": "https://igrsup.gov.in/"
+      },
+      {
+        "localityId": "taramandal",
+        "tehsil": "Sadar",
+        "residential": 30000,
+        "commercial": 60000,
+        "agricultural": 9000000,
+        "effectiveFrom": "2026-08-01",
+        "sourceUrl": "https://igrsup.gov.in/"
+      },
+      {
+        "localityId": "gida",
+        "tehsil": "Sahjanwa",
+        "residential": 12000,
+        "commercial": 24000,
+        "agricultural": 4500000,
+        "effectiveFrom": "2026-08-01",
+        "sourceUrl": "https://igrsup.gov.in/"
+      },
+      {
+        "localityId": "deoria-road",
+        "tehsil": "Sadar",
+        "residential": 12000,
+        "commercial": 24000,
+        "agricultural": 4500000,
+        "effectiveFrom": "2026-08-01",
+        "sourceUrl": "https://igrsup.gov.in/"
+      },
+      {
+        "localityId": "kushinagar-road",
+        "tehsil": "Sadar",
+        "residential": 12000,
+        "commercial": 24000,
+        "agricultural": 4500000,
+        "effectiveFrom": "2026-08-01",
+        "sourceUrl": "https://igrsup.gov.in/"
+      },
+      {
+        "localityId": "nausadh",
+        "tehsil": "Sadar",
+        "residential": 12000,
+        "commercial": 24000,
+        "agricultural": 4500000,
+        "effectiveFrom": "2026-08-01",
+        "sourceUrl": "https://igrsup.gov.in/"
+      },
+      {
+        "localityId": "rustampur",
+        "tehsil": "Sadar",
+        "residential": 18000,
+        "commercial": 36000,
+        "agricultural": 6000000,
+        "effectiveFrom": "2026-08-01",
+        "sourceUrl": "https://igrsup.gov.in/"
+      },
+      {
+        "localityId": "mohaddipur",
+        "tehsil": "Sadar",
+        "residential": 18000,
+        "commercial": 36000,
+        "agricultural": 6000000,
+        "effectiveFrom": "2026-08-01",
+        "sourceUrl": "https://igrsup.gov.in/"
+      },
+      {
+        "localityId": "gorakhnath",
+        "tehsil": "Sadar",
+        "residential": 18000,
+        "commercial": 36000,
+        "agricultural": 6000000,
+        "effectiveFrom": "2026-08-01",
+        "sourceUrl": "https://igrsup.gov.in/"
+      },
+      {
+        "localityId": "padri-bazar",
+        "tehsil": "Sadar",
+        "residential": 12000,
+        "commercial": 24000,
+        "agricultural": 4500000,
+        "effectiveFrom": "2026-08-01",
+        "sourceUrl": "https://igrsup.gov.in/"
+      },
+      {
+        "localityId": "shahpur",
+        "tehsil": "Sadar",
+        "residential": 18000,
+        "commercial": 36000,
+        "agricultural": 6000000,
+        "effectiveFrom": "2026-08-01",
+        "sourceUrl": "https://igrsup.gov.in/"
+      },
+      {
+        "localityId": "basharatpur",
+        "tehsil": "Sadar",
+        "residential": 12000,
+        "commercial": 24000,
+        "agricultural": 4500000,
+        "effectiveFrom": "2026-08-01",
+        "sourceUrl": "https://igrsup.gov.in/"
+      },
+      {
+        "localityId": "gulariha",
+        "tehsil": "Sadar",
+        "residential": 12000,
+        "commercial": 24000,
+        "agricultural": 4500000,
+        "effectiveFrom": "2026-08-01",
+        "sourceUrl": "https://igrsup.gov.in/"
+      },
+      {
+        "localityId": "rapti-nagar",
+        "tehsil": "Sadar",
+        "residential": 12000,
+        "commercial": 24000,
+        "agricultural": 4500000,
+        "effectiveFrom": "2026-08-01",
+        "sourceUrl": "https://igrsup.gov.in/"
+      },
+      {
+        "localityId": "jhungia",
+        "tehsil": "Sadar",
+        "residential": 6000,
+        "commercial": 12000,
+        "agricultural": 2500000,
+        "effectiveFrom": "2026-08-01",
+        "sourceUrl": "https://igrsup.gov.in/"
+      },
+      {
+        "localityId": "hurl-fertilizer-belt",
+        "tehsil": "Sadar",
+        "residential": 12000,
+        "commercial": 24000,
+        "agricultural": 4500000,
+        "effectiveFrom": "2026-08-01",
+        "sourceUrl": "https://igrsup.gov.in/"
+      },
+      {
+        "localityId": "maharajganj-road",
+        "tehsil": "Sadar",
+        "residential": 6000,
+        "commercial": 12000,
+        "agricultural": 2500000,
+        "effectiveFrom": "2026-08-01",
+        "sourceUrl": "https://igrsup.gov.in/"
+      },
+      {
+        "localityId": "sahjanwa",
+        "tehsil": "Sahjanwa",
+        "residential": 6000,
+        "commercial": 12000,
+        "agricultural": 2500000,
+        "effectiveFrom": "2026-08-01",
+        "sourceUrl": "https://igrsup.gov.in/"
+      },
+      {
+        "localityId": "ramgarh-tal",
+        "tehsil": "Sadar",
+        "residential": 30000,
+        "commercial": 60000,
+        "agricultural": 9000000,
+        "effectiveFrom": "2026-08-01",
+        "sourceUrl": "https://igrsup.gov.in/"
+      },
+      {
+        "localityId": "jungle-kaudia-airport",
+        "tehsil": "Sadar",
+        "residential": 12000,
+        "commercial": 24000,
+        "agricultural": 4500000,
+        "effectiveFrom": "2026-08-01",
+        "sourceUrl": "https://igrsup.gov.in/"
+      },
+      {
+        "localityId": "khorabar",
+        "tehsil": "Sadar",
+        "residential": 12000,
+        "commercial": 24000,
+        "agricultural": 4500000,
+        "effectiveFrom": "2026-08-01",
+        "sourceUrl": "https://igrsup.gov.in/"
+      },
+      {
+        "localityId": "bargadwa",
+        "tehsil": "Sadar",
+        "residential": 6000,
+        "commercial": 12000,
+        "agricultural": 2500000,
+        "effectiveFrom": "2026-08-01",
+        "sourceUrl": "https://igrsup.gov.in/"
+      },
+      {
+        "localityId": "sonbarsa",
+        "tehsil": "Sadar",
+        "residential": 6000,
+        "commercial": 12000,
+        "agricultural": 2500000,
+        "effectiveFrom": "2026-08-01",
+        "sourceUrl": "https://igrsup.gov.in/"
+      },
+      {
+        "localityId": "chargawan",
+        "tehsil": "Sadar",
+        "residential": 6000,
+        "commercial": 12000,
+        "agricultural": 2500000,
+        "effectiveFrom": "2026-08-01",
+        "sourceUrl": "https://igrsup.gov.in/"
+      }
+    ],
+    "sources": [
+      {
+        "label": "IGRSUP circle rate schedule, Gorakhpur (TODO: link the PDF)",
+        "url": "https://igrsup.gov.in/",
+        "accessedAt": "2026-09-18"
+      }
+    ],
+    "updatedAt": "2026-09-18",
+    "todo": [
+      "Seed schedule: every row is a placeholder by price band; replace with output of scripts/parse-circle-rates.ts on the real Gorakhpur PDF (sourceUrl is TODO)",
       "Upload the schedule PDF to R2 and set archiveUrl"
     ]
   }

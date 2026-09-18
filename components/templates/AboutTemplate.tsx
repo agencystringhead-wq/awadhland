@@ -40,10 +40,10 @@ export function AboutTemplate({ locale }: { locale: Locale }) {
       <Section>
         <WhyWeExist locale={locale} {...whyWeExistCopy[locale]} />
       </Section>
-      <Section>
+      <Section id="how-we-work">
         <HowWeWork locale={locale} {...howWeWorkCopy[locale]} />
       </Section>
-      <Section>
+      <Section id="reviews">
         <Reviews locale={locale} data={getReviews()} labels={homeStory[locale].reviews} />
         <Badges locale={locale} broker={broker} citiesCovered={cities.length} />
       </Section>

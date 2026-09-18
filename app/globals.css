@@ -2,8 +2,7 @@
 
 /*
  * Design tokens, Step 2 Phase B. Derived from docs/DESIGN-REFERENCE.md (probate.help measured at
- * 1440): the reference's paper, vellum, ink and rule values are used as-is; the accent is our
- * green re-mixed in oklch so it sits at the same lightness and chroma as their terracotta.
+ * 1440): the reference's paper, vellum, ink, rule and terracotta accent are used as-is (§1, §15).
  * Every value is a number meant to be tuned. Utilities like bg-cream, text-ink, rounded-card and
  * font-display are generated from these names by Tailwind 4.
  */
@@ -22,17 +21,20 @@
   --color-faint: #978b7b; /* --ink-4 */
   --color-line: #d9cdb6; /* --rule */
 
-  /* accent: deep green at the reference terracotta's lightness and chroma */
-  --color-accent: oklch(46% 0.08 158); /* ≈ #2c6a4e */
-  --color-accent-deep: oklch(36% 0.07 158); /* ≈ #1f4f3a */
-  --color-accent-soft: oklch(88% 0.04 158); /* ≈ #d4e6da */
+  /* accent: the reference's terracotta, exact (docs/DESIGN-REFERENCE.md §15) */
+  --color-accent: oklch(62% 0.13 38); /* ≈ #c45f2a */
+  --color-accent-deep: oklch(46% 0.13 36); /* ≈ #8f3d1a */
+  --color-accent-soft: oklch(86% 0.05 40);
   --color-gold: oklch(74% 0.1 78);
+  --color-sage: oklch(62% 0.06 140); /* reference secondary accent: "good" fit, complete status */
+  --color-sage-soft: oklch(88% 0.03 140);
   --color-maroon: oklch(46% 0.12 25); /* warnings, watch-outs */
   --color-maroon-soft: oklch(90% 0.04 25);
-  --color-whatsapp: oklch(46% 0.08 158); /* WhatsApp buttons are the accent, not brand green */
+  --color-whatsapp: oklch(62% 0.13 38); /* WhatsApp buttons carry the accent */
+  --color-strip: #1a130a; /* dark top strip */
 
   /* price band chips, kept in the cream family */
-  --color-band-low: oklch(88% 0.04 158);
+  --color-band-low: oklch(88% 0.03 140);
   --color-band-mid: #f0e4c4;
   --color-band-high: #f3d8c1;
   --color-band-premium: #ebcfcd;
@@ -42,7 +44,7 @@
   --color-status-approved: #dbe3ec;
   --color-status-under-construction: #f0e4c4;
   --color-status-partially-open: #d7e7e2;
-  --color-status-complete: oklch(88% 0.04 158);
+  --color-status-complete: oklch(88% 0.03 140);
   --color-status-stalled: #ebcfcd;
 
   /* radii by role (reference --r-*) */
@@ -395,21 +397,41 @@ html:lang(hi) :is(.eyebrow, .label-mono, .caption-mono) {
   padding: 9px 14px;
   font-size: 13px;
 }
-/* Primary: filled accent with the reference's inner highlight and 1px hover lift. */
+/* Primary: the reference's "Join the waitlist" gradient, shadow stack and hover (§15). */
 @utility btn-primary {
   color: #fff;
-  font-weight: 600;
-  background: linear-gradient(oklch(52% 0.09 158), oklch(42% 0.08 158) 60%, oklch(38% 0.08 158));
-  border-color: oklch(34% 0.07 158);
+  font-weight: 700;
+  background: linear-gradient(180deg, #e88a4f 0%, #c45f2a 55%, #a04a1f 100%);
+  border-color: transparent;
+  text-shadow: 0 1px 0 rgb(0 0 0 / 0.28);
   box-shadow:
-    inset 0 1px 0 rgb(255 255 255 / 0.2),
+    inset 0 1px 0 rgb(255 235 210 / 0.55),
     inset 0 -1px 0 rgb(0 0 0 / 0.22),
-    0 6px 16px -6px oklch(36% 0.07 158 / 0.55),
-    0 1px 2px rgb(40 30 15 / 0.15);
+    0 0 0 1px rgb(140 55 20 / 0.55),
+    0 0 0 4px rgb(232 138 79 / 0.18),
+    0 10px 22px rgb(196 95 42 / 0.5),
+    0 4px 8px rgb(40 30 15 / 0.18),
+    0 1px 2px rgb(40 30 15 / 0.2);
   &:hover {
     color: #fff;
-    background: linear-gradient(oklch(48% 0.09 158), oklch(38% 0.08 158));
+    background: var(--color-accent-deep);
     transform: translateY(-1px);
+  }
+}
+/* Outline pill on the cream gradient with the accent hairline ("Text us", Call). */
+@utility btn-outline-accent {
+  color: var(--color-accent-deep);
+  font-weight: 600;
+  background: linear-gradient(180deg, #fdfaf3 0%, #f6f1e8 100%);
+  border-color: rgb(196 95 42 / 0.35);
+  box-shadow:
+    inset 0 1px 0 rgb(255 255 255 / 0.7),
+    inset 0 -1px 0 rgb(40 30 15 / 0.06),
+    0 2px 6px rgb(40 30 15 / 0.08);
+  &:hover {
+    color: var(--color-accent-deep);
+    background: var(--color-cream-deep);
+    border-color: rgb(196 95 42 / 0.6);
   }
 }
 /* Secondary: 1px ink outline on surface; hover fills ink. */
@@ -508,12 +530,12 @@ html:lang(hi) :is(.eyebrow, .label-mono, .caption-mono) {
     color 0.15s;
   &:has(input:checked) {
     color: #fff;
-    background: linear-gradient(oklch(50% 0.09 158), oklch(38% 0.08 158));
-    border-color: oklch(34% 0.07 158);
+    background: linear-gradient(var(--color-accent), var(--color-accent-deep));
+    border-color: var(--color-accent-deep);
     box-shadow:
       inset 0 1px 0 rgb(255 255 255 / 0.25),
       inset 0 -1px 0 rgb(0 0 0 / 0.2),
-      0 2px 6px oklch(36% 0.07 158 / 0.3);
+      0 2px 6px rgb(196 95 42 / 0.25);
   }
   &:has(input:focus-visible) {
     outline: 2px solid var(--color-accent);
@@ -719,6 +741,189 @@ html:lang(hi) .prose-guide {
   .section-xl {
     padding-block: 1rem;
   }
+}
+
+/* ------------------------------------------------------- header tiers (§15) */
+
+/* Tier 1: dark status strip. */
+@utility strip-dark {
+  position: relative;
+  background: linear-gradient(#1a130a, #221a0e 30%, #1a130a 70%, #0a0703);
+  color: rgb(255 235 210 / 0.7);
+  font-family: var(--font-sans);
+  font-size: 12.5px;
+  font-weight: 500;
+  letter-spacing: 0.005em;
+  text-shadow: 0 1px 0 rgb(0 0 0 / 0.6);
+  &::before {
+    content: "";
+    position: absolute;
+    top: 1px;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgb(255 210 150 / 0.08) 30%, rgb(255 210 150 / 0.08) 70%, transparent);
+    pointer-events: none;
+  }
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 60%;
+    height: 100%;
+    transform: translateX(-50%);
+    background: radial-gradient(ellipse at center, rgb(196 140 80 / 0.06), transparent 70%);
+    pointer-events: none;
+  }
+}
+@utility strip-hairline {
+  display: inline-block;
+  width: 1px;
+  height: 18px;
+  margin: 0 4px;
+  flex-shrink: 0;
+  border-radius: 0.5px;
+  background: linear-gradient(180deg, transparent 0%, rgb(255 200 140 / 0.55) 30%, rgb(255 200 140 / 0.55) 70%, transparent 100%);
+  box-shadow: 1px 0 0 rgb(0 0 0 / 0.6);
+}
+/* The 10px amber dot in the strip and the 7px one in the status pill. */
+@utility dot-amber {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  background: radial-gradient(circle at 30% 25%, oklch(92% 0.17 72), oklch(68% 0.17 60) 70%, oklch(52% 0.15 50));
+  box-shadow:
+    0 0 0 1px rgb(0 0 0 / 0.5),
+    inset 0 1px 0 rgb(255 255 255 / 0.15),
+    inset 0 -1px 0 rgb(0 0 0 / 0.4),
+    0 0 10px oklch(78% 0.18 65 / 0.7);
+}
+/* Tier 2: cream brand bar. */
+@utility bar-brand {
+  position: relative;
+  background: linear-gradient(180deg, #fdf9f1 0%, #f6f1e8 55%, #ede5d2 100%);
+  border-bottom: 1px solid #c9bba0;
+  box-shadow:
+    inset 0 1px 0 rgb(255 255 255 / 0.9),
+    inset 0 -1px 0 rgb(40 30 15 / 0.06),
+    0 2px 0 rgb(40 30 15 / 0.03);
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent 0%, #fff 20%, #fff 80%, transparent 100%);
+    pointer-events: none;
+  }
+}
+/* Tier 3: sand navigation bar and its tiles. */
+@utility bar-nav {
+  background: linear-gradient(180deg, #e3d7bb 0%, #d8c9a8 100%);
+  border-top: 1px solid #c9bba0;
+  border-bottom: 1px solid #b8a880;
+  box-shadow:
+    inset 0 1px 0 rgb(255 255 255 / 0.6),
+    inset 0 2px 4px rgb(40 30 15 / 0.06),
+    inset 0 -1px 0 rgb(40 30 15 / 0.08);
+}
+/* Stuck state: glass backdrop over the page (the one place backdrop-filter is used). */
+@utility bar-nav-stuck {
+  background: rgb(227 215 187 / 0.82);
+  backdrop-filter: blur(12px) saturate(1.2);
+  -webkit-backdrop-filter: blur(12px) saturate(1.2);
+}
+@utility nav-tile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 26px 6px 28px;
+  text-decoration: none;
+  color: var(--color-ink);
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  white-space: nowrap;
+  text-shadow: 0 1px 0 rgb(255 255 255 / 0.7);
+  transition:
+    background-color 0.15s ease,
+    box-shadow 0.15s ease;
+  &:hover {
+    color: var(--color-ink);
+    background: rgb(40 30 15 / 0.05);
+  }
+  &[aria-current="page"] {
+    background: rgb(40 30 15 / 0.09);
+    box-shadow: inset 0 2px 4px rgb(40 30 15 / 0.08);
+  }
+}
+@utility nav-tile-sub {
+  font-family: var(--font-sans);
+  font-style: italic;
+  font-size: 13.5px;
+  font-weight: 500;
+  letter-spacing: 0;
+  color: var(--color-muted);
+  text-shadow: 0 1px 0 rgb(255 255 255 / 0.6);
+}
+/* Cells stay static so a cell's absolute panel spans the whole nav row (the row is the containing block). */
+@utility nav-cell {
+  flex: 1 1 0;
+  position: static;
+  border-left: 1px solid rgb(40 30 15 / 0.1);
+  border-right: 1px solid rgb(255 255 255 / 0.4);
+  &:first-child {
+    border-left: none;
+  }
+}
+html:lang(hi) .nav-tile {
+  font-family: var(--font-devanagari);
+  letter-spacing: 0;
+}
+html:lang(hi) .nav-tile-sub {
+  font-style: normal;
+}
+
+/* Mega panel: opens under a cell on hover or keyboard focus (desktop only). */
+@utility mega-panel {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 60;
+  display: none;
+  padding: 32px;
+  background: var(--color-card);
+  border: 1px solid var(--color-line);
+  border-top: none;
+  border-radius: 0 0 var(--radius-card) var(--radius-card);
+  box-shadow: var(--shadow-lg);
+}
+@media (hover: hover) and (min-width: 1024px) {
+  .nav-cell:hover > .mega-panel,
+  .nav-cell:focus-within > .mega-panel {
+    display: block;
+  }
+}
+
+/* Mobile menu: a <details> whose panel covers the screen when open. */
+.mobile-menu-panel {
+  display: none;
+}
+.mobile-menu[open] .mobile-menu-panel {
+  display: block;
+  position: fixed;
+  inset: 0;
+  z-index: 70;
+  overflow-y: auto;
+  background: var(--color-cream);
 }
 
 /* Native summary marker off; the Header draws its own Menu button. */

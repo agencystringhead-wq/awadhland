@@ -120,6 +120,11 @@ export const localitySchema = z
     id: slug,
     cityId: slug,
     parentLocalityId: slug.nullable(),
+    /**
+     * draft: seeded with placeholders; renders on every build but is noindex and absent from the
+     * sitemaps. live: real, sourced data; indexable. Upgrading is a data change.
+     */
+    status: z.enum(["draft", "live"]),
     name: z.string().min(1),
     nameHi: z.string().min(1).optional(),
     tehsil: z.string().min(1).optional(),

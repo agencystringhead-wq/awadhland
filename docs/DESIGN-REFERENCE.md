@@ -240,3 +240,30 @@ Framing rules that repeat: eyebrow (mono, uppercase, often with a leading "— "
 
 - Portrait: `https://probate.help/rachel-feather-520.webp` (860 × 1219, feathered edges baked into the file; the CSS mask only fades the bottom). Dev-only placeholder per the brief; must never ship.
 - Icons: inline SVG, 16–17px, stroke 1.6, currentColor.
+
+## 15. Header and accent, exact values (Step 3, re-fetched 2026-09-18)
+
+Read from the inline styles on the live header; these override the stylesheet and are what the page renders.
+
+| Element | Value |
+| --- | --- |
+| Accent (`--terracotta`) | `oklch(62% .13 38)` ≈ `#c45f2a` |
+| Accent deep (`--terracotta-deep`), wordmark dot, "Text us" text | `oklch(46% .13 36)` ≈ `#8f3d1a` |
+| Accent soft (`--terracotta-soft`) | `oklch(86% .05 40)` |
+| Primary CTA gradient ("Join the waitlist") | `linear-gradient(180deg, #e88a4f 0%, #c45f2a 55%, #a04a1f 100%)` |
+| Primary CTA shadow stack | `inset 0 1px 0 rgba(255,235,210,.55), inset 0 -1px 0 rgba(0,0,0,.22), 0 0 0 1px rgba(140,55,20,.55), 0 0 0 4px rgba(232,138,79,.18), 0 10px 22px rgba(196,95,42,.5), 0 4px 8px rgba(40,30,15,.18), 0 1px 2px rgba(40,30,15,.2)`; text-shadow `0 1px 0 rgba(0,0,0,.28)`; 16px 28px, 16px 700 white |
+| Primary hover (stylesheet `.btn-warm:hover`, `.btn-primary:hover`) | background → terracotta-deep, `translateY(-1px)` |
+| Icon-only CTA (mobile menu button) | same gradient, 40px circle, shadow `inset 0 1px 0 rgba(255,235,210,.55), inset 0 -1px 0 rgba(0,0,0,.22), 0 0 0 1px rgba(140,55,20,.55), 0 4px 10px rgba(196,95,42,.4)` |
+| Secondary pill ("Text us", phone/text icon circles) | `linear-gradient(180deg, #fdfaf3 0%, #f6f1e8 100%)`, border `1px rgba(196,95,42,.35)`, text terracotta-deep 15px 600, shadow `inset 0 1px 0 rgba(255,255,255,.7), inset 0 -1px 0 rgba(40,30,15,.06), 0 2px 6px rgba(40,30,15,.08)`, 14px 20px |
+| Top strip background | `linear-gradient(#1a130a, #221a0e 30%, #1a130a 70%, #0a0703)`; 1px top hairline `rgba(255,210,150,.08)`; centred radial glow `rgba(196,140,80,.06)`; padding 13px 32px (45px tall) |
+| Top strip text | first item `#fff` 600 with text-shadow `0 1px 0 rgba(0,0,0,.7), 0 0 8px rgba(255,200,140,.15)`; other items `rgba(255,235,210,.7)`; right cluster `rgba(255,235,210,.78)`; Inter 12.5px 500, gap 14px |
+| Top strip hairline | 1 × 18px, `linear-gradient(180deg, transparent, rgba(255,200,140,.55) 30%, rgba(255,200,140,.55) 70%, transparent)`, `box-shadow: 1px 0 0 rgba(0,0,0,.6)`, margin 0 4px |
+| Amber dot | 10px, `radial-gradient(circle at 30% 25%, oklch(.92 .17 72), oklch(.68 .17 60) 70%, oklch(.52 .15 50))`, shadow `0 0 0 1px rgba(0,0,0,.5), inset 0 1px 0 rgba(255,255,255,.15), inset 0 -1px 0 rgba(0,0,0,.4), 0 0 10px oklch(.78 .18 65 / .7)` |
+| Stars in the strip | `oklch(.86 .17 75)`, 11px, 0.05em |
+| Header (brand bar wrapper) | `linear-gradient(180deg, #fdf9f1 0%, #f6f1e8 55%, #ede5d2 100%)`, border-bottom `1px #c9bba0`, shadow `inset 0 1px 0 rgba(255,255,255,.9), inset 0 -1px 0 rgba(40,30,15,.06), 0 2px 0 rgba(40,30,15,.03)`; a 1px white horizontal gradient hairline at the top; `.hdr-main` padding 14px 32px |
+| Wordmark | Fraunces 38px 500 −0.034em (29px ≤879), ink, text-shadow `0 1px 0 rgba(255,255,255,.6)`; dot terracotta-deep italic 500; sub-line mono 10.5px 600 0.24em uppercase ink-3, margin-top 6px |
+| Phone block | italic Inter 14px ink-3 (mb 4) over Fraunces 32px 600 −0.02em ink with `·` separators; divider 1 × 44px `linear-gradient(180deg, transparent, rgba(40,30,15,.18), transparent)`; cluster gap 28px |
+| Nav tier | `linear-gradient(180deg, #e3d7bb 0%, #d8c9a8 100%)`, border-top `1px #c9bba0`, border-bottom `1px #b8a880`, shadow `inset 0 1px 0 rgba(255,255,255,.6), inset 0 2px 4px rgba(40,30,15,.06), inset 0 -1px 0 rgba(40,30,15,.08)` |
+| Nav tile | `flex: 1`; border-left `1px rgba(40,30,15,.1)` (none on first), border-right `1px rgba(255,255,255,.4)`; padding 26px 6px 28px; name Fraunces 22px 600 −0.02em ink with text-shadow `0 1px 0 rgba(255,255,255,.7)`; sub Inter italic 13.5px 500 ink-3, gap 8px; `transition: background .15s` (no active state in the markup) |
+| Breakpoints | `bp-1180`, `bp-1080`, `bp-900`, `bp-880`, `bp-720` hide below those widths; the nav tier and the full brand cluster hide ≤879, replaced by 40px icon circles and the menu button |
+| Mega menu | **None on the reference.** The tiles are plain links; the panel mechanics in Step 3 are ours |

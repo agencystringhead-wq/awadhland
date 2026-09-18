@@ -2,7 +2,7 @@ import type { ReactNode } from "react";
 
 export type CalloutProps = {
   title?: string;
-  /** "note" uses the green accent, "warn" the maroon */
+  /** "note" uses the accent, "warn" the maroon */
   tone?: "note" | "warn";
   children: ReactNode;
 };

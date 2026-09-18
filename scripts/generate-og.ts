@@ -31,8 +31,8 @@ const ink = "#1f1a14";
 const inkSoft = "#3b342a";
 const muted = "#6b6053";
 const rule = "#d9cdb6";
-const accent = "#2c6a4e";
-const accentSoft = "#d4e6da";
+const accent = "#c45f2a";
+const accentSoft = "#f1dccd";
 
 function markup(p: PageEntry) {
   const hi = p.locale === "hi";

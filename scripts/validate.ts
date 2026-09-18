@@ -120,6 +120,28 @@ async function main() {
     }
   }
 
+  /* 6. Draft localities are noindex and absent from the sitemaps (Step 3 D2). */
+  if (dataset && errors.length === 0) {
+    const { getPages } = await import("../lib/pages");
+    const { sitemapEn, sitemapHi } = await import("../lib/sitemaps");
+    const drafts = dataset.localities.filter((l) => l.status === "draft");
+    const live = dataset.localities.length - drafts.length;
+    const maps = sitemapEn() + sitemapHi();
+    for (const l of drafts) {
+      const leaked = [`/${l.cityId}/${l.id}/</loc>`, `/hi/${l.cityId}/${l.id}/</loc>`].filter((u) => maps.includes(u));
+      if (leaked.length > 0) errors.push(`sitemap: draft locality "${l.id}" is listed (${leaked.join(", ")})`);
+      for (const locale of ["en", "hi"] as const) {
+        const page = getPages(locale).find((p) => p.kind === "locality" && p.sitePath === `/${l.cityId}/${l.id}/`);
+        if (page && !page.noindex) errors.push(`${locale} page for draft locality "${l.id}" is not noindex`);
+      }
+    }
+    for (const c of dataset.cities) {
+      const ls = dataset.localities.filter((l) => l.cityId === c.id);
+      console.log(`info ${c.id}: ${ls.length} localities (${ls.filter((l) => l.status === "live").length} live, ${ls.filter((l) => l.status === "draft").length} draft), ${dataset.projects.filter((p) => p.cityId === c.id).length} projects`);
+    }
+    console.log(`ok   drafts: ${drafts.length} noindex and outside the sitemaps; ${live} live localities indexable`);
+  }
+
   if (warnings.length > 0) {
     console.log(`\nwarn ${warnings.length} guide warning${warnings.length === 1 ? "" : "s"}:`);
     for (const w of warnings) console.log(`  - ${w}`);

@@ -128,6 +128,11 @@ export function LocalityTemplate({ locale, cityId, localityId }: { locale: Local
   return (
     <PageShell locale={locale} alternate={localityAlternate(locale, city.id, l.id)} pageLabel={pageLabel}>
       <JsonLd data={place(l, city, locale, `${SITE_URL}${localePath(locale, `/${city.id}/${l.id}/`)}`)} />
+      {l.status === "draft" && (
+        <p data-component="DraftNotice" className="border-b border-line bg-maroon-soft/60 py-2 text-center text-sm text-maroon">
+          <span className="container-site block">{t.draftNotice}</span>
+        </p>
+      )}
       {/* 1. Header */}
       <section className="border-b border-line bg-cream-deep/60">
         <div className="container-site pb-8 md:pb-10">

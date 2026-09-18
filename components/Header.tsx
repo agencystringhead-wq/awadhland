@@ -1,6 +1,9 @@
 import type { Locale } from "@/lib/i18n";
-import { localePath, pick, ui, whatsappText } from "@/lib/i18n";
-import type { City, TeamMember } from "@/lib/schemas";
+import { localePath, ui, whatsappText } from "@/lib/i18n";
+import { navCopy, type NavItem, type NavKey } from "@/lib/nav";
+import type { TeamMember } from "@/lib/schemas";
+import { MegaPanel } from "./MegaMenu";
+import { StickyNav } from "./StickyNav";
 import { Button, PhoneIcon, WhatsAppIcon } from "./ui/Button";
 import { whatsappHref } from "./WhatsAppButton";
 
@@ -14,43 +17,51 @@ export type AlternateLink = {
 export type HeaderProps = {
   locale: Locale;
   alternate: AlternateLink;
-  cities: Pick<City, "id" | "name" | "nameHi">[];
+  nav: NavItem[];
+  active?: NavKey;
   broker: Pick<TeamMember, "phone" | "whatsapp">;
   /** Human name of the current page for the prefilled WhatsApp message */
   pageLabel: string;
 };
 
-/** Fraunces wordmark with the accent italic full stop, as the reference's logo does. */
-export function Logo({ locale, size = "md" }: { locale: Locale; size?: "md" | "lg" }) {
-  const t = ui[locale];
+/** "awadh.land" wordmark: Fraunces 38px 500 −0.034em with the accent italic dot (§15). */
+export function Logo({ locale, size = "md" }: { locale: Locale; size?: "sm" | "md" | "lg" }) {
+  const px = size === "lg" ? "text-[38px]" : size === "md" ? "text-[29px]" : "text-[22px]";
   return (
     <a
       href={localePath(locale, "/")}
-      className={`font-display text-ink no-underline hover:text-ink ${size === "lg" ? "text-[32px]" : "text-[26px]"} font-medium leading-none tracking-[-0.034em]`}
+      className={`inline-flex flex-col items-start gap-[3px] font-display font-medium leading-none tracking-[-0.034em] text-ink no-underline hover:text-ink [text-shadow:0_1px_0_rgba(255,255,255,.6)] ${px}`}
     >
-      {t.siteName}
-      <span aria-hidden="true" className="serif-italic text-accent">
-        .
+      <span className="whitespace-nowrap">
+        awadh
+        <span className="serif-italic font-medium text-accent-deep">.</span>
+        land
       </span>
+      {size === "lg" && <span className="mt-1.5 font-mono text-[10.5px] font-semibold uppercase tracking-[0.24em] text-muted [text-shadow:0_1px_0_rgba(255,255,255,.5)]">{navCopy[locale].brand.est}</span>}
+    </a>
+  );
+}
+
+/** +91 · 98765 · 43210 in the display serif, as the reference sets "941 · 352 · 1006". */
+export function PhoneDots({ e164, className = "" }: { e164: string; className?: string }) {
+  const m = /^(\+91)(\d{5})(\d{5})$/.exec(e164);
+  const parts = m ? [m[1], m[2], m[3]] : [e164];
+  return (
+    <a href={`tel:${e164}`} className={`font-display font-semibold tracking-[-0.02em] text-ink no-underline tabular-nums [text-shadow:0_1px_0_rgba(255,255,255,.7)] ${className}`}>
+      {parts.join(" · ")}
     </a>
   );
 }
 
 /**
- * Sticky header (reference §10, main row): gradient surface with the inset highlight, no
- * backdrop-filter. Logo left, primary nav centre, right cluster = language toggle pill, Call
- * outline, WhatsApp filled. Mobile: logo, WhatsApp, Menu as a <details> so it works without JS.
+ * Three-tier header (Step 3, docs/DESIGN-REFERENCE.md §15). Tier 1 is TopStrip (PageShell);
+ * this renders tier 2 (brand bar) and tier 3 (sand nav with mega panels). Tier 3 sticks with a
+ * glass backdrop once the others scroll away. Below 1024px: wordmark + phone + WhatsApp, and the
+ * nav becomes a full-screen <details> menu with one accordion per cell, no JavaScript required.
  */
-export function Header({ locale, alternate, cities, broker, pageLabel }: HeaderProps) {
+export function Header({ locale, alternate, nav, active, broker, pageLabel }: HeaderProps) {
   const t = ui[locale];
-  const heroCity = cities[0];
-  const nav: { label: string; href: string }[] = [
-    ...cities.map((c) => ({ label: pick(locale, c.name, c.nameHi), href: localePath(locale, `/${c.id}/`) })),
-    ...(heroCity ? [{ label: t.circleRates, href: localePath(locale, `/${heroCity.id}/circle-rates/`) }] : []),
-    { label: t.guides, href: `${localePath(locale, "/")}#guides` },
-    { label: t.tools, href: `${localePath(locale, "/")}#tools` },
-    { label: t.updates, href: localePath(locale, "/updates/") },
-  ];
+  const c = navCopy[locale].brand;
   const wa = whatsappHref(broker.whatsapp, whatsappText(locale, pageLabel));
   const toggle = (
     <Button
@@ -64,63 +75,121 @@ export function Header({ locale, alternate, cities, broker, pageLabel }: HeaderP
       {t.languageToggle}
     </Button>
   );
-  const call = (
-    <Button href={`tel:${broker.phone}`} variant="secondary" size="sm" icon={<PhoneIcon />}>
-      {t.call}
-    </Button>
-  );
-  const whatsapp = (
-    <Button href={wa} variant="primary" size="sm" icon={<WhatsAppIcon />}>
-      {t.whatsapp}
-    </Button>
-  );
 
   return (
-    <header
-      data-component="Header"
-      className="sticky top-0 z-40 border-b border-line bg-[linear-gradient(#fdf9f1_0%,#f6f1e8_55%,#ede5d2_100%)] shadow-[inset_0_1px_0_rgba(255,255,255,0.9),inset_0_-1px_0_rgba(40,30,15,0.06),0_2px_0_rgba(40,30,15,0.03)]"
-    >
-      <div className="container-site flex h-[72px] items-center justify-between gap-6">
-        <Logo locale={locale} />
+    // display: contents so the sticky tier 3 is constrained by the page, not by this wrapper's box
+    <header data-component="Header" className="contents">
+      {/* Tier 2: brand bar */}
+      <div className="bar-brand">
+        <div className="container-site flex items-center justify-between gap-4 py-3.5">
+          <span className="hidden lg:inline-flex">
+            <Logo locale={locale} size="lg" />
+          </span>
+          <span className="lg:hidden">
+            <Logo locale={locale} size="md" />
+          </span>
 
-        <nav aria-label="Main" className="hidden items-center gap-7 lg:flex">
-          {nav.map((n) => (
-            <a key={n.href + n.label} href={n.href} className="text-[15px] font-medium text-ink-soft no-underline hover:text-accent-deep">
-              {n.label}
-            </a>
-          ))}
-        </nav>
-
-        <div className="hidden items-center gap-2.5 lg:flex">
-          {toggle}
-          {call}
-          {whatsapp}
-        </div>
-
-        <div className="flex items-center gap-2 lg:hidden">
-          {whatsapp}
-          <details className="group relative">
-            <summary className="btn btn-soft btn-sm cursor-pointer">{t.menu}</summary>
-            <div className="card absolute right-0 mt-2 w-64 p-3">
-              <nav aria-label="Main" className="flex flex-col">
-                {nav.map((n) => (
-                  <a
-                    key={n.href + n.label}
-                    href={n.href}
-                    className="rounded-sm px-3 py-2 text-[15px] font-medium text-ink no-underline hover:bg-cream-deep"
-                  >
-                    {n.label}
-                  </a>
-                ))}
-              </nav>
-              <div className="mt-2 flex flex-wrap gap-2 border-t border-line pt-3">
-                {toggle}
-                {call}
-              </div>
+          {/* Desktop cluster */}
+          <div className="hidden items-center gap-7 lg:flex">
+            <div className="hidden text-right min-[1180px]:block">
+              <div className="mb-1 text-[14px] italic text-muted">{c.whatsappLabel}</div>
+              <PhoneDots e164={broker.phone} className="text-[32px]" />
             </div>
-          </details>
+            <div aria-hidden="true" className="hidden h-11 w-px bg-[linear-gradient(180deg,transparent,rgba(40,30,15,.18),transparent)] min-[1180px]:block" />
+            {toggle}
+            <a href={`tel:${broker.phone}`} className="btn btn-outline-accent gap-2 px-5 py-3.5 text-[15px]">
+              <PhoneIcon />
+              {c.call}
+            </a>
+            <a href={wa} rel="noopener" className="btn btn-primary gap-2.5 px-7 py-4 text-[16px]">
+              <WhatsAppIcon />
+              {c.whatsapp}
+            </a>
+          </div>
+
+          {/* Mobile cluster: phone icon, WhatsApp, menu */}
+          <div className="flex items-center gap-1.5 lg:hidden">
+            <a href={`tel:${broker.phone}`} aria-label={c.call} className="btn btn-outline-accent size-10 p-0">
+              <PhoneIcon />
+            </a>
+            <a href={wa} rel="noopener" className="btn btn-primary gap-2 px-4 py-2.5 text-[14px]">
+              <WhatsAppIcon />
+              {t.whatsapp}
+            </a>
+          </div>
         </div>
       </div>
+
+      {/* Tier 3: nav. Desktop tiles with mega panels; mobile full-screen accordion menu. */}
+      <StickyNav className="hidden lg:block">
+        <nav aria-label="Main" className="bar-nav group/nav [[data-stuck=true]_&]:bar-nav-stuck">
+          <div className="container-site relative flex items-stretch">
+            {/* Compact controls, revealed only when stuck */}
+            <div className="hidden items-center pr-4 [[data-stuck=true]_&]:flex">
+              <Logo locale={locale} size="sm" />
+            </div>
+            {nav.map((item) => (
+              <div key={item.key} className="nav-cell">
+                <a href={item.href} className="nav-tile [[data-stuck=true]_&]:py-3.5 [[data-stuck=true]_&]:text-[18px]" aria-current={active === item.key ? "page" : undefined}>
+                  <span>{item.label}</span>
+                  <span className="nav-tile-sub [[data-stuck=true]_&]:hidden">{item.sub}</span>
+                </a>
+                <div className="mega-panel">
+                  <MegaPanel locale={locale} item={item} layout="panel" />
+                </div>
+              </div>
+            ))}
+            <div className="hidden items-center pl-4 [[data-stuck=true]_&]:flex">
+              <a href={wa} rel="noopener" className="btn btn-primary btn-sm gap-2">
+                <WhatsAppIcon />
+                {t.whatsapp}
+              </a>
+            </div>
+          </div>
+        </nav>
+      </StickyNav>
+
+      <details className="mobile-menu lg:hidden">
+        <summary className="bar-nav flex cursor-pointer items-center justify-between px-[18px] py-3 text-[15px] font-semibold text-ink sm:px-6">
+          <span>{c.menu}</span>
+          <span aria-hidden="true" className="text-muted">
+            ☰
+          </span>
+        </summary>
+        <div className="mobile-menu-panel">
+          <div className="flex items-center justify-between border-b border-line px-[18px] py-3">
+            <Logo locale={locale} size="md" />
+            <div className="flex items-center gap-2">
+              {toggle}
+              <a href="#" aria-label={c.close} className="btn btn-soft btn-sm">
+                ✕
+              </a>
+            </div>
+          </div>
+          <div className="divide-y divide-line px-[18px] pb-24">
+            {nav.map((item) => (
+              <details key={item.key} className="group/acc">
+                <summary className="flex cursor-pointer items-baseline justify-between gap-3 py-4">
+                  <span>
+                    <span className="font-display text-[22px] font-semibold tracking-[-0.02em] text-ink">{item.label}</span>
+                    <span className="ml-2 text-[13.5px] italic text-muted">{item.sub}</span>
+                  </span>
+                  <span aria-hidden="true" className="text-muted transition group-open/acc:rotate-180">
+                    ⌄
+                  </span>
+                </summary>
+                <div className="pb-5">
+                  <a href={item.href} className="mb-3 inline-block text-[13.5px] font-semibold text-accent-deep no-underline">
+                    {item.label} →
+                  </a>
+                  <MegaPanel locale={locale} item={item} layout="stack" />
+                </div>
+              </details>
+            ))}
+          </div>
+        </div>
+      </details>
+
       {alternate.missing && (
         <p className="border-t border-line bg-cream-deep py-1.5 text-center text-sm text-ink-soft">
           <span className="container-site block">{t.alternateMissing}</span>

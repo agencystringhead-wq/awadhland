@@ -13,19 +13,177 @@
     "brokerNoteHi": "मेरे पास आने वाले ज़्यादातर फ़ोन उन लोगों के होते हैं जिन्होंने मंदिर के पास किसी होर्डिंग पर दाम देखा और मान लिया कि पूरे ज़िले में यही रेट है। ऐसा नहीं है। अपना बजट और ज़मीन का इस्तेमाल बताइए, मैं दिखाऊँगा कि उस पैसे में सही ज़मीन कहाँ मिलेगी।",
     "brokerNoteDate": "2026-09-10",
     "anchors": [
-      { "id": "ram-mandir", "name": "Ram Mandir", "nameHi": "राम मंदिर", "lat": 26.7956, "lng": 82.1943 },
-      { "id": "airport", "name": "Maharishi Valmiki International Airport", "nameHi": "महर्षि वाल्मीकि अंतरराष्ट्रीय हवाई अड्डा", "lat": 26.7506, "lng": 82.1506 },
-      { "id": "ayodhya-dham-station", "name": "Ayodhya Dham Junction", "nameHi": "अयोध्या धाम जंक्शन", "lat": 26.7932, "lng": 82.2006 },
-      { "id": "ring-road", "name": "Ayodhya Ring Road", "nameHi": "अयोध्या रिंग रोड", "lat": 26.761, "lng": 82.118 },
-      { "id": "nh-27", "name": "NH-27 (Lucknow–Gorakhpur)", "nameHi": "एनएच-27 (लखनऊ–गोरखपुर)", "lat": 26.77, "lng": 82.125 }
+      {
+        "id": "ram-mandir",
+        "name": "Ram Mandir",
+        "nameHi": "राम मंदिर",
+        "lat": 26.7956,
+        "lng": 82.1943
+      },
+      {
+        "id": "airport",
+        "name": "Maharishi Valmiki International Airport",
+        "nameHi": "महर्षि वाल्मीकि अंतरराष्ट्रीय हवाई अड्डा",
+        "lat": 26.7506,
+        "lng": 82.1506
+      },
+      {
+        "id": "ayodhya-dham-station",
+        "name": "Ayodhya Dham Junction",
+        "nameHi": "अयोध्या धाम जंक्शन",
+        "lat": 26.7932,
+        "lng": 82.2006
+      },
+      {
+        "id": "ring-road",
+        "name": "Ayodhya Ring Road",
+        "nameHi": "अयोध्या रिंग रोड",
+        "lat": 26.761,
+        "lng": 82.118
+      },
+      {
+        "id": "nh-27",
+        "name": "NH-27 (Lucknow–Gorakhpur)",
+        "nameHi": "एनएच-27 (लखनऊ–गोरखपुर)",
+        "lat": 26.77,
+        "lng": 82.125
+      }
     ],
     "sources": [
-      { "label": "District Ayodhya, Government of Uttar Pradesh", "url": "https://ayodhya.nic.in/", "accessedAt": "2026-09-10" }
+      {
+        "label": "District Ayodhya, Government of Uttar Pradesh",
+        "url": "https://ayodhya.nic.in/",
+        "accessedAt": "2026-09-10"
+      }
     ],
     "updatedAt": "2026-09-10",
     "todo": [
       "Seed record: verify anchor coordinates on the ground; ring-road and nh-27 are single reference points on a corridor, pick the nearest access point per locality in step 3",
       "brokerNote and brokerNoteHi are placeholder copy; replace with the broker's own words, Hindi written by a person"
+    ]
+  },
+  {
+    "id": "lucknow",
+    "name": "Lucknow",
+    "nameHi": "लखनऊ",
+    "district": "Lucknow",
+    "state": "UP",
+    "lat": 26.8467,
+    "lng": 80.9462,
+    "intro": "Lucknow's land market runs on three corridors: Sultanpur Road and Shaheed Path to the south-east where the townships and the outer ring road are, Kanpur Road towards the airport, and Sitapur and Kursi Road to the north. Prices inside the ring road are set by LDA and Awas Vikas schemes; outside it, by how close a plot sits to an expressway junction.",
+    "introHi": "लखनऊ का ज़मीन बाज़ार तीन गलियारों पर चलता है: दक्षिण-पूर्व में सुल्तानपुर रोड और शहीद पथ जहाँ टाउनशिप और आउटर रिंग रोड हैं, एयरपोर्ट की ओर कानपुर रोड, और उत्तर में सीतापुर और कुर्सी रोड। रिंग रोड के अंदर दाम एलडीए और आवास विकास की योजनाएँ तय करती हैं; बाहर, एक्सप्रेसवे के जंक्शन से दूरी।",
+    "anchors": [
+      {
+        "id": "shaheed-path",
+        "name": "Shaheed Path",
+        "nameHi": "शहीद पथ",
+        "lat": 26.815,
+        "lng": 81.005
+      },
+      {
+        "id": "airport",
+        "name": "Chaudhary Charan Singh International Airport",
+        "nameHi": "चौधरी चरण सिंह अंतरराष्ट्रीय हवाई अड्डा",
+        "lat": 26.7606,
+        "lng": 80.8893
+      },
+      {
+        "id": "charbagh",
+        "name": "Charbagh Railway Station",
+        "nameHi": "चारबाग़ रेलवे स्टेशन",
+        "lat": 26.832,
+        "lng": 80.9216
+      },
+      {
+        "id": "gomti-nagar",
+        "name": "Gomti Nagar",
+        "nameHi": "गोमती नगर",
+        "lat": 26.85,
+        "lng": 81
+      },
+      {
+        "id": "outer-ring-road",
+        "name": "Outer Ring Road",
+        "nameHi": "आउटर रिंग रोड",
+        "lat": 26.95,
+        "lng": 81.05
+      }
+    ],
+    "brokerNote": "TODO: broker note in the broker's own words",
+    "brokerNoteHi": "TODO: ब्रोकर की बात, हिंदी किसी व्यक्ति द्वारा",
+    "brokerNoteDate": "2026-09-18",
+    "sources": [
+      {
+        "label": "District Lucknow, Government of Uttar Pradesh",
+        "url": "https://lucknow.nic.in/",
+        "accessedAt": "2026-09-18"
+      }
+    ],
+    "updatedAt": "2026-09-18",
+    "todo": [
+      "Seed record: verify anchor coordinates; intro is editorial draft, brokerNote is a TODO placeholder"
+    ]
+  },
+  {
+    "id": "gorakhpur",
+    "name": "Gorakhpur",
+    "nameHi": "गोरखपुर",
+    "district": "Gorakhpur",
+    "state": "UP",
+    "lat": 26.7606,
+    "lng": 83.3732,
+    "intro": "Gorakhpur's demand is anchored by three institutions: AIIMS on the Kunraghat side, the HURL fertilizer plant to the north and GIDA's industrial estate towards Sahjanwa. The Gorakhpur Link Expressway and the airport have pulled buyers to the east and south-east; the old city and Medical College Road hold the commercial premium.",
+    "introHi": "गोरखपुर की माँग तीन संस्थानों से जुड़ी है: कुनराघाट की ओर एम्स, उत्तर में एचयूआरएल खाद कारखाना और सहजनवा की ओर गीडा का औद्योगिक क्षेत्र। गोरखपुर लिंक एक्सप्रेसवे और एयरपोर्ट ने ख़रीदारों को पूर्व और दक्षिण-पूर्व खींचा है; पुराना शहर और मेडिकल कॉलेज रोड व्यावसायिक प्रीमियम रखते हैं।",
+    "anchors": [
+      {
+        "id": "aiims",
+        "name": "AIIMS Gorakhpur",
+        "nameHi": "एम्स गोरखपुर",
+        "lat": 26.7305,
+        "lng": 83.43
+      },
+      {
+        "id": "airport",
+        "name": "Gorakhpur Airport",
+        "nameHi": "गोरखपुर हवाई अड्डा",
+        "lat": 26.7397,
+        "lng": 83.4497
+      },
+      {
+        "id": "railway-station",
+        "name": "Gorakhpur Junction",
+        "nameHi": "गोरखपुर जंक्शन",
+        "lat": 26.7588,
+        "lng": 83.381
+      },
+      {
+        "id": "fertilizer-belt",
+        "name": "HURL Fertilizer belt",
+        "nameHi": "एचयूआरएल खाद कारखाना क्षेत्र",
+        "lat": 26.82,
+        "lng": 83.36
+      },
+      {
+        "id": "nh-28",
+        "name": "NH-28 (Lucknow–Gorakhpur)",
+        "nameHi": "एनएच-28 (लखनऊ–गोरखपुर)",
+        "lat": 26.745,
+        "lng": 83.3
+      }
+    ],
+    "brokerNote": "TODO: broker note in the broker's own words",
+    "brokerNoteHi": "TODO: ब्रोकर की बात, हिंदी किसी व्यक्ति द्वारा",
+    "brokerNoteDate": "2026-09-18",
+    "sources": [
+      {
+        "label": "District Gorakhpur, Government of Uttar Pradesh",
+        "url": "https://gorakhpur.nic.in/",
+        "accessedAt": "2026-09-18"
+      }
+    ],
+    "updatedAt": "2026-09-18",
+    "todo": [
+      "Seed record: verify anchor coordinates; intro is editorial draft, brokerNote is a TODO placeholder"
     ]
   }
 ]

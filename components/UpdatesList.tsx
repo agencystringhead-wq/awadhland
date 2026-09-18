@@ -4,7 +4,7 @@
  * Updates archive filters (spec Template 8 index, sections 2 and 3): city, agency, type and year,
  * client-side over the static list. The full list is prerendered; filters only hide rows.
  */
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import type { Locale } from "@/lib/i18n";
 import { pick, ui } from "@/lib/i18n";
 import type { City, Update } from "@/lib/schemas";
@@ -23,6 +23,15 @@ export function UpdatesList({ locale, updates, cities }: UpdatesListProps) {
   const [agency, setAgency] = useState("all");
   const [type, setType] = useState("all");
   const [year, setYear] = useState("all");
+
+  // The mega menu links here with ?city= and ?type=; apply them after mount so the static HTML matches.
+  useEffect(() => {
+    const q = new URLSearchParams(window.location.search);
+    const c = q.get("city");
+    const ty = q.get("type");
+    if (c) setCity(c);
+    if (ty) setType(ty);
+  }, []);
 
   const agencyOf = (u: Update) => (u.agency === "other" ? (u.agencyName ?? "other") : u.agency);
   const agencies = useMemo(() => [...new Set(updates.map(agencyOf))].sort(), [updates]);
