@@ -448,7 +448,43 @@ export const guideFrontmatterSchema = z
 
 /* ---------------------------------------------------------------------- types */
 
+/* -------------------------------------------------------------------- reviews */
+
+/** One Google review, shown exactly as written; never edited (spec Template 9). */
+export const reviewSchema = z
+  .object({
+    id: slug,
+    name: z.string().min(1),
+    date: isoDate,
+    /** "bought a plot", "NRI purchase", "commercial land" */
+    purpose: z.string().min(1),
+    purposeHi: z.string().min(1),
+    rating: z.number().int().min(1).max(5),
+    text: z.string().min(1),
+    /** Hindi reviews are shown in Hindi; English reviews are translated by a person, or left as written */
+    textHi: z.string().min(1),
+  })
+  .strict();
+
+/** Google Business Profile summary plus the reviews shown on the site. Single object. */
+export const reviewsSchema = z
+  .object({
+    platform: z.literal("google"),
+    profileUrl: url,
+    rating: z.number().min(0).max(5),
+    count: z.number().int().min(0),
+    /** four sub-scores shown as tiles on the homepage */
+    categories: z
+      .array(z.object({ label: z.string().min(1), labelHi: z.string().min(1), score: z.number().min(0).max(5) }).strict())
+      .length(4),
+    reviews: z.array(reviewSchema),
+    ...recordBase,
+  })
+  .strict();
+
 export type Source = z.infer<typeof source>;
+export type Reviews = z.infer<typeof reviewsSchema>;
+export type Review = z.infer<typeof reviewSchema>;
 export type City = z.infer<typeof citySchema>;
 export type Anchor = z.infer<typeof anchorSchema>;
 export type Locality = z.infer<typeof localitySchema>;
@@ -480,6 +516,7 @@ export const dataFiles = {
   "priceObservations.json": priceObservationsFileSchema,
   "team.json": teamFileSchema,
   "scoring.json": scoringSchema,
+  "reviews.json": reviewsSchema,
 } as const;
 
 export type DataFileName = keyof typeof dataFiles;

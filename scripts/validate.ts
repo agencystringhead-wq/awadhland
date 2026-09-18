@@ -72,6 +72,7 @@ async function main() {
       priceObservations: parsed["priceObservations.json"],
       team: parsed["team.json"],
       scoring: parsed["scoring.json"],
+      reviews: parsed["reviews.json"],
     } as Dataset;
     const integrity = checkIntegrity(dataset);
     errors.push(...integrity);

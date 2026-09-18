@@ -14,6 +14,7 @@ import updatesJson from "../data/updates.json";
 import priceObservationsJson from "../data/priceObservations.json";
 import teamJson from "../data/team.json";
 import scoringJson from "../data/scoring.json";
+import reviewsJson from "../data/reviews.json";
 import { dataFiles, type DataFileName, type Locale } from "./schemas";
 import { checkIntegrity, type Dataset } from "./integrity";
 import { partitionLocalities } from "./guards";
@@ -36,6 +37,7 @@ const dataset: Dataset = {
   priceObservations: parse("priceObservations.json", priceObservationsJson),
   team: parse("team.json", teamJson),
   scoring: parse("scoring.json", scoringJson),
+  reviews: parse("reviews.json", reviewsJson),
 };
 
 const integrityErrors = checkIntegrity(dataset);
@@ -124,3 +126,6 @@ export const getBroker = () => dataset.team[0];
 
 /* scoring */
 export const getScoring = () => dataset.scoring;
+
+/* reviews */
+export const getReviews = () => dataset.reviews;

@@ -1,7 +1,7 @@
 import type { ReactNode } from "react";
 import { Eyebrow } from "./ui/Eyebrow";
 
-export type SectionSize = "base" | "lg" | "xl" | "tight";
+export type SectionSize = "base" | "lg" | "xl" | "tight" | "hero";
 export type SectionTone = "paper" | "surface" | "sand" | "ink" | "gradient";
 
 export type SectionProps = {
@@ -32,7 +32,14 @@ export type SectionProps = {
   className?: string;
 };
 
-const sizeClass: Record<SectionSize, string> = { base: "section", lg: "section-lg", xl: "section-xl", tight: "section-tight" };
+/* hero: 56 top / 72 bottom on desktop as measured on the reference (§9) */
+const sizeClass: Record<SectionSize, string> = {
+  base: "section",
+  lg: "section-lg",
+  xl: "section-xl",
+  tight: "section-tight",
+  hero: "pt-10 pb-12 md:pt-14 md:pb-[72px]",
+};
 const toneClass: Record<SectionTone, string> = {
   paper: "bg-cream",
   surface: "bg-card",

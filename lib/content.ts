@@ -256,3 +256,359 @@ export const toolCopy: Record<Locale, Record<"stamp-duty-calculator", ToolCopy>>
     },
   },
 };
+
+/* ---------------------------------------------------------- homepage story */
+
+export type Option = { value: string; label: string };
+export type Framing = { eyebrow: string; heading: string; accent: string; lede?: string };
+
+export type FormCopy = {
+  eyebrow: string;
+  intro: string;
+  name: string;
+  phone: string;
+  email: string;
+  city: string;
+  cityOptions: Option[];
+  lookingFor: string;
+  pickClosest: string;
+  purposes: Option[];
+  submit: string;
+  orWhatsapp: string;
+  trust: string[];
+  /** Band-only fields */
+  budget: string;
+  budgetOptions: Option[];
+  location: string;
+  locationOptions: Option[];
+  message: string;
+  bandSubmit: string;
+  /** Prefix of the WhatsApp message built from the fields until JotForm is wired */
+  waPrefix: string;
+};
+
+/**
+ * Homepage as a story (Step 2 Phase C). Every line written per language, not translated.
+ * `{years}` and `{phone}` are filled from team.json at render; nothing here holds a number.
+ */
+export type HomeStory = {
+  hero: { status: string; title: string; accent: string; lede: string; ledeAccent: string; ctaPrimary: string; call: string; note: string };
+  form: FormCopy;
+  broker: { eyebrow: string; native: string; line: string; rated: string };
+  stats: {
+    circleRateEntries: string;
+    localities: string;
+    projects: string;
+    years: string;
+    rera: string;
+    reraValue: string;
+    cities: string;
+    languages: string;
+    languagesValue: string;
+    lastUpdated: string;
+  };
+  changed: Framing & { all: string };
+  cities: Framing & { seeCity: string; topAreas: string; priceBand: string };
+  why: Framing & { pillars: { title: string; body: string }[] };
+  situations: Framing & { open: string };
+  how: Framing & { steps: { title: string; body: string }[]; feeNote: string };
+  tools: Framing & { tryIt: string };
+  checklist: Framing & { fullGuide: string };
+  guides: Framing & { all: string };
+  reviews: Framing & { verified: string; seeProfile: string; disclaimer: string };
+  band: Framing & { trust: string[] };
+};
+
+export const homeStory: Record<Locale, HomeStory> = {
+  en: {
+    hero: {
+      status: "Taking enquiries · replies within the hour on WhatsApp",
+      title: "Land in Awadh,",
+      accent: "checked before you pay.",
+      lede: "You don't need a broker tonight. You need the real circle rate, a plot that's actually clean, and someone who replies on WhatsApp when you have a question.",
+      ledeAccent: "That's what we do.",
+      ctaPrimary: "Start here — the six checks",
+      call: "Call",
+      note: "Enquiries answered Mon–Sat 9a–7p IST. WhatsApp works from any country.",
+    },
+    form: {
+      eyebrow: "Enquiry · replies within the hour",
+      intro: "Leave your details. A real person replies on WhatsApp.",
+      name: "Your name",
+      phone: "Phone",
+      email: "Email",
+      city: "City",
+      cityOptions: [
+        { value: "ayodhya", label: "Ayodhya" },
+        { value: "lucknow", label: "Lucknow" },
+        { value: "gorakhpur", label: "Gorakhpur" },
+        { value: "not-sure", label: "Not sure" },
+      ],
+      lookingFor: "What are you looking for?",
+      pickClosest: "— pick the closest",
+      purposes: [
+        { value: "residential", label: "Residential plot" },
+        { value: "commercial", label: "Commercial land" },
+        { value: "investment", label: "Investment" },
+        { value: "agricultural", label: "Agricultural" },
+        { value: "not-sure", label: "Not sure yet" },
+      ],
+      submit: "Send my enquiry",
+      orWhatsapp: "or WhatsApp",
+      trust: ["UP RERA registered", "{years} years", "Real human", "Encrypted", "No data sold"],
+      budget: "Budget",
+      budgetOptions: [
+        { value: "under-25", label: "Under ₹25 lakh" },
+        { value: "25-50", label: "₹25–50 lakh" },
+        { value: "50-100", label: "₹50 lakh – 1 crore" },
+        { value: "over-100", label: "Over ₹1 crore" },
+        { value: "not-sure", label: "Not sure yet" },
+      ],
+      location: "Where are you?",
+      locationOptions: [
+        { value: "india", label: "In India" },
+        { value: "abroad", label: "Outside India" },
+      ],
+      message: "Anything else? A khasra number, a locality, a question.",
+      bandSubmit: "Send my enquiry",
+      waPrefix: "Enquiry from awadhland.com",
+    },
+    broker: {
+      eyebrow: "Your broker",
+      native: "Ayodhya native",
+      line: "{years} years in Awadh land · all three cities · fees in writing",
+      rated: "Rated on Google →",
+    },
+    stats: {
+      circleRateEntries: "Circle-rate entries",
+      localities: "Localities covered",
+      projects: "Projects tracked",
+      years: "Years active",
+      rera: "RERA registered",
+      reraValue: "Yes",
+      cities: "Cities",
+      languages: "Languages",
+      languagesValue: "2",
+      lastUpdated: "Last updated",
+    },
+    changed: { eyebrow: "What changed", heading: "Every notice that", accent: "moves land.", all: "All updates →" },
+    cities: {
+      eyebrow: "Three cities",
+      heading: "Ayodhya first.",
+      accent: "Lucknow and Gorakhpur alongside.",
+      lede: "One page per locality, the same fields everywhere: circle rate, asking range, land use, distances, projects.",
+      seeCity: "See the city page →",
+      topAreas: "High-potential areas",
+      priceBand: "Asking range",
+    },
+    why: {
+      eyebrow: "Why we exist",
+      heading: "Too many buyers get bad information",
+      accent: "or bad land.",
+      lede: "Especially buyers from outside UP. The rate quoted is a hoarding price, the plot is still agricultural in the khatauni, and nobody says so until the token is paid. This site exists so the numbers come first.",
+      pillars: [
+        { title: "Verified", body: "Every rate, distance and project on the site has a source and a date. If we cannot source it, it does not go up." },
+        { title: "Plain", body: "Hindi and English, written separately. No jargon, no pressure, no listing pushed at you." },
+        { title: "Local", body: "Native to the region and on the ground every week. We walk the plot with you, or on video if you are abroad." },
+      ],
+    },
+    situations: {
+      eyebrow: "Start with your situation",
+      heading: "Six ways people",
+      accent: "arrive here.",
+      lede: "Pick the closest. Each one opens the guide written for it.",
+      open: "Open the guide →",
+    },
+    how: {
+      eyebrow: "How we work",
+      heading: "Four steps.",
+      accent: "That's the whole thing.",
+      lede: "No listings pushed at you, no site visit before the papers are checked.",
+      steps: [
+        { title: "A 15-minute call", body: "WhatsApp or phone. You say what you want and your budget; we say what is realistic." },
+        { title: "A written shortlist", body: "Rates, distances and what to check for each plot, in writing, before you spend a rupee." },
+        { title: "Site visit, checks done first", body: "In person, or on video for NRIs. Khatauni and land-use checks are done before you travel." },
+        { title: "Registry and mutation", body: "Paperwork through the sub-registrar and the revenue record, with the fee agreed in writing up front." },
+      ],
+      feeNote: "Brokerage is disclosed in writing before any visit.",
+    },
+    tools: {
+      eyebrow: "Free tools",
+      heading: "Do the sums",
+      accent: "before the call.",
+      lede: "No signup. Everything runs in your browser from the same data as the pages.",
+      tryIt: "Try it →",
+    },
+    checklist: {
+      eyebrow: "Before you pay a rupee",
+      heading: "Six checks.",
+      accent: "In this order.",
+      lede: "A seller who objects to any of these is telling you something.",
+      fullGuide: "Read the full checklist →",
+    },
+    guides: { eyebrow: "Recently published", heading: "Guides written", accent: "for one situation each.", all: "All guides →" },
+    reviews: {
+      eyebrow: "Reviews",
+      heading: "What buyers say",
+      accent: "after the registry.",
+      lede: "Collected on Google and shown as written. We do not edit them.",
+      verified: "verified reviews",
+      seeProfile: "See the profile →",
+      disclaimer: "Reviews are collected on Google and shown as written, with the buyer's name and month. We never edit or select them.",
+    },
+    band: {
+      eyebrow: "Enquiry",
+      heading: "Tell us what",
+      accent: "you are looking for.",
+      lede: "A real person replies on WhatsApp within the hour, Mon–Sat 9a–7p IST. From India or abroad.",
+      trust: ["UP RERA registered", "{years} years", "Real human", "Encrypted", "No data sold"],
+    },
+  },
+  hi: {
+    hero: {
+      status: "पूछताछ जारी · व्हाट्सऐप पर एक घंटे में जवाब",
+      title: "अवध में ज़मीन,",
+      accent: "पैसे देने से पहले जाँची हुई।",
+      lede: "आज रात आपको ब्रोकर नहीं चाहिए। आपको असली सर्किल रेट चाहिए, ऐसा प्लॉट जो सचमुच साफ़ हो, और कोई जो सवाल पूछने पर व्हाट्सऐप पर जवाब दे।",
+      ledeAccent: "यही हम करते हैं।",
+      ctaPrimary: "यहाँ से शुरू करें — छह जाँचें",
+      call: "कॉल",
+      note: "पूछताछ का जवाब सोम–शनि सुबह 9 से शाम 7 (भारतीय समय)। व्हाट्सऐप किसी भी देश से चलता है।",
+    },
+    form: {
+      eyebrow: "पूछताछ · एक घंटे में जवाब",
+      intro: "अपनी जानकारी छोड़ें। व्हाट्सऐप पर एक असली व्यक्ति जवाब देगा।",
+      name: "आपका नाम",
+      phone: "फ़ोन",
+      email: "ईमेल",
+      city: "शहर",
+      cityOptions: [
+        { value: "ayodhya", label: "अयोध्या" },
+        { value: "lucknow", label: "लखनऊ" },
+        { value: "gorakhpur", label: "गोरखपुर" },
+        { value: "not-sure", label: "तय नहीं" },
+      ],
+      lookingFor: "आप क्या ढूँढ रहे हैं?",
+      pickClosest: "— जो सबसे क़रीब हो",
+      purposes: [
+        { value: "residential", label: "रिहायशी प्लॉट" },
+        { value: "commercial", label: "व्यावसायिक ज़मीन" },
+        { value: "investment", label: "निवेश" },
+        { value: "agricultural", label: "कृषि भूमि" },
+        { value: "not-sure", label: "अभी तय नहीं" },
+      ],
+      submit: "मेरी पूछताछ भेजें",
+      orWhatsapp: "या व्हाट्सऐप",
+      trust: ["यूपी रेरा पंजीकृत", "{years} वर्ष", "असली व्यक्ति", "एन्क्रिप्टेड", "डेटा बेचा नहीं जाता"],
+      budget: "बजट",
+      budgetOptions: [
+        { value: "under-25", label: "₹25 लाख से कम" },
+        { value: "25-50", label: "₹25–50 लाख" },
+        { value: "50-100", label: "₹50 लाख – 1 करोड़" },
+        { value: "over-100", label: "₹1 करोड़ से ऊपर" },
+        { value: "not-sure", label: "अभी तय नहीं" },
+      ],
+      location: "आप कहाँ हैं?",
+      locationOptions: [
+        { value: "india", label: "भारत में" },
+        { value: "abroad", label: "भारत से बाहर" },
+      ],
+      message: "और कुछ? खसरा नंबर, इलाक़ा, कोई सवाल।",
+      bandSubmit: "मेरी पूछताछ भेजें",
+      waPrefix: "awadhland.com से पूछताछ",
+    },
+    broker: {
+      eyebrow: "आपका ब्रोकर",
+      native: "अयोध्या के निवासी",
+      line: "अवध की ज़मीन में {years} वर्ष · तीनों शहर · फ़ीस लिखित में",
+      rated: "गूगल पर रेटिंग →",
+    },
+    stats: {
+      circleRateEntries: "सर्किल रेट एंट्री",
+      localities: "इलाक़े कवर",
+      projects: "प्रोजेक्ट ट्रैक",
+      years: "वर्ष सक्रिय",
+      rera: "रेरा पंजीकृत",
+      reraValue: "हाँ",
+      cities: "शहर",
+      languages: "भाषाएँ",
+      languagesValue: "2",
+      lastUpdated: "आख़िरी अपडेट",
+    },
+    changed: { eyebrow: "क्या बदला", heading: "हर वह सूचना जो", accent: "ज़मीन को हिलाती है।", all: "सभी अपडेट →" },
+    cities: {
+      eyebrow: "तीन शहर",
+      heading: "पहले अयोध्या।",
+      accent: "साथ में लखनऊ और गोरखपुर।",
+      lede: "हर इलाक़े का एक पेज, हर जगह वही खाने: सर्किल रेट, माँगा जा रहा दाम, भू-उपयोग, दूरियाँ, प्रोजेक्ट।",
+      seeCity: "शहर का पेज देखें →",
+      topAreas: "ऊँची संभावना वाले इलाक़े",
+      priceBand: "माँगा जा रहा दाम",
+    },
+    why: {
+      eyebrow: "हम क्यों हैं",
+      heading: "बहुत से ख़रीदारों को ग़लत जानकारी मिलती है",
+      accent: "या ग़लत ज़मीन।",
+      lede: "ख़ासकर यूपी के बाहर के ख़रीदारों को। बताया गया रेट होर्डिंग का दाम होता है, प्लॉट खतौनी में अब भी कृषि भूमि होता है, और टोकन देने तक कोई नहीं बताता। यह साइट इसलिए है कि आँकड़े पहले आएँ।",
+      pillars: [
+        { title: "जाँचा हुआ", body: "साइट पर हर रेट, दूरी और प्रोजेक्ट का स्रोत और तारीख़ है। जिसका स्रोत नहीं, वह यहाँ नहीं।" },
+        { title: "सीधी बात", body: "हिंदी और अंग्रेज़ी, अलग-अलग लिखी हुई। न शब्दजाल, न दबाव, न कोई लिस्टिंग थोपी हुई।" },
+        { title: "यहीं के", body: "इसी इलाक़े के, हर हफ़्ते ज़मीन पर। प्लॉट पर आपके साथ चलेंगे, विदेश में हैं तो वीडियो पर।" },
+      ],
+    },
+    situations: {
+      eyebrow: "अपनी स्थिति से शुरू करें",
+      heading: "छह रास्ते जिनसे लोग",
+      accent: "यहाँ पहुँचते हैं।",
+      lede: "जो सबसे क़रीब हो चुनें। हर एक उसी के लिए लिखी गाइड खोलता है।",
+      open: "गाइड खोलें →",
+    },
+    how: {
+      eyebrow: "हम कैसे काम करते हैं",
+      heading: "चार क़दम।",
+      accent: "बस इतना ही।",
+      lede: "न लिस्टिंग थोपी जाती है, न काग़ज़ जाँचे बिना साइट विज़िट।",
+      steps: [
+        { title: "15 मिनट की बात", body: "व्हाट्सऐप या फ़ोन। आप बताते हैं क्या चाहिए और बजट कितना; हम बताते हैं क्या मुमकिन है।" },
+        { title: "लिखित शॉर्टलिस्ट", body: "हर प्लॉट के रेट, दूरियाँ और क्या जाँचना है, लिखित में, एक रुपया ख़र्च करने से पहले।" },
+        { title: "साइट विज़िट, जाँच पहले", body: "ख़ुद जाकर, या एनआरआई के लिए वीडियो पर। खतौनी और भू-उपयोग की जाँच आपके सफ़र से पहले हो जाती है।" },
+        { title: "रजिस्ट्री और दाख़िल-ख़ारिज", body: "सब-रजिस्ट्रार और राजस्व रिकॉर्ड तक का काग़ज़ी काम, फ़ीस पहले से लिखित में तय।" },
+      ],
+      feeNote: "किसी भी विज़िट से पहले ब्रोकरेज लिखित में बताई जाती है।",
+    },
+    tools: {
+      eyebrow: "मुफ़्त टूल्स",
+      heading: "हिसाब पहले,",
+      accent: "बात बाद में।",
+      lede: "कोई साइनअप नहीं। सब कुछ आपके ब्राउज़र में, पेजों वाले ही डेटा से।",
+      tryIt: "आज़माएँ →",
+    },
+    checklist: {
+      eyebrow: "एक रुपया देने से पहले",
+      heading: "छह जाँचें।",
+      accent: "इसी क्रम में।",
+      lede: "जो बेचने वाला इनमें से किसी पर एतराज़ करे, वह आपको कुछ बता रहा है।",
+      fullGuide: "पूरी चेकलिस्ट पढ़ें →",
+    },
+    guides: { eyebrow: "हाल में प्रकाशित", heading: "गाइड, हर एक", accent: "एक स्थिति के लिए।", all: "सभी गाइड →" },
+    reviews: {
+      eyebrow: "समीक्षाएँ",
+      heading: "रजिस्ट्री के बाद",
+      accent: "ख़रीदार क्या कहते हैं।",
+      lede: "गूगल पर ली गईं और जैसी लिखी गईं वैसी दिखाई गईं। हम उन्हें बदलते नहीं।",
+      verified: "सत्यापित समीक्षाएँ",
+      seeProfile: "प्रोफ़ाइल देखें →",
+      disclaimer: "समीक्षाएँ गूगल पर ली जाती हैं और ख़रीदार के नाम और महीने के साथ जैसी लिखी गईं वैसी दिखाई जाती हैं। हम न उन्हें बदलते हैं, न चुनते हैं।",
+    },
+    band: {
+      eyebrow: "पूछताछ",
+      heading: "बताइए आप",
+      accent: "क्या ढूँढ रहे हैं।",
+      lede: "एक असली व्यक्ति व्हाट्सऐप पर एक घंटे में जवाब देता है, सोम–शनि सुबह 9 से शाम 7 (भारतीय समय)। भारत से या विदेश से।",
+      trust: ["यूपी रेरा पंजीकृत", "{years} वर्ष", "असली व्यक्ति", "एन्क्रिप्टेड", "डेटा बेचा नहीं जाता"],
+    },
+  },
+};
+
+/** Fills {years} and {phone} placeholders in story copy. */
+export const fill = (s: string, vars: Record<string, string | number>) => s.replace(/\{(\w+)\}/g, (_, k) => String(vars[k] ?? `{${k}}`));

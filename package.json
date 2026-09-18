@@ -10,6 +10,8 @@
     "validate": "tsx scripts/validate.ts",
     "prebuild": "npm run validate",
     "build": "next build",
+    "postbuild": "tsx scripts/check-dev-assets.ts",
+    "check:dev-assets": "tsx scripts/check-dev-assets.ts",
     "typecheck": "tsc --noEmit",
     "lint": "eslint ."
   },

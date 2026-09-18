@@ -11,6 +11,7 @@ import {
   type Locality,
   type PriceObservation,
   type Project,
+  type Reviews,
   type Scoring,
   type StampDutyRule,
   type TeamMember,
@@ -27,6 +28,7 @@ export type Dataset = {
   priceObservations: PriceObservation[];
   team: TeamMember[];
   scoring: Scoring;
+  reviews: Reviews;
 };
 
 function duplicates(ids: string[]): string[] {

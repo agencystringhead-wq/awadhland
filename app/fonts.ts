@@ -9,11 +9,12 @@
  */
 import localFont from "next/font/local";
 
+/**
+ * Latin subset only. The latin-ext file is 83 KB and next/font cannot scope it by unicode-range,
+ * so it would preload on every page; the few glyphs outside latin (₹) fall back to the system font.
+ */
 export const inter = localFont({
-  src: [
-    { path: "../node_modules/@fontsource-variable/inter/files/inter-latin-wght-normal.woff2", style: "normal" },
-    { path: "../node_modules/@fontsource-variable/inter/files/inter-latin-ext-wght-normal.woff2", style: "normal" },
-  ],
+  src: "../node_modules/@fontsource-variable/inter/files/inter-latin-wght-normal.woff2",
   weight: "100 900",
   variable: "--font-inter",
   display: "swap",
@@ -47,6 +48,8 @@ export const jetbrainsMono = localFont({
   weight: "100 800",
   variable: "--font-jetbrains",
   display: "optional",
+  // Eyebrows and captions only: not worth a render-blocking preload on mobile.
+  preload: false,
 });
 
 /** Devanagari subset only. Latin glyphs in Hindi copy (digits, English names) fall back to Inter. */

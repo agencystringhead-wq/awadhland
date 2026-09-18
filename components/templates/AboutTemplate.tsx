@@ -8,7 +8,8 @@ import { Section } from "@/components/Section";
 import { SourceStamp } from "@/components/SourceStamp";
 import { TrustBar } from "@/components/TrustBar";
 import { WhyWeExist, whyWeExistCopy } from "@/components/WhyWeExist";
-import { getBroker, getCities } from "@/lib/data";
+import { homeStory } from "@/lib/content";
+import { getBroker, getCities, getReviews } from "@/lib/data";
 import { localePath, ui, type Locale } from "@/lib/i18n";
 import { sameAlternate } from "@/lib/routes";
 import { PageShell } from "./PageShell";
@@ -40,7 +41,7 @@ export function AboutTemplate({ locale }: { locale: Locale }) {
         <HowWeWork locale={locale} {...howWeWorkCopy[locale]} />
       </Section>
       <Section>
-        <Reviews locale={locale} reviews={[]} />
+        <Reviews locale={locale} data={getReviews()} labels={homeStory[locale].reviews} />
         <Badges locale={locale} broker={broker} citiesCovered={cities.length} />
       </Section>
       <Section>

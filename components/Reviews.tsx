@@ -1,60 +1,74 @@
 import type { Locale } from "@/lib/i18n";
-import { formatDate, ui } from "@/lib/i18n";
-
-export type Review = {
-  author: string;
-  /** Shown exactly as written on Google; never edited */
-  text: string;
-  date: string;
-  /** e.g. "bought a plot", "NRI purchase", "commercial land" */
-  purpose: string;
-};
+import { formatDate, pick } from "@/lib/i18n";
+import type { Reviews as ReviewsData } from "@/lib/schemas";
+import { Stars } from "./TopStrip";
+import { Divider } from "./ui/Divider";
 
 export type ReviewsProps = {
   locale: Locale;
-  rating?: number;
-  count?: number;
-  /** Google Business Profile URL */
-  profileUrl?: string;
-  reviews: Review[];
+  data: ReviewsData;
+  labels: { verified: string; seeProfile: string; disclaimer: string };
+  /** Number of review cards to show */
+  limit?: number;
 };
 
-/**
- * There is no reviews data file in the spec's data model yet, so callers pass an empty list
- * and the block renders nothing (empty sections are omitted).
- */
-export function Reviews({ locale, rating, count, profileUrl, reviews }: ReviewsProps) {
-  if (reviews.length === 0 && rating === undefined) return null;
-  const t = ui[locale];
+/** Rating tile (reference §8): big serif score, stars, mono count, hairline, profile link. */
+export function RatingTile({ locale, data, labels }: Omit<ReviewsProps, "limit">) {
+  void locale;
   return (
-    <section data-component="Reviews">
-      {rating !== undefined && (
-        <p className="text-lg font-semibold">
-          Google ★ {rating}
-          {count !== undefined && <span className="text-muted"> ({count})</span>}
-        </p>
-      )}
-      <ul className="mt-4 grid gap-4 md:grid-cols-2">
-        {reviews.map((r) => (
-          <li key={r.author + r.date} className="card p-5">
-            <blockquote className="text-ink">{r.text}</blockquote>
-            <p className="mt-3 text-sm text-muted">
-              {r.author} · <time dateTime={r.date}>{formatDate(r.date, locale)}</time> · {r.purpose}
+    <div data-component="RatingTile" className="card-raised rounded-[16px] px-7 py-[26px]">
+      <p className="font-display text-[68px] font-[380] leading-none tracking-[-0.02em] text-accent-deep tabular-nums">{data.rating.toFixed(1)}</p>
+      <div className="mt-3 flex items-center gap-3">
+        <Stars size={17} />
+        <span className="caption-mono">
+          {data.count} {labels.verified}
+        </span>
+      </div>
+      <Divider className="my-4" />
+      <a href={data.profileUrl} rel="noopener" className="text-[13.5px] font-semibold text-accent-deep no-underline hover:underline">
+        {labels.seeProfile}
+      </a>
+    </div>
+  );
+}
+
+/**
+ * Reviews block (spec Template 9, brief C11): four sub-score tiles, three review cards with name,
+ * date and purpose, and the disclaimer. Reviews are shown as written; textHi is a person's translation.
+ */
+export function Reviews({ locale, data, labels, limit = 3 }: ReviewsProps) {
+  return (
+    <div data-component="Reviews">
+      <ul className="grid grid-cols-2 gap-4 lg:grid-cols-4">
+        {data.categories.map((c) => (
+          <li key={c.label} className="card flex flex-col-reverse gap-2.5 rounded-[12px] px-5 py-4">
+            <span className="caption-mono">{pick(locale, c.label, c.labelHi)}</span>
+            <span className="font-display text-[22px] font-[460] leading-none tabular-nums">{c.score.toFixed(1)}</span>
+          </li>
+        ))}
+      </ul>
+      <ul className="mt-6 grid gap-6 md:grid-cols-3">
+        {data.reviews.slice(0, limit).map((r) => (
+          <li key={r.id} className="card flex flex-col p-7">
+            <div className="flex items-center justify-between gap-3">
+              <Stars size={13} count={r.rating} />
+              <span className="caption-mono text-[9.5px]">{pick(locale, r.purpose, r.purposeHi)}</span>
+            </div>
+            <blockquote className="mt-4 font-display text-[17px] font-light leading-[1.5] text-ink-soft">“{pick(locale, r.text, r.textHi)}”</blockquote>
+            <Divider dotted className="mt-auto pt-0 mb-3.5 mt-5" />
+            <p className="font-display text-[15px] font-medium text-ink">{r.name}</p>
+            <p className="caption-mono mt-0.5 text-[9.5px]">
+              {pick(locale, r.purpose, r.purposeHi)} · <time dateTime={r.date}>{formatDate(r.date, locale)}</time>
             </p>
           </li>
         ))}
       </ul>
-      <p className="mt-4 text-sm text-muted">
-        {t.reviewsOnGoogle}
-        {profileUrl && (
-          <>
-            {" "}
-            <a href={profileUrl} rel="noopener">
-              {t.seeGoogleProfile}
-            </a>
-          </>
-        )}
+      <p className="serif-italic mt-6 text-[13px] text-muted">
+        {labels.disclaimer}{" "}
+        <a href={data.profileUrl} rel="noopener" className="not-italic font-sans font-medium text-accent-deep">
+          {labels.seeProfile}
+        </a>
       </p>
-    </section>
+    </div>
   );
 }

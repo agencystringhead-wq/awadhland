@@ -9,7 +9,7 @@
     "yearsActive": 12,
     "phone": "+910000000000",
     "whatsapp": "910000000000",
-    "photo": "/images/team/broker-todo.webp",
+    "photo": "/dev/placeholder-broker.webp",
     "bio": "TODO: first-person bio in the broker's own words. Native of the region, 12 years of land work in Ayodhya, what changed after 2019, what he refuses to sell.",
     "bioHi": "TODO: ब्रोकर के अपने शब्दों में परिचय, हिंदी किसी व्यक्ति द्वारा लिखा जाए।",
     "sources": [
@@ -21,7 +21,7 @@
       "Set reraUrl to the broker's own UPRERA record, not the portal home page",
       "id will change to the broker's name slug; update guide frontmatter author at the same time",
       "yearsActive must match the RERA registration date or earlier proof (spec Template 9 rules)",
-      "photo must be a real on-site photo on R2, WebP 60-115 KB"
+      "photo is the dev-only reference portrait under /public/dev/ (gitignored; scripts/check-dev-assets.ts fails a CI build that references it). Replace with a real on-site photo on R2, WebP 60-115 KB"
     ]
   }
 ]

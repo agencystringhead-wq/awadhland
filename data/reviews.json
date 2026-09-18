@@ -1,0 +1,51 @@
+{
+  "platform": "google",
+  "profileUrl": "https://www.google.com/maps",
+  "rating": 4.9,
+  "count": 38,
+  "categories": [
+    { "label": "Honesty on price", "labelHi": "दाम पर ईमानदारी", "score": 5.0 },
+    { "label": "Paperwork", "labelHi": "काग़ज़ी काम", "score": 4.9 },
+    { "label": "Replies on WhatsApp", "labelHi": "व्हाट्सऐप पर जवाब", "score": 4.9 },
+    { "label": "Would recommend", "labelHi": "सिफ़ारिश करेंगे", "score": 4.8 }
+  ],
+  "reviews": [
+    {
+      "id": "placeholder-1",
+      "name": "PLACEHOLDER Reviewer",
+      "date": "2026-06-14",
+      "purpose": "bought a plot",
+      "purposeHi": "प्लॉट ख़रीदा",
+      "rating": 5,
+      "text": "PLACEHOLDER: a Google review shown exactly as written. Replace with the real text, name and date from the profile.",
+      "textHi": "PLACEHOLDER: गूगल पर लिखी समीक्षा जैसी है वैसी। प्रोफ़ाइल से असली पाठ, नाम और तारीख़ डालें।"
+    },
+    {
+      "id": "placeholder-2",
+      "name": "PLACEHOLDER Reviewer",
+      "date": "2026-04-02",
+      "purpose": "NRI purchase",
+      "purposeHi": "एनआरआई ख़रीद",
+      "rating": 5,
+      "text": "PLACEHOLDER: a Google review shown exactly as written. Replace with the real text, name and date from the profile.",
+      "textHi": "PLACEHOLDER: गूगल पर लिखी समीक्षा जैसी है वैसी। प्रोफ़ाइल से असली पाठ, नाम और तारीख़ डालें।"
+    },
+    {
+      "id": "placeholder-3",
+      "name": "PLACEHOLDER Reviewer",
+      "date": "2026-01-20",
+      "purpose": "commercial land",
+      "purposeHi": "व्यावसायिक ज़मीन",
+      "rating": 5,
+      "text": "PLACEHOLDER: a Google review shown exactly as written. Replace with the real text, name and date from the profile.",
+      "textHi": "PLACEHOLDER: गूगल पर लिखी समीक्षा जैसी है वैसी। प्रोफ़ाइल से असली पाठ, नाम और तारीख़ डालें।"
+    }
+  ],
+  "sources": [{ "label": "Google Business Profile", "url": "https://www.google.com/maps", "accessedAt": "2026-09-18" }],
+  "updatedAt": "2026-09-18",
+  "todo": [
+    "PLACEHOLDER: rating, count, categories and every review are invented. Replace with the real Google Business Profile values and set profileUrl to the profile itself",
+    "Reviews must be shown as written on Google; textHi is a person's translation only where the original is English",
+    "AggregateRating JSON-LD (step 6) may use this file only once the values are real and kept in sync"
+  ]
+}

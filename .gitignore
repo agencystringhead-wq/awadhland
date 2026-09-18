@@ -7,3 +7,6 @@ next-env.d.ts
 .DS_Store
 .claude/
 .playwright-mcp/
+
+# dev-only placeholder media, never shipped (scripts/check-dev-assets.ts fails a CI build that references it)
+/public/dev/
