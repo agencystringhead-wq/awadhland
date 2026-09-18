@@ -1,6 +1,7 @@
 import type { ReactNode } from "react";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
+import { TopStrip } from "@/components/TopStrip";
 import { getBroker, getBuildableLocalities, getCities } from "@/lib/data";
 import type { Locale } from "@/lib/i18n";
 import type { Alternate } from "@/lib/routes";
@@ -13,12 +14,13 @@ export type PageShellProps = {
   children: ReactNode;
 };
 
-/** Header, main, footer. Used by every page in both trees. */
+/** Top strip, header, main, footer. Used by every page in both trees. */
 export function PageShell({ locale, alternate, pageLabel, children }: PageShellProps) {
   const cities = getCities();
   const broker = getBroker();
   return (
     <>
+      <TopStrip locale={locale} cities={cities} broker={broker} />
       <Header locale={locale} alternate={alternate} cities={cities} broker={broker} pageLabel={pageLabel} />
       <main>{children}</main>
       <Footer locale={locale} cities={cities} localities={getBuildableLocalities(locale).buildable} broker={broker} />

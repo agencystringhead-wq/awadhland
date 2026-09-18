@@ -374,7 +374,7 @@ A `scripts/parse-circle-rates.ts` and `scripts/validate.ts` live alongside; pars
 | `Footer` | all | Full index, legal, RERA disclosure |
 | `TrustBar`, `BrokerCard`, `WhyWeExist`, `HowWeWork`, `Reviews`, `Badges` | homepage, city hubs, about, guides | Trust layer, see Template 9 |
 
-Design direction: warm, calm palette (cream background, deep green or maroon accent, near-black text) closer to probate.help than rhinoplasty.cc. Latin: Inter or similar at 600 for headings. Devanagari: Noto Sans Devanagari. Cards with 16px radius, generous whitespace, no stock photography of handshakes.
+Design direction: probate.help's architecture adapted to land (measured tokens in `docs/DESIGN-REFERENCE.md`). Cream `#f6f1e8` page, vellum `#fbf7ef` cards, ink `#1f1a14`, hairline `#d9cdb6`; one deep green accent mixed in oklch at the reference's lightness and chroma. Latin: Fraunces display serif at 350–480 for headings, ledes and card titles, Instrument Serif italic for the accent phrase, Inter for body and UI, JetBrains Mono for eyebrows and labels. Devanagari: Noto Sans Devanagari at 600 for headings. Card radius by role (14 / 16 / 18 / 20 / 24), pills 999, section rhythm 96 / 112 / 140, no `backdrop-filter`, no stock photography.
 
 ## SEO and schema
 

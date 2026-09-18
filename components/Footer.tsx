@@ -1,88 +1,132 @@
 import type { Locale } from "@/lib/i18n";
-import { localePath, pick, ui } from "@/lib/i18n";
+import { localePath, pick, ui, whatsappText } from "@/lib/i18n";
 import type { City, Locality, TeamMember } from "@/lib/schemas";
-import { Badges } from "./Badges";
+import { Logo } from "./Header";
+import { Button, PhoneIcon, WhatsAppIcon } from "./ui/Button";
+import { whatsappHref } from "./WhatsAppButton";
 
 export type FooterProps = {
   locale: Locale;
   cities: Pick<City, "id" | "name" | "nameHi">[];
   /** Only localities with a built page in this locale, so the index never links to a 404. */
   localities: Pick<Locality, "id" | "cityId" | "name" | "nameHi">[];
-  broker: Pick<TeamMember, "reraNumber" | "reraUrl" | "yearsActive" | "name" | "nameHi">;
+  broker: Pick<TeamMember, "reraNumber" | "reraUrl" | "yearsActive" | "name" | "nameHi" | "phone" | "whatsapp">;
 };
 
-/** Full index, badges band, legal links, RERA disclosure. Standard pages (disclaimer, privacy, terms) are built later. */
+/**
+ * Mega footer (reference §11): sand background, 72/32 padding; four index columns with mono
+ * heads, 1px rules between them and 13.5px links. Column 1 is the brand, columns 2–4 are the
+ * cities from data with their locality index. Final row: site links, legal, RERA disclosure, credit.
+ */
 export function Footer({ locale, cities, localities, broker }: FooterProps) {
   const t = ui[locale];
-  const legal = [
+  const site = [
+    { label: t.guides, href: `${localePath(locale, "/")}#guides` },
+    { label: t.tools, href: `${localePath(locale, "/")}#tools` },
+    { label: t.updates, href: localePath(locale, "/updates/") },
     { label: t.about, href: localePath(locale, "/about/") },
     { label: t.methodology, href: localePath(locale, "/methodology/") },
     { label: t.contact, href: localePath(locale, "/contact/") },
+  ];
+  const legal = [
     { label: t.disclaimer, href: localePath(locale, "/disclaimer/") },
     { label: t.privacy, href: localePath(locale, "/privacy/") },
     { label: t.terms, href: localePath(locale, "/terms/") },
   ];
+  const col = "md:border-l md:border-line md:px-6";
+  const link = "text-[13.5px] leading-[1.32] text-ink-soft no-underline hover:text-accent-deep";
   return (
-    <footer data-component="Footer" className="mt-16 border-t border-line bg-cream-deep">
-      <div className="container-site py-6">
-        <Badges locale={locale} broker={broker} citiesCovered={cities.length} />
-      </div>
-      <div className="container-site grid gap-10 border-t border-line py-12 md:grid-cols-4">
-        {cities.map((c) => (
-          <section key={c.id}>
-            <h2 className="text-base">
-              <a href={localePath(locale, `/${c.id}/`)} className="text-ink no-underline hover:text-accent">
-                {pick(locale, c.name, c.nameHi)}
-              </a>
-            </h2>
-            <ul className="mt-3 space-y-1.5 text-[15px]">
-              <li>
-                <a href={localePath(locale, `/${c.id}/circle-rates/`)} className="text-ink-soft no-underline hover:text-accent">
-                  {t.circleRates}
-                </a>
-              </li>
-              {localities
-                .filter((l) => l.cityId === c.id)
-                .map((l) => (
-                  <li key={l.id}>
-                    <a href={localePath(locale, `/${c.id}/${l.id}/`)} className="text-ink-soft no-underline hover:text-accent">
-                      {pick(locale, l.name, l.nameHi)}
+    <footer data-component="Footer" className="border-t border-line bg-cream-deep pb-8 pt-14 md:pt-[72px]">
+      <div className="container-site">
+        <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-4 lg:gap-0">
+          {/* 1. Brand */}
+          <div className="lg:pr-6">
+            <Logo locale={locale} size="lg" />
+            <p className="mt-4 max-w-[320px] text-sm leading-[1.55] text-muted">{t.footerBlurb}</p>
+            <div className="mt-5 flex flex-wrap gap-2">
+              <Button href={whatsappHref(broker.whatsapp, whatsappText(locale, t.siteName))} variant="primary" size="sm" icon={<WhatsAppIcon />}>
+                {t.whatsapp}
+              </Button>
+              <Button href={`tel:${broker.phone}`} variant="soft" size="sm" icon={<PhoneIcon />}>
+                {t.call}
+              </Button>
+            </div>
+          </div>
+
+          {/* 2–4. City index columns from data */}
+          {cities.map((c) => {
+            const list = localities.filter((l) => l.cityId === c.id);
+            return (
+              <section key={c.id} className={col}>
+                <h2 className="caption-mono font-semibold text-ink">
+                  <a href={localePath(locale, `/${c.id}/`)} className="text-ink no-underline hover:text-accent-deep">
+                    {pick(locale, c.name, c.nameHi)}
+                  </a>
+                </h2>
+                <p className="mb-4 border-b border-line pb-3.5 pt-1 text-[11.5px] leading-[1.35] text-muted">
+                  {list.length} {t.localities} · <a href={localePath(locale, `/${c.id}/circle-rates/`)} className="text-muted">{t.circleRates}</a>
+                </p>
+                <ul className="space-y-3.5">
+                  {list.map((l) => (
+                    <li key={l.id} className="pl-[11px] -indent-[11px]">
+                      <a href={localePath(locale, `/${c.id}/${l.id}/`)} className={link}>
+                        {pick(locale, l.name, l.nameHi)}
+                      </a>
+                    </li>
+                  ))}
+                  <li className="pt-1">
+                    <a href={localePath(locale, `/${c.id}/`)} className="text-[13.5px] font-semibold text-accent-deep no-underline hover:underline">
+                      {t.allLocalitiesIn} {pick(locale, c.name, c.nameHi)} →
                     </a>
                   </li>
-                ))}
-            </ul>
-          </section>
-        ))}
-        <section>
-          <h2 className="text-base">{t.siteName}</h2>
-          <ul className="mt-3 space-y-1.5 text-[15px]">
-            <li>
-              <a href={localePath(locale, "/updates/")} className="text-ink-soft no-underline hover:text-accent">
-                {t.updates}
-              </a>
-            </li>
-            {legal.map((l) => (
-              <li key={l.href}>
-                <a href={l.href} className="text-ink-soft no-underline hover:text-accent">
+                </ul>
+              </section>
+            );
+          })}
+        </div>
+
+        {/* Final row */}
+        <div className="mt-14 border-t border-line pt-6">
+          <ul className="flex flex-wrap gap-x-6 gap-y-2">
+            {site.map((l) => (
+              <li key={l.href + l.label}>
+                <a href={l.href} className="text-[13.5px] font-medium text-ink no-underline hover:text-accent-deep">
                   {l.label}
                 </a>
               </li>
             ))}
           </ul>
-        </section>
-      </div>
-      <div className="container-site border-t border-line py-6 text-sm text-muted">
-        <p>{t.footerTagline}</p>
-        <p className="mt-2">
-          {t.reraDisclosure}: {pick(locale, broker.name, broker.nameHi)}
-          {broker.reraNumber && (
-            <>
-              {" · "}
-              {broker.reraUrl ? <a href={broker.reraUrl}>{broker.reraNumber}</a> : broker.reraNumber}
-            </>
-          )}
-        </p>
-        <p className="mt-2">{t.builtBy}</p>
+          <div className="mt-6 flex flex-wrap items-baseline justify-between gap-x-6 gap-y-3 border-t border-line pt-5">
+            <p className="font-mono text-xs text-ink-soft">© {new Date().getFullYear()} awadhland.com · {pick(locale, broker.name, broker.nameHi)}</p>
+            <ul className="flex flex-wrap gap-x-6 text-xs text-muted">
+              {legal.map((l) => (
+                <li key={l.href}>
+                  <a href={l.href} className="text-muted no-underline hover:text-accent-deep">
+                    {l.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <p className="mt-4 text-xs text-muted">
+            {t.reraDisclosure}: {pick(locale, broker.name, broker.nameHi)}
+            {broker.reraNumber && (
+              <>
+                {" · UP RERA "}
+                {broker.reraUrl ? (
+                  <a href={broker.reraUrl} rel="noopener" className="text-muted">
+                    {broker.reraNumber}
+                  </a>
+                ) : (
+                  broker.reraNumber
+                )}
+              </>
+            )}
+            {" · "}
+            {t.footerTagline}
+          </p>
+          <p className="serif-italic mt-2 text-xs text-muted">{t.builtBy}</p>
+        </div>
       </div>
     </footer>
   );

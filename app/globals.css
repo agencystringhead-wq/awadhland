@@ -1,165 +1,569 @@
 @import "tailwindcss";
 
 /*
- * Design tokens (spec "Shared components", design direction): warm, calm palette, cream
- * background, deep green accent, near-black text, 16px card radius, generous whitespace.
- * Every number here is meant to be tuned; utilities like bg-cream, text-ink, rounded-card
- * are generated from these names by Tailwind 4.
+ * Design tokens, Step 2 Phase B. Derived from docs/DESIGN-REFERENCE.md (probate.help measured at
+ * 1440): the reference's paper, vellum, ink and rule values are used as-is; the accent is our
+ * green re-mixed in oklch so it sits at the same lightness and chroma as their terracotta.
+ * Every value is a number meant to be tuned. Utilities like bg-cream, text-ink, rounded-card and
+ * font-display are generated from these names by Tailwind 4.
  */
 @theme {
-  --color-cream: #f7f2e8;
-  --color-cream-deep: #efe7d8;
-  --color-card: #fffdf9;
-  --color-ink: #1d1b17;
-  --color-ink-soft: #4d4842;
-  --color-muted: #7a736a;
-  --color-line: #e2d9c8;
-  --color-accent: #1f4d3a;
-  --color-accent-deep: #163a2c;
-  --color-accent-soft: #dfe9e1;
-  --color-maroon: #7d2b2b;
-  --color-maroon-soft: #f0dcdc;
-  --color-whatsapp: #1f8a4c;
+  /* surfaces: page → secondary panel → sand band → card */
+  --color-cream: #f6f1e8; /* reference --paper */
+  --color-cream-deep: #efe7d7; /* --paper-2 */
+  --color-sand: #e6dac2; /* --paper-3 */
+  --color-card: #fbf7ef; /* --vellum */
+  --color-card-hi: #fdf9f1; /* gradient tops */
 
-  /* price band chips */
-  --color-band-low: #dfe9e1;
-  --color-band-mid: #f2e6c4;
-  --color-band-high: #f4d9c3;
-  --color-band-premium: #eccfcf;
+  /* ink ramp */
+  --color-ink: #1f1a14;
+  --color-ink-soft: #3b342a; /* --ink-2, body copy and ledes */
+  --color-muted: #6b6053; /* --ink-3, eyebrows and labels */
+  --color-faint: #978b7b; /* --ink-4 */
+  --color-line: #d9cdb6; /* --rule */
+
+  /* accent: deep green at the reference terracotta's lightness and chroma */
+  --color-accent: oklch(46% 0.08 158); /* ≈ #2c6a4e */
+  --color-accent-deep: oklch(36% 0.07 158); /* ≈ #1f4f3a */
+  --color-accent-soft: oklch(88% 0.04 158); /* ≈ #d4e6da */
+  --color-gold: oklch(74% 0.1 78);
+  --color-maroon: oklch(46% 0.12 25); /* warnings, watch-outs */
+  --color-maroon-soft: oklch(90% 0.04 25);
+  --color-whatsapp: oklch(46% 0.08 158); /* WhatsApp buttons are the accent, not brand green */
+
+  /* price band chips, kept in the cream family */
+  --color-band-low: oklch(88% 0.04 158);
+  --color-band-mid: #f0e4c4;
+  --color-band-high: #f3d8c1;
+  --color-band-premium: #ebcfcd;
 
   /* project status chips */
-  --color-status-announced: #e6e1d7;
-  --color-status-approved: #dbe4ee;
-  --color-status-under-construction: #f2e6c4;
-  --color-status-partially-open: #d8e9e6;
-  --color-status-complete: #dfe9e1;
-  --color-status-stalled: #eccfcf;
+  --color-status-announced: #e6dfd0;
+  --color-status-approved: #dbe3ec;
+  --color-status-under-construction: #f0e4c4;
+  --color-status-partially-open: #d7e7e2;
+  --color-status-complete: oklch(88% 0.04 158);
+  --color-status-stalled: #ebcfcd;
 
-  --radius-card: 16px;
+  /* radii by role (reference --r-*) */
+  --radius-xs: 6px;
+  --radius-sm: 10px;
+  --radius-md: 14px;
+  --radius-card: 20px; /* --r-lg, default card */
+  --radius-xl: 28px;
   --radius-chip: 999px;
 
   --font-sans: var(--font-inter), "Inter", system-ui, sans-serif;
-  --font-devanagari: var(--font-devanagari), var(--font-inter), "Noto Sans Devanagari", system-ui, sans-serif;
+  --font-display: var(--font-fraunces), "Fraunces", Georgia, serif;
+  --font-italic: var(--font-instrument), "Instrument Serif", Georgia, serif;
+  --font-mono: var(--font-jetbrains), "JetBrains Mono", ui-monospace, monospace;
+  --font-devanagari: var(--font-devanagari), "Noto Sans Devanagari", var(--font-inter), system-ui, sans-serif;
 
-  --container-site: 1120px;
+  --container-site: 1240px;
 
-  --shadow-card: 0 1px 2px rgb(29 27 23 / 0.04), 0 6px 20px rgb(29 27 23 / 0.06);
+  --shadow-sm: 0 1px 2px #281e0f0a, 0 2px 6px #281e0f0a;
+  --shadow-md: 0 2px 8px #281e0f0d, 0 12px 32px #281e0f0f;
+  --shadow-lg: 0 4px 18px #281e0f14, 0 24px 60px #281e0f14;
+  /* inset white highlight + hairline shadow that every reference card carries */
+  --shadow-lift: inset 0 1px 0 rgb(255 255 255 / 0.8), inset 0 -1px 0 rgb(40 30 15 / 0.05), 0 1px 2px rgb(40 30 15 / 0.04);
+  --shadow-card: var(--shadow-lift);
 }
 
-/* Type scale. Headings Inter 600 (CLAUDE.md). Body 16px English, 17px Hindi. */
+/*
+ * Type scale (reference §3). Display serif for headings at the reference's light weights; Inter
+ * for body and UI; mono for eyebrows and labels. Sizes are clamps measured at 1440.
+ */
 :root {
-  --text-h1: 2.5rem; /* 40px */
-  --text-h2: 1.625rem; /* 26px */
-  --text-h3: 1.125rem; /* 18px */
-  --leading-body: 1.6;
-  --section-gap: 4rem; /* 64px between homepage / hub sections on desktop */
-  --section-gap-mobile: 2.5rem; /* 40px */
+  --text-display: clamp(48px, 6.5vw, 88px); /* hero h1 */
+  --text-section: clamp(36px, 4.6vw, 68px); /* homepage section h2 */
+  --text-h1: clamp(36px, 4.5vw, 56px); /* page h1 (.heading-1) */
+  --text-h2: clamp(28px, 3vw, 40px); /* page h2 (.heading-2) */
+  --text-h3: 22px; /* card title */
+  --text-lede: clamp(20px, 1.6vw, 24px);
+  --leading-body: 1.55;
+  --section-gap: 96px; /* base section padding, desktop */
+  --section-gap-lg: 112px;
+  --section-gap-xl: 140px;
+  --section-gap-mobile: 72px; /* ≤980 */
+  --section-gap-mobile-sm: 46px; /* ≤640 */
+  --hairline: 1px solid var(--color-line);
 }
-@media (max-width: 767px) {
-  :root {
-    --text-h1: 1.875rem; /* 30px */
-    --text-h2: 1.375rem; /* 22px */
+
+/*
+ * Element defaults live in the base layer so utilities (text-white on a link, h-display on an
+ * h1) win over them. Unlayered rules below this block are deliberate overrides of utilities.
+ */
+@layer base {
+  html {
+    background: var(--color-cream);
+    color: var(--color-ink);
+    -webkit-text-size-adjust: 100%;
+    -webkit-font-smoothing: antialiased;
+  }
+  /* Body: 17px English; Devanagari one step larger because its x-height reads smaller. */
+  html:lang(en) body {
+    font-size: 17px;
+    font-family: var(--font-sans);
+  }
+  html:lang(hi) body {
+    font-size: 18px;
+    font-family: var(--font-devanagari);
+    line-height: 1.65;
+  }
+  body {
+    line-height: var(--leading-body);
+    min-height: 100dvh;
+    overflow-x: clip;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display);
+    text-wrap: balance;
+    color: var(--color-ink);
+  }
+  h1 {
+    font-size: var(--text-h1);
+    font-weight: 380;
+    line-height: 1.1;
+    letter-spacing: -0.018em;
+  }
+  h2 {
+    font-size: var(--text-h2);
+    font-weight: 400;
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+  }
+  h3 {
+    font-size: var(--text-h3);
+    font-weight: 460;
+    line-height: 1.15;
+    letter-spacing: -0.012em;
+  }
+  h4 {
+    font-size: 17px;
+    font-weight: 500;
+    line-height: 1.3;
+  }
+
+  a {
+    color: var(--color-accent);
+    text-underline-offset: 3px;
+  }
+  a:hover {
+    color: var(--color-accent-deep);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 3px;
   }
 }
 
-html {
-  background: var(--color-cream);
-  color: var(--color-ink);
-  -webkit-text-size-adjust: 100%;
-}
-html:lang(en) body {
-  font-size: 16px;
-  font-family: var(--font-sans);
-}
-html:lang(hi) body {
-  font-size: 17px;
+/* Fraunces has no Devanagari: Hindi headings use Noto at 600 with room for matras. */
+html:lang(hi) :is(h1, h2, h3, h4, .h-display, .h-section, .lede, .italic-touch, .stat-number) {
   font-family: var(--font-devanagari);
+  font-style: normal;
+  letter-spacing: 0;
 }
-body {
-  line-height: var(--leading-body);
-  min-height: 100dvh;
-}
-
-h1,
-h2,
-h3,
-h4 {
+html:lang(hi) :is(h1, h2, h3, h4, .h-display, .h-section) {
   font-weight: 600;
   line-height: 1.2;
-  letter-spacing: -0.01em;
-  text-wrap: balance;
-}
-h1 {
-  font-size: var(--text-h1);
-}
-h2 {
-  font-size: var(--text-h2);
-}
-h3 {
-  font-size: var(--text-h3);
 }
 
-a {
-  color: var(--color-accent);
-  text-underline-offset: 3px;
-}
-a:hover {
-  color: var(--color-accent-deep);
-}
+/* ----------------------------------------------------------------- layout */
 
-:focus-visible {
-  outline: 2px solid var(--color-accent);
-  outline-offset: 2px;
-}
-
-/* Layout helpers used by templates */
 @utility container-site {
   width: 100%;
   max-width: var(--container-site);
   margin-inline: auto;
-  padding-inline: 1rem; /* 16px gutter on mobile */
-  @media (min-width: 768px) {
-    padding-inline: 1.5rem; /* 24px */
+  padding-inline: 18px; /* ≤640 */
+  @media (min-width: 641px) {
+    padding-inline: 24px; /* ≤980 */
+  }
+  @media (min-width: 981px) {
+    padding-inline: 32px; /* 1176px content at 1240 */
   }
 }
 
+@utility container-narrow {
+  width: 100%;
+  max-width: calc(880px + 64px);
+  margin-inline: auto;
+  padding-inline: 18px;
+  @media (min-width: 641px) {
+    padding-inline: 24px;
+  }
+  @media (min-width: 981px) {
+    padding-inline: 32px;
+  }
+}
+
+/* Section rhythm: 96 / 112 / 140 desktop; 72 at ≤980; 46 at ≤640 (reference §4). */
 @utility section {
-  padding-block: var(--section-gap-mobile);
-  @media (min-width: 768px) {
+  padding-block: var(--section-gap-mobile-sm);
+  @media (min-width: 641px) {
+    padding-block: var(--section-gap-mobile);
+  }
+  @media (min-width: 981px) {
     padding-block: var(--section-gap);
   }
 }
+@utility section-lg {
+  padding-block: var(--section-gap-mobile-sm);
+  @media (min-width: 641px) {
+    padding-block: var(--section-gap-mobile);
+  }
+  @media (min-width: 981px) {
+    padding-block: var(--section-gap-lg);
+  }
+}
+@utility section-xl {
+  padding-block: var(--section-gap-mobile-sm);
+  @media (min-width: 641px) {
+    padding-block: var(--section-gap-mobile);
+  }
+  @media (min-width: 981px) {
+    padding-block: var(--section-gap-xl);
+  }
+}
+@utility section-tight {
+  padding-block: 34px;
+  @media (min-width: 981px) {
+    padding-block: 64px;
+  }
+}
 
+@utility hairline {
+  border-top: var(--hairline);
+}
+
+/* ------------------------------------------------------------- typography */
+
+/* Hero h1: 88px cap / 0.96 / −0.03em / 350 (reference 95px inline, 0.94, −0.038em, 320). */
+@utility h-display {
+  font-family: var(--font-display);
+  font-size: var(--text-display);
+  font-weight: 350;
+  line-height: 0.96;
+  letter-spacing: -0.03em;
+  text-wrap: balance;
+}
+/* Homepage section h2: 64–72px on the reference. */
+@utility h-section {
+  font-family: var(--font-display);
+  font-size: var(--text-section);
+  font-weight: 350;
+  line-height: 1;
+  letter-spacing: -0.025em;
+  text-wrap: balance;
+}
+/* The italic serif phrase inside a display heading, in the deep accent. */
+@utility italic-touch {
+  font-family: var(--font-italic);
+  font-style: italic;
+  font-weight: 400;
+  font-size: 1.08em;
+  color: var(--color-accent-deep);
+}
+@utility serif-italic {
+  font-family: var(--font-italic);
+  font-style: italic;
+  font-weight: 400;
+}
+@utility lede {
+  font-family: var(--font-display);
+  font-size: var(--text-lede);
+  font-weight: 300;
+  line-height: 1.45;
+  letter-spacing: -0.005em;
+  color: var(--color-ink-soft);
+  text-wrap: pretty;
+}
+@utility eyebrow {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.55;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+}
+@utility label-mono {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 1.55;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-ink-soft);
+}
+@utility caption-mono {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 500;
+  line-height: 1.55;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+}
+@utility stat-number {
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 480;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  font-variant-numeric: tabular-nums;
+}
+html:lang(hi) :is(.eyebrow, .label-mono, .caption-mono) {
+  font-family: var(--font-mono), var(--font-devanagari);
+  letter-spacing: 0.06em;
+}
+@utility measure {
+  max-width: 62ch;
+}
+
+/* --------------------------------------------------------------- surfaces */
+
+/* Flat card: vellum, hairline, 20px, inset highlight. */
 @utility card {
   background: var(--color-card);
   border: 1px solid var(--color-line);
   border-radius: var(--radius-card);
-  box-shadow: var(--shadow-card);
+  box-shadow: var(--shadow-lift);
 }
+/* "Glass" card: the reference has no backdrop-filter; this is its vellum→sand gradient with the highlight. */
+@utility card-glass {
+  background: linear-gradient(var(--color-card), var(--color-cream-deep));
+  border: 1px solid var(--color-line);
+  border-radius: 16px;
+  box-shadow: var(--shadow-lift);
+}
+/* Raised card: form card and rating tile. */
+@utility card-raised {
+  background: linear-gradient(var(--color-card), var(--color-card-hi));
+  border: 1px solid var(--color-line);
+  border-radius: 18px;
+  box-shadow:
+    inset 0 1px 0 rgb(255 255 255 / 0.9),
+    inset 0 -1px 0 rgb(40 30 15 / 0.04),
+    0 6px 20px -10px rgb(40 30 15 / 0.18),
+    0 2px 6px -3px rgb(40 30 15 / 0.08);
+}
+/* Gradient panel for the hero and the lead-form band. */
+@utility panel-gradient {
+  background: linear-gradient(160deg, var(--color-cream) 0%, var(--color-cream-deep) 60%, var(--color-sand) 100%);
+}
+@utility panel-ink {
+  background: var(--color-ink);
+  color: rgb(251 247 239 / 0.82);
+}
+
+/* ---------------------------------------------------------------- buttons */
+
+/* Base: 14px 22px, 15px 500, pill, 53px tall (reference .btn). */
+@utility btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  border-radius: var(--radius-chip);
+  border: 1px solid transparent;
+  padding: 14px 22px;
+  font-family: var(--font-sans);
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1.55;
+  letter-spacing: -0.005em;
+  text-decoration: none;
+  white-space: nowrap;
+  cursor: pointer;
+  transition:
+    background-color 0.2s,
+    color 0.2s,
+    border-color 0.2s,
+    box-shadow 0.2s,
+    transform 0.2s;
+}
+@utility btn-lg {
+  padding: 18px 28px;
+  font-size: 16px;
+}
+@utility btn-sm {
+  padding: 9px 14px;
+  font-size: 13px;
+}
+/* Primary: filled accent with the reference's inner highlight and 1px hover lift. */
+@utility btn-primary {
+  color: #fff;
+  font-weight: 600;
+  background: linear-gradient(oklch(52% 0.09 158), oklch(42% 0.08 158) 60%, oklch(38% 0.08 158));
+  border-color: oklch(34% 0.07 158);
+  box-shadow:
+    inset 0 1px 0 rgb(255 255 255 / 0.2),
+    inset 0 -1px 0 rgb(0 0 0 / 0.22),
+    0 6px 16px -6px oklch(36% 0.07 158 / 0.55),
+    0 1px 2px rgb(40 30 15 / 0.15);
+  &:hover {
+    color: #fff;
+    background: linear-gradient(oklch(48% 0.09 158), oklch(38% 0.08 158));
+    transform: translateY(-1px);
+  }
+}
+/* Secondary: 1px ink outline on surface; hover fills ink. */
+@utility btn-secondary {
+  color: var(--color-ink);
+  background: transparent;
+  border-color: var(--color-ink);
+  &:hover {
+    color: var(--color-card);
+    background: var(--color-ink);
+  }
+}
+/* Soft: vellum with hairline, for the phone number and the language toggle. */
+@utility btn-soft {
+  color: var(--color-ink);
+  background: linear-gradient(#fdfaf3, var(--color-card));
+  border-color: var(--color-line);
+  box-shadow: var(--shadow-lift);
+  &:hover {
+    color: var(--color-ink);
+    background: var(--color-cream-deep);
+    border-color: var(--color-muted);
+  }
+}
+/* Ink: the reference's own primary (form submit). */
+@utility btn-ink {
+  color: var(--color-card);
+  font-weight: 600;
+  background: linear-gradient(#2a2218, #15110a);
+  box-shadow:
+    inset 0 1px 0 rgb(255 255 255 / 0.15),
+    inset 0 -1px 0 rgb(0 0 0 / 0.5),
+    0 6px 16px rgb(40 30 15 / 0.25),
+    0 1px 2px rgb(40 30 15 / 0.15);
+  &:hover {
+    color: var(--color-card);
+    background: var(--color-accent-deep);
+    transform: translateY(-1px);
+  }
+}
+
+/* ------------------------------------------------------------ chips, pills */
 
 @utility chip {
   display: inline-block;
   border-radius: var(--radius-chip);
-  padding: 0.125rem 0.625rem;
-  font-size: 0.8125rem; /* 13px */
-  font-weight: 600;
+  border: 1px solid var(--color-line);
+  background: var(--color-cream-deep);
+  padding: 4px 12px;
+  font-size: 13px;
+  font-weight: 500;
   line-height: 1.5;
   color: var(--color-ink);
 }
-
-@utility btn {
+/* Status pill with a glowing gold dot (hero, header). */
+@utility pill-status {
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 10px;
+  height: 35px;
+  padding: 8px 14px 8px 10px;
   border-radius: var(--radius-chip);
-  padding: 0.625rem 1.125rem;
-  font-weight: 600;
-  font-size: 0.9375rem;
-  line-height: 1.25;
-  text-decoration: none;
-  white-space: nowrap;
-  transition: background-color 120ms ease, color 120ms ease;
+  border: 1px solid var(--color-line);
+  background: linear-gradient(var(--color-card), var(--color-cream-deep));
+  box-shadow: var(--shadow-lift);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-ink-soft);
 }
+@utility dot-gold {
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  border-radius: 999px;
+  background: radial-gradient(circle at 30% 25%, oklch(92% 0.17 72), oklch(68% 0.17 60) 70%, oklch(52% 0.15 50));
+  box-shadow: 0 0 10px oklch(78% 0.18 65 / 0.7);
+}
+/* Pill radio: 40px, 13px 500; selected = accent gradient with white text. */
+@utility pill-radio {
+  display: inline-flex;
+  align-items: center;
+  height: 40px;
+  padding: 9px 14px;
+  border-radius: var(--radius-chip);
+  border: 1px solid var(--color-line);
+  background: linear-gradient(#fdfaf3, var(--color-card));
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--color-ink-soft);
+  cursor: pointer;
+  transition:
+    background-color 0.15s,
+    color 0.15s;
+  &:has(input:checked) {
+    color: #fff;
+    background: linear-gradient(oklch(50% 0.09 158), oklch(38% 0.08 158));
+    border-color: oklch(34% 0.07 158);
+    box-shadow:
+      inset 0 1px 0 rgb(255 255 255 / 0.25),
+      inset 0 -1px 0 rgb(0 0 0 / 0.2),
+      0 2px 6px oklch(36% 0.07 158 / 0.3);
+  }
+  &:has(input:focus-visible) {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 3px;
+  }
+}
+
+/* ------------------------------------------------------------------ inputs */
+
+/* Hero form field: 51px, 8px radius, gradient fill (reference §9). */
+@utility input {
+  display: block;
+  width: 100%;
+  padding: 13px 14px;
+  border-radius: 8px;
+  border: 1px solid var(--color-line);
+  background: linear-gradient(#fdfaf3, var(--color-card));
+  box-shadow:
+    inset 0 1px 0 rgb(255 255 255 / 0.7),
+    inset 0 1px 2px rgb(40 30 15 / 0.04);
+  font-family: var(--font-sans);
+  font-size: 15px;
+  font-weight: 450;
+  line-height: 1.55;
+  color: var(--color-ink);
+  &::placeholder {
+    color: var(--color-faint);
+  }
+  &:focus {
+    outline: none;
+    border-color: var(--color-accent);
+    box-shadow: 0 0 0 4px var(--color-accent-soft);
+  }
+}
+@utility select {
+  appearance: none;
+  padding-right: 32px;
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%236b6053' stroke-width='1.6' stroke-linecap='round'/%3E%3C/svg%3E"),
+    linear-gradient(#fdfaf3, var(--color-card));
+  background-repeat: no-repeat, no-repeat;
+  background-position:
+    right 14px center,
+    0 0;
+}
+html:lang(hi) .input {
+  font-family: var(--font-devanagari);
+}
+
+/* -------------------------------------------------------- prose (guides) */
 
 @utility prose-site {
   & p + p {
@@ -176,9 +580,9 @@ a:hover {
 }
 
 /*
- * Guide body (Template 6). Body 17px English / 18px Hindi at 1.7 line-height; H2s carry ids for
- * the table of contents and clear the 64px sticky header when jumped to. MDX blocks (Callout,
- * Checklist, CircleRate, ProjectCard, MidArticleCta) set their own margins via .mdx-block.
+ * Guide body (Template 6). 17px English / 18px Hindi at 1.7 line-height; H2s carry ids for the
+ * table of contents and clear the sticky header when jumped to. MDX blocks set their own
+ * margins via .mdx-block.
  */
 @utility prose-guide {
   font-size: 1.0625rem; /* 17px */
@@ -194,7 +598,7 @@ a:hover {
   & h2 {
     margin-top: 2.4em;
     margin-bottom: 0.6em;
-    scroll-margin-top: 5.5rem;
+    scroll-margin-top: 7rem;
   }
   & h3 {
     margin-top: 1.8em;
@@ -226,7 +630,7 @@ a:hover {
   }
   & table {
     width: 100%;
-    font-size: 0.9375rem; /* 15px */
+    font-size: 0.9375rem;
     border-collapse: collapse;
   }
   & th,
@@ -241,6 +645,7 @@ a:hover {
     font-weight: 600;
   }
   & code {
+    font-family: var(--font-mono);
     font-size: 0.9em;
     background: var(--color-cream-deep);
     border-radius: 4px;
@@ -264,7 +669,6 @@ a:hover {
   & .mdx-block ol {
     margin-block: 0;
   }
-  /* Checklist: unordered items get a tick, ordered items keep their numbers */
   & .checklist ul {
     list-style: none;
     padding-left: 0;
@@ -282,10 +686,11 @@ a:hover {
   }
 }
 html:lang(hi) .prose-guide {
-  font-size: 1.125rem; /* 18px */
+  font-size: 1.125rem;
 }
 
-/* Print: data pages print as a clean document (spec Template 5 "fast and printable"). */
+/* ------------------------------------------------------------------ print */
+
 @media print {
   html {
     background: #fff;
@@ -293,12 +698,15 @@ html:lang(hi) .prose-guide {
   header,
   footer,
   .no-print,
+  [data-component="TopStrip"],
   [data-component="LeadForm"],
   [data-component="LocalityMap"],
   [data-component="Breadcrumb"] {
     display: none !important;
   }
-  .card {
+  .card,
+  .card-glass,
+  .card-raised {
     box-shadow: none;
     break-inside: avoid;
   }
@@ -306,7 +714,9 @@ html:lang(hi) .prose-guide {
     color: inherit;
     text-decoration: none;
   }
-  .section {
+  .section,
+  .section-lg,
+  .section-xl {
     padding-block: 1rem;
   }
 }

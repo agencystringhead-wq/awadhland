@@ -1,7 +1,8 @@
 import type { Locale } from "@/lib/i18n";
 import { localePath, pick, ui, whatsappText } from "@/lib/i18n";
 import type { City, TeamMember } from "@/lib/schemas";
-import { WhatsAppButton } from "./WhatsAppButton";
+import { Button, PhoneIcon, WhatsAppIcon } from "./ui/Button";
+import { whatsappHref } from "./WhatsAppButton";
 
 export type AlternateLink = {
   /** Same page in the other tree, or the fallback (other tree's city hub or home) when it does not exist. */
@@ -19,9 +20,26 @@ export type HeaderProps = {
   pageLabel: string;
 };
 
+/** Fraunces wordmark with the accent italic full stop, as the reference's logo does. */
+export function Logo({ locale, size = "md" }: { locale: Locale; size?: "md" | "lg" }) {
+  const t = ui[locale];
+  return (
+    <a
+      href={localePath(locale, "/")}
+      className={`font-display text-ink no-underline hover:text-ink ${size === "lg" ? "text-[32px]" : "text-[26px]"} font-medium leading-none tracking-[-0.034em]`}
+    >
+      {t.siteName}
+      <span aria-hidden="true" className="serif-italic text-accent">
+        .
+      </span>
+    </a>
+  );
+}
+
 /**
- * Sticky header. Desktop: logo, nav, language toggle, WhatsApp + Call. Mobile: logo, Menu, WhatsApp.
- * The mobile menu is a <details> element, so it works with no JavaScript.
+ * Sticky header (reference §10, main row): gradient surface with the inset highlight, no
+ * backdrop-filter. Logo left, primary nav centre, right cluster = language toggle pill, Call
+ * outline, WhatsApp filled. Mobile: logo, WhatsApp, Menu as a <details> so it works without JS.
  */
 export function Header({ locale, alternate, cities, broker, pageLabel }: HeaderProps) {
   const t = ui[locale];
@@ -33,56 +51,63 @@ export function Header({ locale, alternate, cities, broker, pageLabel }: HeaderP
     { label: t.tools, href: `${localePath(locale, "/")}#tools` },
     { label: t.updates, href: localePath(locale, "/updates/") },
   ];
-  const waText = whatsappText(locale, pageLabel);
+  const wa = whatsappHref(broker.whatsapp, whatsappText(locale, pageLabel));
   const toggle = (
-    <a
+    <Button
       href={alternate.href}
+      variant="soft"
+      size="sm"
       hrefLang={locale === "en" ? "hi-IN" : "en-IN"}
       lang={locale === "en" ? "hi" : "en"}
-      className="btn border border-line bg-card text-ink hover:bg-cream-deep px-3.5 py-2 text-sm"
       title={alternate.missing ? t.alternateMissing : undefined}
     >
       {t.languageToggle}
-    </a>
+    </Button>
+  );
+  const call = (
+    <Button href={`tel:${broker.phone}`} variant="secondary" size="sm" icon={<PhoneIcon />}>
+      {t.call}
+    </Button>
+  );
+  const whatsapp = (
+    <Button href={wa} variant="primary" size="sm" icon={<WhatsAppIcon />}>
+      {t.whatsapp}
+    </Button>
   );
 
   return (
-    <header data-component="Header" className="sticky top-0 z-40 border-b border-line bg-cream/95 backdrop-blur">
-      <div className="container-site flex h-16 items-center justify-between gap-4">
-        <a href={localePath(locale, "/")} className="flex items-center gap-2 text-ink no-underline hover:text-ink">
-          <span aria-hidden="true" className="grid size-8 place-items-center rounded-lg bg-accent text-sm font-semibold text-white">
-            A
-          </span>
-          <span className="text-lg font-semibold tracking-tight">{t.siteName}</span>
-        </a>
+    <header
+      data-component="Header"
+      className="sticky top-0 z-40 border-b border-line bg-[linear-gradient(#fdf9f1_0%,#f6f1e8_55%,#ede5d2_100%)] shadow-[inset_0_1px_0_rgba(255,255,255,0.9),inset_0_-1px_0_rgba(40,30,15,0.06),0_2px_0_rgba(40,30,15,0.03)]"
+    >
+      <div className="container-site flex h-[72px] items-center justify-between gap-6">
+        <Logo locale={locale} />
 
-        <nav aria-label="Main" className="hidden items-center gap-5 md:flex">
+        <nav aria-label="Main" className="hidden items-center gap-7 lg:flex">
           {nav.map((n) => (
-            <a key={n.href + n.label} href={n.href} className="text-[15px] font-medium text-ink-soft no-underline hover:text-accent">
+            <a key={n.href + n.label} href={n.href} className="text-[15px] font-medium text-ink-soft no-underline hover:text-accent-deep">
               {n.label}
             </a>
           ))}
         </nav>
 
-        <div className="hidden items-center gap-2 md:flex">
+        <div className="hidden items-center gap-2.5 lg:flex">
           {toggle}
-          <a href={`tel:${broker.phone}`} className="btn border border-line bg-card text-ink hover:bg-cream-deep px-3.5 py-2 text-sm">
-            {t.call}
-          </a>
-          <WhatsAppButton number={broker.whatsapp} text={waText} label={t.whatsapp} variant="compact" />
+          {call}
+          {whatsapp}
         </div>
 
-        <div className="flex items-center gap-2 md:hidden">
-          <WhatsAppButton number={broker.whatsapp} text={waText} label={t.whatsapp} variant="compact" />
+        <div className="flex items-center gap-2 lg:hidden">
+          {whatsapp}
           <details className="group relative">
-            <summary className="btn cursor-pointer border border-line bg-card text-ink px-3.5 py-2 text-sm">{t.menu}</summary>
-            <div className="absolute right-0 mt-2 w-64 card p-3">
+            <summary className="btn btn-soft btn-sm cursor-pointer">{t.menu}</summary>
+            <div className="card absolute right-0 mt-2 w-64 p-3">
               <nav aria-label="Main" className="flex flex-col">
                 {nav.map((n) => (
                   <a
                     key={n.href + n.label}
                     href={n.href}
-                    className="rounded-lg px-3 py-2 text-[15px] font-medium text-ink no-underline hover:bg-cream-deep"
+                    className="rounded-sm px-3 py-2 text-[15px] font-medium text-ink no-underline hover:bg-cream-deep"
                   >
                     {n.label}
                   </a>
@@ -90,9 +115,7 @@ export function Header({ locale, alternate, cities, broker, pageLabel }: HeaderP
               </nav>
               <div className="mt-2 flex flex-wrap gap-2 border-t border-line pt-3">
                 {toggle}
-                <a href={`tel:${broker.phone}`} className="btn border border-line bg-card text-ink px-3.5 py-2 text-sm">
-                  {t.call}
-                </a>
+                {call}
               </div>
             </div>
           </details>
