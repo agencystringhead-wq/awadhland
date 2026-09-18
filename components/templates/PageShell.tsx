@@ -2,6 +2,7 @@ import type { ReactNode } from "react";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { JsonLd } from "@/components/JsonLd";
+import { LeadAnalytics } from "@/components/LeadAnalytics";
 import { TopStrip } from "@/components/TopStrip";
 import { getBroker, getBuildableLocalities, getCities, getProject, getReviews } from "@/lib/data";
 import type { Locale } from "@/lib/i18n";
@@ -32,6 +33,7 @@ export function PageShell({ locale, alternate, pageLabel, sitePath, children }: 
       <TopStrip locale={locale} cities={cities} broker={broker} />
       <Header locale={locale} alternate={alternate} nav={getNav(locale)} active={active} broker={broker} pageLabel={pageLabel} />
       <main>{children}</main>
+      <LeadAnalytics locale={locale} />
       <Footer locale={locale} cities={cities} localities={getBuildableLocalities(locale).buildable} broker={broker} />
     </>
   );

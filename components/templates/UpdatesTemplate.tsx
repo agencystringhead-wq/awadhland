@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
 import { JsonLd } from "@/components/JsonLd";
+import { SubscribeForm } from "@/components/SubscribeForm";
 import { article } from "@/lib/jsonld";
 import { SITE_URL } from "@/lib/i18n";
 import { Breadcrumb } from "@/components/Breadcrumb";
@@ -45,11 +46,12 @@ export function UpdatesIndexTemplate({ locale }: { locale: Locale }) {
         <UpdatesList locale={locale} updates={updates} cities={cities} />
       </Section>
 
-      {/* 4. Subscribe: JotForm in step 7 */}
+      {/* 4. Subscribe: email to the Worker → JotForm; WhatsApp fallback beside it */}
       <Section>
         <section data-component="Subscribe" className="card bg-accent-soft/60 p-6 md:p-8">
           <h2>{t.subscribe}</h2>
           <p className="mt-2 max-w-prose text-ink-soft">{t.subscribeNote}</p>
+          <SubscribeForm locale={locale} />
           <div className="mt-5">
             <WhatsAppButton
               number={broker.whatsapp}

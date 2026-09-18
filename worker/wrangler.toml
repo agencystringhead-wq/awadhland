@@ -1,0 +1,20 @@
+name = "awadhland-leads"
+main = "src/index.ts"
+compatibility_date = "2026-09-01"
+
+# Route the worker at a first-party host so the site posts to its own domain.
+# routes = [{ pattern = "lead.awadhland.com", custom_domain = true }]
+
+[vars]
+ALLOWED_ORIGINS = "https://awadhland.com,https://www.awadhland.com,http://localhost:3000"
+JOTFORM_LEAD_FORM_ID = "TODO"
+# our field name → JotForm question id (or "qid[sub]" for compound fields such as fullname/phone)
+JOTFORM_LEAD_FIELDS = '{"name":"TODO","phone":"TODO","email":"TODO","city":"TODO","purpose":"TODO","budget":"TODO","location":"TODO","message":"TODO","locality":"TODO","context":"TODO","page":"TODO","locale":"TODO"}'
+# JOTFORM_DIGEST_FORM_ID = "TODO"
+# JOTFORM_DIGEST_FIELDS = '{"email":"TODO","locale":"TODO","page":"TODO"}'
+
+# Secrets (never in this file): wrangler secret put JOTFORM_API_KEY
+
+[[analytics_engine_datasets]]
+binding = "LEAD_EVENTS"
+dataset = "awadhland_lead_events"

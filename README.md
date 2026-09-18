@@ -18,6 +18,12 @@ npm run typecheck
 
 A failing validation is a build failure. The loaders in `lib/data.ts` also validate on import, so a bare `next build` fails on bad data too.
 
+## Lead form, WhatsApp and analytics
+
+The site stays static. Enquiry forms (hero card, lead-form band, every `LeadForm` block) and the digest signup post JSON to the `awadhland-leads` Worker in `worker/`, which validates and creates the JotForm submission through JotForm's API. JotForm's script never loads on the site. Set `NEXT_PUBLIC_LEAD_ENDPOINT` (see `.env.example`) in the Pages build environment; without it, forms compose a WhatsApp message instead and analytics is off, which is the right behaviour for previews.
+
+Analytics is first-party and script-free: `whatsapp_click`, `call_click`, `lead_submit`, `lead_fail` and `digest_subscribe` go to the Worker's `/event` and land in a Workers Analytics Engine dataset. No cookies, no personal data. Page views are not tracked from the site; enable Cloudflare Web Analytics on the Pages project if they are wanted. Deploy and configuration steps are in `worker/README.md`.
+
 ## Folder structure
 
 ```

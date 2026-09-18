@@ -1,16 +1,17 @@
 "use client";
 
 /**
- * Enquiry form (hero card and the lead-form band). Styled now; JotForm via the Cloudflare Worker
- * arrives in build step 7 and will replace the submit handler. Until then, submitting composes a
- * WhatsApp message from the fields and opens wa.me, so no enquiry is lost and no personal data
- * lands in a URL on our host. With JavaScript off the form does nothing; the WhatsApp and Call
- * links beside it still work.
+ * Enquiry form (hero card, the lead-form band and every LeadForm block). Posts JSON to the
+ * awadhland-leads Worker (lib/leads.ts), which creates the JotForm submission; JotForm's own
+ * script never loads. With no endpoint configured, or when the post fails, submitting composes a
+ * WhatsApp message from the fields instead, so no enquiry is lost. With JavaScript off the form
+ * does nothing; the WhatsApp and Call links beside it still work.
  */
 import { useId, useState, type FormEvent } from "react";
 import { whatsappHref } from "@/components/WhatsAppButton";
 import type { FormCopy, Option } from "@/lib/content";
-import type { Locale } from "@/lib/i18n";
+import { ui, type Locale } from "@/lib/i18n";
+import { leadsEnabled, submitLead, track, type LeadPayload } from "@/lib/leads";
 import { PillRadio } from "./ui/Pill";
 
 export type EnquiryFormProps = {
@@ -22,7 +23,13 @@ export type EnquiryFormProps = {
   phoneDisplay: string;
   /** Trust line items, already filled */
   trust: string[];
+  /** Prefill (spec: LeadForm accepts city, locality, context) */
+  city?: string;
+  locality?: string;
+  context?: string;
 };
+
+type Status = "idle" | "sending" | "sent" | "failed";
 
 const label = "label-mono mb-2 block";
 
@@ -38,19 +45,36 @@ function Select({ id, name, options, defaultValue }: { id: string; name: string;
   );
 }
 
-export function EnquiryForm({ locale, variant, copy, whatsapp, phoneDisplay, trust }: EnquiryFormProps) {
+export function EnquiryForm({ locale, variant, copy, whatsapp, phoneDisplay, trust, city, locality, context }: EnquiryFormProps) {
   const uid = useId();
   const id = (k: string) => `${uid}-${k}`;
-  const [sent, setSent] = useState(false);
+  const t = ui[locale];
+  const [status, setStatus] = useState<Status>("idle");
+  const [fallbackHref, setFallbackHref] = useState<string | null>(null);
   const band = variant === "band";
   const labelOf = (opts: Option[], v: FormDataEntryValue | null) => opts.find((o) => o.value === v)?.label ?? "";
+  const cityDefault = copy.cityOptions.some((o) => o.value === city) ? city : undefined;
 
-  // TODO(jotform, step 7): post to the Worker endpoint instead of composing a WhatsApp message.
-  function onSubmit(e: FormEvent<HTMLFormElement>) {
-    e.preventDefault();
-    const f = new FormData(e.currentTarget);
-    const parts = [
-      `${copy.waPrefix}`,
+  const read = (f: FormData): LeadPayload => ({
+    kind: "lead",
+    locale,
+    page: window.location.pathname,
+    name: String(f.get("name") ?? ""),
+    phone: String(f.get("phone") ?? ""),
+    email: String(f.get("email") ?? "") || undefined,
+    city: String(f.get("city") ?? ""),
+    purpose: String(f.get("purpose") ?? ""),
+    budget: band ? String(f.get("budget") ?? "") : undefined,
+    location: band ? String(f.get("location") ?? "") : undefined,
+    message: band ? String(f.get("message") ?? "") || undefined : undefined,
+    locality,
+    context,
+    website: String(f.get("website") ?? ""),
+  });
+
+  const whatsappMessage = (f: FormData) =>
+    [
+      copy.waPrefix,
       `${copy.name}: ${f.get("name")}`,
       `${copy.phone}: ${f.get("phone")}`,
       f.get("email") ? `${copy.email}: ${f.get("email")}` : "",
@@ -59,9 +83,33 @@ export function EnquiryForm({ locale, variant, copy, whatsapp, phoneDisplay, tru
       band ? `${copy.budget}: ${labelOf(copy.budgetOptions, f.get("budget"))}` : "",
       band ? `${copy.location} ${labelOf(copy.locationOptions, f.get("location"))}` : "",
       band && f.get("message") ? `${f.get("message")}` : "",
-    ].filter(Boolean);
-    window.open(whatsappHref(whatsapp, parts.join("\n")), "_blank", "noopener");
-    setSent(true);
+      locality ? `(${locality})` : context ? `(${context})` : "",
+    ]
+      .filter(Boolean)
+      .join("\n");
+
+  async function onSubmit(e: FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    const form = e.currentTarget;
+    const f = new FormData(form);
+    const wa = whatsappHref(whatsapp, whatsappMessage(f));
+    if (!leadsEnabled) {
+      // No Worker configured (preview builds): compose the message on WhatsApp instead.
+      window.open(wa, "_blank", "noopener");
+      setStatus("sent");
+      return;
+    }
+    setStatus("sending");
+    const res = await submitLead(read(f));
+    if (res.ok) {
+      setStatus("sent");
+      setFallbackHref(null);
+      form.reset();
+    } else {
+      setStatus("failed");
+      setFallbackHref(wa);
+      track("lead_fail", locale, res.error ?? "");
+    }
   }
 
   return (
@@ -69,16 +117,26 @@ export function EnquiryForm({ locale, variant, copy, whatsapp, phoneDisplay, tru
       data-component="EnquiryForm"
       data-variant={variant}
       data-locale={locale}
+      data-city={city}
+      data-locality={locality}
+      data-context={context}
       method="post"
       onSubmit={onSubmit}
       className={band ? "grid gap-4 sm:grid-cols-2" : ""}
     >
+      {/* Honeypot: hidden from people, filled by bots; the Worker drops any submission with it set */}
+      <div className="absolute -left-[9999px] top-auto h-px w-px overflow-hidden" aria-hidden="true">
+        <label>
+          Website <input type="text" name="website" tabIndex={-1} autoComplete="off" defaultValue="" />
+        </label>
+      </div>
+
       <div className={band ? "contents" : "grid gap-3.5 sm:grid-cols-2"}>
         <div>
           <label htmlFor={id("name")} className={label}>
             {copy.name}
           </label>
-          <input id={id("name")} name="name" required autoComplete="name" className="input" />
+          <input id={id("name")} name="name" required minLength={2} autoComplete="name" className="input" />
         </div>
         <div>
           <label htmlFor={id("phone")} className={label}>
@@ -98,7 +156,7 @@ export function EnquiryForm({ locale, variant, copy, whatsapp, phoneDisplay, tru
           <label htmlFor={id("city")} className={label}>
             {copy.city}
           </label>
-          <Select id={id("city")} name="city" options={copy.cityOptions} />
+          <Select id={id("city")} name="city" options={copy.cityOptions} defaultValue={cityDefault} />
         </div>
         {band && (
           <div>
@@ -141,8 +199,12 @@ export function EnquiryForm({ locale, variant, copy, whatsapp, phoneDisplay, tru
       )}
 
       <div className={`flex flex-wrap items-center gap-3.5 ${band ? "sm:col-span-2 mt-1" : "mt-4"}`}>
-        <button type="submit" className={`btn btn-ink btn-lg ${band ? "w-full" : "w-full sm:w-auto sm:min-w-[300px]"} text-[15.5px]`}>
-          {band ? copy.bandSubmit : copy.submit}
+        <button
+          type="submit"
+          disabled={status === "sending"}
+          className={`btn btn-ink btn-lg ${band ? "w-full" : "w-full sm:w-auto sm:min-w-[300px]"} text-[15.5px] disabled:opacity-70`}
+        >
+          {status === "sending" ? t.sending : band ? copy.bandSubmit : copy.submit}
         </button>
         {!band && (
           <p className="serif-italic text-[13px] text-muted">
@@ -153,9 +215,20 @@ export function EnquiryForm({ locale, variant, copy, whatsapp, phoneDisplay, tru
           </p>
         )}
       </div>
-      {sent && (
-        <p role="status" className={`text-sm text-accent-deep ${band ? "sm:col-span-2" : "mt-2"}`}>
-          ✓ WhatsApp
+
+      {status === "sent" && (
+        <p role="status" className={`rounded-[10px] bg-accent-soft px-4 py-3 text-[14px] text-accent-deep ${band ? "sm:col-span-2" : "mt-3"}`}>
+          {t.sent}
+        </p>
+      )}
+      {status === "failed" && (
+        <p role="alert" className={`rounded-[10px] bg-maroon-soft px-4 py-3 text-[14px] text-maroon ${band ? "sm:col-span-2" : "mt-3"}`}>
+          {t.sendFailed}{" "}
+          {fallbackHref && (
+            <a href={fallbackHref} rel="noopener" className="font-semibold text-maroon underline">
+              {t.sendOnWhatsappInstead}
+            </a>
+          )}
         </p>
       )}
 
