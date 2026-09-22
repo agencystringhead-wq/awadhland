@@ -1,0 +1,241 @@
+import { notFound } from "next/navigation";
+import Link from "next/link";
+import { Breadcrumb } from "@/components/Breadcrumb";
+import { LeadForm } from "@/components/LeadForm";
+import { Section } from "@/components/Section";
+import { SourceStamp } from "@/components/SourceStamp";
+import { TehsilRateTable } from "@/components/rates/TehsilRateTable";
+import { toChunkRow } from "@/lib/rate-chunks";
+import { getBroker, getCity } from "@/lib/data";
+import { formatDate, formatNumber, localePath, pick, ui, type Locale } from "@/lib/i18n";
+import { rc } from "@/lib/rate-copy";
+import {
+  getCurrentRateSchedule,
+  getRoadSegmentsByTehsil,
+  getRowsByTehsil,
+  getTehsil,
+  getTehsilSummary,
+  getValuationRules,
+} from "@/lib/rates";
+import { sameAlternate } from "@/lib/routes";
+import { PageShell } from "./PageShell";
+
+const th = "px-3 py-2.5 text-left font-semibold whitespace-nowrap";
+const td = "px-3 py-2 border-t border-line";
+const numeric = "text-right tabular-nums";
+
+/** Rows prerendered into the HTML; the rest arrive from the tehsil chunk on demand. */
+const PRERENDERED_ROWS = 100;
+
+/**
+ * Template 5a: one tehsil of a published rate list. The full village table, then the road-segment
+ * table, then the valuation rules the list prints. Every table carries its own source line naming
+ * the SRO and the printed page, because the five SROs publish separately.
+ */
+export function RateTehsilTemplate({ locale, cityId, tehsilId }: { locale: Locale; cityId: string; tehsilId: string }) {
+  const city = getCity(cityId);
+  const tehsil = getTehsil(cityId, tehsilId);
+  const schedule = getCurrentRateSchedule(cityId);
+  const summary = getTehsilSummary(cityId, tehsilId);
+  if (!city || !tehsil || !schedule || !summary || summary.rowCount === 0) notFound();
+
+  const t = ui[locale];
+  const c = rc(locale);
+  const broker = getBroker();
+  const rows = getRowsByTehsil(cityId, tehsilId);
+  const segments = getRoadSegmentsByTehsil(cityId, tehsilId);
+  const rules = getValuationRules();
+  const cityName = pick(locale, city.name, city.nameHi);
+  const tehsilName = pick(locale, tehsil.name, tehsil.nameHi);
+  const sro = pick(locale, tehsil.sroName, tehsil.sroNameHi);
+  const doc = schedule.sourceDocs.find((d) => d.sro === tehsilId);
+
+  /** "IGRSUP list, <SRO>, effective 7 June 2025, printed page N" */
+  const sourceLine = (page?: string) =>
+    locale === "hi"
+      ? `आईजीआरएसयूपी सूची, ${sro}, ${formatDate(schedule.effectiveFrom, locale)} से लागू${page ? `, मुद्रित पृष्ठ ${page}` : ""}`
+      : `IGRSUP list, ${sro}, effective ${formatDate(schedule.effectiveFrom, locale)}${page ? `, printed page ${page}` : ""}`;
+
+  const pages = [...new Set(rows.map((r) => r.page))].sort();
+  const segmentPages = [...new Set(segments.map((r) => r.page))].sort();
+
+  return (
+    <PageShell
+      locale={locale}
+      alternate={sameAlternate(locale, `/${cityId}/circle-rates/${tehsilId}/`)}
+      pageLabel={`${tehsilName} · ${t.circleRates}`}
+    >
+      {/* header */}
+      <section className="border-b border-line bg-cream-deep/60">
+        <div className="container-site pb-8 md:pb-10">
+          <Breadcrumb
+            items={[
+              { label: t.home, href: localePath(locale, "/") },
+              { label: cityName, href: localePath(locale, `/${cityId}/`) },
+              { label: t.circleRates, href: localePath(locale, `/${cityId}/circle-rates/`) },
+              { label: tehsilName },
+            ]}
+          />
+          <h1>
+            {tehsilName} {t.circleRates}
+          </h1>
+          <p className="mt-3 flex flex-wrap items-center gap-x-3 gap-y-1 text-ink-soft">
+            <span>{sro}</span>
+            <span aria-hidden="true">·</span>
+            <span>
+              {t.effective} <time dateTime={schedule.effectiveFrom}>{formatDate(schedule.effectiveFrom, locale)}</time>
+            </span>
+            <span aria-hidden="true">·</span>
+            <span>
+              {formatNumber(summary.rowCount)} {c.rowsInTehsil}
+            </span>
+            {segments.length > 0 && (
+              <>
+                <span aria-hidden="true">·</span>
+                <span>
+                  {formatNumber(segments.length)} {c.segmentsInTehsil}
+                </span>
+              </>
+            )}
+            {doc && (
+              <>
+                <span aria-hidden="true">·</span>
+                <a href={doc.archiveUrl ?? doc.igrsupUrl} rel="noopener">
+                  {t.sourcePdf}
+                </a>
+              </>
+            )}
+          </p>
+        </div>
+      </section>
+
+      {/* full village table, first 100 rows prerendered (BUILD-SPEC Template 5) */}
+      <Section id="table" title={c.fullTable}>
+        <TehsilRateTable
+          locale={locale}
+          cityId={cityId}
+          tehsilId={tehsilId}
+          firstRows={rows.slice(0, PRERENDERED_ROWS).map(toChunkRow)}
+          total={rows.length}
+          categories={[...new Set(rows.map((r) => r.category))]}
+          wards={[...new Set(rows.flatMap((r) => (r.wardHi ? [r.wardHi] : [])))].sort((a, b) => a.localeCompare(b, "hi"))}
+        />
+        <p className="mt-4 text-sm text-muted">
+          {sourceLine()}
+          {pages.length > 0 && `, ${c.printedPage} ${pages[0]}–${pages.at(-1)}`}
+        </p>
+
+        {/*
+          Every village as a plain link, server-rendered. The table above paginates, so without
+          this the link graph into the village pages would depend on JavaScript.
+        */}
+        {rows.length > PRERENDERED_ROWS && (
+          <details className="mt-8 rounded-xl border border-line bg-card p-4">
+            <summary className="cursor-pointer font-semibold">
+              {locale === "hi" ? `सभी ${formatNumber(rows.length)} गाँव, अ से ज्ञ` : `All ${formatNumber(rows.length)} villages, A to Z`}
+            </summary>
+            <ul className="mt-4 columns-2 gap-6 text-sm sm:columns-3 lg:columns-4">
+              {[...rows]
+                .sort((a, b) => pick(locale, a.nameEn, a.nameHi).localeCompare(pick(locale, b.nameEn, b.nameHi), locale))
+                .map((r) => (
+                  <li key={r.id} className="mb-1 break-inside-avoid">
+                    <Link href={localePath(locale, `/${cityId}/circle-rates/${tehsilId}/${r.slug}/`)}>{pick(locale, r.nameEn, r.nameHi)}</Link>
+                  </li>
+                ))}
+            </ul>
+          </details>
+        )}
+      </Section>
+
+      {/* road segments */}
+      {segments.length > 0 && (
+        <Section id="segments" title={c.roadSegments} tone="sand">
+          <p className="lede mb-6 max-w-2xl">{c.roadSegmentsLede}</p>
+          <div className="overflow-x-auto">
+            <table className="w-full min-w-[42rem] border-collapse text-sm">
+              <thead className="bg-card">
+                <tr>
+                  <th scope="col" className={th}>
+                    {c.segment}
+                  </th>
+                  <th scope="col" className={th}>
+                    {c.village}
+                  </th>
+                  <th scope="col" className={`${th} ${numeric}`}>
+                    {c.segmentLand}
+                  </th>
+                  <th scope="col" className={`${th} ${numeric}`}>
+                    {c.viewCommercial}
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                {segments.map((s) => {
+                  const row = s.rateRowId ? rows.find((r) => r.id === s.rateRowId) : undefined;
+                  return (
+                    <tr key={s.id}>
+                      <td className={td}>{s.segmentHi}</td>
+                      <td className={td}>
+                        {row ? (
+                          <Link href={localePath(locale, `/${cityId}/circle-rates/${tehsilId}/${row.slug}/`)}>
+                            {pick(locale, row.nameEn, row.nameHi)}
+                          </Link>
+                        ) : (
+                          s.villageHi
+                        )}
+                      </td>
+                      <td className={`${td} ${numeric}`}>₹{formatNumber(s.nonAgri)}</td>
+                      <td className={`${td} ${numeric}`}>₹{formatNumber(s.shop)}</td>
+                    </tr>
+                  );
+                })}
+              </tbody>
+            </table>
+          </div>
+          <p className="mt-4 text-sm text-muted">
+            {sourceLine()}
+            {segmentPages.length > 0 && `, ${c.printedPage} ${segmentPages[0]}–${segmentPages.at(-1)}`}
+          </p>
+        </Section>
+      )}
+
+      {/* valuation rules */}
+      <Section id="rules" title={c.valuationRulesTitle}>
+        <div className="grid gap-4 md:grid-cols-2">
+          {rules.rules.map((r) => (
+            <div key={r.id} className="rounded-xl border border-line bg-card p-4">
+              <p className="flex items-baseline justify-between gap-3">
+                <span className="font-semibold">{locale === "hi" ? r.labelHi : r.label}</span>
+                <span className="caption-mono whitespace-nowrap text-muted">
+                  {r.pct > 0 ? "+" : ""}
+                  {r.pct}% · {r.instruction}
+                </span>
+              </p>
+              <p className="mt-2 text-sm text-ink-soft">{locale === "hi" ? r.descriptionHi : r.description}</p>
+            </div>
+          ))}
+          <div className="rounded-xl border border-line bg-card p-4">
+            <p className="font-semibold">{locale === "hi" ? "बड़ा प्लॉट" : "Large plot"}</p>
+            <p className="mt-2 text-sm text-ink-soft">
+              {locale === "hi"
+                ? `${formatNumber(rules.largePlotThresholdSqm)} वर्ग मीटर से बड़े अकृषिक प्लॉट में, उससे ऊपर का हिस्सा दर के ${rules.largePlotPct}% पर आँका जाता है।`
+                : `On a non-agricultural plot over ${formatNumber(rules.largePlotThresholdSqm)} sq m, the part above that is valued at ${rules.largePlotPct}% of the rate.`}
+            </p>
+          </div>
+        </div>
+        <p className="mt-5 text-sm font-semibold">{c.estimateOnly}</p>
+        <SourceStamp locale={locale} sources={rules.sources} updatedAt={rules.updatedAt} effectiveFrom={rules.effectiveFrom} />
+      </Section>
+
+      <Section id="enquiry" tone="sand">
+        <LeadForm
+          locale={locale}
+          broker={broker}
+          pageLabel={`${tehsilName} · ${t.circleRates}`}
+          city={cityId}
+          context={`${tehsil.name} tehsil circle rates`}
+        />
+      </Section>
+    </PageShell>
+  );
+}

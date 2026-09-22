@@ -4,6 +4,7 @@ import { BrokerNote } from "@/components/BrokerNote";
 import { FAQ } from "@/components/FAQ";
 import { JsonLd } from "@/components/JsonLd";
 import { KeyFacts, type KeyFact } from "@/components/KeyFacts";
+import { CircleRatesHere } from "@/components/rates/CircleRatesHere";
 import { place } from "@/lib/jsonld";
 import { SITE_URL } from "@/lib/i18n";
 import { LeadForm } from "@/components/LeadForm";
@@ -18,6 +19,7 @@ import { distanceKm, geometryCentroid } from "@/lib/geo";
 import { missingMinimumFields } from "@/lib/guards";
 import { formatDate, formatNumber, localePath, pick, ui, type Locale } from "@/lib/i18n";
 import { fitRatingLabels, landUseLabels } from "@/lib/labels";
+import { rc } from "@/lib/rate-copy";
 import { localityAlternate } from "@/lib/routes";
 import type { FitEntry } from "@/lib/schemas";
 import { PageShell } from "./PageShell";
@@ -47,7 +49,10 @@ export function LocalityTemplate({ locale, cityId, localityId }: { locale: Local
 
   /* 2. Key facts */
   const facts: KeyFact[] = [];
-  if (l.circleRate) {
+  // When the locality is mapped into the published list, the "Circle rates here" block below
+  // carries every row that covers it, so the single legacy figure is not repeated up here.
+  const hasRateRefs = (l.rateRefs ?? []).length > 0;
+  if (l.circleRate && !hasRateRefs) {
     const r = l.circleRate;
     const eff = `${t.effective} ${formatDate(r.effectiveFrom, locale)}`;
     facts.push(
@@ -175,6 +180,13 @@ export function LocalityTemplate({ locale, cityId, localityId }: { locale: Local
       {facts.length > 0 && (
         <Section title={t.keyFacts}>
           <KeyFacts facts={facts} />
+        </Section>
+      )}
+
+      {/* 2b. Every row of the published list that covers this locality (Step 9 C4) */}
+      {hasRateRefs && (
+        <Section id="circle-rates" title={rc(locale).circleRatesHere}>
+          <CircleRatesHere locale={locale} locality={l} />
         </Section>
       )}
 

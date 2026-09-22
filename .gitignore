@@ -18,3 +18,6 @@ next-env.d.ts
 # Scanned IGRSUP rate-list PDFs (84.5 MB). Provenance only; the archived copies live on R2.
 # The transcribed CSVs beside them ARE committed.
 /data/sources/**/*.pdf
+
+# Per-tehsil rate search chunks, generated at build by scripts/build-rate-chunks.ts
+/public/rates/
