@@ -14,7 +14,7 @@
     "images:cities": "tsx scripts/placeholder-city-images.ts",
     "prebuild": "npm run rates:derive && npm run rates:chunks && npm run validate && npm run og",
     "build": "next build",
-    "postbuild": "tsx scripts/check-dev-assets.ts",
+    "postbuild": "tsx scripts/drop-flight-payloads.ts && tsx scripts/check-dev-assets.ts",
     "check:dev-assets": "tsx scripts/check-dev-assets.ts",
     "typecheck": "tsc --noEmit",
     "lint": "eslint .",

@@ -6,7 +6,6 @@
  * replaces the single circle-rate figure with every row that applies, each linking to its own
  * village page and naming the printed page it came from, rather than silently picking one.
  */
-import Link from "next/link";
 import { formatNumber, localePath, pick, type Locale } from "@/lib/i18n";
 import { rc } from "@/lib/rate-copy";
 import { getRateRow, getRateRowWithSchedule, getTehsil } from "@/lib/rates";
@@ -62,9 +61,9 @@ export function CircleRatesHere({ locale, locality }: { locale: Locale; locality
               return (
                 <tr key={r.id}>
                   <td className={td}>
-                    <Link href={localePath(locale, `/${locality.cityId}/circle-rates/${r.sro}/${r.slug}/`)}>
+                    <a href={localePath(locale, `/${locality.cityId}/circle-rates/${r.sro}/${r.slug}/`)}>
                       {pick(locale, r.nameEn, r.nameHi)}
-                    </Link>
+                    </a>
                     <span className="block text-xs text-muted">
                       {pick(locale, r.nameHi, r.nameEn)}
                       {tehsil ? ` · ${pick(locale, tehsil.name, tehsil.nameHi)}` : ""}

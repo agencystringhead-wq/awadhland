@@ -1,5 +1,4 @@
 import { notFound } from "next/navigation";
-import Link from "next/link";
 import { Breadcrumb } from "@/components/Breadcrumb";
 import { LeadForm } from "@/components/LeadForm";
 import { Section } from "@/components/Section";
@@ -139,7 +138,7 @@ export function RateTehsilTemplate({ locale, cityId, tehsilId }: { locale: Local
                 .sort((a, b) => pick(locale, a.nameEn, a.nameHi).localeCompare(pick(locale, b.nameEn, b.nameHi), locale))
                 .map((r) => (
                   <li key={r.id} className="mb-1 break-inside-avoid">
-                    <Link href={localePath(locale, `/${cityId}/circle-rates/${tehsilId}/${r.slug}/`)}>{pick(locale, r.nameEn, r.nameHi)}</Link>
+                    <a href={localePath(locale, `/${cityId}/circle-rates/${tehsilId}/${r.slug}/`)}>{pick(locale, r.nameEn, r.nameHi)}</a>
                   </li>
                 ))}
             </ul>
@@ -177,9 +176,9 @@ export function RateTehsilTemplate({ locale, cityId, tehsilId }: { locale: Local
                       <td className={td}>{s.segmentHi}</td>
                       <td className={td}>
                         {row ? (
-                          <Link href={localePath(locale, `/${cityId}/circle-rates/${tehsilId}/${row.slug}/`)}>
+                          <a href={localePath(locale, `/${cityId}/circle-rates/${tehsilId}/${row.slug}/`)}>
                             {pick(locale, row.nameEn, row.nameHi)}
-                          </Link>
+                          </a>
                         ) : (
                           s.villageHi
                         )}

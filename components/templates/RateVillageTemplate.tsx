@@ -1,5 +1,4 @@
 import { notFound } from "next/navigation";
-import Link from "next/link";
 import { Breadcrumb } from "@/components/Breadcrumb";
 import { LeadForm } from "@/components/LeadForm";
 import { Section } from "@/components/Section";
@@ -258,7 +257,7 @@ export function RateVillageTemplate({
             <ul className="divide-y divide-line rounded-xl border border-line bg-card">
               {similar.map((s) => (
                 <li key={s.id} className="flex items-baseline justify-between gap-4 px-4 py-2.5">
-                  <Link href={localePath(locale, `/${cityId}/circle-rates/${tehsilId}/${s.slug}/`)}>{pick(locale, s.nameEn, s.nameHi)}</Link>
+                  <a href={localePath(locale, `/${cityId}/circle-rates/${tehsilId}/${s.slug}/`)}>{pick(locale, s.nameEn, s.nameHi)}</a>
                   <span className="tabular-nums text-sm">{money(s.nonAgri.lt9m)}</span>
                 </li>
               ))}
@@ -272,7 +271,7 @@ export function RateVillageTemplate({
             {coveringLocalities.map((l, i) => (
               <span key={l.id}>
                 {i > 0 && ", "}
-                <Link href={localePath(locale, `/${cityId}/${l.id}/`)}>{pick(locale, l.name, l.nameHi)}</Link>
+                <a href={localePath(locale, `/${cityId}/${l.id}/`)}>{pick(locale, l.name, l.nameHi)}</a>
               </span>
             ))}
           </p>

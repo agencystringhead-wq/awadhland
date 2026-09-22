@@ -479,6 +479,7 @@ Design direction: probate.help's architecture adapted to land (measured tokens i
 | Internal linking | Every locality links to city hub, 6 nearest localities, nearby projects, circle rate page. Every project links to affected localities. Every update links to affected localities and projects. Guides link to at least 3 data pages via MDX components |
 | Images | WebP with AVIF fallback, explicit width/height, alt text per language, lazy below the fold |
 | Performance | Target Lighthouse 95+ mobile. No third-party scripts except JotForm on form load and Leaflet on map pages. Fonts self-hosted |
+| Internal links | Plain `<a href>`, never `next/link`. The site does no client-side routing, so `scripts/drop-flight-payloads.ts` removes the per-route `index.txt` RSC payloads in postbuild — 453 MB of an export nothing fetched. That script fails the build if `next/link` is reintroduced, because its navigation would need them back |
 | Thin-page guard | Localities missing the minimum field set are excluded from the build and the sitemap |
 | Open Graph | Per-page OG image generated at build with locality name, price band and city on the brand background |
 

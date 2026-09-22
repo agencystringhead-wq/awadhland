@@ -58,6 +58,12 @@ The scanned source PDFs are gitignored: they are provenance, and the archived co
 
 **Seeds.** `npm run seed:cities` regenerates missing draft records for the three cities and never overwrites an existing id.
 
+## Build output
+
+`npm run build` runs `prebuild` (derive `circleRates.json`, write the rate chunks, validate, render OG images) and `postbuild` (drop the flight payloads, check dev assets).
+
+Internal links are **plain `<a href>`, never `next/link`** — the header, footer, mega menu and every template do this. Because nothing does client-side routing, `scripts/drop-flight-payloads.ts` deletes the per-route `index.txt` files Next writes: they hold the same RSC payload already inlined in each HTML file, and at 3,512 routes they were 453 MB of an export nothing ever fetched. `robots.txt` and `llms.txt` are real routes and are left alone. If `next/link` is ever imported, that script fails the build rather than letting navigation silently fall back.
+
 ## Folder structure
 
 ```

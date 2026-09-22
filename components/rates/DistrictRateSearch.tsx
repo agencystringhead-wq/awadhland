@@ -12,7 +12,6 @@
  * रिकाबगंज. This is a lookup, not a ranking problem, so it stays simple and explainable.
  */
 import { useCallback, useEffect, useId, useRef, useState } from "react";
-import Link from "next/link";
 import { formatNumber, localePath, pick, type Locale } from "@/lib/i18n";
 import { rc } from "@/lib/rate-copy";
 import { categoryLabel } from "@/lib/valuation";
@@ -117,7 +116,7 @@ export function DistrictRateSearch({
             {tehsilIds.map((t, i) => (
               <span key={t}>
                 {i > 0 && " · "}
-                <Link href={localePath(locale, `/${cityId}/circle-rates/${t}/`)}>{tehsilNames[t]}</Link>
+                <a href={localePath(locale, `/${cityId}/circle-rates/${t}/`)}>{tehsilNames[t]}</a>
               </span>
             ))}
           </p>
@@ -133,9 +132,9 @@ export function DistrictRateSearch({
               {hits.map((r) => (
                 <li key={r.i} className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1 px-4 py-3">
                   <span>
-                    <Link href={localePath(locale, `/${cityId}/circle-rates/${r.tehsil}/${r.s}/`)} className="font-medium">
+                    <a href={localePath(locale, `/${cityId}/circle-rates/${r.tehsil}/${r.s}/`)} className="font-medium">
                       {pick(locale, r.n, r.h)}
-                    </Link>
+                    </a>
                     <span className="ml-2 text-sm text-muted">
                       {pick(locale, r.h, r.n)} · {tehsilNames[r.tehsil]} · {categoryLabel[r.c][locale]}
                     </span>

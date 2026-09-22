@@ -1,5 +1,4 @@
 import { notFound } from "next/navigation";
-import Link from "next/link";
 import { Breadcrumb } from "@/components/Breadcrumb";
 import { DistrictRateSearch } from "@/components/rates/DistrictRateSearch";
 import { CircleRateTable } from "@/components/CircleRateTable";
@@ -115,7 +114,7 @@ export function CircleRatesTemplate({ locale, cityId }: { locale: Locale; cityId
           <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {summaries.map((s) => (
               <li key={s.tehsil.id}>
-                <Link
+                <a
                   href={localePath(locale, `/${city.id}/circle-rates/${s.tehsil.id}/`)}
                   className="block h-full rounded-2xl border border-line bg-card p-5 transition-colors hover:bg-cream-deep"
                 >
@@ -147,7 +146,7 @@ export function CircleRatesTemplate({ locale, cityId }: { locale: Locale; cityId
                       </div>
                     )}
                   </dl>
-                </Link>
+                </a>
               </li>
             ))}
           </ul>

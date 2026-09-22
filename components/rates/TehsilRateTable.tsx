@@ -16,7 +16,6 @@
  * Values render in the published units and are never converted in storage.
  */
 import { useCallback, useEffect, useMemo, useState } from "react";
-import Link from "next/link";
 import { formatNumber, localePath, pick, type Locale } from "@/lib/i18n";
 import { rc } from "@/lib/rate-copy";
 import type { ChunkRow, RateChunk } from "@/lib/rate-chunks";
@@ -239,7 +238,7 @@ export function TehsilRateTable({
             {rows.map((r) => (
               <tr key={r.i}>
                 <td className={td}>
-                  <Link href={localePath(locale, `/${cityId}/circle-rates/${tehsilId}/${r.s}/`)}>{pick(locale, r.n, r.h)}</Link>
+                  <a href={localePath(locale, `/${cityId}/circle-rates/${tehsilId}/${r.s}/`)}>{pick(locale, r.n, r.h)}</a>
                   <span className="block text-xs text-muted">{pick(locale, r.h, r.n)}</span>
                 </td>
                 <td className={`${td} text-muted`}>{r.w ?? "—"}</td>
