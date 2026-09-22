@@ -1,4 +1,5 @@
 import { getBuildableLocalities, getCity, getLocalities } from "@/lib/data";
+import { getLocalityRate } from "@/lib/rates";
 import { formatDate, formatNumber, localePath, pick, ui, type Locale } from "@/lib/i18n";
 
 export type CircleRateProps = {
@@ -11,20 +12,25 @@ export type CircleRateProps = {
  * Guide MDX component: the current circle rate of one locality, pulled from the record at build
  * (spec Template 6, section 3). Links to the locality page when it is built in this locale, and to
  * the city's circle-rate table always. Ids are checked by validate.ts before this renders.
+ *
+ * Reads through getLocalityRate, so a locality mapped into the published list quotes its real rows
+ * rather than a legacy figure the import has since removed.
  */
 export function CircleRate({ locality: id, locale }: CircleRateProps) {
   const t = ui[locale];
   const l = getLocalities().find((x) => x.id === id);
-  if (!l?.circleRate) throw new Error(`<CircleRate locality="${id}">: unknown locality or no circleRate`);
+  if (!l) throw new Error(`<CircleRate locality="${id}">: unknown locality`);
+  const r = getLocalityRate(l);
+  if (!r) throw new Error(`<CircleRate locality="${id}">: no circleRate and no rateRefs`);
   const city = getCity(l.cityId);
   if (!city) throw new Error(`<CircleRate locality="${id}">: unknown city ${l.cityId}`);
-  const r = l.circleRate;
   const name = pick(locale, l.name, l.nameHi);
   const built = getBuildableLocalities(locale).buildable.some((x) => x.id === l.id);
   const rows = [
     { label: t.residential, value: `₹${formatNumber(r.residential)} ${t.perSqM}` },
     { label: t.commercial, value: `₹${formatNumber(r.commercial)} ${t.perSqM}` },
-    { label: t.agricultural, value: `₹${formatNumber(r.agricultural)} ${t.perHectare}` },
+    // Urban rows print no agricultural figure, so the row is dropped rather than shown as zero.
+    ...(r.agricultural !== null ? [{ label: t.agricultural, value: `₹${formatNumber(r.agricultural)} ${t.perHectare}` }] : []),
   ];
   return (
     <figure data-component="CircleRate" className="card mdx-block my-8 overflow-hidden">

@@ -20,7 +20,13 @@ export function guideDataRefs(): GuideDataRefs {
     localities: new Map(
       getLocalities().map((l) => [
         l.id,
-        { cityId: l.cityId, hasCircleRate: l.circleRate !== undefined, hasCoords: l.lat !== undefined && l.lng !== undefined },
+        {
+          cityId: l.cityId,
+          // Either the legacy figure or a reference into the published list: <CircleRate> reads
+          // through getLocalityRate, so a locality the import moved onto rateRefs still resolves.
+          hasCircleRate: l.circleRate !== undefined || (l.rateRefs?.length ?? 0) > 0,
+          hasCoords: l.lat !== undefined && l.lng !== undefined,
+        },
       ]),
     ),
     anchorsByCity: new Map(getCities().map((c) => [c.id, new Set(c.anchors.map((a) => a.id))])),

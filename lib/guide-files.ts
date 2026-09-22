@@ -197,7 +197,7 @@ export function checkGuideReferences(byLocale: Record<Locale, Guide[]>, refs: Gu
           const l = attrs.locality ? refs.localities.get(attrs.locality) : undefined;
           if (!attrs.locality) errors.push(`${file}: <CircleRate> needs locality="<locality id>"`);
           else if (!l) errors.push(`${file}: <CircleRate locality="${attrs.locality}"> names an unknown locality`);
-          else if (!l.hasCircleRate) errors.push(`${file}: <CircleRate locality="${attrs.locality}">: that locality has no circleRate yet`);
+          else if (!l.hasCircleRate) errors.push(`${file}: <CircleRate locality="${attrs.locality}">: that locality has neither a circleRate nor rateRefs yet`);
         }
         if (name === "Distance") {
           const l = attrs.from ? refs.localities.get(attrs.from) : undefined;

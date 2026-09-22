@@ -116,14 +116,6 @@
       "unit": "sqft",
       "asOf": "2026-09-01"
     },
-    "circleRate": {
-      "residential": 18000,
-      "commercial": 36000,
-      "agricultural": 6000000,
-      "unit": "sqm|hectare",
-      "effectiveFrom": "2026-08-01",
-      "sourceUrl": "https://igrsup.gov.in/"
-    },
     "landUse": "mixed",
     "landUseSource": "ADA Master Plan 2031",
     "driveTimes": {
@@ -189,7 +181,35 @@
       "Seed record: circle rates, asking range, coordinates, drive times and score are illustrative; replace with parsed IGRSUP data and broker observations",
       "Confirm Civil Lines is listed under this name in the IGRSUP Ayodhya schedule"
     ],
-    "status": "live"
+    "status": "live",
+    "rateRefs": [
+      {
+        "rateRowId": "sadar-s524"
+      }
+    ],
+    "roadSegmentRefs": [
+      {
+        "id": "sadar-seg4-sivil-lain"
+      },
+      {
+        "id": "sadar-seg5-sivil-lain"
+      },
+      {
+        "id": "sadar-seg19-sivil-lain"
+      },
+      {
+        "id": "sadar-seg20-sivil-lain"
+      },
+      {
+        "id": "sadar-seg31-sivil-lain"
+      },
+      {
+        "id": "sadar-seg36-sivil-lain"
+      },
+      {
+        "id": "sadar-seg37-sivil-lain"
+      }
+    ]
   },
   {
     "id": "naya-ghat",
@@ -952,7 +972,7 @@
     "status": "draft",
     "name": "Gosaiganj",
     "nameHi": "गोसाईगंज",
-    "tehsil": "Bikapur",
+    "tehsil": "Sadar",
     "lat": 26.7,
     "lng": 82.06,
     "priceBand": "low",
@@ -961,14 +981,6 @@
       "high": 3500,
       "unit": "sqft",
       "asOf": "2026-09-01"
-    },
-    "circleRate": {
-      "residential": 6000,
-      "commercial": 12000,
-      "agricultural": 2500000,
-      "unit": "sqm|hectare",
-      "effectiveFrom": "2026-08-01",
-      "sourceUrl": "https://igrsup.gov.in/"
     },
     "landUse": "agricultural",
     "landUseSource": "PLACEHOLDER: master plan reference to be confirmed",
@@ -1008,7 +1020,63 @@
     "updatedAt": "2026-09-18",
     "todo": [
       "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative, fit and score are placeholders by price band",
-      "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages"
+      "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages",
+      "Seed record said tehsil Bikapur; corrected to Sadar against the 2025-06-07 list, where गोशाईगंज is the टाउन एरिया ward in the Sadar SRO. The narrative, landUse and priceBand still describe an agricultural Bikapur locality and are wrong: it is a semi-urban town area. Rewrite before upgrading to live."
+    ],
+    "rateRefs": [
+      {
+        "rateRowId": "sadar-s58"
+      },
+      {
+        "rateRowId": "sadar-s59"
+      },
+      {
+        "rateRowId": "sadar-s60"
+      },
+      {
+        "rateRowId": "sadar-s61"
+      },
+      {
+        "rateRowId": "sadar-s62"
+      },
+      {
+        "rateRowId": "sadar-s63"
+      },
+      {
+        "rateRowId": "sadar-s141"
+      },
+      {
+        "rateRowId": "sadar-s142"
+      },
+      {
+        "rateRowId": "sadar-s143"
+      },
+      {
+        "rateRowId": "sadar-s203"
+      },
+      {
+        "rateRowId": "sadar-s204"
+      },
+      {
+        "rateRowId": "sadar-s205"
+      }
+    ],
+    "roadSegmentRefs": [
+      {
+        "id": "sadar-seg22-katra-goshaiganj"
+      },
+      {
+        "id": "sadar-seg23-katra-goshaiganj"
+      },
+      {
+        "id": "sadar-seg24-katra-goshaiganj"
+      },
+      {
+        "id": "sadar-seg60-katra-goshaiganj"
+      },
+      {
+        "id": "sadar-seg61-katra-goshaiganj"
+      }
     ]
   },
   {
