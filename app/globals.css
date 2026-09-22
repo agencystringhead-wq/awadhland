@@ -891,6 +891,100 @@ html:lang(hi) .nav-tile-sub {
   font-style: normal;
 }
 
+/*
+ * Mega-panel internals.
+ *
+ * These are utilities rather than Tailwind strings on the elements because the nav renders ~97
+ * links and every page on the site carries the whole header. Next writes the rendered tree three
+ * times per page — as markup, as the inline flight payload, and again as the sibling index.txt —
+ * so a 130-character class attribute repeated 194 times cost 26.7 KB of a 95 KB header, tripled
+ * across 3,514 pages. Same rendering, named once.
+ */
+@utility nav-link {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  padding-block: 7px;
+  font-size: 14px;
+  line-height: 1.35;
+  color: var(--color-ink-soft);
+  text-decoration: none;
+  &:hover {
+    color: var(--color-accent-deep);
+  }
+}
+@utility nav-link-meta {
+  margin-left: 8px;
+  font-family: var(--font-mono);
+  font-size: 9.5px;
+  font-weight: 500;
+  line-height: 1.55;
+  letter-spacing: 0.06em;
+  text-transform: none;
+  color: var(--color-faint);
+}
+@utility nav-link-chip {
+  flex-shrink: 0;
+  display: inline-block;
+  border-radius: var(--radius-chip);
+  border: 1px solid var(--color-line);
+  background: var(--color-cream-deep);
+  padding: 0 8px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 500;
+  line-height: 1.5;
+  color: var(--color-accent-deep);
+}
+@utility nav-col-title {
+  margin-bottom: 8px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 500;
+  line-height: 1.55;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-ink);
+}
+@utility nav-col-list {
+  & > * + * {
+    border-top: 1px solid color-mix(in oklab, var(--color-line) 60%, transparent);
+  }
+}
+@utility nav-more {
+  display: inline-block;
+  margin-top: 12px;
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--color-accent-deep);
+  text-decoration: none;
+  &:hover {
+    text-decoration: underline;
+  }
+}
+@utility nav-tool-more {
+  margin-top: auto;
+  padding-top: 12px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-accent-deep);
+  text-decoration: none;
+  &:hover {
+    text-decoration: underline;
+  }
+}
+@utility nav-tool-icon {
+  margin-bottom: 12px;
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: var(--color-accent-soft);
+  color: var(--color-accent-deep);
+}
+
 /* Mega panel: opens under a cell on hover or keyboard focus (desktop only). */
 @utility mega-panel {
   position: absolute;
@@ -913,17 +1007,99 @@ html:lang(hi) .nav-tile-sub {
   }
 }
 
-/* Mobile menu: a <details> whose panel covers the screen when open. */
-.mobile-menu-panel {
+/*
+ * One nav, two breakpoints.
+ *
+ * The nav is a sibling of the mobile <details>, not a child, so a closed <details> cannot hide it
+ * and the eight mega panels only have to be rendered once. Below 1024px the menu button reveals
+ * the nav as a full-screen overlay and the cells stack into an accordion; at 1024px and up the
+ * nav is the sand bar and the panels are hover dropdowns.
+ */
+.nav-root {
   display: none;
 }
-.mobile-menu[open] .mobile-menu-panel {
-  display: block;
-  position: fixed;
-  inset: 0;
-  z-index: 70;
-  overflow-y: auto;
-  background: var(--color-cream);
+@media (min-width: 1024px) {
+  .nav-root {
+    display: block;
+  }
+}
+
+@media (max-width: 1023px) {
+  .mobile-menu[open] ~ .nav-root {
+    display: block;
+    position: fixed;
+    inset: 0;
+    z-index: 70;
+    overflow-y: auto;
+    background: var(--color-cream);
+  }
+  /* The menu button pins above the overlay so it stays tappable to close. */
+  .mobile-menu[open] > summary {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 80;
+  }
+  .mobile-menu[open] ~ .nav-root .nav-row {
+    flex-direction: column;
+    align-items: stretch;
+    padding-top: 52px;
+    padding-bottom: 96px;
+  }
+  .mobile-menu[open] ~ .nav-root .bar-nav {
+    background: none;
+    box-shadow: none;
+  }
+  /* Cells stack: the tile sits left, the accordion caret right, the panel underneath. */
+  .nav-cell {
+    flex: none;
+    position: relative;
+    border-left: none;
+    border-right: none;
+    border-bottom: 1px solid var(--color-line);
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+  }
+  .nav-cell > .nav-tile {
+    align-items: flex-start;
+    padding: 16px 0;
+    font-size: 22px;
+  }
+  .nav-acc > summary {
+    cursor: pointer;
+    padding: 16px 8px;
+    color: var(--color-muted);
+    line-height: 1;
+  }
+  .nav-acc[open] > summary {
+    transform: rotate(180deg);
+  }
+  /* Revealed by its own cell's accordion, in flow rather than as a dropdown. */
+  .nav-acc[open] ~ .mega-panel {
+    display: block;
+    position: static;
+    grid-column: 1 / -1;
+    padding: 0 0 20px;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+    background: none;
+  }
+}
+
+/* Declared inside the query, not as a plain rule: a plain `.nav-mobile-head { display: flex }`
+   sits after Tailwind's utilities in the sheet and would beat the element's own `lg:hidden`. */
+@media (max-width: 1023px) {
+  .nav-mobile-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--color-line);
+  }
 }
 
 /* Native summary marker off; the Header draws its own Menu button. */

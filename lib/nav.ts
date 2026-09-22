@@ -32,7 +32,7 @@ export type NavItem = {
 
 export type NavCopy = {
   strip: { taking: string; hours: string; sourced: string; rera: string; years: string };
-  brand: { est: string; whatsappLabel: string; call: string; whatsapp: string; menu: string; close: string };
+  brand: { est: string; whatsappLabel: string; call: string; whatsapp: string; menu: string };
   cells: { localities: (n: number) => string; circleRates: string; circleRatesSub: (n: number) => string; guides: string; guidesSub: (n: number) => string; tools: string; toolsSub: string; updates: string; updatesSub: string; about: string; aboutSub: (first: string) => string };
   panel: { top: string; byArea: string; projectsRates: string; all: (n: number) => string; seeAll: string; allProjects: string; circleRatesOf: (c: string) => string; fullTable: string; calculator: string; revisions: string; how: string; effective: string; buying: string; legal: string; investment: string; allGuides: string; tryIt: string; allUpdates: string; byCity: string; byType: string; methodology: string; howWeWork: string; reviews: string; contact: string; updated: string };
 };
@@ -40,7 +40,7 @@ export type NavCopy = {
 export const navCopy: Record<Locale, NavCopy> = {
   en: {
     strip: { taking: "Taking enquiries · replies within the hour", hours: "Mon–Sat 9a–7p IST", sourced: "Every rate sourced, every page dated", rera: "UP RERA registered", years: "years" },
-    brand: { est: "EST · AYODHYA · UP", whatsappLabel: "WhatsApp · replies within the hour", call: "Call", whatsapp: "WhatsApp →", menu: "Menu", close: "Close" },
+    brand: { est: "EST · AYODHYA · UP", whatsappLabel: "WhatsApp · replies within the hour", call: "Call", whatsapp: "WhatsApp →", menu: "Menu" },
     cells: {
       localities: (n) => `${n} ${n === 1 ? "locality" : "localities"}`,
       circleRates: "Circle rates",
@@ -84,7 +84,7 @@ export const navCopy: Record<Locale, NavCopy> = {
   },
   hi: {
     strip: { taking: "पूछताछ जारी · एक घंटे में जवाब", hours: "सोम–शनि 9–7 (IST)", sourced: "हर रेट का स्रोत, हर पेज की तारीख़", rera: "यूपी रेरा पंजीकृत", years: "वर्ष" },
-    brand: { est: "स्थापित · अयोध्या · यूपी", whatsappLabel: "व्हाट्सऐप · एक घंटे में जवाब", call: "कॉल", whatsapp: "व्हाट्सऐप →", menu: "मेन्यू", close: "बंद करें" },
+    brand: { est: "स्थापित · अयोध्या · यूपी", whatsappLabel: "व्हाट्सऐप · एक घंटे में जवाब", call: "कॉल", whatsapp: "व्हाट्सऐप →", menu: "मेन्यू" },
     cells: {
       localities: (n) => `${n} इलाक़े`,
       circleRates: "सर्किल रेट",
