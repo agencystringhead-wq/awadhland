@@ -39,6 +39,24 @@
         "sourceUrl": "https://igrsup.gov.in/"
       },
       {
+        "localityId": "devkali",
+        "tehsil": "Sadar",
+        "residential": 12200,
+        "commercial": 50700,
+        "agricultural": 20800000,
+        "effectiveFrom": "2025-06-07",
+        "sourceUrl": "https://igrsup.gov.in/"
+      },
+      {
+        "localityId": "ranopali",
+        "tehsil": "Sadar",
+        "residential": 9700,
+        "commercial": 48000,
+        "agricultural": 15900000,
+        "effectiveFrom": "2025-06-07",
+        "sourceUrl": "https://igrsup.gov.in/"
+      },
+      {
         "localityId": "sohawal",
         "tehsil": "Sohawal",
         "residential": 9200,

@@ -208,14 +208,6 @@
       "unit": "sqft",
       "asOf": "2026-09-01"
     },
-    "circleRate": {
-      "residential": 30000,
-      "commercial": 60000,
-      "agricultural": 9000000,
-      "unit": "sqm|hectare",
-      "effectiveFrom": "2026-08-01",
-      "sourceUrl": "https://igrsup.gov.in/"
-    },
     "landUse": "mixed",
     "landUseSource": "PLACEHOLDER: master plan reference to be confirmed",
     "narrative": {
@@ -477,14 +469,6 @@
       "unit": "sqft",
       "asOf": "2026-09-01"
     },
-    "circleRate": {
-      "residential": 18000,
-      "commercial": 36000,
-      "agricultural": 6000000,
-      "unit": "sqm|hectare",
-      "effectiveFrom": "2026-08-01",
-      "sourceUrl": "https://igrsup.gov.in/"
-    },
     "landUse": "mixed",
     "landUseSource": "PLACEHOLDER: master plan reference to be confirmed",
     "narrative": {
@@ -547,14 +531,6 @@
       "high": 13000,
       "unit": "sqft",
       "asOf": "2026-09-01"
-    },
-    "circleRate": {
-      "residential": 18000,
-      "commercial": 36000,
-      "agricultural": 6000000,
-      "unit": "sqm|hectare",
-      "effectiveFrom": "2026-08-01",
-      "sourceUrl": "https://igrsup.gov.in/"
     },
     "landUse": "mixed",
     "landUseSource": "PLACEHOLDER: master plan reference to be confirmed",
@@ -619,14 +595,6 @@
       "unit": "sqft",
       "asOf": "2026-09-01"
     },
-    "circleRate": {
-      "residential": 12000,
-      "commercial": 24000,
-      "agricultural": 4500000,
-      "unit": "sqm|hectare",
-      "effectiveFrom": "2026-08-01",
-      "sourceUrl": "https://igrsup.gov.in/"
-    },
     "landUse": "residential",
     "landUseSource": "PLACEHOLDER: master plan reference to be confirmed",
     "narrative": {
@@ -666,6 +634,28 @@
     "todo": [
       "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative, fit and score are placeholders by price band",
       "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages"
+    ],
+    "rateRefs": [
+      {
+        "rateRowId": "sadar-s225"
+      },
+      {
+        "rateRowId": "sadar-s226"
+      }
+    ],
+    "roadSegmentRefs": [
+      {
+        "id": "sadar-seg14-devkali"
+      },
+      {
+        "id": "sadar-seg29-devkali"
+      },
+      {
+        "id": "sadar-seg55-devkali"
+      },
+      {
+        "id": "sadar-seg64-devkali"
+      }
     ]
   },
   {
@@ -684,14 +674,6 @@
       "high": 9000,
       "unit": "sqft",
       "asOf": "2026-09-01"
-    },
-    "circleRate": {
-      "residential": 12000,
-      "commercial": 24000,
-      "agricultural": 4500000,
-      "unit": "sqm|hectare",
-      "effectiveFrom": "2026-08-01",
-      "sourceUrl": "https://igrsup.gov.in/"
     },
     "landUse": "residential",
     "landUseSource": "PLACEHOLDER: master plan reference to be confirmed",
@@ -732,6 +714,37 @@
     "todo": [
       "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative, fit and score are placeholders by price band",
       "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages"
+    ],
+    "rateRefs": [
+      {
+        "rateRowId": "sadar-s425"
+      },
+      {
+        "rateRowId": "sadar-s426"
+      }
+    ],
+    "roadSegmentRefs": [
+      {
+        "id": "sadar-seg7-ranopali-a-na-pa"
+      },
+      {
+        "id": "sadar-seg52-ranopali"
+      },
+      {
+        "id": "sadar-seg56-ranopali"
+      },
+      {
+        "id": "sadar-seg64-ranopali"
+      },
+      {
+        "id": "sadar-seg66-ranopali"
+      },
+      {
+        "id": "sadar-seg70-ranopali-a-na-pa"
+      },
+      {
+        "id": "sadar-seg70-ranopali-ba-na-pa"
+      }
     ]
   },
   {
@@ -1081,14 +1094,6 @@
       "unit": "sqft",
       "asOf": "2026-09-01"
     },
-    "circleRate": {
-      "residential": 6000,
-      "commercial": 12000,
-      "agricultural": 2500000,
-      "unit": "sqm|hectare",
-      "effectiveFrom": "2026-08-01",
-      "sourceUrl": "https://igrsup.gov.in/"
-    },
     "landUse": "agricultural",
     "landUseSource": "PLACEHOLDER: master plan reference to be confirmed",
     "narrative": {
@@ -1415,14 +1420,6 @@
       "high": 3500,
       "unit": "sqft",
       "asOf": "2026-09-01"
-    },
-    "circleRate": {
-      "residential": 6000,
-      "commercial": 12000,
-      "agricultural": 2500000,
-      "unit": "sqm|hectare",
-      "effectiveFrom": "2026-08-01",
-      "sourceUrl": "https://igrsup.gov.in/"
     },
     "landUse": "residential",
     "landUseSource": "PLACEHOLDER: master plan reference to be confirmed",

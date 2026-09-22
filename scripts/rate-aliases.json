@@ -27,14 +27,33 @@
       "note": "No segment called भक्ति पथ in the 2025 Sadar list. Segment 69 (अर्जुनदास जी के मंदिर → राम कोट) is the closest description."
     },
     "devkali": {
-      "rateRowIds": [],
-      "roadSegmentIds": [],
-      "note": "The list prints three rows: छोटी देवकाली (sadar-s165), देवकाली अं.न.पा. (sadar-s225), देवकालीBNP (sadar-s226). Decide which belong to this locality. See also the duplicate locality record 'deokali'."
+      "rateRowIds": [
+        "sadar-s225",
+        "sadar-s226"
+      ],
+      "roadSegmentIds": [
+        "sadar-seg14-devkali",
+        "sadar-seg29-devkali",
+        "sadar-seg55-devkali",
+        "sadar-seg64-devkali"
+      ],
+      "note": "The list splits Devkali across the municipal boundary: देवकाली अं.न.पा. (s225, अन्तर्गत नगर पालिका, inside, urban) and देवकालीBNP (s226, बाहर नगर पालिका, outside, semi-urban). Both are this locality. छोटी देवकाली (s165) is deliberately NOT included: different ward (अवध खास, not हवेली अवध), different rate tier, and a distinct name — it is its own revenue entry, not part of Devkali. The locality record 'deokali' still duplicates this one and needs resolving."
     },
     "ranopali": {
-      "rateRowIds": [],
-      "roadSegmentIds": [],
-      "note": "Two rows: रानोपाली ANP (sadar-s425) and रानोपाली BNP (sadar-s426), plus segments 7, 52, 56, 64. ANP/BNP are the nagar palika / nagar panchayat halves."
+      "rateRowIds": [
+        "sadar-s425",
+        "sadar-s426"
+      ],
+      "roadSegmentIds": [
+        "sadar-seg7-ranopali-a-na-pa",
+        "sadar-seg52-ranopali",
+        "sadar-seg56-ranopali",
+        "sadar-seg64-ranopali",
+        "sadar-seg66-ranopali",
+        "sadar-seg70-ranopali-a-na-pa",
+        "sadar-seg70-ranopali-ba-na-pa"
+      ],
+      "note": "Same municipal split as Devkali: रानोपाली ANP (s425, inside, urban) and रानोपाली BNP (s426, outside, semi-urban). Both are this locality; the page shows the range across them. s426 carries the same figures as देवकालीBNP, which is the outside-municipality band for the हवेली अवध pargana rather than a Ranopali-specific rate."
     },
     "ayodhya-bypass-nh-27": {
       "rateRowIds": [],

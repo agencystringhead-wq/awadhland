@@ -391,6 +391,7 @@ function main() {
     nameHi?: string;
     rateRefs?: { rateRowId: string }[];
     roadSegmentRefs?: { id: string }[];
+    circleRate?: unknown;
   }[];
   const aliasFile = JSON.parse(fs.readFileSync(path.join("scripts", "rate-aliases.json"), "utf8")) as { aliases: Record<string, AliasEntry> };
   const { matched, unmatched } = matchLocalities(localities, args.city, rows, aliasFile.aliases);
@@ -537,16 +538,27 @@ function main() {
   // rateRefs onto the localities this list covers. Localities in other cities are untouched.
   const byLocality = new Map(matched.map((m) => [m.localityId, m]));
   let updated = 0;
+  let droppedLegacy = 0;
   for (const l of localities) {
     if (l.cityId !== args.city) continue;
     const m = byLocality.get(l.id);
     if (!m) continue;
     l.rateRefs = m.rateRowIds.map((rateRowId) => ({ rateRowId }));
     if (m.roadSegmentIds.length > 0) l.roadSegmentRefs = m.roadSegmentIds.map((id) => ({ id }));
+    // Step 9 A4: the per-locality figure goes once the published rows are in. Leaving it would
+    // keep a seed placeholder — with a date that never existed — feeding the meta description,
+    // the OG image and the source stamp while the page body shows the real rows.
+    if (l.circleRate) {
+      delete l.circleRate;
+      droppedLegacy++;
+    }
     updated++;
   }
   fs.writeFileSync(path.join("data", "localities.json"), `${JSON.stringify(localities, null, 2)}\n`);
-  console.log(`wrote data/localities.json (rateRefs on ${updated} ${args.city} localities)\n`);
+  console.log(
+    `wrote data/localities.json (rateRefs on ${updated} ${args.city} localities` +
+      `${droppedLegacy > 0 ? `, legacy circleRate dropped from ${droppedLegacy}` : ""})\n`,
+  );
 }
 
 main();
