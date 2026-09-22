@@ -62,6 +62,7 @@ export const rateCopy = {
     of: "of",
     rows: "rows",
     clearFilters: "Clear filters",
+    showAll: "Show all",
 
     /* village page */
     landRates: "Land",
@@ -163,6 +164,7 @@ export const rateCopy = {
     of: "में से",
     rows: "पंक्तियाँ",
     clearFilters: "फ़िल्टर हटाइए",
+    showAll: "सभी दिखाइए",
 
     /* village page */
     landRates: "ज़मीन",

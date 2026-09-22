@@ -83,13 +83,25 @@ type Syllable = {
   schwa: boolean;
 };
 
-/** Normalises the forms that vary between transcribers: precomposed nuktas, ZWJ/ZWNJ. */
+/**
+ * Normalises the forms that vary between transcribers: precomposed nuktas, ZWJ/ZWNJ, and the
+ * abbreviation mark.
+ *
+ * Hindi abbreviates with U+0970 (॰), but printed revenue records and the people transcribing them
+ * routinely type a zero for it: मु0 is मुहाल, आ0 is आसामी, वि0प्रा0 is विकास प्राधिकरण. A digit sitting
+ * directly against a Devanagari letter is therefore an abbreviation mark, never a number — 61 of
+ * the 1,630 Ayodhya names use it — so it becomes a full stop rather than being read as "0".
+ * A digit after a space is left alone, which is how a real numeral would be written.
+ */
 function normalise(text: string): string {
   let s = text.normalize("NFC").replace(/[​-‍﻿]/g, "");
+  s = s.replace(/([ऀ-९])[0-9०-९]/g, "$1॰");
   // Decompose precomposed nukta letters so one code path handles both spellings.
   s = s.normalize("NFD");
   return s;
 }
+
+const ABBREVIATION = "॰";
 
 function tokenise(word: string): Syllable[] {
   const chars = [...normalise(word)];
@@ -102,6 +114,11 @@ function tokenise(word: string): Syllable[] {
       continue;
     }
     if (ch === AVAGRAHA || ch === VISARGA) continue;
+
+    if (ch === ABBREVIATION) {
+      out.push({ onset: ".", vowel: "", coda: "", schwa: false });
+      continue;
+    }
 
     if (ANUSVARA === ch || CHANDRABINDU === ch) {
       // Nasalises the syllable already emitted.
@@ -195,12 +212,17 @@ export function transliterate(text: string): string {
     .trim();
 }
 
-/** Title Case for display: "rikabganj" → "Rikabganj". Small joining words stay lower. */
+/**
+ * Title Case for display: "rikabganj" → "Rikabganj". Small joining words stay lower.
+ * Capitalises after an abbreviation stop or an opening bracket too, so "mu.dharetha" reads
+ * "Mu.Dharetha" and "(a.na.pa.)" reads "(A.Na.Pa.)".
+ */
 const MINOR = new Set(["ka", "ki", "ke", "aur", "va"]);
+const capitalise = (w: string) => w.replace(/(^|[.(])([a-z])/g, (_, p, ch: string) => p + ch.toUpperCase());
 export function titleCase(text: string): string {
   return text
     .split(" ")
-    .map((w, i) => (i > 0 && MINOR.has(w.toLowerCase()) ? w.toLowerCase() : w.charAt(0).toUpperCase() + w.slice(1)))
+    .map((w, i) => (i > 0 && MINOR.has(w.toLowerCase()) ? w.toLowerCase() : capitalise(w)))
     .join(" ");
 }
 

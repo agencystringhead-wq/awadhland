@@ -187,7 +187,7 @@ export function TehsilRateTable({
           {c.showing} {formatNumber(rows.length)} {c.of} {formatNumber(total)} {c.rows}
           {!needsAll && total > firstRows.length && (
             <button type="button" className="ml-3 underline" onClick={() => void loadAll()} disabled={loading}>
-              {loading ? c.searchLoading : `${c.showing} ${formatNumber(total)}`}
+              {loading ? c.searchLoading : `${c.showAll} ${formatNumber(total)}`}
             </button>
           )}
           {(category !== "all" || ward !== "all" || sort !== null) && (

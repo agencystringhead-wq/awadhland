@@ -13,7 +13,7 @@
  * line is not dismissible and sits with the result, not in a footnote.
  */
 import { useMemo, useState } from "react";
-import { formatNumber, type Locale } from "@/lib/i18n";
+import { formatNumber, ui, type Locale } from "@/lib/i18n";
 import { buyerCategoryLabels } from "@/lib/labels";
 import { rc } from "@/lib/rate-copy";
 import type { RateRow, RoadSegmentRow, StampDutyRule, ValuationRules } from "@/lib/schemas";
@@ -265,7 +265,7 @@ export function RateCalculator({
           </div>
           <div className="flex justify-between gap-3">
             <dt className="text-muted">
-              {c.calculatorTitle} ({result.rule.stampDutyPct}%)
+              {ui[locale].stampDuty} ({result.rule.stampDutyPct}%)
             </dt>
             <dd className="tabular-nums">{money(result.stampDuty)}</dd>
           </div>

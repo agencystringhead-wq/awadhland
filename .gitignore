@@ -21,3 +21,7 @@ next-env.d.ts
 
 # Per-tehsil rate search chunks, generated at build by scripts/build-rate-chunks.ts
 /public/rates/
+
+# Local build log
+/.build.log
+/.playwright-mcp/

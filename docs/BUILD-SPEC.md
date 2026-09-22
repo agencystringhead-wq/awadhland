@@ -1,6 +1,6 @@
 # Awadhland.com — Page-Type Inventory & Build Spec
 
-As of 2026-09-17. Source of truth for structure, templates, data model and SEO. Change this file first, then the code.
+As of 2026-09-23. Source of truth for structure, templates, data model and SEO. Change this file first, then the code.
 
 ## Overview
 
@@ -11,7 +11,7 @@ awadhland.com is a land-buying authority site for Ayodhya, Lucknow and Gorakhpur
 - One domain: awadhland.com. awadhland.in 301-redirects to .com.
 - Ayodhya is the hero city; Lucknow and Gorakhpur are full sections with the same templates.
 - Two languages, English and Hindi, on separate URL trees with hreflang. No runtime translation, no auto-redirect by browser language.
-- Stack: Next.js static export (`output: 'export'`), Node 20, Cloudflare Pages, GitHub under agencystringhead-wq, feature branches + PRs into main.
+- Stack: Next.js static export (`output: 'export'`), Node 22, Cloudflare Pages, GitHub under agencystringhead-wq, feature branches + PRs into main.
 - Content lives in `/data` as JSON (entities) and `/content` as MDX (guides, tools copy). No CMS at launch.
 - Every data point carries a `source` URL and `updatedAt` date, rendered on the page.
 - Lead capture: JotForm via Cloudflare Worker proxy (existing pattern), plus WhatsApp deep link and tel: link in a sticky header.
@@ -27,6 +27,8 @@ English lives at the root; Hindi lives under `/hi/` with identical paths. Every 
 | City hub | `/ayodhya/` | `/hi/ayodhya/` |
 | Locality | `/ayodhya/faizabad-road/` | `/hi/ayodhya/faizabad-road/` |
 | Circle rates | `/ayodhya/circle-rates/` | `/hi/ayodhya/circle-rates/` |
+| Circle rates by tehsil | `/ayodhya/circle-rates/sadar/` | `/hi/ayodhya/circle-rates/sadar/` |
+| Circle rate by village | `/ayodhya/circle-rates/sadar/sahadatganj/` | `/hi/ayodhya/circle-rates/sadar/sahadatganj/` |
 | Project | `/projects/ayodhya-greenfield-township/` | `/hi/projects/ayodhya-greenfield-township/` |
 | Guide | `/guides/buy-land-in-ayodhya-as-nri/` | `/hi/guides/buy-land-in-ayodhya-as-nri/` |
 | Tool | `/tools/stamp-duty-calculator/` | `/hi/tools/stamp-duty-calculator/` |
@@ -153,6 +155,46 @@ One per city (`/<city>/circle-rates/`), rendered from `circleRates.json`. The si
 - Rates are stored in the unit the government publishes (₹ per sq m or per hectare) and converted for display. Never store converted values.
 - Each rate row carries its own `sourceUrl` and `effectiveFrom`; a schedule revision is a new set of rows, not an overwrite.
 - The table paginates at 100 rows server-side at build (static chunks), with client filtering within the chunk.
+- Where a city has a full transcribed list in `/data/rates/`, this page also carries the order date, a source link per SRO, the tehsil selector and the district-wide search, and the narrow three-number table covers only the localities carrying `rateRefs`.
+
+## Template 5a: Tehsil rate page
+
+One per tehsil of a published list (`/<city>/circle-rates/<tehsil>/`), rendered from `data/rates/<city>-<effectiveFrom>.json`. The district publishes one list per sub-registrar office, so the tehsil, not the city, is the unit a reader actually looks things up in.
+
+| # | Section | Content | Data source |
+| --- | --- | --- | --- |
+| 1 | Header | Tehsil name, SRO, effective date, village count, road-segment count, link to the source document | `tehsils.json`, `rates/*.json` |
+| 2 | Village table | Every row of the tehsil, columns switchable between Land (`<9 m` / `9–18 m` / `18 m+`), Commercial (shop / office / godown) and Agricultural (six frontage columns). Filter by category and ward, sort by any column. Each row links to its village page | `rates/*.json` `rows[]` |
+| 3 | All villages | Every village as a plain link, A–Z, server-rendered | `rates/*.json` `rows[]` |
+| 4 | Road segments | The tehsil's `प्रारूप-3` stretches with their land and shop rates, each linked to the village row it resolves to | `rates/*.json` `roadSegments[]` |
+| 5 | Valuation rules | The list's general instructions as cards, each with its instruction number and percentage | `valuationRules.json` |
+| 6 | Lead form | Prefilled with city and tehsil | JotForm |
+
+**Rules**
+
+- The table prerenders 100 rows and loads the rest from `public/rates/<city>-<tehsil>.json` on the first sort, filter or "show all". Section 3 is not paginated, so the link graph into the village pages never depends on JavaScript.
+- Every table carries its own source line: "IGRSUP list, `<SRO>`, effective `<date>`, printed page `<N>`". The five SROs publish separately and must never be merged into one citation.
+- Always indexable.
+
+## Template 5b: Village rate page
+
+One per row of a published list (`/<city>/circle-rates/<tehsil>/<village-slug>/`). Roughly 1,630 per language for Ayodhya alone, so the indexing rule below matters more than the template.
+
+| # | Section | Content | Field(s) |
+| --- | --- | --- | --- |
+| 1 | Header | Name in both scripts, tehsil, ward or pargana, category, printed serial and V-code | `nameEn`, `nameHi`, `wardHi`, `category`, `serial`, `vcode` |
+| 2 | Rates | All 16 figures in three small tables: land by road width, commercial by type, agricultural by frontage with a ₹/sq m and ₹/bigha conversion line | `nonAgri`, `commercial`, `agriLakhPerHa` |
+| 3 | Road stretches | Segments passing through this village | `roadSegments[]` where `rateRowId` matches |
+| 4 | Worked example | A 1,000 sq ft plot on a road under 9 m: circle value, stamp duty for a male and a female buyer | computed |
+| 5 | Calculator | The stamp duty estimator prefilled with this row and its segments | `valuationRules.json`, `stampDutyRules.json` |
+| 6 | Comparison | The row against the tehsil median, as a percentage | computed |
+| 7 | Similar villages | Six nearest rows in the same tehsil by rate similarity | computed |
+| 8 | Covered by | Any site locality whose `rateRefs` include this row | `localities.json` |
+| 9 | Source stamp and lead form | Printed page named; form prefilled with city and village | `sources[]`, JotForm |
+
+**Indexing rule**
+
+Every village page builds in both trees. A page is indexable only when a **live** locality references its row through `rateRefs`, or its row id is listed in `data/rates/indexable.json`. Everything else ships `noindex, follow` and is absent from the sitemaps and `llms.txt`. The list is widened in batches while watching Search Console; it is not a backlog to clear.
 
 ## Template 6: Guide
 
@@ -339,7 +381,40 @@ All entity data lives in `/data/*.json`, validated with Zod at build. A failed v
 
 **projects.json** — `id`, `cityId`, `name`, `nameHi`, `agency`, `status`, `budgetCr`, `announcedOn`, `expectedCompletion`, `extent`, `description`, `descriptionHi`, `geometry` (GeoJSON), `affectedLocalityIds[]`, `impacts[]` (`{localityId, level, reason}`), `milestones[]` (`{date, text, sourceUrl}`), `sources[]`, `updatedAt`.
 
-**circleRates.json** — `cityId`, `effectiveFrom`, `sourceUrl`, `archiveUrl`, `rates[]` (`{localityId, tehsil, residential, commercial, agricultural}`). One object per schedule; old schedules are kept for the revision history.
+**circleRates.json** — `cityId`, `effectiveFrom`, `sourceUrl`, `archiveUrl`, `rates[]` (`{localityId, tehsil, residential, commercial, agricultural}`). One object per schedule; old schedules are kept for the revision history. **Generated**, not hand-edited: `npm run rates:derive` rebuilds it from `/data/rates/` for every city that has a transcribed list, and leaves the seed schedules of cities that do not. Derivation is `residential = nonAgri.lt9m`, `commercial = commercial.shop`, `agricultural = agriLakhPerHa.general × 100000`, taking the highest of each column where a locality spans several rows.
+
+**tehsils.json** — `id`, `cityId`, `name`, `nameHi`, `sroName`, `sroNameHi`, `lat`, `lng`, `sources[]`, `updatedAt`. The sub-registrar office is the unit a rate list is published and cited under, so it is a first-class entity rather than the free-text `tehsil` string on a locality.
+
+**data/rates/`<city>`-`<effectiveFrom>`.json** — the full published list, one file per schedule so a revision is a new file and never an overwrite.
+
+```json
+{
+  "cityId": "ayodhya",
+  "effectiveFrom": "2025-06-07",
+  "orderDate": "2025-06-06",
+  "sourceDocs": [{ "sro": "sadar", "pdfPath": "…", "archiveUrl": null, "igrsupUrl": "https://igrsup.gov.in/" }],
+  "rows": [{
+    "id": "sadar-s517", "sro": "sadar", "page": "100", "serial": 517, "vcode": null,
+    "nameHi": "सहादतगंज", "nameEn": "Sahadatganj", "slug": "sahadatganj",
+    "wardHi": "सहादतगंज", "category": "urban",
+    "nonAgri": { "lt9m": 10500, "m9to18": 11500, "ge18m": 12300 },
+    "commercial": { "shop": 49200, "office": 45200, "godown": 41100 },
+    "agriLakhPerHa": { "nh": null, "state": null, "link": null, "chakmarg": null, "abadi": null, "general": null },
+    "note": null
+  }],
+  "roadSegments": [{ "id": "sadar-seg5-sahadatganj", "sro": "sadar", "page": "67", "segmentHi": "…", "segmentEn": "…", "villageHi": "सहादतगंज", "rateRowId": "sadar-s517", "nonAgri": 33200, "shop": 77400, "office": 74000, "godown": 70600, "note": null }]
+}
+```
+
+Units are exactly as published and are never converted in storage: `nonAgri.*` and `commercial.*` in ₹ per sq m, `agriLakhPerHa.*` in **lakh** ₹ per hectare, `null` where the printed row leaves the cell empty. `note` carries the transcriber's flag on an oddly printed row and is never rendered. Row ids are `${sro}-${vcode || 's'+serial}`; slugs are unique within a tehsil, with the ward or V-code appended when two rows share a name.
+
+**data/rates/indexable.json** — `rateRowIds[]`, the village rows opened to search beyond those a live locality references. See Template 5b.
+
+**units.json** — `sqmPerHectare`, and the local `bigha` with its size in sq m, its label and its source. Display conversions only; nothing converted is ever stored.
+
+**valuationRules.json** — `effectiveFrom`, `largePlotThresholdSqm`, `largePlotPct`, and `rules[]` (`{id, instruction, applies, pct, label, labelHi, description, descriptionHi}`) transcribed from the list's general-instruction pages. Carries `TODO legal-review`: the calculator that reads it is an estimate, and the file says so.
+
+**localities.json additions** — `rateRefs[]` (`{rateRowId}`) and `roadSegmentRefs[]` (`{id}`) point into the published list. A locality may span several rows, so pages show the range. `circleRate` remains optional for cities whose list is not transcribed yet, and the thin-page guard accepts either.
 
 **stampDutyRules.json** — per buyer category: stamp duty %, registration fee % and cap, any rebate, `effectiveFrom`, `sourceUrl`.
 
@@ -352,6 +427,19 @@ All entity data lives in `/data/*.json`, validated with Zod at build. A failed v
 **scoring.json** — the six weights for the high-potential score.
 
 A `scripts/parse-circle-rates.ts` and `scripts/validate.ts` live alongside; parsing scripts take a PDF-to-CSV export as input and emit JSON. Nothing scrapes live sites at build.
+
+**Importing a published rate list**
+
+```
+npm run rates:import-list -- --city ayodhya --effective 2025-06-07 --order-date 2025-06-06 \
+  --dir data/sources/circle-rates/ayodhya/transcribed-2025-06-07 [--dry-run]
+```
+
+Reads every `*-p4.csv` (village rows) and `*-p3.csv` (road segments) in the directory, normalises the categories, derives `nameEn` and `slug` (`lib/devanagari.ts`, overridden by `scripts/name-overrides.json`), writes `data/rates/<city>-<effectiveFrom>.json`, and sets `rateRefs` on the localities it can match. Matching is: `scripts/rate-aliases.json`, then exact Hindi name, then normalised Hindi. Always run `--dry-run` first: it reports rows per SRO, matched and unmatched localities with candidate ids, unmatched road segments and slug collisions, and writes nothing.
+
+`npm run rates:derive` then regenerates `circleRates.json`, and `npm run rates:chunks` writes the per-tehsil search chunks into `public/rates/`. Both run in `prebuild`, so a stale derived file cannot ship.
+
+The scanned source PDFs are gitignored; `sourceDocs[].pdfPath` records provenance and `archiveUrl` points at the R2 copy.
 
 ## Shared components
 
@@ -405,11 +493,15 @@ Launch at roughly 260–310 pages in week 4–5, then grow to 1000+ over the fol
 | Locality | 100–120 | 30–40 | 400–500 |
 | Project | 25–30 | 10 | 120 |
 | Circle rate | 3 | 3 | 6 |
+| Tehsil rate | 5 | 5 | 10 |
+| Village rate | 1,630 | 1,630 | 3,260 |
 | Guide | 20 | 7 | 80 |
 | Tool | 4 | 4 | 8 |
 | Update entry | 30–40 | 10 | 200+ |
 | Standard | 9 | 9 | 18 |
 | **Total** | **~200–230** | **~80** | **~850–950** |
+
+The village rate pages sit outside that trajectory on purpose: they all build, but ship `noindex` and out of the sitemaps until opened in batches (Template 5b). The indexable count is what the table above is about.
 
 **Build order for Claude Code**
 
@@ -421,7 +513,8 @@ Launch at roughly 260–310 pages in week 4–5, then grow to 1000+ over the fol
 6. SEO layer: metadata, JSON-LD, sitemaps, hreflang, OG image generation, llms.txt.
 7. Lead form via JotForm + Worker, WhatsApp button, analytics.
 8. Content load: real `localities.json` and `circleRates.json` from parsed PDFs, projects, updates, guides. This is the long pole and runs in parallel with 4–7.
-9. Cloudflare Pages deploy from GitHub, `NODE_VERSION=20`, `.in` → `.com` redirect, custom domain, Search Console for both trees.
+9. Full circle-rate model: `tehsils.json`, `data/rates/` per published schedule, the import and derive scripts, Templates 5a and 5b, the valuation rules and the calculator rebuilt on them.
+10. Cloudflare Pages deploy from GitHub, `NODE_VERSION=22`, `.in` → `.com` redirect, custom domain, Search Console for both trees.
 
 **Content refresh cadence after launch**
 
