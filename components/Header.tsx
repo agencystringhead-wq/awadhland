@@ -120,10 +120,34 @@ export function Header({ locale, alternate, nav, active, broker, pageLabel }: He
         </div>
       </div>
 
-      {/* Tier 3: nav. Desktop tiles with mega panels; mobile full-screen accordion menu. */}
-      <StickyNav className="hidden lg:block">
+      {/*
+        Mobile menu toggle. It holds its summary and nothing else: the nav below is a sibling it
+        reveals with `.mobile-menu[open] ~ .nav-root`, so the eight mega panels are rendered once
+        and serve both breakpoints. Rendering them twice — a desktop dropdown and a mobile
+        accordion — cost 28 KB of a 59 KB header, which Next then writes three times per page
+        (markup, inline flight payload, sibling index.txt) across 3,514 pages.
+
+        When open, the summary pins to the top of the overlay so it stays tappable to close; that
+        is why there is no separate close button any more.
+      */}
+      <details className="mobile-menu lg:hidden">
+        <summary className="bar-nav flex cursor-pointer items-center justify-between px-[18px] py-3 text-[15px] font-semibold text-ink sm:px-6">
+          <span>{c.menu}</span>
+          <span aria-hidden="true" className="text-muted">
+            ☰
+          </span>
+        </summary>
+      </details>
+
+      {/* Tier 3: one nav. Desktop tiles with hover panels; mobile a full-screen accordion. */}
+      <StickyNav className="nav-root">
         <nav aria-label="Main" className="bar-nav group/nav [[data-stuck=true]_&]:bar-nav-stuck">
-          <div className="container-site relative flex items-stretch">
+          <div className="container-site relative flex items-stretch nav-row">
+            {/* Mobile overlay head: brand and language toggle, above the cells */}
+            <div className="nav-mobile-head lg:hidden">
+              <Logo locale={locale} size="md" />
+              {toggle}
+            </div>
             {/* Compact controls, revealed only when stuck */}
             <div className="hidden items-center pr-4 [[data-stuck=true]_&]:flex">
               <Logo locale={locale} size="sm" />
@@ -134,8 +158,14 @@ export function Header({ locale, alternate, nav, active, broker, pageLabel }: He
                   <span>{item.label}</span>
                   <span className="nav-tile-sub [[data-stuck=true]_&]:hidden">{item.sub}</span>
                 </a>
+                {/* Mobile only. The panel is its sibling, so a closed <details> never hides it. */}
+                <details className="nav-acc lg:hidden">
+                  <summary aria-label={item.label}>
+                    <span aria-hidden="true">⌄</span>
+                  </summary>
+                </details>
                 <div className="mega-panel">
-                  <MegaPanel locale={locale} item={item} layout="panel" />
+                  <MegaPanel locale={locale} item={item} />
                 </div>
               </div>
             ))}
@@ -148,47 +178,6 @@ export function Header({ locale, alternate, nav, active, broker, pageLabel }: He
           </div>
         </nav>
       </StickyNav>
-
-      <details className="mobile-menu lg:hidden">
-        <summary className="bar-nav flex cursor-pointer items-center justify-between px-[18px] py-3 text-[15px] font-semibold text-ink sm:px-6">
-          <span>{c.menu}</span>
-          <span aria-hidden="true" className="text-muted">
-            ☰
-          </span>
-        </summary>
-        <div className="mobile-menu-panel">
-          <div className="flex items-center justify-between border-b border-line px-[18px] py-3">
-            <Logo locale={locale} size="md" />
-            <div className="flex items-center gap-2">
-              {toggle}
-              <a href="#" aria-label={c.close} className="btn btn-soft btn-sm">
-                ✕
-              </a>
-            </div>
-          </div>
-          <div className="divide-y divide-line px-[18px] pb-24">
-            {nav.map((item) => (
-              <details key={item.key} className="group/acc">
-                <summary className="flex cursor-pointer items-baseline justify-between gap-3 py-4">
-                  <span>
-                    <span className="font-display text-[22px] font-semibold tracking-[-0.02em] text-ink">{item.label}</span>
-                    <span className="ml-2 text-[13.5px] italic text-muted">{item.sub}</span>
-                  </span>
-                  <span aria-hidden="true" className="text-muted transition group-open/acc:rotate-180">
-                    ⌄
-                  </span>
-                </summary>
-                <div className="pb-5">
-                  <a href={item.href} className="mb-3 inline-block text-[13.5px] font-semibold text-accent-deep no-underline">
-                    {item.label} →
-                  </a>
-                  <MegaPanel locale={locale} item={item} layout="stack" />
-                </div>
-              </details>
-            ))}
-          </div>
-        </div>
-      </details>
 
       {alternate.missing && (
         <p className="border-t border-line bg-cream-deep py-1.5 text-center text-sm text-ink-soft">

@@ -5,6 +5,7 @@
 import { getBuildableLocalities, getCircleRateSchedules, getCities, getProjects, getUpdates } from "./data";
 import { logSkippedLocalities } from "./guards";
 import { getGuides } from "./guides";
+import { getCitiesWithRateList, getRowsByTehsil, getTehsilsByCity } from "./rates";
 import { localePath, otherLocale, type Locale } from "./i18n";
 import { TOOL_SLUGS } from "./tools";
 
@@ -42,6 +43,29 @@ export const circleRateParams = () =>
   nonEmpty(
     "/[city]/circle-rates/",
     [...new Set(getCircleRateSchedules().map((s) => s.cityId))].map((city) => ({ city })),
+  );
+
+/** /[city]/circle-rates/[tehsil]/ — one per tehsil that has rows in the current schedule. */
+export const rateTehsilParams = () =>
+  nonEmpty(
+    "/[city]/circle-rates/[tehsil]/",
+    getCitiesWithRateList().flatMap((city) =>
+      getTehsilsByCity(city)
+        .filter((t) => getRowsByTehsil(city, t.id).length > 0)
+        .map((t) => ({ city, tehsil: t.id })),
+    ),
+  );
+
+/**
+ * /[city]/circle-rates/[tehsil]/[village]/ — one per row of the published list. All of them
+ * build; whether each is indexable is decided in lib/pages.ts, not here.
+ */
+export const rateVillageParams = () =>
+  nonEmpty(
+    "/[city]/circle-rates/[tehsil]/[village]/",
+    getCitiesWithRateList().flatMap((city) =>
+      getTehsilsByCity(city).flatMap((t) => getRowsByTehsil(city, t.id).map((r) => ({ city, tehsil: t.id, village: r.slug }))),
+    ),
   );
 
 export const projectParams = () =>

@@ -49,6 +49,8 @@ export function llmsTxt(): string {
     { kind: "city", en: "Cities", hi: "शहर" },
     { kind: "locality", en: "Localities", hi: "इलाक़े" },
     { kind: "circle-rates", en: "Circle rates", hi: "सर्किल रेट" },
+    { kind: "rate-tehsil", en: "Circle rates by tehsil", hi: "तहसीलवार सर्किल रेट" },
+    { kind: "rate-village", en: "Circle rates by village", hi: "गाँववार सर्किल रेट" },
     { kind: "project", en: "Government projects", hi: "सरकारी प्रोजेक्ट" },
     { kind: "guide", en: "Guides", hi: "गाइड" },
     { kind: "tool", en: "Tools", hi: "टूल्स" },

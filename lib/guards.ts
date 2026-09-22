@@ -1,9 +1,13 @@
 /**
  * Thin-page guard, docs/BUILD-SPEC.md Template 3 rules.
  *
- * Minimum field set for a locality page: name, city, lat/lng, circle rate, land use,
+ * Minimum field set for a locality page: name, city, lat/lng, a circle rate, land use,
  * at least one narrative paragraph. Records missing any of these are excluded from
  * generateStaticParams and the sitemaps (lib/pages.ts). The skipped ids are logged at build.
+ *
+ * "A circle rate" means either the legacy `circleRate` object or at least one `rateRefs` entry
+ * pointing into the published list. Requiring the old field alone would have dropped every
+ * locality the Step 9 import moved onto rateRefs.
  *
  * Hindi pages additionally need nameHi and at least one Hindi narrative paragraph,
  * because the Hindi template reads those fields and must not fall back to English copy.
@@ -15,7 +19,9 @@ export function missingMinimumFields(l: Locality, locale: Locale): string[] {
   if (!l.name) missing.push("name");
   if (!l.cityId) missing.push("cityId");
   if (l.lat === undefined || l.lng === undefined) missing.push("lat/lng");
-  if (!l.circleRate) missing.push("circleRate");
+  // A rate is either the legacy per-locality figure or a reference into the full published list
+  // (Step 9 A4). Localities in cities whose list is not transcribed yet still use circleRate.
+  if (!l.circleRate && !(l.rateRefs && l.rateRefs.length > 0)) missing.push("circleRate/rateRefs");
   if (!l.landUse) missing.push("landUse");
   if (!l.narrative || l.narrative.drivers.length === 0) missing.push("narrative.drivers");
   if (locale === "hi") {

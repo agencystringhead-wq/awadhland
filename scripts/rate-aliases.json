@@ -1,0 +1,105 @@
+{
+  "_comment": "Explicit locality → rate-list mapping, tried before any name matching. Fill a locality in here when the published list names it differently, splits it across several villages, or does not name it at all (the newer Ayodhya corridors are named by their older road descriptions in the 2025 list). An empty array means 'not yet mapped' and the dry run will keep reporting the locality as unmatched. Run `npm run rates:import-list -- --dry-run` to see candidate ids for each.",
+  "aliases": {
+    "faizabad-road": {
+      "rateRowIds": [],
+      "roadSegmentIds": [],
+      "note": "Corridor, not a village row. The list covers it through Sadar segments 59–61 (अकबरपुर-फैजाबाद रोड). Pick the stretches inside the locality."
+    },
+    "civil-lines": {
+      "rateRowIds": [],
+      "roadSegmentIds": [],
+      "note": "The list spells it सिविल लाइन्स (Sadar serial 524, page 101); the locality record uses सिविल लाइंस. Confirm they are the same place, then map to sadar-s524 and the सिविल लाइन segments 4, 5, 19, 20."
+    },
+    "ram-path": {
+      "rateRowIds": [],
+      "roadSegmentIds": [],
+      "note": "The 2025 Sadar list has no segment called राम पथ. The corridor runs Sahadatganj → Naya Ghat; pick the stretches that cover it from the Sadar segment list."
+    },
+    "dharma-path": {
+      "rateRowIds": [],
+      "roadSegmentIds": [],
+      "note": "No segment called धर्म पथ in the 2025 Sadar list. Runs from Ram Path towards the Ram Janmabhoomi complex."
+    },
+    "bhakti-path": {
+      "rateRowIds": [],
+      "roadSegmentIds": [],
+      "note": "No segment called भक्ति पथ in the 2025 Sadar list. Segment 69 (अर्जुनदास जी के मंदिर → राम कोट) is the closest description."
+    },
+    "devkali": {
+      "rateRowIds": [],
+      "roadSegmentIds": [],
+      "note": "The list prints three rows: छोटी देवकाली (sadar-s165), देवकाली अं.न.पा. (sadar-s225), देवकालीBNP (sadar-s226). Decide which belong to this locality. See also the duplicate locality record 'deokali'."
+    },
+    "ranopali": {
+      "rateRowIds": [],
+      "roadSegmentIds": [],
+      "note": "Two rows: रानोपाली ANP (sadar-s425) and रानोपाली BNP (sadar-s426), plus segments 7, 52, 56, 64. ANP/BNP are the nagar palika / nagar panchayat halves."
+    },
+    "ayodhya-bypass-nh-27": {
+      "rateRowIds": [],
+      "roadSegmentIds": [],
+      "note": "No row or segment names the bypass directly. Map to the villages it runs through, or to the segments that reference बाईपास."
+    },
+    "airport-road": {
+      "rateRowIds": [],
+      "roadSegmentIds": [],
+      "note": "The list names no एयरपोर्ट/हवाई अड्डा row or segment. Map to the villages the airport road passes through."
+    },
+    "lucknow-road": {
+      "rateRowIds": [],
+      "roadSegmentIds": [],
+      "note": "Corridor. Sadar segments 5 and 26 name लखनऊ रोड explicitly."
+    },
+    "gosaiganj": {
+      "rateRowIds": [],
+      "roadSegmentIds": [],
+      "note": "The list spells it गोशाईगंज, not गोसाईगंज. Sadar rows: कटरा गोशाईगंज (s59), गोशाईगंज उत्तरी (s142), गोशाईगंज दक्षिणी (s143). Pick which are in scope."
+    },
+    "bikapur-road": {
+      "rateRowIds": [],
+      "roadSegmentIds": [],
+      "note": "Corridor. Two बीकापुर village rows exist (bikapur-1221, sadar-s324) plus Bikapur segments 1 and 4."
+    },
+    "masodha": {
+      "rateRowIds": [],
+      "roadSegmentIds": [],
+      "note": "The list has only खानपुर मसौधा (sohawal-1029) plus the Sohawal segments through it. Confirm this is the same Masodha."
+    },
+    "barun-bypass": {
+      "rateRowIds": [],
+      "roadSegmentIds": [],
+      "note": "No name overlap in this list. Identify the villages the bypass runs through."
+    },
+    "deokali": {
+      "rateRowIds": [],
+      "roadSegmentIds": [],
+      "note": "Duplicate of the 'devkali' locality record — same village, two ids. Resolve the duplicate before mapping."
+    },
+    "mahobra": {
+      "rateRowIds": [],
+      "roadSegmentIds": [],
+      "note": "महोबरा does not appear anywhere in the five lists. Confirm the spelling used locally, or drop the locality."
+    },
+    "bhadarsa-road": {
+      "rateRowIds": [],
+      "roadSegmentIds": [],
+      "note": "Corridor. भदरसा appears as a village row; the road itself is not a listed segment."
+    },
+    "rudauli-road": {
+      "rateRowIds": [],
+      "roadSegmentIds": [],
+      "note": "Corridor. Rudauli segments are printed without numbers (सडक …); pick by description."
+    },
+    "kumarganj-road": {
+      "rateRowIds": [],
+      "roadSegmentIds": [],
+      "note": "Corridor. Milkipur segment 3 names कुमारगंज."
+    },
+    "sahadatganj": {
+      "rateRowIds": [],
+      "roadSegmentIds": [],
+      "note": "The list prints सहादतगंज at Sadar serial 517, and also कुम्हार टोला (सहादतगंज) at 91 and कोरी टोला (सहादतगंज) at 106. Decide whether the locality page should show all three rows as a range or only the main one."
+    }
+  }
+}

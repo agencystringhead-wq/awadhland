@@ -1,0 +1,146 @@
+{
+  "effectiveFrom": "2025-06-07",
+  "largePlotThresholdSqm": 1000,
+  "largePlotPct": 75,
+  "rules": [
+    {
+      "id": "nonagri-commercial-within-50m",
+      "instruction": "20",
+      "applies": "non-agricultural",
+      "pct": 30,
+      "label": "Within 50 m of commercial activity",
+      "labelHi": "व्यावसायिक गतिविधि से 50 मीटर के भीतर",
+      "description": "Non-agricultural land lying within 50 metres of established commercial activity is valued 30% above the base rate for its road width.",
+      "descriptionHi": "जो अकृषिक भूमि स्थापित व्यावसायिक गतिविधि से 50 मीटर के भीतर पड़ती है, उसका मूल्यांकन उसकी सड़क चौड़ाई की आधार दर से 30% अधिक पर होता है।",
+      "sources": [
+        {
+          "label": "IGRSUP मूल्यांकन सूची, Ayodhya, general instructions, instruction 20, effective 07-06-2025",
+          "url": "https://igrsup.gov.in/",
+          "accessedAt": "2026-09-23"
+        }
+      ],
+      "updatedAt": "2026-09-23"
+    },
+    {
+      "id": "agri-plot-upto-0-100-ha",
+      "instruction": "18",
+      "applies": "agricultural",
+      "pct": 100,
+      "label": "Plot up to 0.100 ha in an urban, semi-urban or developing village",
+      "labelHi": "नगरीय, अर्द्धनगरीय या विकासशील गाँव में 0.100 हेक्टेयर तक का भूखंड",
+      "description": "Agricultural land up to 0.100 hectare in an urban, semi-urban or developing village is valued at double the frontage rate, where the plot does not adjoin abadi or a road.",
+      "descriptionHi": "नगरीय, अर्द्धनगरीय या विकासशील गाँव में 0.100 हेक्टेयर तक की कृषि भूमि, जो आबादी या सड़क से न लगी हो, उसका मूल्यांकन फ्रंटेज दर के दोगुने पर होता है।",
+      "sources": [
+        {
+          "label": "IGRSUP मूल्यांकन सूची, Ayodhya, general instructions, instruction 18, effective 07-06-2025",
+          "url": "https://igrsup.gov.in/",
+          "accessedAt": "2026-09-23"
+        }
+      ],
+      "updatedAt": "2026-09-23"
+    },
+    {
+      "id": "agri-plot-0-100-to-0-200-ha",
+      "instruction": "18",
+      "applies": "agricultural",
+      "pct": 60,
+      "label": "Plot of 0.100–0.200 ha in an urban, semi-urban or developing village",
+      "labelHi": "नगरीय, अर्द्धनगरीय या विकासशील गाँव में 0.100–0.200 हेक्टेयर का भूखंड",
+      "description": "Agricultural land between 0.100 and 0.200 hectare in an urban, semi-urban or developing village is valued 60% above the frontage rate, where the plot does not adjoin abadi or a road.",
+      "descriptionHi": "नगरीय, अर्द्धनगरीय या विकासशील गाँव में 0.100 से 0.200 हेक्टेयर के बीच की कृषि भूमि, जो आबादी या सड़क से न लगी हो, उसका मूल्यांकन फ्रंटेज दर से 60% अधिक पर होता है।",
+      "sources": [
+        {
+          "label": "IGRSUP मूल्यांकन सूची, Ayodhya, general instructions, instruction 18, effective 07-06-2025",
+          "url": "https://igrsup.gov.in/",
+          "accessedAt": "2026-09-23"
+        }
+      ],
+      "updatedAt": "2026-09-23"
+    },
+    {
+      "id": "agri-activity-within-200m",
+      "instruction": "22",
+      "applies": "agricultural",
+      "pct": 30,
+      "label": "Within 200 m of residential or commercial activity",
+      "labelHi": "रिहायशी या व्यावसायिक गतिविधि से 200 मीटर के भीतर",
+      "description": "Agricultural land lying within 200 metres of established residential or commercial activity is valued 30% above the frontage rate.",
+      "descriptionHi": "जो कृषि भूमि स्थापित रिहायशी या व्यावसायिक गतिविधि से 200 मीटर के भीतर पड़ती है, उसका मूल्यांकन फ्रंटेज दर से 30% अधिक पर होता है।",
+      "sources": [
+        {
+          "label": "IGRSUP मूल्यांकन सूची, Ayodhya, general instructions, instruction 22, effective 07-06-2025",
+          "url": "https://igrsup.gov.in/",
+          "accessedAt": "2026-09-23"
+        }
+      ],
+      "updatedAt": "2026-09-23"
+    },
+    {
+      "id": "agri-one-road-and-abadi",
+      "instruction": "17(क)",
+      "applies": "agricultural",
+      "pct": 40,
+      "label": "Adjoining one road and abadi",
+      "labelHi": "एक सड़क और आबादी से लगी हुई",
+      "description": "Agricultural land adjoining one road and abadi is valued 40% above the frontage rate.",
+      "descriptionHi": "एक सड़क और आबादी से लगी कृषि भूमि का मूल्यांकन फ्रंटेज दर से 40% अधिक पर होता है।",
+      "sources": [
+        {
+          "label": "IGRSUP मूल्यांकन सूची, Ayodhya, general instructions, instruction 17(क), effective 07-06-2025",
+          "url": "https://igrsup.gov.in/",
+          "accessedAt": "2026-09-23"
+        }
+      ],
+      "updatedAt": "2026-09-23"
+    },
+    {
+      "id": "agri-many-roads-and-abadi",
+      "instruction": "17(ख)",
+      "applies": "agricultural",
+      "pct": 60,
+      "label": "Adjoining more than one road and abadi",
+      "labelHi": "एक से अधिक सड़क और आबादी से लगी हुई",
+      "description": "Agricultural land adjoining more than one road and abadi is valued 60% above the frontage rate.",
+      "descriptionHi": "एक से अधिक सड़क और आबादी से लगी कृषि भूमि का मूल्यांकन फ्रंटेज दर से 60% अधिक पर होता है।",
+      "sources": [
+        {
+          "label": "IGRSUP मूल्यांकन सूची, Ayodhya, general instructions, instruction 17(ख), effective 07-06-2025",
+          "url": "https://igrsup.gov.in/",
+          "accessedAt": "2026-09-23"
+        }
+      ],
+      "updatedAt": "2026-09-23"
+    },
+    {
+      "id": "agri-two-or-more-roads-only",
+      "instruction": "17(ग)",
+      "applies": "agricultural",
+      "pct": 20,
+      "label": "Adjoining two or more roads only",
+      "labelHi": "केवल दो या अधिक सड़कों से लगी हुई",
+      "description": "Agricultural land adjoining two or more roads, but not abadi, is valued 20% above the frontage rate.",
+      "descriptionHi": "जो कृषि भूमि दो या अधिक सड़कों से लगी हो पर आबादी से न लगी हो, उसका मूल्यांकन फ्रंटेज दर से 20% अधिक पर होता है।",
+      "sources": [
+        {
+          "label": "IGRSUP मूल्यांकन सूची, Ayodhya, general instructions, instruction 17(ग), effective 07-06-2025",
+          "url": "https://igrsup.gov.in/",
+          "accessedAt": "2026-09-23"
+        }
+      ],
+      "updatedAt": "2026-09-23"
+    }
+  ],
+  "sources": [
+    {
+      "label": "IGRSUP मूल्यांकन सूची, Ayodhya district, general instruction pages, effective 07-06-2025 (Collector order 06-06-2025)",
+      "url": "https://igrsup.gov.in/",
+      "accessedAt": "2026-09-23"
+    }
+  ],
+  "updatedAt": "2026-09-23",
+  "todo": [
+    "TODO legal-review: every percentage, threshold and condition in this file is transcribed from the list's general-instruction pages and has NOT been checked by a lawyer or by the sub-registrar. The calculator that reads it is an estimate only.",
+    "Instruction 24 (road-segment rates never apply to agricultural land) is enforced in lib/valuation.ts, not as a row here, because it removes a rate rather than adjusting a percentage.",
+    "Confirm whether instructions 17 and 22 stack with instruction 18, or whether the list intends only the single highest adjustment to apply. The calculator currently stacks them and shows each one it used."
+  ]
+}

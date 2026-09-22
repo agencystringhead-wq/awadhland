@@ -20,6 +20,7 @@ import {
   getUpdates,
 } from "./data";
 import { getGuides } from "./guides";
+import { getCurrentRateSchedule, getRowsByTehsil, getTehsilSummary, getTehsilsByCity, isRowIndexable } from "./rates";
 import { formatDate, formatNumber, localePath, pick, SITE_URL, type Locale } from "./i18n";
 import { landUseLabels } from "./labels";
 import { guideAlternate, localityAlternate, sameAlternate, type Alternate } from "./routes";
@@ -27,7 +28,21 @@ import type { Locality } from "./schemas";
 import { TOOL_SLUGS } from "./tools";
 import { updateTypeLabels } from "@/components/UpdateRow";
 
-export type PageKind = "home" | "city" | "locality" | "circle-rates" | "project" | "guide" | "tool" | "updates" | "update" | "about";
+export type PageKind =
+  | "home"
+  | "city"
+  | "locality"
+  | "circle-rates"
+  /** /<city>/circle-rates/<tehsil>/ — one per tehsil, always indexable */
+  | "rate-tehsil"
+  /** /<city>/circle-rates/<tehsil>/<village>/ — one per row of the published list, noindex by default */
+  | "rate-village"
+  | "project"
+  | "guide"
+  | "tool"
+  | "updates"
+  | "update"
+  | "about";
 
 export type OgText = {
   /** big serif line */
@@ -212,6 +227,64 @@ export function getPages(locale: Locale): PageEntry[] {
       });
     }
 
+    /* tehsil rate pages and the village rows under them (spec Templates 5a and 5b) */
+    const rateSchedule = getCurrentRateSchedule(c.id);
+    if (rateSchedule) {
+      const referenced = new Set(localities.filter((l) => l.status === "live").flatMap((l) => (l.rateRefs ?? []).map((r) => r.rateRowId)));
+      for (const tehsil of getTehsilsByCity(c.id)) {
+        const summary = getTehsilSummary(c.id, tehsil.id);
+        if (!summary || summary.rowCount === 0) continue;
+        const tName = pick(locale, tehsil.name, tehsil.nameHi);
+        const band =
+          summary.minNonAgri !== null && summary.maxNonAgri !== null
+            ? `₹${formatNumber(summary.minNonAgri)}–${formatNumber(summary.maxNonAgri)}`
+            : null;
+
+        add({
+          kind: "rate-tehsil",
+          sitePath: `/${c.id}/circle-rates/${tehsil.id}/`,
+          title: hi
+            ? `${tName} तहसील सर्किल रेट ${YEAR}: सभी ${formatNumber(summary.rowCount)} गाँव · ${site}`
+            : `${tName} tehsil circle rates ${YEAR}: all ${formatNumber(summary.rowCount)} villages · ${name}`,
+          description: hi
+            ? `${tName} तहसील (${tehsil.sroNameHi}) के ${n(summary.rowCount, "गाँव", "गाँवों")} की पूरी सर्किल रेट सूची, ${formatDate(rateSchedule.effectiveFrom, locale)} से लागू। ज़मीन, व्यावसायिक और कृषि दरें${band ? `, ज़मीन ${band} प्रति वर्ग मीटर` : ""}।`
+            : `The full circle-rate list for ${n(summary.rowCount, "village", "villages")} in ${tName} tehsil (${tehsil.sroName}), effective ${formatDate(rateSchedule.effectiveFrom, locale)}. Land, commercial and agricultural rates${band ? `, land ${band} per sq m` : ""}.`,
+          lastmod: rateSchedule.updatedAt,
+          alternate: sameAlternate(locale, `/${c.id}/circle-rates/${tehsil.id}/`),
+          og: {
+            title: hi ? `${tName} सर्किल रेट` : `${tName} circle rates`,
+            subtitle: `${hi ? "लागू" : "Effective"} ${formatDate(rateSchedule.effectiveFrom, locale)}`,
+            chip: `${formatNumber(summary.rowCount)} ${hi ? "गाँव" : "villages"}`,
+          },
+          ogSlug: `${c.id}--circle-rates--${tehsil.id}`,
+        });
+
+        for (const row of getRowsByTehsil(c.id, tehsil.id)) {
+          add({
+            kind: "rate-village",
+            sitePath: `/${c.id}/circle-rates/${tehsil.id}/${row.slug}/`,
+            title: hi
+              ? `${row.nameHi} सर्किल रेट ${YEAR} · ${tName}, ${name}`
+              : `${row.nameEn} circle rate ${YEAR} · ${tName}, ${name}`,
+            description: hi
+              ? `${row.nameHi} (${row.nameEn}), ${tName} तहसील। सर्किल रेट ₹${formatNumber(row.nonAgri.lt9m)} प्रति वर्ग मीटर 9 मीटर से कम चौड़ी सड़क पर, दुकान ₹${formatNumber(row.commercial.shop)} प्रति वर्ग मीटर। ${formatDate(rateSchedule.effectiveFrom, locale)} से लागू, मुद्रित पृष्ठ ${row.page}।`
+              : `${row.nameEn} (${row.nameHi}), ${tName} tehsil. Circle rate ₹${formatNumber(row.nonAgri.lt9m)} per sq m on a road under 9 m, shop ₹${formatNumber(row.commercial.shop)} per sq m. Effective ${formatDate(rateSchedule.effectiveFrom, locale)}, printed page ${row.page}.`,
+            lastmod: rateSchedule.updatedAt,
+            alternate: sameAlternate(locale, `/${c.id}/circle-rates/${tehsil.id}/${row.slug}/`),
+            // Village pages share their tehsil's OG image: 3,260 near-identical cards would add
+            // nothing and would have to be rendered on every clean build.
+            og: {
+              title: hi ? `${tName} सर्किल रेट` : `${tName} circle rates`,
+              subtitle: `${hi ? "लागू" : "Effective"} ${formatDate(rateSchedule.effectiveFrom, locale)}`,
+              chip: `${formatNumber(summary.rowCount)} ${hi ? "गाँव" : "villages"}`,
+            },
+            ogSlug: `${c.id}--circle-rates--${tehsil.id}`,
+            noindex: !isRowIndexable(row.id, referenced.has(row.id)),
+          });
+        }
+      }
+    }
+
     /* localities */
     for (const l of cityLocalities) {
       const lname = pick(locale, l.name, l.nameHi);
@@ -317,7 +390,20 @@ export function getPages(locale: Locale): PageEntry[] {
   return entries;
 }
 
-export const getPage = (locale: Locale, sitePath: string) => getPages(locale).find((p) => p.sitePath === sitePath);
+/**
+ * Indexed by path. Every page calls this once from generateMetadata, and the rate-village pages
+ * take the list past 3,000 entries per locale, so a linear scan here is quadratic over the build.
+ */
+const byPath = new Map<Locale, Map<string, PageEntry>>();
+
+export function getPage(locale: Locale, sitePath: string): PageEntry | undefined {
+  let index = byPath.get(locale);
+  if (!index) {
+    index = new Map(getPages(locale).map((p) => [p.sitePath, p]));
+    byPath.set(locale, index);
+  }
+  return index.get(sitePath);
+}
 
 /** Both locales, English first. */
 export const getAllPages = () => [...getPages("en"), ...getPages("hi")];

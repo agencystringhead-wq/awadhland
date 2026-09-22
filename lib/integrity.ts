@@ -3,6 +3,7 @@
  * reserved slugs. Used by scripts/validate.ts and at import time by lib/data.ts, so both
  * `npm run validate` and a bare `next build` fail on broken references.
  */
+import { getRateRow, getRoadSegmentsByTehsil, getTehsils, getCurrentRateSchedule } from "./rates";
 import {
   RESERVED_CITY_IDS,
   RESERVED_LOCALITY_IDS,
@@ -104,6 +105,30 @@ export function checkIntegrity(d: Dataset): string[] {
       for (const key of Object.keys(l.driveTimes)) {
         if (!anchorIds.has(key)) err("localities.json", `${at}: driveTimes key "${key}" is not an anchor of ${city.id}`);
       }
+    }
+    // Step 9 A5: every rateRef and roadSegmentRef must resolve, and must belong to this city.
+    for (const ref of l.rateRefs ?? []) {
+      const row = getRateRow(ref.rateRowId);
+      if (!row) err("localities.json", `${at}: rateRefs points at unknown rate row "${ref.rateRowId}"`);
+      else if (!getCurrentRateSchedule(l.cityId)?.rows.some((r) => r.id === row.id))
+        err("localities.json", `${at}: rate row "${ref.rateRowId}" is not in ${l.cityId}'s current schedule`);
+    }
+    if (l.roadSegmentRefs && l.roadSegmentRefs.length > 0) {
+      const known = new Set(getTehsils().filter((t) => t.cityId === l.cityId).flatMap((t) => getRoadSegmentsByTehsil(l.cityId, t.id).map((s) => s.id)));
+      for (const ref of l.roadSegmentRefs) {
+        if (!known.has(ref.id)) err("localities.json", `${at}: roadSegmentRefs points at unknown segment "${ref.id}"`);
+      }
+    }
+  }
+
+  /* Tehsils referenced by a rate schedule must exist, or the tehsil pages cannot build. */
+  for (const cityId of new Set(d.localities.map((l) => l.cityId))) {
+    const schedule = getCurrentRateSchedule(cityId);
+    if (!schedule) continue;
+    if (!cityIds.has(cityId)) continue;
+    const tehsilIds = new Set(getTehsils().filter((t) => t.cityId === cityId).map((t) => t.id));
+    for (const sro of new Set(schedule.rows.map((r) => r.sro))) {
+      if (!tehsilIds.has(sro)) err("tehsils.json", `rate list for ${cityId} has rows for SRO "${sro}" but no tehsil record exists`);
     }
   }
 

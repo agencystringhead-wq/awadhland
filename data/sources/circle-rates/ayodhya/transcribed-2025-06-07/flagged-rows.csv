@@ -1,0 +1,60 @@
+sro,table,serial_or_page,vcode,village_hi,note
+bikapur,p4,169,1169,परमानन्दपुर,village name identical to V-code 1170 (also so in प्रारूप-1 list); verify
+bikapur,p4,170,1170,परमानन्दपुर,village name identical to V-code 1169 (also so in प्रारूप-1 list); verify
+bikapur,p4,231,1231,बैंतीकला,ge18m 12000 where other rows of this tier show 13000; scan clearly shows 12000
+bikapur,p4,239,1239,भिटौरा,village name identical to V-code 1240 in this table; verify
+bikapur,p4,240,1240,भिटौरा,village name identical to V-code 1239 in this table; verify
+bikapur,p4,291,1291,रामपुरपरेई,ge18m 26000 and agri 150/110/90/75/100/50 differ from other ₹12000-tier अर्द्धनगरीय rows (28000; 160/115/100/90/120/60); scan clearly shows these values
+bikapur,p4,294,1294,रूरूखास,agri_nh 121 where same-tier rows show 110; scan clearly shows 121 (possible source typo)
+milkipur,p4,159,1159,पाकड़पुर,non-agri 6700/9100/9500 atypical steps; verified at 400dpi as printed
+milkipur,p4,208,1208,मेवापुरमु0रसूलपुरलिलहा,name printed without spaces (मेवापुर मु0 रसूलपुर लिलहा)
+milkipur,p4,236,1236,रसूलपुरमु0मीठेगांव,name printed without spaces (रसूलपुर मु0 मीठेगांव)
+milkipur,p4,245,1245,सुरवारा,abadi 60 < district-road 65 (atypical); verified at 400dpi as printed
+rudauli,p4,164,1136,बरई,unique low rate set (NH 121); clearly printed
+rudauli,p4,206,1175,मरौचा,col11=45 differs from identical-rate 1174 (35); clearly printed 45
+rudauli,p4,208,1177,मोहम्मदपुर दाऊदपु,village name truncated in print (मोहम्मदपुर दाऊदपु…)
+sadar,p4,406,,मोहर्रमपुर आरती,ward अमसिन but category अधिसूचित (as printed)
+sadar,p4,552,,हैंसा,ward अमसिन but category अधिसूचित (as printed)
+sohawal,p4,37,1037,घाटमपुर,col7 first digit overlapped by signature (reads 17500)
+sohawal,p4,54,1054,दोस्तपुर रग्घू मांझा,col13 22 > col12 21 as printed (confirmed at 400dpi)
+sohawal,p4,127,1127,राजापुर माफी,"godown 23000 as printed, confirmed at 400dpi (similar rows 26000)"
+sohawal,p4,150,1150,सोहावल,col13 94 > col12 91 as printed (confirmed at 400dpi)
+milkipur,p3,40,1198,मिल्कीपुर,vcode not in source; filled by name match to P4
+milkipur,p3,40,1171,बवां,vcode not in source; filled by name match to P4 (बवॉं)
+milkipur,p3,40,1273,शिवनाथपुर,vcode not in source; filled by name match to P4
+milkipur,p3,40,1171,बवां,vcode not in source; filled by name match to P4 (बवॉं)
+milkipur,p3,40,1012,अकमा,vcode not in source; filled by name match to P4
+milkipur,p3,41,1022,इनायतनगर,vcode not in source; filled by name match to P4
+milkipur,p3,41,1022,इनायतनगर,vcode not in source; filled by name match to P4
+milkipur,p3,41,1128,देवरिया,vcode not in source; filled by name match to P4 (देवरिया(बारून))
+milkipur,p3,41,1061,खिहारन,vcode not in source; filled by name match to P4
+milkipur,p3,42,1061,खिहारन,vcode not in source; filled by name match to P4
+milkipur,p3,42,1052,करमडांडा,vcode not in source; filled by name match to P4 (करमडांडा(चमनगंज))
+milkipur,p3,42,1051,कुचेरा,vcode not in source; filled by name match to P4
+milkipur,p3,42,1194,भदोखरा,vcode not in source; filled by name match to P4
+milkipur,p3,42,1111,डूड़ी,vcode not in source; filled by name match to P4
+milkipur,p3,42,1211,मोहम्मदपुर,vcode not in source; name-matched to P4 मोहम्मदपुर(अमानीगंज) - only P4 match but location uncertain; verify
+milkipur,p3,42,1104,टण्डवा,vcode not in source; filled by name match to P4
+rudauli,p3,37,0037,शेखाना (9–18मी0),segment cell spans several road stretches; village-to-stretch mapping ambiguous
+rudauli,p3,37,0032,रसूलाबाद (9–18मी0),segment cell spans several road stretches; village-to-stretch mapping ambiguous
+rudauli,p3,37,0028,वजीरगंज (9–18मी0),segment cell spans several road stretches; village-to-stretch mapping ambiguous
+rudauli,p3,37,0006,कटरा (18मी0 से अधिक),segment cell spans several road stretches; village-to-stretch mapping ambiguous
+rudauli,p3,37,0022,पूरे मियां (18मी0 से अधिक),segment cell spans several road stretches; village-to-stretch mapping ambiguous
+rudauli,p3,37,0031,मख्दूमजादा (18मी0 से अधिक),segment cell spans several road stretches; village-to-stretch mapping ambiguous
+rudauli,p3,37,0004,काशीपुर (18मी0 से अधिक),segment cell spans several road stretches; village-to-stretch mapping ambiguous
+rudauli,p3,37,0005,कायस्थाना (18मी0 से अधिक),segment cell spans several road stretches; village-to-stretch mapping ambiguous
+rudauli,p3,37,0030,मलिकजादा (18मी0 से अधिक),segment cell spans several road stretches; village-to-stretch mapping ambiguous
+rudauli,p3,37,0029,मीरापुर (18मी0 से अधिक),segment cell spans several road stretches; village-to-stretch mapping ambiguous
+rudauli,p3,37,0021,पूरे काजी (18मी0 से अधिक),segment cell spans several road stretches; village-to-stretch mapping ambiguous
+rudauli,p3,37,0027,पूरे खान (18मी0 से अधिक),segment cell spans several road stretches; village-to-stretch mapping ambiguous
+rudauli,p3,37,0024,पूरे बसावन (18मी0 से अधिक),segment cell spans several road stretches; village-to-stretch mapping ambiguous
+rudauli,p3,37,0038,शेखाना (18मी0 से अधिक),segment cell spans several road stretches; village-to-stretch mapping ambiguous
+rudauli,p3,37,0006,कटरा (18मी0 से अधिक),segment cell spans several road stretches; village-to-stretch mapping ambiguous
+rudauli,p3,37,0009,घोसियाना (18मी0 से अधिक),segment cell spans several road stretches; village-to-stretch mapping ambiguous
+rudauli,p3,37,0033,सोफियाना (18मी0 से अधिक),segment cell spans several road stretches; village-to-stretch mapping ambiguous
+rudauli,p3,38,1062,जसमड़ (18मी0 से अधिक),segment cell blank in source; taken from row above
+rudauli,p3,39,1162,मीनापुर फगौली (18मी0 से अधिक),office 35000 here vs 33000 for same village in P4 and for 1180 on this page; clearly printed
+sadar,p3,81,,शाहनेवाजपुर मांझा,name printed with duplicated matra 'शााहनेवाजपुर' (typo) - normalised
+sadar,p3,81,,बरहटा मांझा,verified: printed clearly; nonagri 18000 with shop 62400 differs from other 18000 row (53600) - as printed
+sohawal,p3,30,1100,मऊयदुवंशपुर,segment cell starts at foot of p30 without text; assigned to segment 5 whose name is printed on p31
+sohawal,p3,31,1551,शेखपुर जाफर,vcode printed 1551; प्रारूप-4 lists शेखपुर जाफर as 1151

@@ -9,7 +9,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import { z } from "zod";
-import { dataFiles, type DataFileName } from "../lib/schemas";
+import { dataFiles, indexableRatesFileSchema, rateScheduleSchema, type DataFileName } from "../lib/schemas";
 import { checkIntegrity, type Dataset } from "../lib/integrity";
 import { checkGuideBodies, checkGuideReferences, dataPageLinks, readGuides, type GuideDataRefs } from "../lib/guide-files";
 import { partitionLocalities } from "../lib/guards";
@@ -81,6 +81,86 @@ async function main() {
     console.log("skip cross-file integrity (fix schema errors first)");
   }
 
+  /* 3b. Full rate lists in data/rates/ (Step 9 A5). */
+  const ratesDir = path.join(dataDir, "rates");
+  if (fs.existsSync(ratesDir)) {
+    const files = fs.readdirSync(ratesDir).filter((f) => f.endsWith(".json"));
+    for (const f of files) {
+      const at = `data/rates/${f}`;
+      let raw: unknown;
+      try {
+        raw = JSON.parse(fs.readFileSync(path.join(ratesDir, f), "utf8"));
+      } catch (e) {
+        errors.push(`${at}: not valid JSON (${(e as Error).message})`);
+        continue;
+      }
+      if (f === "indexable.json") {
+        const r = indexableRatesFileSchema.safeParse(raw);
+        if (!r.success) errors.push(`${at}:\n${indent(z.prettifyError(r.error))}`);
+        else console.log(`ok   ${at} (${r.data.rateRowIds.length} row${r.data.rateRowIds.length === 1 ? "" : "s"} opened to indexing)`);
+        continue;
+      }
+      const parsedSchedule = rateScheduleSchema.safeParse(raw);
+      if (!parsedSchedule.success) {
+        errors.push(`${at}:\n${indent(z.prettifyError(parsedSchedule.error))}`);
+        continue;
+      }
+      const s = parsedSchedule.data;
+
+      // Unique row and segment ids.
+      const seenRow = new Set<string>();
+      for (const r of s.rows) {
+        if (seenRow.has(r.id)) errors.push(`${at}: duplicate rate row id "${r.id}"`);
+        seenRow.add(r.id);
+      }
+      const seenSeg = new Set<string>();
+      for (const r of s.roadSegments) {
+        if (seenSeg.has(r.id)) errors.push(`${at}: duplicate road segment id "${r.id}"`);
+        seenSeg.add(r.id);
+      }
+
+      // Unique slugs within a tehsil: two rows sharing one would collide as URLs.
+      const bySroSlug = new Map<string, string[]>();
+      for (const r of s.rows) {
+        const k = `${r.sro}/${r.slug}`;
+        bySroSlug.set(k, [...(bySroSlug.get(k) ?? []), r.id]);
+      }
+      for (const [k, ids] of bySroSlug) {
+        if (ids.length > 1) errors.push(`${at}: slug "${k}" is used by ${ids.length} rows (${ids.join(", ")}) — they would share a URL`);
+      }
+
+      // Ordering sanity. A flagged row keeps the printed figure, so it warns rather than fails.
+      let orderWarnings = 0;
+      for (const r of s.rows) {
+        const landOut = !(r.nonAgri.lt9m <= r.nonAgri.m9to18 && r.nonAgri.m9to18 <= r.nonAgri.ge18m);
+        const commOut = !(r.commercial.shop >= r.commercial.office && r.commercial.office >= r.commercial.godown);
+        if (!landOut && !commOut) continue;
+        const what = [landOut && "land rates are not lt9m ≤ 9–18 m ≤ 18 m+", commOut && "commercial is not shop ≥ office ≥ godown"]
+          .filter(Boolean)
+          .join("; ");
+        const msg = `${at}: ${r.id} (${r.nameHi}, ${r.sro} serial ${r.serial}) ${what}`;
+        if (r.note) {
+          warnings.push(`${msg} — transcriber flagged: ${r.note}`);
+          orderWarnings++;
+        } else errors.push(`${msg} — no transcriber flag, so this is a transcription error, not a printed oddity`);
+      }
+
+      // Road segments: either resolve to a village row, or be listed as unmatched.
+      const unmatchedSegs = s.roadSegments.filter((r) => r.rateRowId === null);
+      const danglingSegs = s.roadSegments.filter((r) => r.rateRowId !== null && !seenRow.has(r.rateRowId));
+      for (const r of danglingSegs) errors.push(`${at}: road segment "${r.id}" points at rate row "${r.rateRowId}", which does not exist`);
+
+      console.log(
+        `ok   ${at} (${s.rows.length} rows, ${s.roadSegments.length} road segments, effective ${s.effectiveFrom})`,
+      );
+      console.log(
+        `info ${at}: ${unmatchedSegs.length} road segment${unmatchedSegs.length === 1 ? "" : "s"} unmatched to a village row` +
+          `${orderWarnings > 0 ? `, ${orderWarnings} flagged row${orderWarnings === 1 ? "" : "s"} out of the usual order` : ""}`,
+      );
+      for (const t of s.todo ?? []) todos.push(`${at}: ${t}`);
+    }
+  }
+
   /* 4. Guides: frontmatter, references into /data, and MDX bodies. */
   const en = readGuides("en", root);
   const hi = readGuides("hi", root);
@@ -93,7 +173,12 @@ async function main() {
       localities: new Map(
         dataset.localities.map((l) => [
           l.id,
-          { cityId: l.cityId, hasCircleRate: l.circleRate !== undefined, hasCoords: l.lat !== undefined && l.lng !== undefined },
+          {
+            cityId: l.cityId,
+            // Either the legacy figure or a reference into the published list (Step 9 A4).
+            hasCircleRate: l.circleRate !== undefined || (l.rateRefs?.length ?? 0) > 0,
+            hasCoords: l.lat !== undefined && l.lng !== undefined,
+          },
         ]),
       ),
       anchorsByCity: new Map(dataset.cities.map((c) => [c.id, new Set(c.anchors.map((a) => a.id))])),
