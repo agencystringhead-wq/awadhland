@@ -162,6 +162,60 @@ export function isRowIndexable(rateRowId: string, referencedByLiveLocality: bool
 
 export const getIndexableRowIds = () => indexableIds;
 
+/* ------------------------------------------------------- locality rate view */
+
+/**
+ * The three-number view of a locality's circle rate, from whichever source it has.
+ *
+ * A locality either points into the published list through `rateRefs` or, for a city whose list
+ * is not transcribed yet, carries the older `circleRate` object. Everything that needs one
+ * headline figure — the meta description, the OG image, the source stamp — must go through here,
+ * or a locality with real rows would still be described by its seed placeholder.
+ *
+ * Where a locality spans several rows the highest of each column wins, matching
+ * scripts/derive-circle-rates.ts. The full range is on the locality page and the village pages.
+ */
+export type LocalityRate = {
+  /** ₹ per sq m */
+  residential: number;
+  /** ₹ per sq m */
+  commercial: number;
+  /** ₹ per hectare, or null where the list prints no agricultural figure (urban rows) */
+  agricultural: number | null;
+  effectiveFrom: string;
+  sourceUrl: string;
+  /** true when this came from the published list rather than the legacy field */
+  fromRateList: boolean;
+};
+
+export function getLocalityRate(locality: {
+  cityId: string;
+  rateRefs?: { rateRowId: string }[];
+  circleRate?: { residential: number; commercial: number; agricultural: number; effectiveFrom: string; sourceUrl: string };
+}): LocalityRate | undefined {
+  const refs = locality.rateRefs ?? [];
+  if (refs.length > 0) {
+    const rows = refs.flatMap((r) => {
+      const hit = rowIndex.get(r.rateRowId);
+      return hit ? [hit] : [];
+    });
+    if (rows.length > 0) {
+      const schedule = rows[0].schedule;
+      const agri = rows.map((x) => x.row.agriLakhPerHa.general).filter((v) => v !== null);
+      return {
+        residential: Math.max(...rows.map((x) => x.row.nonAgri.lt9m)),
+        commercial: Math.max(...rows.map((x) => x.row.commercial.shop)),
+        agricultural: agri.length > 0 ? Math.max(...agri) * 100_000 : null,
+        effectiveFrom: schedule.effectiveFrom,
+        sourceUrl: schedule.sourceDocs[0].archiveUrl ?? schedule.sourceDocs[0].igrsupUrl,
+        fromRateList: true,
+      };
+    }
+  }
+  if (!locality.circleRate) return undefined;
+  return { ...locality.circleRate, fromRateList: false };
+}
+
 /* ---------------------------------------------------------------------- units */
 
 export const getUnits = () => units;

@@ -20,7 +20,7 @@ import {
   getUpdates,
 } from "./data";
 import { getGuides } from "./guides";
-import { getCurrentRateSchedule, getRowsByTehsil, getTehsilSummary, getTehsilsByCity, isRowIndexable } from "./rates";
+import { getCurrentRateSchedule, getLocalityRate, getRowsByTehsil, getTehsilSummary, getTehsilsByCity, isRowIndexable } from "./rates";
 import { formatDate, formatNumber, localePath, pick, SITE_URL, type Locale } from "./i18n";
 import { landUseLabels } from "./labels";
 import { guideAlternate, localityAlternate, sameAlternate, type Alternate } from "./routes";
@@ -288,7 +288,9 @@ export function getPages(locale: Locale): PageEntry[] {
     /* localities */
     for (const l of cityLocalities) {
       const lname = pick(locale, l.name, l.nameHi);
-      const r = l.circleRate!;
+      // From the published list where the locality is mapped into it, else the legacy field.
+      // The thin-page guard requires one or the other, so this is always defined here.
+      const r = getLocalityRate(l)!;
       const anchors = c.anchors.slice(0, 2).map((a) => pick(locale, a.name, a.nameHi)).join(hi ? " और " : " and ");
       add({
         kind: "locality",

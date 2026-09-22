@@ -20,6 +20,7 @@ import { missingMinimumFields } from "@/lib/guards";
 import { formatDate, formatNumber, localePath, pick, ui, type Locale } from "@/lib/i18n";
 import { fitRatingLabels, landUseLabels } from "@/lib/labels";
 import { rc } from "@/lib/rate-copy";
+import { getLocalityRate } from "@/lib/rates";
 import { localityAlternate } from "@/lib/routes";
 import type { FitEntry } from "@/lib/schemas";
 import { PageShell } from "./PageShell";
@@ -52,6 +53,7 @@ export function LocalityTemplate({ locale, cityId, localityId }: { locale: Local
   // When the locality is mapped into the published list, the "Circle rates here" block below
   // carries every row that covers it, so the single legacy figure is not repeated up here.
   const hasRateRefs = (l.rateRefs ?? []).length > 0;
+  const localityRate = getLocalityRate(l);
   if (l.circleRate && !hasRateRefs) {
     const r = l.circleRate;
     const eff = `${t.effective} ${formatDate(r.effectiveFrom, locale)}`;
@@ -300,7 +302,7 @@ export function LocalityTemplate({ locale, cityId, localityId }: { locale: Local
       {/* 12. Source stamp, 13. Lead form prefilled with city and locality */}
       <Section>
         <LeadForm locale={locale} broker={broker} pageLabel={pageLabel} city={city.id} locality={l.id} />
-        <SourceStamp locale={locale} sources={l.sources} updatedAt={l.updatedAt} effectiveFrom={l.circleRate?.effectiveFrom} />
+        <SourceStamp locale={locale} sources={l.sources} updatedAt={l.updatedAt} effectiveFrom={localityRate?.effectiveFrom} />
       </Section>
     </PageShell>
   );
