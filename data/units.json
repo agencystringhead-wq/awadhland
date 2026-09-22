@@ -1,0 +1,19 @@
+{
+  "sqmPerHectare": 10000,
+  "bigha": {
+    "sqm": 2529.285,
+    "label": "pakka bigha (Awadh)",
+    "labelHi": "पक्का बीघा (अवध)",
+    "sources": [
+      {
+        "label": "UP revenue conversion in common use in the Awadh belt: 1 pakka bigha = 3025 sq yd = 2529.285 sq m",
+        "url": "https://igrsup.gov.in/",
+        "accessedAt": "2026-09-23"
+      }
+    ],
+    "updatedAt": "2026-09-23",
+    "todo": [
+      "TODO(broker): confirm the bigha size actually used at the Ayodhya sub-registrar. UP has no single bigha: the pakka bigha here is 3025 sq yd, but a kachcha bigha of roughly one third is still quoted in parts of the district. Until confirmed, the bigha column is a labelled convenience only and must not be used for a registry calculation."
+    ]
+  }
+}

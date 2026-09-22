@@ -255,6 +255,11 @@
     "todo": [
       "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative, fit and score are placeholders by price band",
       "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages"
+    ],
+    "rateRefs": [
+      {
+        "rateRowId": "sadar-s245"
+      }
     ]
   },
   {
@@ -519,6 +524,11 @@
     "todo": [
       "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative, fit and score are placeholders by price band",
       "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages"
+    ],
+    "rateRefs": [
+      {
+        "rateRowId": "sadar-s517"
+      }
     ]
   },
   {
@@ -585,6 +595,11 @@
     "todo": [
       "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative, fit and score are placeholders by price band",
       "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages"
+    ],
+    "rateRefs": [
+      {
+        "rateRowId": "sadar-s445"
+      }
     ]
   },
   {
@@ -1113,6 +1128,11 @@
     "todo": [
       "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative, fit and score are placeholders by price band",
       "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages"
+    ],
+    "rateRefs": [
+      {
+        "rateRowId": "sohawal-1150"
+      }
     ]
   },
   {
@@ -1443,6 +1463,11 @@
     "todo": [
       "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative, fit and score are placeholders by price band",
       "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages"
+    ],
+    "rateRefs": [
+      {
+        "rateRowId": "sadar-s213"
+      }
     ]
   },
   {

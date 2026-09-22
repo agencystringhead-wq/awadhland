@@ -1,0 +1,4 @@
+{
+  "rateRowIds": [],
+  "note": "Village rate pages all build, but ship noindex and out of the sitemap unless the row is referenced by a live locality or listed here. Widen this list in batches while watching Search Console, rather than opening 1,630 thin pages at once. Ids are RateRow ids from data/rates/<city>-<effectiveFrom>.json, e.g. \"sadar-s517\" or \"bikapur-1003\"."
+}

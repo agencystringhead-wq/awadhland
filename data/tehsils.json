@@ -1,0 +1,112 @@
+[
+  {
+    "id": "sadar",
+    "cityId": "ayodhya",
+    "name": "Sadar",
+    "nameHi": "सदर",
+    "sroName": "Sub-Registrar, Sadar",
+    "sroNameHi": "उप निबंधक, सदर",
+    "lat": 26.7733,
+    "lng": 82.1436,
+    "sources": [
+      {
+        "label": "IGRSUP मूल्यांकन सूची, Ayodhya district, effective 07-06-2025 (Collector order 06-06-2025)",
+        "url": "https://igrsup.gov.in/",
+        "accessedAt": "2026-09-23"
+      }
+    ],
+    "updatedAt": "2026-09-23",
+    "todo": [
+      "PLACEHOLDER: tehsil headquarters lat/lng is approximate; confirm against the district revenue record",
+      "Add the deep link to this SRO's list on IGRSUP once a stable URL is available"
+    ]
+  },
+  {
+    "id": "sohawal",
+    "cityId": "ayodhya",
+    "name": "Sohawal",
+    "nameHi": "सोहावल",
+    "sroName": "Sub-Registrar, Sohawal",
+    "sroNameHi": "उप निबंधक, सोहावल",
+    "lat": 26.7167,
+    "lng": 82.05,
+    "sources": [
+      {
+        "label": "IGRSUP मूल्यांकन सूची, Ayodhya district, effective 07-06-2025 (Collector order 06-06-2025)",
+        "url": "https://igrsup.gov.in/",
+        "accessedAt": "2026-09-23"
+      }
+    ],
+    "updatedAt": "2026-09-23",
+    "todo": [
+      "PLACEHOLDER: tehsil headquarters lat/lng is approximate; confirm against the district revenue record",
+      "Add the deep link to this SRO's list on IGRSUP once a stable URL is available"
+    ]
+  },
+  {
+    "id": "bikapur",
+    "cityId": "ayodhya",
+    "name": "Bikapur",
+    "nameHi": "बीकापुर",
+    "sroName": "Sub-Registrar, Bikapur",
+    "sroNameHi": "उप निबंधक, बीकापुर",
+    "lat": 26.5833,
+    "lng": 82.1167,
+    "sources": [
+      {
+        "label": "IGRSUP मूल्यांकन सूची, Ayodhya district, effective 07-06-2025 (Collector order 06-06-2025)",
+        "url": "https://igrsup.gov.in/",
+        "accessedAt": "2026-09-23"
+      }
+    ],
+    "updatedAt": "2026-09-23",
+    "todo": [
+      "PLACEHOLDER: tehsil headquarters lat/lng is approximate; confirm against the district revenue record",
+      "Add the deep link to this SRO's list on IGRSUP once a stable URL is available"
+    ]
+  },
+  {
+    "id": "milkipur",
+    "cityId": "ayodhya",
+    "name": "Milkipur",
+    "nameHi": "मिल्कीपुर",
+    "sroName": "Sub-Registrar, Milkipur",
+    "sroNameHi": "उप निबंधक, मिल्कीपुर",
+    "lat": 26.5167,
+    "lng": 81.9667,
+    "sources": [
+      {
+        "label": "IGRSUP मूल्यांकन सूची, Ayodhya district, effective 07-06-2025 (Collector order 06-06-2025)",
+        "url": "https://igrsup.gov.in/",
+        "accessedAt": "2026-09-23"
+      }
+    ],
+    "updatedAt": "2026-09-23",
+    "todo": [
+      "PLACEHOLDER: tehsil headquarters lat/lng is approximate; confirm against the district revenue record",
+      "Add the deep link to this SRO's list on IGRSUP once a stable URL is available"
+    ]
+  },
+  {
+    "id": "rudauli",
+    "cityId": "ayodhya",
+    "name": "Rudauli",
+    "nameHi": "रुदौली",
+    "sroName": "Sub-Registrar, Rudauli",
+    "sroNameHi": "उप निबंधक, रुदौली",
+    "lat": 26.75,
+    "lng": 81.7333,
+    "sources": [
+      {
+        "label": "IGRSUP मूल्यांकन सूची, Ayodhya district, effective 07-06-2025 (Collector order 06-06-2025)",
+        "url": "https://igrsup.gov.in/",
+        "accessedAt": "2026-09-23"
+      }
+    ],
+    "updatedAt": "2026-09-23",
+    "todo": [
+      "PLACEHOLDER: tehsil headquarters lat/lng is approximate; confirm against the district revenue record",
+      "Add the deep link to this SRO's list on IGRSUP once a stable URL is available"
+    ]
+  }
+]

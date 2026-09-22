@@ -1,0 +1,30 @@
+{
+  "_comment": "Conventional English spellings for names in the published rate lists, keyed by the Devanagari exactly as transcribed. Wins over lib/devanagari.ts, which derives a name from phonology and cannot know that सिविल लाइन is spelt 'Civil Lines' in English. Add an entry whenever the derived spelling is wrong rather than loosening the transliteration rules, which are tuned across all 1,630 names. `slug` is optional; omit it to slugify nameEn.",
+  "overrides": {
+    "सिविल लाइन": { "nameEn": "Civil Lines", "slug": "civil-lines" },
+    "सिविल लाइंस": { "nameEn": "Civil Lines", "slug": "civil-lines" },
+    "रिकाबगंज": { "nameEn": "Rikabganj" },
+    "देवकाली": { "nameEn": "Devkali" },
+    "रानोपाली": { "nameEn": "Ranopali" },
+    "दर्शन नगर": { "nameEn": "Darshan Nagar" },
+    "गोशाईगंज": { "nameEn": "Goshainganj" },
+    "गोसाईगंज": { "nameEn": "Goshainganj" },
+    "भदरसा": { "nameEn": "Bhadarsa" },
+    "सहादतगंज": { "nameEn": "Sahadatganj" },
+    "अयोध्या": { "nameEn": "Ayodhya" },
+    "फैजाबाद": { "nameEn": "Faizabad" },
+    "नया घाट": { "nameEn": "Naya Ghat" },
+    "राम पथ": { "nameEn": "Ram Path" },
+    "धर्म पथ": { "nameEn": "Dharma Path" },
+    "भक्ति पथ": { "nameEn": "Bhakti Path" },
+    "मसौधा": { "nameEn": "Masodha" },
+    "महोबरा": { "nameEn": "Mahobra" },
+    "सोहावल": { "nameEn": "Sohawal" },
+    "बीकापुर": { "nameEn": "Bikapur" },
+    "मिल्कीपुर": { "nameEn": "Milkipur" },
+    "रुदौली": { "nameEn": "Rudauli" },
+    "चौक": { "nameEn": "Chowk" },
+    "मुगलपुरा": { "nameEn": "Mughalpura" },
+    "बेगमपुरा": { "nameEn": "Begampura" }
+  }
+}

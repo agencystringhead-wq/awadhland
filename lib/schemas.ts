@@ -148,7 +148,18 @@ export const localitySchema = z
       .strict()
       .refine((r) => r.low <= r.high, { message: "askingRange.low must be <= high" })
       .optional(),
+    /**
+     * Superseded by rateRefs. Kept optional so cities without a transcribed list (Lucknow,
+     * Gorakhpur) keep rendering while their lists are still seed data.
+     */
     circleRate: circleRateOnLocalitySchema.optional(),
+    /**
+     * Rows of the published rate list that cover this locality. A locality may span several
+     * villages or mohallas, so pages show the range across all of them. Written by
+     * `npm run rates:import-list`; see scripts/rate-aliases.json for the manual overrides.
+     */
+    rateRefs: z.array(z.object({ rateRowId: z.string().min(1) }).strict()).optional(),
+    roadSegmentRefs: z.array(z.object({ id: z.string().min(1) }).strict()).optional(),
     landUse: landUse.optional(),
     landUseSource: z.string().min(1).optional(),
     /** minutes, keyed by city anchor id */
@@ -286,6 +297,201 @@ export const circleRateScheduleSchema = z
   .strict();
 
 export const circleRatesFileSchema = z.array(circleRateScheduleSchema);
+
+/* -------------------------------------------------------------------- tehsils */
+
+/**
+ * A tehsil and the sub-registrar office that publishes its rate list. The SRO is the unit the
+ * IGRSUP schedules are organised by, so it is what the rate pages are grouped and sourced under.
+ */
+export const tehsilSchema = z
+  .object({
+    id: slug,
+    cityId: slug,
+    name: z.string().min(1),
+    nameHi: z.string().min(1),
+    /** Sub-registrar office, as named on the published list */
+    sroName: z.string().min(1),
+    sroNameHi: z.string().min(1),
+    lat,
+    lng,
+    ...recordBase,
+  })
+  .strict();
+
+export const tehsilsFileSchema = z.array(tehsilSchema);
+
+/* ---------------------------------------------------------------------- rates */
+
+/**
+ * Full published rate list, one file per schedule in data/rates/<city>-<effectiveFrom>.json, so a
+ * revision is a new file and never overwrites the previous one (spec Template 5 rules).
+ *
+ * Units are exactly as published and are never converted in storage:
+ *   nonAgri.*, commercial.*  ₹ per square metre
+ *   agriLakhPerHa.*          LAKH ₹ per hectare
+ * Display conversions live in lib/units.ts.
+ */
+
+/** Categories as printed, normalised to one spelling each (अर्द्धनगरीय / अर्धनगरीय → semi-urban). */
+export const rateCategory = z.enum(["urban", "semi-urban", "rural", "developing", "notified", "nagar-panchayat"]);
+
+/** ₹ per sq m, non-agricultural land, by the width of the road the plot fronts. */
+const nonAgriSchema = z
+  .object({
+    lt9m: z.number().positive(),
+    m9to18: z.number().positive(),
+    ge18m: z.number().positive(),
+  })
+  .strict();
+
+/** ₹ per sq m of carpet area. */
+const commercialSchema = z
+  .object({
+    shop: z.number().positive(),
+    office: z.number().positive(),
+    godown: z.number().positive(),
+  })
+  .strict();
+
+/** Lakh ₹ per hectare by frontage. Null where the printed row leaves the cell empty (urban rows). */
+const agriSchema = z
+  .object({
+    nh: z.number().positive().nullable(),
+    state: z.number().positive().nullable(),
+    link: z.number().positive().nullable(),
+    chakmarg: z.number().positive().nullable(),
+    abadi: z.number().positive().nullable(),
+    general: z.number().positive().nullable(),
+  })
+  .strict();
+
+export const rateRowSchema = z
+  .object({
+    /** `${sro}-${vcode || 's'+serial}`, stable across re-imports */
+    id: z.string().min(1),
+    sro: slug,
+    /** printed page of the source PDF, shown in the source line */
+    page: z.string().min(1),
+    serial: z.number().int().positive(),
+    /** village code; null for Sadar, which prints none */
+    vcode: z.string().min(1).nullable(),
+    nameHi: z.string().min(1),
+    nameEn: z.string().min(1),
+    slug,
+    wardHi: z.string().min(1).nullable(),
+    category: rateCategory,
+    nonAgri: nonAgriSchema,
+    commercial: commercialSchema,
+    agriLakhPerHa: agriSchema,
+    /** transcriber's flag on an oddly printed row. Internal only; never rendered. */
+    note: z.string().min(1).nullable(),
+  })
+  .strict();
+
+export const roadSegmentRowSchema = z
+  .object({
+    id: z.string().min(1),
+    sro: slug,
+    page: z.string().min(1),
+    segmentHi: z.string().min(1),
+    segmentEn: z.string().min(1),
+    villageHi: z.string().min(1),
+    /** the RateRow this segment's village resolves to, or null when it matched nothing */
+    rateRowId: z.string().min(1).nullable(),
+    /** ₹ per sq m; segment rates apply to non-agricultural land only (instruction 24) */
+    nonAgri: z.number().positive(),
+    shop: z.number().positive(),
+    office: z.number().positive(),
+    godown: z.number().positive(),
+    note: z.string().min(1).nullable(),
+  })
+  .strict();
+
+export const rateScheduleSchema = z
+  .object({
+    cityId: slug,
+    effectiveFrom: isoDate,
+    /** date of the Collector's order that published the list */
+    orderDate: isoDate,
+    sourceDocs: z
+      .array(
+        z
+          .object({
+            sro: slug,
+            /** repo-relative path to the scanned source, for provenance. The file itself is gitignored. */
+            pdfPath: z.string().min(1),
+            /** archived copy on R2 */
+            archiveUrl: url.nullable(),
+            igrsupUrl: url,
+          })
+          .strict(),
+      )
+      .min(1),
+    rows: z.array(rateRowSchema).min(1),
+    roadSegments: z.array(roadSegmentRowSchema),
+    ...recordBase,
+  })
+  .strict();
+
+/** data/rates/indexable.json — rate rows opened to search, widened in batches. */
+export const indexableRatesFileSchema = z
+  .object({
+    /** RateRow ids that may be indexed even without a locality referencing them */
+    rateRowIds: z.array(z.string().min(1)),
+    note: z.string().min(1),
+  })
+  .strict();
+
+/* ---------------------------------------------------------------------- units */
+
+/** Local area units used for display only. Stored figures are always in the published unit. */
+export const unitsFileSchema = z
+  .object({
+    sqmPerHectare: z.literal(10000),
+    bigha: z
+      .object({
+        /** square metres in one local pakka bigha */
+        sqm: z.number().positive(),
+        label: z.string().min(1),
+        labelHi: z.string().min(1),
+        ...recordBase,
+      })
+      .strict(),
+  })
+  .strict();
+
+/* ------------------------------------------------------------- valuationRules */
+
+/** Which part of the calculation a rule adjusts. */
+export const valuationRuleApplies = z.enum(["non-agricultural", "agricultural"]);
+
+export const valuationRuleSchema = z
+  .object({
+    id: slug,
+    /** instruction number as printed on the list's general-instructions pages */
+    instruction: z.string().min(1),
+    applies: valuationRuleApplies,
+    /** percentage added to the base circle value; negative for a discount */
+    pct: z.number(),
+    label: z.string().min(1),
+    labelHi: z.string().min(1),
+    description: z.string().min(1),
+    descriptionHi: z.string().min(1),
+    ...recordBase,
+  })
+  .strict();
+
+export const valuationRulesFileSchema = z
+  .object({
+    effectiveFrom: isoDate,
+    /** the part of a non-agricultural plot above this area is valued at `largePlotPct` */
+    largePlotThresholdSqm: z.number().positive(),
+    largePlotPct: z.number().positive(),
+    rules: z.array(valuationRuleSchema).min(1),
+    ...recordBase,
+  })
+  .strict();
 
 /* ------------------------------------------------------------- stampDutyRules */
 
@@ -496,6 +702,14 @@ export type Locality = z.infer<typeof localitySchema>;
 export type Project = z.infer<typeof projectSchema>;
 export type CircleRateSchedule = z.infer<typeof circleRateScheduleSchema>;
 export type CircleRateRow = z.infer<typeof circleRateRowSchema>;
+export type Tehsil = z.infer<typeof tehsilSchema>;
+export type RateSchedule = z.infer<typeof rateScheduleSchema>;
+export type RateRow = z.infer<typeof rateRowSchema>;
+export type RoadSegmentRow = z.infer<typeof roadSegmentRowSchema>;
+export type RateCategory = z.infer<typeof rateCategory>;
+export type Units = z.infer<typeof unitsFileSchema>;
+export type ValuationRules = z.infer<typeof valuationRulesFileSchema>;
+export type ValuationRule = z.infer<typeof valuationRuleSchema>;
 export type StampDutyRule = z.infer<typeof stampDutyRuleSchema>;
 export type Update = z.infer<typeof updateSchema>;
 export type PriceObservation = z.infer<typeof priceObservationSchema>;
@@ -516,6 +730,9 @@ export const dataFiles = {
   "localities.json": localitiesFileSchema,
   "projects.json": projectsFileSchema,
   "circleRates.json": circleRatesFileSchema,
+  "tehsils.json": tehsilsFileSchema,
+  "units.json": unitsFileSchema,
+  "valuationRules.json": valuationRulesFileSchema,
   "stampDutyRules.json": stampDutyRulesFileSchema,
   "updates.json": updatesFileSchema,
   "priceObservations.json": priceObservationsFileSchema,
