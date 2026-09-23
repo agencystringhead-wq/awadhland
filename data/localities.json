@@ -26,11 +26,6 @@
     },
     "landUse": "residential",
     "landUseSource": "ADA Master Plan 2031",
-    "driveTimes": {
-      "ram-mandir": 18,
-      "airport": 25,
-      "ayodhya-dham-station": 20
-    },
     "narrative": {
       "drivers": [
         "Faizabad Road links the old Faizabad town with the temple side of the city, so it picks up demand from both ends. Road widening and the airport a short drive to the south-west have pulled asking prices up fastest on plots with direct road frontage.",
@@ -92,6 +87,7 @@
     ],
     "updatedAt": "2026-09-10",
     "todo": [
+      "driveTimes removed: the seeded values were illustrative, as this record's own seed todo said, and they were rendering as fact in the Distances table on an indexed page. Real figures are the broker's to give — minutes to each anchor in data/cities.json — and the column reappears as soon as one locality has them. The straight-line kilometres beside them are computed from coordinates the seed script calls approximate.",
       "Seed record: circle rates, asking range, drive times and score are illustrative; replace with the parsed IGRSUP schedule and broker observations",
       "Source URLs point at portal home pages; replace with the exact schedule PDF and ADA Master Plan 2031 document",
       "Hindi narrative and broker note to be written or checked by a person"
@@ -134,11 +130,6 @@
     },
     "landUse": "mixed",
     "landUseSource": "ADA Master Plan 2031",
-    "driveTimes": {
-      "ram-mandir": 22,
-      "airport": 20,
-      "ayodhya-dham-station": 24
-    },
     "narrative": {
       "drivers": [
         "Civil Lines is the established administrative end of old Faizabad: courts, offices and older bungalows on large plots. Very little vacant land comes up, so prices move on the few plots that do, and on older houses sold for redevelopment."
@@ -193,6 +184,7 @@
     ],
     "updatedAt": "2026-09-10",
     "todo": [
+      "driveTimes removed: the seeded values were illustrative, as this record's own seed todo said, and they were rendering as fact in the Distances table on an indexed page. Real figures are the broker's to give — minutes to each anchor in data/cities.json — and the column reappears as soon as one locality has them. The straight-line kilometres beside them are computed from coordinates the seed script calls approximate.",
       "Seed record: circle rates, asking range, coordinates, drive times and score are illustrative; replace with parsed IGRSUP data and broker observations",
       "Confirm Civil Lines is listed under this name in the IGRSUP Ayodhya schedule"
     ],
