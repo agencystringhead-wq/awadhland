@@ -1,4 +1,5 @@
 import type { Locale } from "@/lib/i18n";
+import { brokerIsRegistered } from "@/lib/guards";
 import { builtSitePaths } from "@/lib/pages";
 import { localePath, pick, ui, whatsappText } from "@/lib/i18n";
 import type { City, Locality, TeamMember } from "@/lib/schemas";
@@ -52,7 +53,7 @@ export function Footer({ locale, cities, localities, broker }: FooterProps) {
           {/* 1. Brand */}
           <div className="lg:pr-6">
             <Logo locale={locale} size="lg" />
-            <p className="mt-4 max-w-[320px] text-sm leading-[1.55] text-muted">{t.footerBlurb}</p>
+            <p className="mt-4 max-w-[320px] text-sm leading-[1.55] text-muted">{brokerIsRegistered(broker) ? t.footerBlurb : t.footerBlurbUnregistered}</p>
             <div className="mt-5 flex flex-wrap gap-2">
               <Button href={whatsappHref(broker.whatsapp, whatsappText(locale, t.siteName))} variant="primary" size="sm" icon={<WhatsAppIcon />}>
                 {t.whatsapp}

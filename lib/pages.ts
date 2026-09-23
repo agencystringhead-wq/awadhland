@@ -20,7 +20,7 @@ import {
   getStandardPages,
   getUpdates,
 } from "./data";
-import { hasSourcedLandUse } from "./guards";
+import { brokerIsRegistered, hasSourcedLandUse } from "./guards";
 import { getGuides } from "./guides";
 import { getCurrentRateSchedule, getLocalityRate, getRowsByTehsil, getTehsilSummary, getTehsilsByCity, isRowIndexable } from "./rates";
 import { formatDate, formatNumber, localePath, pick, SITE_URL, type Locale } from "./i18n";
@@ -88,10 +88,15 @@ const DESC_MAX = 155;
  */
 export function clampDescription(text: string, locale: Locale): string {
   // Distinct tails, longest first; each is used at most once and only when it fits.
-  const tails =
+  // The registration tail is dropped while no UP RERA number is on record: these pad short
+  // descriptions across the whole site, so leaving it in would re-assert on hundreds of pages
+  // the claim the titles below withhold.
+  const registered = brokerIsRegistered(getBroker());
+  const tails = (
     locale === "hi"
       ? ["हर आँकड़ा स्रोत और तारीख़ के साथ।", "यूपी रेरा ब्रोकर व्हाट्सऐप पर।", "फ़ीस लिखित में।", "हिंदी और अंग्रेज़ी में।"]
-      : ["Every figure sourced and dated.", "UP RERA broker on WhatsApp.", "Fees in writing.", "Hindi and English."];
+      : ["Every figure sourced and dated.", "UP RERA broker on WhatsApp.", "Fees in writing.", "Hindi and English."]
+  ).filter((t) => registered || !/RERA|रेरा/i.test(t));
   const sentenceEnd = (s: string) => Math.max(s.lastIndexOf(". "), s.lastIndexOf("। "), s.endsWith(".") || s.endsWith("।") ? s.length - 1 : -1);
   let s = text.replace(/\s+/g, " ").trim();
   if (s.length > DESC_MAX) {
@@ -140,6 +145,7 @@ export function getPages(locale: Locale): PageEntry[] {
   const hi = locale === "hi";
   const site = SITE[locale];
   const broker = getBroker();
+  const reraOk = brokerIsRegistered(broker);
   const cities = getCities();
   const localities = getBuildableLocalities(locale).buildable;
   const projects = getPublishedProjects();
@@ -170,10 +176,16 @@ export function getPages(locale: Locale): PageEntry[] {
   add({
     kind: "home",
     sitePath: "/",
-    title: hi ? `अयोध्या, लखनऊ, गोरखपुर में ज़मीन: सर्किल रेट, प्लॉट, रेरा ब्रोकर · ${site}` : `Land in Ayodhya, Lucknow and Gorakhpur: rates, plots, a RERA broker · ${site}`,
+    title: reraOk
+      ? hi
+        ? `अयोध्या, लखनऊ, गोरखपुर में ज़मीन: सर्किल रेट, प्लॉट, रेरा ब्रोकर · ${site}`
+        : `Land in Ayodhya, Lucknow and Gorakhpur: rates, plots, a RERA broker · ${site}`
+      : hi
+        ? `अयोध्या, लखनऊ, गोरखपुर में ज़मीन: सर्किल रेट, प्लॉट, स्थानीय ब्रोकर · ${site}`
+        : `Land in Ayodhya, Lucknow and Gorakhpur: rates, plots, a local broker · ${site}`,
     description: hi
-      ? "अवध के हर इलाक़े का सर्किल रेट, माँगा जा रहा दाम, दूरी और सरकारी प्रोजेक्ट, स्रोत और तारीख़ के साथ। फिर व्हाट्सऐप पर यूपी रेरा पंजीकृत ब्रोकर।"
-      : "Circle rates, asking prices, distances and government projects for every locality in Awadh, each with a source and a date. Then a RERA broker on WhatsApp.",
+      ? `अवध के हर इलाक़े का सर्किल रेट, माँगा जा रहा दाम, दूरी और सरकारी प्रोजेक्ट, स्रोत और तारीख़ के साथ। फिर व्हाट्सऐप पर ${reraOk ? "यूपी रेरा पंजीकृत" : "स्थानीय"} ब्रोकर।`
+      : `Circle rates, asking prices, distances and government projects for every locality in Awadh, each with a source and a date. Then a ${reraOk ? "RERA" : "local"} broker on WhatsApp.`,
     lastmod: newest([...cities, ...localities, ...projects, ...updates].map((r) => r.updatedAt)),
     alternate: sameAlternate(locale, "/"),
     og: { title: `${story.hero.title} ${story.hero.accent}`, subtitle: hi ? "अयोध्या · लखनऊ · गोरखपुर" : "Ayodhya · Lucknow · Gorakhpur" },
@@ -184,13 +196,23 @@ export function getPages(locale: Locale): PageEntry[] {
   add({
     kind: "about",
     sitePath: "/about/",
-    title: hi ? `${site} के बारे में: यूपी रेरा पंजीकृत ब्रोकर और डेटा कैसे जुटाया जाता है` : `About ${site}: a UP RERA-registered broker and how the data is sourced`,
+    title: reraOk
+      ? hi
+        ? `${site} के बारे में: यूपी रेरा पंजीकृत ब्रोकर और डेटा कैसे जुटाया जाता है`
+        : `About ${site}: a UP RERA-registered broker and how the data is sourced`
+      : hi
+        ? `${site} के बारे में: इसे कौन चलाता है और डेटा कैसे जुटाया जाता है`
+        : `About ${site}: who runs it and how the data is sourced`,
     description: hi
       ? `${pick(locale, broker.name, broker.nameHi)}, ${broker.yearsActive} वर्ष से अवध की ज़मीन में। हर रेट, दूरी और प्रोजेक्ट का स्रोत और तारीख़; फ़ीस लिखित में; समीक्षाएँ जैसी गूगल पर लिखी गईं।`
       : `${pick(locale, broker.name, broker.nameHi)}, ${broker.yearsActive} years in Awadh land. How every rate, distance and project is sourced and dated, fees in writing, reviews shown as written on Google.`,
     lastmod: broker.updatedAt,
     alternate: sameAlternate(locale, "/about/"),
-    og: { title: hi ? "हमारे बारे में" : "About Awadhland", subtitle: pick(locale, broker.name, broker.nameHi), chip: "UP RERA" },
+    og: {
+      title: hi ? "हमारे बारे में" : "About Awadhland",
+      subtitle: pick(locale, broker.name, broker.nameHi),
+      chip: reraOk ? "UP RERA" : `${broker.yearsActive} ${hi ? "वर्ष" : "years"}`,
+    },
     ogSlug: "about",
   });
 

@@ -251,6 +251,9 @@ export const ui = {
     yearsShort: "years",
     allLocalitiesIn: "All localities in",
     footerBlurb: "Circle rates, asking prices, distances and government projects for every locality in Awadh, each with a source and a date. Then a UP RERA-registered broker on WhatsApp.",
+    /** Same blurb without the registration claim, used while no UP RERA number is on record. */
+    footerBlurbUnregistered:
+      "Circle rates, asking prices, distances and government projects for every locality in Awadh, each with a source and a date. Then a local broker on WhatsApp.",
     draftNotice: "Draft page: the figures here are placeholders until the record is sourced. It is not indexed.",
     footerTagline: "Land in Awadh, with the paperwork checked first.",
     builtBy: "Site by Stringhead Technologies, Pune.",
@@ -449,6 +452,8 @@ export const ui = {
     yearsShort: "वर्ष",
     allLocalitiesIn: "सभी इलाक़े:",
     footerBlurb: "अवध के हर इलाक़े का सर्किल रेट, माँगा जा रहा दाम, दूरी और सरकारी प्रोजेक्ट, हर एक स्रोत और तारीख़ के साथ। फिर व्हाट्सऐप पर यूपी रेरा पंजीकृत ब्रोकर।",
+    footerBlurbUnregistered:
+      "अवध के हर इलाक़े का सर्किल रेट, माँगा जा रहा दाम, दूरी और सरकारी प्रोजेक्ट, हर एक स्रोत और तारीख़ के साथ। फिर व्हाट्सऐप पर स्थानीय ब्रोकर।",
     draftNotice: "ड्राफ़्ट पेज: रिकॉर्ड का स्रोत मिलने तक यहाँ के आँकड़े नमूना हैं। यह पेज इंडेक्स नहीं होता।",
     footerTagline: "अवध में ज़मीन, काग़ज़ पहले जाँचे हुए।",
     builtBy: "साइट: स्ट्रिंगहेड टेक्नोलॉजीज़, पुणे।",
