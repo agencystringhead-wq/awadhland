@@ -12,6 +12,15 @@
     },
     "rates": [
       {
+        "localityId": "civil-lines",
+        "tehsil": "Sadar",
+        "residential": 20200,
+        "commercial": 75700,
+        "agricultural": 1,
+        "effectiveFrom": "2025-06-07",
+        "sourceUrl": "https://igrsup.gov.in/"
+      },
+      {
         "localityId": "naya-ghat",
         "tehsil": "Sadar",
         "residential": 8600,
@@ -53,6 +62,15 @@
         "residential": 9700,
         "commercial": 48000,
         "agricultural": 15900000,
+        "effectiveFrom": "2025-06-07",
+        "sourceUrl": "https://igrsup.gov.in/"
+      },
+      {
+        "localityId": "gosaiganj",
+        "tehsil": "Sadar",
+        "residential": 7700,
+        "commercial": 48200,
+        "agricultural": 10700000,
         "effectiveFrom": "2025-06-07",
         "sourceUrl": "https://igrsup.gov.in/"
       },

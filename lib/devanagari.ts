@@ -70,6 +70,9 @@ const NUKTA_PAIRS: Record<string, string> = { क: "q", ख: "kh", ग: "g", ज
 /** Consonants that tolerate a following consonant cluster when their own schwa is dropped. */
 const NASALS = new Set(["n", "m", "ng"]);
 
+/** Glides. A word-final glide closing a cluster keeps its schwa; see deleteSchwas. */
+const GLIDES = new Set(["y", "v"]);
+
 /**
  * One written syllable: an onset consonant (possibly empty, for independent vowels), its vowel,
  * and any nasal coda. `schwa` marks a vowel that was never written — only those may be deleted.
@@ -174,7 +177,14 @@ function deleteSchwas(syllables: Syllable[]): Syllable[] {
   if (s.length < 2) return s; // न stays "na"
 
   const last = s.at(-1)!;
-  if (last.schwa && last.coda === "") {
+  const prevToLast = s.at(-2);
+  /**
+   * Word-final schwa goes, except on a glide closing a cluster. Hindi permits a final -rd or -rg
+   * (खुर्द is "khurd", बुजुर्ग is "bujurg") but not a final -shy or -dhy, so the schwa is kept
+   * there: वैश्य is "vaishya" and मध्य is "madhya", not "vaishy" and "madhy".
+   */
+  const glideOnCluster = GLIDES.has(last.onset) && prevToLast !== undefined && !hasVowel(prevToLast);
+  if (last.schwa && last.coda === "" && !glideOnCluster) {
     last.vowel = "";
     last.schwa = false;
   }

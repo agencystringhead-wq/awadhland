@@ -7,9 +7,19 @@
       "note": "Corridor, not a village row. The list covers it through Sadar segments 59–61 (अकबरपुर-फैजाबाद रोड). Pick the stretches inside the locality."
     },
     "civil-lines": {
-      "rateRowIds": [],
-      "roadSegmentIds": [],
-      "note": "The list spells it सिविल लाइन्स (Sadar serial 524, page 101); the locality record uses सिविल लाइंस. Confirm they are the same place, then map to sadar-s524 and the सिविल लाइन segments 4, 5, 19, 20."
+      "rateRowIds": [
+        "sadar-s524"
+      ],
+      "roadSegmentIds": [
+        "sadar-seg4-sivil-lain",
+        "sadar-seg5-sivil-lain",
+        "sadar-seg19-sivil-lain",
+        "sadar-seg20-sivil-lain",
+        "sadar-seg31-sivil-lain",
+        "sadar-seg36-sivil-lain",
+        "sadar-seg37-sivil-lain"
+      ],
+      "note": "The list spells it सिविल लाइन्स (s524); the locality record uses सिविल लाइंस. Same place — Sadar, ward सिविल लाइन, urban. Deliberately ONLY this row, not the ward. सिविल लाइन is a large administrative ward holding ten rows from 8,900 to 72,800 ₹ per sq m, and the other nine are distinct colonies and schemes in their own right (अवधविहार, कौशलपुरी, जे बी पुरम, ट्रान्सपोर्ट नगर, नययर कालोनी, वैभव कॉम्प्लेक्स, हौसिला नगर, करम अली का पुरवा, मोदहा सरपतिया). Several deserve their own locality records rather than being folded into Civil Lines. This locality is live, so every row mapped here becomes indexable."
     },
     "ram-path": {
       "rateRowIds": [],
@@ -71,9 +81,28 @@
       "note": "Corridor. Sadar segments 5 and 26 name लखनऊ रोड explicitly."
     },
     "gosaiganj": {
-      "rateRowIds": [],
-      "roadSegmentIds": [],
-      "note": "The list spells it गोशाईगंज, not गोसाईगंज. Sadar rows: कटरा गोशाईगंज (s59), गोशाईगंज उत्तरी (s142), गोशाईगंज दक्षिणी (s143). Pick which are in scope."
+      "rateRowIds": [
+        "sadar-s58",
+        "sadar-s59",
+        "sadar-s60",
+        "sadar-s61",
+        "sadar-s62",
+        "sadar-s63",
+        "sadar-s141",
+        "sadar-s142",
+        "sadar-s143",
+        "sadar-s203",
+        "sadar-s204",
+        "sadar-s205"
+      ],
+      "roadSegmentIds": [
+        "sadar-seg22-katra-goshaiganj",
+        "sadar-seg23-katra-goshaiganj",
+        "sadar-seg24-katra-goshaiganj",
+        "sadar-seg60-katra-goshaiganj",
+        "sadar-seg61-katra-goshaiganj"
+      ],
+      "note": "The list spells it गोशाईगंज and groups the whole town under one ward, टाउन एरिया गोशाईगंज: twelve mohalla rows (कटरा ×6, गोशाईगंज ×3, तेलियागढ़ ×3) that all carry identical figures — 7,700/8,500/9,300 ₹ per sq m, shop 48,200, agri 107 — because the town area is a single rate band. All twelve are mapped, so the page shows the town rather than an arbitrary three of its mohallas. NOTE: the locality record said tehsil Bikapur, which is wrong — no गोशाईगंज row exists outside Sadar in any of the five lists, and the single Bikapur mention is a road heading towards it, priced for तारून. Corrected to Sadar here."
     },
     "bikapur-road": {
       "rateRowIds": [],

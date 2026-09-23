@@ -11,7 +11,7 @@ import path from "node:path";
 import { z } from "zod";
 import { dataFiles, indexableRatesFileSchema, rateScheduleSchema, type DataFileName } from "../lib/schemas";
 import { checkIntegrity, type Dataset } from "../lib/integrity";
-import { checkGuideBodies, checkGuideReferences, dataPageLinks, readGuides, type GuideDataRefs } from "../lib/guide-files";
+import { checkGuideBodies, checkGuideReferences, dataPageLinks, readGuides } from "../lib/guide-files";
 import { partitionLocalities } from "../lib/guards";
 
 /** Spec "Internal linking": guides link to at least this many data pages via MDX components. */
@@ -167,24 +167,10 @@ async function main() {
   const guides = [...en.guides, ...hi.guides];
   errors.push(...en.errors, ...hi.errors);
   if (dataset) {
-    const refs: GuideDataRefs = {
-      cityIds: new Set(dataset.cities.map((c) => c.id)),
-      teamIds: new Set(dataset.team.map((t) => t.id)),
-      localities: new Map(
-        dataset.localities.map((l) => [
-          l.id,
-          {
-            cityId: l.cityId,
-            // Either the legacy figure or a reference into the published list (Step 9 A4).
-            hasCircleRate: l.circleRate !== undefined || (l.rateRefs?.length ?? 0) > 0,
-            hasCoords: l.lat !== undefined && l.lng !== undefined,
-          },
-        ]),
-      ),
-      anchorsByCity: new Map(dataset.cities.map((c) => [c.id, new Set(c.anchors.map((a) => a.id))])),
-      projectIds: new Set(dataset.projects.map((p) => p.id)),
-    };
-    errors.push(...checkGuideReferences({ en: en.guides, hi: hi.guides }, refs));
+    // One source of truth with lib/guides.ts: a second copy of this map drifted once already and
+    // let a guide reference survive validate but fail the build.
+    const { guideDataRefs } = await import("../lib/guides");
+    errors.push(...checkGuideReferences({ en: en.guides, hi: hi.guides }, guideDataRefs()));
   }
   errors.push(...(await checkGuideBodies(guides)));
   for (const g of guides) {
