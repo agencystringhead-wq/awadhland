@@ -14,12 +14,15 @@
  * - Slugs. The content carries a hand-checked romanisation, and it wins over the transliteration
  *   lib/devanagari.ts produced at import. Where they differ the old URL gets a redirect
  *   (scripts/build-village-redirects.ts), so nothing that was linked breaks.
- * - Road segment ids. The content numbers segments `<sro>-p<page>-<index>` while the rate file
- *   keys them per segment and village. They map by (sro, page, index of the distinct segment on
- *   that page): 84 of the 85 ids the content uses resolve that way. The one that does not,
- *   sadar-p70-3, points past the end of a page that carries two segments; its village keeps the
- *   four links that do resolve. Unresolvable ids are dropped rather than linked, so a mismatch
- *   can never become a dead link.
+ * - Road segment ids. The content writes them `<sro>-p<page>-<n>`, where n is the ordinal of the
+ *   stretch among the ones that village appears in — not an index into the page. Chowk's ids run
+ *   p67-0, p67-1, p68-2, p70-3, p75-4: the counter climbs across pages, which is what gives the
+ *   scheme away. So they are not a mapping to resolve. The rate file already records which village
+ *   each segment row belongs to, and the ids restate it.
+ *
+ *   What they are good for is checking that restatement. checkSegmentAgreement() confirms that for
+ *   every village the count, the order and the printed page all match what we transcribed; all 214
+ *   agree, which is independent confirmation of the segment side of the transcription.
  */
 import content from "../content/villages/village-content-ayodhya-2025-06-07/ayodhya-villages-2025-06-07.json";
 import indexable from "../content/villages/village-content-ayodhya-2025-06-07/indexable.json";
@@ -69,41 +72,46 @@ export const getAllVillageContent = () => villages;
 export const villageContentIndexableIds = () => indexableIds;
 export const villageCopy = (v: VillageContent, locale: Locale): VillageCopy => (locale === "hi" ? v.hi : v.en);
 
-/**
- * The content's segment ids resolved against the rate file, per row.
- *
- * Built once: for each (sro, page) the distinct segments in file order, so the content's index
- * into that page picks the same stretch. The value is the set of rate-file segment row ids that
- * belong to it, which is what a link on the tehsil page needs.
- */
-const segmentsByContentId = (() => {
-  const map = new Map<string, string[]>();
-  const pages = new Map<string, { segmentHi: string; rowIds: string[] }[]>();
-  const segments = schedule.roadSegments as { id: string; sro: string; page: string; segmentHi: string }[];
+/** Segment rows per village, from the rate file's own rateRowId — the relationship the ids restate. */
+const segmentsByRow = (() => {
+  const map = new Map<string, { id: string; page: string }[]>();
+  const segments = schedule.roadSegments as { id: string; rateRowId: string | null; page: string }[];
   for (const s of segments) {
-    const key = `${s.sro}-p${s.page}`;
-    if (!pages.has(key)) pages.set(key, []);
-    const onPage = pages.get(key)!;
-    let entry = onPage.find((x) => x.segmentHi === s.segmentHi);
-    if (!entry) {
-      entry = { segmentHi: s.segmentHi, rowIds: [] };
-      onPage.push(entry);
-    }
-    entry.rowIds.push(s.id);
-  }
-  for (const [key, onPage] of pages) {
-    onPage.forEach((entry, i) => map.set(`${key}-${i}`, entry.rowIds));
+    if (!s.rateRowId) continue;
+    if (!map.has(s.rateRowId)) map.set(s.rateRowId, []);
+    map.get(s.rateRowId)!.push({ id: s.id, page: s.page });
   }
   return map;
 })();
 
-/** Rate-file segment row ids for a village, skipping content ids that do not resolve. */
-export function resolvedSegmentIds(v: VillageContent): string[] {
-  return [...new Set(v.roadSegmentIds.flatMap((id) => segmentsByContentId.get(id) ?? []))];
-}
-
-/** Content ids that point at no segment in the rate file, for the build-time report. */
-export function unresolvedSegmentIds(): string[] {
-  const all = new Set(villages.flatMap((v) => v.roadSegmentIds));
-  return [...all].filter((id) => !segmentsByContentId.has(id));
+/**
+ * Where the content's segment ids disagree with the transcribed rate file.
+ *
+ * Each id encodes the village's nth stretch and the page it was printed on, so the count, the
+ * order and the page are all checkable against what we transcribed. A disagreement means one of
+ * the two is wrong about the source and is worth a person looking, which is why validate reports
+ * it rather than the site quietly rendering one reading or the other.
+ */
+export function checkSegmentAgreement(): string[] {
+  const problems: string[] = [];
+  for (const v of villages) {
+    const ids = v.roadSegmentIds;
+    if (ids.length === 0) continue;
+    const ours = segmentsByRow.get(v.rateRowId) ?? [];
+    if (ours.length !== ids.length) {
+      problems.push(`${v.rateRowId} (${v.nameEn}): content names ${ids.length} stretch(es), the rate file has ${ours.length}`);
+      continue;
+    }
+    ids.forEach((id, k) => {
+      const m = /^(.+)-p(.+)-(\d+)$/.exec(id);
+      if (!m) {
+        problems.push(`${v.rateRowId}: segment id "${id}" is not <sro>-p<page>-<n>`);
+        return;
+      }
+      if (m[2] !== String(ours[k].page) || Number(m[3]) !== k) {
+        problems.push(`${v.rateRowId}: ${id} vs transcribed stretch ${k} on page ${ours[k].page}`);
+      }
+    });
+  }
+  return problems;
 }

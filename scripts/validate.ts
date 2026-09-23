@@ -192,7 +192,7 @@ async function main() {
    * all of it to the browser. validate runs in prebuild, so these still fail the build.
    */
   {
-    const { getAllVillageContent, villageContentIndexableIds, unresolvedSegmentIds } = await import("../lib/village-content");
+    const { getAllVillageContent, villageContentIndexableIds, checkSegmentAgreement } = await import("../lib/village-content");
     const { getRateRow } = await import("../lib/rates");
     const CONTENT = "content/villages/…/ayodhya-villages-2025-06-07.json";
     const villages = getAllVillageContent();
@@ -209,12 +209,10 @@ async function main() {
       if (first) errors.push(`${CONTENT}: slug "${village.slug}" is used twice in ${village.sro}: ${first} and ${village.rateRowId}`);
       else seen.set(key, village.rateRowId);
     }
-    const stray = unresolvedSegmentIds();
-    if (stray.length > 0) {
-      warnings.push(
-        `${CONTENT}: ${stray.length} roadSegmentId(s) match no segment in the rate file and are not linked: ${stray.join(", ")}`,
-      );
-    }
+    // The content's segment ids encode each village's nth stretch and its printed page, so they
+    // are an independent check on the segment side of the transcription. A disagreement means one
+    // of the two misread the source.
+    for (const problem of checkSegmentAgreement()) errors.push(`${CONTENT}: ${problem}`);
     console.log(`ok   village content: ${villages.length} rows, ${villageContentIndexableIds().size} cleared for the sitemap`);
   }
   for (const g of guides) {
