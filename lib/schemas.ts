@@ -187,13 +187,23 @@ export const localitySchema = z
       })
       .strict()
       .optional(),
+    /**
+     * Who the locality suits. Each of the three is optional and the block renders only what is
+     * present, because the three rest on different evidence: a commercial read can be grounded in
+     * the published shop rate and the priced corridors, while residential and investment need
+     * demand, amenities and a price series that no schedule carries. Half a section backed by the
+     * list beats three columns where two are guesses.
+     */
     fit: z
       .object({
-        residential: fitEntrySchema,
-        commercial: fitEntrySchema,
-        investment: fitEntrySchema,
+        residential: fitEntrySchema.optional(),
+        commercial: fitEntrySchema.optional(),
+        investment: fitEntrySchema.optional(),
       })
       .strict()
+      .refine((f) => Boolean(f.residential || f.commercial || f.investment), {
+        message: "fit needs at least one of residential, commercial or investment",
+      })
       .optional(),
     pros: z.array(z.string().min(1)).optional(),
     prosHi: z.array(z.string().min(1)).optional(),

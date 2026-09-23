@@ -107,15 +107,16 @@ export function LocalityTemplate({ locale, cityId, localityId }: { locale: Local
   const brokerNote = pick(locale, l.brokerNote, l.brokerNoteHi);
   const faq = localityFaq(l, city, locale, distances);
 
-  const fitColumn = (label: string, entry: FitEntry) => (
+  const fitColumn = (label: string, entry: FitEntry | undefined) =>
+    entry === undefined ? null : (
     <div key={label} className="card p-5">
       <div className="flex items-center justify-between gap-3">
         <h3 className="text-base">{label}</h3>
         <span className={`chip ${fitClass[entry.rating]}`}>{fitRatingLabels[entry.rating][locale]}</span>
       </div>
       <p className="mt-2 text-[15px] text-ink-soft">{pick(locale, entry.reason, entry.reasonHi)}</p>
-    </div>
-  );
+      </div>
+    );
 
   const listCard = (title: string, items: string[], mark: string, markClass: string) => (
     <div className="card p-5">
@@ -246,6 +247,7 @@ export function LocalityTemplate({ locale, cityId, localityId }: { locale: Local
       {/* 6. Who it suits */}
       {l.fit && (
         <Section title={t.whoItSuits}>
+          {/* Only the categories the record actually carries; the grid tracks how many. */}
           <div className="grid gap-4 md:grid-cols-3">
             {fitColumn(t.residential, l.fit.residential)}
             {fitColumn(t.commercial, l.fit.commercial)}

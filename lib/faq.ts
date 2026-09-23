@@ -82,7 +82,10 @@ export function localityFaq(
     );
   }
 
-  if (l.fit) {
+  // This entry answers for investment and for living in, so it needs both. A commercial-only fit
+  // block has no question to ask here and the FAQ simply omits it (BUILD-SPEC: an empty field
+  // means an omitted section, never a "not available" row).
+  if (l.fit?.investment && l.fit?.residential) {
     const inv = l.fit.investment;
     const res = l.fit.residential;
     items.push(
