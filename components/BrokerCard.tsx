@@ -1,4 +1,5 @@
 import type { Locale } from "@/lib/i18n";
+import { brokerIsRegistered } from "@/lib/guards";
 import { ui, whatsappText } from "@/lib/i18n";
 import type { City, TeamMember } from "@/lib/schemas";
 import { WhatsAppButton } from "./WhatsAppButton";
@@ -37,7 +38,8 @@ export function BrokerCard({ locale, broker, areas, googleRating, pageLabel }: B
             {secondaryName}
           </p>
           <p className="mt-2 text-[15px]">
-            {t.reraRegistered} · {broker.yearsActive} {t.yearsInAyodhya}
+            {brokerIsRegistered(broker) && <>{t.reraRegistered} · </>}
+            {broker.yearsActive} {t.yearsInAyodhya}
           </p>
           {broker.reraNumber && (
             <p className="text-[15px]">

@@ -12,6 +12,7 @@ import { fill, homeCopy, homeStory } from "@/lib/content";
 import { getBroker, getBuildableLocalities, getCircleRateSchedules, getCities, getCityStats, getPublishedProjects, getReviews, getUpdates } from "@/lib/data";
 import { getGuides } from "@/lib/guides";
 import { formatDate, formatNumber, localePath, ui, type Locale } from "@/lib/i18n";
+import { brokerIsRegistered, withoutUnbackedReraClaim } from "@/lib/guards";
 import { isToolSlug } from "@/lib/tools";
 import { sameAlternate } from "@/lib/routes";
 import { PageShell } from "./PageShell";
@@ -55,7 +56,8 @@ export function HomeTemplate({ locale }: { locale: Locale }) {
     { value: formatNumber(localities.length), label: story.stats.localities },
     { value: formatNumber(getPublishedProjects().length), label: story.stats.projects },
     { value: formatNumber(broker.yearsActive), label: story.stats.years },
-    { value: story.stats.reraValue, label: story.stats.rera, href: broker.reraUrl ?? undefined },
+    // "RERA registered: Yes" is a claim, not a count. It appears only with a number behind it.
+    ...(brokerIsRegistered(broker) ? [{ value: story.stats.reraValue, label: story.stats.rera, href: broker.reraUrl ?? undefined }] : []),
     { value: formatNumber(cities.length), label: story.stats.cities },
     { value: story.stats.languagesValue, label: story.stats.languages },
     { value: lastUpdated ? formatDate(lastUpdated, locale) : "—", label: story.stats.lastUpdated },
@@ -212,7 +214,7 @@ export function HomeTemplate({ locale }: { locale: Locale }) {
             </h2>
             <p className="lede mt-5 max-w-[480px]">{story.band.lede}</p>
             <p className="mt-8 flex flex-wrap items-center gap-x-2 gap-y-1 label-mono text-[11px]">
-              {story.band.trust.map((item, i) => (
+              {withoutUnbackedReraClaim(story.band.trust, brokerIsRegistered(broker)).map((item, i) => (
                 <span key={item} className="flex items-center gap-2">
                   {i > 0 && <span aria-hidden="true">·</span>}
                   {fill(item, vars)}
@@ -224,10 +226,10 @@ export function HomeTemplate({ locale }: { locale: Locale }) {
             <EnquiryForm
               locale={locale}
               variant="band"
-              copy={story.form}
+              copy={{ ...story.form, trust: withoutUnbackedReraClaim(story.form.trust, brokerIsRegistered(broker)) }}
               whatsapp={broker.whatsapp}
               phoneDisplay={formatPhone(broker.phone)}
-              trust={story.form.trust.map((s) => fill(s, vars))}
+              trust={withoutUnbackedReraClaim(story.form.trust, brokerIsRegistered(broker)).map((s) => fill(s, vars))}
             />
           </div>
         </div>

@@ -3,6 +3,7 @@ import { Button, PhoneIcon } from "@/components/ui/Button";
 import { StatusPill } from "@/components/ui/Pill";
 import { fill, type HomeStory } from "@/lib/content";
 import { pick, type Locale } from "@/lib/i18n";
+import { brokerIsRegistered, withoutUnbackedReraClaim } from "@/lib/guards";
 import type { TeamMember } from "@/lib/schemas";
 import { EnquiryForm } from "./EnquiryForm";
 import { Stars } from "./TopStrip";
@@ -29,7 +30,7 @@ export const formatPhone = (e164: string) => e164.replace(/^(\+91)(\d{5})(\d{5})
 export function Hero({ locale, story, broker, reviewsUrl }: HeroProps) {
   const h = story.hero;
   const vars = { years: broker.yearsActive, phone: formatPhone(broker.phone) };
-  const trust = story.form.trust.map((s) => fill(s, vars));
+  const trust = withoutUnbackedReraClaim(story.form.trust, brokerIsRegistered(broker)).map((s) => fill(s, vars));
   const portrait = (
     // Plain img on purpose: media is pre-encoded WebP (CLAUDE.md), and next/image adds client JS.
     // eslint-disable-next-line @next/next/no-img-element
@@ -93,7 +94,7 @@ export function Hero({ locale, story, broker, reviewsUrl }: HeroProps) {
               </p>
               <p className="mt-2 font-display text-[22px] font-medium leading-tight tracking-[-0.012em] text-ink">{story.form.intro}</p>
             </div>
-            <EnquiryForm locale={locale} variant="hero" copy={story.form} whatsapp={broker.whatsapp} phoneDisplay={formatPhone(broker.phone)} trust={trust} />
+            <EnquiryForm locale={locale} variant="hero" copy={{ ...story.form, trust }} whatsapp={broker.whatsapp} phoneDisplay={formatPhone(broker.phone)} trust={trust} />
           </div>
 
           {/* Broker card: 580 × ~110, radius 12, name + RERA sub-line, italic note, stars right */}
@@ -109,15 +110,21 @@ export function Hero({ locale, story, broker, reviewsUrl }: HeroProps) {
                 </span>
               </p>
               <p className="caption-mono mt-0.5 text-[9.5px]">
-                UP RERA{" "}
-                {broker.reraUrl ? (
-                  <a href={broker.reraUrl} rel="noopener" className="text-muted">
-                    {broker.reraNumber ?? "TODO"}
-                  </a>
-                ) : (
-                  (broker.reraNumber ?? "TODO")
-                )}{" "}
-                · {story.broker.native}
+                {/* No registration number, no registration claim: lib/guards.ts nulls a placeholder one. */}
+                {broker.reraNumber && (
+                  <>
+                    UP RERA{" "}
+                    {broker.reraUrl ? (
+                      <a href={broker.reraUrl} rel="noopener" className="text-muted">
+                        {broker.reraNumber}
+                      </a>
+                    ) : (
+                      broker.reraNumber
+                    )}{" "}
+                    ·{" "}
+                  </>
+                )}
+                {story.broker.native}
               </p>
             </div>
             <p className="serif-italic flex-[1_1_200px] border-l border-line pl-[18px] text-[13px] leading-[1.45] text-ink-soft">

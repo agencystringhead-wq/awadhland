@@ -3,7 +3,7 @@
     "id": "broker-todo",
     "name": "TODO Broker Name",
     "nameHi": "TODO ब्रोकर का नाम",
-    "role": "UP RERA registered agent",
+    "role": "Land broker in Ayodhya",
     "reraNumber": "TODO-UPRERAAGT00000",
     "reraUrl": "https://www.up-rera.in/",
     "yearsActive": 12,
@@ -13,11 +13,16 @@
     "bio": "TODO: first-person bio in the broker's own words. Native of the region, 12 years of land work in Ayodhya, what changed after 2019, what he refuses to sell.",
     "bioHi": "TODO: ब्रोकर के अपने शब्दों में परिचय, हिंदी किसी व्यक्ति द्वारा लिखा जाए।",
     "sources": [
-      { "label": "UP RERA agent search", "url": "https://www.up-rera.in/", "accessedAt": "2026-09-10" }
+      {
+        "label": "UP RERA agent search",
+        "url": "https://www.up-rera.in/",
+        "accessedAt": "2026-09-10"
+      }
     ],
     "updatedAt": "2026-09-10",
     "todo": [
       "PLACEHOLDER name, nameHi, reraNumber, phone and whatsapp: replace with real values",
+      "role was \"UP RERA registered agent\", which asserts the registration; it is a plain description until reraNumber is real. Restore it together with the number.",
       "Set reraUrl to the broker's own UPRERA record, not the portal home page",
       "id will change to the broker's name slug; update guide frontmatter author at the same time",
       "yearsActive must match the RERA registration date or earlier proof (spec Template 9 rules)",
