@@ -16,6 +16,7 @@ import {
   type Scoring,
   type StampDutyRule,
   type StandardPage,
+  type VillageNote,
   type TeamMember,
   type Update,
 } from "./schemas";
@@ -31,6 +32,7 @@ export type Dataset = {
   team: TeamMember[];
   scoring: Scoring;
   standardPages: StandardPage[];
+  villageNotes: Record<string, VillageNote>;
   reviews: Reviews;
 };
 
@@ -171,6 +173,17 @@ export function checkIntegrity(d: Dataset): string[] {
 
   for (const o of d.priceObservations) {
     if (!localityById.has(o.localityId)) err("priceObservations.json", `${o.id}: unknown localityId "${o.localityId}"`);
+  }
+
+  /*
+   * Village notes point at rate rows, so they are checked here with the rest of the dataset. The
+   * content file's own checks (every rateRowId resolves, every indexable id resolves, no duplicate
+   * slug within a tehsil) live in scripts/validate.ts instead: this module is reachable from a
+   * client component, and importing the 20 MB content here shipped all of it to the browser.
+   * validate runs in prebuild, so those checks still fail the build.
+   */
+  for (const id of Object.keys(d.villageNotes)) {
+    if (!getRateRow(id)) err("villageNotes.json", `unknown rateRowId "${id}"`);
   }
 
   return errors;

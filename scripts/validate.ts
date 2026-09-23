@@ -22,7 +22,13 @@ const dataDir = path.join(root, "data");
 const errors: string[] = [];
 const todos: string[] = [];
 const warnings: string[] = [];
-const parsed: Partial<Record<DataFileName, unknown>> = {};
+/**
+ * Typed per file, so the Dataset built below is checked rather than cast. It was cast before, and
+ * the cast silently allowed two missing keys: standardPages, which nothing read, and villageNotes,
+ * which crashed checkIntegrity the moment something did.
+ */
+type ParsedFiles = { [F in DataFileName]?: z.infer<(typeof dataFiles)[F]> };
+const parsed: ParsedFiles = {};
 
 async function main() {
   /* 1. Every file in the registry exists, is JSON, and passes its schema. */
@@ -44,7 +50,9 @@ async function main() {
       errors.push(`data/${file}:\n${indent(z.prettifyError(result.error))}`);
       continue;
     }
-    parsed[file] = result.data;
+    // One narrow cast at the write, because `file` is the whole union here. Reads stay typed,
+    // which is the part that matters: the Dataset below is checked rather than cast.
+    (parsed as Record<DataFileName, unknown>)[file] = result.data;
     const records = Array.isArray(result.data) ? result.data : [result.data];
     const count = records.length;
     for (const r of records as { id?: string; todo?: string[] }[]) {
@@ -62,18 +70,22 @@ async function main() {
   const allParsed = (Object.keys(dataFiles) as DataFileName[]).every((f) => parsed[f] !== undefined);
   let dataset: Dataset | undefined;
   if (allParsed) {
+    // No cast: every key of Dataset has to be present and of the right type, so adding a data
+    // file without adding it here is a compile error rather than a crash at run time.
     dataset = {
-      cities: parsed["cities.json"],
-      localities: parsed["localities.json"],
-      projects: parsed["projects.json"],
-      circleRates: parsed["circleRates.json"],
-      stampDutyRules: parsed["stampDutyRules.json"],
-      updates: parsed["updates.json"],
-      priceObservations: parsed["priceObservations.json"],
-      team: parsed["team.json"],
-      scoring: parsed["scoring.json"],
-      reviews: parsed["reviews.json"],
-    } as Dataset;
+      cities: parsed["cities.json"]!,
+      localities: parsed["localities.json"]!,
+      projects: parsed["projects.json"]!,
+      circleRates: parsed["circleRates.json"]!,
+      stampDutyRules: parsed["stampDutyRules.json"]!,
+      updates: parsed["updates.json"]!,
+      priceObservations: parsed["priceObservations.json"]!,
+      team: parsed["team.json"]!,
+      scoring: parsed["scoring.json"]!,
+      standardPages: parsed["standardPages.json"]!,
+      villageNotes: parsed["villageNotes.json"]!,
+      reviews: parsed["reviews.json"]!,
+    };
     const integrity = checkIntegrity(dataset);
     errors.push(...integrity);
     if (integrity.length === 0) console.log("ok   cross-file integrity");
@@ -173,6 +185,38 @@ async function main() {
     errors.push(...checkGuideReferences({ en: en.guides, hi: hi.guides }, guideDataRefs()));
   }
   errors.push(...(await checkGuideBodies(guides)));
+
+  /*
+   * Village page content (step 9b, point 6). Here rather than in lib/integrity.ts because that
+   * module is reachable from a client component, and importing the 20 MB content there shipped
+   * all of it to the browser. validate runs in prebuild, so these still fail the build.
+   */
+  {
+    const { getAllVillageContent, villageContentIndexableIds, unresolvedSegmentIds } = await import("../lib/village-content");
+    const { getRateRow } = await import("../lib/rates");
+    const CONTENT = "content/villages/…/ayodhya-villages-2025-06-07.json";
+    const villages = getAllVillageContent();
+    for (const village of villages) {
+      if (!getRateRow(village.rateRowId)) errors.push(`${CONTENT}: unknown rateRowId "${village.rateRowId}"`);
+    }
+    for (const id of villageContentIndexableIds()) {
+      if (!getRateRow(id)) errors.push(`content/villages/…/indexable.json: unknown rateRowId "${id}"`);
+    }
+    const seen = new Map<string, string>();
+    for (const village of villages) {
+      const key = `${village.sro}/${village.slug}`;
+      const first = seen.get(key);
+      if (first) errors.push(`${CONTENT}: slug "${village.slug}" is used twice in ${village.sro}: ${first} and ${village.rateRowId}`);
+      else seen.set(key, village.rateRowId);
+    }
+    const stray = unresolvedSegmentIds();
+    if (stray.length > 0) {
+      warnings.push(
+        `${CONTENT}: ${stray.length} roadSegmentId(s) match no segment in the rate file and are not linked: ${stray.join(", ")}`,
+      );
+    }
+    console.log(`ok   village content: ${villages.length} rows, ${villageContentIndexableIds().size} cleared for the sitemap`);
+  }
   for (const g of guides) {
     for (const t of g.frontmatter.todo ?? []) todos.push(`${g.file}: ${t}`);
     const links = dataPageLinks(g.body);

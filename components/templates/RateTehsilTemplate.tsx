@@ -14,9 +14,12 @@ import {
   getRowsByTehsil,
   getTehsil,
   getTehsilSummary,
+  getRateBands,
   getValuationRules,
 } from "@/lib/rates";
 import { sameAlternate } from "@/lib/routes";
+import { agriUnitLabel } from "@/lib/units";
+import { commercialKindLabel } from "@/lib/valuation";
 import { PageShell } from "./PageShell";
 
 const th = "px-3 py-2.5 text-left font-semibold whitespace-nowrap";
@@ -43,6 +46,7 @@ export function RateTehsilTemplate({ locale, cityId, tehsilId }: { locale: Local
   const broker = getBroker();
   const rows = getRowsByTehsil(cityId, tehsilId);
   const segments = getRoadSegmentsByTehsil(cityId, tehsilId);
+  const bands = getRateBands(cityId, tehsilId);
   const rules = getValuationRules();
   const cityName = pick(locale, city.name, city.nameHi);
   const tehsilName = pick(locale, tehsil.name, tehsil.nameHi);
@@ -145,6 +149,47 @@ export function RateTehsilTemplate({ locale, cityId, tehsilId }: { locale: Local
           </details>
         )}
       </Section>
+
+      {/* villages that share an identical rate set (step 9b, point 5) */}
+      {bands.length > 0 && (
+        <Section id="bands" title={c.rateBandsTitle}>
+          <p className="lede mb-6 max-w-2xl">{c.rateBandsLede}</p>
+          <ul className="space-y-4">
+            {bands.map((band) => {
+              const first = band.rows[0];
+              return (
+                <li key={band.key} className="rounded-xl border border-line bg-card p-4">
+                  <p className="flex flex-wrap items-baseline gap-x-4 gap-y-1">
+                    <span className="tabular-nums">
+                      {c.landRates} ₹{formatNumber(first.nonAgri.lt9m)}–{formatNumber(first.nonAgri.ge18m)} {c.perSqM}
+                    </span>
+                    <span className="tabular-nums text-ink-soft">
+                      {commercialKindLabel.shop[locale]} ₹{formatNumber(first.commercial.shop)}
+                    </span>
+                    {first.agriLakhPerHa.general !== null && (
+                      <span className="tabular-nums text-ink-soft">
+                        {/* the unit label is written as a column header ("₹ lakh / hectare"), so inline it reads with the sign first */}
+                        {c.agriRates} ₹{formatNumber(first.agriLakhPerHa.general)} {agriUnitLabel["lakh-per-hectare"][locale].replace("₹ ", "")}
+                      </span>
+                    )}
+                    <span className="caption-mono ml-auto text-muted">
+                      {band.rows.length} {c.villagesAtThisRate}
+                    </span>
+                  </p>
+                  <p className="mt-2.5 text-[14.5px] leading-[1.7] text-ink-soft">
+                    {band.rows.map((r, i) => (
+                      <span key={r.id}>
+                        {i > 0 && ", "}
+                        <a href={localePath(locale, `/${cityId}/circle-rates/${tehsilId}/${r.slug}/`)}>{pick(locale, r.nameEn, r.nameHi)}</a>
+                      </span>
+                    ))}
+                  </p>
+                </li>
+              );
+            })}
+          </ul>
+        </Section>
+      )}
 
       {/* road segments */}
       {segments.length > 0 && (
