@@ -4,7 +4,7 @@ import { LeadForm } from "@/components/LeadForm";
 import { Section } from "@/components/Section";
 import { SourceStamp } from "@/components/SourceStamp";
 import { RateCalculator } from "@/components/rates/RateCalculator";
-import { getBroker, getCity, getLocalitiesByCity, getStampDutyRules } from "@/lib/data";
+import { getBroker, getBuildableLocalities, getCity, getStampDutyRules } from "@/lib/data";
 import { formatDate, formatNumber, localePath, pick, ui, type Locale } from "@/lib/i18n";
 import { rc } from "@/lib/rate-copy";
 import {
@@ -90,7 +90,11 @@ export function RateVillageTemplate({
   const hasAgri = AGRI_FRONTAGES.some((f) => row.agriLakhPerHa[f] !== null);
 
   /** The locality pages that cover this row, so the reader can get the fuller write-up. */
-  const coveringLocalities = getLocalitiesByCity(cityId).filter((l) => (l.rateRefs ?? []).some((r) => r.rateRowId === row.id));
+  // Only localities that have a page in this locale: the thin-page guard can withhold one whose
+  // copy is still seeded, and linking to it would 404.
+  const coveringLocalities = getBuildableLocalities(locale)
+    .buildable.filter((l) => l.cityId === cityId)
+    .filter((l) => (l.rateRefs ?? []).some((r) => r.rateRowId === row.id));
 
   const sourceLine =
     locale === "hi"

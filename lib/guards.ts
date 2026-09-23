@@ -22,11 +22,17 @@ export function missingMinimumFields(l: Locality, locale: Locale): string[] {
   // A rate is either the legacy per-locality figure or a reference into the full published list
   // (Step 9 A4). Localities in cities whose list is not transcribed yet still use circleRate.
   if (!l.circleRate && !(l.rateRefs && l.rateRefs.length > 0)) missing.push("circleRate/rateRefs");
+  // Land use and narrative must be real, not seeded. A page whose own copy says it is a
+  // placeholder is exactly the thin page this guard exists to stop, and a land use no master plan
+  // backs is not rendered anyway (hasSourcedLandUse), so counting it here would count nothing.
   if (!l.landUse) missing.push("landUse");
+  else if (!hasSourcedLandUse(l)) missing.push("a sourced landUse");
   if (!l.narrative || l.narrative.drivers.length === 0) missing.push("narrative.drivers");
+  else if (allPlaceholder(l.narrative.drivers)) missing.push("a real narrative.drivers");
   if (locale === "hi") {
     if (!l.nameHi) missing.push("nameHi");
     if (!l.narrative?.driversHi || l.narrative.driversHi.length === 0) missing.push("narrative.driversHi");
+    else if (allPlaceholder(l.narrative.driversHi)) missing.push("a real narrative.driversHi");
   }
   return missing;
 }
@@ -65,7 +71,17 @@ export function logSkippedLocalities(locale: Locale, skipped: { id: string; miss
  * Unlike the locality guard this is not locale-dependent: a project without a source is
  * unpublishable in both trees.
  */
-const PLACEHOLDER_TEXT = /^\s*(PLACEHOLDER|प्लेसहोल्डर)\b/;
+/**
+ * Seed text the content pipeline marks as not yet real, in either language.
+ *
+ * The trailing guard is a lookahead rather than `\b`: JavaScript's word boundary is defined on
+ * ASCII `\w`, so a `\b` after Devanagari never fires and the Hindi alternative would silently
+ * never match.
+ */
+const PLACEHOLDER_TEXT = /^\s*(PLACEHOLDER|प्लेसहोल्डर)(?![\p{L}\p{N}])/u;
+
+/** True when a record has no real copy yet: no paragraphs, or every one is placeholder text. */
+const allPlaceholder = (paras: string[] | undefined) => !paras || paras.length === 0 || paras.every((t) => PLACEHOLDER_TEXT.test(t));
 
 /**
  * Whether a locality's land use may be published.

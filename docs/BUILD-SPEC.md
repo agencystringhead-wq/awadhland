@@ -114,7 +114,8 @@ The workhorse. Fully data-driven from one record in `localities.json`; no hand-a
 **Rules**
 
 - If a field is empty, the section is omitted. No "data not available" rows.
-- A locality record with fewer than the minimum fields (name, city, lat/lng, circle rate, land use, at least one narrative paragraph) is not built into a page. This is the guard against thin pages.
+- A locality record with fewer than the minimum fields is not built into a page. This is the guard against thin pages. The minimum set is: name, city, lat/lng, a circle rate (`circleRate` or at least one `rateRefs` entry), a **sourced** land use, and at least one **real** narrative paragraph. The Hindi page additionally needs `nameHi` and a real Hindi paragraph.
+- "Sourced" and "real" are the point. A land use no master plan backs is not rendered anyway, and a narrative whose own text reads "PLACEHOLDER (draft): … are seed values by price band" is precisely the thin page this guard exists to stop. Seeded records keep their ids, their coordinates and their `rateRefs`, and are excluded from the build, the sitemaps, the footer index, the city hub lists and every counter until the broker's copy and the master-plan reference land. `scripts/validate.ts` names each skipped id and what it is missing.
 - Hindi page reads `nameHi`, `narrativeHi`, `brokerNoteHi`; numeric and tabular fields are shared.
 - Village-level pages under a locality use the same template with `parentLocalityId` set, and add a "Part of" link in the header.
 
@@ -486,7 +487,7 @@ Design direction: probate.help's architecture adapted to land (measured tokens i
 | Images | WebP with AVIF fallback, explicit width/height, alt text per language, lazy below the fold |
 | Performance | Target Lighthouse 95+ mobile. No third-party scripts except JotForm on form load and Leaflet on map pages. Fonts self-hosted |
 | Internal links | Plain `<a href>`, never `next/link`. The site does no client-side routing, so `scripts/drop-flight-payloads.ts` removes the per-route `index.txt` RSC payloads in postbuild — 453 MB of an export nothing fetched. That script fails the build if `next/link` is reintroduced, because its navigation would need them back |
-| Thin-page guard | Localities missing the minimum field set are excluded from the build and the sitemap |
+| Thin-page guard | Localities missing the minimum field set — which requires a sourced land use and a real narrative, not seeded ones — are excluded from the build, the sitemap, the footer index and every counter |
 | Source guard | Projects without a real notification are excluded from the build, the sitemap, every card and every counter (Template 4) |
 | Open Graph | Per-page OG image generated at build with locality name, price band and city on the brand background |
 
