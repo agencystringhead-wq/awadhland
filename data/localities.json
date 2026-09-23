@@ -265,13 +265,21 @@
     "updatedAt": "2026-09-18",
     "todo": [
       "Narrative drafted from the published 2025 rate list only — the rows, their categories and the priced road segments. It contains no local market knowledge and no claim about who buys here or why; the broker should read it, correct it and add that. status stays \"draft\" so the page renders noindex and out of the sitemaps until he does.",
-      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder."
+      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder.",
+      "fit carries commercial only. The rating and reason come from the published schedule — the shop rate and whether a corridor through the locality is priced above it — not from trade, footfall or demand, which no schedule records. residential and investment are deliberately absent: they need amenities and a price series the data does not have. Confirm the commercial read and supply the other two."
     ],
     "rateRefs": [
       {
         "rateRowId": "sadar-s245"
       }
-    ]
+    ],
+    "fit": {
+      "commercial": {
+        "rating": "mixed",
+        "reason": "A shop is priced at ₹43,300 per sq m, five times the land beneath it, so commercial use is clearly valued. But no road segment in the Sadar list prices a frontage through Naya Ghat, so the schedule offers nothing beyond the ward rate to separate one commercial plot from another.",
+        "reasonHi": "दुकान ₹43,300 प्रति वर्ग मीटर पर है, यानी नीचे की ज़मीन से पाँच गुना, तो कारोबारी इस्तेमाल की क़ीमत साफ़ है। लेकिन सदर की सूची में नयाघाट से होकर कोई सड़क पट्टी नहीं आँकी गई, इसलिए एक कारोबारी प्लॉट को दूसरे से अलग करने के लिए वार्ड की दर के अलावा सूची कुछ नहीं देती।"
+      }
+    }
   },
   {
     "id": "ram-path",
@@ -459,7 +467,8 @@
     "updatedAt": "2026-09-18",
     "todo": [
       "Narrative drafted from the published 2025 rate list only — the rows, their categories and the priced road segments. It contains no local market knowledge and no claim about who buys here or why; the broker should read it, correct it and add that. status stays \"draft\" so the page renders noindex and out of the sitemaps until he does.",
-      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder."
+      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder.",
+      "fit carries commercial only. The rating and reason come from the published schedule — the shop rate and whether a corridor through the locality is priced above it — not from trade, footfall or demand, which no schedule records. residential and investment are deliberately absent: they need amenities and a price series the data does not have. Confirm the commercial read and supply the other two."
     ],
     "rateRefs": [
       {
@@ -476,7 +485,14 @@
       {
         "id": "sadar-seg5-sahadatganj"
       }
-    ]
+    ],
+    "fit": {
+      "commercial": {
+        "rating": "good",
+        "reason": "The list prices shops on the Lucknow road bypass frontage at ₹77,400 per sq m against ₹49,200 inside the ward — a 57 per cent premium for a commercial address on the corridor rather than in the mohalla.",
+        "reasonHi": "सूची लखनऊ रोड बाईपास से लगी दुकानों को ₹77,400 प्रति वर्ग मीटर पर आँकती है, जबकि वार्ड के अंदर ₹49,200 — यानी मोहल्ले के बजाय सड़क पर दुकान होने का सत्तावन फ़ीसदी प्रीमियम।"
+      }
+    }
   },
   {
     "id": "rikabganj",
@@ -517,13 +533,21 @@
     "updatedAt": "2026-09-18",
     "todo": [
       "Narrative drafted from the published 2025 rate list only — the rows, their categories and the priced road segments. It contains no local market knowledge and no claim about who buys here or why; the broker should read it, correct it and add that. status stays \"draft\" so the page renders noindex and out of the sitemaps until he does.",
-      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder."
+      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder.",
+      "fit carries commercial only. The rating and reason come from the published schedule — the shop rate and whether a corridor through the locality is priced above it — not from trade, footfall or demand, which no schedule records. residential and investment are deliberately absent: they need amenities and a price series the data does not have. Confirm the commercial read and supply the other two."
     ],
     "rateRefs": [
       {
         "rateRowId": "sadar-s445"
       }
-    ]
+    ],
+    "fit": {
+      "commercial": {
+        "rating": "good",
+        "reason": "At ₹83,700 per sq m the shop rate here is the highest of the localities this site prices from the 2025 list, about 29 per cent above the next one. The schedule reads this as core commercial ground even though it prices no separate corridor through it.",
+        "reasonHi": "₹83,700 प्रति वर्ग मीटर पर यहाँ दुकान की दर इस साइट पर 2025 की सूची से आँके गए सभी इलाक़ों में सबसे ऊँची है, अगले से क़रीब उनतीस फ़ीसदी ऊपर। सूची इसे मुख्य कारोबारी ज़मीन मानती है, भले ही यहाँ से गुज़रती कोई अलग पट्टी न आँकी गई हो।"
+      }
+    }
   },
   {
     "id": "devkali",
@@ -564,7 +588,8 @@
     "updatedAt": "2026-09-18",
     "todo": [
       "Narrative drafted from the published 2025 rate list only — the rows, their categories and the priced road segments. It contains no local market knowledge and no claim about who buys here or why; the broker should read it, correct it and add that. status stays \"draft\" so the page renders noindex and out of the sitemaps until he does.",
-      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder."
+      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder.",
+      "fit carries commercial only. The rating and reason come from the published schedule — the shop rate and whether a corridor through the locality is priced above it — not from trade, footfall or demand, which no schedule records. residential and investment are deliberately absent: they need amenities and a price series the data does not have. Confirm the commercial read and supply the other two."
     ],
     "rateRefs": [
       {
@@ -587,7 +612,14 @@
       {
         "id": "sadar-seg64-devkali"
       }
-    ]
+    ],
+    "fit": {
+      "commercial": {
+        "rating": "good",
+        "reason": "Four priced corridors cross Devkali and the best of them puts a shop at ₹74,200 per sq m against ₹50,700 in the interior, a 46 per cent premium. The schedule treats the road frontage here as commercial ground in its own right.",
+        "reasonHi": "देवकाली से चार आँकी हुई सड़कें गुज़रती हैं और इनमें सबसे ऊँची दुकान को ₹74,200 प्रति वर्ग मीटर पर रखती है, जबकि अंदर ₹50,700 — छियालीस फ़ीसदी का प्रीमियम। सूची यहाँ सड़क से लगी ज़मीन को अपने आप में कारोबारी ज़मीन मानती है।"
+      }
+    }
   },
   {
     "id": "ranopali",
@@ -628,7 +660,8 @@
     "updatedAt": "2026-09-18",
     "todo": [
       "Narrative drafted from the published 2025 rate list only — the rows, their categories and the priced road segments. It contains no local market knowledge and no claim about who buys here or why; the broker should read it, correct it and add that. status stays \"draft\" so the page renders noindex and out of the sitemaps until he does.",
-      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder."
+      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder.",
+      "fit carries commercial only. The rating and reason come from the published schedule — the shop rate and whether a corridor through the locality is priced above it — not from trade, footfall or demand, which no schedule records. residential and investment are deliberately absent: they need amenities and a price series the data does not have. Confirm the commercial read and supply the other two."
     ],
     "rateRefs": [
       {
@@ -660,7 +693,14 @@
       {
         "id": "sadar-seg70-ranopali-ba-na-pa"
       }
-    ]
+    ],
+    "fit": {
+      "commercial": {
+        "rating": "good",
+        "reason": "Seven segment entries name Ranopali and shops on them reach ₹67,500 per sq m against ₹48,000 inside, a 41 per cent premium. With that many priced corridors, most plots here sit near one.",
+        "reasonHi": "सूची की सात पट्टियाँ रानोपाली का नाम लेती हैं और उन पर दुकान ₹67,500 प्रति वर्ग मीटर तक जाती है, जबकि अंदर ₹48,000 — इकतालीस फ़ीसदी का प्रीमियम। इतनी आँकी हुई सड़कों के बीच यहाँ ज़्यादातर प्लॉट किसी न किसी के पास पड़ते हैं।"
+      }
+    }
   },
   {
     "id": "ayodhya-bypass-nh-27",
@@ -1014,7 +1054,8 @@
     "updatedAt": "2026-09-18",
     "todo": [
       "Narrative drafted from the published 2025 rate list only — the rows, their categories and the priced road segments. It contains no local market knowledge and no claim about who buys here or why; the broker should read it, correct it and add that. status stays \"draft\" so the page renders noindex and out of the sitemaps until he does.",
-      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder."
+      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder.",
+      "fit carries commercial only. The rating and reason come from the published schedule — the shop rate and whether a corridor through the locality is priced above it — not from trade, footfall or demand, which no schedule records. residential and investment are deliberately absent: they need amenities and a price series the data does not have. Confirm the commercial read and supply the other two."
     ],
     "rateRefs": [
       {
@@ -1028,7 +1069,14 @@
       {
         "id": "bikapur-seg4-bikapur"
       }
-    ]
+    ],
+    "fit": {
+      "commercial": {
+        "rating": "mixed",
+        "reason": "The interior shop rate of ₹65,000 per sq m is the second highest of the twelve, but the national highway frontage is priced at ₹66,000 — about one and a half per cent above it. The schedule values commercial use here without treating the highway itself as a commercial premium.",
+        "reasonHi": "अंदरूनी दुकान दर ₹65,000 प्रति वर्ग मीटर इन बारह में दूसरी सबसे ऊँची है, पर राष्ट्रीय राजमार्ग से लगी दुकान ₹66,000 पर आँकी गई है — क़रीब डेढ़ फ़ीसदी ऊपर। सूची यहाँ कारोबारी इस्तेमाल की क़ीमत तो मानती है, पर राजमार्ग को अपने आप में कारोबारी प्रीमियम नहीं देती।"
+      }
+    }
   },
   {
     "id": "sohawal",
@@ -1069,13 +1117,21 @@
     "updatedAt": "2026-09-18",
     "todo": [
       "Narrative drafted from the published 2025 rate list only — the rows, their categories and the priced road segments. It contains no local market knowledge and no claim about who buys here or why; the broker should read it, correct it and add that. status stays \"draft\" so the page renders noindex and out of the sitemaps until he does.",
-      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder."
+      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder.",
+      "fit carries commercial only. The rating and reason come from the published schedule — the shop rate and whether a corridor through the locality is priced above it — not from trade, footfall or demand, which no schedule records. residential and investment are deliberately absent: they need amenities and a price series the data does not have. Confirm the commercial read and supply the other two."
     ],
     "rateRefs": [
       {
         "rateRowId": "sohawal-1150"
       }
-    ]
+    ],
+    "fit": {
+      "commercial": {
+        "rating": "mixed",
+        "reason": "A shop at ₹44,000 per sq m is 4.8 times the narrowest-road land rate, high for a locality the list classifies rural. No corridor through Sohawal is priced separately, so that single figure is the whole of the schedule's commercial read.",
+        "reasonHi": "₹44,000 प्रति वर्ग मीटर पर दुकान सबसे तंग सड़क की ज़मीन से 4.8 गुना है — सूची में ग्रामीण दर्ज इलाक़े के लिहाज़ से ऊँची। सोहावल से गुज़रती कोई पट्टी अलग से नहीं आँकी गई, इसलिए कारोबारी पक्ष पर सूची का कहा बस यही एक आँकड़ा है।"
+      }
+    }
   },
   {
     "id": "masodha",
@@ -1281,11 +1337,11 @@
     "narrative": {
       "drivers": [
         "Darshan Nagar has the flattest road-width curve of the localities this site prices from the 2025 list: ₹7,000 per sq m under 9 m, ₹7,400 between 9 and 18 m, ₹7,900 at 18 m and above. Thirteen per cent from the narrowest lane to the widest road, where Bikapur moves 133 per cent over the same span.",
-        "The list is saying that frontage buys very little here, and that the value is commercial rather than residential: a shop at ₹43,100 per sq m is 6.2 times the land under it, the highest such multiple among the localities priced from this list. Agricultural land is ₹70 lakh per hectare, above both Sohawal and Bikapur."
+        "The list is saying that frontage buys very little here, and that the value is commercial rather than residential: a shop at ₹43,100 per sq m is 6.2 times the land under it, the second-highest such multiple among the localities priced from this list, just behind Goshainganj. Agricultural land is ₹70 lakh per hectare, above both Sohawal and Bikapur."
       ],
       "driversHi": [
         "इस साइट पर 2025 की सूची से आँके गए इलाक़ों में दर्शन नगर पर सड़क की चौड़ाई का असर सबसे कम है: 9 मीटर से कम पर ₹7,000 प्रति वर्ग मीटर, 9 से 18 मीटर पर ₹7,400, और 18 मीटर या उससे ऊपर ₹7,900। सबसे तंग गली से सबसे चौड़ी सड़क तक सिर्फ़ तेरह फ़ीसदी, जबकि उतने ही फ़ासले में बीकापुर एक सौ तैंतीस फ़ीसदी चढ़ जाता है।",
-        "सूची यह कह रही है कि यहाँ सड़क से लगा होना ज़्यादा कुछ नहीं दिलाता, और क़ीमत रिहायशी नहीं, कारोबारी है: ₹43,100 प्रति वर्ग मीटर पर दुकान अपने नीचे की ज़मीन से 6.2 गुना है — इस सूची से आँके गए इलाक़ों में सबसे ऊँचा अनुपात। कृषि भूमि ₹70 लाख प्रति हेक्टेयर पर है, सोहावल और बीकापुर दोनों से ऊपर।"
+        "सूची यह कह रही है कि यहाँ सड़क से लगा होना ज़्यादा कुछ नहीं दिलाता, और क़ीमत रिहायशी नहीं, कारोबारी है: ₹43,100 प्रति वर्ग मीटर पर दुकान अपने नीचे की ज़मीन से 6.2 गुना है — इस सूची से आँके गए इलाक़ों में दूसरा सबसे ऊँचा अनुपात, गोसाईगंज से ज़रा ही पीछे। कृषि भूमि ₹70 लाख प्रति हेक्टेयर पर है, सोहावल और बीकापुर दोनों से ऊपर।"
       ]
     },
     "sources": [
@@ -1298,13 +1354,21 @@
     "updatedAt": "2026-09-18",
     "todo": [
       "Narrative drafted from the published 2025 rate list only — the rows, their categories and the priced road segments. It contains no local market knowledge and no claim about who buys here or why; the broker should read it, correct it and add that. status stays \"draft\" so the page renders noindex and out of the sitemaps until he does.",
-      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder."
+      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder.",
+      "fit carries commercial only. The rating and reason come from the published schedule — the shop rate and whether a corridor through the locality is priced above it — not from trade, footfall or demand, which no schedule records. residential and investment are deliberately absent: they need amenities and a price series the data does not have. Confirm the commercial read and supply the other two."
     ],
     "rateRefs": [
       {
         "rateRowId": "sadar-s213"
       }
-    ]
+    ],
+    "fit": {
+      "commercial": {
+        "rating": "mixed",
+        "reason": "The shop rate of ₹43,100 per sq m is 6.2 times the land beneath it, the second-highest multiple of the localities priced from this list. Against that, road width barely moves the land rate here and no corridor is priced, so the commercial signal is in the multiple rather than in any particular frontage.",
+        "reasonHi": "₹43,100 प्रति वर्ग मीटर की दुकान दर नीचे की ज़मीन से 6.2 गुना है — इस सूची से आँके गए इलाक़ों में दूसरा सबसे ऊँचा अनुपात। इसके उलट यहाँ सड़क की चौड़ाई से ज़मीन की दर मुश्किल से बदलती है और कोई पट्टी अलग से नहीं आँकी गई, इसलिए कारोबारी इशारा किसी ख़ास फ़्रंट में नहीं, इसी अनुपात में है।"
+      }
+    }
   },
   {
     "id": "bhadarsa-road",
@@ -1346,7 +1410,8 @@
     "todo": [
       "Narrative drafted from the published 2025 rate list only — the rows, their categories and the priced road segments. It contains no local market knowledge and no claim about who buys here or why; the broker should read it, correct it and add that. status stays \"draft\" so the page renders noindex and out of the sitemaps until he does.",
       "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder.",
-      "Seed record said tehsil Sadar; corrected to Sohawal against the 2025-06-07 list, where every भदरसा row sits in the Sohawal SRO."
+      "Seed record said tehsil Sadar; corrected to Sohawal against the 2025-06-07 list, where every भदरसा row sits in the Sohawal SRO.",
+      "fit carries commercial only. The rating and reason come from the published schedule — the shop rate and whether a corridor through the locality is priced above it — not from trade, footfall or demand, which no schedule records. residential and investment are deliberately absent: they need amenities and a price series the data does not have. Confirm the commercial read and supply the other two."
     ],
     "rateRefs": [
       {
@@ -1363,7 +1428,14 @@
       {
         "id": "sohawal-seg-r2-taun-eriya-bhadarsa"
       }
-    ]
+    ],
+    "fit": {
+      "commercial": {
+        "rating": "mixed",
+        "reason": "Shops inside the town are priced at ₹40,000 per sq m and the two priced stretches through it at ₹42,000, five per cent above. Commercial use is recognised, but the schedule sees almost no difference between a shop on the main stretch and one off it.",
+        "reasonHi": "क़स्बे के अंदर दुकान ₹40,000 प्रति वर्ग मीटर पर है और इससे गुज़रती दोनों आँकी हुई पट्टियों पर ₹42,000 — पाँच फ़ीसदी ऊपर। कारोबारी इस्तेमाल दर्ज तो है, पर सूची मुख्य पट्टी की दुकान और उससे हटकर दुकान में लगभग कोई फ़र्क़ नहीं देखती।"
+      }
+    }
   },
   {
     "id": "rudauli-road",
