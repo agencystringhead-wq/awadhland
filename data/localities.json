@@ -982,14 +982,16 @@
       "unit": "sqft",
       "asOf": "2026-09-01"
     },
-    "landUse": "agricultural",
-    "landUseSource": "PLACEHOLDER: master plan reference to be confirmed",
+    "landUse": "mixed",
+    "landUseSource": "IGRSUP 2025-06-07 (semi-urban town area)",
     "narrative": {
       "drivers": [
-        "PLACEHOLDER (draft): Gosaiganj is a agricultural locality in Bikapur tehsil, Ayodhya. The circle rate, asking range and land use shown here are seed values by price band, not sourced figures. This page is not indexed until the record is upgraded to live with the IGRSUP schedule and the broker's observations."
+        "Goshainganj is a town, not a village. The 2025 valuation list puts twelve mohallas — six Katra, three Goshainganj and three Teliyagarh — under one ward, टाउन एरिया गोशाईगंज, and prices every one of them identically: ₹7,700 per sq m for land on a road under 9 m, ₹48,200 for a shop. On paper there is no cheaper or dearer pocket inside the town.",
+        "What separates plots here is the road, not the mohalla. The same list prices the Akbarpur road frontage through Katra Goshainganj at ₹12,300 to ₹16,500 per sq m, roughly twice the interior rate, and the Bala Paikauli road with it. A shop priced at six times the land under it is the shape of a working market town rather than a residential edge."
       ],
       "driversHi": [
-        "प्लेसहोल्डर (ड्राफ़्ट): गोसाईगंज, अयोध्या की Bikapur तहसील का कृषि इलाक़ा है। यहाँ दिखाए गए सर्किल रेट, माँगा जा रहा दाम और भू-उपयोग दाम श्रेणी के अनुसार नमूना मान हैं, स्रोत से लिए आँकड़े नहीं। आईजीआरएसयूपी सूची और ब्रोकर के अवलोकन के साथ रिकॉर्ड लाइव होने तक यह पेज इंडेक्स नहीं होता।"
+        "गोसाईगंज गाँव नहीं, क़स्बा है। 2025 की मूल्यांकन सूची बारह मोहल्लों — छह कटरा, तीन गोशाईगंज और तीन तेलियागढ़ — को एक ही वार्ड “टाउन एरिया गोशाईगंज” में रखती है और सबकी एक ही दर छापती है: 9 मीटर से कम चौड़ी सड़क पर ₹7,700 प्रति वर्ग मीटर, दुकान ₹48,200। काग़ज़ पर क़स्बे के अंदर कोई सस्ता या महँगा हिस्सा नहीं है।",
+        "यहाँ प्लॉट का फ़र्क़ मोहल्ले से नहीं, सड़क से पड़ता है। उसी सूची में कटरा गोशाईगंज से गुज़रने वाली अकबरपुर रोड की पट्टी ₹12,300 से ₹16,500 प्रति वर्ग मीटर पर है — अंदर की दर से लगभग दोगुनी — और उसके साथ बाला पैकौली रोड भी। ज़मीन से छह गुना दाम पर दुकान, यह चलती हुई मंडी वाले क़स्बे की बनावट है, किसी रिहायशी छोर की नहीं।"
       ]
     },
     "fit": {
@@ -1017,11 +1019,12 @@
         "accessedAt": "2026-09-18"
       }
     ],
-    "updatedAt": "2026-09-18",
+    "updatedAt": "2026-09-23",
     "todo": [
-      "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative, fit and score are placeholders by price band",
-      "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages",
-      "Seed record said tehsil Bikapur; corrected to Sadar against the 2025-06-07 list, where गोशाईगंज is the टाउन एरिया ward in the Sadar SRO. The narrative, landUse and priceBand still describe an agricultural Bikapur locality and are wrong: it is a semi-urban town area. Rewrite before upgrading to live."
+      "Draft seed record: the asking range, fit ratings and score are still placeholders by price band, not sourced figures.",
+      "Upgrade status to live only with the ADA Master Plan land use, drive times, and the broker's own reading of the market in both languages. The narrative here describes what the 2025 list shows and nothing beyond it.",
+      "Seed record said tehsil Bikapur; corrected to Sadar against the 2025-06-07 list, where गोशाईगंज is the टाउन एरिया ward in the Sadar SRO.",
+      "landUse was 'agricultural', which is wrong for a town area; set to 'mixed' from the list. Confirm against the master plan and update landUseSource."
     ],
     "rateRefs": [
       {
