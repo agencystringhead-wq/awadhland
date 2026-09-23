@@ -30,13 +30,28 @@ export const howWeWorkCopy: Record<Locale, { heading: string; steps: string[]; f
   },
 };
 
+/**
+ * Seed copy the content pipeline has not replaced. Withheld rather than rendered: the Hindi steps
+ * and fee note are TODO end to end, and a numbered list of the word TODO is worse than no list.
+ */
+const isTodo = (s: string) => /\bTODO\b/i.test(s);
+
+/** True when any step is real copy. The Section wrapper is dropped when this is false. */
+export const hasHowWeWorkCopy = (c: { steps: HowWeWorkProps["steps"] }) =>
+  c.steps.some((s) => !isTodo(typeof s === "string" ? s : `${s.title ?? ""} ${s.body}`));
+
 /** Four numbered steps in a row with hairlines between (reference §8 step card, 56px serif numerals). */
 export function HowWeWork({ locale, heading, steps, feeNote }: HowWeWorkProps) {
+  const text = (s: (typeof steps)[number]) => (typeof s === "string" ? s : `${s.title ?? ""} ${s.body}`);
+  const shownSteps = steps.filter((s) => !isTodo(text(s)));
+  const shownHeading = heading && !isTodo(heading) ? heading : undefined;
+  const shownFeeNote = feeNote && !isTodo(feeNote) ? feeNote : undefined;
+  if (shownSteps.length === 0) return null;
   return (
     <section data-component="HowWeWork" data-locale={locale}>
-      {heading && <h2>{heading}</h2>}
-      <ol className={`grid gap-8 sm:grid-cols-2 lg:grid-cols-4 lg:gap-0 ${heading ? "mt-8" : ""}`}>
-        {steps.map((s, i) => {
+      {shownHeading && <h2>{shownHeading}</h2>}
+      <ol className={`grid gap-8 sm:grid-cols-2 lg:grid-cols-4 lg:gap-0 ${shownHeading ? "mt-8" : ""}`}>
+        {shownSteps.map((s, i) => {
           const step = typeof s === "string" ? { title: undefined, body: s } : s;
           return (
             <li key={i} className={`lg:px-7 ${i > 0 ? "lg:border-l lg:border-line" : "lg:pl-0"}`}>
@@ -49,7 +64,7 @@ export function HowWeWork({ locale, heading, steps, feeNote }: HowWeWorkProps) {
           );
         })}
       </ol>
-      {feeNote && <p className="serif-italic mt-8 text-[13px] text-muted">{feeNote}</p>}
+      {shownFeeNote && <p className="serif-italic mt-8 text-[13px] text-muted">{shownFeeNote}</p>}
     </section>
   );
 }

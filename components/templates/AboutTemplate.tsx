@@ -1,13 +1,13 @@
 import { Badges } from "@/components/Badges";
 import { Breadcrumb } from "@/components/Breadcrumb";
 import { BrokerCard } from "@/components/BrokerCard";
-import { HowWeWork, howWeWorkCopy } from "@/components/HowWeWork";
+import { HowWeWork, hasHowWeWorkCopy, howWeWorkCopy } from "@/components/HowWeWork";
 import { LeadForm } from "@/components/LeadForm";
 import { Reviews } from "@/components/Reviews";
 import { Section } from "@/components/Section";
 import { SourceStamp } from "@/components/SourceStamp";
 import { TrustBar } from "@/components/TrustBar";
-import { WhyWeExist, whyWeExistCopy } from "@/components/WhyWeExist";
+import { WhyWeExist, hasWhyWeExistCopy, whyWeExistCopy } from "@/components/WhyWeExist";
 import { JsonLd } from "@/components/JsonLd";
 import { homeStory } from "@/lib/content";
 import { person } from "@/lib/jsonld";
@@ -48,12 +48,16 @@ export function AboutTemplate({ locale }: { locale: Locale }) {
             ))}
         </div>
       </Section>
-      <Section>
-        <WhyWeExist locale={locale} {...whyWeExistCopy[locale]} />
-      </Section>
-      <Section id="how-we-work">
-        <HowWeWork locale={locale} {...howWeWorkCopy[locale]} />
-      </Section>
+      {hasWhyWeExistCopy(whyWeExistCopy[locale]) && (
+        <Section>
+          <WhyWeExist locale={locale} {...whyWeExistCopy[locale]} />
+        </Section>
+      )}
+      {hasHowWeWorkCopy(howWeWorkCopy[locale]) && (
+        <Section id="how-we-work">
+          <HowWeWork locale={locale} {...howWeWorkCopy[locale]} />
+        </Section>
+      )}
       {/* Badges stay (RERA number, years, cities); the review block appears once the profile has
           real ones. */}
       <Section id="reviews">

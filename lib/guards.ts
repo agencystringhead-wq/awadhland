@@ -204,3 +204,38 @@ export function logBrokerPlaceholders(b: TeamMember) {
       `${registration}.`,
   );
 }
+
+/* ------------------------------------------------------------ rate schedules */
+
+/**
+ * A circle-rate schedule ships only when its source names a real document.
+ *
+ * scripts/seed-cities.ts generated Lucknow and Gorakhpur schedules from a four-row price-band
+ * table, so 61 localities across the two cities shared four residential figures, each labelled
+ * "IGRSUP circle rate schedule, <city> (TODO: link the PDF)" and linked to the portal root. Those
+ * pages exist to publish the government's own numbers; a plausible figure carrying a government
+ * URL is the worst possible place for a seed value, so the whole schedule is withheld rather than
+ * annotated.
+ *
+ * Filtering here rather than at each caller means the city's circle-rate page, its entry in the
+ * page registry and the stamp-duty calculator all drop it together — a calculator that quotes duty
+ * from an invented rate is the same defect wearing a different hat.
+ */
+const UNSOURCED_LABEL = /\b(TODO|PLACEHOLDER)\b|प्लेसहोल्डर/i;
+
+export function scheduleIsSourced(s: { sources: { label: string }[] }): boolean {
+  return s.sources.length > 0 && s.sources.every((x) => !UNSOURCED_LABEL.test(x.label));
+}
+
+export function logWithheldSchedules(all: { cityId: string; sources: { label: string }[]; rates: unknown[] }[]) {
+  const withheld = all.filter((s) => !scheduleIsSourced(s));
+  if (withheld.length === 0) {
+    console.log(`[rate-guard] ${all.length} schedule(s), all sourced`);
+    return;
+  }
+  console.warn(
+    `[rate-guard] withholding ${withheld.length} unsourced schedule(s): ` +
+      withheld.map((s) => `${s.cityId} (${s.rates.length} seeded rates)`).join(", ") +
+      ". Their circle-rate pages are not built and the stamp-duty calculator does not offer them.",
+  );
+}
