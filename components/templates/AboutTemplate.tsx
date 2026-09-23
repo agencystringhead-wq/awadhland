@@ -43,6 +43,8 @@ export function AboutTemplate({ locale }: { locale: Locale }) {
       <Section id="how-we-work">
         <HowWeWork locale={locale} {...howWeWorkCopy[locale]} />
       </Section>
+      {/* Badges stay (RERA number, years, cities); the review block appears once the profile has
+          real ones. */}
       <Section id="reviews">
         <Reviews locale={locale} data={getReviews()} labels={homeStory[locale].reviews} />
         <Badges locale={locale} broker={broker} citiesCovered={cities.length} />

@@ -31,6 +31,7 @@ export function HomeTemplate({ locale }: { locale: Locale }) {
   const cities = getCities();
   const broker = getBroker();
   const reviews = getReviews();
+  const hasReviews = reviews.rating !== null && reviews.reviews.length > 0;
   const updates = getUpdates();
   const guides = getGuides(locale);
   const localities = getBuildableLocalities(locale).buildable;
@@ -59,7 +60,7 @@ export function HomeTemplate({ locale }: { locale: Locale }) {
   return (
     <PageShell locale={locale} alternate={sameAlternate(locale, "/")} pageLabel={pageLabel}>
       {/* C1. Hero */}
-      <Hero locale={locale} story={story} broker={broker} reviewsUrl={reviews.profileUrl} />
+      <Hero locale={locale} story={story} broker={broker} reviewsUrl={reviews.profileUrl ?? undefined} />
 
       {/* C2. By the numbers */}
       <StatGrid stats={stats} columns={8} />
@@ -169,10 +170,14 @@ export function HomeTemplate({ locale }: { locale: Locale }) {
         </Section>
       )}
 
-      {/* C11. Reviews: rating tile beside the heading, four sub-score tiles, three cards */}
-      <Section size="lg" tone="sand" hairline {...story.reviews} aside={<div className="w-full max-w-[380px] lg:w-[380px]"><RatingTile locale={locale} data={reviews} labels={story.reviews} /></div>}>
-        <Reviews locale={locale} data={reviews} labels={story.reviews} />
-      </Section>
+{/* C11. Reviews: rating tile beside the heading, four sub-score tiles, three cards.
+          Omitted entirely until the Google profile has real reviews — the site does not ship a
+          trust block it cannot source (spec Template 9). */}
+      {hasReviews && (
+        <Section size="lg" tone="sand" hairline {...story.reviews} aside={<div className="w-full max-w-[380px] lg:w-[380px]"><RatingTile locale={locale} data={reviews} labels={story.reviews} /></div>}>
+          <Reviews locale={locale} data={reviews} labels={story.reviews} />
+        </Section>
+      )}
 
       {/* C12. Lead form band: full-width gradient panel, copy left, large form right */}
       <Section id="lead-form" size="lg" tone="gradient" hairline>

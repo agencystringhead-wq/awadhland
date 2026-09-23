@@ -677,17 +677,30 @@ export const reviewSchema = z
   })
   .strict();
 
-/** Google Business Profile summary plus the reviews shown on the site. Single object. */
+/**
+ * Google Business Profile summary plus the reviews shown on the site. Single object.
+ *
+ * Everything here is nullable or may be empty, because the site ships before the profile has
+ * anything in it and the alternative — a placeholder rating, a placeholder count and reviews
+ * under invented names — is not one. Spec Template 9: "Everything on this page is verifiable or
+ * it comes off", and reviews are shown as written on Google, never composed here.
+ *
+ * With `rating` null and `reviews` empty, the homepage and About blocks omit themselves and the
+ * profile link disappears from the nav. AggregateRating JSON-LD stays off until these are real
+ * and kept in sync (lib/jsonld.ts).
+ */
 export const reviewsSchema = z
   .object({
     platform: z.literal("google"),
-    profileUrl: url,
-    rating: z.number().min(0).max(5),
+    /** null until the business has a profile worth linking */
+    profileUrl: url.nullable(),
+    /** null until the profile carries real reviews; never a placeholder figure */
+    rating: z.number().min(0).max(5).nullable(),
     count: z.number().int().min(0),
-    /** four sub-scores shown as tiles on the homepage */
+    /** up to four sub-scores shown as tiles on the homepage; empty until they are real */
     categories: z
       .array(z.object({ label: z.string().min(1), labelHi: z.string().min(1), score: z.number().min(0).max(5) }).strict())
-      .length(4),
+      .max(4),
     reviews: z.array(reviewSchema),
     ...recordBase,
   })

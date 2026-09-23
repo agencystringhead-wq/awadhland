@@ -304,7 +304,8 @@ export function getNav(locale: Locale): NavItem[] {
       links: [
         { label: c.panel.methodology, href: p("/methodology/") },
         { label: c.panel.howWeWork, href: `${p("/about/")}#how-we-work` },
-        { label: c.panel.reviews, href: `${p("/about/")}#reviews`, meta: `${getReviews().rating.toFixed(1)} ★` },
+        // The star meta appears only once the profile has a real rating.
+        { label: c.panel.reviews, href: `${p("/about/")}#reviews`, ...(getReviews().rating !== null ? { meta: `${getReviews().rating!.toFixed(1)} ★` } : {}) },
         { label: c.panel.contact, href: p("/contact/") },
       ],
     },
