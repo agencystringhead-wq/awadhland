@@ -238,23 +238,6 @@
         "प्लेसहोल्डर (ड्राफ़्ट): नया घाट, अयोध्या की Sadar तहसील का मिश्रित इलाक़ा है। यहाँ दिखाए गए सर्किल रेट, माँगा जा रहा दाम और भू-उपयोग दाम श्रेणी के अनुसार नमूना मान हैं, स्रोत से लिए आँकड़े नहीं। आईजीआरएसयूपी सूची और ब्रोकर के अवलोकन के साथ रिकॉर्ड लाइव होने तक यह पेज इंडेक्स नहीं होता।"
       ]
     },
-    "fit": {
-      "residential": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      },
-      "commercial": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      },
-      "investment": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      }
-    },
     "score": 78,
     "sources": [
       {
@@ -265,8 +248,9 @@
     ],
     "updatedAt": "2026-09-18",
     "todo": [
-      "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative, fit and score are placeholders by price band",
-      "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages"
+      "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative and score are placeholders by price band",
+      "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages",
+      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder."
     ],
     "rateRefs": [
       {
@@ -309,23 +293,6 @@
         "प्लेसहोल्डर (ड्राफ़्ट): राम पथ, अयोध्या की Sadar तहसील का व्यावसायिक इलाक़ा है। यहाँ दिखाए गए सर्किल रेट, माँगा जा रहा दाम और भू-उपयोग दाम श्रेणी के अनुसार नमूना मान हैं, स्रोत से लिए आँकड़े नहीं। आईजीआरएसयूपी सूची और ब्रोकर के अवलोकन के साथ रिकॉर्ड लाइव होने तक यह पेज इंडेक्स नहीं होता।"
       ]
     },
-    "fit": {
-      "residential": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      },
-      "commercial": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      },
-      "investment": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      }
-    },
     "score": 78,
     "sources": [
       {
@@ -336,8 +303,9 @@
     ],
     "updatedAt": "2026-09-18",
     "todo": [
-      "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative, fit and score are placeholders by price band",
-      "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages"
+      "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative and score are placeholders by price band",
+      "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages",
+      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder."
     ]
   },
   {
@@ -375,23 +343,6 @@
         "प्लेसहोल्डर (ड्राफ़्ट): धर्म पथ, अयोध्या की Sadar तहसील का व्यावसायिक इलाक़ा है। यहाँ दिखाए गए सर्किल रेट, माँगा जा रहा दाम और भू-उपयोग दाम श्रेणी के अनुसार नमूना मान हैं, स्रोत से लिए आँकड़े नहीं। आईजीआरएसयूपी सूची और ब्रोकर के अवलोकन के साथ रिकॉर्ड लाइव होने तक यह पेज इंडेक्स नहीं होता।"
       ]
     },
-    "fit": {
-      "residential": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      },
-      "commercial": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      },
-      "investment": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      }
-    },
     "score": 78,
     "sources": [
       {
@@ -402,8 +353,9 @@
     ],
     "updatedAt": "2026-09-18",
     "todo": [
-      "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative, fit and score are placeholders by price band",
-      "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages"
+      "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative and score are placeholders by price band",
+      "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages",
+      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder."
     ]
   },
   {
@@ -441,23 +393,6 @@
         "प्लेसहोल्डर (ड्राफ़्ट): भक्ति पथ, अयोध्या की Sadar तहसील का व्यावसायिक इलाक़ा है। यहाँ दिखाए गए सर्किल रेट, माँगा जा रहा दाम और भू-उपयोग दाम श्रेणी के अनुसार नमूना मान हैं, स्रोत से लिए आँकड़े नहीं। आईजीआरएसयूपी सूची और ब्रोकर के अवलोकन के साथ रिकॉर्ड लाइव होने तक यह पेज इंडेक्स नहीं होता।"
       ]
     },
-    "fit": {
-      "residential": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      },
-      "commercial": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      },
-      "investment": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      }
-    },
     "score": 78,
     "sources": [
       {
@@ -468,8 +403,9 @@
     ],
     "updatedAt": "2026-09-18",
     "todo": [
-      "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative, fit and score are placeholders by price band",
-      "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages"
+      "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative and score are placeholders by price band",
+      "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages",
+      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder."
     ]
   },
   {
@@ -499,23 +435,6 @@
         "प्लेसहोल्डर (ड्राफ़्ट): सहादतगंज, अयोध्या की Sadar तहसील का मिश्रित इलाक़ा है। यहाँ दिखाए गए सर्किल रेट, माँगा जा रहा दाम और भू-उपयोग दाम श्रेणी के अनुसार नमूना मान हैं, स्रोत से लिए आँकड़े नहीं। आईजीआरएसयूपी सूची और ब्रोकर के अवलोकन के साथ रिकॉर्ड लाइव होने तक यह पेज इंडेक्स नहीं होता।"
       ]
     },
-    "fit": {
-      "residential": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      },
-      "commercial": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      },
-      "investment": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      }
-    },
     "score": 70,
     "sources": [
       {
@@ -526,8 +445,9 @@
     ],
     "updatedAt": "2026-09-18",
     "todo": [
-      "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative, fit and score are placeholders by price band",
-      "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages"
+      "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative and score are placeholders by price band",
+      "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages",
+      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder."
     ],
     "rateRefs": [
       {
@@ -562,23 +482,6 @@
         "प्लेसहोल्डर (ड्राफ़्ट): रिकाबगंज, अयोध्या की Sadar तहसील का मिश्रित इलाक़ा है। यहाँ दिखाए गए सर्किल रेट, माँगा जा रहा दाम और भू-उपयोग दाम श्रेणी के अनुसार नमूना मान हैं, स्रोत से लिए आँकड़े नहीं। आईजीआरएसयूपी सूची और ब्रोकर के अवलोकन के साथ रिकॉर्ड लाइव होने तक यह पेज इंडेक्स नहीं होता।"
       ]
     },
-    "fit": {
-      "residential": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      },
-      "commercial": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      },
-      "investment": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      }
-    },
     "score": 70,
     "sources": [
       {
@@ -589,8 +492,9 @@
     ],
     "updatedAt": "2026-09-18",
     "todo": [
-      "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative, fit and score are placeholders by price band",
-      "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages"
+      "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative and score are placeholders by price band",
+      "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages",
+      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder."
     ],
     "rateRefs": [
       {
@@ -625,23 +529,6 @@
         "प्लेसहोल्डर (ड्राफ़्ट): देवकाली, अयोध्या की Sadar तहसील का रिहायशी इलाक़ा है। यहाँ दिखाए गए सर्किल रेट, माँगा जा रहा दाम और भू-उपयोग दाम श्रेणी के अनुसार नमूना मान हैं, स्रोत से लिए आँकड़े नहीं। आईजीआरएसयूपी सूची और ब्रोकर के अवलोकन के साथ रिकॉर्ड लाइव होने तक यह पेज इंडेक्स नहीं होता।"
       ]
     },
-    "fit": {
-      "residential": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      },
-      "commercial": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      },
-      "investment": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      }
-    },
     "score": 62,
     "sources": [
       {
@@ -652,8 +539,9 @@
     ],
     "updatedAt": "2026-09-18",
     "todo": [
-      "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative, fit and score are placeholders by price band",
-      "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages"
+      "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative and score are placeholders by price band",
+      "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages",
+      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder."
     ],
     "rateRefs": [
       {
@@ -705,23 +593,6 @@
         "प्लेसहोल्डर (ड्राफ़्ट): रानोपाली, अयोध्या की Sadar तहसील का रिहायशी इलाक़ा है। यहाँ दिखाए गए सर्किल रेट, माँगा जा रहा दाम और भू-उपयोग दाम श्रेणी के अनुसार नमूना मान हैं, स्रोत से लिए आँकड़े नहीं। आईजीआरएसयूपी सूची और ब्रोकर के अवलोकन के साथ रिकॉर्ड लाइव होने तक यह पेज इंडेक्स नहीं होता।"
       ]
     },
-    "fit": {
-      "residential": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      },
-      "commercial": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      },
-      "investment": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      }
-    },
     "score": 62,
     "sources": [
       {
@@ -732,8 +603,9 @@
     ],
     "updatedAt": "2026-09-18",
     "todo": [
-      "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative, fit and score are placeholders by price band",
-      "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages"
+      "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative and score are placeholders by price band",
+      "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages",
+      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder."
     ],
     "rateRefs": [
       {
@@ -802,23 +674,6 @@
         "प्लेसहोल्डर (ड्राफ़्ट): अयोध्या बाईपास (एनएच-27), अयोध्या की Sadar तहसील का व्यावसायिक इलाक़ा है। यहाँ दिखाए गए सर्किल रेट, माँगा जा रहा दाम और भू-उपयोग दाम श्रेणी के अनुसार नमूना मान हैं, स्रोत से लिए आँकड़े नहीं। आईजीआरएसयूपी सूची और ब्रोकर के अवलोकन के साथ रिकॉर्ड लाइव होने तक यह पेज इंडेक्स नहीं होता।"
       ]
     },
-    "fit": {
-      "residential": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      },
-      "commercial": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      },
-      "investment": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      }
-    },
     "score": 62,
     "sources": [
       {
@@ -829,8 +684,9 @@
     ],
     "updatedAt": "2026-09-18",
     "todo": [
-      "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative, fit and score are placeholders by price band",
-      "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages"
+      "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative and score are placeholders by price band",
+      "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages",
+      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder."
     ]
   },
   {
@@ -868,23 +724,6 @@
         "प्लेसहोल्डर (ड्राफ़्ट): एयरपोर्ट रोड, अयोध्या की Sadar तहसील का मिश्रित इलाक़ा है। यहाँ दिखाए गए सर्किल रेट, माँगा जा रहा दाम और भू-उपयोग दाम श्रेणी के अनुसार नमूना मान हैं, स्रोत से लिए आँकड़े नहीं। आईजीआरएसयूपी सूची और ब्रोकर के अवलोकन के साथ रिकॉर्ड लाइव होने तक यह पेज इंडेक्स नहीं होता।"
       ]
     },
-    "fit": {
-      "residential": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      },
-      "commercial": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      },
-      "investment": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      }
-    },
     "score": 70,
     "sources": [
       {
@@ -895,8 +734,9 @@
     ],
     "updatedAt": "2026-09-18",
     "todo": [
-      "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative, fit and score are placeholders by price band",
-      "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages"
+      "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative and score are placeholders by price band",
+      "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages",
+      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder."
     ]
   },
   {
@@ -934,23 +774,6 @@
         "प्लेसहोल्डर (ड्राफ़्ट): लखनऊ रोड, अयोध्या की Sadar तहसील का रिहायशी इलाक़ा है। यहाँ दिखाए गए सर्किल रेट, माँगा जा रहा दाम और भू-उपयोग दाम श्रेणी के अनुसार नमूना मान हैं, स्रोत से लिए आँकड़े नहीं। आईजीआरएसयूपी सूची और ब्रोकर के अवलोकन के साथ रिकॉर्ड लाइव होने तक यह पेज इंडेक्स नहीं होता।"
       ]
     },
-    "fit": {
-      "residential": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      },
-      "commercial": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      },
-      "investment": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      }
-    },
     "score": 62,
     "sources": [
       {
@@ -961,8 +784,9 @@
     ],
     "updatedAt": "2026-09-18",
     "todo": [
-      "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative, fit and score are placeholders by price band",
-      "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages"
+      "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative and score are placeholders by price band",
+      "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages",
+      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder."
     ]
   },
   {
@@ -994,23 +818,6 @@
         "यहाँ प्लॉट का फ़र्क़ मोहल्ले से नहीं, सड़क से पड़ता है। उसी सूची में कटरा गोशाईगंज से गुज़रने वाली अकबरपुर रोड की पट्टी ₹12,300 से ₹16,500 प्रति वर्ग मीटर पर है — अंदर की दर से लगभग दोगुनी — और उसके साथ बाला पैकौली रोड भी। ज़मीन से छह गुना दाम पर दुकान, यह चलती हुई मंडी वाले क़स्बे की बनावट है, किसी रिहायशी छोर की नहीं।"
       ]
     },
-    "fit": {
-      "residential": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      },
-      "commercial": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      },
-      "investment": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      }
-    },
     "score": 52,
     "sources": [
       {
@@ -1021,10 +828,11 @@
     ],
     "updatedAt": "2026-09-23",
     "todo": [
-      "Draft seed record: the asking range, fit ratings and score are still placeholders by price band, not sourced figures.",
+      "Draft seed record: the asking range and score are still placeholders by price band, not sourced figures.",
       "Upgrade status to live only with the ADA Master Plan land use, drive times, and the broker's own reading of the market in both languages. The narrative here describes what the 2025 list shows and nothing beyond it.",
       "Seed record said tehsil Bikapur; corrected to Sadar against the 2025-06-07 list, where गोशाईगंज is the टाउन एरिया ward in the Sadar SRO.",
-      "landUse was 'agricultural', which is wrong for a town area; set to 'mixed' from the list. Confirm against the master plan and update landUseSource."
+      "landUse was 'agricultural', which is wrong for a town area; set to 'mixed' from the list. Confirm against the master plan and update landUseSource.",
+      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder."
     ],
     "rateRefs": [
       {
@@ -1117,23 +925,6 @@
         "प्लेसहोल्डर (ड्राफ़्ट): बीकापुर रोड, अयोध्या की Bikapur तहसील का कृषि इलाक़ा है। यहाँ दिखाए गए सर्किल रेट, माँगा जा रहा दाम और भू-उपयोग दाम श्रेणी के अनुसार नमूना मान हैं, स्रोत से लिए आँकड़े नहीं। आईजीआरएसयूपी सूची और ब्रोकर के अवलोकन के साथ रिकॉर्ड लाइव होने तक यह पेज इंडेक्स नहीं होता।"
       ]
     },
-    "fit": {
-      "residential": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      },
-      "commercial": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      },
-      "investment": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      }
-    },
     "score": 52,
     "sources": [
       {
@@ -1144,8 +935,9 @@
     ],
     "updatedAt": "2026-09-18",
     "todo": [
-      "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative, fit and score are placeholders by price band",
-      "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages"
+      "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative and score are placeholders by price band",
+      "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages",
+      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder."
     ]
   },
   {
@@ -1175,23 +967,6 @@
         "प्लेसहोल्डर (ड्राफ़्ट): सोहावल, अयोध्या की Sohawal तहसील का कृषि इलाक़ा है। यहाँ दिखाए गए सर्किल रेट, माँगा जा रहा दाम और भू-उपयोग दाम श्रेणी के अनुसार नमूना मान हैं, स्रोत से लिए आँकड़े नहीं। आईजीआरएसयूपी सूची और ब्रोकर के अवलोकन के साथ रिकॉर्ड लाइव होने तक यह पेज इंडेक्स नहीं होता।"
       ]
     },
-    "fit": {
-      "residential": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      },
-      "commercial": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      },
-      "investment": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      }
-    },
     "score": 52,
     "sources": [
       {
@@ -1202,8 +977,9 @@
     ],
     "updatedAt": "2026-09-18",
     "todo": [
-      "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative, fit and score are placeholders by price band",
-      "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages"
+      "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative and score are placeholders by price band",
+      "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages",
+      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder."
     ],
     "rateRefs": [
       {
@@ -1246,23 +1022,6 @@
         "प्लेसहोल्डर (ड्राफ़्ट): मसौधा, अयोध्या की Sadar तहसील का कृषि इलाक़ा है। यहाँ दिखाए गए सर्किल रेट, माँगा जा रहा दाम और भू-उपयोग दाम श्रेणी के अनुसार नमूना मान हैं, स्रोत से लिए आँकड़े नहीं। आईजीआरएसयूपी सूची और ब्रोकर के अवलोकन के साथ रिकॉर्ड लाइव होने तक यह पेज इंडेक्स नहीं होता।"
       ]
     },
-    "fit": {
-      "residential": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      },
-      "commercial": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      },
-      "investment": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      }
-    },
     "score": 52,
     "sources": [
       {
@@ -1273,8 +1032,9 @@
     ],
     "updatedAt": "2026-09-18",
     "todo": [
-      "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative, fit and score are placeholders by price band",
-      "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages"
+      "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative and score are placeholders by price band",
+      "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages",
+      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder."
     ]
   },
   {
@@ -1312,23 +1072,6 @@
         "प्लेसहोल्डर (ड्राफ़्ट): बरुण बाईपास, अयोध्या की Sadar तहसील का मिश्रित इलाक़ा है। यहाँ दिखाए गए सर्किल रेट, माँगा जा रहा दाम और भू-उपयोग दाम श्रेणी के अनुसार नमूना मान हैं, स्रोत से लिए आँकड़े नहीं। आईजीआरएसयूपी सूची और ब्रोकर के अवलोकन के साथ रिकॉर्ड लाइव होने तक यह पेज इंडेक्स नहीं होता।"
       ]
     },
-    "fit": {
-      "residential": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      },
-      "commercial": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      },
-      "investment": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      }
-    },
     "score": 62,
     "sources": [
       {
@@ -1339,8 +1082,9 @@
     ],
     "updatedAt": "2026-09-18",
     "todo": [
-      "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative, fit and score are placeholders by price band",
-      "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages"
+      "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative and score are placeholders by price band",
+      "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages",
+      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder."
     ]
   },
   {
@@ -1378,23 +1122,6 @@
         "प्लेसहोल्डर (ड्राफ़्ट): महोबरा, अयोध्या की Sadar तहसील का कृषि इलाक़ा है। यहाँ दिखाए गए सर्किल रेट, माँगा जा रहा दाम और भू-उपयोग दाम श्रेणी के अनुसार नमूना मान हैं, स्रोत से लिए आँकड़े नहीं। आईजीआरएसयूपी सूची और ब्रोकर के अवलोकन के साथ रिकॉर्ड लाइव होने तक यह पेज इंडेक्स नहीं होता।"
       ]
     },
-    "fit": {
-      "residential": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      },
-      "commercial": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      },
-      "investment": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      }
-    },
     "score": 52,
     "sources": [
       {
@@ -1405,8 +1132,9 @@
     ],
     "updatedAt": "2026-09-18",
     "todo": [
-      "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative, fit and score are placeholders by price band",
-      "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages"
+      "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative and score are placeholders by price band",
+      "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages",
+      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder."
     ]
   },
   {
@@ -1436,23 +1164,6 @@
         "प्लेसहोल्डर (ड्राफ़्ट): दर्शन नगर, अयोध्या की Sadar तहसील का रिहायशी इलाक़ा है। यहाँ दिखाए गए सर्किल रेट, माँगा जा रहा दाम और भू-उपयोग दाम श्रेणी के अनुसार नमूना मान हैं, स्रोत से लिए आँकड़े नहीं। आईजीआरएसयूपी सूची और ब्रोकर के अवलोकन के साथ रिकॉर्ड लाइव होने तक यह पेज इंडेक्स नहीं होता।"
       ]
     },
-    "fit": {
-      "residential": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      },
-      "commercial": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      },
-      "investment": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      }
-    },
     "score": 52,
     "sources": [
       {
@@ -1463,8 +1174,9 @@
     ],
     "updatedAt": "2026-09-18",
     "todo": [
-      "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative, fit and score are placeholders by price band",
-      "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages"
+      "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative and score are placeholders by price band",
+      "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages",
+      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder."
     ],
     "rateRefs": [
       {
@@ -1507,23 +1219,6 @@
         "प्लेसहोल्डर (ड्राफ़्ट): भदरसा रोड, अयोध्या की Sadar तहसील का कृषि इलाक़ा है। यहाँ दिखाए गए सर्किल रेट, माँगा जा रहा दाम और भू-उपयोग दाम श्रेणी के अनुसार नमूना मान हैं, स्रोत से लिए आँकड़े नहीं। आईजीआरएसयूपी सूची और ब्रोकर के अवलोकन के साथ रिकॉर्ड लाइव होने तक यह पेज इंडेक्स नहीं होता।"
       ]
     },
-    "fit": {
-      "residential": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      },
-      "commercial": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      },
-      "investment": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      }
-    },
     "score": 52,
     "sources": [
       {
@@ -1534,8 +1229,9 @@
     ],
     "updatedAt": "2026-09-18",
     "todo": [
-      "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative, fit and score are placeholders by price band",
-      "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages"
+      "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative and score are placeholders by price band",
+      "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages",
+      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder."
     ]
   },
   {
@@ -1573,23 +1269,6 @@
         "प्लेसहोल्डर (ड्राफ़्ट): रुदौली रोड, अयोध्या की Sohawal तहसील का कृषि इलाक़ा है। यहाँ दिखाए गए सर्किल रेट, माँगा जा रहा दाम और भू-उपयोग दाम श्रेणी के अनुसार नमूना मान हैं, स्रोत से लिए आँकड़े नहीं। आईजीआरएसयूपी सूची और ब्रोकर के अवलोकन के साथ रिकॉर्ड लाइव होने तक यह पेज इंडेक्स नहीं होता।"
       ]
     },
-    "fit": {
-      "residential": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      },
-      "commercial": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      },
-      "investment": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      }
-    },
     "score": 52,
     "sources": [
       {
@@ -1600,8 +1279,9 @@
     ],
     "updatedAt": "2026-09-18",
     "todo": [
-      "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative, fit and score are placeholders by price band",
-      "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages"
+      "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative and score are placeholders by price band",
+      "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages",
+      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder."
     ]
   },
   {
@@ -1639,23 +1319,6 @@
         "प्लेसहोल्डर (ड्राफ़्ट): कुमारगंज रोड, अयोध्या की Bikapur तहसील का कृषि इलाक़ा है। यहाँ दिखाए गए सर्किल रेट, माँगा जा रहा दाम और भू-उपयोग दाम श्रेणी के अनुसार नमूना मान हैं, स्रोत से लिए आँकड़े नहीं। आईजीआरएसयूपी सूची और ब्रोकर के अवलोकन के साथ रिकॉर्ड लाइव होने तक यह पेज इंडेक्स नहीं होता।"
       ]
     },
-    "fit": {
-      "residential": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      },
-      "commercial": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      },
-      "investment": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      }
-    },
     "score": 52,
     "sources": [
       {
@@ -1666,8 +1329,9 @@
     ],
     "updatedAt": "2026-09-18",
     "todo": [
-      "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative, fit and score are placeholders by price band",
-      "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages"
+      "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative and score are placeholders by price band",
+      "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages",
+      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder."
     ]
   },
   {
@@ -1705,23 +1369,6 @@
         "प्लेसहोल्डर (ड्राफ़्ट): गोमती नगर, लखनऊ की Sadar तहसील का रिहायशी इलाक़ा है। यहाँ दिखाए गए सर्किल रेट, माँगा जा रहा दाम और भू-उपयोग दाम श्रेणी के अनुसार नमूना मान हैं, स्रोत से लिए आँकड़े नहीं। आईजीआरएसयूपी सूची और ब्रोकर के अवलोकन के साथ रिकॉर्ड लाइव होने तक यह पेज इंडेक्स नहीं होता।"
       ]
     },
-    "fit": {
-      "residential": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      },
-      "commercial": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      },
-      "investment": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      }
-    },
     "score": 78,
     "sources": [
       {
@@ -1732,8 +1379,9 @@
     ],
     "updatedAt": "2026-09-18",
     "todo": [
-      "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative, fit and score are placeholders by price band",
-      "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages"
+      "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative and score are placeholders by price band",
+      "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages",
+      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder."
     ]
   },
   {
@@ -1771,23 +1419,6 @@
         "प्लेसहोल्डर (ड्राफ़्ट): गोमती नगर एक्सटेंशन, लखनऊ की Sadar तहसील का रिहायशी इलाक़ा है। यहाँ दिखाए गए सर्किल रेट, माँगा जा रहा दाम और भू-उपयोग दाम श्रेणी के अनुसार नमूना मान हैं, स्रोत से लिए आँकड़े नहीं। आईजीआरएसयूपी सूची और ब्रोकर के अवलोकन के साथ रिकॉर्ड लाइव होने तक यह पेज इंडेक्स नहीं होता।"
       ]
     },
-    "fit": {
-      "residential": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      },
-      "commercial": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      },
-      "investment": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      }
-    },
     "score": 70,
     "sources": [
       {
@@ -1798,8 +1429,9 @@
     ],
     "updatedAt": "2026-09-18",
     "todo": [
-      "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative, fit and score are placeholders by price band",
-      "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages"
+      "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative and score are placeholders by price band",
+      "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages",
+      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder."
     ]
   },
   {
@@ -1837,23 +1469,6 @@
         "प्लेसहोल्डर (ड्राफ़्ट): सुल्तानपुर रोड, लखनऊ की Mohanlalganj तहसील का रिहायशी इलाक़ा है। यहाँ दिखाए गए सर्किल रेट, माँगा जा रहा दाम और भू-उपयोग दाम श्रेणी के अनुसार नमूना मान हैं, स्रोत से लिए आँकड़े नहीं। आईजीआरएसयूपी सूची और ब्रोकर के अवलोकन के साथ रिकॉर्ड लाइव होने तक यह पेज इंडेक्स नहीं होता।"
       ]
     },
-    "fit": {
-      "residential": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      },
-      "commercial": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      },
-      "investment": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      }
-    },
     "score": 70,
     "sources": [
       {
@@ -1864,8 +1479,9 @@
     ],
     "updatedAt": "2026-09-18",
     "todo": [
-      "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative, fit and score are placeholders by price band",
-      "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages"
+      "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative and score are placeholders by price band",
+      "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages",
+      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder."
     ]
   },
   {
@@ -1903,23 +1519,6 @@
         "प्लेसहोल्डर (ड्राफ़्ट): शहीद पथ, लखनऊ की Sadar तहसील का मिश्रित इलाक़ा है। यहाँ दिखाए गए सर्किल रेट, माँगा जा रहा दाम और भू-उपयोग दाम श्रेणी के अनुसार नमूना मान हैं, स्रोत से लिए आँकड़े नहीं। आईजीआरएसयूपी सूची और ब्रोकर के अवलोकन के साथ रिकॉर्ड लाइव होने तक यह पेज इंडेक्स नहीं होता।"
       ]
     },
-    "fit": {
-      "residential": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      },
-      "commercial": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      },
-      "investment": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      }
-    },
     "score": 78,
     "sources": [
       {
@@ -1930,8 +1529,9 @@
     ],
     "updatedAt": "2026-09-18",
     "todo": [
-      "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative, fit and score are placeholders by price band",
-      "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages"
+      "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative and score are placeholders by price band",
+      "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages",
+      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder."
     ]
   },
   {
@@ -1969,23 +1569,6 @@
         "प्लेसहोल्डर (ड्राफ़्ट): रायबरेली रोड, लखनऊ की Mohanlalganj तहसील का रिहायशी इलाक़ा है। यहाँ दिखाए गए सर्किल रेट, माँगा जा रहा दाम और भू-उपयोग दाम श्रेणी के अनुसार नमूना मान हैं, स्रोत से लिए आँकड़े नहीं। आईजीआरएसयूपी सूची और ब्रोकर के अवलोकन के साथ रिकॉर्ड लाइव होने तक यह पेज इंडेक्स नहीं होता।"
       ]
     },
-    "fit": {
-      "residential": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      },
-      "commercial": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      },
-      "investment": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      }
-    },
     "score": 62,
     "sources": [
       {
@@ -1996,8 +1579,9 @@
     ],
     "updatedAt": "2026-09-18",
     "todo": [
-      "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative, fit and score are placeholders by price band",
-      "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages"
+      "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative and score are placeholders by price band",
+      "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages",
+      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder."
     ]
   },
   {
@@ -2035,23 +1619,6 @@
         "प्लेसहोल्डर (ड्राफ़्ट): कानपुर रोड, लखनऊ की Sarojini Nagar तहसील का मिश्रित इलाक़ा है। यहाँ दिखाए गए सर्किल रेट, माँगा जा रहा दाम और भू-उपयोग दाम श्रेणी के अनुसार नमूना मान हैं, स्रोत से लिए आँकड़े नहीं। आईजीआरएसयूपी सूची और ब्रोकर के अवलोकन के साथ रिकॉर्ड लाइव होने तक यह पेज इंडेक्स नहीं होता।"
       ]
     },
-    "fit": {
-      "residential": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      },
-      "commercial": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      },
-      "investment": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      }
-    },
     "score": 62,
     "sources": [
       {
@@ -2062,8 +1629,9 @@
     ],
     "updatedAt": "2026-09-18",
     "todo": [
-      "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative, fit and score are placeholders by price band",
-      "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages"
+      "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative and score are placeholders by price band",
+      "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages",
+      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder."
     ]
   },
   {
@@ -2101,23 +1669,6 @@
         "प्लेसहोल्डर (ड्राफ़्ट): मोहान रोड, लखनऊ की Sadar तहसील का रिहायशी इलाक़ा है। यहाँ दिखाए गए सर्किल रेट, माँगा जा रहा दाम और भू-उपयोग दाम श्रेणी के अनुसार नमूना मान हैं, स्रोत से लिए आँकड़े नहीं। आईजीआरएसयूपी सूची और ब्रोकर के अवलोकन के साथ रिकॉर्ड लाइव होने तक यह पेज इंडेक्स नहीं होता।"
       ]
     },
-    "fit": {
-      "residential": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      },
-      "commercial": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      },
-      "investment": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      }
-    },
     "score": 52,
     "sources": [
       {
@@ -2128,8 +1679,9 @@
     ],
     "updatedAt": "2026-09-18",
     "todo": [
-      "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative, fit and score are placeholders by price band",
-      "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages"
+      "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative and score are placeholders by price band",
+      "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages",
+      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder."
     ]
   },
   {
@@ -2167,23 +1719,6 @@
         "प्लेसहोल्डर (ड्राफ़्ट): देवा रोड, लखनऊ की Sadar तहसील का रिहायशी इलाक़ा है। यहाँ दिखाए गए सर्किल रेट, माँगा जा रहा दाम और भू-उपयोग दाम श्रेणी के अनुसार नमूना मान हैं, स्रोत से लिए आँकड़े नहीं। आईजीआरएसयूपी सूची और ब्रोकर के अवलोकन के साथ रिकॉर्ड लाइव होने तक यह पेज इंडेक्स नहीं होता।"
       ]
     },
-    "fit": {
-      "residential": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      },
-      "commercial": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      },
-      "investment": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      }
-    },
     "score": 62,
     "sources": [
       {
@@ -2194,8 +1729,9 @@
     ],
     "updatedAt": "2026-09-18",
     "todo": [
-      "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative, fit and score are placeholders by price band",
-      "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages"
+      "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative and score are placeholders by price band",
+      "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages",
+      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder."
     ]
   },
   {
@@ -2233,23 +1769,6 @@
         "प्लेसहोल्डर (ड्राफ़्ट): फैजाबाद रोड (चिनहट), लखनऊ की Sadar तहसील का मिश्रित इलाक़ा है। यहाँ दिखाए गए सर्किल रेट, माँगा जा रहा दाम और भू-उपयोग दाम श्रेणी के अनुसार नमूना मान हैं, स्रोत से लिए आँकड़े नहीं। आईजीआरएसयूपी सूची और ब्रोकर के अवलोकन के साथ रिकॉर्ड लाइव होने तक यह पेज इंडेक्स नहीं होता।"
       ]
     },
-    "fit": {
-      "residential": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      },
-      "commercial": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      },
-      "investment": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      }
-    },
     "score": 70,
     "sources": [
       {
@@ -2260,8 +1779,9 @@
     ],
     "updatedAt": "2026-09-18",
     "todo": [
-      "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative, fit and score are placeholders by price band",
-      "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages"
+      "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative and score are placeholders by price band",
+      "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages",
+      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder."
     ]
   },
   {
@@ -2299,23 +1819,6 @@
         "प्लेसहोल्डर (ड्राफ़्ट): सीतापुर रोड, लखनऊ की Sadar तहसील का रिहायशी इलाक़ा है। यहाँ दिखाए गए सर्किल रेट, माँगा जा रहा दाम और भू-उपयोग दाम श्रेणी के अनुसार नमूना मान हैं, स्रोत से लिए आँकड़े नहीं। आईजीआरएसयूपी सूची और ब्रोकर के अवलोकन के साथ रिकॉर्ड लाइव होने तक यह पेज इंडेक्स नहीं होता।"
       ]
     },
-    "fit": {
-      "residential": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      },
-      "commercial": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      },
-      "investment": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      }
-    },
     "score": 62,
     "sources": [
       {
@@ -2326,8 +1829,9 @@
     ],
     "updatedAt": "2026-09-18",
     "todo": [
-      "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative, fit and score are placeholders by price band",
-      "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages"
+      "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative and score are placeholders by price band",
+      "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages",
+      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder."
     ]
   },
   {
@@ -2365,23 +1869,6 @@
         "प्लेसहोल्डर (ड्राफ़्ट): हरदोई रोड, लखनऊ की Sadar तहसील का रिहायशी इलाक़ा है। यहाँ दिखाए गए सर्किल रेट, माँगा जा रहा दाम और भू-उपयोग दाम श्रेणी के अनुसार नमूना मान हैं, स्रोत से लिए आँकड़े नहीं। आईजीआरएसयूपी सूची और ब्रोकर के अवलोकन के साथ रिकॉर्ड लाइव होने तक यह पेज इंडेक्स नहीं होता।"
       ]
     },
-    "fit": {
-      "residential": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      },
-      "commercial": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      },
-      "investment": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      }
-    },
     "score": 52,
     "sources": [
       {
@@ -2392,8 +1879,9 @@
     ],
     "updatedAt": "2026-09-18",
     "todo": [
-      "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative, fit and score are placeholders by price band",
-      "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages"
+      "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative and score are placeholders by price band",
+      "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages",
+      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder."
     ]
   },
   {
@@ -2431,23 +1919,6 @@
         "प्लेसहोल्डर (ड्राफ़्ट): कुर्सी रोड, लखनऊ की Bakshi Ka Talab तहसील का रिहायशी इलाक़ा है। यहाँ दिखाए गए सर्किल रेट, माँगा जा रहा दाम और भू-उपयोग दाम श्रेणी के अनुसार नमूना मान हैं, स्रोत से लिए आँकड़े नहीं। आईजीआरएसयूपी सूची और ब्रोकर के अवलोकन के साथ रिकॉर्ड लाइव होने तक यह पेज इंडेक्स नहीं होता।"
       ]
     },
-    "fit": {
-      "residential": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      },
-      "commercial": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      },
-      "investment": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      }
-    },
     "score": 62,
     "sources": [
       {
@@ -2458,8 +1929,9 @@
     ],
     "updatedAt": "2026-09-18",
     "todo": [
-      "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative, fit and score are placeholders by price band",
-      "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages"
+      "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative and score are placeholders by price band",
+      "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages",
+      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder."
     ]
   },
   {
@@ -2497,23 +1969,6 @@
         "प्लेसहोल्डर (ड्राफ़्ट): आईआईएम रोड, लखनऊ की Sadar तहसील का रिहायशी इलाक़ा है। यहाँ दिखाए गए सर्किल रेट, माँगा जा रहा दाम और भू-उपयोग दाम श्रेणी के अनुसार नमूना मान हैं, स्रोत से लिए आँकड़े नहीं। आईजीआरएसयूपी सूची और ब्रोकर के अवलोकन के साथ रिकॉर्ड लाइव होने तक यह पेज इंडेक्स नहीं होता।"
       ]
     },
-    "fit": {
-      "residential": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      },
-      "commercial": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      },
-      "investment": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      }
-    },
     "score": 62,
     "sources": [
       {
@@ -2524,8 +1979,9 @@
     ],
     "updatedAt": "2026-09-18",
     "todo": [
-      "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative, fit and score are placeholders by price band",
-      "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages"
+      "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative and score are placeholders by price band",
+      "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages",
+      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder."
     ]
   },
   {
@@ -2563,23 +2019,6 @@
         "प्लेसहोल्डर (ड्राफ़्ट): अमौसी / एयरपोर्ट, लखनऊ की Sarojini Nagar तहसील का व्यावसायिक इलाक़ा है। यहाँ दिखाए गए सर्किल रेट, माँगा जा रहा दाम और भू-उपयोग दाम श्रेणी के अनुसार नमूना मान हैं, स्रोत से लिए आँकड़े नहीं। आईजीआरएसयूपी सूची और ब्रोकर के अवलोकन के साथ रिकॉर्ड लाइव होने तक यह पेज इंडेक्स नहीं होता।"
       ]
     },
-    "fit": {
-      "residential": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      },
-      "commercial": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      },
-      "investment": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      }
-    },
     "score": 70,
     "sources": [
       {
@@ -2590,8 +2029,9 @@
     ],
     "updatedAt": "2026-09-18",
     "todo": [
-      "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative, fit and score are placeholders by price band",
-      "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages"
+      "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative and score are placeholders by price band",
+      "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages",
+      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder."
     ]
   },
   {
@@ -2629,23 +2069,6 @@
         "प्लेसहोल्डर (ड्राफ़्ट): सुशांत गोल्फ़ सिटी, लखनऊ की Mohanlalganj तहसील का रिहायशी इलाक़ा है। यहाँ दिखाए गए सर्किल रेट, माँगा जा रहा दाम और भू-उपयोग दाम श्रेणी के अनुसार नमूना मान हैं, स्रोत से लिए आँकड़े नहीं। आईजीआरएसयूपी सूची और ब्रोकर के अवलोकन के साथ रिकॉर्ड लाइव होने तक यह पेज इंडेक्स नहीं होता।"
       ]
     },
-    "fit": {
-      "residential": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      },
-      "commercial": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      },
-      "investment": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      }
-    },
     "score": 78,
     "sources": [
       {
@@ -2656,8 +2079,9 @@
     ],
     "updatedAt": "2026-09-18",
     "todo": [
-      "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative, fit and score are placeholders by price band",
-      "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages"
+      "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative and score are placeholders by price band",
+      "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages",
+      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder."
     ]
   },
   {
@@ -2695,23 +2119,6 @@
         "प्लेसहोल्डर (ड्राफ़्ट): वृंदावन योजना, लखनऊ की Mohanlalganj तहसील का रिहायशी इलाक़ा है। यहाँ दिखाए गए सर्किल रेट, माँगा जा रहा दाम और भू-उपयोग दाम श्रेणी के अनुसार नमूना मान हैं, स्रोत से लिए आँकड़े नहीं। आईजीआरएसयूपी सूची और ब्रोकर के अवलोकन के साथ रिकॉर्ड लाइव होने तक यह पेज इंडेक्स नहीं होता।"
       ]
     },
-    "fit": {
-      "residential": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      },
-      "commercial": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      },
-      "investment": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      }
-    },
     "score": 70,
     "sources": [
       {
@@ -2722,8 +2129,9 @@
     ],
     "updatedAt": "2026-09-18",
     "todo": [
-      "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative, fit and score are placeholders by price band",
-      "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages"
+      "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative and score are placeholders by price band",
+      "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages",
+      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder."
     ]
   },
   {
@@ -2761,23 +2169,6 @@
         "प्लेसहोल्डर (ड्राफ़्ट): जानकीपुरम, लखनऊ की Sadar तहसील का रिहायशी इलाक़ा है। यहाँ दिखाए गए सर्किल रेट, माँगा जा रहा दाम और भू-उपयोग दाम श्रेणी के अनुसार नमूना मान हैं, स्रोत से लिए आँकड़े नहीं। आईजीआरएसयूपी सूची और ब्रोकर के अवलोकन के साथ रिकॉर्ड लाइव होने तक यह पेज इंडेक्स नहीं होता।"
       ]
     },
-    "fit": {
-      "residential": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      },
-      "commercial": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      },
-      "investment": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      }
-    },
     "score": 70,
     "sources": [
       {
@@ -2788,8 +2179,9 @@
     ],
     "updatedAt": "2026-09-18",
     "todo": [
-      "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative, fit and score are placeholders by price band",
-      "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages"
+      "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative and score are placeholders by price band",
+      "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages",
+      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder."
     ]
   },
   {
@@ -2827,23 +2219,6 @@
         "प्लेसहोल्डर (ड्राफ़्ट): अलीगंज, लखनऊ की Sadar तहसील का रिहायशी इलाक़ा है। यहाँ दिखाए गए सर्किल रेट, माँगा जा रहा दाम और भू-उपयोग दाम श्रेणी के अनुसार नमूना मान हैं, स्रोत से लिए आँकड़े नहीं। आईजीआरएसयूपी सूची और ब्रोकर के अवलोकन के साथ रिकॉर्ड लाइव होने तक यह पेज इंडेक्स नहीं होता।"
       ]
     },
-    "fit": {
-      "residential": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      },
-      "commercial": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      },
-      "investment": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      }
-    },
     "score": 78,
     "sources": [
       {
@@ -2854,8 +2229,9 @@
     ],
     "updatedAt": "2026-09-18",
     "todo": [
-      "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative, fit and score are placeholders by price band",
-      "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages"
+      "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative and score are placeholders by price band",
+      "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages",
+      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder."
     ]
   },
   {
@@ -2893,23 +2269,6 @@
         "प्लेसहोल्डर (ड्राफ़्ट): इंदिरा नगर, लखनऊ की Sadar तहसील का रिहायशी इलाक़ा है। यहाँ दिखाए गए सर्किल रेट, माँगा जा रहा दाम और भू-उपयोग दाम श्रेणी के अनुसार नमूना मान हैं, स्रोत से लिए आँकड़े नहीं। आईजीआरएसयूपी सूची और ब्रोकर के अवलोकन के साथ रिकॉर्ड लाइव होने तक यह पेज इंडेक्स नहीं होता।"
       ]
     },
-    "fit": {
-      "residential": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      },
-      "commercial": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      },
-      "investment": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      }
-    },
     "score": 78,
     "sources": [
       {
@@ -2920,8 +2279,9 @@
     ],
     "updatedAt": "2026-09-18",
     "todo": [
-      "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative, fit and score are placeholders by price band",
-      "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages"
+      "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative and score are placeholders by price band",
+      "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages",
+      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder."
     ]
   },
   {
@@ -2959,23 +2319,6 @@
         "प्लेसहोल्डर (ड्राफ़्ट): चिनहट, लखनऊ की Sadar तहसील का मिश्रित इलाक़ा है। यहाँ दिखाए गए सर्किल रेट, माँगा जा रहा दाम और भू-उपयोग दाम श्रेणी के अनुसार नमूना मान हैं, स्रोत से लिए आँकड़े नहीं। आईजीआरएसयूपी सूची और ब्रोकर के अवलोकन के साथ रिकॉर्ड लाइव होने तक यह पेज इंडेक्स नहीं होता।"
       ]
     },
-    "fit": {
-      "residential": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      },
-      "commercial": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      },
-      "investment": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      }
-    },
     "score": 62,
     "sources": [
       {
@@ -2986,8 +2329,9 @@
     ],
     "updatedAt": "2026-09-18",
     "todo": [
-      "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative, fit and score are placeholders by price band",
-      "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages"
+      "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative and score are placeholders by price band",
+      "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages",
+      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder."
     ]
   },
   {
@@ -3025,23 +2369,6 @@
         "प्लेसहोल्डर (ड्राफ़्ट): मलिहाबाद रोड, लखनऊ की Malihabad तहसील का कृषि इलाक़ा है। यहाँ दिखाए गए सर्किल रेट, माँगा जा रहा दाम और भू-उपयोग दाम श्रेणी के अनुसार नमूना मान हैं, स्रोत से लिए आँकड़े नहीं। आईजीआरएसयूपी सूची और ब्रोकर के अवलोकन के साथ रिकॉर्ड लाइव होने तक यह पेज इंडेक्स नहीं होता।"
       ]
     },
-    "fit": {
-      "residential": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      },
-      "commercial": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      },
-      "investment": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      }
-    },
     "score": 52,
     "sources": [
       {
@@ -3052,8 +2379,9 @@
     ],
     "updatedAt": "2026-09-18",
     "todo": [
-      "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative, fit and score are placeholders by price band",
-      "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages"
+      "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative and score are placeholders by price band",
+      "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages",
+      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder."
     ]
   },
   {
@@ -3091,23 +2419,6 @@
         "प्लेसहोल्डर (ड्राफ़्ट): दुबग्गा, लखनऊ की Sadar तहसील का मिश्रित इलाक़ा है। यहाँ दिखाए गए सर्किल रेट, माँगा जा रहा दाम और भू-उपयोग दाम श्रेणी के अनुसार नमूना मान हैं, स्रोत से लिए आँकड़े नहीं। आईजीआरएसयूपी सूची और ब्रोकर के अवलोकन के साथ रिकॉर्ड लाइव होने तक यह पेज इंडेक्स नहीं होता।"
       ]
     },
-    "fit": {
-      "residential": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      },
-      "commercial": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      },
-      "investment": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      }
-    },
     "score": 52,
     "sources": [
       {
@@ -3118,8 +2429,9 @@
     ],
     "updatedAt": "2026-09-18",
     "todo": [
-      "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative, fit and score are placeholders by price band",
-      "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages"
+      "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative and score are placeholders by price band",
+      "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages",
+      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder."
     ]
   },
   {
@@ -3157,23 +2469,6 @@
         "प्लेसहोल्डर (ड्राफ़्ट): बिजनौर रोड, लखनऊ की Sarojini Nagar तहसील का रिहायशी इलाक़ा है। यहाँ दिखाए गए सर्किल रेट, माँगा जा रहा दाम और भू-उपयोग दाम श्रेणी के अनुसार नमूना मान हैं, स्रोत से लिए आँकड़े नहीं। आईजीआरएसयूपी सूची और ब्रोकर के अवलोकन के साथ रिकॉर्ड लाइव होने तक यह पेज इंडेक्स नहीं होता।"
       ]
     },
-    "fit": {
-      "residential": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      },
-      "commercial": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      },
-      "investment": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      }
-    },
     "score": 62,
     "sources": [
       {
@@ -3184,8 +2479,9 @@
     ],
     "updatedAt": "2026-09-18",
     "todo": [
-      "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative, fit and score are placeholders by price band",
-      "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages"
+      "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative and score are placeholders by price band",
+      "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages",
+      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder."
     ]
   },
   {
@@ -3223,23 +2519,6 @@
         "प्लेसहोल्डर (ड्राफ़्ट): आशियाना, लखनऊ की Sadar तहसील का रिहायशी इलाक़ा है। यहाँ दिखाए गए सर्किल रेट, माँगा जा रहा दाम और भू-उपयोग दाम श्रेणी के अनुसार नमूना मान हैं, स्रोत से लिए आँकड़े नहीं। आईजीआरएसयूपी सूची और ब्रोकर के अवलोकन के साथ रिकॉर्ड लाइव होने तक यह पेज इंडेक्स नहीं होता।"
       ]
     },
-    "fit": {
-      "residential": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      },
-      "commercial": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      },
-      "investment": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      }
-    },
     "score": 70,
     "sources": [
       {
@@ -3250,8 +2529,9 @@
     ],
     "updatedAt": "2026-09-18",
     "todo": [
-      "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative, fit and score are placeholders by price band",
-      "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages"
+      "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative and score are placeholders by price band",
+      "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages",
+      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder."
     ]
   },
   {
@@ -3289,23 +2569,6 @@
         "प्लेसहोल्डर (ड्राफ़्ट): आलमबाग, लखनऊ की Sadar तहसील का व्यावसायिक इलाक़ा है। यहाँ दिखाए गए सर्किल रेट, माँगा जा रहा दाम और भू-उपयोग दाम श्रेणी के अनुसार नमूना मान हैं, स्रोत से लिए आँकड़े नहीं। आईजीआरएसयूपी सूची और ब्रोकर के अवलोकन के साथ रिकॉर्ड लाइव होने तक यह पेज इंडेक्स नहीं होता।"
       ]
     },
-    "fit": {
-      "residential": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      },
-      "commercial": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      },
-      "investment": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      }
-    },
     "score": 70,
     "sources": [
       {
@@ -3316,8 +2579,9 @@
     ],
     "updatedAt": "2026-09-18",
     "todo": [
-      "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative, fit and score are placeholders by price band",
-      "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages"
+      "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative and score are placeholders by price band",
+      "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages",
+      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder."
     ]
   },
   {
@@ -3355,23 +2619,6 @@
         "प्लेसहोल्डर (ड्राफ़्ट): महानगर, लखनऊ की Sadar तहसील का रिहायशी इलाक़ा है। यहाँ दिखाए गए सर्किल रेट, माँगा जा रहा दाम और भू-उपयोग दाम श्रेणी के अनुसार नमूना मान हैं, स्रोत से लिए आँकड़े नहीं। आईजीआरएसयूपी सूची और ब्रोकर के अवलोकन के साथ रिकॉर्ड लाइव होने तक यह पेज इंडेक्स नहीं होता।"
       ]
     },
-    "fit": {
-      "residential": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      },
-      "commercial": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      },
-      "investment": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      }
-    },
     "score": 78,
     "sources": [
       {
@@ -3382,8 +2629,9 @@
     ],
     "updatedAt": "2026-09-18",
     "todo": [
-      "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative, fit and score are placeholders by price band",
-      "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages"
+      "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative and score are placeholders by price band",
+      "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages",
+      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder."
     ]
   },
   {
@@ -3421,23 +2669,6 @@
         "प्लेसहोल्डर (ड्राफ़्ट): हज़रतगंज, लखनऊ की Sadar तहसील का व्यावसायिक इलाक़ा है। यहाँ दिखाए गए सर्किल रेट, माँगा जा रहा दाम और भू-उपयोग दाम श्रेणी के अनुसार नमूना मान हैं, स्रोत से लिए आँकड़े नहीं। आईजीआरएसयूपी सूची और ब्रोकर के अवलोकन के साथ रिकॉर्ड लाइव होने तक यह पेज इंडेक्स नहीं होता।"
       ]
     },
-    "fit": {
-      "residential": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      },
-      "commercial": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      },
-      "investment": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      }
-    },
     "score": 78,
     "sources": [
       {
@@ -3448,8 +2679,9 @@
     ],
     "updatedAt": "2026-09-18",
     "todo": [
-      "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative, fit and score are placeholders by price band",
-      "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages"
+      "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative and score are placeholders by price band",
+      "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages",
+      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder."
     ]
   },
   {
@@ -3487,23 +2719,6 @@
         "प्लेसहोल्डर (ड्राफ़्ट): गोमती नगर विभूति खंड, लखनऊ की Sadar तहसील का व्यावसायिक इलाक़ा है। यहाँ दिखाए गए सर्किल रेट, माँगा जा रहा दाम और भू-उपयोग दाम श्रेणी के अनुसार नमूना मान हैं, स्रोत से लिए आँकड़े नहीं। आईजीआरएसयूपी सूची और ब्रोकर के अवलोकन के साथ रिकॉर्ड लाइव होने तक यह पेज इंडेक्स नहीं होता।"
       ]
     },
-    "fit": {
-      "residential": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      },
-      "commercial": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      },
-      "investment": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      }
-    },
     "score": 78,
     "sources": [
       {
@@ -3514,8 +2729,9 @@
     ],
     "updatedAt": "2026-09-18",
     "todo": [
-      "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative, fit and score are placeholders by price band",
-      "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages"
+      "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative and score are placeholders by price band",
+      "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages",
+      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder."
     ]
   },
   {
@@ -3553,23 +2769,6 @@
         "प्लेसहोल्डर (ड्राफ़्ट): गोमती नगर विपुल खंड, लखनऊ की Sadar तहसील का रिहायशी इलाक़ा है। यहाँ दिखाए गए सर्किल रेट, माँगा जा रहा दाम और भू-उपयोग दाम श्रेणी के अनुसार नमूना मान हैं, स्रोत से लिए आँकड़े नहीं। आईजीआरएसयूपी सूची और ब्रोकर के अवलोकन के साथ रिकॉर्ड लाइव होने तक यह पेज इंडेक्स नहीं होता।"
       ]
     },
-    "fit": {
-      "residential": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      },
-      "commercial": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      },
-      "investment": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      }
-    },
     "score": 78,
     "sources": [
       {
@@ -3580,8 +2779,9 @@
     ],
     "updatedAt": "2026-09-18",
     "todo": [
-      "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative, fit and score are placeholders by price band",
-      "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages"
+      "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative and score are placeholders by price band",
+      "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages",
+      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder."
     ]
   },
   {
@@ -3619,23 +2819,6 @@
         "प्लेसहोल्डर (ड्राफ़्ट): विकास नगर, लखनऊ की Sadar तहसील का रिहायशी इलाक़ा है। यहाँ दिखाए गए सर्किल रेट, माँगा जा रहा दाम और भू-उपयोग दाम श्रेणी के अनुसार नमूना मान हैं, स्रोत से लिए आँकड़े नहीं। आईजीआरएसयूपी सूची और ब्रोकर के अवलोकन के साथ रिकॉर्ड लाइव होने तक यह पेज इंडेक्स नहीं होता।"
       ]
     },
-    "fit": {
-      "residential": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      },
-      "commercial": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      },
-      "investment": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      }
-    },
     "score": 70,
     "sources": [
       {
@@ -3646,8 +2829,9 @@
     ],
     "updatedAt": "2026-09-18",
     "todo": [
-      "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative, fit and score are placeholders by price band",
-      "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages"
+      "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative and score are placeholders by price band",
+      "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages",
+      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder."
     ]
   },
   {
@@ -3685,23 +2869,6 @@
         "प्लेसहोल्डर (ड्राफ़्ट): तेलीबाग, लखनऊ की Mohanlalganj तहसील का रिहायशी इलाक़ा है। यहाँ दिखाए गए सर्किल रेट, माँगा जा रहा दाम और भू-उपयोग दाम श्रेणी के अनुसार नमूना मान हैं, स्रोत से लिए आँकड़े नहीं। आईजीआरएसयूपी सूची और ब्रोकर के अवलोकन के साथ रिकॉर्ड लाइव होने तक यह पेज इंडेक्स नहीं होता।"
       ]
     },
-    "fit": {
-      "residential": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      },
-      "commercial": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      },
-      "investment": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      }
-    },
     "score": 62,
     "sources": [
       {
@@ -3712,8 +2879,9 @@
     ],
     "updatedAt": "2026-09-18",
     "todo": [
-      "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative, fit and score are placeholders by price band",
-      "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages"
+      "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative and score are placeholders by price band",
+      "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages",
+      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder."
     ]
   },
   {
@@ -3751,23 +2919,6 @@
         "प्लेसहोल्डर (ड्राफ़्ट): बंगला बाज़ार, लखनऊ की Sadar तहसील का मिश्रित इलाक़ा है। यहाँ दिखाए गए सर्किल रेट, माँगा जा रहा दाम और भू-उपयोग दाम श्रेणी के अनुसार नमूना मान हैं, स्रोत से लिए आँकड़े नहीं। आईजीआरएसयूपी सूची और ब्रोकर के अवलोकन के साथ रिकॉर्ड लाइव होने तक यह पेज इंडेक्स नहीं होता।"
       ]
     },
-    "fit": {
-      "residential": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      },
-      "commercial": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      },
-      "investment": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      }
-    },
     "score": 62,
     "sources": [
       {
@@ -3778,8 +2929,9 @@
     ],
     "updatedAt": "2026-09-18",
     "todo": [
-      "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative, fit and score are placeholders by price band",
-      "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages"
+      "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative and score are placeholders by price band",
+      "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages",
+      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder."
     ]
   },
   {
@@ -3817,23 +2969,6 @@
         "प्लेसहोल्डर (ड्राफ़्ट): सरोजिनी नगर, लखनऊ की Sarojini Nagar तहसील का मिश्रित इलाक़ा है। यहाँ दिखाए गए सर्किल रेट, माँगा जा रहा दाम और भू-उपयोग दाम श्रेणी के अनुसार नमूना मान हैं, स्रोत से लिए आँकड़े नहीं। आईजीआरएसयूपी सूची और ब्रोकर के अवलोकन के साथ रिकॉर्ड लाइव होने तक यह पेज इंडेक्स नहीं होता।"
       ]
     },
-    "fit": {
-      "residential": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      },
-      "commercial": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      },
-      "investment": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      }
-    },
     "score": 62,
     "sources": [
       {
@@ -3844,8 +2979,9 @@
     ],
     "updatedAt": "2026-09-18",
     "todo": [
-      "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative, fit and score are placeholders by price band",
-      "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages"
+      "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative and score are placeholders by price band",
+      "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages",
+      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder."
     ]
   },
   {
@@ -3883,23 +3019,6 @@
         "प्लेसहोल्डर (ड्राफ़्ट): बख़्शी का तालाब, लखनऊ की Bakshi Ka Talab तहसील का कृषि इलाक़ा है। यहाँ दिखाए गए सर्किल रेट, माँगा जा रहा दाम और भू-उपयोग दाम श्रेणी के अनुसार नमूना मान हैं, स्रोत से लिए आँकड़े नहीं। आईजीआरएसयूपी सूची और ब्रोकर के अवलोकन के साथ रिकॉर्ड लाइव होने तक यह पेज इंडेक्स नहीं होता।"
       ]
     },
-    "fit": {
-      "residential": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      },
-      "commercial": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      },
-      "investment": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      }
-    },
     "score": 52,
     "sources": [
       {
@@ -3910,8 +3029,9 @@
     ],
     "updatedAt": "2026-09-18",
     "todo": [
-      "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative, fit and score are placeholders by price band",
-      "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages"
+      "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative and score are placeholders by price band",
+      "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages",
+      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder."
     ]
   },
   {
@@ -3949,23 +3069,6 @@
         "प्लेसहोल्डर (ड्राफ़्ट): इटौंजा, लखनऊ की Bakshi Ka Talab तहसील का कृषि इलाक़ा है। यहाँ दिखाए गए सर्किल रेट, माँगा जा रहा दाम और भू-उपयोग दाम श्रेणी के अनुसार नमूना मान हैं, स्रोत से लिए आँकड़े नहीं। आईजीआरएसयूपी सूची और ब्रोकर के अवलोकन के साथ रिकॉर्ड लाइव होने तक यह पेज इंडेक्स नहीं होता।"
       ]
     },
-    "fit": {
-      "residential": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      },
-      "commercial": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      },
-      "investment": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      }
-    },
     "score": 52,
     "sources": [
       {
@@ -3976,8 +3079,9 @@
     ],
     "updatedAt": "2026-09-18",
     "todo": [
-      "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative, fit and score are placeholders by price band",
-      "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages"
+      "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative and score are placeholders by price band",
+      "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages",
+      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder."
     ]
   },
   {
@@ -4015,23 +3119,6 @@
         "प्लेसहोल्डर (ड्राफ़्ट): काकोरी, लखनऊ की Malihabad तहसील का कृषि इलाक़ा है। यहाँ दिखाए गए सर्किल रेट, माँगा जा रहा दाम और भू-उपयोग दाम श्रेणी के अनुसार नमूना मान हैं, स्रोत से लिए आँकड़े नहीं। आईजीआरएसयूपी सूची और ब्रोकर के अवलोकन के साथ रिकॉर्ड लाइव होने तक यह पेज इंडेक्स नहीं होता।"
       ]
     },
-    "fit": {
-      "residential": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      },
-      "commercial": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      },
-      "investment": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      }
-    },
     "score": 52,
     "sources": [
       {
@@ -4042,8 +3129,9 @@
     ],
     "updatedAt": "2026-09-18",
     "todo": [
-      "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative, fit and score are placeholders by price band",
-      "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages"
+      "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative and score are placeholders by price band",
+      "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages",
+      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder."
     ]
   },
   {
@@ -4081,23 +3169,6 @@
         "प्लेसहोल्डर (ड्राफ़्ट): मेडिकल कॉलेज रोड, गोरखपुर की Sadar तहसील का मिश्रित इलाक़ा है। यहाँ दिखाए गए सर्किल रेट, माँगा जा रहा दाम और भू-उपयोग दाम श्रेणी के अनुसार नमूना मान हैं, स्रोत से लिए आँकड़े नहीं। आईजीआरएसयूपी सूची और ब्रोकर के अवलोकन के साथ रिकॉर्ड लाइव होने तक यह पेज इंडेक्स नहीं होता।"
       ]
     },
-    "fit": {
-      "residential": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      },
-      "commercial": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      },
-      "investment": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      }
-    },
     "score": 70,
     "sources": [
       {
@@ -4108,8 +3179,9 @@
     ],
     "updatedAt": "2026-09-18",
     "todo": [
-      "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative, fit and score are placeholders by price band",
-      "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages"
+      "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative and score are placeholders by price band",
+      "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages",
+      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder."
     ]
   },
   {
@@ -4147,23 +3219,6 @@
         "प्लेसहोल्डर (ड्राफ़्ट): कुनराघाट / एम्स, गोरखपुर की Sadar तहसील का रिहायशी इलाक़ा है। यहाँ दिखाए गए सर्किल रेट, माँगा जा रहा दाम और भू-उपयोग दाम श्रेणी के अनुसार नमूना मान हैं, स्रोत से लिए आँकड़े नहीं। आईजीआरएसयूपी सूची और ब्रोकर के अवलोकन के साथ रिकॉर्ड लाइव होने तक यह पेज इंडेक्स नहीं होता।"
       ]
     },
-    "fit": {
-      "residential": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      },
-      "commercial": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      },
-      "investment": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      }
-    },
     "score": 70,
     "sources": [
       {
@@ -4174,8 +3229,9 @@
     ],
     "updatedAt": "2026-09-18",
     "todo": [
-      "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative, fit and score are placeholders by price band",
-      "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages"
+      "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative and score are placeholders by price band",
+      "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages",
+      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder."
     ]
   },
   {
@@ -4213,23 +3269,6 @@
         "प्लेसहोल्डर (ड्राफ़्ट): तारामंडल, गोरखपुर की Sadar तहसील का रिहायशी इलाक़ा है। यहाँ दिखाए गए सर्किल रेट, माँगा जा रहा दाम और भू-उपयोग दाम श्रेणी के अनुसार नमूना मान हैं, स्रोत से लिए आँकड़े नहीं। आईजीआरएसयूपी सूची और ब्रोकर के अवलोकन के साथ रिकॉर्ड लाइव होने तक यह पेज इंडेक्स नहीं होता।"
       ]
     },
-    "fit": {
-      "residential": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      },
-      "commercial": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      },
-      "investment": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      }
-    },
     "score": 78,
     "sources": [
       {
@@ -4240,8 +3279,9 @@
     ],
     "updatedAt": "2026-09-18",
     "todo": [
-      "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative, fit and score are placeholders by price band",
-      "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages"
+      "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative and score are placeholders by price band",
+      "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages",
+      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder."
     ]
   },
   {
@@ -4279,23 +3319,6 @@
         "प्लेसहोल्डर (ड्राफ़्ट): गीडा, गोरखपुर की Sahjanwa तहसील का औद्योगिक इलाक़ा है। यहाँ दिखाए गए सर्किल रेट, माँगा जा रहा दाम और भू-उपयोग दाम श्रेणी के अनुसार नमूना मान हैं, स्रोत से लिए आँकड़े नहीं। आईजीआरएसयूपी सूची और ब्रोकर के अवलोकन के साथ रिकॉर्ड लाइव होने तक यह पेज इंडेक्स नहीं होता।"
       ]
     },
-    "fit": {
-      "residential": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      },
-      "commercial": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      },
-      "investment": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      }
-    },
     "score": 62,
     "sources": [
       {
@@ -4306,8 +3329,9 @@
     ],
     "updatedAt": "2026-09-18",
     "todo": [
-      "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative, fit and score are placeholders by price band",
-      "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages"
+      "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative and score are placeholders by price band",
+      "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages",
+      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder."
     ]
   },
   {
@@ -4345,23 +3369,6 @@
         "प्लेसहोल्डर (ड्राफ़्ट): देवरिया रोड, गोरखपुर की Sadar तहसील का रिहायशी इलाक़ा है। यहाँ दिखाए गए सर्किल रेट, माँगा जा रहा दाम और भू-उपयोग दाम श्रेणी के अनुसार नमूना मान हैं, स्रोत से लिए आँकड़े नहीं। आईजीआरएसयूपी सूची और ब्रोकर के अवलोकन के साथ रिकॉर्ड लाइव होने तक यह पेज इंडेक्स नहीं होता।"
       ]
     },
-    "fit": {
-      "residential": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      },
-      "commercial": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      },
-      "investment": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      }
-    },
     "score": 62,
     "sources": [
       {
@@ -4372,8 +3379,9 @@
     ],
     "updatedAt": "2026-09-18",
     "todo": [
-      "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative, fit and score are placeholders by price band",
-      "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages"
+      "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative and score are placeholders by price band",
+      "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages",
+      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder."
     ]
   },
   {
@@ -4411,23 +3419,6 @@
         "प्लेसहोल्डर (ड्राफ़्ट): कुशीनगर रोड, गोरखपुर की Sadar तहसील का मिश्रित इलाक़ा है। यहाँ दिखाए गए सर्किल रेट, माँगा जा रहा दाम और भू-उपयोग दाम श्रेणी के अनुसार नमूना मान हैं, स्रोत से लिए आँकड़े नहीं। आईजीआरएसयूपी सूची और ब्रोकर के अवलोकन के साथ रिकॉर्ड लाइव होने तक यह पेज इंडेक्स नहीं होता।"
       ]
     },
-    "fit": {
-      "residential": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      },
-      "commercial": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      },
-      "investment": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      }
-    },
     "score": 62,
     "sources": [
       {
@@ -4438,8 +3429,9 @@
     ],
     "updatedAt": "2026-09-18",
     "todo": [
-      "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative, fit and score are placeholders by price band",
-      "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages"
+      "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative and score are placeholders by price band",
+      "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages",
+      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder."
     ]
   },
   {
@@ -4477,23 +3469,6 @@
         "प्लेसहोल्डर (ड्राफ़्ट): नौसढ़, गोरखपुर की Sadar तहसील का व्यावसायिक इलाक़ा है। यहाँ दिखाए गए सर्किल रेट, माँगा जा रहा दाम और भू-उपयोग दाम श्रेणी के अनुसार नमूना मान हैं, स्रोत से लिए आँकड़े नहीं। आईजीआरएसयूपी सूची और ब्रोकर के अवलोकन के साथ रिकॉर्ड लाइव होने तक यह पेज इंडेक्स नहीं होता।"
       ]
     },
-    "fit": {
-      "residential": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      },
-      "commercial": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      },
-      "investment": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      }
-    },
     "score": 62,
     "sources": [
       {
@@ -4504,8 +3479,9 @@
     ],
     "updatedAt": "2026-09-18",
     "todo": [
-      "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative, fit and score are placeholders by price band",
-      "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages"
+      "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative and score are placeholders by price band",
+      "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages",
+      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder."
     ]
   },
   {
@@ -4543,23 +3519,6 @@
         "प्लेसहोल्डर (ड्राफ़्ट): रुस्तमपुर, गोरखपुर की Sadar तहसील का रिहायशी इलाक़ा है। यहाँ दिखाए गए सर्किल रेट, माँगा जा रहा दाम और भू-उपयोग दाम श्रेणी के अनुसार नमूना मान हैं, स्रोत से लिए आँकड़े नहीं। आईजीआरएसयूपी सूची और ब्रोकर के अवलोकन के साथ रिकॉर्ड लाइव होने तक यह पेज इंडेक्स नहीं होता।"
       ]
     },
-    "fit": {
-      "residential": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      },
-      "commercial": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      },
-      "investment": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      }
-    },
     "score": 70,
     "sources": [
       {
@@ -4570,8 +3529,9 @@
     ],
     "updatedAt": "2026-09-18",
     "todo": [
-      "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative, fit and score are placeholders by price band",
-      "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages"
+      "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative and score are placeholders by price band",
+      "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages",
+      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder."
     ]
   },
   {
@@ -4609,23 +3569,6 @@
         "प्लेसहोल्डर (ड्राफ़्ट): मोहद्दीपुर, गोरखपुर की Sadar तहसील का मिश्रित इलाक़ा है। यहाँ दिखाए गए सर्किल रेट, माँगा जा रहा दाम और भू-उपयोग दाम श्रेणी के अनुसार नमूना मान हैं, स्रोत से लिए आँकड़े नहीं। आईजीआरएसयूपी सूची और ब्रोकर के अवलोकन के साथ रिकॉर्ड लाइव होने तक यह पेज इंडेक्स नहीं होता।"
       ]
     },
-    "fit": {
-      "residential": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      },
-      "commercial": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      },
-      "investment": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      }
-    },
     "score": 70,
     "sources": [
       {
@@ -4636,8 +3579,9 @@
     ],
     "updatedAt": "2026-09-18",
     "todo": [
-      "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative, fit and score are placeholders by price band",
-      "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages"
+      "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative and score are placeholders by price band",
+      "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages",
+      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder."
     ]
   },
   {
@@ -4675,23 +3619,6 @@
         "प्लेसहोल्डर (ड्राफ़्ट): गोरखनाथ, गोरखपुर की Sadar तहसील का मिश्रित इलाक़ा है। यहाँ दिखाए गए सर्किल रेट, माँगा जा रहा दाम और भू-उपयोग दाम श्रेणी के अनुसार नमूना मान हैं, स्रोत से लिए आँकड़े नहीं। आईजीआरएसयूपी सूची और ब्रोकर के अवलोकन के साथ रिकॉर्ड लाइव होने तक यह पेज इंडेक्स नहीं होता।"
       ]
     },
-    "fit": {
-      "residential": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      },
-      "commercial": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      },
-      "investment": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      }
-    },
     "score": 70,
     "sources": [
       {
@@ -4702,8 +3629,9 @@
     ],
     "updatedAt": "2026-09-18",
     "todo": [
-      "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative, fit and score are placeholders by price band",
-      "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages"
+      "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative and score are placeholders by price band",
+      "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages",
+      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder."
     ]
   },
   {
@@ -4741,23 +3669,6 @@
         "प्लेसहोल्डर (ड्राफ़्ट): पादरी बाज़ार, गोरखपुर की Sadar तहसील का रिहायशी इलाक़ा है। यहाँ दिखाए गए सर्किल रेट, माँगा जा रहा दाम और भू-उपयोग दाम श्रेणी के अनुसार नमूना मान हैं, स्रोत से लिए आँकड़े नहीं। आईजीआरएसयूपी सूची और ब्रोकर के अवलोकन के साथ रिकॉर्ड लाइव होने तक यह पेज इंडेक्स नहीं होता।"
       ]
     },
-    "fit": {
-      "residential": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      },
-      "commercial": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      },
-      "investment": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      }
-    },
     "score": 62,
     "sources": [
       {
@@ -4768,8 +3679,9 @@
     ],
     "updatedAt": "2026-09-18",
     "todo": [
-      "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative, fit and score are placeholders by price band",
-      "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages"
+      "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative and score are placeholders by price band",
+      "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages",
+      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder."
     ]
   },
   {
@@ -4807,23 +3719,6 @@
         "प्लेसहोल्डर (ड्राफ़्ट): शाहपुर, गोरखपुर की Sadar तहसील का रिहायशी इलाक़ा है। यहाँ दिखाए गए सर्किल रेट, माँगा जा रहा दाम और भू-उपयोग दाम श्रेणी के अनुसार नमूना मान हैं, स्रोत से लिए आँकड़े नहीं। आईजीआरएसयूपी सूची और ब्रोकर के अवलोकन के साथ रिकॉर्ड लाइव होने तक यह पेज इंडेक्स नहीं होता।"
       ]
     },
-    "fit": {
-      "residential": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      },
-      "commercial": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      },
-      "investment": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      }
-    },
     "score": 70,
     "sources": [
       {
@@ -4834,8 +3729,9 @@
     ],
     "updatedAt": "2026-09-18",
     "todo": [
-      "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative, fit and score are placeholders by price band",
-      "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages"
+      "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative and score are placeholders by price band",
+      "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages",
+      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder."
     ]
   },
   {
@@ -4873,23 +3769,6 @@
         "प्लेसहोल्डर (ड्राफ़्ट): बशारतपुर, गोरखपुर की Sadar तहसील का रिहायशी इलाक़ा है। यहाँ दिखाए गए सर्किल रेट, माँगा जा रहा दाम और भू-उपयोग दाम श्रेणी के अनुसार नमूना मान हैं, स्रोत से लिए आँकड़े नहीं। आईजीआरएसयूपी सूची और ब्रोकर के अवलोकन के साथ रिकॉर्ड लाइव होने तक यह पेज इंडेक्स नहीं होता।"
       ]
     },
-    "fit": {
-      "residential": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      },
-      "commercial": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      },
-      "investment": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      }
-    },
     "score": 62,
     "sources": [
       {
@@ -4900,8 +3779,9 @@
     ],
     "updatedAt": "2026-09-18",
     "todo": [
-      "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative, fit and score are placeholders by price band",
-      "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages"
+      "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative and score are placeholders by price band",
+      "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages",
+      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder."
     ]
   },
   {
@@ -4939,23 +3819,6 @@
         "प्लेसहोल्डर (ड्राफ़्ट): गुलरिहा, गोरखपुर की Sadar तहसील का रिहायशी इलाक़ा है। यहाँ दिखाए गए सर्किल रेट, माँगा जा रहा दाम और भू-उपयोग दाम श्रेणी के अनुसार नमूना मान हैं, स्रोत से लिए आँकड़े नहीं। आईजीआरएसयूपी सूची और ब्रोकर के अवलोकन के साथ रिकॉर्ड लाइव होने तक यह पेज इंडेक्स नहीं होता।"
       ]
     },
-    "fit": {
-      "residential": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      },
-      "commercial": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      },
-      "investment": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      }
-    },
     "score": 62,
     "sources": [
       {
@@ -4966,8 +3829,9 @@
     ],
     "updatedAt": "2026-09-18",
     "todo": [
-      "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative, fit and score are placeholders by price band",
-      "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages"
+      "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative and score are placeholders by price band",
+      "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages",
+      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder."
     ]
   },
   {
@@ -5005,23 +3869,6 @@
         "प्लेसहोल्डर (ड्राफ़्ट): राप्ती नगर, गोरखपुर की Sadar तहसील का रिहायशी इलाक़ा है। यहाँ दिखाए गए सर्किल रेट, माँगा जा रहा दाम और भू-उपयोग दाम श्रेणी के अनुसार नमूना मान हैं, स्रोत से लिए आँकड़े नहीं। आईजीआरएसयूपी सूची और ब्रोकर के अवलोकन के साथ रिकॉर्ड लाइव होने तक यह पेज इंडेक्स नहीं होता।"
       ]
     },
-    "fit": {
-      "residential": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      },
-      "commercial": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      },
-      "investment": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      }
-    },
     "score": 62,
     "sources": [
       {
@@ -5032,8 +3879,9 @@
     ],
     "updatedAt": "2026-09-18",
     "todo": [
-      "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative, fit and score are placeholders by price band",
-      "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages"
+      "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative and score are placeholders by price band",
+      "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages",
+      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder."
     ]
   },
   {
@@ -5071,23 +3919,6 @@
         "प्लेसहोल्डर (ड्राफ़्ट): झुंगिया, गोरखपुर की Sadar तहसील का रिहायशी इलाक़ा है। यहाँ दिखाए गए सर्किल रेट, माँगा जा रहा दाम और भू-उपयोग दाम श्रेणी के अनुसार नमूना मान हैं, स्रोत से लिए आँकड़े नहीं। आईजीआरएसयूपी सूची और ब्रोकर के अवलोकन के साथ रिकॉर्ड लाइव होने तक यह पेज इंडेक्स नहीं होता।"
       ]
     },
-    "fit": {
-      "residential": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      },
-      "commercial": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      },
-      "investment": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      }
-    },
     "score": 52,
     "sources": [
       {
@@ -5098,8 +3929,9 @@
     ],
     "updatedAt": "2026-09-18",
     "todo": [
-      "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative, fit and score are placeholders by price band",
-      "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages"
+      "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative and score are placeholders by price band",
+      "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages",
+      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder."
     ]
   },
   {
@@ -5137,23 +3969,6 @@
         "प्लेसहोल्डर (ड्राफ़्ट): एचयूआरएल खाद कारखाना क्षेत्र, गोरखपुर की Sadar तहसील का औद्योगिक इलाक़ा है। यहाँ दिखाए गए सर्किल रेट, माँगा जा रहा दाम और भू-उपयोग दाम श्रेणी के अनुसार नमूना मान हैं, स्रोत से लिए आँकड़े नहीं। आईजीआरएसयूपी सूची और ब्रोकर के अवलोकन के साथ रिकॉर्ड लाइव होने तक यह पेज इंडेक्स नहीं होता।"
       ]
     },
-    "fit": {
-      "residential": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      },
-      "commercial": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      },
-      "investment": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      }
-    },
     "score": 62,
     "sources": [
       {
@@ -5164,8 +3979,9 @@
     ],
     "updatedAt": "2026-09-18",
     "todo": [
-      "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative, fit and score are placeholders by price band",
-      "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages"
+      "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative and score are placeholders by price band",
+      "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages",
+      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder."
     ]
   },
   {
@@ -5203,23 +4019,6 @@
         "प्लेसहोल्डर (ड्राफ़्ट): महराजगंज रोड, गोरखपुर की Sadar तहसील का रिहायशी इलाक़ा है। यहाँ दिखाए गए सर्किल रेट, माँगा जा रहा दाम और भू-उपयोग दाम श्रेणी के अनुसार नमूना मान हैं, स्रोत से लिए आँकड़े नहीं। आईजीआरएसयूपी सूची और ब्रोकर के अवलोकन के साथ रिकॉर्ड लाइव होने तक यह पेज इंडेक्स नहीं होता।"
       ]
     },
-    "fit": {
-      "residential": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      },
-      "commercial": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      },
-      "investment": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      }
-    },
     "score": 52,
     "sources": [
       {
@@ -5230,8 +4029,9 @@
     ],
     "updatedAt": "2026-09-18",
     "todo": [
-      "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative, fit and score are placeholders by price band",
-      "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages"
+      "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative and score are placeholders by price band",
+      "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages",
+      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder."
     ]
   },
   {
@@ -5269,23 +4069,6 @@
         "प्लेसहोल्डर (ड्राफ़्ट): सहजनवा, गोरखपुर की Sahjanwa तहसील का कृषि इलाक़ा है। यहाँ दिखाए गए सर्किल रेट, माँगा जा रहा दाम और भू-उपयोग दाम श्रेणी के अनुसार नमूना मान हैं, स्रोत से लिए आँकड़े नहीं। आईजीआरएसयूपी सूची और ब्रोकर के अवलोकन के साथ रिकॉर्ड लाइव होने तक यह पेज इंडेक्स नहीं होता।"
       ]
     },
-    "fit": {
-      "residential": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      },
-      "commercial": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      },
-      "investment": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      }
-    },
     "score": 52,
     "sources": [
       {
@@ -5296,8 +4079,9 @@
     ],
     "updatedAt": "2026-09-18",
     "todo": [
-      "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative, fit and score are placeholders by price band",
-      "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages"
+      "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative and score are placeholders by price band",
+      "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages",
+      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder."
     ]
   },
   {
@@ -5335,23 +4119,6 @@
         "प्लेसहोल्डर (ड्राफ़्ट): रामगढ़ ताल, गोरखपुर की Sadar तहसील का व्यावसायिक इलाक़ा है। यहाँ दिखाए गए सर्किल रेट, माँगा जा रहा दाम और भू-उपयोग दाम श्रेणी के अनुसार नमूना मान हैं, स्रोत से लिए आँकड़े नहीं। आईजीआरएसयूपी सूची और ब्रोकर के अवलोकन के साथ रिकॉर्ड लाइव होने तक यह पेज इंडेक्स नहीं होता।"
       ]
     },
-    "fit": {
-      "residential": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      },
-      "commercial": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      },
-      "investment": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      }
-    },
     "score": 78,
     "sources": [
       {
@@ -5362,8 +4129,9 @@
     ],
     "updatedAt": "2026-09-18",
     "todo": [
-      "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative, fit and score are placeholders by price band",
-      "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages"
+      "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative and score are placeholders by price band",
+      "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages",
+      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder."
     ]
   },
   {
@@ -5401,23 +4169,6 @@
         "प्लेसहोल्डर (ड्राफ़्ट): जंगल कौड़िया / एयरपोर्ट, गोरखपुर की Sadar तहसील का मिश्रित इलाक़ा है। यहाँ दिखाए गए सर्किल रेट, माँगा जा रहा दाम और भू-उपयोग दाम श्रेणी के अनुसार नमूना मान हैं, स्रोत से लिए आँकड़े नहीं। आईजीआरएसयूपी सूची और ब्रोकर के अवलोकन के साथ रिकॉर्ड लाइव होने तक यह पेज इंडेक्स नहीं होता।"
       ]
     },
-    "fit": {
-      "residential": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      },
-      "commercial": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      },
-      "investment": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      }
-    },
     "score": 62,
     "sources": [
       {
@@ -5428,8 +4179,9 @@
     ],
     "updatedAt": "2026-09-18",
     "todo": [
-      "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative, fit and score are placeholders by price band",
-      "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages"
+      "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative and score are placeholders by price band",
+      "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages",
+      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder."
     ]
   },
   {
@@ -5467,23 +4219,6 @@
         "प्लेसहोल्डर (ड्राफ़्ट): खोराबार, गोरखपुर की Sadar तहसील का रिहायशी इलाक़ा है। यहाँ दिखाए गए सर्किल रेट, माँगा जा रहा दाम और भू-उपयोग दाम श्रेणी के अनुसार नमूना मान हैं, स्रोत से लिए आँकड़े नहीं। आईजीआरएसयूपी सूची और ब्रोकर के अवलोकन के साथ रिकॉर्ड लाइव होने तक यह पेज इंडेक्स नहीं होता।"
       ]
     },
-    "fit": {
-      "residential": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      },
-      "commercial": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      },
-      "investment": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      }
-    },
     "score": 62,
     "sources": [
       {
@@ -5494,8 +4229,9 @@
     ],
     "updatedAt": "2026-09-18",
     "todo": [
-      "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative, fit and score are placeholders by price band",
-      "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages"
+      "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative and score are placeholders by price band",
+      "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages",
+      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder."
     ]
   },
   {
@@ -5533,23 +4269,6 @@
         "प्लेसहोल्डर (ड्राफ़्ट): बरगदवा, गोरखपुर की Sadar तहसील का औद्योगिक इलाक़ा है। यहाँ दिखाए गए सर्किल रेट, माँगा जा रहा दाम और भू-उपयोग दाम श्रेणी के अनुसार नमूना मान हैं, स्रोत से लिए आँकड़े नहीं। आईजीआरएसयूपी सूची और ब्रोकर के अवलोकन के साथ रिकॉर्ड लाइव होने तक यह पेज इंडेक्स नहीं होता।"
       ]
     },
-    "fit": {
-      "residential": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      },
-      "commercial": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      },
-      "investment": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      }
-    },
     "score": 52,
     "sources": [
       {
@@ -5560,8 +4279,9 @@
     ],
     "updatedAt": "2026-09-18",
     "todo": [
-      "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative, fit and score are placeholders by price band",
-      "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages"
+      "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative and score are placeholders by price band",
+      "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages",
+      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder."
     ]
   },
   {
@@ -5599,23 +4319,6 @@
         "प्लेसहोल्डर (ड्राफ़्ट): सोनबरसा, गोरखपुर की Sadar तहसील का कृषि इलाक़ा है। यहाँ दिखाए गए सर्किल रेट, माँगा जा रहा दाम और भू-उपयोग दाम श्रेणी के अनुसार नमूना मान हैं, स्रोत से लिए आँकड़े नहीं। आईजीआरएसयूपी सूची और ब्रोकर के अवलोकन के साथ रिकॉर्ड लाइव होने तक यह पेज इंडेक्स नहीं होता।"
       ]
     },
-    "fit": {
-      "residential": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      },
-      "commercial": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      },
-      "investment": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      }
-    },
     "score": 52,
     "sources": [
       {
@@ -5626,8 +4329,9 @@
     ],
     "updatedAt": "2026-09-18",
     "todo": [
-      "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative, fit and score are placeholders by price band",
-      "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages"
+      "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative and score are placeholders by price band",
+      "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages",
+      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder."
     ]
   },
   {
@@ -5665,23 +4369,6 @@
         "प्लेसहोल्डर (ड्राफ़्ट): चरगावाँ, गोरखपुर की Sadar तहसील का कृषि इलाक़ा है। यहाँ दिखाए गए सर्किल रेट, माँगा जा रहा दाम और भू-उपयोग दाम श्रेणी के अनुसार नमूना मान हैं, स्रोत से लिए आँकड़े नहीं। आईजीआरएसयूपी सूची और ब्रोकर के अवलोकन के साथ रिकॉर्ड लाइव होने तक यह पेज इंडेक्स नहीं होता।"
       ]
     },
-    "fit": {
-      "residential": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      },
-      "commercial": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      },
-      "investment": {
-        "rating": "mixed",
-        "reason": "PLACEHOLDER: fit to be assessed by the broker",
-        "reasonHi": "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी"
-      }
-    },
     "score": 52,
     "sources": [
       {
@@ -5692,8 +4379,9 @@
     ],
     "updatedAt": "2026-09-18",
     "todo": [
-      "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative, fit and score are placeholders by price band",
-      "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages"
+      "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative and score are placeholders by price band",
+      "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages",
+      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder."
     ]
   }
 ]
