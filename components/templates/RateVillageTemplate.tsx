@@ -21,7 +21,7 @@ import {
 } from "@/lib/rates";
 import { faqPage } from "@/lib/jsonld";
 import { sameAlternate } from "@/lib/routes";
-import { getVillageContent, resolvedSegmentIds, villageCopy } from "@/lib/village-content";
+import { getVillageContent, villageCopy } from "@/lib/village-content";
 import { applicableRule, toSqM } from "@/lib/stamp-duty";
 import { agriFrontageLabel, AGRI_FRONTAGES, categoryLabel, commercialKindLabel, COMMERCIAL_KINDS, roadWidthLabel, ROAD_WIDTHS, valuePlot } from "@/lib/valuation";
 import { agriUnitLabel, lakhPerHaToRupeesPerBigha, lakhPerHaToRupeesPerSqm } from "@/lib/units";
@@ -93,20 +93,12 @@ export function RateVillageTemplate({
   const rules = getValuationRules();
   const dutyRules = getStampDutyRules();
   /*
-   * Two sources agree on which stretches run through a village: the rate file matches segment rows
-   * to the row id, and the written content names them by its own ids. The union is used so a
-   * stretch the content knows about is not dropped, and each links to the tehsil page's segment
-   * table where the whole stretch and its other villages are listed.
+   * The stretches through this village, from the rate file's own rateRowId. The content's
+   * roadSegmentIds restate the same relationship rather than adding to it — validate checks the
+   * two agree — so there is nothing to union in, and each links to the tehsil page's segment table
+   * where the whole stretch and its other villages are listed.
    */
-  const segmentsById = new Map(getRoadSegmentsForRow(cityId, row.id).map((x) => [x.id, x]));
-  const allSegments = getCurrentRateSchedule(cityId)?.roadSegments ?? [];
-  if (content) {
-    for (const id of resolvedSegmentIds(content)) {
-      const seg = allSegments.find((x) => x.id === id);
-      if (seg && !segmentsById.has(seg.id)) segmentsById.set(seg.id, seg);
-    }
-  }
-  const segments = [...segmentsById.values()];
+  const segments = getRoadSegmentsForRow(cityId, row.id);
   const similar = getSimilarRows(cityId, row);
   const median = getTehsilMedian(cityId, tehsilId);
   const cityName = pick(locale, city.name, city.nameHi);
