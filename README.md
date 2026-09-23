@@ -151,7 +151,7 @@ A project page makes factual claims about public infrastructure, so it only buil
 ## How to add a locality
 
 1. Add a record to `data/localities.json`. Use a stable, lowercase, hyphenated English `id`; it becomes the URL slug and never changes, even if the display name does. `circle-rates` is reserved.
-2. Fill at least the **minimum field set**, or the page is not built: `name`, `cityId`, `lat` and `lng`, a circle rate (either `circleRate` or at least one `rateRefs` entry), `landUse`, and at least one paragraph in `narrative.drivers`. The Hindi page also needs `nameHi` and at least one paragraph in `narrative.driversHi`.
+2. Fill at least the **minimum field set**, or the page is not built: `name`, `cityId`, `lat` and `lng`, a circle rate (either `circleRate` or at least one `rateRefs` entry), a `landUse` with a real `landUseSource`, and at least one paragraph in `narrative.drivers` that is not placeholder text. The Hindi page also needs `nameHi` and a real paragraph in `narrative.driversHi`. Seeded copy does not count: a record whose narrative still says `PLACEHOLDER (draft)` or whose `landUseSource` is unconfirmed stays in the JSON but gets no page.
 3. Keys in `driveTimes` must be anchor ids from that city in `data/cities.json`.
 4. Add at least one entry to `sources[]` and set `updatedAt`.
 5. Point the locality at the published list: add its row ids to `scripts/rate-aliases.json` and re-run `npm run rates:import-list`, which writes `rateRefs`. For a city with no transcribed list yet, set `circleRate` directly instead. Never hand-edit `data/circleRates.json`.
