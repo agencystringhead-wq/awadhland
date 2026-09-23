@@ -20,7 +20,7 @@ import {
   getCityStats,
   getCurrentCircleRateSchedule,
   getLocalitiesByCity,
-  getProjectsByCity,
+  getPublishedProjectsByCity,
   getUpdates,
 } from "@/lib/data";
 import { getGuides } from "@/lib/guides";
@@ -44,7 +44,7 @@ export function CityTemplate({ locale, cityId }: { locale: Locale; cityId: strin
   const mapLocalities: MapLocality[] = localities.flatMap((l) =>
     l.lat !== undefined && l.lng !== undefined ? [{ ...l, lat: l.lat, lng: l.lng }] : [],
   );
-  const projects = getProjectsByCity(city.id);
+  const projects = getPublishedProjectsByCity(city.id);
   const schedule = getCurrentCircleRateSchedule(city.id);
   const topRates = schedule ? [...schedule.rates].sort((a, b) => b.residential - a.residential).slice(0, 10) : [];
   const localityNames = Object.fromEntries(getLocalitiesByCity(city.id).map((l) => [l.id, pick(locale, l.name, l.nameHi)]));

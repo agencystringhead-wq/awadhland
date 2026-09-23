@@ -107,7 +107,7 @@ docs/BUILD-SPEC.md           Build spec
 lib/
   schemas.ts                 Zod schema for every data file and for guide frontmatter
   integrity.ts               Cross-file checks: unique ids, foreign keys, reserved slugs
-  guards.ts                  Thin-page guard for localities
+  guards.ts                  Thin-page guard for localities, source guard for projects
   data.ts                    Typed loaders: getCities(), getLocalities(), getProjects(), ...
   guide-files.ts             Reads and checks MDX frontmatter (no data.ts dependency)
   guides.ts                  getGuides(locale), getGuide(locale, slug)
@@ -141,6 +141,12 @@ Every record carries `sources[]` (`{label, url, accessedAt}`, at least one, http
 | `data/scoring.json` | The six weights of the high-potential score. Must sum to 100. |
 
 Guide frontmatter (`title, summary, slug, lang, author, publishedAt, updatedAt, cityIds, tags, faq, heroImage, pairedSlug`) is validated by the same run. The file name must equal `slug`, `lang` must match the tree, `author` must be a `team.json` id or `wwiser`, and `pairedSlug` must exist in the other tree.
+
+## Adding a government project
+
+A project page makes factual claims about public infrastructure, so it only builds once the record has a real source. Give it at least one entry in `sources` that is not marked `PLACEHOLDER`, and a `description` that is not placeholder prose. Until then the record can sit in `data/projects.json` with its `impacts` and its id — it just has no page, no card and no sitemap entry, and it is not counted anywhere.
+
+`npm run validate` prints `info source guard projects: N published, M unsourced and not built` with the ids; `npm run build` logs the same as `[source-guard] projects: skipped …`.
 
 ## How to add a locality
 

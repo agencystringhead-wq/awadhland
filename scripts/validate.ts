@@ -12,7 +12,7 @@ import { z } from "zod";
 import { dataFiles, indexableRatesFileSchema, rateScheduleSchema, type DataFileName } from "../lib/schemas";
 import { checkIntegrity, type Dataset } from "../lib/integrity";
 import { checkGuideBodies, checkGuideReferences, dataPageLinks, readGuides } from "../lib/guide-files";
-import { partitionLocalities } from "../lib/guards";
+import { partitionLocalities, partitionProjects } from "../lib/guards";
 
 /** Spec "Internal linking": guides link to at least this many data pages via MDX components. */
 const MIN_DATA_PAGE_LINKS = 3;
@@ -182,7 +182,14 @@ async function main() {
   }
   console.log(`ok   guides: ${en.guides.length} en, ${hi.guides.length} hi parsed and compiled`);
 
-  /* 5. Thin-page guard report (informational: skipped localities are not errors). */
+  /* 5. Guards (informational: skipped records are not errors). */
+  if (dataset) {
+    const { buildable: pubProjects, skipped: skippedProjects } = partitionProjects(dataset.projects);
+    const detail = skippedProjects.map((s) => `${s.id} (missing ${s.missing.join(", ")})`).join("; ");
+    console.log(
+      `info source guard projects: ${pubProjects.length} published, ${skippedProjects.length} unsourced and not built${detail ? `: ${detail}` : ""}`,
+    );
+  }
   if (dataset) {
     for (const locale of ["en", "hi"] as const) {
       const { buildable, skipped } = partitionLocalities(dataset.localities, locale);
@@ -208,7 +215,7 @@ async function main() {
     }
     for (const c of dataset.cities) {
       const ls = dataset.localities.filter((l) => l.cityId === c.id);
-      console.log(`info ${c.id}: ${ls.length} localities (${ls.filter((l) => l.status === "live").length} live, ${ls.filter((l) => l.status === "draft").length} draft), ${dataset.projects.filter((p) => p.cityId === c.id).length} projects`);
+      console.log(`info ${c.id}: ${ls.length} localities (${ls.filter((l) => l.status === "live").length} live, ${ls.filter((l) => l.status === "draft").length} draft), ${partitionProjects(dataset.projects).buildable.filter((p) => p.cityId === c.id).length} of ${dataset.projects.filter((p) => p.cityId === c.id).length} projects published`);
     }
     console.log(`ok   drafts: ${drafts.length} noindex and outside the sitemaps; ${live} live localities indexable`);
   }
