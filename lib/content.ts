@@ -35,8 +35,6 @@ export type ChecklistItem = { title: string; body: string };
 export const homeCopy: Record<
   Locale,
   {
-    heroTitle: string;
-    heroPromise: string;
     situations: Situation[];
     tools: Tool[];
     checklist: ChecklistItem[];
@@ -44,9 +42,6 @@ export const homeCopy: Record<
   }
 > = {
   en: {
-    heroTitle: "Land in Ayodhya, Lucknow and Gorakhpur, with the numbers checked first.",
-    heroPromise:
-      "Circle rates, asking prices, distances and government projects for every locality, each with a source and a date. Then a UP RERA-registered broker on WhatsApp.",
     situations: [
       {
         title: "Buying from abroad (NRI)",
@@ -114,9 +109,6 @@ export const homeCopy: Record<
     checklistGuideSlug: "how-to-check-if-land-in-up-is-safe-to-buy",
   },
   hi: {
-    heroTitle: "अयोध्या, लखनऊ और गोरखपुर में ज़मीन, आँकड़े पहले जाँचे हुए।",
-    heroPromise:
-      "हर इलाक़े का सर्किल रेट, माँगा जा रहा दाम, दूरी और सरकारी प्रोजेक्ट, हर एक स्रोत और तारीख़ के साथ। फिर व्हाट्सऐप पर यूपी रेरा पंजीकृत ब्रोकर।",
     situations: [
       {
         title: "विदेश से ख़रीदना (एनआरआई)",
