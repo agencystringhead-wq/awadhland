@@ -16,29 +16,31 @@ import { useMemo, useState } from "react";
 import { formatNumber, ui, type Locale } from "@/lib/i18n";
 import { buyerCategoryLabels } from "@/lib/labels";
 import { rc } from "@/lib/rate-copy";
-import type { RateRow, RoadSegmentRow, StampDutyRule, ValuationRules } from "@/lib/schemas";
+import type { RateRow, RoadSegmentRow, StampDutyRule, ValuationRules, RoadBand } from "@/lib/schemas";
 import { applicableRule, AREA_UNITS, toSqM, type AreaUnit, type BuyerCategory } from "@/lib/stamp-duty";
 import {
   AGRI_FRONTAGES,
   agriFrontageLabel,
   COMMERCIAL_KINDS,
+  COVERED_GRADES,
+  coveredGradeLabel,
   commercialKindLabel,
-  ROAD_WIDTHS,
-  roadWidthLabel,
   valuePlot,
   type AgriFrontage,
   type CommercialKind,
+  type CoveredGrade,
   type LandKind,
   type RoadWidth,
 } from "@/lib/valuation";
 
-const KINDS: LandKind[] = ["non-agricultural", "commercial", "agricultural"];
+const KINDS: LandKind[] = ["non-agricultural", "commercial", "covered", "agricultural"];
 const BUYERS: BuyerCategory[] = ["male", "female", "joint"];
 
 export function RateCalculator({
   locale,
   row,
   segments,
+  bands,
   rules,
   dutyRules,
 }: {
@@ -46,6 +48,8 @@ export function RateCalculator({
   row: RateRow;
   /** road stretches through this village, if any */
   segments: RoadSegmentRow[];
+  /** the road-width columns this city prints, cheapest first */
+  bands: RoadBand[];
   rules: ValuationRules;
   dutyRules: StampDutyRule[];
 }) {
@@ -54,9 +58,12 @@ export function RateCalculator({
   const [area, setArea] = useState("1000");
   const [unit, setUnit] = useState<AreaUnit>("sqft");
   const [buyer, setBuyer] = useState<BuyerCategory>("male");
-  const [roadWidth, setRoadWidth] = useState<RoadWidth>("lt9m");
+  // Only the bands this row actually prints: Sadar-2 भरवारा has one of Lucknow&apos;s four.
+  const rowBands = bands.filter((b) => typeof row.nonAgri[b.key] === "number");
+  const [roadWidth, setRoadWidth] = useState<RoadWidth>(rowBands[0]?.key ?? "lt9m");
   const [segmentId, setSegmentId] = useState("none");
   const [commercialKind, setCommercialKind] = useState<CommercialKind>("shop");
+  const [coveredGrade, setCoveredGrade] = useState<CoveredGrade>("ordinary");
   const [frontage, setFrontage] = useState<AgriFrontage>("general");
   const [nearCommercial, setNearCommercial] = useState(false);
   const [nearActivity, setNearActivity] = useState(false);
@@ -78,6 +85,7 @@ export function RateCalculator({
       segment: kind === "agricultural" ? null : segment,
       nearCommercial,
       commercialKind,
+      coveredGrade,
       frontage,
       nearActivity,
       adjoiningRoads,
@@ -101,6 +109,7 @@ export function RateCalculator({
     segment,
     nearCommercial,
     commercialKind,
+    coveredGrade,
     frontage,
     nearActivity,
     adjoiningRoads,
@@ -121,8 +130,8 @@ export function RateCalculator({
           <span className={label}>{c.landKind}</span>
           <select className={select} value={kind} onChange={(e) => setKind(e.target.value as LandKind)}>
             {KINDS.map((k) => (
-              <option key={k} value={k} disabled={k === "agricultural" && !hasAgri}>
-                {k === "non-agricultural" ? c.kindNonAgri : k === "commercial" ? c.kindCommercial : c.kindAgri}
+              <option key={k} value={k} disabled={(k === "agricultural" && !hasAgri) || (k === "covered" && !row.covered)}>
+                {k === "non-agricultural" ? c.kindNonAgri : k === "commercial" ? c.kindCommercial : k === "covered" ? c.kindCovered : c.kindAgri}
               </option>
             ))}
           </select>
@@ -147,9 +156,23 @@ export function RateCalculator({
           <label className="block">
             <span className={label}>{c.roadWidth}</span>
             <select className={select} value={roadWidth} onChange={(e) => setRoadWidth(e.target.value as RoadWidth)} disabled={segment !== null}>
-              {ROAD_WIDTHS.map((w) => (
-                <option key={w} value={w}>
-                  {roadWidthLabel[w][locale]}
+              {rowBands.map((b) => (
+                <option key={b.key} value={b.key}>
+                  {locale === "hi" ? b.labelHi : b.labelEn}
+                </option>
+              ))}
+            </select>
+          </label>
+        )}
+
+        {/* Construction rate, on lists that price covered area. Ayodhya prints no such column. */}
+        {kind === "covered" && row.covered && (
+          <label className="block">
+            <span className={label}>{c.coveredGrade}</span>
+            <select className={select} value={coveredGrade} onChange={(e) => setCoveredGrade(e.target.value as CoveredGrade)}>
+              {COVERED_GRADES.map((g) => (
+                <option key={g} value={g}>
+                  {coveredGradeLabel[g][locale]}
                 </option>
               ))}
             </select>

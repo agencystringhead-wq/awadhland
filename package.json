@@ -25,7 +25,8 @@
     "check:links": "tsx scripts/check-links.ts",
     "check:copy": "tsx scripts/check-dead-copy.ts",
     "rates:village-redirects": "tsx scripts/build-village-redirects.ts",
-    "rates:village-index": "tsx scripts/build-village-index.ts"
+    "rates:village-index": "tsx scripts/build-village-index.ts",
+    "rates:import-lucknow": "tsx scripts/import-lucknow-rates.ts"
   },
   "dependencies": {
     "@fontsource-variable/fraunces": "^5.3.0",

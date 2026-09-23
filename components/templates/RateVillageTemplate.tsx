@@ -12,6 +12,7 @@ import { formatDate, formatNumber, localePath, pick, ui, type Locale } from "@/l
 import { rc } from "@/lib/rate-copy";
 import {
   getCurrentRateSchedule,
+  getRoadBands,
   getRoadSegmentsForRow,
   getRowBySlug,
   getSimilarRows,
@@ -23,7 +24,16 @@ import { faqPage } from "@/lib/jsonld";
 import { sameAlternate } from "@/lib/routes";
 import { getVillageContent, villageCopy } from "@/lib/village-content";
 import { applicableRule, toSqM } from "@/lib/stamp-duty";
-import { agriFrontageLabel, AGRI_FRONTAGES, categoryLabel, commercialKindLabel, COMMERCIAL_KINDS, roadWidthLabel, ROAD_WIDTHS, valuePlot } from "@/lib/valuation";
+import {
+  agriFrontageLabel,
+  AGRI_FRONTAGES,
+  categoryText,
+  commercialKindLabel,
+  COMMERCIAL_KINDS,
+  coveredGradeLabel,
+  COVERED_GRADES,
+  valuePlot,
+} from "@/lib/valuation";
 import { agriUnitLabel, lakhPerHaToRupeesPerBigha, lakhPerHaToRupeesPerSqm } from "@/lib/units";
 import { PageShell } from "./PageShell";
 
@@ -99,6 +109,7 @@ export function RateVillageTemplate({
    * where the whole stretch and its other villages are listed.
    */
   const segments = getRoadSegmentsForRow(cityId, row.id);
+  const roadBands = getRoadBands(cityId);
   const similar = getSimilarRows(cityId, row);
   const median = getTehsilMedian(cityId, tehsilId);
   const cityName = pick(locale, city.name, city.nameHi);
@@ -170,7 +181,7 @@ export function RateVillageTemplate({
               </>
             )}
             <span aria-hidden="true">·</span>
-            <span>{categoryLabel[row.category][locale]}</span>
+            <span>{categoryText(row.category, locale)}</span>
             <span aria-hidden="true">·</span>
             <span>
               {c.serial} {row.serial}
@@ -197,14 +208,25 @@ export function RateVillageTemplate({
           </div>
         ) : null}
         <div className="grid gap-4 md:grid-cols-3">
+          {/* One row per band this city prints, and only the ones this row fills. */}
           <RateBlock
             title={`${c.landRates} · ${c.perSqM}`}
-            rows={ROAD_WIDTHS.map((w) => ({ label: roadWidthLabel[w][locale], value: money(row.nonAgri[w]) }))}
+            rows={roadBands.map((b) => ({
+              label: locale === "hi" ? b.labelHi : b.labelEn,
+              value: typeof row.nonAgri[b.key] === "number" ? money(row.nonAgri[b.key]) : "—",
+            }))}
           />
           <RateBlock
             title={`${c.commercialRates} · ${c.perSqM}`}
-            rows={COMMERCIAL_KINDS.map((k) => ({ label: commercialKindLabel[k][locale], value: money(row.commercial[k]) }))}
+            rows={COMMERCIAL_KINDS.map((k) => ({ label: commercialKindLabel[k][locale], value: row.commercial ? money(row.commercial[k]) : "—" }))}
           />
+          {/* Construction rates, on lists that price covered area. Ayodhya prints no such column. */}
+          {row.covered && (
+            <RateBlock
+              title={`${c.coveredRates} · ${c.perSqM}`}
+              rows={COVERED_GRADES.map((g) => ({ label: coveredGradeLabel[g][locale], value: money(row.covered![g]) }))}
+            />
+          )}
           {hasAgri ? (
             <RateBlock
               title={`${c.agriRates} · ${agriUnitLabel["lakh-per-hectare"][locale]}`}
@@ -245,11 +267,12 @@ export function RateVillageTemplate({
                   <th scope="col" className={th}>
                     {c.plotSize}
                   </th>
+                  {/* The worked examples are computed on the narrowest and widest band. */}
                   <th scope="col" className={`${th} ${numeric}`}>
-                    {roadWidthLabel.lt9m[locale]}
+                    {locale === "hi" ? roadBands[0].labelHi : roadBands[0].labelEn}
                   </th>
                   <th scope="col" className={`${th} ${numeric}`}>
-                    {roadWidthLabel.ge18m[locale]}
+                    {locale === "hi" ? roadBands.at(-1)!.labelHi : roadBands.at(-1)!.labelEn}
                   </th>
                 </tr>
               </thead>
@@ -336,7 +359,7 @@ export function RateVillageTemplate({
 
       {/* calculator prefilled with this row */}
       <Section id="calculator" title={c.calculatorTitle} tone="sand">
-        <RateCalculator locale={locale} row={row} segments={segments} rules={rules} dutyRules={dutyRules} />
+        <RateCalculator locale={locale} row={row} segments={segments} bands={roadBands} rules={rules} dutyRules={dutyRules} />
       </Section>
 
       {/* questions people ask, also emitted as FAQPage */}

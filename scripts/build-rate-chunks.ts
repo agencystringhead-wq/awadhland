@@ -67,8 +67,9 @@ function main() {
           w: r.wardHi,
           c: r.category,
           p: r.page,
-          r: [r.nonAgri.lt9m, r.nonAgri.m9to18, r.nonAgri.ge18m],
-          m: [r.commercial.shop, r.commercial.office, r.commercial.godown],
+          // One entry per band of this city's schedule, in its order; null where the row is blank.
+          r: schedule.roadBands.map((b) => r.nonAgri[b.key] ?? null),
+          m: r.commercial ? [r.commercial.shop, r.commercial.office, r.commercial.godown] : null,
           a: [
             r.agriLakhPerHa.nh,
             r.agriLakhPerHa.state,
@@ -80,7 +81,13 @@ function main() {
         }));
 
       const file = path.join(outDir, `${cityId}-${sro}.json`);
-      const body = JSON.stringify({ cityId, tehsil: sro, effectiveFrom: schedule.effectiveFrom, rows });
+      const body = JSON.stringify({
+        cityId,
+        tehsil: sro,
+        effectiveFrom: schedule.effectiveFrom,
+        bands: schedule.roadBands,
+        rows,
+      });
       fs.writeFileSync(file, body);
       keep.add(path.resolve(file));
       totalRows += rows.length;

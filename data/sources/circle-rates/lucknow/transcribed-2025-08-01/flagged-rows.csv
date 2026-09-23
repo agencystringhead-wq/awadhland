@@ -1,0 +1,146 @@
+sro,table,serial_or_segment,vcode,village_hi,note
+sadar1,p2+p4,37,194,कायमखेड़ा,"9-12m 22500 > 12-18m 17000; verified at 350dpi, clearly printed"
+sadar1,p2+p4,52,90,गढ़िया रसूल खान,stray tick mark before 9-12m value
+sadar1,p2+p4,92,134,फौजी कालोनी,"ward no printed as ""14"" (no leading zero)"
+sadar1,p2+p4,93,117,बरहा कालोनी,"12-18m equals >18m (13000); verified at 350dpi, clearly printed"
+sadar1,p2+p4,150,119,सुजानपुरा,ward no 012 printed with ward name बाबू बनारसी दास (as in P1)
+sadar1,p3,34,0141,माल एवेन्यू,"vcode printed with stray backtick ""`0141"""
+sadar2,p2+p4,7,1139,अल्लूनगर डिगुरिया (सहारा सिटी होम्स),p4: name cut off in print
+sadar2,p2+p4,8,1098,अल्लूनगरडिगुरिया,p4: >18m lower than 12-18m but clearly printed
+sadar2,p2+p4,20,1127,उत्तरधौना (बी0बी0डी0 ग्रीन सिटी),p4: name cut off in print
+sadar2,p2+p4,21,1128,उत्तरधौना (पार्श्वनाथ सिटी/रॉयल फलोर),p4: name cut off in print
+sadar2,p2+p4,22,1201,उत्तरधौना (मानस गार्डेन एवं बिहार),p4: name cut off in print
+sadar2,p2+p4,28,0289,कैण्ट रोड (उत्तरी भाग),p4: closing bracket not printed
+sadar2,p2+p4,38,0400,गौतम बुद्व मार्ग,"p4: same name printed for 0400, 0276, 0398"
+sadar2,p2+p4,39,0276,गौतम बुद्व मार्ग,"p4: same name printed for 0400, 0276, 0398"
+sadar2,p2+p4,44,1129,गणेशपुर रहमानपुर (रघुनन्दन आशियाना),p4: name cut off in print
+sadar2,p2+p4,45,1202,गनेशपुर रहमानपुर (दयाल रेजीडेन्सी),p4: name cut off in print
+sadar2,p2+p4,47,0419,गोमती नगर विस्तार/गोमती ग्रीन्स,p4: name may be cut off in print
+sadar2,p2+p4,50,0398,गौतम बुद्व मार्ग,"p4: same name printed for 0400, 0276, 0398"
+sadar2,p2+p4,72,1132,ऋषि उद्यान (जुग्गौर),"<9 m 10000 higher than 9-12 m 9000; verified on scan, clearly printed (source inconsistency)"
+sadar2,p2+p4,79,0287,डा.श्याम प्रसाद मुखर्जी रोड (नजीराबाद रोड),p4: name cut off in print
+sadar2,p2+p4,85,1206,तेराखास (माधवपुरम/माधवग्रीन्स योजना),p4: name cut off in print
+sadar2,p2+p4,90,0392,त्रिपाठीनगर (खुर्शेद बाग),covered 22000/24000 lower than other urban wards but clearly printed
+sadar2,p2+p4,91,1107,थावर,premium 26500 breaks rural pattern (22000/24000) but clearly printed
+sadar2,p2+p4,96,1086,धावाँ,p4: godown 28000 (peers 28500) clearly printed
+sadar2,p2+p4,115,1204,नौबस्ताकला (पिताम्बरा बिहार कालोनी),p4: name cut off in print
+sadar2,p2+p4,118,0220,निशातगंज,covered_ordinary 3000 clearly printed (likely typo for 30000); premium 32500
+sadar2,p2+p4,130,0338,फैजाबाद रोड पूर्वी (चिनहट तक),p4: name cut off in print; >18m jump 66000 clearly printed
+sadar2,p2+p4,132,0223,फैजाबाद रोड,p4: 12-18m jump 66000 clearly printed
+sadar2,p2+p4,139,1060,बाघामऊ,duplicate serial 139 printed; p4: vcode 1060 printed on two rows; office 26000 clearly printed
+sadar2,p2+p4,139,1060,बाघामऊ (शालीमार वन वर्ल्ड),duplicate serial 139 printed (2nd row); ward no. blank in scan; p4: vcode 1060 printed on two rows
+sadar2,p2+p4,155,1082,भरवारा,no प्रारूप-4 row printed for this V-code (checked scan); only <9 m and covered rates available
+sadar2,p2+p4,166,1130,मुतक्कीपुर (एल्डिको सिटी/टाउनी),p4: name cut off in print
+sadar2,p2+p4,172,1055,माधवपुर,category printed नगरीय क्षेत्र though P1 lists माधवपुर under ग्रामीण; rates match rural pattern
+sadar2,p2+p4,175,1054,मौरा,p4: shop 23100 (peers 23000) clearly printed
+sadar2,p2+p4,189,1078,रायपुर,p4: >18m lower than 12-18m and office 30000 (peers 30500) but clearly printed
+sadar2,p2+p4,194,1105,रनियामऊ,p4: link-road agri 78 (peers 77) clearly printed
+sadar2,p2+p4,203,0269,लाजपत राय मार्ग (जॉपलिंग रोड),p4: name cut off in print
+sadar2,p2+p4,207,1205,लौलाई (माधवपुरम/माधवग्रीन्स योजना),duplicate serial 207 printed; p4: name cut off in print
+sadar2,p2+p4,207,0260,वजीर हसन रोड,duplicate serial 207 printed
+sadar2,p2+p4,228,0309,विजय खण्ड,p4: same name printed for 0309 and 0250
+sadar2,p2+p4,229,0250,विजय खण्ड,p4: same name printed for 0309 and 0250
+sadar2,p2+p4,233,0300,विशेश्वर नाथ रोड,p4: >18m jump 41500 clearly printed
+sadar2,p2+p4,253,1123,सरायशेख (बी0बी0डी0 ग्रीन सिटी),duplicate serial 253 printed; p4: name cut off in print
+sadar2,p2+p4,253,1076,सराँय शेख,duplicate serial 253 printed
+sadar2,p2+p4,260,0336,सेठ रामजस रोड,duplicate serial 260 printed; p4: shop 70000 (peers 70500) clearly printed
+sadar2,p2+p4,260,1051,सैथा,duplicate serial 260 printed
+sadar2,p2+p4,265,0417,हाता लक्ष्मणदास,duplicate serial 265 printed
+sadar2,p2+p4,265,0405,हाता मातादीन,duplicate serial 265 printed
+sadar2,p2+p4,269,0329,हलवासिया रोड,covered 25000/27500 lower than other ward 033 rows but clearly printed
+sadar2,p3,51,1100,निजामपुर मल्हौर,godown differs from same segment (35000) but clearly printed
+sadar2,p3,52,0220,निशातगंज,godown differs from same segment (55000) but clearly printed
+sadar2,p3,58,1106,बंशीगढ़ी,shop differs from same segment (38500) but clearly printed
+sadar2,p3,59,0224,बादशाहनगर रेलवे कालोनी,shop/office differ from same segment (91000/72000) but clearly printed
+sadar2,p3,64,1087,मलेसेमऊ,godown differs from same segment (73000) but clearly printed
+sadar2,p3,68,1054,मीरा,office differs from same segment (36000) but clearly printed
+sadar2,p3,79,1109,लोनापुर,godown differs from same segment (35000) but clearly printed
+sadar2,p3,89,0256,विभूति खण्ड,serial 88 not printed in source (87 on p102 then 89 on p103)
+sadar2,p3,99,0346,विशप राकी स्ट्रीट,shop differs from same segment (91000) but clearly printed
+sadar2,p3,106,1076,सरॉय शेख,agri/godown differ from same segment (250/35000) but clearly printed
+sadar2,p3,107,0370,सुन्दर बाग,godown differs from same segment (79000) but clearly printed
+sadar2,p3,115,394,हरीनगर दुगावां,vcode printed as 3 digits (394)
+sadar3,p2+p4,85,3,चमर टोलिया (दुगावा),name printed with broken glyph (दुग?ावा)
+sadar3,p2+p4,88,108,चिडीमार ठोला,shop/office/godown combo (48000/43500/37500) unusual but clearly printed
+sadar3,p2+p4,111,14,तिलकनगर,"source inconsistency: P2 <9 m 20500 > P4 9-12 m 16500, both clearly printed"
+sadar3,p2+p4,118,8,नाका हिण्डोला,office/godown (46000/36000) unusual but clearly printed
+sadar3,p2+p4,132,112,पंजाबी टोला,godown=office (43500) breaks pattern but clearly printed
+sadar3,p2+p4,138,191,पूर्वी बिरहाना,>18m 14400 (not 14500) clearly printed
+sadar3,p2+p4,144,127,बहादुरपुर,agri_link 409 (elsewhere 410) clearly printed
+sadar3,p2+p4,149,13,बिरहाना कालोनी (पश्चिमी),name printed 'क लोनी' (glyph gap); >18m 14400 as printed
+sadar3,p2+p4,156,23,बिलौचपुरा,>18m 14400 as printed
+sadar3,p2+p4,159,7,बेगम खेड़ा,>18m 14400 as printed
+sadar3,p2+p4,168,190,मौलवी गंज,>18m 23000 (similar rows 20500) clearly printed
+sadar3,p2+p4,198,237,लोहिया नगर शेखुपुरा आ.वि.कालोनी,office 68500 (similar rows 70000) clearly printed
+sadar3,p2+p4,200,75,वजीरगंज,office 56500 (similar rows 54000/55500) clearly printed
+sadar3,p2+p4,220,132,शन्करपुरवा,>18m 14400 as printed
+sadar3,p2+p4,222,176,सराय हसनगंज,9-12m 30000 > 12-18m 25500 breaks pattern but clearly printed
+sadar3,p2+p4,223,164,सुभान नगर उत्तरी/ सुभाष नगर,9-12m 30000 > 12-18m 25500 breaks pattern but clearly printed
+sadar3,p2+p4,224,157,सुरेन्द्र नाथ श्रीवास्तव मार्ग,9-12m 30000 > 12-18m 25500 breaks pattern but clearly printed
+sadar3,p2+p4,238,185,हाता फकीर मोहम्मद पक्का,>18m 14400 as printed
+sadar3,p3,17,0217,इन्दिरा नगर सेक्टर-10,same village as row 16 (duplicate row printed)
+sadar3,p3,48,0140,कुतुबपुर/कुतुबपुर खालिसपुर,commercial rates differ from other rows of this segment (99000/76000/59000) but clearly printed
+sadar3,p3,64,0162,पाण्डेय टोला,land rate much lower than other rows of this segment (52000) but clearly printed
+sadar3,p3,73,0143,बरौलिया,commercial rates differ from other rows of this segment (89500/69500/53000) but clearly printed
+sadar3,p3,81,0160,महानगर विस्तार (विज्ञानपुरी ),rates differ from other rows of this segment (70000/107000/81500/62000) but clearly printed
+sadar3,p3,83,0117,महानगर,godown 55000 differs from segment's usual 59000 but clearly printed
+sadar3,p3,84,0117,महानगर,shop 100000 differs from segment's usual 99000 but clearly printed
+sadar3,p3,85,0117,महानगर,rates differ from other rows of this segment (40000/82000/58500/53000) but clearly printed
+sadar3,p3,92,0119,रहीमनगर,segment text first line cut off in scan (top half of line hidden); first line is best reading
+sadar3,p3,102,0136,विकास नगर सेक्टर-7,rates differ from other rows of this segment (40000/82000/58500/53000); land = godown value; clearly printed
+sadar3,p3,107,0138,शेखपुर-शेखापुर(बेगम हजरत महल मार्ग का दक्षिणी भाग),village name top/bottom lines partly cut off in scan; completed from P2 serial 221 (vcode 000138)
+sadar3,p3,114,,रोड पर पड़ने वाले समस्त मोहल्ले,segment text first line cut off in scan (best reading); no vcode printed
+sadar3,p3,115,,रोड पर पड़ने वाले समस्त मोहल्ले,no vcode printed
+sadar3,p3,116,,रोड पर पड़ने वाले समस्त मोहल्ले,no vcode printed; first letter of segment overwritten in scan (read as गोल)
+sadar3,p3,117,,रोड पर पड़ने वाले समस्त मोहल्ले,no vcode printed
+sadar3,p3,118,,रोड पर पड़ने वाले समस्त मोहल्ले,no vcode printed
+sadar3,p3,119,,रोड पर पड़ने वाले समस्त मोहल्ले,no vcode printed
+sadar3,p3,120,,रोड पर पड़ने वाले समस्त मोहल्ले,no vcode printed
+sadar3,p3,121,,रोड पर पड़ने वाले समस्त मोहल्ले,no vcode printed
+sadar5,p2+p4,65,0102,गुलाब नगर,"p4: name same as serial 64 (different vcode), as printed"
+sadar5,p2+p4,104,0281,तुलसीदास मार्ग मोहल्ला,"p4: name same as serial 103 (different vcode), as printed"
+sadar5,p2+p4,132,0237,नौबस्ता,"p4: name same as serial 131 (different vcode), as printed"
+sadar5,p2+p4,140,0161,पाण्डे का तालाब,"p4: name same as serial 139 (different vcode), as printed"
+sadar5,p2+p4,187,0294,भोलाखेड़ा,"p4: name same as serial 186 (different vcode), as printed"
+sadar5,p2+p4,195,0163,मालवीय नगर,"p4: name same as serial 193 (different vcode), as printed"
+sadar5,p2+p4,205,0112,मोअज़्ज़म नगर,"p4: name same as serial 203 (different vcode), as printed"
+sadar5,p2+p4,254,0131,श्रंगार नगर,lt9m 30500 unusually high but clearly printed; P4 prints name as श्रृंगार नगर
+sadar5,p3,39,0039,पारा,stray matra printed after तिकुनिया
+sadar5,p3,89,0192,लेबर कालोनी,vcode printed as 192
+sadar5,p3,94,0131,श्रंगार नगर,nonagri 60000 vs 60500 for same segment at serial 1; clearly printed
+mohanlalganj,p2+p4,111,,पूरनपुर,nonagri 5800 breaks pattern but clearly printed (verified 400dpi); agri values high vs land-rate peers but clearly printed
+mohanlalganj,p2+p4,151,,भददीखेडा,link road 26 differs from peers (28) but clearly printed
+mohanlalganj,p2+p4,184,,रधुनाथ खेडा,name printed रधुनाथ (prob. रघुनाथ)
+mohanlalganj,p2+p4,211,,सुशांत गोल्फ सिटी अंसल,covered 27000/30000 unique in list but clearly printed (verified 400dpi)
+mohanlalganj,p2+p4,214,,सलौली,12-18m 4100 < 9-12m 4700 (peers 5100) but clearly printed at 350dpi
+mohanlalganj,p2+p4,228,,सिद्बपुरा,agri 52/45/52/38 high vs land-rate peers (32/28/32/23) but clearly printed
+mohanlalganj,p2+p4,235,,हरिहरपुर पटसा,>18m 2800 < 12-18m 3400 (peers 3600) but clearly printed at 350dpi
+mohanlalganj,p3,23,,चक कंजेहरा,shop equals nonagri 50000; clearly printed
+mohanlalganj,p3,46,,बहरौली,agri 32 (neighbours 33) but clearly printed
+mohanlalganj,p3,60,,मोहारी खुर्द,shop/office/godown 36000/33000/30000 higher than other agri-53 rows; clearly printed
+mohanlalganj,p3,64,,उत्तरगॉव,agri 53 but commercial 23000/22000/21000; clearly printed
+mohanlalganj,p3,74,,दूल्हापुर हुसौनाबाद,agri 32 (neighbours 33) but clearly printed
+mohanlalganj,p3,76,,पूरनपुर,agri 80 with commercial 23000/22000/21000; clearly printed
+sarojininagar,p2+p4,5,,अशरफ नगर,pargana code 101/name mismatch as printed
+sarojininagar,p2+p4,58,,पिपरौली,office printed 350000 (likely typo for 35000) - kept as printed
+sarojininagar,p2+p4,59,,फैन्डस कालोनी,pargana code 101/name mismatch as printed
+sarojininagar,p2+p4,63,,बरौली खलीलाबाद,pargana code 101/name mismatch as printed
+sarojininagar,p2+p4,73,,बिरुरा,pargana code 101/name mismatch as printed
+sarojininagar,p2+p4,78,,मलाक,pargana code 101/name mismatch as printed
+sarojininagar,p2+p4,79,,मुराव खेड़ा,pargana code 101/name mismatch as printed
+sarojininagar,p2+p4,89,,रसूलपुर इठुरिया,pargana code 101/name mismatch as printed
+sarojininagar,p2+p4,102,,शान्तिनगर,pargana code 0207/name mismatch as printed
+sarojininagar,p2+p4,107,,सरसवां/अर्जुनगंज,pargana code 111/name mismatch as printed
+sarojininagar,p2+p4,121,,हरिहरपुर,pargana code 101/name mismatch as printed
+sarojininagar,p3,27,,उक्त रोड पर पड़ने वाले समस्त राजस्व ग्राम/मोहल्ले,agri 50 low vs other segments but clearly printed
+sarojininagar2,p2+p4,1,,अनौरा,serial printed as 1* (footnote: clerical error corrected per SR report)
+sarojininagar2,p2+p4,19,,किला मोहम्मदीनगर,serial printed as 19* (footnote: clerical error corrected per SR report); P2 name किला मोहम्मदीनगर
+sarojininagar2,p2+p4,56,,प्यारेपुर,code 0101 printed with name परगना काकोरी (code/name mismatch as printed)
+sarojininagar2,p2+p4,57,,प्यारेपुर (अनन्त नगर योजना),code 0101 printed with name परगना काकोरी (code/name mismatch as printed)
+sarojininagar2,p2+p4,78,,मदारपुर,serial printed as 78* (footnote: clerical error corrected per SR report)
+sarojininagar2,p2+p4,86,,मीरानपुर पिनवट (पार्थ रिपब्लिक),name cut off in P4 (printed 'मीरानपुर पिनवट (पार्थ रिपबि'); completed from P2
+sarojininagar2,p2+p4,94,,रामगढ़ कालोनी,code 0101 printed with name हिन्दनगर (code/name mismatch as printed)
+sarojininagar2,p2+p4,95,,रामदासपुर,code 0010 printed with name बिजनौर (code/name mismatch as printed)
+sarojininagar2,p3,15,,अमौसी,shop 50000 below nonagri 60000 as printed
+sarojininagar2,p3,15,,बरगवा (बारा बिरवा),office 87000 breaks pattern (others 80000) but clearly printed
+sarojininagar2,p3,15,,मीरानपुर पिनवट,shop 50000 below nonagri 60000 as printed

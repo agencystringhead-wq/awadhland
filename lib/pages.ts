@@ -22,7 +22,17 @@ import {
 } from "./data";
 import { brokerIsRegistered, hasSourcedLandUse } from "./guards";
 import { getGuides } from "./guides";
-import { getCurrentRateSchedule, getLocalityRate, getRowsByTehsil, getTehsilSummary, getTehsilsByCity, isRowIndexable } from "./rates";
+import {
+  baseRate,
+  getCurrentRateSchedule,
+  getLocalityRate,
+  getRowsByTehsil,
+  getTehsilSummary,
+  getTehsilsByCity,
+  hasUniqueRateProfile,
+  isRowIndexable,
+  rowEffectiveFrom,
+} from "./rates";
 import { formatDate, formatNumber, localePath, pick, SITE_URL, type Locale } from "./i18n";
 import { landUseLabels } from "./labels";
 import { guideAlternate, localityAlternate, sameAlternate, type Alternate } from "./routes";
@@ -254,17 +264,41 @@ export function getPages(locale: Locale): PageEntry[] {
 
     /* circle rates */
     const schedule = getCurrentCircleRateSchedule(c.id);
-    if (schedule) {
+    // The hub also builds on the full transcribed list alone: Lucknow has 1,449 real rows but its
+    // locality-level seed is withheld, and without the hub every one of its village pages would
+    // be orphaned behind a page that refused to build.
+    const fullList = getCurrentRateSchedule(c.id);
+    if (schedule || fullList) {
+      /*
+       * The description counts whichever the city actually has. Ayodhya has both and is described
+       * by its sourced localities; Lucknow has only the transcribed list, so it is described by
+       * its rows and SROs. Counting localities for Lucknow would have quoted the number of seeded
+       * entries the page deliberately does not show.
+       */
+      const effective = schedule?.effectiveFrom ?? fullList!.effectiveFrom;
+      const sroCount = fullList ? new Set(fullList.rows.map((r) => r.sro)).size : 0;
+      const description = schedule
+        ? hi
+          ? `${name} की ${n(schedule.rates.length, "इलाक़े", "इलाक़ों")} की सर्किल रेट सूची, ${formatDate(effective, locale)} से लागू। रिहायशी, व्यावसायिक और कृषि दरें, स्टाम्प ड्यूटी कैलकुलेटर और संशोधन इतिहास।`
+          : `${name} circle-rate schedule for ${n(schedule.rates.length, "locality", "localities")}, effective ${formatDate(effective, locale)}. Residential, commercial, agricultural rates, stamp duty calculator, revision history.`
+        : hi
+          ? `${name} की प्रकाशित मूल्यांकन सूची: ${n(fullList!.rows.length, "पंक्ति", "पंक्तियाँ")}, ${n(sroCount, "एसआरओ", "एसआरओ")}, ${formatDate(effective, locale)} से लागू। भूमि, व्यावसायिक और निर्माण दरें, स्टाम्प ड्यूटी कैलकुलेटर।`
+          : `${name} published valuation list: ${n(fullList!.rows.length, "row", "rows")} across ${n(sroCount, "sub-registrar office", "sub-registrar offices")}, effective ${formatDate(effective, locale)}. Land, commercial and construction rates, stamp duty calculator.`;
+
       add({
         kind: "circle-rates",
         sitePath: `/${c.id}/circle-rates/`,
         title: hi ? `${name} सर्किल रेट ${YEAR}: सूची, लागू तारीख़, स्टाम्प ड्यूटी · ${site}` : `${name} circle rates ${YEAR}: schedule, effective date, stamp duty · ${site}`,
-        description: hi
-          ? `${name} की ${n(schedule.rates.length, "इलाक़े", "इलाक़ों")} की सर्किल रेट सूची, ${formatDate(schedule.effectiveFrom, locale)} से लागू। रिहायशी, व्यावसायिक और कृषि दरें, स्टाम्प ड्यूटी कैलकुलेटर और संशोधन इतिहास।`
-          : `${name} circle-rate schedule for ${n(schedule.rates.length, "locality", "localities")}, effective ${formatDate(schedule.effectiveFrom, locale)}. Residential, commercial, agricultural rates, stamp duty calculator, revision history.`,
-        lastmod: newest([schedule.updatedAt, ...getStampDutyRules().map((r) => r.updatedAt)]),
+        description,
+        lastmod: newest([schedule?.updatedAt ?? fullList!.updatedAt, ...getStampDutyRules().map((r) => r.updatedAt)]),
         alternate: sameAlternate(locale, `/${c.id}/circle-rates/`),
-        og: { title: hi ? `${name} सर्किल रेट` : `${name} circle rates`, subtitle: `${hi ? "लागू" : "Effective"} ${formatDate(schedule.effectiveFrom, locale)}`, chip: `${schedule.rates.length} ${hi ? "इलाक़े" : "localities"}` },
+        og: {
+          title: hi ? `${name} सर्किल रेट` : `${name} circle rates`,
+          subtitle: `${hi ? "लागू" : "Effective"} ${formatDate(effective, locale)}`,
+          chip: schedule
+            ? `${schedule.rates.length} ${hi ? "इलाक़े" : "localities"}`
+            : `${formatNumber(fullList!.rows.length)} ${hi ? "पंक्तियाँ" : "rows"}`,
+        },
         ogSlug: `${c.id}--circle-rates`,
       });
     }
@@ -274,6 +308,11 @@ export function getPages(locale: Locale): PageEntry[] {
     if (rateSchedule) {
       const referenced = new Set(localities.filter((l) => l.status === "live").flatMap((l) => (l.rateRefs ?? []).map((r) => r.rateRowId)));
       for (const tehsil of getTehsilsByCity(c.id)) {
+        // An SRO whose list has not been transcribed gets no page. It is named on the city hub as
+        // pending, which says the district has more SROs than we have rates for; a page of its own
+        // would have nothing on it. Checked explicitly rather than relying on rowCount, so a stray
+        // row could never quietly publish one.
+        if (tehsil.ratesStatus === "pending") continue;
         const summary = getTehsilSummary(c.id, tehsil.id);
         if (!summary || summary.rowCount === 0) continue;
         const tName = pick(locale, tehsil.name, tehsil.nameHi);
@@ -314,8 +353,17 @@ export function getPages(locale: Locale): PageEntry[] {
            */
           const vc = getVillageContent(row.id);
           const vcopy = vc ? villageCopy(vc, locale) : undefined;
+          /*
+           * Written copy, a broker note or a live locality opens a row to search. Failing all
+           * three, a row is indexable only if its figures are not repeated by another row of the
+           * same SRO -- which is the only test a list with no written content can offer, and is
+           * what keeps Lucknow from shipping 1,449 noindex pages or 1,449 near-duplicates.
+           */
           const indexable =
-            villageContentIndexableIds().has(row.id) || Boolean(getVillageNote(row.id)) || isRowIndexable(row.id, referenced.has(row.id));
+            villageContentIndexableIds().has(row.id) ||
+            Boolean(getVillageNote(row.id)) ||
+            isRowIndexable(row.id, referenced.has(row.id)) ||
+            hasUniqueRateProfile(c.id, row.id);
           add({
             kind: "rate-village",
             sitePath: `/${c.id}/circle-rates/${tehsil.id}/${row.slug}/`,
@@ -325,8 +373,8 @@ export function getPages(locale: Locale): PageEntry[] {
             description:
               vcopy?.metaDescription ??
               (hi
-              ? `${row.nameHi} (${row.nameEn}), ${tName} तहसील। सर्किल रेट ₹${formatNumber(row.nonAgri.lt9m)} प्रति वर्ग मीटर 9 मीटर से कम चौड़ी सड़क पर, दुकान ₹${formatNumber(row.commercial.shop)} प्रति वर्ग मीटर। ${formatDate(rateSchedule.effectiveFrom, locale)} से लागू, मुद्रित पृष्ठ ${row.page}।`
-              : `${row.nameEn} (${row.nameHi}), ${tName} tehsil. Circle rate ₹${formatNumber(row.nonAgri.lt9m)} per sq m on a road under 9 m, shop ₹${formatNumber(row.commercial.shop)} per sq m. Effective ${formatDate(rateSchedule.effectiveFrom, locale)}, printed page ${row.page}.`),
+              ? `${row.nameHi} (${row.nameEn}), ${tName} तहसील। सर्किल रेट ₹${formatNumber(baseRate(row))} प्रति वर्ग मीटर ${rateSchedule.roadBands[0].labelHi} चौड़ी सड़क पर${row.commercial ? `, दुकान ₹${formatNumber(row.commercial.shop)} प्रति वर्ग मीटर` : ""}। ${formatDate(rowEffectiveFrom(rateSchedule, row.sro), locale)} से लागू, मुद्रित पृष्ठ ${row.page}।`
+              : `${row.nameEn} (${row.nameHi}), ${tName} tehsil. Circle rate ₹${formatNumber(baseRate(row))} per sq m on a road ${rateSchedule.roadBands[0].labelEn.toLowerCase()}${row.commercial ? `, shop ₹${formatNumber(row.commercial.shop)} per sq m` : ""}. Effective ${formatDate(rowEffectiveFrom(rateSchedule, row.sro), locale)}, printed page ${row.page}.`),
             lastmod: rateSchedule.updatedAt,
             alternate: sameAlternate(locale, `/${c.id}/circle-rates/${tehsil.id}/${row.slug}/`),
             // Village pages share their tehsil's OG image: 3,260 near-identical cards would add

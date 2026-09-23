@@ -14,7 +14,7 @@
 import { useCallback, useEffect, useId, useRef, useState } from "react";
 import { formatNumber, localePath, pick, type Locale } from "@/lib/i18n";
 import { rc } from "@/lib/rate-copy";
-import { categoryLabel } from "@/lib/valuation";
+import { categoryText } from "@/lib/valuation";
 import type { ChunkRow, RateChunk } from "@/lib/rate-chunks";
 
 type Hit = ChunkRow & { tehsil: string };
@@ -136,11 +136,11 @@ export function DistrictRateSearch({
                       {pick(locale, r.n, r.h)}
                     </a>
                     <span className="ml-2 text-sm text-muted">
-                      {pick(locale, r.h, r.n)} · {tehsilNames[r.tehsil]} · {categoryLabel[r.c][locale]}
+                      {pick(locale, r.h, r.n)} · {tehsilNames[r.tehsil]} · {categoryText(r.c, locale)}
                     </span>
                   </span>
                   <span className="tabular-nums text-sm">
-                    ₹{formatNumber(r.r[0])} <span className="text-muted">{c.perSqM}</span>
+                    ₹{r.r[0] === null ? "—" : formatNumber(r.r[0])} <span className="text-muted">{c.perSqM}</span>
                   </span>
                 </li>
               ))}

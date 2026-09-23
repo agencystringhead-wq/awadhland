@@ -41,10 +41,18 @@ export function localityParams(locale: Locale) {
   );
 }
 
+/**
+ * Cities with a sourced locality-level schedule, or a transcribed मूल्यांकन सूची, or both.
+ *
+ * Lucknow has only the second: its circleRates.json entry is seed data and withheld, while its
+ * 1,449 transcribed rows are real. Keying this on the narrow schedule alone would drop the hub and
+ * orphan every Lucknow village page under it. Must stay in step with the same condition in
+ * lib/pages.ts, or the page is linked and not built.
+ */
 export const circleRateParams = () =>
   nonEmpty(
     "/[city]/circle-rates/",
-    [...new Set(getCircleRateSchedules().map((s) => s.cityId))].map((city) => ({ city })),
+    [...new Set([...getCircleRateSchedules().map((s) => s.cityId), ...getCitiesWithRateList()])].map((city) => ({ city })),
   );
 
 /** /[city]/circle-rates/[tehsil]/ — one per tehsil that has rows in the current schedule. */

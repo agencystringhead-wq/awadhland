@@ -19,7 +19,8 @@
     "todo": [
       "PLACEHOLDER: tehsil headquarters lat/lng is approximate; confirm against the district revenue record",
       "Add the deep link to this SRO's list on IGRSUP once a stable URL is available"
-    ]
+    ],
+    "ratesStatus": "published"
   },
   {
     "id": "sohawal",
@@ -41,7 +42,8 @@
     "todo": [
       "PLACEHOLDER: tehsil headquarters lat/lng is approximate; confirm against the district revenue record",
       "Add the deep link to this SRO's list on IGRSUP once a stable URL is available"
-    ]
+    ],
+    "ratesStatus": "published"
   },
   {
     "id": "bikapur",
@@ -63,7 +65,8 @@
     "todo": [
       "PLACEHOLDER: tehsil headquarters lat/lng is approximate; confirm against the district revenue record",
       "Add the deep link to this SRO's list on IGRSUP once a stable URL is available"
-    ]
+    ],
+    "ratesStatus": "published"
   },
   {
     "id": "milkipur",
@@ -85,7 +88,8 @@
     "todo": [
       "PLACEHOLDER: tehsil headquarters lat/lng is approximate; confirm against the district revenue record",
       "Add the deep link to this SRO's list on IGRSUP once a stable URL is available"
-    ]
+    ],
+    "ratesStatus": "published"
   },
   {
     "id": "rudauli",
@@ -107,6 +111,186 @@
     "todo": [
       "PLACEHOLDER: tehsil headquarters lat/lng is approximate; confirm against the district revenue record",
       "Add the deep link to this SRO's list on IGRSUP once a stable URL is available"
+    ],
+    "ratesStatus": "published"
+  },
+  {
+    "id": "sadar1",
+    "cityId": "lucknow",
+    "name": "Sadar-1",
+    "nameHi": "सदर-1",
+    "sroName": "Sub-Registrar, Sadar-1",
+    "sroNameHi": "उप निबंधक, सदर-1",
+    "ratesStatus": "published",
+    "sources": [
+      {
+        "label": "IGRSUP मूल्यांकन सूची, Lucknow district, effective 01-08-2025",
+        "url": "https://igrsup.gov.in/",
+        "accessedAt": "2026-09-24"
+      }
+    ],
+    "updatedAt": "2026-09-24"
+  },
+  {
+    "id": "sadar2",
+    "cityId": "lucknow",
+    "name": "Sadar-2",
+    "nameHi": "सदर-2",
+    "sroName": "Sub-Registrar, Sadar-2",
+    "sroNameHi": "उप निबंधक, सदर-2",
+    "ratesStatus": "published",
+    "sources": [
+      {
+        "label": "IGRSUP मूल्यांकन सूची, Lucknow district, effective 01-08-2025",
+        "url": "https://igrsup.gov.in/",
+        "accessedAt": "2026-09-24"
+      }
+    ],
+    "updatedAt": "2026-09-24"
+  },
+  {
+    "id": "sadar3",
+    "cityId": "lucknow",
+    "name": "Sadar-3",
+    "nameHi": "सदर-3",
+    "sroName": "Sub-Registrar, Sadar-3",
+    "sroNameHi": "उप निबंधक, सदर-3",
+    "ratesStatus": "published",
+    "sources": [
+      {
+        "label": "IGRSUP मूल्यांकन सूची, Lucknow district, effective 01-08-2025",
+        "url": "https://igrsup.gov.in/",
+        "accessedAt": "2026-09-24"
+      }
+    ],
+    "updatedAt": "2026-09-24"
+  },
+  {
+    "id": "sadar5",
+    "cityId": "lucknow",
+    "name": "Sadar-5",
+    "nameHi": "सदर-5",
+    "sroName": "Sub-Registrar, Sadar-5",
+    "sroNameHi": "उप निबंधक, सदर-5",
+    "ratesStatus": "published",
+    "sources": [
+      {
+        "label": "IGRSUP मूल्यांकन सूची, Lucknow district, effective 01-08-2025",
+        "url": "https://igrsup.gov.in/",
+        "accessedAt": "2026-09-24"
+      }
+    ],
+    "updatedAt": "2026-09-24"
+  },
+  {
+    "id": "mohanlalganj",
+    "cityId": "lucknow",
+    "name": "Mohanlalganj",
+    "nameHi": "मोहनलालगंज",
+    "sroName": "Sub-Registrar, Mohanlalganj",
+    "sroNameHi": "उप निबंधक, मोहनलालगंज",
+    "ratesStatus": "published",
+    "sources": [
+      {
+        "label": "IGRSUP मूल्यांकन सूची, Lucknow district, effective 01-08-2025",
+        "url": "https://igrsup.gov.in/",
+        "accessedAt": "2026-09-24"
+      }
+    ],
+    "updatedAt": "2026-09-24"
+  },
+  {
+    "id": "sarojininagar",
+    "cityId": "lucknow",
+    "name": "Sarojini Nagar",
+    "nameHi": "सरोजनी नगर",
+    "sroName": "Sub-Registrar, Sarojini Nagar",
+    "sroNameHi": "उप निबंधक, सरोजनी नगर",
+    "ratesStatus": "published",
+    "sources": [
+      {
+        "label": "IGRSUP मूल्यांकन सूची, Lucknow district, effective 01-08-2025",
+        "url": "https://igrsup.gov.in/",
+        "accessedAt": "2026-09-24"
+      }
+    ],
+    "updatedAt": "2026-09-24"
+  },
+  {
+    "id": "sarojininagar2",
+    "cityId": "lucknow",
+    "name": "Sarojini Nagar-2",
+    "nameHi": "सरोजनी नगर-2",
+    "sroName": "Sub-Registrar, Sarojini Nagar-2",
+    "sroNameHi": "उप निबंधक, सरोजनी नगर-2",
+    "ratesStatus": "published",
+    "sources": [
+      {
+        "label": "IGRSUP मूल्यांकन सूची, Lucknow district, effective 01-08-2025",
+        "url": "https://igrsup.gov.in/",
+        "accessedAt": "2026-09-24"
+      }
+    ],
+    "updatedAt": "2026-09-24"
+  },
+  {
+    "id": "sadar4",
+    "cityId": "lucknow",
+    "name": "Sadar-4",
+    "nameHi": "सदर-4",
+    "sroName": "Sub-Registrar, Sadar-4",
+    "sroNameHi": "उप निबंधक, सदर-4",
+    "ratesStatus": "pending",
+    "sources": [
+      {
+        "label": "IGRSUP मूल्यांकन सूची, Lucknow district",
+        "url": "https://igrsup.gov.in/",
+        "accessedAt": "2026-09-24"
+      }
+    ],
+    "updatedAt": "2026-09-24",
+    "todo": [
+      "Rate list not transcribed. What was received is a khasra list (plot numbers by road frontage), not the मूल्यांकन सूची; it needs downloading from IGRSUP."
+    ]
+  },
+  {
+    "id": "bakshikatalab",
+    "cityId": "lucknow",
+    "name": "Bakshi Ka Talab",
+    "nameHi": "बक्शी का तालाब",
+    "sroName": "Sub-Registrar, Bakshi Ka Talab",
+    "sroNameHi": "उप निबंधक, बक्शी का तालाब",
+    "ratesStatus": "pending",
+    "sources": [
+      {
+        "label": "IGRSUP मूल्यांकन सूची, Lucknow district",
+        "url": "https://igrsup.gov.in/",
+        "accessedAt": "2026-09-24"
+      }
+    ],
+    "updatedAt": "2026-09-24",
+    "todo": [
+      "Rate list not transcribed. What was received is a khasra list (plot numbers by road frontage), not the मूल्यांकन सूची; it needs downloading from IGRSUP."
+    ]
+  },
+  {
+    "id": "malihabad",
+    "cityId": "lucknow",
+    "name": "Malihabad",
+    "nameHi": "मलिहाबाद",
+    "sroName": "Sub-Registrar, Malihabad",
+    "sroNameHi": "उप निबंधक, मलिहाबाद",
+    "ratesStatus": "pending",
+    "sources": [
+      {
+        "label": "IGRSUP मूल्यांकन सूची, Lucknow district",
+        "url": "https://igrsup.gov.in/",
+        "accessedAt": "2026-09-24"
+      }
+    ],
+    "updatedAt": "2026-09-24",
+    "todo": [
+      "Rate list not transcribed. What was received is a khasra list, not the मूल्यांकन सूची; the published list is dated 31-12-2025 and needs downloading from IGRSUP."
     ]
   }
 ]

@@ -27,7 +27,21 @@ const th = "px-4 py-2.5 font-semibold";
 export function CircleRatesTemplate({ locale, cityId }: { locale: Locale; cityId: string }) {
   const city = getCity(cityId);
   const schedules = getCircleRateSchedulesByCity(cityId);
-  if (!city || schedules.length === 0) notFound();
+  /*
+   * Two independent sources can put a city on this page, and a city may have either, or both.
+   *
+   * `schedules` is the narrow locality-level view in circleRates.json. Lucknow's and Gorakhpur's
+   * entries there are seed data and are withheld by scheduleIsSourced, so this list is empty for
+   * them. `rateSchedule` below is the full transcribed मूल्यांकन सूची, which Lucknow now has:
+   * 1,449 real rows across seven SROs.
+   *
+   * So the page renders what the city actually has. Lucknow gets its SRO cards, its district
+   * search and its 1,449 village pages, and simply does not show the locality table it has no
+   * sourced figures for. Requiring the narrow schedule would have left every one of those village
+   * pages orphaned behind a hub that refused to build.
+   */
+  const rateScheduleForGate = getCurrentRateSchedule(cityId);
+  if (!city || (schedules.length === 0 && !rateScheduleForGate)) notFound();
   const [current, ...revisions] = schedules;
   const t = ui[locale];
   const broker = getBroker();
@@ -35,7 +49,7 @@ export function CircleRatesTemplate({ locale, cityId }: { locale: Locale; cityId
   const pageLabel = `${cityName} · ${t.circleRates}`;
   const localityNames = Object.fromEntries(getLocalitiesByCity(city.id).map((l) => [l.id, pick(locale, l.name, l.nameHi)]));
   const rules = getStampDutyRules();
-  const faq = circleRateFaq(city, current, schedules.length, locale);
+  const faq = current ? circleRateFaq(city, current, schedules.length, locale) : [];
   const c = rc(locale);
   // The full published list, when this city has one transcribed. Drives the tehsil cards and the
   // district search; the narrow circleRates.json above still drives the calculator and the table.
@@ -47,6 +61,8 @@ export function CircleRatesTemplate({ locale, cityId }: { locale: Locale; cityId
         return s && s.rowCount > 0 ? [s] : [];
       })
     : [];
+  // Registered SROs with no transcribed list. They get a card that says so, and no link.
+  const pending = tehsils.filter((th) => th.ratesStatus === "pending");
 
   return (
     <PageShell locale={locale} alternate={sameAlternate(locale, `/${city.id}/circle-rates/`)} pageLabel={pageLabel}>
@@ -63,27 +79,44 @@ export function CircleRatesTemplate({ locale, cityId }: { locale: Locale; cityId
           <h1>
             {cityName} {t.circleRates}
           </h1>
-          <p className="mt-3 flex flex-wrap items-center gap-x-3 gap-y-1 text-ink-soft">
-            <span>
-              {t.effective} <time dateTime={current.effectiveFrom}>{formatDate(current.effectiveFrom, locale)}</time>
-            </span>
-            <span aria-hidden="true">·</span>
-            <a href={current.sourceUrl} rel="noopener">
-              {t.sourcePdf}
-            </a>
-            {current.archiveUrl && (
-              <>
+          {/* Only where the locality-level schedule is sourced; Lucknow's header comes from the
+              transcribed list below instead. */}
+          {current ? (
+            <p className="mt-3 flex flex-wrap items-center gap-x-3 gap-y-1 text-ink-soft">
+              <span>
+                {t.effective} <time dateTime={current.effectiveFrom}>{formatDate(current.effectiveFrom, locale)}</time>
+              </span>
+              <span aria-hidden="true">·</span>
+              <a href={current.sourceUrl} rel="noopener">
+                {t.sourcePdf}
+              </a>
+              {current.archiveUrl && (
+                <>
+                  <span aria-hidden="true">·</span>
+                  <a href={current.archiveUrl} rel="noopener">
+                    {t.archivedCopy}
+                  </a>
+                </>
+              )}
+              <span aria-hidden="true">·</span>
+              <span>
+                {schedules.length} {schedules.length === 1 ? t.revision : t.revisions}
+              </span>
+            </p>
+          ) : (
+            rateSchedule && (
+              <p className="mt-3 flex flex-wrap items-center gap-x-3 gap-y-1 text-ink-soft">
+                <span>
+                  {t.effective}{" "}
+                  <time dateTime={rateSchedule.effectiveFrom}>{formatDate(rateSchedule.effectiveFrom, locale)}</time>
+                </span>
                 <span aria-hidden="true">·</span>
-                <a href={current.archiveUrl} rel="noopener">
-                  {t.archivedCopy}
-                </a>
-              </>
-            )}
-            <span aria-hidden="true">·</span>
-            <span>
-              {schedules.length} {schedules.length === 1 ? t.revision : t.revisions}
-            </span>
-          </p>
+                <span>
+                  {formatNumber(rateSchedule.rows.length)} {locale === "hi" ? "पंक्तियाँ" : "rows"}
+                </span>
+              </p>
+            )
+          )}
           {/* The five SROs publish separately, so the order date and each document are named here. */}
           {rateSchedule && (
             <p className="mt-2 flex flex-wrap items-center gap-x-3 gap-y-1 text-sm text-muted">
@@ -149,6 +182,21 @@ export function CircleRatesTemplate({ locale, cityId }: { locale: Locale; cityId
                 </a>
               </li>
             ))}
+            {/*
+             * SROs whose list has not been transcribed yet. Named, not linked: Lucknow has ten
+             * SROs and seven are in, and a hub that silently showed seven would read as the whole
+             * district. Saying which three are missing is the difference between an incomplete
+             * list and a wrong one.
+             */}
+            {pending.map((th) => (
+              <li key={th.id}>
+                <div className="block h-full rounded-2xl border border-dashed border-line bg-cream-deep/40 p-5">
+                  <h3 className="text-xl text-ink-soft">{pick(locale, th.name, th.nameHi)}</h3>
+                  <p className="caption-mono mt-1 text-muted">{pick(locale, th.sroName, th.sroNameHi)}</p>
+                  <p className="mt-4 text-sm text-muted">{c.ratesPending}</p>
+                </div>
+              </li>
+            ))}
           </ul>
         </Section>
       )}
@@ -207,7 +255,8 @@ export function CircleRatesTemplate({ locale, cityId }: { locale: Locale; cityId
         </div>
       </Section>
 
-      {/* 3. Full table: sortable, filterable, printable */}
+      {/* 3. Full table of locality-level rates, where the city has a sourced narrow schedule. */}
+      {current && (
       <Section title={t.schedule}>
         <CircleRateTable
           locale={locale}
@@ -219,6 +268,7 @@ export function CircleRatesTemplate({ locale, cityId }: { locale: Locale; cityId
         />
         <SourceStamp locale={locale} sources={current.sources} updatedAt={current.updatedAt} effectiveFrom={current.effectiveFrom} />
       </Section>
+      )}
 
       {/* 4. How circle rates work */}
       <Section id="how" title={t.howCircleRatesWork}>
