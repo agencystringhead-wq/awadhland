@@ -247,10 +247,12 @@
     "landUseSource": "IGRSUP 2025-06-07 (urban)",
     "narrative": {
       "drivers": [
-        "PLACEHOLDER (draft): Naya Ghat is a mixed locality in Sadar tehsil, Ayodhya. The circle rate, asking range and land use shown here are seed values by price band, not sourced figures. This page is not indexed until the record is upgraded to live with the IGRSUP schedule and the broker's observations."
+        "Naya Ghat sits at the river end of the temple approach, but the 2025 valuation list does not price it as a special case. It appears once, under the अवध खास ward, at ₹8,600 per sq m for land on a road under 9 m, rising to ₹10,500 at 18 m and above — below Rikabganj and below Sahadatganj, both a short distance away.",
+        "The difference shows up in what a shop is worth rather than what the land is. At ₹43,300 per sq m a commercial unit here is priced at five times the land beneath it, the ratio of a place people arrive at rather than live in. No road segment in the Sadar list prices a frontage through Naya Ghat separately, so the ward rate is the whole of what the schedule says."
       ],
       "driversHi": [
-        "प्लेसहोल्डर (ड्राफ़्ट): नया घाट, अयोध्या की Sadar तहसील का मिश्रित इलाक़ा है। यहाँ दिखाए गए सर्किल रेट, माँगा जा रहा दाम और भू-उपयोग दाम श्रेणी के अनुसार नमूना मान हैं, स्रोत से लिए आँकड़े नहीं। आईजीआरएसयूपी सूची और ब्रोकर के अवलोकन के साथ रिकॉर्ड लाइव होने तक यह पेज इंडेक्स नहीं होता।"
+        "नयाघाट मंदिर की ओर जाने वाले रास्ते के नदी वाले छोर पर है, लेकिन 2025 की मूल्यांकन सूची इसे कोई ख़ास दर्जा नहीं देती। यह एक ही बार आता है, अवध खास वार्ड के नीचे — 9 मीटर से कम चौड़ी सड़क पर ₹8,600 प्रति वर्ग मीटर और 18 मीटर या उससे ऊपर ₹10,500। यह रिकाबगंज से भी कम है और थोड़ी ही दूर सहादतगंज से भी।",
+        "फ़र्क़ ज़मीन में नहीं, दुकान में दिखता है। ₹43,300 प्रति वर्ग मीटर पर यहाँ दुकान अपने नीचे की ज़मीन से पाँच गुना दाम पर है — यह उस जगह की बनावट है जहाँ लोग आते हैं, रहते नहीं। सदर की सूची में कोई सड़क पट्टी नयाघाट से होकर अलग से नहीं आँकी गई, इसलिए वार्ड की यही दर पूरी सूची का कहा हुआ है।"
       ]
     },
     "sources": [
@@ -262,8 +264,7 @@
     ],
     "updatedAt": "2026-09-18",
     "todo": [
-      "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative and score are placeholders by price band",
-      "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages",
+      "Narrative drafted from the published 2025 rate list only — the rows, their categories and the priced road segments. It contains no local market knowledge and no claim about who buys here or why; the broker should read it, correct it and add that. status stays \"draft\" so the page renders noindex and out of the sitemaps until he does.",
       "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder."
     ],
     "rateRefs": [
@@ -440,10 +441,12 @@
     "landUseSource": "IGRSUP 2025-06-07 (urban)",
     "narrative": {
       "drivers": [
-        "PLACEHOLDER (draft): Sahadatganj is a mixed locality in Sadar tehsil, Ayodhya. The circle rate, asking range and land use shown here are seed values by price band, not sourced figures. This page is not indexed until the record is upgraded to live with the IGRSUP schedule and the broker's observations."
+        "Sahadatganj is its own ward in the 2025 list, and the three rows that carry its name sit close together: ₹10,500 per sq m for Sahadatganj itself, ₹10,200 for Kori Tola and ₹8,900 for Kumhar Tola, all classified urban. Inside the mohalla the spread is about 18 per cent, which is narrow.",
+        "The road is where the money is. Segment 5 of the Sadar list — Circuit House along the Lucknow road bypass through Sahadatganj to the tehsil boundary — is priced at ₹33,200 per sq m with shops at ₹77,400. That is more than three times the best interior rate in the same ward, so a plot's value here depends far more on whether it fronts the bypass than on which tola it sits in."
       ],
       "driversHi": [
-        "प्लेसहोल्डर (ड्राफ़्ट): सहादतगंज, अयोध्या की Sadar तहसील का मिश्रित इलाक़ा है। यहाँ दिखाए गए सर्किल रेट, माँगा जा रहा दाम और भू-उपयोग दाम श्रेणी के अनुसार नमूना मान हैं, स्रोत से लिए आँकड़े नहीं। आईजीआरएसयूपी सूची और ब्रोकर के अवलोकन के साथ रिकॉर्ड लाइव होने तक यह पेज इंडेक्स नहीं होता।"
+        "सहादतगंज 2025 की सूची में अपना अलग वार्ड है, और इसके नाम वाली तीनों पंक्तियाँ आपस में पास हैं: सहादतगंज ख़ुद ₹10,500 प्रति वर्ग मीटर, कोरी टोला ₹10,200 और कुम्हार टोला ₹8,900 — तीनों नगरीय दर्ज। मोहल्ले के अंदर फ़र्क़ लगभग अठारह फ़ीसदी है, यानी कम।",
+        "असली दाम सड़क पर है। सदर सूची की पट्टी 5 — सर्किट हाउस से लखनऊ रोड बाईपास पर सआदतगंज होते हुए तहसील की सीमा तक — ₹33,200 प्रति वर्ग मीटर पर है और दुकान ₹77,400 पर। यह उसी वार्ड की सबसे ऊँची अंदरूनी दर से तीन गुना से भी ज़्यादा है। इसलिए यहाँ प्लॉट की क़ीमत इस पर टिकी है कि वह बाईपास से लगा है या नहीं, न कि इस पर कि वह किस टोले में है।"
       ]
     },
     "sources": [
@@ -455,8 +458,7 @@
     ],
     "updatedAt": "2026-09-18",
     "todo": [
-      "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative and score are placeholders by price band",
-      "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages",
+      "Narrative drafted from the published 2025 rate list only — the rows, their categories and the priced road segments. It contains no local market knowledge and no claim about who buys here or why; the broker should read it, correct it and add that. status stays \"draft\" so the page renders noindex and out of the sitemaps until he does.",
       "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder."
     ],
     "rateRefs": [
@@ -497,10 +499,12 @@
     "landUseSource": "IGRSUP 2025-06-07 (urban)",
     "narrative": {
       "drivers": [
-        "PLACEHOLDER (draft): Rikabganj is a mixed locality in Sadar tehsil, Ayodhya. The circle rate, asking range and land use shown here are seed values by price band, not sourced figures. This page is not indexed until the record is upgraded to live with the IGRSUP schedule and the broker's observations."
+        "Rikabganj is the dearest interior ground of the localities this site prices from the 2025 list, and its rate climbs steeply with road width: ₹21,300 per sq m on a road under 9 m, ₹31,900 between 9 and 18 m, and ₹37,800 at 18 m and above — a 77 per cent rise from the narrowest lane to the widest road, within one mohalla.",
+        "At ₹83,700 per sq m, shop frontage here is the dearest of the localities this site currently covers. Both numbers point the same way: this is core old-city commercial ground, where the address matters less than the width of the road in front of it."
       ],
       "driversHi": [
-        "प्लेसहोल्डर (ड्राफ़्ट): रिकाबगंज, अयोध्या की Sadar तहसील का मिश्रित इलाक़ा है। यहाँ दिखाए गए सर्किल रेट, माँगा जा रहा दाम और भू-उपयोग दाम श्रेणी के अनुसार नमूना मान हैं, स्रोत से लिए आँकड़े नहीं। आईजीआरएसयूपी सूची और ब्रोकर के अवलोकन के साथ रिकॉर्ड लाइव होने तक यह पेज इंडेक्स नहीं होता।"
+        "इस साइट पर 2025 की सूची से आँके गए इलाक़ों में रिकाबगंज की अंदरूनी ज़मीन सबसे महँगी है, और यहाँ दर सड़क की चौड़ाई के साथ तेज़ी से चढ़ती है: 9 मीटर से कम पर ₹21,300 प्रति वर्ग मीटर, 9 से 18 मीटर पर ₹31,900, और 18 मीटर या उससे ऊपर ₹37,800 — यानी सबसे तंग गली से सबसे चौड़ी सड़क तक सतहत्तर फ़ीसदी का उछाल, वह भी एक ही मोहल्ले के भीतर।",
+        "₹83,700 प्रति वर्ग मीटर पर यहाँ दुकान की दर इस साइट पर अभी शामिल सभी इलाक़ों में सबसे ऊँची है। दोनों आँकड़े एक ही बात कहते हैं: यह पुराने शहर की मुख्य कारोबारी ज़मीन है, जहाँ पता कम और सामने की सड़क की चौड़ाई ज़्यादा मायने रखती है।"
       ]
     },
     "sources": [
@@ -512,8 +516,7 @@
     ],
     "updatedAt": "2026-09-18",
     "todo": [
-      "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative and score are placeholders by price band",
-      "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages",
+      "Narrative drafted from the published 2025 rate list only — the rows, their categories and the priced road segments. It contains no local market knowledge and no claim about who buys here or why; the broker should read it, correct it and add that. status stays \"draft\" so the page renders noindex and out of the sitemaps until he does.",
       "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder."
     ],
     "rateRefs": [
@@ -543,10 +546,12 @@
     "landUseSource": "IGRSUP 2025-06-07 (semi-urban and urban)",
     "narrative": {
       "drivers": [
-        "PLACEHOLDER (draft): Devkali is a residential locality in Sadar tehsil, Ayodhya. The circle rate, asking range and land use shown here are seed values by price band, not sourced figures. This page is not indexed until the record is upgraded to live with the IGRSUP schedule and the broker's observations."
+        "Devkali is split by the municipal boundary and the list prices the two halves differently: inside the limit it is urban at ₹12,200 per sq m, outside it is semi-urban at ₹8,200. The same name, an administrative line between them, and a 49 per cent difference in the published floor.",
+        "Four Sadar road segments run through Devkali, from ₹22,100 per sq m on the Sahadatganj bypass stretch to ₹30,800 on the Chowk–Reedganj–Akbarpur road. The best of those is two and a half times the inside-limit interior rate, so frontage and which side of the municipal line a plot falls on are the two questions worth settling before price is discussed."
       ],
       "driversHi": [
-        "प्लेसहोल्डर (ड्राफ़्ट): देवकाली, अयोध्या की Sadar तहसील का रिहायशी इलाक़ा है। यहाँ दिखाए गए सर्किल रेट, माँगा जा रहा दाम और भू-उपयोग दाम श्रेणी के अनुसार नमूना मान हैं, स्रोत से लिए आँकड़े नहीं। आईजीआरएसयूपी सूची और ब्रोकर के अवलोकन के साथ रिकॉर्ड लाइव होने तक यह पेज इंडेक्स नहीं होता।"
+        "देवकाली नगर पालिका की सीमा से बँटी हुई है और सूची दोनों हिस्सों को अलग-अलग आँकती है: सीमा के अंदर नगरीय दर ₹12,200 प्रति वर्ग मीटर, बाहर अर्द्धनगरीय ₹8,200। नाम वही, बीच में प्रशासनिक लकीर, और छपी हुई न्यूनतम दर में उनचास फ़ीसदी का फ़र्क़।",
+        "सदर की चार सड़क पट्टियाँ देवकाली से होकर गुज़रती हैं — सहादतगंज बाईपास वाली पट्टी पर ₹22,100 प्रति वर्ग मीटर से लेकर चौक-रीडगंज-अकबरपुर रोड पर ₹30,800 तक। इनमें सबसे ऊँची दर सीमा के अंदर की अंदरूनी दर से ढाई गुना है। इसलिए दाम की बात से पहले दो ही सवाल तय कर लेने चाहिए: प्लॉट सड़क से लगा है या नहीं, और नगर पालिका की लकीर के किस तरफ़ है।"
       ]
     },
     "sources": [
@@ -558,8 +563,7 @@
     ],
     "updatedAt": "2026-09-18",
     "todo": [
-      "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative and score are placeholders by price band",
-      "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages",
+      "Narrative drafted from the published 2025 rate list only — the rows, their categories and the priced road segments. It contains no local market knowledge and no claim about who buys here or why; the broker should read it, correct it and add that. status stays \"draft\" so the page renders noindex and out of the sitemaps until he does.",
       "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder."
     ],
     "rateRefs": [
@@ -606,10 +610,12 @@
     "landUseSource": "IGRSUP 2025-06-07 (semi-urban and urban)",
     "narrative": {
       "drivers": [
-        "PLACEHOLDER (draft): Ranopali is a residential locality in Sadar tehsil, Ayodhya. The circle rate, asking range and land use shown here are seed values by price band, not sourced figures. This page is not indexed until the record is upgraded to live with the IGRSUP schedule and the broker's observations."
+        "Ranopali carries the same municipal split as Devkali but a much narrower one: ₹9,700 per sq m inside the limit against ₹8,200 outside, about 18 per cent. Agricultural land is still priced here too, at ₹1.59 crore and ₹1.49 crore per hectare for the two halves.",
+        "What sets Ranopali apart is how many priced corridors cross it. Seven segment entries in the Sadar list name it — the Benigunj to Shri Ram Hospital stretch, the first kilometre of the Akbarpur road off the bypass, the Devkali bypass to Ayodhya, the Parikrama Marg link and the Tedhi Bazar to Mohbara road — between ₹21,800 and ₹25,900 per sq m. The highest is 2.7 times the interior rate, and almost any plot here is close to one of them."
       ],
       "driversHi": [
-        "प्लेसहोल्डर (ड्राफ़्ट): रानोपाली, अयोध्या की Sadar तहसील का रिहायशी इलाक़ा है। यहाँ दिखाए गए सर्किल रेट, माँगा जा रहा दाम और भू-उपयोग दाम श्रेणी के अनुसार नमूना मान हैं, स्रोत से लिए आँकड़े नहीं। आईजीआरएसयूपी सूची और ब्रोकर के अवलोकन के साथ रिकॉर्ड लाइव होने तक यह पेज इंडेक्स नहीं होता।"
+        "रानोपाली में भी देवकाली जैसा ही नगर पालिका वाला बँटवारा है, पर फ़र्क़ बहुत कम: सीमा के अंदर ₹9,700 प्रति वर्ग मीटर और बाहर ₹8,200, यानी क़रीब अठारह फ़ीसदी। यहाँ कृषि भूमि की दर भी छपी है — दोनों हिस्सों के लिए ₹1.59 करोड़ और ₹1.49 करोड़ प्रति हेक्टेयर।",
+        "रानोपाली की अलग पहचान यह है कि कितनी आँकी हुई सड़कें इससे होकर गुज़रती हैं। सदर की सूची में सात पट्टियाँ इसका नाम लेती हैं — बेनीगंज चौराहे से श्रीराम हास्पिटल, बाईपास से अकबरपुर रोड का पहला किलोमीटर, देवकाली बाईपास से अयोध्या, परिक्रमा मार्ग वाली कड़ी, और टेढ़ी बाजार से मोहबरा — ₹21,800 से ₹25,900 प्रति वर्ग मीटर के बीच। सबसे ऊँची दर अंदरूनी दर से 2.7 गुना है, और यहाँ लगभग हर प्लॉट इनमें से किसी न किसी के पास पड़ता है।"
       ]
     },
     "sources": [
@@ -621,8 +627,7 @@
     ],
     "updatedAt": "2026-09-18",
     "todo": [
-      "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative and score are placeholders by price band",
-      "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages",
+      "Narrative drafted from the published 2025 rate list only — the rows, their categories and the priced road segments. It contains no local market knowledge and no claim about who buys here or why; the broker should read it, correct it and add that. status stays \"draft\" so the page renders noindex and out of the sitemaps until he does.",
       "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder."
     ],
     "rateRefs": [
@@ -991,10 +996,12 @@
     "landUseSource": "IGRSUP 2025-06-07 (semi-urban)",
     "narrative": {
       "drivers": [
-        "PLACEHOLDER (draft): Bikapur Road is a agricultural locality in Bikapur tehsil, Ayodhya. The circle rate, asking range and land use shown here are seed values by price band, not sourced figures. This page is not indexed until the record is upgraded to live with the IGRSUP schedule and the broker's observations."
+        "Bikapur is priced as a highway town rather than a village. The 2025 list gives it one semi-urban row that rises from ₹12,000 per sq m on a road under 9 m to ₹28,000 at 18 m and above — a 133 per cent width premium, the steepest of the localities this site prices from the list — with shops at ₹65,000 and agricultural land at ₹60 lakh per hectare.",
+        "The two road segments explain the shape. The Ayodhya–Prayagraj national highway through the revenue village is priced at ₹32,000 per sq m, and the Bikapur–Jana district road at ₹26,000. Frontage on the national highway is 2.7 times the interior floor, which is where the difference between two plots a lane apart comes from."
       ],
       "driversHi": [
-        "प्लेसहोल्डर (ड्राफ़्ट): बीकापुर रोड, अयोध्या की Bikapur तहसील का कृषि इलाक़ा है। यहाँ दिखाए गए सर्किल रेट, माँगा जा रहा दाम और भू-उपयोग दाम श्रेणी के अनुसार नमूना मान हैं, स्रोत से लिए आँकड़े नहीं। आईजीआरएसयूपी सूची और ब्रोकर के अवलोकन के साथ रिकॉर्ड लाइव होने तक यह पेज इंडेक्स नहीं होता।"
+        "बीकापुर को सूची गाँव नहीं, हाईवे वाले क़स्बे की तरह आँकती है। 2025 की सूची में इसकी एक अर्द्धनगरीय पंक्ति है जो 9 मीटर से कम चौड़ी सड़क पर ₹12,000 प्रति वर्ग मीटर से बढ़कर 18 मीटर या उससे ऊपर ₹28,000 हो जाती है — यानी एक सौ तैंतीस फ़ीसदी का चौड़ाई-प्रीमियम, इस साइट पर सूची से आँके गए इलाक़ों में सबसे ज़्यादा। दुकान ₹65,000 पर और कृषि भूमि ₹60 लाख प्रति हेक्टेयर पर।",
+        "दो सड़क पट्टियाँ यह बनावट समझा देती हैं। राजस्व ग्राम से गुज़रने वाला अयोध्या-प्रयागराज राष्ट्रीय राजमार्ग ₹32,000 प्रति वर्ग मीटर पर है और बीकापुर से जाना वाला जनपदीय मार्ग ₹26,000 पर। राजमार्ग से लगी ज़मीन अंदरूनी न्यूनतम दर से 2.7 गुना है — एक गली के फ़ासले पर दो प्लॉट के दाम का फ़र्क़ यहीं से आता है।"
       ]
     },
     "sources": [
@@ -1006,8 +1013,7 @@
     ],
     "updatedAt": "2026-09-18",
     "todo": [
-      "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative and score are placeholders by price band",
-      "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages",
+      "Narrative drafted from the published 2025 rate list only — the rows, their categories and the priced road segments. It contains no local market knowledge and no claim about who buys here or why; the broker should read it, correct it and add that. status stays \"draft\" so the page renders noindex and out of the sitemaps until he does.",
       "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder."
     ],
     "rateRefs": [
@@ -1045,10 +1051,12 @@
     "landUseSource": "IGRSUP 2025-06-07 (rural)",
     "narrative": {
       "drivers": [
-        "PLACEHOLDER (draft): Sohawal is a agricultural locality in Sohawal tehsil, Ayodhya. The circle rate, asking range and land use shown here are seed values by price band, not sourced figures. This page is not indexed until the record is upgraded to live with the IGRSUP schedule and the broker's observations."
+        "Sohawal is classified rural in the 2025 list and priced accordingly at the base: agricultural land at ₹54 lakh per hectare. Its non-agricultural rates do not read rural, though. Land on a road under 9 m is ₹9,200 per sq m, rising to ₹17,500 at 18 m and above — a 90 per cent width premium — and a shop is ₹44,000, nearly five times the narrowest-road land rate.",
+        "That combination, a rural classification with a town's spread between narrow and wide roads, is the tell. The tehsil headquarters sits here, and the list prices the roads through it as though they were urban while the revenue category stays rural."
       ],
       "driversHi": [
-        "प्लेसहोल्डर (ड्राफ़्ट): सोहावल, अयोध्या की Sohawal तहसील का कृषि इलाक़ा है। यहाँ दिखाए गए सर्किल रेट, माँगा जा रहा दाम और भू-उपयोग दाम श्रेणी के अनुसार नमूना मान हैं, स्रोत से लिए आँकड़े नहीं। आईजीआरएसयूपी सूची और ब्रोकर के अवलोकन के साथ रिकॉर्ड लाइव होने तक यह पेज इंडेक्स नहीं होता।"
+        "सोहावल 2025 की सूची में ग्रामीण दर्ज है और बुनियाद वहीं से तय होती है: कृषि भूमि ₹54 लाख प्रति हेक्टेयर। लेकिन इसकी ग़ैर-कृषि दरें ग्रामीण नहीं लगतीं। 9 मीटर से कम चौड़ी सड़क पर ज़मीन ₹9,200 प्रति वर्ग मीटर है और 18 मीटर या उससे ऊपर ₹17,500 — नब्बे फ़ीसदी का चौड़ाई-प्रीमियम — और दुकान ₹44,000 पर, यानी सबसे तंग सड़क की ज़मीन से लगभग पाँच गुना।",
+        "यही जोड़ पहचान है: दर्ज ग्रामीण, पर तंग और चौड़ी सड़क के बीच फ़र्क़ क़स्बे जैसा। तहसील मुख्यालय यहीं है, और सूची यहाँ से गुज़रती सड़कों को नगरीय की तरह आँकती है जबकि राजस्व श्रेणी ग्रामीण बनी रहती है।"
       ]
     },
     "sources": [
@@ -1060,8 +1068,7 @@
     ],
     "updatedAt": "2026-09-18",
     "todo": [
-      "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative and score are placeholders by price band",
-      "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages",
+      "Narrative drafted from the published 2025 rate list only — the rows, their categories and the priced road segments. It contains no local market knowledge and no claim about who buys here or why; the broker should read it, correct it and add that. status stays \"draft\" so the page renders noindex and out of the sitemaps until he does.",
       "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder."
     ],
     "rateRefs": [
@@ -1273,10 +1280,12 @@
     "landUseSource": "IGRSUP 2025-06-07 (semi-urban)",
     "narrative": {
       "drivers": [
-        "PLACEHOLDER (draft): Darshan Nagar is a residential locality in Sadar tehsil, Ayodhya. The circle rate, asking range and land use shown here are seed values by price band, not sourced figures. This page is not indexed until the record is upgraded to live with the IGRSUP schedule and the broker's observations."
+        "Darshan Nagar has the flattest road-width curve of the localities this site prices from the 2025 list: ₹7,000 per sq m under 9 m, ₹7,400 between 9 and 18 m, ₹7,900 at 18 m and above. Thirteen per cent from the narrowest lane to the widest road, where Bikapur moves 133 per cent over the same span.",
+        "The list is saying that frontage buys very little here, and that the value is commercial rather than residential: a shop at ₹43,100 per sq m is 6.2 times the land under it, the highest such multiple among the localities priced from this list. Agricultural land is ₹70 lakh per hectare, above both Sohawal and Bikapur."
       ],
       "driversHi": [
-        "प्लेसहोल्डर (ड्राफ़्ट): दर्शन नगर, अयोध्या की Sadar तहसील का रिहायशी इलाक़ा है। यहाँ दिखाए गए सर्किल रेट, माँगा जा रहा दाम और भू-उपयोग दाम श्रेणी के अनुसार नमूना मान हैं, स्रोत से लिए आँकड़े नहीं। आईजीआरएसयूपी सूची और ब्रोकर के अवलोकन के साथ रिकॉर्ड लाइव होने तक यह पेज इंडेक्स नहीं होता।"
+        "इस साइट पर 2025 की सूची से आँके गए इलाक़ों में दर्शन नगर पर सड़क की चौड़ाई का असर सबसे कम है: 9 मीटर से कम पर ₹7,000 प्रति वर्ग मीटर, 9 से 18 मीटर पर ₹7,400, और 18 मीटर या उससे ऊपर ₹7,900। सबसे तंग गली से सबसे चौड़ी सड़क तक सिर्फ़ तेरह फ़ीसदी, जबकि उतने ही फ़ासले में बीकापुर एक सौ तैंतीस फ़ीसदी चढ़ जाता है।",
+        "सूची यह कह रही है कि यहाँ सड़क से लगा होना ज़्यादा कुछ नहीं दिलाता, और क़ीमत रिहायशी नहीं, कारोबारी है: ₹43,100 प्रति वर्ग मीटर पर दुकान अपने नीचे की ज़मीन से 6.2 गुना है — इस सूची से आँके गए इलाक़ों में सबसे ऊँचा अनुपात। कृषि भूमि ₹70 लाख प्रति हेक्टेयर पर है, सोहावल और बीकापुर दोनों से ऊपर।"
       ]
     },
     "sources": [
@@ -1288,8 +1297,7 @@
     ],
     "updatedAt": "2026-09-18",
     "todo": [
-      "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative and score are placeholders by price band",
-      "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages",
+      "Narrative drafted from the published 2025 rate list only — the rows, their categories and the priced road segments. It contains no local market knowledge and no claim about who buys here or why; the broker should read it, correct it and add that. status stays \"draft\" so the page renders noindex and out of the sitemaps until he does.",
       "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder."
     ],
     "rateRefs": [
@@ -1319,10 +1327,12 @@
     "landUseSource": "IGRSUP 2025-06-07 (rural)",
     "narrative": {
       "drivers": [
-        "PLACEHOLDER (draft): Bhadarsa Road is a agricultural locality in Sadar tehsil, Ayodhya. The circle rate, asking range and land use shown here are seed values by price band, not sourced figures. This page is not indexed until the record is upgraded to live with the IGRSUP schedule and the broker's observations."
+        "Bhadarsa is priced as a town inside a rural category. The 2025 list carries two rows: भदरसा टाउन अन्दर व समस्त मोहल्ले at ₹10,600 per sq m and भदरसा टाउन बाहर at ₹8,850 — a 20 per cent difference across the town line, with agricultural land at ₹75 lakh and ₹66 lakh per hectare respectively.",
+        "The Sohawal list prices two stretches inside the town area, both at ₹14,500 per sq m with shops at ₹42,000: the approach to the welcome gate under construction, and the run from the liquor shop past the Shia mosque to the vegetable market crossing. Both are about 37 per cent above the inside-town land rate, so priced frontage here is a modest premium rather than the multiple seen on the Sadar corridors."
       ],
       "driversHi": [
-        "प्लेसहोल्डर (ड्राफ़्ट): भदरसा रोड, अयोध्या की Sadar तहसील का कृषि इलाक़ा है। यहाँ दिखाए गए सर्किल रेट, माँगा जा रहा दाम और भू-उपयोग दाम श्रेणी के अनुसार नमूना मान हैं, स्रोत से लिए आँकड़े नहीं। आईजीआरएसयूपी सूची और ब्रोकर के अवलोकन के साथ रिकॉर्ड लाइव होने तक यह पेज इंडेक्स नहीं होता।"
+        "भदरसा को सूची ग्रामीण श्रेणी में रखकर भी क़स्बे की तरह आँकती है। 2025 की सूची में इसकी दो पंक्तियाँ हैं: “भदरसा टाउन अन्दर व समस्त मोहल्ले” ₹10,600 प्रति वर्ग मीटर पर और “भदरसा टाउन बाहर” ₹8,850 पर — क़स्बे की लकीर के आर-पार बीस फ़ीसदी का फ़र्क़, और कृषि भूमि क्रमशः ₹75 लाख और ₹66 लाख प्रति हेक्टेयर।",
+        "सोहावल की सूची क़स्बे के अंदर दो पट्टियाँ आँकती है, दोनों ₹14,500 प्रति वर्ग मीटर और दुकान ₹42,000: निर्माणाधीन स्वागत गेट तक का रास्ता, और शराब ठेके से सिया मस्जिद होते हुए सब्ज़ी मंडी चौराहे तक। दोनों क़स्बे के अंदर की ज़मीन की दर से क़रीब सैंतीस फ़ीसदी ऊपर हैं, यानी यहाँ सड़क से लगे होने का फ़ायदा मामूली है, सदर की सड़कों जैसा गुना नहीं।"
       ]
     },
     "sources": [
@@ -1334,7 +1344,7 @@
     ],
     "updatedAt": "2026-09-18",
     "todo": [
-      "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages",
+      "Narrative drafted from the published 2025 rate list only — the rows, their categories and the priced road segments. It contains no local market knowledge and no claim about who buys here or why; the broker should read it, correct it and add that. status stays \"draft\" so the page renders noindex and out of the sitemaps until he does.",
       "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder.",
       "Seed record said tehsil Sadar; corrected to Sohawal against the 2025-06-07 list, where every भदरसा row sits in the Sohawal SRO."
     ],
