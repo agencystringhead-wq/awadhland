@@ -50,6 +50,10 @@ export const rateCopy = {
 
     /* tehsil page */
     fullTable: "Every village in this tehsil",
+    rateBandsTitle: "Rate bands",
+    rateBandsLede:
+      "The district sets rates by band, not village by village, so many villages here carry exactly the same figures. Each band is shown once, with the villages that share it.",
+    villagesAtThisRate: "villages at this rate",
     roadSegments: "Road segments",
     roadSegmentsLede:
       "Plots fronting these named stretches take the segment rate instead of the village rate. It applies to non-agricultural land only.",
@@ -70,6 +74,8 @@ export const rateCopy = {
     agriRates: "Agricultural",
     segmentsHere: "Road stretches through this village",
     workedExample: "What this means for a plot",
+    plotSize: "Plot size",
+    rulesTitle: "Rules that apply here",
     workedExampleLede: "A 1,000 sq ft plot fronting a road under 9 m, at this village's rate.",
     circleValue: "Circle value",
     stampDutyMale: "Stamp duty, male buyer",
@@ -153,6 +159,10 @@ export const rateCopy = {
 
     /* tehsil page */
     fullTable: "इस तहसील के सारे गाँव",
+    rateBandsTitle: "दर के बैंड",
+    rateBandsLede:
+      "ज़िला दरें गाँव-दर-गाँव नहीं, बैंड में तय करता है, इसलिए यहाँ कई गाँवों के आँकड़े बिलकुल एक जैसे हैं। हर बैंड एक बार दिखाया गया है, साथ में वे गाँव जो उसे साझा करते हैं।",
+    villagesAtThisRate: "गाँव इसी दर पर",
     roadSegments: "सड़क खंड",
     roadSegmentsLede: "इन नामित सड़कों पर पड़ने वाले प्लॉट पर गाँव की दर नहीं, सड़क खंड की दर लगती है। यह सिर्फ़ अकृषिक भूमि पर लागू है।",
     segment: "सड़क का हिस्सा",
@@ -172,6 +182,8 @@ export const rateCopy = {
     agriRates: "कृषि",
     segmentsHere: "इस गाँव से गुज़रने वाली सड़कें",
     workedExample: "एक प्लॉट पर इसका मतलब",
+    plotSize: "प्लॉट का नाप",
+    rulesTitle: "यहाँ लागू होने वाले नियम",
     workedExampleLede: "9 मीटर से कम चौड़ी सड़क पर 1,000 वर्ग फ़ुट का प्लॉट, इसी गाँव की दर पर।",
     circleValue: "सर्किल मूल्य",
     stampDutyMale: "स्टाम्प ड्यूटी, पुरुष ख़रीदार",

@@ -28,6 +28,8 @@ import { landUseLabels } from "./labels";
 import { guideAlternate, localityAlternate, sameAlternate, type Alternate } from "./routes";
 import type { Locality } from "./schemas";
 import { TOOL_SLUGS } from "./tools";
+import { getVillageContent, villageCopy, villageContentIndexableIds } from "./village-content";
+import { getVillageNote } from "./data";
 import { updateTypeLabels } from "@/components/UpdateRow";
 
 export type PageKind =
@@ -300,15 +302,31 @@ export function getPages(locale: Locale): PageEntry[] {
         });
 
         for (const row of getRowsByTehsil(c.id, tehsil.id)) {
+          /*
+           * Step 9b. The written content carries a title and meta description per language; they
+           * win over the generated pair because they were written against the row's own figures.
+           *
+           * Indexing has three ways in: the content's own indexable list (866 rows whose rate
+           * profile is shared by three villages or fewer, or that a main road passes through, or
+           * that are urban mohallas of Ayodhya city), a broker note, which is the one thing on
+           * these pages the schedule cannot say, or a live locality already pointing at the row.
+           * Everything else builds and ships noindex.
+           */
+          const vc = getVillageContent(row.id);
+          const vcopy = vc ? villageCopy(vc, locale) : undefined;
+          const indexable =
+            villageContentIndexableIds().has(row.id) || Boolean(getVillageNote(row.id)) || isRowIndexable(row.id, referenced.has(row.id));
           add({
             kind: "rate-village",
             sitePath: `/${c.id}/circle-rates/${tehsil.id}/${row.slug}/`,
-            title: hi
-              ? `${row.nameHi} सर्किल रेट ${YEAR} · ${tName}, ${name}`
-              : `${row.nameEn} circle rate ${YEAR} · ${tName}, ${name}`,
-            description: hi
+            title:
+              vcopy?.title ??
+              (hi ? `${row.nameHi} सर्किल रेट ${YEAR} · ${tName}, ${name}` : `${row.nameEn} circle rate ${YEAR} · ${tName}, ${name}`),
+            description:
+              vcopy?.metaDescription ??
+              (hi
               ? `${row.nameHi} (${row.nameEn}), ${tName} तहसील। सर्किल रेट ₹${formatNumber(row.nonAgri.lt9m)} प्रति वर्ग मीटर 9 मीटर से कम चौड़ी सड़क पर, दुकान ₹${formatNumber(row.commercial.shop)} प्रति वर्ग मीटर। ${formatDate(rateSchedule.effectiveFrom, locale)} से लागू, मुद्रित पृष्ठ ${row.page}।`
-              : `${row.nameEn} (${row.nameHi}), ${tName} tehsil. Circle rate ₹${formatNumber(row.nonAgri.lt9m)} per sq m on a road under 9 m, shop ₹${formatNumber(row.commercial.shop)} per sq m. Effective ${formatDate(rateSchedule.effectiveFrom, locale)}, printed page ${row.page}.`,
+              : `${row.nameEn} (${row.nameHi}), ${tName} tehsil. Circle rate ₹${formatNumber(row.nonAgri.lt9m)} per sq m on a road under 9 m, shop ₹${formatNumber(row.commercial.shop)} per sq m. Effective ${formatDate(rateSchedule.effectiveFrom, locale)}, printed page ${row.page}.`),
             lastmod: rateSchedule.updatedAt,
             alternate: sameAlternate(locale, `/${c.id}/circle-rates/${tehsil.id}/${row.slug}/`),
             // Village pages share their tehsil's OG image: 3,260 near-identical cards would add
@@ -319,7 +337,7 @@ export function getPages(locale: Locale): PageEntry[] {
               chip: `${formatNumber(summary.rowCount)} ${hi ? "गाँव" : "villages"}`,
             },
             ogSlug: `${c.id}--circle-rates--${tehsil.id}`,
-            noindex: !isRowIndexable(row.id, referenced.has(row.id)),
+            noindex: !indexable,
           });
         }
       }

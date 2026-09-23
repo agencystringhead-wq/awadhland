@@ -16,6 +16,7 @@ import teamJson from "../data/team.json";
 import scoringJson from "../data/scoring.json";
 import reviewsJson from "../data/reviews.json";
 import standardPagesJson from "../data/standardPages.json";
+import villageNotesJson from "../data/villageNotes.json";
 import { dataFiles, type DataFileName, type Locale } from "./schemas";
 import { checkIntegrity, type Dataset } from "./integrity";
 import { partitionLocalities, partitionProjects, publishableBroker, scheduleIsSourced } from "./guards";
@@ -40,6 +41,7 @@ const dataset: Dataset = {
   scoring: parse("scoring.json", scoringJson),
   reviews: parse("reviews.json", reviewsJson),
   standardPages: parse("standardPages.json", standardPagesJson),
+  villageNotes: parse("villageNotes.json", villageNotesJson),
 };
 
 const integrityErrors = checkIntegrity(dataset);
@@ -164,3 +166,8 @@ export const getReviews = () => dataset.reviews;
 /* standard pages */
 export const getStandardPages = () => dataset.standardPages;
 export const getStandardPage = (id: string) => dataset.standardPages.find((p) => p.id === id);
+
+/* village notes */
+/** A broker's note on one village rate page, keyed by rateRowId. Empty until someone writes one. */
+export const getVillageNote = (rateRowId: string) => dataset.villageNotes[rateRowId];
+export const getVillageNoteIds = () => Object.keys(dataset.villageNotes);

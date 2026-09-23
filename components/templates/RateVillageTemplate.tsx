@@ -1,10 +1,13 @@
 import { notFound } from "next/navigation";
 import { Breadcrumb } from "@/components/Breadcrumb";
+import { BrokerNote } from "@/components/BrokerNote";
+import { FAQ } from "@/components/FAQ";
+import { JsonLd } from "@/components/JsonLd";
 import { LeadForm } from "@/components/LeadForm";
 import { Section } from "@/components/Section";
 import { SourceStamp } from "@/components/SourceStamp";
 import { RateCalculator } from "@/components/rates/RateCalculator";
-import { getBroker, getBuildableLocalities, getCity, getStampDutyRules } from "@/lib/data";
+import { getBroker, getBuildableLocalities, getCity, getStampDutyRules, getVillageNote } from "@/lib/data";
 import { formatDate, formatNumber, localePath, pick, ui, type Locale } from "@/lib/i18n";
 import { rc } from "@/lib/rate-copy";
 import {
@@ -16,7 +19,9 @@ import {
   getTehsilMedian,
   getValuationRules,
 } from "@/lib/rates";
+import { faqPage } from "@/lib/jsonld";
 import { sameAlternate } from "@/lib/routes";
+import { getVillageContent, resolvedSegmentIds, villageCopy } from "@/lib/village-content";
 import { applicableRule, toSqM } from "@/lib/stamp-duty";
 import { agriFrontageLabel, AGRI_FRONTAGES, categoryLabel, commercialKindLabel, COMMERCIAL_KINDS, roadWidthLabel, ROAD_WIDTHS, valuePlot } from "@/lib/valuation";
 import { agriUnitLabel, lakhPerHaToRupeesPerBigha, lakhPerHaToRupeesPerSqm } from "@/lib/units";
@@ -76,9 +81,32 @@ export function RateVillageTemplate({
   const t = ui[locale];
   const c = rc(locale);
   const broker = getBroker();
+  /*
+   * Written page content for this row (step 9b). Every figure in it was checked against the row
+   * before it was wired, so the prose and the tables below cannot disagree. A row without content
+   * would still render: the tables, calculator and comparison are computed from the row itself.
+   */
+  const content = getVillageContent(row.id);
+  const copy = content ? villageCopy(content, locale) : undefined;
+  const note = getVillageNote(row.id);
+  const noteText = note ? pick(locale, note.brokerNote, note.brokerNoteHi) : undefined;
   const rules = getValuationRules();
   const dutyRules = getStampDutyRules();
-  const segments = getRoadSegmentsForRow(cityId, row.id);
+  /*
+   * Two sources agree on which stretches run through a village: the rate file matches segment rows
+   * to the row id, and the written content names them by its own ids. The union is used so a
+   * stretch the content knows about is not dropped, and each links to the tehsil page's segment
+   * table where the whole stretch and its other villages are listed.
+   */
+  const segmentsById = new Map(getRoadSegmentsForRow(cityId, row.id).map((x) => [x.id, x]));
+  const allSegments = getCurrentRateSchedule(cityId)?.roadSegments ?? [];
+  if (content) {
+    for (const id of resolvedSegmentIds(content)) {
+      const seg = allSegments.find((x) => x.id === id);
+      if (seg && !segmentsById.has(seg.id)) segmentsById.set(seg.id, seg);
+    }
+  }
+  const segments = [...segmentsById.values()];
   const similar = getSimilarRows(cityId, row);
   const median = getTehsilMedian(cityId, tehsilId);
   const cityName = pick(locale, city.name, city.nameHi);
@@ -88,6 +116,15 @@ export function RateVillageTemplate({
   const other = pick(locale, row.nameHi, row.nameEn);
 
   const hasAgri = AGRI_FRONTAGES.some((f) => row.agriLakhPerHa[f] !== null);
+
+
+  /*
+   * The scanned SRO list. pdfPath is a repo path to a gitignored file, so it is never linked;
+   * archiveUrl is the R2 copy once it exists, and until then the IGRSUP page is what a reader can
+   * actually open.
+   */
+  const sourceDoc = schedule.sourceDocs.find((d) => d.sro === row.sro);
+  const sourceHref = sourceDoc?.archiveUrl ?? sourceDoc?.igrsupUrl ?? schedule.sources[0]?.url;
 
   /** The locality pages that cover this row, so the reader can get the fuller write-up. */
   // Only localities that have a page in this locale: the thin-page guard can withhold one whose
@@ -129,8 +166,9 @@ export function RateVillageTemplate({
               { label: name },
             ]}
           />
-          <h1>{name}</h1>
+          <h1>{copy?.h1 ?? name}</h1>
           <p className="mt-2 text-lg text-ink-soft">{other}</p>
+          {copy?.lede && <p className="lede mt-4 max-w-3xl">{copy.lede}</p>}
           <p className="mt-3 flex flex-wrap items-center gap-x-3 gap-y-1 text-ink-soft">
             <span>{tehsilName}</span>
             {row.wardHi && (
@@ -150,8 +188,22 @@ export function RateVillageTemplate({
         </div>
       </section>
 
-      {/* all 16 figures */}
+      {/* A broker's note is the one thing here the schedule cannot say, so it leads. */}
+      {noteText && note?.brokerNoteDate && (
+        <Section>
+          <BrokerNote locale={locale} note={noteText} date={note.brokerNoteDate} broker={broker} />
+        </Section>
+      )}
+
+      {/* all 16 figures, under the written explanation of them */}
       <Section id="rates" title={t.circleRates}>
+        {copy?.ratesText?.length ? (
+          <div className="prose-site mb-6 max-w-3xl text-[17px] leading-relaxed">
+            {copy.ratesText.map((para, i) => (
+              <p key={i}>{para}</p>
+            ))}
+          </div>
+        ) : null}
         <div className="grid gap-4 md:grid-cols-3">
           <RateBlock
             title={`${c.landRates} · ${c.perSqM}`}
@@ -186,13 +238,48 @@ export function RateVillageTemplate({
             </div>
           )}
         </div>
-        <p className="mt-4 text-sm text-muted">{sourceLine}</p>
+        {copy?.commercialText && <p className="prose-site mt-6 max-w-3xl text-[17px] leading-relaxed">{copy.commercialText}</p>}
+        {copy?.agriText && <p className="prose-site mt-4 max-w-3xl text-[17px] leading-relaxed">{copy.agriText}</p>}
+        <p className="mt-6 text-sm text-muted">{sourceLine}</p>
       </Section>
+
+      {/* worked plot sizes, straight from the content */}
+      {copy?.plotExamples?.length ? (
+        <Section id="plots" title={c.workedExample}>
+          <div className="overflow-x-auto">
+            <table className="w-full min-w-[30rem] border-collapse text-sm">
+              <thead className="bg-card">
+                <tr>
+                  <th scope="col" className={th}>
+                    {c.plotSize}
+                  </th>
+                  <th scope="col" className={`${th} ${numeric}`}>
+                    {roadWidthLabel.lt9m[locale]}
+                  </th>
+                  <th scope="col" className={`${th} ${numeric}`}>
+                    {roadWidthLabel.ge18m[locale]}
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                {copy.plotExamples.map((ex) => (
+                  <tr key={ex.label}>
+                    <td className={td}>{ex.label}</td>
+                    <td className={`${td} ${numeric}`}>{ex.narrow}</td>
+                    <td className={`${td} ${numeric}`}>{ex.wide}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+          {copy.plotExamplesNote && <p className="mt-3 text-sm text-muted">{copy.plotExamplesNote}</p>}
+        </Section>
+      ) : null}
 
       {/* road segments through this village */}
       {segments.length > 0 && (
         <Section id="segments" title={c.segmentsHere} tone="sand">
-          <p className="lede mb-5 max-w-2xl">{c.roadSegmentsLede}</p>
+          <p className="lede mb-5 max-w-2xl">{copy?.roadSegmentsText ?? c.roadSegmentsLede}</p>
           <div className="overflow-x-auto">
             <table className="w-full min-w-[34rem] border-collapse text-sm">
               <thead className="bg-card">
@@ -211,7 +298,9 @@ export function RateVillageTemplate({
               <tbody>
                 {segments.map((s) => (
                   <tr key={s.id}>
-                    <td className={td}>{s.segmentHi}</td>
+                    <td className={td}>
+                      <a href={`${localePath(locale, `/${cityId}/circle-rates/${tehsilId}/`)}#segments`}>{s.segmentHi}</a>
+                    </td>
                     <td className={`${td} ${numeric}`}>{money(s.nonAgri)}</td>
                     <td className={`${td} ${numeric}`}>{money(s.shop)}</td>
                   </tr>
@@ -240,10 +329,31 @@ export function RateVillageTemplate({
         <p className="mt-4 text-sm font-semibold">{c.estimateOnly}</p>
       </Section>
 
+      {/* the valuation instructions that apply here */}
+      {copy?.rulesText?.length ? (
+        <Section id="rules" title={c.rulesTitle}>
+          <ul className="max-w-3xl space-y-3 text-[17px] leading-relaxed">
+            {copy.rulesText.map((r, i) => (
+              <li key={i} className="border-l-2 border-line pl-4">
+                {r}
+              </li>
+            ))}
+          </ul>
+        </Section>
+      ) : null}
+
       {/* calculator prefilled with this row */}
       <Section id="calculator" title={c.calculatorTitle} tone="sand">
         <RateCalculator locale={locale} row={row} segments={segments} rules={rules} dutyRules={dutyRules} />
       </Section>
+
+      {/* questions people ask, also emitted as FAQPage */}
+      {copy?.faq?.length ? (
+        <Section id="faq">
+          <JsonLd data={faqPage(copy.faq)} />
+          <FAQ title={t.faq} items={copy.faq} />
+        </Section>
+      ) : null}
 
       {/* comparison and neighbours */}
       <Section id="compare" title={c.comparedToTehsil}>
@@ -281,6 +391,13 @@ export function RateVillageTemplate({
           </p>
         )}
 
+        {copy?.sourceLine && (
+          <p className="mt-6 text-sm text-muted">
+            <a href={sourceHref} rel="noopener">
+              {copy.sourceLine}
+            </a>
+          </p>
+        )}
         <SourceStamp locale={locale} sources={schedule.sources} updatedAt={schedule.updatedAt} effectiveFrom={schedule.effectiveFrom} />
       </Section>
 
