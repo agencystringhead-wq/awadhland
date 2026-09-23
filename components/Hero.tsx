@@ -11,8 +11,8 @@ export type HeroProps = {
   locale: Locale;
   story: HomeStory;
   broker: Pick<TeamMember, "name" | "nameHi" | "phone" | "whatsapp" | "reraNumber" | "reraUrl" | "yearsActive" | "photo">;
-  /** Google Business Profile URL for "Rated on Google →" */
-  reviewsUrl: string;
+  /** Google Business Profile URL for "Rated on Google →". Absent until the profile exists. */
+  reviewsUrl?: string;
 };
 
 /** +91 XXXXX XXXXX from the E.164 number in team.json. */
@@ -123,10 +123,13 @@ export function Hero({ locale, story, broker, reviewsUrl }: HeroProps) {
             <p className="serif-italic flex-[1_1_200px] border-l border-line pl-[18px] text-[13px] leading-[1.45] text-ink-soft">
               {fill(story.broker.line, vars)}
             </p>
-            <a href={reviewsUrl} rel="noopener" className="ml-auto flex items-center gap-2 caption-mono text-[9.5px] no-underline hover:text-accent-deep">
-              <Stars size={12} />
-              {story.broker.rated}
-            </a>
+            {/* "Rated on Google" only once there is a profile to point at (spec Template 9). */}
+            {reviewsUrl && (
+              <a href={reviewsUrl} rel="noopener" className="ml-auto flex items-center gap-2 caption-mono text-[9.5px] no-underline hover:text-accent-deep">
+                <Stars size={12} />
+                {story.broker.rated}
+              </a>
+            )}
           </div>
         </div>
       </div>

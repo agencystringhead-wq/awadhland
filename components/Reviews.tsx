@@ -12,9 +12,14 @@ export type ReviewsProps = {
   limit?: number;
 };
 
-/** Rating tile (reference §8): big serif score, stars, mono count, hairline, profile link. */
+/**
+  * Rating tile (reference §8): big serif score, stars, mono count, hairline, profile link.
+  * Renders nothing until the profile carries a real rating — the site does not show a score it
+  * cannot point at (spec Template 9).
+  */
 export function RatingTile({ locale, data, labels }: Omit<ReviewsProps, "limit">) {
   void locale;
+  if (data.rating === null) return null;
   return (
     <div data-component="RatingTile" className="card-raised rounded-[16px] px-7 py-[26px]">
       <p className="font-display text-[68px] font-[380] leading-none tracking-[-0.02em] text-accent-deep tabular-nums">{data.rating.toFixed(1)}</p>
@@ -25,9 +30,11 @@ export function RatingTile({ locale, data, labels }: Omit<ReviewsProps, "limit">
         </span>
       </div>
       <Divider className="my-4" />
-      <a href={data.profileUrl} rel="noopener" className="text-[13.5px] font-semibold text-accent-deep no-underline hover:underline">
-        {labels.seeProfile}
-      </a>
+      {data.profileUrl && (
+        <a href={data.profileUrl} rel="noopener" className="text-[13.5px] font-semibold text-accent-deep no-underline hover:underline">
+          {labels.seeProfile}
+        </a>
+      )}
     </div>
   );
 }
@@ -37,6 +44,9 @@ export function RatingTile({ locale, data, labels }: Omit<ReviewsProps, "limit">
  * date and purpose, and the disclaimer. Reviews are shown as written; textHi is a person's translation.
  */
 export function Reviews({ locale, data, labels, limit = 3 }: ReviewsProps) {
+  // Nothing to show until the profile has reviews: a heading over an empty list and a dangling
+  // "see the profile" line reads worse than no block at all (spec Template 3, empty fields).
+  if (data.reviews.length === 0) return null;
   return (
     <div data-component="Reviews">
       <ul className="grid grid-cols-2 gap-4 lg:grid-cols-4">
@@ -65,9 +75,11 @@ export function Reviews({ locale, data, labels, limit = 3 }: ReviewsProps) {
       </ul>
       <p className="serif-italic mt-6 text-[13px] text-muted">
         {labels.disclaimer}{" "}
-        <a href={data.profileUrl} rel="noopener" className="not-italic font-sans font-medium text-accent-deep">
-          {labels.seeProfile}
-        </a>
+        {data.profileUrl && (
+          <a href={data.profileUrl} rel="noopener" className="not-italic font-sans font-medium text-accent-deep">
+            {labels.seeProfile}
+          </a>
+        )}
       </p>
     </div>
   );
