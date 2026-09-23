@@ -448,6 +448,8 @@ Reads every `*-p4.csv` (village rows) and `*-p3.csv` (road segments) in the dire
 
 The scanned source PDFs are gitignored; `sourceDocs[].pdfPath` records provenance and `archiveUrl` points at the R2 copy.
 
+Once the scans are uploaded, `npm run rates:set-archive-urls -- --base <bucket origin> [--city <id>] [--dry-run]` fills those `archiveUrl` fields. It derives each URL as `<base>/<prefix>/<cityId>/<basename of pdfPath>` (prefix defaults to `circle-rates`), HEADs every one, and writes only if all of them return a PDF whose `content-length` matches the local original — a half-finished upload, a wrong prefix or a bucket that is not public fails the run instead of shipping a link that 404s. There is no flag to skip the check. On success it drops the now-done upload `todo` and bumps `updatedAt`; run `npm run rates:derive` afterwards so `circleRates.json` picks the links up.
+
 ## Shared components
 
 | Component | Used on | Notes |

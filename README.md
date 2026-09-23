@@ -50,7 +50,13 @@ npm run rates:import -- --city lucknow --effective 2026-08-01 --source https://i
 
 It matches by id, name, Hindi name or `scripts/circle-rate-aliases.json`, and writes each locality's `circleRate` directly. A sample CSV is in `scripts/samples/`. Note that `rates:derive` will overwrite the schedule of any city that also has a file in `data/rates/`.
 
-The scanned source PDFs are gitignored: they are provenance, and the archived copies belong on R2.
+The scanned source PDFs are gitignored: they are provenance, and the archived copies belong on R2. Once they are uploaded, fill `sourceDocs[].archiveUrl` with:
+
+```
+npm run rates:set-archive-urls -- --base https://media.awadhland.com --dry-run
+```
+
+It derives each URL as `<base>/circle-rates/<cityId>/<pdf filename>`, HEADs every one, and writes only if all of them come back as a PDF whose size matches the local original — so a half-finished upload or a bucket that is not public fails the run rather than shipping a link that 404s. Drop `--dry-run` to write, then re-run `npm run rates:derive`.
 
 **Upgrading a draft to live.** After the schedule is in: fill `askingRange` (with `asOf`), `landUse` and `landUseSource` from the master plan, `driveTimes` per anchor, `narrative.drivers` and `driversHi` in the broker's words, `fit`, `pros`/`cons`/`risks` where known, `brokerNote` with its date; replace the placeholder `sources` with the real documents; delete the seed `todo` lines; set `status` to `live`. The page indexes on the next build.
 
