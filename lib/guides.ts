@@ -5,7 +5,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import type { Locale } from "./schemas";
-import { getCities, getLocalities, getProjects, getTeam } from "./data";
+import { getCities, getLocalities, getPublishedProjects, getTeam } from "./data";
 import { checkGuideReferences, readGuides, type Guide, type GuideDataRefs } from "./guide-files";
 
 export type { Guide };
@@ -30,7 +30,9 @@ export function guideDataRefs(): GuideDataRefs {
       ]),
     ),
     anchorsByCity: new Map(getCities().map((c) => [c.id, new Set(c.anchors.map((a) => a.id))])),
-    projectIds: new Set(getProjects().map((p) => p.id)),
+    // Only published projects: a guide embedding an unsourced one would link to a page
+    // the source guard does not build.
+    projectIds: new Set(getPublishedProjects().map((p) => p.id)),
   };
 }
 

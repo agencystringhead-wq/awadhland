@@ -136,6 +136,12 @@ One per tracked project (`/projects/<slug>/`), rendered from `projects.json`. Co
 
 Status is the only field that changes often; it drives the chip colour and the "what changed" strip on the homepage when it moves.
 
+**Source guard**
+
+A project page states facts about public infrastructure — an agency, a budget, a timeline — so it ships only when the record is backed by a real notification. A project whose `sources` are all placeholders, or whose `description` is entirely placeholder prose, keeps its record, its id and its `impacts` but gets no page, no card, no sitemap entry and no place in any counter. `scripts/validate.ts` reports how many are published per city and names the ones that are not; the build logs them as `[source-guard] projects: skipped …`.
+
+This is the same principle as the locality thin-page guard, applied to the file where the claims are strongest, and it follows CLAUDE.md: a record without sources does not ship.
+
 ## Template 5: Circle rate page
 
 One per city (`/<city>/circle-rates/`), rendered from `circleRates.json`. The single most-searched data page; keep it fast and printable.
@@ -481,6 +487,7 @@ Design direction: probate.help's architecture adapted to land (measured tokens i
 | Performance | Target Lighthouse 95+ mobile. No third-party scripts except JotForm on form load and Leaflet on map pages. Fonts self-hosted |
 | Internal links | Plain `<a href>`, never `next/link`. The site does no client-side routing, so `scripts/drop-flight-payloads.ts` removes the per-route `index.txt` RSC payloads in postbuild — 453 MB of an export nothing fetched. That script fails the build if `next/link` is reintroduced, because its navigation would need them back |
 | Thin-page guard | Localities missing the minimum field set are excluded from the build and the sitemap |
+| Source guard | Projects without a real notification are excluded from the build, the sitemap, every card and every counter (Template 4) |
 | Open Graph | Per-page OG image generated at build with locality name, price band and city on the brand background |
 
 ## Launch page count and phasing

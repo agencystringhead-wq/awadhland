@@ -13,7 +13,7 @@ import { PriceBandChip } from "@/components/PriceBandChip";
 import { ProjectCard } from "@/components/ProjectCard";
 import { Section } from "@/components/Section";
 import { SourceStamp } from "@/components/SourceStamp";
-import { getBroker, getBuildableLocalities, getCity, getLocality, getProjectsByCity } from "@/lib/data";
+import { getBroker, getBuildableLocalities, getCity, getLocality, getPublishedProjectsByCity } from "@/lib/data";
 import { localityFaq } from "@/lib/faq";
 import { distanceKm, geometryCentroid } from "@/lib/geo";
 import { missingMinimumFields } from "@/lib/guards";
@@ -84,7 +84,7 @@ export function LocalityTemplate({ locale, cityId, localityId }: { locale: Local
   const distances = city.anchors.map((anchor) => ({ anchor, km: distanceKm(here, anchor), driveMin: l.driveTimes?.[anchor.id] }));
 
   /* 5. Projects within 5 km by footprint centroid; projects without geometry count if they list this locality */
-  const nearbyProjects = getProjectsByCity(city.id)
+  const nearbyProjects = getPublishedProjectsByCity(city.id)
     .map((p) => {
       const c = geometryCentroid(p.geometry);
       return { project: p, km: c ? distanceKm(here, c) : undefined };

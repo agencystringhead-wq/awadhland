@@ -12,7 +12,7 @@
  * Hindi pages additionally need nameHi and at least one Hindi narrative paragraph,
  * because the Hindi template reads those fields and must not fall back to English copy.
  */
-import type { Locale, Locality } from "./schemas";
+import type { Locale, Locality, Project } from "./schemas";
 
 export function missingMinimumFields(l: Locality, locale: Locale): string[] {
   const missing: string[] = [];
@@ -50,5 +50,47 @@ export function logSkippedLocalities(locale: Locale, skipped: { id: string; miss
   console.warn(
     `[thin-page-guard] ${locale}: skipped ${skipped.length} localit${skipped.length === 1 ? "y" : "ies"}: ` +
       skipped.map((s) => `${s.id} (missing ${s.missing.join(", ")})`).join("; "),
+  );
+}
+
+/**
+ * Source guard for government projects (CLAUDE.md: "Every data page renders a SourceStamp with
+ * source and updatedAt. If a record lacks sources, it does not ship").
+ *
+ * A project page is the site making factual claims about public infrastructure — an agency, a
+ * budget, a timeline — so it ships only when the record is actually backed by a notification.
+ * Seed records carry a source labelled PLACEHOLDER and prose to match; they stay in
+ * projects.json, keep their impacts and their id, and simply do not get a page until sourced.
+ *
+ * Unlike the locality guard this is not locale-dependent: a project without a source is
+ * unpublishable in both trees.
+ */
+const PLACEHOLDER_TEXT = /^\s*(PLACEHOLDER|प्लेसहोल्डर)\b/;
+
+export function missingProjectMinimumFields(p: Project): string[] {
+  const missing: string[] = [];
+  if (!p.sources.some((s) => !PLACEHOLDER_TEXT.test(s.label))) missing.push("a sourced notification");
+  if (p.description.every((para) => PLACEHOLDER_TEXT.test(para))) missing.push("description");
+  return missing;
+}
+
+export function partitionProjects(projects: Project[]) {
+  const buildable: Project[] = [];
+  const skipped: { id: string; missing: string[] }[] = [];
+  for (const p of projects) {
+    const missing = missingProjectMinimumFields(p);
+    if (missing.length === 0) buildable.push(p);
+    else skipped.push({ id: p.id, missing });
+  }
+  return { buildable, skipped };
+}
+
+export function logSkippedProjects(skipped: { id: string; missing: string[] }[]) {
+  if (skipped.length === 0) {
+    console.log("[source-guard] projects: 0 skipped");
+    return;
+  }
+  console.warn(
+    `[source-guard] projects: skipped ${skipped.length}: ` + skipped.map((s) => `${s.id} (missing ${s.missing.join(", ")})`).join("; "),
   );
 }

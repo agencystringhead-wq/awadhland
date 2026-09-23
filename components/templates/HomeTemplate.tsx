@@ -9,7 +9,7 @@ import { StatGrid, type Stat } from "@/components/ui/StatGrid";
 import { WhatChanged } from "@/components/WhatChanged";
 import { WhyWeExist } from "@/components/WhyWeExist";
 import { fill, homeCopy, homeStory } from "@/lib/content";
-import { getBroker, getBuildableLocalities, getCircleRateSchedules, getCities, getCityStats, getProjects, getReviews, getUpdates } from "@/lib/data";
+import { getBroker, getBuildableLocalities, getCircleRateSchedules, getCities, getCityStats, getPublishedProjects, getReviews, getUpdates } from "@/lib/data";
 import { getGuides } from "@/lib/guides";
 import { formatDate, formatNumber, localePath, ui, type Locale } from "@/lib/i18n";
 import { sameAlternate } from "@/lib/routes";
@@ -39,14 +39,14 @@ export function HomeTemplate({ locale }: { locale: Locale }) {
   const vars = { years: broker.yearsActive, phone: formatPhone(broker.phone) };
 
   /* C2. By the numbers: computed from /data on every build, never fetched. */
-  const lastUpdated = [...cities, ...localities, ...getProjects(), ...updates]
+  const lastUpdated = [...cities, ...localities, ...getPublishedProjects(), ...updates]
     .map((r) => r.updatedAt)
     .sort()
     .at(-1);
   const stats: Stat[] = [
     { value: formatNumber(getCircleRateSchedules().reduce((n, s) => n + s.rates.length, 0)), label: story.stats.circleRateEntries },
     { value: formatNumber(localities.length), label: story.stats.localities },
-    { value: formatNumber(getProjects().length), label: story.stats.projects },
+    { value: formatNumber(getPublishedProjects().length), label: story.stats.projects },
     { value: formatNumber(broker.yearsActive), label: story.stats.years },
     { value: story.stats.reraValue, label: story.stats.rera, href: broker.reraUrl ?? undefined },
     { value: formatNumber(cities.length), label: story.stats.cities },

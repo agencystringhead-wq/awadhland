@@ -8,7 +8,7 @@ import { Section } from "@/components/Section";
 import { SourceStamp } from "@/components/SourceStamp";
 import { StatusChip } from "@/components/StatusChip";
 import { UpdateRow } from "@/components/UpdateRow";
-import { getBroker, getBuildableLocalities, getCities, getCity, getLocalities, getProject, getProjects, getUpdates } from "@/lib/data";
+import { getBroker, getBuildableLocalities, getCities, getCity, getLocalities, getProject, getPublishedProjects, getUpdates } from "@/lib/data";
 import { formatDate, formatNumber, localePath, pick, ui, type Locale } from "@/lib/i18n";
 import { agencyLabel, impactLevelClass, impactLevelLabels } from "@/lib/labels";
 import { builtLocalityIds, sameAlternate } from "@/lib/routes";
@@ -53,7 +53,8 @@ export function ProjectTemplate({ locale, slug }: { locale: Locale; slug: string
 
   const milestones = [...p.milestones].sort((a, b) => a.date.localeCompare(b.date));
   const relatedUpdates = getUpdates().filter((u) => u.projectIds.includes(p.id));
-  const relatedProjects = getProjects().filter((x) => x.id !== p.id && (x.cityId === p.cityId || x.agency === p.agency));
+  // Published only: an unsourced project has no page, so linking to it would 404.
+  const relatedProjects = getPublishedProjects().filter((x) => x.id !== p.id && (x.cityId === p.cityId || x.agency === p.agency));
   const description = pick(locale, p.description, p.descriptionHi);
 
   return (

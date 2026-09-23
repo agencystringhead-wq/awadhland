@@ -3,7 +3,7 @@
  * mega panel, assembled from the data loaders at build time per locale. Counts are computed, never
  * typed. The Header, MegaMenu, mobile menu and Footer all read from here.
  */
-import { getBroker, getBuildableLocalities, getCities, getCurrentCircleRateSchedule, getProjects, getReviews, getUpdates } from "./data";
+import { getBroker, getBuildableLocalities, getCities, getCurrentCircleRateSchedule, getPublishedProjects, getReviews, getUpdates } from "./data";
 import { getGuides, heroImageSrc } from "./guides";
 import { formatDate, formatNumber, localePath, pick, type Locale } from "./i18n";
 import type { City, TeamMember } from "./schemas";
@@ -143,7 +143,7 @@ export function getNav(locale: Locale): NavItem[] {
   const c = navCopy[locale];
   const cities = getCities();
   const built = getBuildableLocalities(locale).buildable;
-  const projects = getProjects();
+  const projects = getPublishedProjects();
   const guides = getGuides(locale);
   const updates = getUpdates();
   const broker = getBroker();

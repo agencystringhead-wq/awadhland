@@ -14,8 +14,8 @@ import {
   getCircleRateSchedules,
   getCities,
   getCurrentCircleRateSchedule,
-  getProjects,
-  getProjectsByCity,
+  getPublishedProjects,
+  getPublishedProjectsByCity,
   getStampDutyRules,
   getUpdates,
 } from "./data";
@@ -138,7 +138,7 @@ export function getPages(locale: Locale): PageEntry[] {
   const broker = getBroker();
   const cities = getCities();
   const localities = getBuildableLocalities(locale).buildable;
-  const projects = getProjects();
+  const projects = getPublishedProjects();
   const updates = getUpdates();
   const guides = getGuides(locale);
   const entries: PageEntry[] = [];
@@ -196,7 +196,7 @@ export function getPages(locale: Locale): PageEntry[] {
     const cityLocalities = localities.filter((l) => l.cityId === c.id);
     const ranges = cityLocalities.flatMap((l) => (l.askingRange ? [l.askingRange] : []));
     const range = ranges.length ? `₹${formatNumber(Math.min(...ranges.map((r) => r.low)))}–${formatNumber(Math.max(...ranges.map((r) => r.high)))}` : null;
-    const projectCount = getProjectsByCity(c.id).length;
+    const projectCount = getPublishedProjectsByCity(c.id).length;
     add({
       kind: "city",
       sitePath: `/${c.id}/`,

@@ -17,7 +17,7 @@ import scoringJson from "../data/scoring.json";
 import reviewsJson from "../data/reviews.json";
 import { dataFiles, type DataFileName, type Locale } from "./schemas";
 import { checkIntegrity, type Dataset } from "./integrity";
-import { partitionLocalities } from "./guards";
+import { partitionLocalities, partitionProjects } from "./guards";
 
 function parse<F extends DataFileName>(file: F, raw: unknown): z.infer<(typeof dataFiles)[F]> {
   const result = dataFiles[file].safeParse(raw);
@@ -64,7 +64,7 @@ export function getCityStats(cityId: string, locale: Locale) {
   const ranges = localities.flatMap((l) => (l.askingRange ? [l.askingRange] : []));
   return {
     localityCount: localities.length,
-    projectCount: dataset.projects.filter((p) => p.cityId === cityId).length,
+    projectCount: partitionProjects(dataset.projects).buildable.filter((p) => p.cityId === cityId).length,
     /** ₹ per sq ft across the city's localities, or null when no asking ranges are recorded */
     askingRange: ranges.length > 0 ? { low: Math.min(...ranges.map((r) => r.low)), high: Math.max(...ranges.map((r) => r.high)) } : null,
     topLocalities: [...localities].filter((l) => l.score !== undefined).sort((a, b) => b.score! - a.score!),
@@ -72,9 +72,20 @@ export function getCityStats(cityId: string, locale: Locale) {
 }
 
 /* projects */
+/** Every record, including the unsourced ones. Use getBuildableProjects for anything rendered. */
 export const getProjects = () => dataset.projects;
 export const getProject = (id: string) => dataset.projects.find((p) => p.id === id);
 export const getProjectsByCity = (cityId: string) => dataset.projects.filter((p) => p.cityId === cityId);
+
+/**
+ * Projects that have a page: those backed by a real notification (lib/guards.ts). A project
+ * without one keeps its record and its impacts but is not published, so counters, cards, nearby
+ * lists and the sitemap all read from here rather than from getProjects.
+ */
+export const getBuildableProjects = () => partitionProjects(dataset.projects);
+export const getPublishedProjects = () => partitionProjects(dataset.projects).buildable;
+export const getPublishedProjectsByCity = (cityId: string) =>
+  partitionProjects(dataset.projects).buildable.filter((p) => p.cityId === cityId);
 
 /* circle rates */
 export const getCircleRateSchedules = () => dataset.circleRates;
