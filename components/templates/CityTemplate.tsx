@@ -118,7 +118,7 @@ export function CityTemplate({ locale, cityId }: { locale: Locale; cityId: strin
                   <a href={localePath(locale, `/${city.id}/${l.id}/`)} className="font-semibold no-underline hover:underline">
                     {pick(locale, l.name, l.nameHi)}
                   </a>
-                  <p className="text-[15px] text-ink-soft">{topAreaReason(l, locale)}</p>
+                  {topAreaReason(l, locale) && <p className="text-[15px] text-ink-soft">{topAreaReason(l, locale)}</p>}
                 </div>
                 <span className="shrink-0 rounded-chip bg-accent-soft px-2.5 py-0.5 text-sm font-semibold tabular-nums text-accent-deep">
                   {l.score}
@@ -227,6 +227,9 @@ export function CityTemplate({ locale, cityId }: { locale: Locale; cityId: strin
  * fit reason is written as a one-liner, so it is used first, then the first narrative sentence.
  */
 function topAreaReason(l: ReturnType<typeof getBuildableLocalities>["buildable"][number], locale: Locale): string {
+  // Draft records carry seed copy. The city hub is indexable, so it shows a reason only for
+  // localities whose copy is real — a draft's line is left blank rather than published.
+  if (l.status !== "live") return "";
   const fit = l.fit?.investment;
   if (fit) return pick(locale, fit.reason, fit.reasonHi);
   const first = pick(locale, l.narrative?.drivers[0], l.narrative?.driversHi?.[0]) ?? "";
