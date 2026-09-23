@@ -138,6 +138,22 @@ export const localitySchema = z
     lat: lat.optional(),
     lng: lng.optional(),
     priceBand: priceBand.optional(),
+    /**
+     * UP RERA coverage: how many RERA-registered projects sit in this locality, and when that was
+     * counted. Looked up on the UP RERA project search, which lists registrations by district and
+     * project address; it is not derivable from anything already in this repo.
+     *
+     * A rural locality with no formal projects legitimately counts 0 and scores nothing on this
+     * signal. That is the signal working, not failing: it measures formal development activity,
+     * which is what the spec weights at 10 points.
+     */
+    reraProjects: z
+      .object({
+        count: z.number().int().min(0),
+        asOf: isoDate,
+      })
+      .strict()
+      .optional(),
     askingRange: z
       .object({
         low: z.number().positive(),

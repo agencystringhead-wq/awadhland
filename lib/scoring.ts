@@ -15,7 +15,7 @@
  * is shown to people deciding where to put money. Partial evidence produces no score, not a small
  * one. `scoreParts` exists so a methodology page can show the working once there is working to show.
  */
-import { getPublishedProjects, getPriceObservations, getScoring } from "./data";
+import { getCircleRateSchedules, getPublishedProjects, getPriceObservations, getScoring } from "./data";
 import { hasSourcedLandUse } from "./guards";
 import type { Locality } from "./schemas";
 
@@ -67,25 +67,49 @@ function masterPlanLandUse(l: Locality): number | null {
   return LAND_USE_VALUE[l.landUse!] ?? null;
 }
 
+/** Annualised growth between the first and last of a dated series, or null when it cannot be read. */
+function annualisedGrowth(points: { date: string; value: number }[]): number | null {
+  if (points.length < 2) return null;
+  const sorted = [...points].sort((a, b) => a.date.localeCompare(b.date));
+  const first = sorted[0];
+  const last = sorted.at(-1)!;
+  // A window under a quarter is noise, not a trend.
+  const days = (Date.parse(last.date) - Date.parse(first.date)) / 86_400_000;
+  if (days < 90) return null;
+  if (first.value <= 0) return null;
+  return (last.value / first.value) ** (365 / days) - 1;
+}
+
 /**
- * Price momentum: annualised growth of the midpoint of the asking range, oldest dated observation
- * to newest. Needs at least two observations at least 90 days apart; a shorter window is noise.
+ * Price momentum, from asking-price observations where they exist and otherwise from the official
+ * circle-rate revision history.
+ *
+ * Asking prices come first because they are what a buyer actually faces. But they depend on
+ * someone remembering to log a dated observation, whereas the site already transcribes every
+ * schedule revision as part of its core job — so a locality whose city has two published schedules
+ * has a real, sourced, dated series with nobody doing extra work. Circle rates are the
+ * government's own revaluation and lag the market, which makes this the conservative of the two
+ * readings; that is the right way round for a signal that pushes a locality up a ranking.
+ *
  * Flat scores 0 and 25%/yr or more scores 1.
  */
 function priceMomentum(l: Locality): number | null {
-  const obs = getPriceObservations()
-    .filter((o) => o.localityId === l.id)
-    .sort((a, b) => a.date.localeCompare(b.date));
-  if (obs.length < 2) return null;
-  const first = obs[0];
-  const last = obs.at(-1)!;
-  if (first.unit !== last.unit) return null; // not comparable without a conversion
-  const days = (Date.parse(last.date) - Date.parse(first.date)) / 86_400_000;
-  if (days < 90) return null;
-  const mid = (o: { low: number; high: number }) => (o.low + o.high) / 2;
-  if (mid(first) <= 0) return null;
-  const annual = (mid(last) / mid(first)) ** (365 / days) - 1;
-  return clamp01(annual / 0.25);
+  const obs = getPriceObservations().filter((o) => o.localityId === l.id);
+  // Mixed units would need a conversion; treat them as unreadable rather than guess.
+  const units = new Set(obs.map((o) => o.unit));
+  if (obs.length >= 2 && units.size === 1) {
+    const growth = annualisedGrowth(obs.map((o) => ({ date: o.date, value: (o.low + o.high) / 2 })));
+    if (growth !== null) return clamp01(growth / 0.25);
+  }
+
+  const schedule = getCircleRateSchedules()
+    .filter((s) => s.cityId === l.cityId)
+    .flatMap((s) => {
+      const rate = s.rates.find((r) => r.localityId === l.id);
+      return rate && rate.residential > 0 ? [{ date: s.effectiveFrom, value: rate.residential }] : [];
+    });
+  const growth = annualisedGrowth(schedule);
+  return growth === null ? null : clamp01(growth / 0.25);
 }
 
 /**
@@ -101,13 +125,24 @@ function governmentProjectProximity(l: Locality): number | null {
 }
 
 /**
- * RERA coverage has no input on the record — there is no RERA field on a locality, in the schema
- * or in the data. Until one exists this signal cannot be scored, and because a locality needs
- * every signal, no locality can be scored. That is the honest state of the thing, not a bug to
- * route around: adding the field is what unblocks the score.
+ * RERA coverage: how many UP RERA-registered projects sit in this locality.
+ *
+ * The spec names the signal and weights it at 10 but never says what it measures, so this is the
+ * definition: formal development activity, counted as registrations. A locality where developers
+ * register is one where building is happening under a regulator that publishes the project, the
+ * promoter and the completion date — which is exactly the kind of place the score is meant to
+ * favour, and exactly the paper trail a buyer can check.
+ *
+ * Counted from the UP RERA project search, which lists registrations by district and project
+ * address, and dated because registrations accumulate. Nothing in this repo can derive it.
+ *
+ * Five or more saturates the signal. A rural locality with no formal projects counts 0 and scores
+ * nothing here; that is the signal working rather than failing, and its 10 points are the smallest
+ * of the six for that reason.
  */
-function reraCoverage(): number | null {
-  return null;
+function reraCoverage(l: Locality): number | null {
+  if (!l.reraProjects) return null;
+  return clamp01(l.reraProjects.count / 5);
 }
 
 /**
@@ -123,9 +158,9 @@ function litigationRisk(l: Locality): number | null {
 const SIGNALS: Record<string, { value: (l: Locality) => number | null; missing: string }> = {
   connectivity: { value: connectivity, missing: "driveTimes" },
   masterPlanLandUse: { value: masterPlanLandUse, missing: "a sourced landUse" },
-  priceMomentum: { value: priceMomentum, missing: "two price observations 90+ days apart" },
+  priceMomentum: { value: priceMomentum, missing: "two dated price points 90+ days apart (observations, or two circle-rate schedules)" },
   governmentProjectProximity: { value: governmentProjectProximity, missing: "a published project in this city" },
-  reraCoverage: { value: reraCoverage, missing: "a RERA field on the locality record (none exists yet)" },
+  reraCoverage: { value: reraCoverage, missing: "reraProjects (count of UP RERA registrations, from the UP RERA project search)" },
   litigationRisk: { value: litigationRisk, missing: "risks" },
 };
 
