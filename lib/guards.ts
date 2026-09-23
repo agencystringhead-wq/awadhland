@@ -67,6 +67,21 @@ export function logSkippedLocalities(locale: Locale, skipped: { id: string; miss
  */
 const PLACEHOLDER_TEXT = /^\s*(PLACEHOLDER|प्लेसहोल्डर)\b/;
 
+/**
+ * Whether a locality's land use may be published.
+ *
+ * Land use comes from a master plan, not from us, so the claim ships only with the plan named
+ * (CLAUDE.md: every data point carries a source, rendered on the page). Seed records guess a use
+ * by price band and mark the source PLACEHOLDER; for those the key-facts row, the FAQ entry and
+ * the meta-description clause are all omitted rather than published unsourced.
+ *
+ * The value stays on the record — it is a working guess, and the thin-page guard still counts it
+ * — it is simply not shown until a plan backs it.
+ */
+export function hasSourcedLandUse(l: Pick<Locality, "landUse" | "landUseSource">): boolean {
+  return Boolean(l.landUse && l.landUseSource && !PLACEHOLDER_TEXT.test(l.landUseSource));
+}
+
 export function missingProjectMinimumFields(p: Project): string[] {
   const missing: string[] = [];
   if (!p.sources.some((s) => !PLACEHOLDER_TEXT.test(s.label))) missing.push("a sourced notification");

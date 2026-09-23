@@ -5,6 +5,7 @@
  */
 import type { FAQItem } from "@/components/FAQ";
 import { formatDate, formatNumber, pick, type Locale } from "./i18n";
+import { hasSourcedLandUse } from "./guards";
 import { fitRatingLabels, landUseLabels } from "./labels";
 import type { Anchor, City, CircleRateSchedule, Locality } from "./schemas";
 
@@ -64,8 +65,9 @@ export function localityFaq(
     );
   }
 
-  if (l.landUse) {
-    const use = landUseLabels[l.landUse][locale];
+  // Only when a master plan backs it; an unsourced use is neither asked nor answered.
+  if (hasSourcedLandUse(l)) {
+    const use = landUseLabels[l.landUse!][locale];
     const src = l.landUseSource ? (locale === "hi" ? ` (${l.landUseSource} के अनुसार)` : ` (per ${l.landUseSource})`) : "";
     items.push(
       locale === "hi"

@@ -19,6 +19,7 @@ import {
   getStampDutyRules,
   getUpdates,
 } from "./data";
+import { hasSourcedLandUse } from "./guards";
 import { getGuides } from "./guides";
 import { getCurrentRateSchedule, getLocalityRate, getRowsByTehsil, getTehsilSummary, getTehsilsByCity, isRowIndexable } from "./rates";
 import { formatDate, formatNumber, localePath, pick, SITE_URL, type Locale } from "./i18n";
@@ -297,8 +298,8 @@ export function getPages(locale: Locale): PageEntry[] {
         sitePath: `/${c.id}/${l.id}/`,
         title: hi ? `${lname} में जमीन का रेट, प्लॉट और सर्किल रेट ${YEAR}` : `${lname} land rate, plots and circle rate ${YEAR} · ${name}`,
         description: hi
-          ? `${lname}, ${name}। सर्किल रेट ₹${formatNumber(r.residential)} प्रति वर्ग मीटर रिहायशी, ${formatDate(r.effectiveFrom, locale)} से। ${l.askingRange ? `माँगा जा रहा दाम ₹${formatNumber(l.askingRange.low)}–${formatNumber(l.askingRange.high)} प्रति वर्ग फ़ुट। ` : ""}${l.landUse ? `भू-उपयोग ${landUseLabels[l.landUse].hi}। ` : ""}${anchors} तक दूरी, पास के प्रोजेक्ट।`
-          : `${lname}, ${name}. Circle rate ₹${formatNumber(r.residential)} per sq m residential, effective ${formatDate(r.effectiveFrom, locale)}. ${l.askingRange ? `Asking ₹${formatNumber(l.askingRange.low)}–${formatNumber(l.askingRange.high)} per sq ft. ` : ""}${l.landUse ? `Land use: ${landUseLabels[l.landUse].en.toLowerCase()}. ` : ""}Distances to ${anchors}, projects nearby.`,
+          ? `${lname}, ${name}। सर्किल रेट ₹${formatNumber(r.residential)} प्रति वर्ग मीटर रिहायशी, ${formatDate(r.effectiveFrom, locale)} से। ${l.askingRange ? `माँगा जा रहा दाम ₹${formatNumber(l.askingRange.low)}–${formatNumber(l.askingRange.high)} प्रति वर्ग फ़ुट। ` : ""}${hasSourcedLandUse(l) ? `भू-उपयोग ${landUseLabels[l.landUse!].hi}। ` : ""}${anchors} तक दूरी, पास के प्रोजेक्ट।`
+          : `${lname}, ${name}. Circle rate ₹${formatNumber(r.residential)} per sq m residential, effective ${formatDate(r.effectiveFrom, locale)}. ${l.askingRange ? `Asking ₹${formatNumber(l.askingRange.low)}–${formatNumber(l.askingRange.high)} per sq ft. ` : ""}${hasSourcedLandUse(l) ? `Land use: ${landUseLabels[l.landUse!].en.toLowerCase()}. ` : ""}Distances to ${anchors}, projects nearby.`,
         lastmod: l.updatedAt,
         alternate: localityAlternate(locale, c.id, l.id),
         og: {
