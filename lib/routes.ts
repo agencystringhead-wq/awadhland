@@ -4,6 +4,7 @@
  */
 import { getBuildableLocalities, getBuildableProjects, getCircleRateSchedules, getCities, getUpdates } from "./data";
 import { logSkippedLocalities, logSkippedProjects } from "./guards";
+import { logScoreCoverage } from "./scoring";
 import { getGuides } from "./guides";
 import { getCitiesWithRateList, getRowsByTehsil, getTehsilsByCity } from "./rates";
 import { localePath, otherLocale, type Locale } from "./i18n";
@@ -33,6 +34,7 @@ export const cityParams = () =>
 export function localityParams(locale: Locale) {
   const { buildable, skipped } = getBuildableLocalities(locale);
   logSkippedLocalities(locale, skipped);
+  logScoreCoverage(buildable);
   return nonEmpty(
     `${localePath(locale, "/")}[city]/[locality]/ (thin-page guard)`,
     buildable.map((l) => ({ city: l.cityId, locality: l.id })),
