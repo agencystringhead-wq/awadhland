@@ -5,7 +5,8 @@
  * Latin budget (docs/DESIGN-REFERENCE.md §2, Phase B): Fraunces roman 36 KB (weight axis only;
  * the optical-size and SOFT axes would cost 120 KB), Instrument Serif italic 24 KB for every
  * italic accent, JetBrains Mono 40 KB for eyebrows and labels, Inter 48 KB for body and UI.
- * Noto Sans Devanagari loads for the Hindi tree and for Devanagari names on English pages.
+ * Noto Sans Devanagari is declared per tree: a real swapped font on Hindi, where the page is set
+ * in it, and `optional` on English, where it is seven strings and must not delay the hero.
  */
 import localFont from "next/font/local";
 
@@ -52,7 +53,21 @@ export const jetbrainsMono = localFont({
   preload: false,
 });
 
-/** Devanagari subset only. Latin glyphs in Hindi copy (digits, English names) fall back to Inter. */
+/*
+ * The Devanagari face is declared twice, once per tree. The src path is repeated in both because
+ * next/font only accepts literals -- a shared constant fails the build with "Font loader values
+ * must be explicitly written literals".
+ *
+ * next/font emits a separate file per declaration, so the export carries the same 121 KB twice
+ * under different names, and a reader who crosses from English to Hindi downloads it twice. That
+ * is the price of the two display strategies. It buys every English page a hero that no longer
+ * waits behind a font it barely uses, and it costs a duplicate only to the minority who cross.
+ */
+
+/**
+ * Devanagari for the Hindi tree, where every heading and paragraph is set in it. Devanagari subset
+ * only; Latin glyphs in Hindi copy (digits, English names) fall back to Inter.
+ */
 export const notoDevanagari = localFont({
   src: "../node_modules/@fontsource-variable/noto-sans-devanagari/files/noto-sans-devanagari-devanagari-wght-normal.woff2",
   weight: "100 900",
@@ -60,5 +75,33 @@ export const notoDevanagari = localFont({
   display: "swap",
 });
 
-/** Every font variable, for the <html> element of both trees. */
-export const fontClassName = [inter, fraunces, instrumentSerif, jetbrainsMono, notoDevanagari].map((f) => f.variable).join(" ");
+/**
+ * The same face for the English tree, where Devanagari is not the page -- it is the "हिंदी" toggle,
+ * the broker's name and three city names, seven distinct strings in all.
+ *
+ * At 119 KB this is the largest asset on an English page, and `swap` made the browser fetch it at
+ * high priority alongside Fraunces (36 KB) and Inter (47 KB), which set the hero. The hero lede is
+ * the LCP element: it paints early in the metric-matched fallback, then repaints when its real
+ * font arrives, and that repaint is what LCP records. Competing with Devanagari for bandwidth
+ * pushed that repaint out.
+ *
+ * `optional` gives this face no say in that. It lets the browser skip the download outright on a
+ * first visit, and measured against the export it does: an English page now requests no Devanagari
+ * at all, 264 KB of fonts down to 145 KB. The seven strings render in the system Devanagari font --
+ * Nirmala UI on Windows, Noto on Android. The Hindi tree is untouched and still gets the real face.
+ */
+export const notoDevanagariIncidental = localFont({
+  src: "../node_modules/@fontsource-variable/noto-sans-devanagari/files/noto-sans-devanagari-devanagari-wght-normal.woff2",
+  weight: "100 900",
+  variable: "--font-devanagari",
+  display: "optional",
+  preload: false,
+});
+
+const latin = [inter, fraunces, instrumentSerif, jetbrainsMono];
+
+/** Font variables for <html> in the English tree. */
+export const fontClassNameEn = [...latin, notoDevanagariIncidental].map((f) => f.variable).join(" ");
+
+/** Font variables for <html> in the Hindi tree. */
+export const fontClassNameHi = [...latin, notoDevanagari].map((f) => f.variable).join(" ");

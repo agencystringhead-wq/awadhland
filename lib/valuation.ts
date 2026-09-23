@@ -16,13 +16,35 @@
 import { LAKH, SQM_PER_HECTARE } from "./units";
 import type { RateCategory, RateRow, RoadSegmentRow, ValuationRules } from "./schemas";
 
-/** Which column of the non-agricultural table a plot falls in. */
-export type RoadWidth = "lt9m" | "m9to18" | "ge18m";
+/**
+ * Which column of the non-agricultural table a plot falls in.
+ *
+ * A band key, not a fixed set: Ayodhya's list prints three columns and Lucknow's four, and the
+ * keys come from the schedule (lib/rates, getRoadBands). Ayodhya's keys are still lt9m / m9to18 /
+ * ge18m, so callers that name one keep working.
+ */
+export type RoadWidth = string;
 
 /** Which frontage column of the agricultural table applies. */
 export type AgriFrontage = "nh" | "state" | "link" | "chakmarg" | "abadi" | "general";
 
-export type LandKind = "non-agricultural" | "commercial" | "agricultural";
+/**
+ * "covered" is construction, not land: ₹ per sq m of built area, साधारण or प्रीमियम.
+ *
+ * Lucknow's list prices it on every row; Ayodhya's does not print the column at all, so the
+ * option only appears where `row.covered` is set.
+ */
+export type LandKind = "non-agricultural" | "commercial" | "agricultural" | "covered";
+
+/** Which covered-area column applies: साधारण or प्रीमियम. */
+export type CoveredGrade = "ordinary" | "premium";
+
+export const COVERED_GRADES: CoveredGrade[] = ["ordinary", "premium"];
+
+export const coveredGradeLabel: Record<CoveredGrade, { en: string; hi: string }> = {
+  ordinary: { en: "Ordinary", hi: "साधारण" },
+  premium: { en: "Premium", hi: "प्रीमियम" },
+};
 
 /** Commercial sub-type; the list prices shop, office and godown separately. */
 export type CommercialKind = "shop" | "office" | "godown";
@@ -43,6 +65,9 @@ export type ValuationInput = {
 
   /* commercial */
   commercialKind?: CommercialKind;
+
+  /* covered area */
+  coveredGrade?: CoveredGrade;
 
   /* agricultural */
   frontage?: AgriFrontage;
@@ -67,7 +92,7 @@ export type ValuationResult = {
   baseRate: number;
   baseRateUnit: "sqm" | "hectare";
   /** where baseRate came from, for the source line */
-  basis: "road-width" | "road-segment" | "commercial" | "agri-frontage";
+  basis: "road-width" | "road-segment" | "commercial" | "agri-frontage" | "covered";
   /** value before any percentage adjustment */
   baseValue: number;
   /** the large-plot discount, when it applied */
@@ -136,7 +161,9 @@ export function valuePlot(input: ValuationInput): ValuationResult {
     // Instruction 18: small plots in urban, semi-urban and developing villages, where the plot
     // does not adjoin abadi or a road.
     const standsAlone = (input.adjoiningRoads ?? 0) === 0 && !input.adjoiningAbadi;
-    if (SMALL_PLOT_CATEGORIES.includes(row.category) && standsAlone) {
+    // A row with no printed category cannot qualify: the rule keys off being urban-ish, and three
+    // of Lucknow's SROs print no category column at all. Not printed is not a licence to guess.
+    if (row.category !== null && SMALL_PLOT_CATEGORIES.includes(row.category) && standsAlone) {
       const r = hectares <= 0.1 ? rule(rules, "agri-plot-upto-0-100-ha") : hectares <= 0.2 ? rule(rules, "agri-plot-0-100-to-0-200-ha") : undefined;
       if (r) applied.push(toApplied(r));
     }
@@ -177,16 +204,28 @@ export function valuePlot(input: ValuationInput): ValuationResult {
 
   let baseRate: number;
   let basis: ValuationResult["basis"];
-  if (kind === "commercial") {
+  if (kind === "covered") {
+    /*
+     * Construction is valued on the built area at the printed covered rate. A road-segment rate
+     * never applies: the segment prices frontage land, not what stands on it.
+     */
+    baseRate = row.covered?.[input.coveredGrade ?? "ordinary"] ?? 0;
+    basis = "covered";
+  } else if (kind === "commercial") {
     const which = input.commercialKind ?? "shop";
     // A listed road stretch prices its commercial frontage too.
-    baseRate = input.segment ? input.segment[which] : row.commercial[which];
+    // A row with no printed commercial line has no commercial value to quote.
+    baseRate = input.segment ? input.segment[which] : (row.commercial?.[which] ?? 0);
     basis = input.segment ? "road-segment" : "commercial";
   } else if (input.segment) {
     baseRate = input.segment.nonAgri;
     basis = "road-segment";
   } else {
-    baseRate = row.nonAgri[input.roadWidth ?? "lt9m"];
+    // Fall back to the row's cheapest printed band when the caller names none, or names one this
+    // row does not carry: Lucknow Sadar-2 भरवारा prints only the first of the four columns.
+    const named = input.roadWidth ? row.nonAgri[input.roadWidth] : undefined;
+    const cheapest = Object.values(row.nonAgri).find((v) => typeof v === "number");
+    baseRate = typeof named === "number" ? named : (cheapest ?? 0);
     basis = "road-width";
   }
 
@@ -257,3 +296,19 @@ export const categoryLabel: Record<RateCategory, { en: string; hi: string }> = {
   notified: { en: "Notified", hi: "अधिसूचित" },
   "nagar-panchayat": { en: "Nagar panchayat", hi: "नगर पंचायत" },
 };
+
+/**
+ * The category as printed, or nothing where the list prints no category column.
+ *
+ * Mohanlalganj and both Sarojini Nagar lists have no such column, so 481 Lucknow rows have none.
+ * Callers that can drop the field entirely do (the village page omits the item and its separator);
+ * a table cell stays empty, because the column still has to line up. A placeholder glyph was worse
+ * than blank: it read as a value, and there is nothing to read.
+ *
+ * The one place that needs words for it is the tehsil filter, which uses categoryFilterLabel.
+ */
+export const categoryText = (c: RateCategory | null, locale: "en" | "hi"): string => (c ? categoryLabel[c][locale] : "");
+
+/** Same, but for a filter option, where a blank entry would be an unpickable empty row. */
+export const categoryFilterLabel = (c: RateCategory | null, locale: "en" | "hi"): string =>
+  c ? categoryLabel[c][locale] : locale === "hi" ? "श्रेणी नहीं छपी" : "No category printed";

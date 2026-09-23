@@ -5,7 +5,7 @@
  * circleRates.json is the narrow, three-number-per-locality view the city hub, the locality key
  * facts and the stamp duty calculator still read; the full model lives in data/rates/.
  *
- *   residential  = nonAgri.lt9m            ₹ per sq m
+ *   residential  = the cheapest printed road band  ₹ per sq m
  *   commercial   = commercial.shop         ₹ per sq m
  *   agricultural = agriLakhPerHa.general × 100000   → ₹ per hectare
  *
@@ -75,8 +75,9 @@ function main() {
       rates.push({
         localityId: l.id,
         tehsil: l.tehsil ?? refs[0].sro,
-        residential: Math.max(...refs.map((r) => r.nonAgri.lt9m)),
-        commercial: Math.max(...refs.map((r) => r.commercial.shop)),
+        // Cheapest printed band per row, then the dearest of those across the locality's rows.
+        residential: Math.max(...refs.map((r) => schedule.roadBands.map((b) => r.nonAgri[b.key]).find((v) => typeof v === "number") ?? 0)),
+        commercial: Math.max(...refs.map((r) => r.commercial?.shop ?? 0), 1),
         // agriLakhPerHa.general is null on urban rows; fall back so the narrow schema stays positive.
         agricultural: agri.length > 0 ? Math.max(...agri) * LAKH : 1,
         effectiveFrom: schedule.effectiveFrom,

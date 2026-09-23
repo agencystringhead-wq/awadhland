@@ -15,6 +15,7 @@ import {
   getTehsil,
   getTehsilSummary,
   getRateBands,
+  getRoadBands,
   getValuationRules,
 } from "@/lib/rates";
 import { sameAlternate } from "@/lib/routes";
@@ -47,6 +48,10 @@ export function RateTehsilTemplate({ locale, cityId, tehsilId }: { locale: Local
   const rows = getRowsByTehsil(cityId, tehsilId);
   const segments = getRoadSegmentsByTehsil(cityId, tehsilId);
   const bands = getRateBands(cityId, tehsilId);
+  // Road-width columns of this city’s list (three for Ayodhya, four for Lucknow). Distinct from
+  // `bands` above, which groups rows that share an identical rate profile.
+  const roadBands = getRoadBands(cityId);
+  const roadBandKeys = roadBands.map((b) => b.key);
   const rules = getValuationRules();
   const cityName = pick(locale, city.name, city.nameHi);
   const tehsilName = pick(locale, tehsil.name, tehsil.nameHi);
@@ -118,7 +123,8 @@ export function RateTehsilTemplate({ locale, cityId, tehsilId }: { locale: Local
           locale={locale}
           cityId={cityId}
           tehsilId={tehsilId}
-          firstRows={rows.slice(0, PRERENDERED_ROWS).map(toChunkRow)}
+          firstRows={rows.slice(0, PRERENDERED_ROWS).map((r) => toChunkRow(r, roadBandKeys))}
+          bands={roadBands}
           total={rows.length}
           categories={[...new Set(rows.map((r) => r.category))]}
           wards={[...new Set(rows.flatMap((r) => (r.wardHi ? [r.wardHi] : [])))].sort((a, b) => a.localeCompare(b, "hi"))}
@@ -157,14 +163,18 @@ export function RateTehsilTemplate({ locale, cityId, tehsilId }: { locale: Local
           <ul className="space-y-4">
             {bands.map((band) => {
               const first = band.rows[0];
+              // Cheapest and dearest printed band on this row, whatever the city prints.
+              const printed = roadBandKeys.map((k) => first.nonAgri[k]).filter((v) => typeof v === "number");
+              const firstLow = printed[0] ?? 0;
+              const firstHigh = printed[printed.length - 1] ?? 0;
               return (
                 <li key={band.key} className="rounded-xl border border-line bg-card p-4">
                   <p className="flex flex-wrap items-baseline gap-x-4 gap-y-1">
                     <span className="tabular-nums">
-                      {c.landRates} ₹{formatNumber(first.nonAgri.lt9m)}–{formatNumber(first.nonAgri.ge18m)} {c.perSqM}
+                      {c.landRates} ₹{formatNumber(firstLow)}–{formatNumber(firstHigh)} {c.perSqM}
                     </span>
                     <span className="tabular-nums text-ink-soft">
-                      {commercialKindLabel.shop[locale]} ₹{formatNumber(first.commercial.shop)}
+                      {commercialKindLabel.shop[locale]} ₹{first.commercial ? formatNumber(first.commercial.shop) : "—"}
                     </span>
                     {first.agriLakhPerHa.general !== null && (
                       <span className="tabular-nums text-ink-soft">

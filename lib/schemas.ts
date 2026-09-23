@@ -338,8 +338,25 @@ export const tehsilSchema = z
     /** Sub-registrar office, as named on the published list */
     sroName: z.string().min(1),
     sroNameHi: z.string().min(1),
-    lat,
-    lng,
+    /**
+     * Optional, and nothing renders them today. Ayodhya's five were seeded with approximate
+     * headquarters coordinates and carry a TODO saying so. Lucknow's ten are omitted rather than
+     * guessed: an approximate coordinate that no page draws is a fact waiting to be quoted as if
+     * it were surveyed.
+     */
+    lat: lat.optional(),
+    lng: lng.optional(),
+    /**
+     * Whether this SRO's rate list has been transcribed.
+     *
+     * A district's SROs do not all arrive at once. Lucknow has ten; seven are in and Sadar-4,
+     * Bakshi Ka Talab and Malihabad are not -- what was received for those three is khasra lists,
+     * plot numbers grouped by frontage, not the मूल्यांकन सूची. They are registered so the city hub
+     * can name them and say the rates are coming, which is truer than leaving them off the page
+     * and letting a reader conclude the district ends at seven. "pending" generates no village
+     * pages and nothing enters a sitemap.
+     */
+    ratesStatus: z.enum(["published", "pending"]).default("published"),
     ...recordBase,
   })
   .strict();
@@ -361,12 +378,42 @@ export const tehsilsFileSchema = z.array(tehsilSchema);
 /** Categories as printed, normalised to one spelling each (अर्द्धनगरीय / अर्धनगरीय → semi-urban). */
 export const rateCategory = z.enum(["urban", "semi-urban", "rural", "developing", "notified", "nagar-panchayat"]);
 
-/** ₹ per sq m, non-agricultural land, by the width of the road the plot fronts. */
-const nonAgriSchema = z
+/**
+ * ₹ per sq m, non-agricultural land, keyed by road band.
+ *
+ * The bands are not the same everywhere: Ayodhya's list prints three (under 9 m, 9–18, 18+) and
+ * Lucknow's prints four (under 9 m, 9–12, 12–18, 18+). So the keys are data, declared once per
+ * schedule in `roadBands`, and a row carries only the bands its own printed line fills -- Sadar-2
+ * भरवारा has no प्रारूप-4 row at all and carries just the first.
+ *
+ * Read it through lib/rates: `baseRate(row)` for the cheapest band, `rateForBand(row, key)` for
+ * one column. Every key here must appear in the schedule's roadBands; validate enforces that.
+ */
+const nonAgriSchema = z.record(z.string().min(1), z.number().positive());
+
+/**
+ * ₹ per sq m of covered (construction) area, साधारण / प्रीमियम.
+ *
+ * Lucknow prints these beside the land rates; Ayodhya's list does not have the column, so its
+ * rows carry null rather than a zero that would read as free.
+ */
+const coveredSchema = z
   .object({
-    lt9m: z.number().positive(),
-    m9to18: z.number().positive(),
-    ge18m: z.number().positive(),
+    ordinary: z.number().positive(),
+    premium: z.number().positive(),
+  })
+  .strict();
+
+/** One road-width column of a city's non-agricultural table, in printed order, cheapest first. */
+const roadBandSchema = z
+  .object({
+    /** key used in a row's `nonAgri` map */
+    key: z.string().min(1),
+    labelEn: z.string().min(1),
+    labelHi: z.string().min(1),
+    /** metres; null where the band is open-ended (`minM: null` on the first, `maxM: null` on the last) */
+    minM: z.number().nonnegative().nullable(),
+    maxM: z.number().positive().nullable(),
   })
   .strict();
 
@@ -405,9 +452,17 @@ export const rateRowSchema = z
     nameEn: z.string().min(1),
     slug,
     wardHi: z.string().min(1).nullable(),
-    category: rateCategory,
+    /**
+     * Null where the list prints no category column. Ayodhya prints one on every row; Lucknow
+     * prints it for the four Sadar SROs and not for Mohanlalganj or either Sarojini Nagar, so 481
+     * rows have none. It is left null rather than inferred -- a ward number is not a category.
+     */
+    category: rateCategory.nullable(),
     nonAgri: nonAgriSchema,
-    commercial: commercialSchema,
+    /** null where the row prints no commercial line at all (Lucknow Sadar-2 भरवारा) */
+    commercial: commercialSchema.nullable(),
+    /** null on lists that do not price covered area (Ayodhya) */
+    covered: coveredSchema.nullable(),
     agriLakhPerHa: agriSchema,
     /** transcriber's flag on an oddly printed row. Internal only; never rendered. */
     note: z.string().min(1).nullable(),
@@ -449,10 +504,20 @@ export const rateScheduleSchema = z
             /** archived copy on R2 */
             archiveUrl: url.nullable(),
             igrsupUrl: url,
+            /**
+             * When this SRO's list took effect, where that differs from the schedule's date.
+             * A district does not revise every SRO on one day: Lucknow's seven published SROs are
+             * all 01-08-2025 but Malihabad's list is dated 31-12-2025, so the date shown on a page
+             * has to come from the SRO that priced the row, not from the city.
+             */
+            effectiveFrom: isoDate.optional(),
+            orderDate: isoDate.optional(),
           })
           .strict(),
       )
       .min(1),
+    /** The non-agricultural road-width columns this city's list prints, cheapest first. */
+    roadBands: z.array(roadBandSchema).min(1),
     rows: z.array(rateRowSchema).min(1),
     roadSegments: z.array(roadSegmentRowSchema),
     ...recordBase,
@@ -744,6 +809,7 @@ export type Tehsil = z.infer<typeof tehsilSchema>;
 export type RateSchedule = z.infer<typeof rateScheduleSchema>;
 export type RateRow = z.infer<typeof rateRowSchema>;
 export type RoadSegmentRow = z.infer<typeof roadSegmentRowSchema>;
+export type RoadBand = z.infer<typeof roadBandSchema>;
 export type RateCategory = z.infer<typeof rateCategory>;
 export type Units = z.infer<typeof unitsFileSchema>;
 export type ValuationRules = z.infer<typeof valuationRulesFileSchema>;

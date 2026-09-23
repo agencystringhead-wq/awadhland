@@ -141,13 +141,28 @@ async function main() {
         if (ids.length > 1) errors.push(`${at}: slug "${k}" is used by ${ids.length} rows (${ids.join(", ")}) — they would share a URL`);
       }
 
+      /*
+       * Band keys are data now, so a row could name a column its schedule never declared and the
+       * page would silently drop it. Nothing would look wrong -- a rate would just be missing.
+       */
+      const declared = new Set(s.roadBands.map((b) => b.key));
+      for (const r of s.rows) {
+        const stray = Object.keys(r.nonAgri).filter((k) => !declared.has(k));
+        if (stray.length > 0) {
+          errors.push(`${at}: ${r.id} (${r.nameHi}) has road band(s) ${stray.join(", ")} not declared in roadBands`);
+        }
+        if (Object.keys(r.nonAgri).length === 0) errors.push(`${at}: ${r.id} (${r.nameHi}) has no land rate at all`);
+      }
+
       // Ordering sanity. A flagged row keeps the printed figure, so it warns rather than fails.
       let orderWarnings = 0;
       for (const r of s.rows) {
-        const landOut = !(r.nonAgri.lt9m <= r.nonAgri.m9to18 && r.nonAgri.m9to18 <= r.nonAgri.ge18m);
-        const commOut = !(r.commercial.shop >= r.commercial.office && r.commercial.office >= r.commercial.godown);
+        // Across however many bands this city prints, each should cost at least the one before it.
+        const printed = s.roadBands.map((b) => r.nonAgri[b.key]).filter((v): v is number => typeof v === "number");
+        const landOut = printed.some((v, i) => i > 0 && v < printed[i - 1]);
+        const commOut = r.commercial !== null && !(r.commercial.shop >= r.commercial.office && r.commercial.office >= r.commercial.godown);
         if (!landOut && !commOut) continue;
-        const what = [landOut && "land rates are not lt9m ≤ 9–18 m ≤ 18 m+", commOut && "commercial is not shop ≥ office ≥ godown"]
+        const what = [landOut && "land rates do not rise with road width", commOut && "commercial is not shop ≥ office ≥ godown"]
           .filter(Boolean)
           .join("; ");
         const msg = `${at}: ${r.id} (${r.nameHi}, ${r.sro} serial ${r.serial}) ${what}`;

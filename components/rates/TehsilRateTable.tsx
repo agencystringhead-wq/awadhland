@@ -19,15 +19,14 @@ import { useCallback, useEffect, useMemo, useState } from "react";
 import { formatNumber, localePath, pick, type Locale } from "@/lib/i18n";
 import { rc } from "@/lib/rate-copy";
 import type { ChunkRow, RateChunk } from "@/lib/rate-chunks";
-import type { RateCategory } from "@/lib/schemas";
+import type { RateCategory, RoadBand } from "@/lib/schemas";
 import {
   AGRI_FRONTAGES,
   agriFrontageLabel,
-  categoryLabel,
+  categoryFilterLabel,
+  categoryText,
   COMMERCIAL_KINDS,
   commercialKindLabel,
-  ROAD_WIDTHS,
-  roadWidthLabel,
 } from "@/lib/valuation";
 
 type View = "land" | "commercial" | "agricultural";
@@ -43,6 +42,7 @@ export function TehsilRateTable({
   cityId,
   tehsilId,
   firstRows,
+  bands,
   total,
   categories,
   wards,
@@ -52,8 +52,10 @@ export function TehsilRateTable({
   tehsilId: string;
   /** the first 100 rows, prerendered */
   firstRows: ChunkRow[];
+  /** this city's road-width columns, in the same order as each row's land array */
+  bands: RoadBand[];
   total: number;
-  categories: RateCategory[];
+  categories: (RateCategory | null)[];
   wards: string[];
 }) {
   const c = rc(locale);
@@ -91,7 +93,8 @@ export function TehsilRateTable({
 
   const rows = useMemo(() => {
     let out = source;
-    if (category !== "all") out = out.filter((r) => r.c === category);
+    // "none" is the option for rows whose list prints no category column.
+    if (category !== "all") out = out.filter((r) => (r.c ?? "none") === category);
     if (ward !== "all") out = out.filter((r) => (r.w ?? "") === ward);
     if (sort) {
       const { key, dir } = sort;
@@ -107,8 +110,8 @@ export function TehsilRateTable({
           if (nb === null) return -1;
           return (na - nb) * dir;
         }
-        const va = key === "name" ? (locale === "hi" ? a.h : a.n) : key === "ward" ? (a.w ?? "") : categoryLabel[a.c][locale];
-        const vb = key === "name" ? (locale === "hi" ? b.h : b.n) : key === "ward" ? (b.w ?? "") : categoryLabel[b.c][locale];
+        const va = key === "name" ? (locale === "hi" ? a.h : a.n) : key === "ward" ? (a.w ?? "") : categoryText(a.c, locale);
+        const vb = key === "name" ? (locale === "hi" ? b.h : b.n) : key === "ward" ? (b.w ?? "") : categoryText(b.c, locale);
         return va.localeCompare(vb, locale) * dir;
       });
     }
@@ -118,15 +121,19 @@ export function TehsilRateTable({
   const toggle = (key: SortKey) => setSort((s) => (s?.key === key ? { key, dir: s.dir === 1 ? -1 : 1 } : { key, dir: 1 }));
   const ariaSort = (key: SortKey) => (sort?.key === key ? (sort.dir === 1 ? "ascending" : "descending") : undefined);
 
-  const columns = view === "land" ? ROAD_WIDTHS : view === "commercial" ? COMMERCIAL_KINDS : AGRI_FRONTAGES;
+  // Land columns come from the schedule — three for Ayodhya, four for Lucknow — so this table
+  // never assumes a count. The other two views are fixed by the list's own printed columns.
+  const columns = view === "land" ? bands : view === "commercial" ? COMMERCIAL_KINDS : AGRI_FRONTAGES;
   const columnLabel = (i: number) =>
     view === "land"
-      ? roadWidthLabel[ROAD_WIDTHS[i]][locale]
+      ? locale === "hi"
+        ? bands[i].labelHi
+        : bands[i].labelEn
       : view === "commercial"
         ? commercialKindLabel[COMMERCIAL_KINDS[i]][locale]
         : agriFrontageLabel[AGRI_FRONTAGES[i]][locale];
   const cellValue = (r: ChunkRow, i: number) => {
-    const v = view === "land" ? r.r[i] : view === "commercial" ? r.m[i] : r.a[i];
+    const v = view === "land" ? r.r[i] : view === "commercial" ? (r.m?.[i] ?? null) : r.a[i];
     return v === null || v === undefined ? "—" : formatNumber(v);
   };
 
@@ -161,8 +168,8 @@ export function TehsilRateTable({
           <select className={select} value={category} onChange={(e) => setCategory(e.target.value)}>
             <option value="all">{c.allCategories}</option>
             {categories.map((k) => (
-              <option key={k} value={k}>
-                {categoryLabel[k][locale]}
+              <option key={k ?? "none"} value={k ?? "none"}>
+                {categoryFilterLabel(k, locale)}
               </option>
             ))}
           </select>
@@ -242,7 +249,7 @@ export function TehsilRateTable({
                   <span className="block text-xs text-muted">{pick(locale, r.h, r.n)}</span>
                 </td>
                 <td className={`${td} text-muted`}>{r.w ?? "—"}</td>
-                <td className={td}>{categoryLabel[r.c][locale]}</td>
+                <td className={td}>{categoryText(r.c, locale)}</td>
                 {columns.map((_, i) => (
                   <td key={i} className={`${td} ${numeric}`}>
                     {cellValue(r, i)}

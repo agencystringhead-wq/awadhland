@@ -11,6 +11,7 @@
  */
 import { z } from "zod";
 import ayodhya20250607 from "../data/rates/ayodhya-2025-06-07.json";
+import lucknow20250801 from "../data/rates/lucknow-2025-08-01.json";
 import indexableJson from "../data/rates/indexable.json";
 import tehsilsJson from "../data/tehsils.json";
 import unitsJson from "../data/units.json";
@@ -23,6 +24,7 @@ import {
   valuationRulesFileSchema,
   type RateRow,
   type RateSchedule,
+  type RoadBand,
   type RoadSegmentRow,
   type Tehsil,
 } from "./schemas";
@@ -60,6 +62,9 @@ function withContentNames(s: RateSchedule): RateSchedule {
 
 const schedules: RateSchedule[] = [
   withContentNames(parse("data/rates/ayodhya-2025-06-07.json", rateScheduleSchema, ayodhya20250607)),
+  // Lucknow has no written page content yet, so no slug override: its names come from the
+  // transliterator at import, as Ayodhya&apos;s did before the content landed.
+  parse("data/rates/lucknow-2025-08-01.json", rateScheduleSchema, lucknow20250801),
 ];
 
 const tehsils = parse("data/tehsils.json", tehsilsFileSchema, tehsilsJson);
@@ -118,6 +123,65 @@ export function getRoadSegmentsForRow(cityId: string, rateRowId: string): RoadSe
 /** Row by its slug within a tehsil — how the village page resolves its URL. */
 export function getRowBySlug(cityId: string, tehsilId: string, slug: string): RateRow | undefined {
   return getRowsByTehsil(cityId, tehsilId).find((r) => r.slug === slug);
+}
+
+/* -------------------------------------------------------------------- road bands */
+
+/**
+ * The road-width columns a city's list prints, cheapest first.
+ *
+ * Ayodhya prints three and Lucknow four, so nothing may assume a fixed set. Everything that reads
+ * a land rate goes through these three helpers rather than naming a key.
+ */
+export function getRoadBands(cityId: string): RoadBand[] {
+  return getCurrentRateSchedule(cityId)?.roadBands ?? [];
+}
+
+/** The bands this row actually prints, in the schedule's order. Some rows fill only the first. */
+export function bandsForRow(cityId: string, row: RateRow): { band: RoadBand; rate: number }[] {
+  return getRoadBands(cityId)
+    .filter((b) => typeof row.nonAgri[b.key] === "number")
+    .map((b) => ({ band: b, rate: row.nonAgri[b.key] }));
+}
+
+/**
+ * The row's cheapest printed land rate -- the narrowest road band it carries.
+ *
+ * This is what a page leads with, what the tehsil median is taken over and what two rows are
+ * compared on, because it is the one column every row has. It replaced `row.nonAgri.lt9m`, which
+ * was the same thing while three fixed keys were the only possibility.
+ */
+export function baseRate(row: RateRow): number {
+  // Band order comes from the schedule, not from the order the keys happen to sit in the JSON.
+  const bands = rowIndex.get(row.id)?.schedule.roadBands ?? [];
+  for (const b of bands) {
+    const v = row.nonAgri[b.key];
+    if (typeof v === "number") return v;
+  }
+  return 0;
+}
+
+/** One band's rate, or null where this row does not print that column. */
+export function rateForBand(row: RateRow, key: string): number | null {
+  const v = row.nonAgri[key];
+  return typeof v === "number" ? v : null;
+}
+
+/**
+ * The date the list covering this SRO took effect.
+ *
+ * A district does not revise every SRO on one day. Lucknow's seven transcribed SROs are all
+ * 01-08-2025, but Malihabad's list is dated 31-12-2025, so once it lands the city will carry two
+ * dates at once and a page that printed the city's date would be wrong for a third of its rows.
+ * The SRO's own date wins where the source doc carries one.
+ */
+export function rowEffectiveFrom(schedule: RateSchedule, sro: string): string {
+  return schedule.sourceDocs.find((d) => d.sro === sro)?.effectiveFrom ?? schedule.effectiveFrom;
+}
+
+/** The Collector's order date for this SRO's list, same rule as rowEffectiveFrom. */
+export function rowOrderDate(schedule: RateSchedule, sro: string): string {
+  return schedule.sourceDocs.find((d) => d.sro === sro)?.orderDate ?? schedule.orderDate;
 }
 
 /* -------------------------------------------------------------------- summaries */
@@ -186,6 +250,53 @@ export function isRowIndexable(rateRowId: string, referencedByLiveLocality: bool
   return referencedByLiveLocality || indexableIds.has(rateRowId);
 }
 
+/**
+ * Rows whose rate profile is unique within their SRO, per city.
+ *
+ * Ayodhya decides indexability from its written content: 866 of 1,630 rows have page copy that
+ * says something the schedule alone does not, and those are the ones opened to search. Lucknow has
+ * no written content yet, so that allowlist would leave all 1,449 of its pages noindex.
+ *
+ * What can be decided from the list itself is whether a page is a duplicate. The district prices
+ * by band, so dozens of rows in one SRO can carry an identical set of figures; a page repeating
+ * another page's numbers under a different name is thin by definition. A row whose profile is its
+ * own in its SRO is not, so it is indexable. This is the same grouping getRateBands uses for the
+ * "rate bands" section, read for a different purpose.
+ *
+ * It is a weaker test than having written copy, and the rows it opens carry only the published
+ * figures. When Lucknow's page content is written this should give way to an allowlist, as
+ * Ayodhya's did.
+ */
+const uniqueProfileIds = (() => {
+  const out = new Map<string, Set<string>>();
+  for (const s of schedules) {
+    const ids = new Set<string>();
+    const bySro = new Map<string, Map<string, string[]>>();
+    for (const row of s.rows) {
+      const profile = [
+        ...s.roadBands.map((b) => row.nonAgri[b.key] ?? "-"),
+        row.commercial?.shop ?? "-",
+        row.commercial?.office ?? "-",
+        row.commercial?.godown ?? "-",
+        row.covered?.ordinary ?? "-",
+        row.covered?.premium ?? "-",
+        row.agriLakhPerHa.general ?? "-",
+      ].join("|");
+      if (!bySro.has(row.sro)) bySro.set(row.sro, new Map());
+      const m = bySro.get(row.sro)!;
+      if (!m.has(profile)) m.set(profile, []);
+      m.get(profile)!.push(row.id);
+    }
+    for (const m of bySro.values()) for (const group of m.values()) if (group.length === 1) ids.add(group[0]);
+    out.set(s.cityId, ids);
+  }
+  return out;
+})();
+
+/** True where this row's figures are not repeated by another row of the same SRO. */
+export const hasUniqueRateProfile = (cityId: string, rateRowId: string): boolean =>
+  uniqueProfileIds.get(cityId)?.has(rateRowId) ?? false;
+
 export const getIndexableRowIds = () => indexableIds;
 
 /* ------------------------------------------------------- locality rate view */
@@ -229,8 +340,8 @@ export function getLocalityRate(locality: {
       const schedule = rows[0].schedule;
       const agri = rows.map((x) => x.row.agriLakhPerHa.general).filter((v) => v !== null);
       return {
-        residential: Math.max(...rows.map((x) => x.row.nonAgri.lt9m)),
-        commercial: Math.max(...rows.map((x) => x.row.commercial.shop)),
+        residential: Math.max(...rows.map((x) => baseRate(x.row))),
+        commercial: Math.max(...rows.map((x) => x.row.commercial?.shop ?? 0), 1),
         agricultural: agri.length > 0 ? Math.max(...agri) * 100_000 : null,
         effectiveFrom: schedule.effectiveFrom,
         sourceUrl: schedule.sourceDocs[0].archiveUrl ?? schedule.sourceDocs[0].igrsupUrl,
@@ -260,14 +371,14 @@ export const getValuationRules = () => valuationRules;
  */
 export function getRateBands(cityId: string, tehsilId: string): { key: string; rows: RateRow[] }[] {
   const groups = new Map<string, RateRow[]>();
+  const roadBands = getRoadBands(cityId);
   for (const row of getRowsByTehsil(cityId, tehsilId)) {
     const key = [
-      row.nonAgri.lt9m,
-      row.nonAgri.m9to18,
-      row.nonAgri.ge18m,
-      row.commercial.shop,
-      row.commercial.office,
-      row.commercial.godown,
+      // Every band this schedule declares, so two rows are only alike when all their columns are.
+      ...roadBands.map((b) => row.nonAgri[b.key] ?? "-"),
+      row.commercial?.shop ?? "-",
+      row.commercial?.office ?? "-",
+      row.commercial?.godown ?? "-",
       row.agriLakhPerHa.general ?? "-",
     ].join("|");
     if (!groups.has(key)) groups.set(key, []);

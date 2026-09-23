@@ -226,6 +226,8 @@ function buildRows(byFile: { sro: string; rows: P4[] }[]): { rows: RateRow[]; co
           m9to18: required(r.nonagri_9to18m, `${sro}/${r.village_hi} nonagri_9to18m`),
           ge18m: required(r.nonagri_ge18m, `${sro}/${r.village_hi} nonagri_ge18m`),
         },
+        // Ayodhya prints no covered-area column; Lucknow does. Null, never zero.
+        covered: null,
         commercial: {
           shop: required(r.shop, `${sro}/${r.village_hi} shop`),
           office: required(r.office, `${sro}/${r.village_hi} office`),
@@ -417,7 +419,7 @@ function main() {
   console.log(`  ${pad("TOTAL", 10)} ${pad(rows.length, 6)} village rows   ${pad(roadSegments.length, 5)} road-segment rows`);
 
   const byCategory = new Map<string, number>();
-  for (const r of rows) byCategory.set(r.category, (byCategory.get(r.category) ?? 0) + 1);
+  for (const r of rows) byCategory.set(r.category ?? "(not printed)", (byCategory.get(r.category ?? "(not printed)") ?? 0) + 1);
   console.log(`\ncategories: ${[...byCategory.entries()].sort((a, b) => b[1] - a[1]).map(([k, v]) => `${k} ${v}`).join(" · ")}`);
 
   console.log(`\nlocalities matched: ${matched.length}`);
@@ -513,6 +515,12 @@ function main() {
       archiveUrl: null,
       igrsupUrl: "https://igrsup.gov.in/",
     })),
+    // Ayodhya prints three road-width columns.
+    roadBands: [
+      { key: "lt9m", labelEn: "Under 9 m", labelHi: "9 मीटर से कम", minM: null, maxM: 9 },
+      { key: "m9to18", labelEn: "9–18 m", labelHi: "9–18 मीटर", minM: 9, maxM: 18 },
+      { key: "ge18m", labelEn: "18 m and over", labelHi: "18 मीटर और अधिक", minM: 18, maxM: null },
+    ],
     rows,
     roadSegments,
     sources: [

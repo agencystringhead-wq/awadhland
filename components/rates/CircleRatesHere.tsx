@@ -8,8 +8,8 @@
  */
 import { formatNumber, localePath, pick, type Locale } from "@/lib/i18n";
 import { rc } from "@/lib/rate-copy";
-import { getRateRow, getRateRowWithSchedule, getTehsil } from "@/lib/rates";
-import { categoryLabel } from "@/lib/valuation";
+import { getRateRow, getRateRowWithSchedule, getRoadBands, getTehsil } from "@/lib/rates";
+import { categoryText } from "@/lib/valuation";
 import type { Locality } from "@/lib/schemas";
 
 const th = "px-3 py-2.5 text-left font-semibold whitespace-nowrap";
@@ -27,6 +27,8 @@ export function CircleRatesHere({ locale, locality }: { locale: Locale; locality
 
   const c = rc(locale);
   const schedule = getRateRowWithSchedule(rows[0].id)?.schedule;
+  // Three columns for Ayodhya, four for Lucknow; the header colSpan follows the same list.
+  const bands = getRoadBands(locality.cityId);
 
   return (
     <div data-component="CircleRatesHere">
@@ -41,7 +43,7 @@ export function CircleRatesHere({ locale, locality }: { locale: Locale; locality
               <th scope="col" className={th}>
                 {c.category}
               </th>
-              <th scope="col" className={`${th} ${numeric}`} colSpan={3}>
+              <th scope="col" className={`${th} ${numeric}`} colSpan={bands.length}>
                 {c.landRates} · {c.perSqM}
               </th>
               <th scope="col" className={`${th} ${numeric}`}>
@@ -69,11 +71,13 @@ export function CircleRatesHere({ locale, locality }: { locale: Locale; locality
                       {tehsil ? ` · ${pick(locale, tehsil.name, tehsil.nameHi)}` : ""}
                     </span>
                   </td>
-                  <td className={td}>{categoryLabel[r.category][locale]}</td>
-                  <td className={`${td} ${numeric}`}>{formatNumber(r.nonAgri.lt9m)}</td>
-                  <td className={`${td} ${numeric}`}>{formatNumber(r.nonAgri.m9to18)}</td>
-                  <td className={`${td} ${numeric}`}>{formatNumber(r.nonAgri.ge18m)}</td>
-                  <td className={`${td} ${numeric}`}>{formatNumber(r.commercial.shop)}</td>
+                  <td className={td}>{categoryText(r.category, locale)}</td>
+                  {bands.map((b) => (
+                    <td key={b.key} className={`${td} ${numeric}`}>
+                      {typeof r.nonAgri[b.key] === "number" ? formatNumber(r.nonAgri[b.key]) : "—"}
+                    </td>
+                  ))}
+                  <td className={`${td} ${numeric}`}>{r.commercial ? formatNumber(r.commercial.shop) : "—"}</td>
                   <td className={`${td} ${numeric}`}>{r.agriLakhPerHa.general === null ? "—" : formatNumber(r.agriLakhPerHa.general)}</td>
                   <td className={`${td} text-muted`}>{r.page}</td>
                 </tr>
