@@ -738,6 +738,47 @@ export type FitEntry = z.infer<typeof fitEntrySchema>;
 /* ------------------------------------------------------------ file registry */
 
 /** One entry per /data file. scripts/validate.ts iterates this; lib/data.ts parses the same files. */
+/* --------------------------------------------------------------- standard pages */
+
+/**
+ * Hand-written standard pages (spec "Standard pages") whose copy is data rather than a template:
+ * one record per page, both languages side by side so neither is a translation of the other.
+ *
+ * They live here rather than in lib/content.ts so that `npm run validate` surfaces their `todo`
+ * the same way it does for guides and seed records — legal copy that no lawyer has read yet must
+ * be visible in the build output, not buried in a source file.
+ */
+export const standardPageSchema = z
+  .object({
+    id: z.string().min(1),
+    sitePath: z.string().regex(/^\/[a-z0-9-]+\/$/, "sitePath is a root-level path like /privacy/"),
+    title: z.string().min(1),
+    titleHi: z.string().min(1),
+    description: z.string().min(1),
+    descriptionHi: z.string().min(1),
+    lede: z.string().min(1),
+    ledeHi: z.string().min(1),
+    sections: z
+      .array(
+        z
+          .object({
+            heading: z.string().min(1),
+            headingHi: z.string().min(1),
+            body: z.array(z.string().min(1)).min(1),
+            bodyHi: z.array(z.string().min(1)).min(1),
+          })
+          .strict(),
+      )
+      .min(1),
+    updatedAt: isoDate,
+    sources,
+    todo: z.array(z.string().min(1)).optional(),
+  })
+  .strict();
+
+export type StandardPage = z.infer<typeof standardPageSchema>;
+export const standardPagesFileSchema = z.array(standardPageSchema).min(1);
+
 export const dataFiles = {
   "cities.json": citiesFileSchema,
   "localities.json": localitiesFileSchema,
@@ -752,6 +793,7 @@ export const dataFiles = {
   "team.json": teamFileSchema,
   "scoring.json": scoringSchema,
   "reviews.json": reviewsSchema,
+  "standardPages.json": standardPagesFileSchema,
 } as const;
 
 export type DataFileName = keyof typeof dataFiles;

@@ -25,6 +25,7 @@ import {
 } from "@/lib/data";
 import { getGuides } from "@/lib/guides";
 import { formatNumber, localePath, pick, ui, type Locale } from "@/lib/i18n";
+import { builtSitePaths } from "@/lib/pages";
 import { builtLocalityIds, sameAlternate } from "@/lib/routes";
 import { PageShell } from "./PageShell";
 
@@ -109,7 +110,7 @@ export function CityTemplate({ locale, cityId }: { locale: Locale; cityId: strin
 
       {/* 3. High-potential areas */}
       {stats.topLocalities.length > 0 && (
-        <Section title={t.topAreas} aside={<a href={localePath(locale, "/methodology/")}>{t.methodology} →</a>}>
+        <Section title={t.topAreas} aside={builtSitePaths(locale).has("/methodology/") ? <a href={localePath(locale, "/methodology/")}>{t.methodology} →</a> : undefined}>
           <ol className="card divide-y divide-line px-5">
             {stats.topLocalities.slice(0, 10).map((l, i) => (
               <li key={l.id} className="flex items-start gap-4 py-3.5">

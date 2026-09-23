@@ -17,6 +17,7 @@ import {
   getPublishedProjects,
   getPublishedProjectsByCity,
   getStampDutyRules,
+  getStandardPages,
   getUpdates,
 } from "./data";
 import { hasSourcedLandUse } from "./guards";
@@ -43,7 +44,9 @@ export type PageKind =
   | "tool"
   | "updates"
   | "update"
-  | "about";
+  | "about"
+  /** hand-written standard pages whose copy is data: /privacy/, /terms/ */
+  | "standard";
 
 export type OgText = {
   /** big serif line */
@@ -190,6 +193,20 @@ export function getPages(locale: Locale): PageEntry[] {
     og: { title: hi ? "हमारे बारे में" : "About Awadhland", subtitle: pick(locale, broker.name, broker.nameHi), chip: "UP RERA" },
     ogSlug: "about",
   });
+
+  /* standard pages (privacy, terms) — copy lives in data/standardPages.json */
+  for (const sp of getStandardPages()) {
+    add({
+      kind: "standard",
+      sitePath: sp.sitePath,
+      title: `${pick(locale, sp.title, sp.titleHi)} · ${site}`,
+      description: pick(locale, sp.description, sp.descriptionHi),
+      lastmod: sp.updatedAt,
+      alternate: sameAlternate(locale, sp.sitePath),
+      og: { title: pick(locale, sp.title, sp.titleHi), subtitle: pick(locale, sp.lede, sp.ledeHi) },
+      ogSlug: `standard--${sp.id}`,
+    });
+  }
 
   /* cities */
   for (const c of cities) {
@@ -413,3 +430,12 @@ export const getAllPages = () => [...getPages("en"), ...getPages("hi")];
 
 /** Pages that may be indexed: everything except draft localities. Sitemaps and llms.txt use this. */
 export const getIndexablePages = (locale: Locale) => getPages(locale).filter((p) => !p.noindex);
+
+/**
+ * Site paths that actually build in this locale.
+ *
+ * The footer and nav link only what is in here, so a page the spec lists but that has not been
+ * built yet is simply not advertised rather than shipped as a 404 on all 3,300 pages.
+ * scripts/check-links.ts fails the build if anything slips through anyway.
+ */
+export const builtSitePaths = (locale: Locale) => new Set(getPages(locale).map((p) => p.sitePath));
