@@ -16,7 +16,7 @@ import { SourceStamp } from "@/components/SourceStamp";
 import { getBroker, getBuildableLocalities, getCity, getLocality, getPublishedProjectsByCity } from "@/lib/data";
 import { localityFaq } from "@/lib/faq";
 import { distanceKm, geometryCentroid } from "@/lib/geo";
-import { missingMinimumFields } from "@/lib/guards";
+import { hasSourcedLandUse, missingMinimumFields } from "@/lib/guards";
 import { formatDate, formatNumber, localePath, pick, ui, type Locale } from "@/lib/i18n";
 import { fitRatingLabels, landUseLabels } from "@/lib/labels";
 import { rc } from "@/lib/rate-copy";
@@ -73,10 +73,11 @@ export function LocalityTemplate({ locale, cityId, localityId }: { locale: Local
       value: `₹${formatNumber(l.askingRange.low)}–${formatNumber(l.askingRange.high)} ${t.perSqFt}, ${t.asOf} ${formatDate(l.askingRange.asOf, locale)}`,
     });
   }
-  if (l.landUse) {
+  if (hasSourcedLandUse(l)) {
     facts.push({
       label: t.landUse,
-      value: `${landUseLabels[l.landUse][locale]}${l.landUseSource ? `, ${t.perMasterPlan} ${l.landUseSource}` : ""}`,
+      // hasSourcedLandUse guarantees both are present.
+      value: `${landUseLabels[l.landUse!][locale]}, ${t.perMasterPlan} ${l.landUseSource!}`,
     });
   }
 
