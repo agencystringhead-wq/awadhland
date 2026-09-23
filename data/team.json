@@ -1,32 +1,31 @@
 [
   {
-    "id": "broker-todo",
-    "name": "TODO Broker Name",
-    "nameHi": "TODO ब्रोकर का नाम",
+    "id": "vichitra-mani-pandey",
+    "name": "Vichitra Mani Pandey",
+    "nameHi": "विचित्र मणि पांडेय",
     "role": "Land broker in Ayodhya",
-    "reraNumber": "TODO-UPRERAAGT00000",
-    "reraUrl": "https://www.up-rera.in/",
+    "reraNumber": null,
+    "reraUrl": null,
     "yearsActive": 12,
-    "phone": "+910000000000",
-    "whatsapp": "910000000000",
+    "phone": "+919984145231",
+    "whatsapp": "919984145231",
     "photo": "/images/team/vm-pandey.webp",
-    "bio": "TODO: first-person bio in the broker's own words. Native of the region, 12 years of land work in Ayodhya, what changed after 2019, what he refuses to sell.",
-    "bioHi": "TODO: ब्रोकर के अपने शब्दों में परिचय, हिंदी किसी व्यक्ति द्वारा लिखा जाए।",
+    "bio": "I grew up on my family's farmland, so plots, boundaries and paperwork were household matters long before they were a business. I trained as an engineer and finished my degree in Maharashtra in 2010, then spent four years with a US-based firm, responsible for managing real estate for clients in America.\n\nIn 2014 I left that job and came home to support my family. I have worked in land here ever since — twelve years now.\n\nThe engineering habit is the part that stayed with me: check the measurement, check the record, then check again before anyone signs. That is why every rate on this site carries its source and its date, and why I will tell you plainly when a plot is not worth your money.",
+    "bioHi": "मैं खेतों के बीच बड़ा हुआ हूँ। प्लॉट, हद और काग़ज़ — ये मेरे लिए कारोबार बनने से बहुत पहले घर की बातें थीं। पढ़ाई इंजीनियरिंग की और 2010 में महाराष्ट्र से डिग्री पूरी की, फिर चार साल एक अमेरिकी कंपनी के साथ काम किया, जहाँ अमेरिका के ग्राहकों की प्रॉपर्टी संभालना मेरा काम था।\n\n2014 में वह नौकरी छोड़कर मैं परिवार के पास लौट आया। तब से यहीं ज़मीन का काम कर रहा हूँ — बारह साल हो गए।\n\nइंजीनियरिंग की एक आदत साथ रह गई: नाप जाँचो, रिकॉर्ड जाँचो, और दस्तख़त से पहले एक बार फिर जाँचो। इसी वजह से इस साइट पर हर रेट के साथ उसका स्रोत और तारीख़ लिखी होती है, और अगर कोई प्लॉट आपके पैसे के लायक़ नहीं है तो मैं आपसे साफ़ कह दूँगा।",
     "sources": [
       {
-        "label": "UP RERA agent search",
-        "url": "https://www.up-rera.in/",
-        "accessedAt": "2026-09-10"
+        "label": "Biographical details, contact number and photograph supplied by Vichitra Mani Pandey for publication",
+        "url": "https://awadhland.com/about/",
+        "accessedAt": "2026-09-23"
       }
     ],
-    "updatedAt": "2026-09-10",
+    "updatedAt": "2026-09-23",
     "todo": [
-      "PLACEHOLDER name, nameHi, reraNumber, phone and whatsapp: replace with real values",
-      "role was \"UP RERA registered agent\", which asserts the registration; it is a plain description until reraNumber is real. Restore it together with the number.",
-      "Set reraUrl to the broker's own UPRERA record, not the portal home page",
-      "id will change to the broker's name slug; update guide frontmatter author at the same time",
-      "yearsActive must match the RERA registration date or earlier proof (spec Template 9 rules)",
-      "photo is the real portrait (950x1183 WebP with alpha, 55 KB at q90) served from /public until the R2 bucket exists; move it to R2 and update the path"
+      "reraNumber and reraUrl are empty because the registration is new and the number has not been supplied yet. While they are empty, lib/guards.ts withholds the UP RERA disclosure, the trust badge, the \"RERA registered\" stat and the structured-data identifier. Add the number together with the URL of his own record on up-rera.in — not the portal home page — and restore role to \"UP RERA registered agent\" at the same time.",
+      "nameHi is our transliteration. Confirm the spelling he writes himself: पांडेय or पाण्डेय.",
+      "bio and bioHi are drafted from facts he supplied and are written in his voice. He should read and approve both before launch; the Hindi is written as Hindi, not translated from the English.",
+      "yearsActive 12 counts from his return to Ayodhya in 2014 and rests on his own statement. BUILD-SPEC Template 9 wants the RERA registration date or earlier documentary proof; attach that when the registration arrives.",
+      "photo is confirmed as the real portrait and is served from /public at 55 KB. Move it to R2 and update the path once the bucket exists."
     ]
   }
 ]

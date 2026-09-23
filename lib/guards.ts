@@ -189,12 +189,18 @@ export const withoutUnbackedReraClaim = (items: string[], registered: boolean) =
 
 export function logBrokerPlaceholders(b: TeamMember) {
   const missing = brokerPlaceholders(b);
+  // A null reraNumber is not a placeholder — it is an honest "not on record yet" — so it does not
+  // appear in `missing`. Report it anyway: otherwise the build says the record is real while the
+  // registration claim is still being withheld from every page, which reads as a bug.
+  const registration = brokerIsRegistered(b)
+    ? "UP RERA number on record"
+    : "no UP RERA number on record, so the registration claim is withheld site-wide";
   if (missing.length === 0) {
-    console.log("[broker-guard] broker record is real");
+    console.log(`[broker-guard] broker record is real; ${registration}`);
     return;
   }
   console.warn(
     `[broker-guard] ${missing.length} placeholder field(s) in data/team.json: ${missing.join(", ")}. ` +
-      "The UP RERA number and link are withheld from the page and the structured data until they are real.",
+      `${registration}.`,
   );
 }

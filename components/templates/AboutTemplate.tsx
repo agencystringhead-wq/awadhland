@@ -12,7 +12,7 @@ import { JsonLd } from "@/components/JsonLd";
 import { homeStory } from "@/lib/content";
 import { person } from "@/lib/jsonld";
 import { getBroker, getCities, getReviews } from "@/lib/data";
-import { localePath, ui, type Locale } from "@/lib/i18n";
+import { localePath, pick, ui, type Locale } from "@/lib/i18n";
 import { sameAlternate } from "@/lib/routes";
 import { PageShell } from "./PageShell";
 
@@ -35,6 +35,17 @@ export function AboutTemplate({ locale }: { locale: Locale }) {
       <Section>
         <div className="max-w-2xl">
           <BrokerCard locale={locale} broker={broker} areas={cities} pageLabel={pageLabel} />
+        </div>
+      </Section>
+      {/* The broker's own bio (spec Template 9: the About page goes deeper than the homepage).
+          Nothing rendered team.json's bio before this, so the field was written and never read. */}
+      <Section title={t.inOwnWords}>
+        <div className={`prose-site max-w-2xl ${locale === "hi" ? "text-[18px]" : "text-[17px]"} leading-relaxed`}>
+          {pick(locale, broker.bio, broker.bioHi)
+            .split(/\n\s*\n/)
+            .map((para, i) => (
+              <p key={i}>{para}</p>
+            ))}
         </div>
       </Section>
       <Section>
