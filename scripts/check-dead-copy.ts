@@ -11,9 +11,10 @@
  * something somewhere — so it can miss dead copy, but anything it does report really is unread.
  * A false alarm is therefore near impossible, which is why this can be trusted at a glance.
  *
- * It warns rather than fails: a field may legitimately sit unused for a commit or two while a
- * page is being built around it. Once the counts below are at zero, promoting this to an error
- * would be worth doing.
+ * It fails the build. It warned while there was a backlog to clear; both dictionaries have been
+ * at zero since the sixteen dead ui keys went, so a new one now means a key was added and the
+ * page meant to read it never was. Catching that at the commit is the whole point — copy that no
+ * page reads is worse than missing copy, because it reads as done.
  */
 import fs from "node:fs";
 import path from "node:path";
@@ -54,6 +55,23 @@ function main() {
   })(root);
   const haystack = readers.map((f) => fs.readFileSync(f, "utf8")).join("\n");
 
+  /*
+   * Names bound by destructuring, counted as reads alongside `.key` and `["key"]`.
+   *
+   * Nothing in the app reads copy that way today -- every component does `const t = ui[locale]`
+   * and then `t.key` -- but this check now fails the build, and `const { ctaLabel } = t` is a
+   * perfectly ordinary thing for someone to write. Without this it would stop a build over copy
+   * that is being read. `{ a: b }` binds b but reads a, so the key before the colon is the one
+   * that counts.
+   */
+  const destructured = new Set<string>();
+  for (const m of haystack.matchAll(/(?:const|let|var)\s*\{([^{}]*)\}\s*=/g)) {
+    for (const part of m[1].split(",")) {
+      const key = part.split(":")[0].replace("...", "").split("=")[0].trim();
+      if (/^[a-zA-Z][a-zA-Z0-9]*$/.test(key)) destructured.add(key);
+    }
+  }
+
   let total = 0;
   for (const { file, objects } of TARGETS) {
     const src = fs.readFileSync(path.join(root, file), "utf8");
@@ -63,17 +81,22 @@ function main() {
       // Intl.DateTimeFormat options object, for instance) are not mistaken for copy.
       for (const m of objectBody(src, name).matchAll(/^\s+([a-zA-Z][a-zA-Z0-9]*)\??:\s*["'`[]/gm)) keys.add(m[1]);
     }
-    const dead = [...keys].filter((k) => !new RegExp(`[.\\[]"?${k}\\b`).test(haystack)).sort();
+    const dead = [...keys]
+      .filter((k) => !destructured.has(k) && !new RegExp(`[.\\[]"?${k}\\b`).test(haystack))
+      .sort();
     total += dead.length;
     if (dead.length === 0) {
       console.log(`ok   ${file}: ${keys.size} copy key(s), all read`);
     } else {
-      console.warn(`warn ${file}: ${dead.length} of ${keys.size} copy key(s) are never read: ${dead.join(", ")}`);
+      console.error(`FAIL ${file}: ${dead.length} of ${keys.size} copy key(s) are never read: ${dead.join(", ")}`);
     }
   }
 
   if (total > 0) {
-    console.warn(`\nwarn ${total} copy key(s) written and never rendered. Delete them, or wire up the page that was meant to read them.\n`);
+    console.error(
+      `\n${total} copy key(s) written and never rendered. Delete them, or wire up the page that was meant to read them.\n`,
+    );
+    process.exit(1);
   }
 }
 
