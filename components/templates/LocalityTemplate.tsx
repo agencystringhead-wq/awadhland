@@ -83,6 +83,7 @@ export function LocalityTemplate({ locale, cityId, localityId }: { locale: Local
 
   /* 3. Distances: straight-line at build, drive times from the record */
   const distances = city.anchors.map((anchor) => ({ anchor, km: distanceKm(here, anchor), driveMin: l.driveTimes?.[anchor.id] }));
+  const hasDriveTimes = distances.some((d) => d.driveMin !== undefined);
 
   /* 5. Projects within 5 km by footprint centroid; projects without geometry count if they list this locality */
   const nearbyProjects = getPublishedProjectsByCity(city.id)
@@ -203,7 +204,9 @@ export function LocalityTemplate({ locale, cityId, localityId }: { locale: Local
                 <tr>
                   <th className="px-4 py-2.5 font-semibold">{t.anchor}</th>
                   <th className="px-4 py-2.5 text-right font-semibold">{t.distance}</th>
-                  <th className="px-4 py-2.5 text-right font-semibold">{t.driveTime}</th>
+                  {/* Only when a real figure exists. A column of dashes is the "data not
+                      available" row docs/BUILD-SPEC.md rules out. */}
+                  {hasDriveTimes && <th className="px-4 py-2.5 text-right font-semibold">{t.driveTime}</th>}
                 </tr>
               </thead>
               <tbody className="divide-y divide-line">
@@ -213,9 +216,11 @@ export function LocalityTemplate({ locale, cityId, localityId }: { locale: Local
                     <td className="px-4 py-2.5 text-right tabular-nums">
                       {km} {t.km}
                     </td>
-                    <td className="px-4 py-2.5 text-right tabular-nums text-ink-soft">
-                      {driveMin !== undefined ? `${driveMin} ${t.minutes}` : "—"}
-                    </td>
+                    {hasDriveTimes && (
+                      <td className="px-4 py-2.5 text-right tabular-nums text-ink-soft">
+                        {driveMin !== undefined ? `${driveMin} ${t.minutes}` : "—"}
+                      </td>
+                    )}
                   </tr>
                 ))}
               </tbody>
