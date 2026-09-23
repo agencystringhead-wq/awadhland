@@ -40,7 +40,7 @@ English lives at the root; Hindi lives under `/hi/` with identical paths. Every 
 - Slugs are English transliterations in both trees (`faizabad-road`, not Devanagari in URLs). Simpler to share, type and log.
 - Locality slugs are stable IDs. Renaming a locality changes its display name, never its slug.
 - Language toggle in the header: shows "हिंदी" on English pages and "English" on Hindi pages. It links to the same page in the other tree. If the Hindi page does not exist yet, link to the Hindi city hub and show a one-line notice.
-- Remember the choice in a cookie (`lang=hi`) so internal links keep the user in their tree. Never redirect based on browser language or IP.
+- Nothing remembers the choice, because nothing needs to. Locale comes from the route segment, is passed down as a prop, and every internal link is built with `localePath(locale, …)` — so a reader stays in their tree because the links they click are already in it. The site sets no cookies at all. Never switch language from a cookie, browser settings or IP.
 - `<html lang>` switches per tree. Hindi pages load Noto Sans Devanagari, body size 17px vs 16px for English. Same layout, same components, same colours.
 - Two sitemaps (`sitemap-en.xml`, `sitemap-hi.xml`) under one index. Titles and meta descriptions are written separately per language, not translated.
 - Trailing slashes on all URLs. Lowercase only. Redirect any uppercase or non-slash variant.
@@ -297,7 +297,7 @@ Entries are also the feed for the homepage "what changed" strip and the per-city
 | Methodology | `/methodology/` | The high-potential score explained signal by signal, weights shown, last recomputed date |
 | Contact | `/contact/` | Lead form, WhatsApp, call, office address, hours |
 | Disclaimer | `/disclaimer/` | Reference not advice; rates change; verify before paying; no guarantee of title; broker relationship disclosed |
-| Privacy | `/privacy/` | Form data handling, cookies (only `lang`), no data sold |
+| Privacy | `/privacy/` | Form data handling, no cookies at all and so no consent banner, no data sold |
 | Terms | `/terms/` | Standard |
 | Sitemap | `/sitemap/` | Human-readable: every city, locality, project, guide, tool and update |
 | 404 | — | Search box plus links to the three city hubs |
