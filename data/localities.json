@@ -469,6 +469,17 @@
     "rateRefs": [
       {
         "rateRowId": "sadar-s517"
+      },
+      {
+        "rateRowId": "sadar-s91"
+      },
+      {
+        "rateRowId": "sadar-s106"
+      }
+    ],
+    "roadSegmentRefs": [
+      {
+        "id": "sadar-seg5-sahadatganj"
       }
     ]
   },
@@ -704,6 +715,38 @@
       "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative and score are placeholders by price band",
       "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages",
       "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder."
+    ],
+    "roadSegmentRefs": [
+      {
+        "id": "sadar-seg55-abbusray"
+      },
+      {
+        "id": "sadar-seg55-gaddopur"
+      },
+      {
+        "id": "sadar-seg55-khojanpur"
+      },
+      {
+        "id": "sadar-seg55-janaura"
+      },
+      {
+        "id": "sadar-seg55-bhikhapur"
+      },
+      {
+        "id": "sadar-seg55-devkali"
+      },
+      {
+        "id": "sadar-seg56-ranopali"
+      },
+      {
+        "id": "sadar-seg56-majha-shahnevajpur"
+      },
+      {
+        "id": "sadar-seg56-majha-barahta"
+      },
+      {
+        "id": "sadar-seg56-takpura"
+      }
     ]
   },
   {
@@ -754,6 +797,20 @@
       "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative and score are placeholders by price band",
       "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages",
       "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder."
+    ],
+    "roadSegmentRefs": [
+      {
+        "id": "sadar-seg73-ganja"
+      },
+      {
+        "id": "sadar-seg73-pura-husainkhan"
+      },
+      {
+        "id": "sadar-seg73-malikpur"
+      },
+      {
+        "id": "sadar-seg73-chandpur-harvansh"
+      }
     ]
   },
   {
@@ -1177,6 +1234,41 @@
       "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative and score are placeholders by price band",
       "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages",
       "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder."
+    ],
+    "roadSegmentRefs": [
+      {
+        "id": "sadar-seg66-bag-bijesi"
+      },
+      {
+        "id": "sadar-seg66-ranopali"
+      },
+      {
+        "id": "sadar-seg66-ashiphbag"
+      },
+      {
+        "id": "sadar-seg70-manjha-barahta"
+      },
+      {
+        "id": "sadar-seg70-vasupur-sirsa"
+      },
+      {
+        "id": "sadar-seg70-haibatpur"
+      },
+      {
+        "id": "sadar-seg70-jiyanpur"
+      },
+      {
+        "id": "sadar-seg70-ashiphbag-manjha"
+      },
+      {
+        "id": "sadar-seg70-ashiphbag-uparhar"
+      },
+      {
+        "id": "sadar-seg70-ranopali-ba-na-pa"
+      },
+      {
+        "id": "sadar-seg70-ranopali-a-na-pa"
+      }
     ]
   },
   {
@@ -1341,7 +1433,7 @@
     "status": "draft",
     "name": "Kumarganj Road",
     "nameHi": "कुमारगंज रोड",
-    "tehsil": "Bikapur",
+    "tehsil": "Milkipur",
     "lat": 26.7,
     "lng": 82.18,
     "priceBand": "low",
@@ -1382,6 +1474,20 @@
       "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative and score are placeholders by price band",
       "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages",
       "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder."
+    ],
+    "roadSegmentRefs": [
+      {
+        "id": "milkipur-seg2-bavan"
+      },
+      {
+        "id": "milkipur-seg2-shivnathpur"
+      },
+      {
+        "id": "milkipur-seg3-bavan"
+      },
+      {
+        "id": "milkipur-seg3-akma"
+      }
     ]
   },
   {

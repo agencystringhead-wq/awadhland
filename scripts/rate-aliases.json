@@ -30,17 +30,17 @@
     "ram-path": {
       "rateRowIds": [],
       "roadSegmentIds": [],
-      "note": "No segment called राम पथ in the 2025 Sadar list. The corridor runs Sahadatganj → Naya Ghat, both of which are mapped rows; choose the stretches that cover it."
+      "note": "Confirmed absent: राम पथ returns nothing across all five lists, as do धर्म पथ and भक्ति पथ. The corridor runs Sahadatganj → Naya Ghat and the 2025 list prices that ground as ordinary segments under their older descriptions — 6 (चौक → बेनीगंज), 7 (बेनीगंज → श्रीराम हास्पिटल) and 8 (श्रीराम हास्पिटल → नयाघाट) lie along it. Not mapped, because stitching a named corridor out of segments the list never connects is my geography, not the list's. Someone who knows the alignment should pick the stretches."
     },
     "dharma-path": {
       "rateRowIds": [],
       "roadSegmentIds": [],
-      "note": "No segment called धर्म पथ. Runs from Ram Path towards the Ram Janmabhoomi complex."
+      "note": "Confirmed absent: धर्म पथ returns nothing in any of the five lists. Runs from Ram Path towards the Ram Janmabhoomi complex; the list prices that ground under older descriptions without naming the corridor. Same reasoning as ram-path."
     },
     "bhakti-path": {
       "rateRowIds": [],
       "roadSegmentIds": [],
-      "note": "No segment called भक्ति पथ. Segment 69 (अर्जुनदास जी के मंदिर → राम कोट) is the closest description in the list."
+      "note": "Confirmed absent: भक्ति पथ returns nothing, and neither does शृंगार (Shringar Haat, its western end). Segment 69 (अर्जुनदास जी के मंदिर → कनक भवन के पृष्ठ भाग → राम कोट) is the nearest description in the list but is not the same route, so it is not mapped."
     },
     "devkali": {
       "rateRowIds": [
@@ -73,13 +73,29 @@
     },
     "ayodhya-bypass-nh-27": {
       "rateRowIds": [],
-      "roadSegmentIds": [],
-      "note": "No row or segment names the bypass. Several Sadar segments reference बाईपास as a landmark (5, 55, 56, 64, 74) without pricing the bypass itself; pick from the villages along it."
+      "roadSegmentIds": [
+        "sadar-seg55-abbusray",
+        "sadar-seg55-gaddopur",
+        "sadar-seg55-khojanpur",
+        "sadar-seg55-janaura",
+        "sadar-seg55-bhikhapur",
+        "sadar-seg55-devkali",
+        "sadar-seg56-ranopali",
+        "sadar-seg56-majha-shahnevajpur",
+        "sadar-seg56-majha-barahta",
+        "sadar-seg56-takpura"
+      ],
+      "note": "Segments 55 (बाईपास रोड-सहादतगंज बाईपास से देवकाली चौराहे तक) and 56 (देवकाली बाईपास से अयोध्या तक) are the only two that price the bypass carriageway itself rather than using बाईपास as an endpoint landmark, which is what segments 1, 5, 52, 53, 57 and 64 do. Together they trace Sahadatganj → Devkali → Ayodhya, which is this bypass. Both at 22,100 ₹/sq m across all ten village rows, all mapped. The list never prints a highway number, so the NH-27 in the locality id is the record's claim, not the list's. Segments are shared with devkali and ranopali, which front the same stretches."
     },
     "airport-road": {
       "rateRowIds": [],
-      "roadSegmentIds": [],
-      "note": "No एयरपोर्ट, हवाई अड्डा or equivalent row or segment. The airport opened after the ground this list covers was last named, so map to the villages the approach road crosses."
+      "roadSegmentIds": [
+        "sadar-seg73-ganja",
+        "sadar-seg73-pura-husainkhan",
+        "sadar-seg73-malikpur",
+        "sadar-seg73-chandpur-harvansh"
+      ],
+      "note": "CORRECTION: the previous note here said no एयरपोर्ट row or segment exists. That was wrong — Sadar segment 73 reads \"अयोध्या-इलाहाबाद मार्ग से एयरपोर्ट अयोध्या मुख्यद्वार तक\" and names the airport outright. It prices the approach road at 27,700 ₹/sq m across all four villages it crosses (गंजा, पूरा हुसैनखां, मलिकपुर, चांदपुर हरवंश), all mapped. rateRowIds stays empty: this is a corridor, and no row is named for the road itself."
     },
     "lucknow-road": {
       "rateRowIds": [],
@@ -130,17 +146,29 @@
     "masodha": {
       "rateRowIds": [],
       "roadSegmentIds": [],
-      "note": "The only मसौधा anywhere in the five lists is खानपुर मसौधा (sohawal-1029, 9,500 ₹/sq m). Not mapped, because that asserts Khanpur Masodha and Masodha are the same place and the evidence is circumstantial: the locality record says tehsil Sadar, the row is in Sohawal, and the Sohawal segment through it reads \"खानपुर मसौधा में फैजाबाद तहसील की सीमा से\" — consistent with the boundary but not proof. Confirm locally, then map to sohawal-1029."
+      "note": "Unchanged in substance: the only मसौधा in the five lists is खानपुर मसौधा (sohawal-1029, 9,500 ₹/sq m), and mapping it asserts that Khanpur Masodha and Masodha are one place. The supporting detail is stronger than the earlier note allowed — Sohawal segment 7 reads \"खानपुर मसौधा में फैजाबाद तहसील की सीमा से लेप्रोसी मिशन तक (फैजाबाद से इलाहाबाद रोड पर)\", which puts the stretch on the Faizabad–Allahabad road starting at the Sadar boundary, and the locality sits on that road at 26.74/82.15. That is consistent with the two being the same place across a tehsil line, but it is still inference from a shared name element. Confirm on the ground, then map row sohawal-1029 and that segment together."
     },
     "barun-bypass": {
       "rateRowIds": [],
       "roadSegmentIds": [],
-      "note": "बरुण appears nowhere in the five lists, as a row or a segment village. Identify the villages the bypass runs through, or confirm the name used locally."
+      "note": "CORRECTION: the previous note said बरुण appears nowhere in the five lists. It does appear, spelled बारून — Milkipur segment 6 is \"अयोध्या से रायबरेली मार्ग पर देवरिया (बारून बाजार) में तमसा पुल से राजकीय पशुचिकित्सालय तक\", 26,000 ₹/sq m through देवरिया and खिहारन. Still not mapped, because that is a bazar inside Deoria in Milkipur tehsil, while this record is a bypass in Sadar at 26.745/82.135. A bazar on a through road is not a bypass, and the tehsils do not agree. Either confirm the two are the same corridor, or correct the record."
     },
     "mahobra": {
       "rateRowIds": [],
-      "roadSegmentIds": [],
-      "note": "महोबरा appears nowhere in any of the five lists, in any tehsil, as a row or a segment village. Either the spelling on the list differs, or the locality should be dropped."
+      "roadSegmentIds": [
+        "sadar-seg66-bag-bijesi",
+        "sadar-seg66-ranopali",
+        "sadar-seg66-ashiphbag",
+        "sadar-seg70-manjha-barahta",
+        "sadar-seg70-vasupur-sirsa",
+        "sadar-seg70-haibatpur",
+        "sadar-seg70-jiyanpur",
+        "sadar-seg70-ashiphbag-manjha",
+        "sadar-seg70-ashiphbag-uparhar",
+        "sadar-seg70-ranopali-ba-na-pa",
+        "sadar-seg70-ranopali-a-na-pa"
+      ],
+      "note": "CORRECTION: the previous note said महोबरा appears nowhere in any of the five lists and the locality might have to be dropped. It appears eleven times — the list spells it मोहबरा, not महोबरा. Segment 66 runs टेढ़ी बाजार → मोहबरा बाजार → लखनऊ-गोरखपुर राष्ट्रीय राजमार्ग and segment 70 मानस भवन चौराहा → मोहबरा चौराहा, which between them pin the place east of Tedhi Bazar towards the NH, matching the record's 26.785/82.23. Both segments price every village on them identically at 24,100 ₹/sq m, so the frontage figure does not depend on which row is read. No rateRowIds: Mohbara is a bazar inside a revenue village, not a village row of its own, and naming आशिफबाग as that village would be a guess."
     },
     "bhadarsa-road": {
       "rateRowIds": [
@@ -156,17 +184,28 @@
     "rudauli-road": {
       "rateRowIds": [],
       "roadSegmentIds": [],
-      "note": "No रुदौली row or segment village. Rudauli's segments are printed without numbers (सडक …) and are described by their endpoints; pick the stretches that fall on this road."
+      "note": "CORRECTION: the previous note said no रुदौली segment exists. The Rudauli list is full of them — the spelling is रूदौली with a long ू, and twelve of its twenty-three segments read सडक रूदौली से … सीमा तक. Milkipur segment 9 is also a Rudauli road (मिल्कीपुर से रूदौली जनपदीय मार्ग). None of them is this record, which places Rudauli Road in Sohawal at 26.775/82.09: the Rudauli segments radiate from Rudauli town some 30 km west, and no Sohawal segment names Rudauli at all. Decide which stretch of the Ayodhya–Rudauli road this locality actually is, then map that."
     },
     "kumarganj-road": {
       "rateRowIds": [],
-      "roadSegmentIds": [],
-      "note": "No कुमारगंज row or segment village in any of the five lists. Milkipur segment 3 names कुमारगंज in its description only. Identify the villages the road runs through and map those."
+      "roadSegmentIds": [
+        "milkipur-seg2-bavan",
+        "milkipur-seg2-shivnathpur",
+        "milkipur-seg3-bavan",
+        "milkipur-seg3-akma"
+      ],
+      "note": "Milkipur segments 2 and 3 both name कुमारगंज: segment 2 is the अयोध्या-रायबरेली मार्ग through Kumarganj (चन्द्रबली सिंह महिला पी0जी0 कालेज गेट → पावर हाउस कुमारगंज) and segment 3 runs कुमारगंज → घोड़वल on the district road. Both at 26,000 ₹/sq m, all four village rows mapped. This is the same standard used for lucknow-road: a segment that names the road is the road. NOTE: the locality record said tehsil Bikapur, but every कुमारगंज segment is in Milkipur and Kumarganj town is in Milkipur tehsil; corrected to Milkipur, as was done for Bhadarsa."
     },
     "sahadatganj": {
-      "rateRowIds": [],
-      "roadSegmentIds": [],
-      "note": "The list prints सहादतगंज at Sadar serial 517, and also कुम्हार टोला (सहादतगंज) at 91 and कोरी टोला (सहादतगंज) at 106. Decide whether the locality page should show all three rows as a range or only the main one."
+      "rateRowIds": [
+        "sadar-s517",
+        "sadar-s91",
+        "sadar-s106"
+      ],
+      "roadSegmentIds": [
+        "sadar-seg5-sahadatganj"
+      ],
+      "note": "सहादतगंज is a ward of eight rows. The importer already matched s517 (सहादतगंज, 10,500 ₹/sq m) on its own by exact name; this alias adds the two rows whose parenthetical marks them as टोला inside the mohalla — s91 (कुम्हार टोला (सहादतगंज), 8,900) and s106 (कोरी टोला (सहादतगंज), 10,200) — so the page shows the range within Sahadatganj rather than one row. The other five rows in the ward (घसियारी मण्डी, बढई का पुरवा, बुचनीगंज, मस्तान का पुरवा, सलारपुर) are separately named places and are excluded, the same rule applied to सिविल लाइन. Segment 5 (सर्किट हाउस → लखनऊ रोड बाईपास, spelled सआदतगंज there, 33,200) is its frontage. The derived headline is unchanged at 10,500/49,200, since s517 was already the highest of the three."
     }
   }
 }
