@@ -266,7 +266,8 @@
     "todo": [
       "Narrative drafted from the published 2025 rate list only — the rows, their categories and the priced road segments. It contains no local market knowledge and no claim about who buys here or why; the broker should read it, correct it and add that. status stays \"draft\" so the page renders noindex and out of the sitemaps until he does.",
       "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder.",
-      "fit carries commercial only. The rating and reason come from the published schedule — the shop rate and whether a corridor through the locality is priced above it — not from trade, footfall or demand, which no schedule records. residential and investment are deliberately absent: they need amenities and a price series the data does not have. Confirm the commercial read and supply the other two."
+      "fit carries commercial only. The rating and reason come from the published schedule — the shop rate and whether a corridor through the locality is priced above it — not from trade, footfall or demand, which no schedule records. residential and investment are deliberately absent: they need amenities and a price series the data does not have. Confirm the commercial read and supply the other two.",
+      "residential and investment fit are the weakest drafts on this record and need the broker before they go live. Residential leans on straight-line distance to the city anchors, computed from seed coordinates that scripts/seed-cities.ts calls approximate and from anchor coordinates data/cities.json still flags for verification — not drive times, and not amenities, services or who lives there, none of which the data holds. Investment is a reading of position only: no locality on this site has a computable price momentum, so nothing here forecasts a price."
     ],
     "rateRefs": [
       {
@@ -274,10 +275,20 @@
       }
     ],
     "fit": {
+      "residential": {
+        "rating": "good",
+        "reason": "About 1.5 km from the Ram Mandir and 1.4 km from Ayodhya Dham Junction in a straight line, the closest of the localities this site prices from the list, and the land is published at ₹8,600 per sq m — among the lowest urban rates in the set. Close and comparatively cheap on paper is an unusual pairing here.",
+        "reasonHi": "राम मंदिर से सीधी रेखा में क़रीब 1.5 किमी और अयोध्या धाम जंक्शन से 1.4 किमी — इस साइट पर सूची से आँके गए इलाक़ों में सबसे पास — और ज़मीन ₹8,600 प्रति वर्ग मीटर पर छपी है, जो सेट की सबसे कम नगरीय दरों में है। पास होना और काग़ज़ पर सस्ता होना, यह जोड़ यहाँ कम मिलता है।"
+      },
       "commercial": {
         "rating": "mixed",
         "reason": "A shop is priced at ₹43,300 per sq m, five times the land beneath it, so commercial use is clearly valued. But no road segment in the Sadar list prices a frontage through Naya Ghat, so the schedule offers nothing beyond the ward rate to separate one commercial plot from another.",
         "reasonHi": "दुकान ₹43,300 प्रति वर्ग मीटर पर है, यानी नीचे की ज़मीन से पाँच गुना, तो कारोबारी इस्तेमाल की क़ीमत साफ़ है। लेकिन सदर की सूची में नयाघाट से होकर कोई सड़क पट्टी नहीं आँकी गई, इसलिए एक कारोबारी प्लॉट को दूसरे से अलग करने के लिए वार्ड की दर के अलावा सूची कुछ नहीं देती।"
+      },
+      "investment": {
+        "rating": "good",
+        "reason": "The position is the argument: closest to the temple and the station of the eleven the list prices, at one of the lowest published urban rates. Against that, the list prices no corridor through Naya Ghat, so there is no frontage premium to point at, and no price series exists for any locality on this site, so this is a reading of where it sits rather than of where it is heading.",
+        "reasonHi": "दलील इसकी जगह है: सूची से आँके गए ग्यारह इलाक़ों में मंदिर और स्टेशन दोनों से सबसे पास, और छपी हुई सबसे कम नगरीय दरों में से एक पर। दूसरी तरफ़ सूची नयाघाट से होकर कोई पट्टी नहीं आँकती, इसलिए दिखाने को कोई फ़्रंट-प्रीमियम नहीं है। और इस साइट के किसी भी इलाक़े के लिए दामों की शृंखला मौजूद नहीं है, इसलिए यह पढ़त इस बात की है कि यह कहाँ खड़ा है, इसकी नहीं कि किधर जा रहा है।"
       }
     }
   },
@@ -468,7 +479,8 @@
     "todo": [
       "Narrative drafted from the published 2025 rate list only — the rows, their categories and the priced road segments. It contains no local market knowledge and no claim about who buys here or why; the broker should read it, correct it and add that. status stays \"draft\" so the page renders noindex and out of the sitemaps until he does.",
       "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder.",
-      "fit carries commercial only. The rating and reason come from the published schedule — the shop rate and whether a corridor through the locality is priced above it — not from trade, footfall or demand, which no schedule records. residential and investment are deliberately absent: they need amenities and a price series the data does not have. Confirm the commercial read and supply the other two."
+      "fit carries commercial only. The rating and reason come from the published schedule — the shop rate and whether a corridor through the locality is priced above it — not from trade, footfall or demand, which no schedule records. residential and investment are deliberately absent: they need amenities and a price series the data does not have. Confirm the commercial read and supply the other two.",
+      "residential and investment fit are the weakest drafts on this record and need the broker before they go live. Residential leans on straight-line distance to the city anchors, computed from seed coordinates that scripts/seed-cities.ts calls approximate and from anchor coordinates data/cities.json still flags for verification — not drive times, and not amenities, services or who lives there, none of which the data holds. Investment is a reading of position only: no locality on this site has a computable price momentum, so nothing here forecasts a price."
     ],
     "rateRefs": [
       {
@@ -487,10 +499,20 @@
       }
     ],
     "fit": {
+      "residential": {
+        "rating": "good",
+        "reason": "Urban on the list at ₹8,900 to ₹12,300 per sq m, with the ward's three rows within 18 per cent of each other — a settled, evenly priced mohalla rather than a patchwork. About 6.1 km from the Ram Mandir in a straight line, and close to the Lucknow road bypass at roughly 1.5 km from NH-27.",
+        "reasonHi": "सूची में नगरीय, ₹8,900 से ₹12,300 प्रति वर्ग मीटर, और वार्ड की तीनों पंक्तियाँ आपस में अठारह फ़ीसदी के भीतर — यानी बसा हुआ और एक-सा आँका गया मोहल्ला, टुकड़ों में बँटा नहीं। राम मंदिर से सीधी रेखा में क़रीब 6.1 किमी, और एनएच-27 से लगभग 1.5 किमी पर लखनऊ रोड बाईपास के पास।"
+      },
       "commercial": {
         "rating": "good",
         "reason": "The list prices shops on the Lucknow road bypass frontage at ₹77,400 per sq m against ₹49,200 inside the ward — a 57 per cent premium for a commercial address on the corridor rather than in the mohalla.",
         "reasonHi": "सूची लखनऊ रोड बाईपास से लगी दुकानों को ₹77,400 प्रति वर्ग मीटर पर आँकती है, जबकि वार्ड के अंदर ₹49,200 — यानी मोहल्ले के बजाय सड़क पर दुकान होने का सत्तावन फ़ीसदी प्रीमियम।"
+      },
+      "investment": {
+        "rating": "good",
+        "reason": "The bypass frontage is priced at ₹33,200 per sq m against ₹10,500 inside the ward, so the schedule itself marks a wide gap between interior land and the corridor that runs past it. Where that gap sits on a through route, interior plots have somewhere visible to move. No price series exists for any locality here, so this is position rather than trajectory.",
+        "reasonHi": "बाईपास से लगी ज़मीन ₹33,200 प्रति वर्ग मीटर पर आँकी गई है जबकि वार्ड के अंदर ₹10,500 — यानी सूची ख़ुद अंदरूनी ज़मीन और उसके पास से गुज़रती सड़क के बीच बड़ा फ़ासला दर्ज करती है। जहाँ यह फ़ासला किसी आर-पार जाने वाले रास्ते पर हो, वहाँ अंदर के प्लॉट के पास जाने को जगह दिखती है। यहाँ किसी इलाक़े के लिए दामों की शृंखला नहीं है, इसलिए यह जगह की पढ़त है, दिशा की नहीं।"
       }
     }
   },
@@ -534,7 +556,8 @@
     "todo": [
       "Narrative drafted from the published 2025 rate list only — the rows, their categories and the priced road segments. It contains no local market knowledge and no claim about who buys here or why; the broker should read it, correct it and add that. status stays \"draft\" so the page renders noindex and out of the sitemaps until he does.",
       "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder.",
-      "fit carries commercial only. The rating and reason come from the published schedule — the shop rate and whether a corridor through the locality is priced above it — not from trade, footfall or demand, which no schedule records. residential and investment are deliberately absent: they need amenities and a price series the data does not have. Confirm the commercial read and supply the other two."
+      "fit carries commercial only. The rating and reason come from the published schedule — the shop rate and whether a corridor through the locality is priced above it — not from trade, footfall or demand, which no schedule records. residential and investment are deliberately absent: they need amenities and a price series the data does not have. Confirm the commercial read and supply the other two.",
+      "residential and investment fit are the weakest drafts on this record and need the broker before they go live. Residential leans on straight-line distance to the city anchors, computed from seed coordinates that scripts/seed-cities.ts calls approximate and from anchor coordinates data/cities.json still flags for verification — not drive times, and not amenities, services or who lives there, none of which the data holds. Investment is a reading of position only: no locality on this site has a computable price momentum, so nothing here forecasts a price."
     ],
     "rateRefs": [
       {
@@ -542,10 +565,20 @@
       }
     ],
     "fit": {
+      "residential": {
+        "rating": "mixed",
+        "reason": "At ₹21,300 per sq m for land on the narrowest road, rising to ₹37,800 on the widest, this is the dearest interior ground of the eleven the list prices — a house here costs multiples of what the same plot would cost in Sahadatganj or Naya Ghat. About 5.6 km from the Ram Mandir and 2.4 km from the airport in a straight line.",
+        "reasonHi": "सबसे तंग सड़क पर ज़मीन ₹21,300 प्रति वर्ग मीटर और सबसे चौड़ी पर ₹37,800 — यह सूची से आँके गए ग्यारह इलाक़ों में सबसे महँगी अंदरूनी ज़मीन है। यहाँ घर बनाना उसी नाप के प्लॉट पर सहादतगंज या नयाघाट से कई गुना पड़ेगा। राम मंदिर से सीधी रेखा में क़रीब 5.6 किमी और एयरपोर्ट से 2.4 किमी।"
+      },
       "commercial": {
         "rating": "good",
         "reason": "At ₹83,700 per sq m the shop rate here is the highest of the localities this site prices from the 2025 list, about 29 per cent above the next one. The schedule reads this as core commercial ground even though it prices no separate corridor through it.",
         "reasonHi": "₹83,700 प्रति वर्ग मीटर पर यहाँ दुकान की दर इस साइट पर 2025 की सूची से आँके गए सभी इलाक़ों में सबसे ऊँची है, अगले से क़रीब उनतीस फ़ीसदी ऊपर। सूची इसे मुख्य कारोबारी ज़मीन मानती है, भले ही यहाँ से गुज़रती कोई अलग पट्टी न आँकी गई हो।"
+      },
+      "investment": {
+        "rating": "mixed",
+        "reason": "Already the dearest land and the dearest shops of the eleven the list prices, and the list prices no corridor through it, so the schedule shows no gap between interior and frontage for a buyer to work with. Much of what the market knows looks to be in the published rate already. No price series exists for any locality here, so this is position rather than trajectory.",
+        "reasonHi": "ज़मीन और दुकान, दोनों की दर सूची से आँके गए ग्यारह इलाक़ों में सबसे ऊँची है, और सूची यहाँ से गुज़रती कोई पट्टी नहीं आँकती — यानी अंदर और सड़क के बीच कोई फ़ासला नहीं दिखता जिस पर ख़रीदार काम कर सके। बाज़ार जो जानता है, उसका बड़ा हिस्सा छपी हुई दर में पहले से लगता है। यहाँ दामों की शृंखला नहीं है, इसलिए यह जगह की पढ़त है, दिशा की नहीं।"
       }
     }
   },
@@ -589,7 +622,8 @@
     "todo": [
       "Narrative drafted from the published 2025 rate list only — the rows, their categories and the priced road segments. It contains no local market knowledge and no claim about who buys here or why; the broker should read it, correct it and add that. status stays \"draft\" so the page renders noindex and out of the sitemaps until he does.",
       "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder.",
-      "fit carries commercial only. The rating and reason come from the published schedule — the shop rate and whether a corridor through the locality is priced above it — not from trade, footfall or demand, which no schedule records. residential and investment are deliberately absent: they need amenities and a price series the data does not have. Confirm the commercial read and supply the other two."
+      "fit carries commercial only. The rating and reason come from the published schedule — the shop rate and whether a corridor through the locality is priced above it — not from trade, footfall or demand, which no schedule records. residential and investment are deliberately absent: they need amenities and a price series the data does not have. Confirm the commercial read and supply the other two.",
+      "residential and investment fit are the weakest drafts on this record and need the broker before they go live. Residential leans on straight-line distance to the city anchors, computed from seed coordinates that scripts/seed-cities.ts calls approximate and from anchor coordinates data/cities.json still flags for verification — not drive times, and not amenities, services or who lives there, none of which the data holds. Investment is a reading of position only: no locality on this site has a computable price momentum, so nothing here forecasts a price."
     ],
     "rateRefs": [
       {
@@ -614,10 +648,20 @@
       }
     ],
     "fit": {
+      "residential": {
+        "rating": "good",
+        "reason": "Land inside the municipal limit is ₹12,200 per sq m and outside it ₹8,200, so there is a cheaper and a dearer side to choose between within one name. About 4.6 km from the Ram Mandir and 2.1 km from the airport in a straight line — the closest of the nine to the airport.",
+        "reasonHi": "नगर पालिका की सीमा के अंदर ज़मीन ₹12,200 प्रति वर्ग मीटर और बाहर ₹8,200 — यानी एक ही नाम के भीतर सस्ता और महँगा, दोनों पक्ष चुनने को हैं। राम मंदिर से सीधी रेखा में क़रीब 4.6 किमी और एयरपोर्ट से 2.1 किमी — इन नौ में एयरपोर्ट के सबसे पास।"
+      },
       "commercial": {
         "rating": "good",
         "reason": "Four priced corridors cross Devkali and the best of them puts a shop at ₹74,200 per sq m against ₹50,700 in the interior, a 46 per cent premium. The schedule treats the road frontage here as commercial ground in its own right.",
         "reasonHi": "देवकाली से चार आँकी हुई सड़कें गुज़रती हैं और इनमें सबसे ऊँची दुकान को ₹74,200 प्रति वर्ग मीटर पर रखती है, जबकि अंदर ₹50,700 — छियालीस फ़ीसदी का प्रीमियम। सूची यहाँ सड़क से लगी ज़मीन को अपने आप में कारोबारी ज़मीन मानती है।"
+      },
+      "investment": {
+        "rating": "good",
+        "reason": "Four priced corridors cross it, the best at ₹30,800 per sq m against ₹12,200 inside the limit, and the municipal line puts a 49 per cent step between the two halves. Two separate gaps the schedule itself records, on the airport side of the city. No price series exists for any locality here, so this is position rather than trajectory.",
+        "reasonHi": "इससे चार आँकी हुई सड़कें गुज़रती हैं, सबसे ऊँची ₹30,800 प्रति वर्ग मीटर जबकि सीमा के अंदर ₹12,200, और नगर पालिका की लकीर दोनों हिस्सों के बीच उनचास फ़ीसदी का ज़ीना खड़ा करती है। दो अलग-अलग फ़ासले, दोनों सूची के अपने दर्ज किए हुए, और वह भी शहर के एयरपोर्ट वाले रुख़ पर। यहाँ दामों की शृंखला नहीं है, इसलिए यह जगह की पढ़त है, दिशा की नहीं।"
       }
     }
   },
@@ -661,7 +705,8 @@
     "todo": [
       "Narrative drafted from the published 2025 rate list only — the rows, their categories and the priced road segments. It contains no local market knowledge and no claim about who buys here or why; the broker should read it, correct it and add that. status stays \"draft\" so the page renders noindex and out of the sitemaps until he does.",
       "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder.",
-      "fit carries commercial only. The rating and reason come from the published schedule — the shop rate and whether a corridor through the locality is priced above it — not from trade, footfall or demand, which no schedule records. residential and investment are deliberately absent: they need amenities and a price series the data does not have. Confirm the commercial read and supply the other two."
+      "fit carries commercial only. The rating and reason come from the published schedule — the shop rate and whether a corridor through the locality is priced above it — not from trade, footfall or demand, which no schedule records. residential and investment are deliberately absent: they need amenities and a price series the data does not have. Confirm the commercial read and supply the other two.",
+      "residential and investment fit are the weakest drafts on this record and need the broker before they go live. Residential leans on straight-line distance to the city anchors, computed from seed coordinates that scripts/seed-cities.ts calls approximate and from anchor coordinates data/cities.json still flags for verification — not drive times, and not amenities, services or who lives there, none of which the data holds. Investment is a reading of position only: no locality on this site has a computable price momentum, so nothing here forecasts a price."
     ],
     "rateRefs": [
       {
@@ -695,10 +740,20 @@
       }
     ],
     "fit": {
+      "residential": {
+        "rating": "good",
+        "reason": "About 1.7 km from the Ram Mandir and 2.1 km from Ayodhya Dham Junction in a straight line, with land published at ₹8,200 outside the municipal limit and ₹9,700 inside — close in, and among the lower published rates of the eleven the list prices.",
+        "reasonHi": "राम मंदिर से सीधी रेखा में क़रीब 1.7 किमी और अयोध्या धाम जंक्शन से 2.1 किमी, और ज़मीन नगर पालिका की सीमा के बाहर ₹8,200 तथा अंदर ₹9,700 पर छपी है — पास भी, और सूची से आँके गए ग्यारह इलाक़ों में छपी हुई कम दरों में भी।"
+      },
       "commercial": {
         "rating": "good",
         "reason": "Seven segment entries name Ranopali and shops on them reach ₹67,500 per sq m against ₹48,000 inside, a 41 per cent premium. With that many priced corridors, most plots here sit near one.",
         "reasonHi": "सूची की सात पट्टियाँ रानोपाली का नाम लेती हैं और उन पर दुकान ₹67,500 प्रति वर्ग मीटर तक जाती है, जबकि अंदर ₹48,000 — इकतालीस फ़ीसदी का प्रीमियम। इतनी आँकी हुई सड़कों के बीच यहाँ ज़्यादातर प्लॉट किसी न किसी के पास पड़ते हैं।"
+      },
+      "investment": {
+        "rating": "good",
+        "reason": "Seven priced corridors name Ranopali, reaching ₹25,900 per sq m against ₹9,700 inside — the densest corridor coverage of the nine, on ground under 2 km from the temple. Almost any plot here is near a road the schedule prices at a multiple of the interior. No price series exists for any locality here, so this is position rather than trajectory.",
+        "reasonHi": "सात आँकी हुई पट्टियाँ रानोपाली का नाम लेती हैं और ₹25,900 प्रति वर्ग मीटर तक जाती हैं, जबकि अंदर ₹9,700 — इन नौ में सड़कों की सबसे घनी आँकाई, वह भी मंदिर से दो किमी के भीतर की ज़मीन पर। यहाँ लगभग हर प्लॉट किसी ऐसी सड़क के पास है जिसे सूची अंदरूनी दर के कई गुना पर रखती है। यहाँ दामों की शृंखला नहीं है, इसलिए यह जगह की पढ़त है, दिशा की नहीं।"
       }
     }
   },
@@ -1055,7 +1110,8 @@
     "todo": [
       "Narrative drafted from the published 2025 rate list only — the rows, their categories and the priced road segments. It contains no local market knowledge and no claim about who buys here or why; the broker should read it, correct it and add that. status stays \"draft\" so the page renders noindex and out of the sitemaps until he does.",
       "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder.",
-      "fit carries commercial only. The rating and reason come from the published schedule — the shop rate and whether a corridor through the locality is priced above it — not from trade, footfall or demand, which no schedule records. residential and investment are deliberately absent: they need amenities and a price series the data does not have. Confirm the commercial read and supply the other two."
+      "fit carries commercial only. The rating and reason come from the published schedule — the shop rate and whether a corridor through the locality is priced above it — not from trade, footfall or demand, which no schedule records. residential and investment are deliberately absent: they need amenities and a price series the data does not have. Confirm the commercial read and supply the other two.",
+      "residential and investment fit are the weakest drafts on this record and need the broker before they go live. Residential leans on straight-line distance to the city anchors, computed from seed coordinates that scripts/seed-cities.ts calls approximate and from anchor coordinates data/cities.json still flags for verification — not drive times, and not amenities, services or who lives there, none of which the data holds. Investment is a reading of position only: no locality on this site has a computable price momentum, so nothing here forecasts a price."
     ],
     "rateRefs": [
       {
@@ -1071,10 +1127,20 @@
       }
     ],
     "fit": {
+      "residential": {
+        "rating": "mixed",
+        "reason": "About 12.9 km from the Ram Mandir in a straight line, the second furthest of the nine, and land starts at ₹12,000 per sq m — dearer than Naya Ghat or Ranopali, which are a fraction of the distance from the temple. It reads as a town in its own right rather than a place to live near Ayodhya.",
+        "reasonHi": "राम मंदिर से सीधी रेखा में क़रीब 12.9 किमी — इन नौ में दूसरा सबसे दूर — और ज़मीन ₹12,000 प्रति वर्ग मीटर से शुरू होती है, यानी नयाघाट या रानोपाली से महँगी, जो मंदिर से इसके मुक़ाबले बहुत क़रीब हैं। यह अयोध्या के पास रहने की जगह से ज़्यादा अपने आप में एक क़स्बे जैसा पढ़ा जाता है।"
+      },
       "commercial": {
         "rating": "mixed",
-        "reason": "The interior shop rate of ₹65,000 per sq m is the second highest of the twelve, but the national highway frontage is priced at ₹66,000 — about one and a half per cent above it. The schedule values commercial use here without treating the highway itself as a commercial premium.",
-        "reasonHi": "अंदरूनी दुकान दर ₹65,000 प्रति वर्ग मीटर इन बारह में दूसरी सबसे ऊँची है, पर राष्ट्रीय राजमार्ग से लगी दुकान ₹66,000 पर आँकी गई है — क़रीब डेढ़ फ़ीसदी ऊपर। सूची यहाँ कारोबारी इस्तेमाल की क़ीमत तो मानती है, पर राजमार्ग को अपने आप में कारोबारी प्रीमियम नहीं देती।"
+        "reason": "The interior shop rate of ₹65,000 per sq m is the second highest of the eleven the list prices, but the national highway frontage is priced at ₹66,000 — about one and a half per cent above it. The schedule values commercial use here without treating the highway itself as a commercial premium.",
+        "reasonHi": "अंदरूनी दुकान दर ₹65,000 प्रति वर्ग मीटर सूची से आँके गए ग्यारह इलाक़ों में दूसरी सबसे ऊँची है, पर राष्ट्रीय राजमार्ग से लगी दुकान ₹66,000 पर आँकी गई है — क़रीब डेढ़ फ़ीसदी ऊपर। सूची यहाँ कारोबारी इस्तेमाल की क़ीमत तो मानती है, पर राजमार्ग को अपने आप में कारोबारी प्रीमियम नहीं देती।"
+      },
+      "investment": {
+        "rating": "mixed",
+        "reason": "The Ayodhya–Prayagraj national highway runs through it and the schedule prices that frontage at ₹32,000 per sq m against ₹12,000 inside, but it gives the highway shop rate only ₹66,000 against ₹65,000 in the interior. A highway with a large land premium and almost no commercial premium is a mixed signal, and no price series exists to resolve it either way.",
+        "reasonHi": "अयोध्या-प्रयागराज राष्ट्रीय राजमार्ग इससे होकर गुज़रता है और सूची उस फ़्रंट की ज़मीन ₹32,000 प्रति वर्ग मीटर पर आँकती है जबकि अंदर ₹12,000 — पर वहीं दुकान को ₹66,000 देती है जबकि अंदर ₹65,000। ज़मीन पर बड़ा प्रीमियम और दुकान पर लगभग कुछ नहीं — यह मिला-जुला इशारा है, और इसे किसी तरफ़ तय करने के लिए दामों की शृंखला मौजूद नहीं है।"
       }
     }
   },
@@ -1118,7 +1184,8 @@
     "todo": [
       "Narrative drafted from the published 2025 rate list only — the rows, their categories and the priced road segments. It contains no local market knowledge and no claim about who buys here or why; the broker should read it, correct it and add that. status stays \"draft\" so the page renders noindex and out of the sitemaps until he does.",
       "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder.",
-      "fit carries commercial only. The rating and reason come from the published schedule — the shop rate and whether a corridor through the locality is priced above it — not from trade, footfall or demand, which no schedule records. residential and investment are deliberately absent: they need amenities and a price series the data does not have. Confirm the commercial read and supply the other two."
+      "fit carries commercial only. The rating and reason come from the published schedule — the shop rate and whether a corridor through the locality is priced above it — not from trade, footfall or demand, which no schedule records. residential and investment are deliberately absent: they need amenities and a price series the data does not have. Confirm the commercial read and supply the other two.",
+      "residential and investment fit are the weakest drafts on this record and need the broker before they go live. Residential leans on straight-line distance to the city anchors, computed from seed coordinates that scripts/seed-cities.ts calls approximate and from anchor coordinates data/cities.json still flags for verification — not drive times, and not amenities, services or who lives there, none of which the data holds. Investment is a reading of position only: no locality on this site has a computable price momentum, so nothing here forecasts a price."
     ],
     "rateRefs": [
       {
@@ -1126,10 +1193,20 @@
       }
     ],
     "fit": {
+      "residential": {
+        "rating": "mixed",
+        "reason": "The furthest of the nine from the Ram Mandir at about 13.9 km in a straight line, though only 5.8 km from the ring road. The tehsil headquarters is here, so services exist, but the list classifies it rural and prices agricultural land at ₹54 lakh per hectare alongside built land at ₹9,200 per sq m.",
+        "reasonHi": "इन नौ में राम मंदिर से सबसे दूर, सीधी रेखा में क़रीब 13.9 किमी, हालाँकि रिंग रोड से सिर्फ़ 5.8 किमी। तहसील मुख्यालय यहीं है, इसलिए सुविधाएँ हैं, पर सूची इसे ग्रामीण दर्ज करती है और ₹9,200 प्रति वर्ग मीटर की बनी ज़मीन के साथ-साथ कृषि भूमि ₹54 लाख प्रति हेक्टेयर पर आँकती है।"
+      },
       "commercial": {
         "rating": "mixed",
         "reason": "A shop at ₹44,000 per sq m is 4.8 times the narrowest-road land rate, high for a locality the list classifies rural. No corridor through Sohawal is priced separately, so that single figure is the whole of the schedule's commercial read.",
         "reasonHi": "₹44,000 प्रति वर्ग मीटर पर दुकान सबसे तंग सड़क की ज़मीन से 4.8 गुना है — सूची में ग्रामीण दर्ज इलाक़े के लिहाज़ से ऊँची। सोहावल से गुज़रती कोई पट्टी अलग से नहीं आँकी गई, इसलिए कारोबारी पक्ष पर सूची का कहा बस यही एक आँकड़ा है।"
+      },
+      "investment": {
+        "rating": "mixed",
+        "reason": "Rural on the list but with a town's 90 per cent spread between narrow and wide roads, which says the roads through it are already being valued upward. Against that, no corridor is priced separately and it is the furthest of the nine from the anchors that have repriced this market. No price series exists for any locality here, so this is position rather than trajectory.",
+        "reasonHi": "सूची में ग्रामीण, पर तंग और चौड़ी सड़क के बीच नब्बे फ़ीसदी का क़स्बों जैसा फ़र्क़ — यानी यहाँ से गुज़रती सड़कों की क़ीमत पहले से ऊपर की तरफ़ आँकी जा रही है। दूसरी तरफ़ कोई पट्टी अलग से नहीं आँकी गई, और जिन जगहों ने इस बाज़ार के दाम बदले हैं उनसे यह इन नौ में सबसे दूर है। यहाँ दामों की शृंखला नहीं है, इसलिए यह जगह की पढ़त है, दिशा की नहीं।"
       }
     }
   },
@@ -1355,7 +1432,8 @@
     "todo": [
       "Narrative drafted from the published 2025 rate list only — the rows, their categories and the priced road segments. It contains no local market knowledge and no claim about who buys here or why; the broker should read it, correct it and add that. status stays \"draft\" so the page renders noindex and out of the sitemaps until he does.",
       "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder.",
-      "fit carries commercial only. The rating and reason come from the published schedule — the shop rate and whether a corridor through the locality is priced above it — not from trade, footfall or demand, which no schedule records. residential and investment are deliberately absent: they need amenities and a price series the data does not have. Confirm the commercial read and supply the other two."
+      "fit carries commercial only. The rating and reason come from the published schedule — the shop rate and whether a corridor through the locality is priced above it — not from trade, footfall or demand, which no schedule records. residential and investment are deliberately absent: they need amenities and a price series the data does not have. Confirm the commercial read and supply the other two.",
+      "residential and investment fit are the weakest drafts on this record and need the broker before they go live. Residential leans on straight-line distance to the city anchors, computed from seed coordinates that scripts/seed-cities.ts calls approximate and from anchor coordinates data/cities.json still flags for verification — not drive times, and not amenities, services or who lives there, none of which the data holds. Investment is a reading of position only: no locality on this site has a computable price momentum, so nothing here forecasts a price."
     ],
     "rateRefs": [
       {
@@ -1363,10 +1441,20 @@
       }
     ],
     "fit": {
+      "residential": {
+        "rating": "mixed",
+        "reason": "The cheapest built land of the eleven the list prices at ₹7,000 per sq m, and road width barely changes that — ₹7,900 even on the widest road. But it is about 7.7 km from the Ram Mandir in a straight line and on the far side of the city from the airport and the ring road, so the low rate comes with distance attached.",
+        "reasonHi": "सूची से आँके गए ग्यारह इलाक़ों में सबसे सस्ती बनी ज़मीन, ₹7,000 प्रति वर्ग मीटर, और सड़क की चौड़ाई इसे मुश्किल से बदलती है — सबसे चौड़ी सड़क पर भी ₹7,900। लेकिन राम मंदिर से सीधी रेखा में क़रीब 7.7 किमी, और एयरपोर्ट तथा रिंग रोड के लिहाज़ से शहर के दूसरे छोर पर — यानी कम दर के साथ दूरी भी जुड़ी हुई है।"
+      },
       "commercial": {
         "rating": "mixed",
         "reason": "The shop rate of ₹43,100 per sq m is 6.2 times the land beneath it, the second-highest multiple of the localities priced from this list. Against that, road width barely moves the land rate here and no corridor is priced, so the commercial signal is in the multiple rather than in any particular frontage.",
         "reasonHi": "₹43,100 प्रति वर्ग मीटर की दुकान दर नीचे की ज़मीन से 6.2 गुना है — इस सूची से आँके गए इलाक़ों में दूसरा सबसे ऊँचा अनुपात। इसके उलट यहाँ सड़क की चौड़ाई से ज़मीन की दर मुश्किल से बदलती है और कोई पट्टी अलग से नहीं आँकी गई, इसलिए कारोबारी इशारा किसी ख़ास फ़्रंट में नहीं, इसी अनुपात में है।"
+      },
+      "investment": {
+        "rating": "mixed",
+        "reason": "Land at ₹7,000 per sq m is the lowest entry of the eleven the list prices, which is where the case would start. But the list gives it the flattest width curve of the set and prices no corridor through it, so the schedule records no gap for a buyer to work with. No price series exists for any locality here, so this is position rather than trajectory.",
+        "reasonHi": "₹7,000 प्रति वर्ग मीटर की ज़मीन सूची से आँके गए ग्यारह इलाक़ों में सबसे नीचे की शुरुआत है, और दलील वहीं से शुरू होगी। लेकिन सूची इसे सेट की सबसे सपाट चौड़ाई-रेखा देती है और इससे होकर कोई पट्टी नहीं आँकती, यानी ख़रीदार के काम आने लायक़ कोई फ़ासला दर्ज नहीं है। यहाँ दामों की शृंखला नहीं है, इसलिए यह जगह की पढ़त है, दिशा की नहीं।"
       }
     }
   },
@@ -1411,7 +1499,8 @@
       "Narrative drafted from the published 2025 rate list only — the rows, their categories and the priced road segments. It contains no local market knowledge and no claim about who buys here or why; the broker should read it, correct it and add that. status stays \"draft\" so the page renders noindex and out of the sitemaps until he does.",
       "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder.",
       "Seed record said tehsil Sadar; corrected to Sohawal against the 2025-06-07 list, where every भदरसा row sits in the Sohawal SRO.",
-      "fit carries commercial only. The rating and reason come from the published schedule — the shop rate and whether a corridor through the locality is priced above it — not from trade, footfall or demand, which no schedule records. residential and investment are deliberately absent: they need amenities and a price series the data does not have. Confirm the commercial read and supply the other two."
+      "fit carries commercial only. The rating and reason come from the published schedule — the shop rate and whether a corridor through the locality is priced above it — not from trade, footfall or demand, which no schedule records. residential and investment are deliberately absent: they need amenities and a price series the data does not have. Confirm the commercial read and supply the other two.",
+      "residential and investment fit are the weakest drafts on this record and need the broker before they go live. Residential leans on straight-line distance to the city anchors, computed from seed coordinates that scripts/seed-cities.ts calls approximate and from anchor coordinates data/cities.json still flags for verification — not drive times, and not amenities, services or who lives there, none of which the data holds. Investment is a reading of position only: no locality on this site has a computable price momentum, so nothing here forecasts a price."
     ],
     "rateRefs": [
       {
@@ -1430,10 +1519,20 @@
       }
     ],
     "fit": {
+      "residential": {
+        "rating": "mixed",
+        "reason": "A town inside a rural classification: land inside the town line is ₹10,600 per sq m and outside it ₹8,850, with agricultural land at ₹75 lakh and ₹66 lakh per hectare. About 10.1 km from the Ram Mandir in a straight line, so it suits someone who wants a town of its own rather than a short run into Ayodhya.",
+        "reasonHi": "ग्रामीण श्रेणी के भीतर एक क़स्बा: क़स्बे की लकीर के अंदर ज़मीन ₹10,600 प्रति वर्ग मीटर और बाहर ₹8,850, और कृषि भूमि ₹75 लाख तथा ₹66 लाख प्रति हेक्टेयर। राम मंदिर से सीधी रेखा में क़रीब 10.1 किमी — यानी यह उनके लिए है जिन्हें अपना क़स्बा चाहिए, अयोध्या तक की छोटी दौड़ नहीं।"
+      },
       "commercial": {
         "rating": "mixed",
         "reason": "Shops inside the town are priced at ₹40,000 per sq m and the two priced stretches through it at ₹42,000, five per cent above. Commercial use is recognised, but the schedule sees almost no difference between a shop on the main stretch and one off it.",
         "reasonHi": "क़स्बे के अंदर दुकान ₹40,000 प्रति वर्ग मीटर पर है और इससे गुज़रती दोनों आँकी हुई पट्टियों पर ₹42,000 — पाँच फ़ीसदी ऊपर। कारोबारी इस्तेमाल दर्ज तो है, पर सूची मुख्य पट्टी की दुकान और उससे हटकर दुकान में लगभग कोई फ़र्क़ नहीं देखती।"
+      },
+      "investment": {
+        "rating": "mixed",
+        "reason": "The two priced stretches inside the town are ₹14,500 per sq m against ₹10,600 for town land, a 37 per cent premium — real, but modest beside the two and three times seen on the Sadar corridors. Distance from the anchors is the other half of it. No price series exists for any locality here, so this is position rather than trajectory.",
+        "reasonHi": "क़स्बे के अंदर आँकी हुई दोनों पट्टियाँ ₹14,500 प्रति वर्ग मीटर पर हैं जबकि क़स्बे की ज़मीन ₹10,600 — सैंतीस फ़ीसदी का प्रीमियम, असली तो है, पर सदर की सड़कों पर दिखने वाले दो-तीन गुना के आगे मामूली। दूसरी बात इन जगहों से दूरी है जिन्होंने बाज़ार बदला है। यहाँ दामों की शृंखला नहीं है, इसलिए यह जगह की पढ़त है, दिशा की नहीं।"
       }
     }
   },
