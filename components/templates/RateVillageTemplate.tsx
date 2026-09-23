@@ -180,8 +180,13 @@ export function RateVillageTemplate({
                 <span>{row.wardHi}</span>
               </>
             )}
-            <span aria-hidden="true">·</span>
-            <span>{categoryText(row.category, locale)}</span>
+            {/* Omitted entirely where the list prints no category column, separator and all. */}
+            {row.category && (
+              <>
+                <span aria-hidden="true">·</span>
+                <span>{categoryText(row.category, locale)}</span>
+              </>
+            )}
             <span aria-hidden="true">·</span>
             <span>
               {c.serial} {row.serial}

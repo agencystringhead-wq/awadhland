@@ -298,10 +298,17 @@ export const categoryLabel: Record<RateCategory, { en: string; hi: string }> = {
 };
 
 /**
- * The category as printed, or an em dash where the list prints no category column.
+ * The category as printed, or nothing where the list prints no category column.
  *
  * Mohanlalganj and both Sarojini Nagar lists have no such column, so 481 Lucknow rows have none.
- * The dash says the source is silent, which is different from any category we might have guessed
- * from a ward number or a rate.
+ * Callers that can drop the field entirely do (the village page omits the item and its separator);
+ * a table cell stays empty, because the column still has to line up. A placeholder glyph was worse
+ * than blank: it read as a value, and there is nothing to read.
+ *
+ * The one place that needs words for it is the tehsil filter, which uses categoryFilterLabel.
  */
-export const categoryText = (c: RateCategory | null, locale: "en" | "hi"): string => (c ? categoryLabel[c][locale] : "—");
+export const categoryText = (c: RateCategory | null, locale: "en" | "hi"): string => (c ? categoryLabel[c][locale] : "");
+
+/** Same, but for a filter option, where a blank entry would be an unpickable empty row. */
+export const categoryFilterLabel = (c: RateCategory | null, locale: "en" | "hi"): string =>
+  c ? categoryLabel[c][locale] : locale === "hi" ? "श्रेणी नहीं छपी" : "No category printed";

@@ -23,6 +23,7 @@ import type { RateCategory, RoadBand } from "@/lib/schemas";
 import {
   AGRI_FRONTAGES,
   agriFrontageLabel,
+  categoryFilterLabel,
   categoryText,
   COMMERCIAL_KINDS,
   commercialKindLabel,
@@ -168,7 +169,7 @@ export function TehsilRateTable({
             <option value="all">{c.allCategories}</option>
             {categories.map((k) => (
               <option key={k ?? "none"} value={k ?? "none"}>
-                {categoryText(k, locale)}
+                {categoryFilterLabel(k, locale)}
               </option>
             ))}
           </select>
