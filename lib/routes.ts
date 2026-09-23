@@ -2,8 +2,8 @@
  * generateStaticParams sources and cross-tree links. Both route trees call these with their
  * own locale, so /app/(en) and /app/hi always build from the same rules.
  */
-import { getBrokerRecord, getBuildableLocalities, getBuildableProjects, getCircleRateSchedules, getCities, getUpdates } from "./data";
-import { logBrokerPlaceholders, logSkippedLocalities, logSkippedProjects } from "./guards";
+import { getAllCircleRateSchedules, getBrokerRecord, getBuildableLocalities, getBuildableProjects, getCircleRateSchedules, getCities, getUpdates } from "./data";
+import { logBrokerPlaceholders, logSkippedLocalities, logSkippedProjects, logWithheldSchedules } from "./guards";
 import { logScoreCoverage } from "./scoring";
 import { getGuides } from "./guides";
 import { getCitiesWithRateList, getRowsByTehsil, getTehsilsByCity } from "./rates";
@@ -75,6 +75,7 @@ export const projectParams = () => {
   const { buildable, skipped } = getBuildableProjects();
   logSkippedProjects(skipped);
   logBrokerPlaceholders(getBrokerRecord());
+  logWithheldSchedules(getAllCircleRateSchedules());
   return nonEmpty(
     "/projects/[slug]/ (source guard)",
     buildable.map((p) => ({ slug: p.id })),

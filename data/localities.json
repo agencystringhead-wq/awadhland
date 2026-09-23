@@ -10,12 +10,6 @@
     "lat": 26.78,
     "lng": 82.15,
     "priceBand": "mid",
-    "askingRange": {
-      "low": 4500,
-      "high": 9000,
-      "unit": "sqft",
-      "asOf": "2026-09-01"
-    },
     "circleRate": {
       "residential": 12000,
       "commercial": 24000,
@@ -90,7 +84,8 @@
       "driveTimes removed: the seeded values were illustrative, as this record's own seed todo said, and they were rendering as fact in the Distances table on an indexed page. Real figures are the broker's to give — minutes to each anchor in data/cities.json — and the column reappears as soon as one locality has them. The straight-line kilometres beside them are computed from coordinates the seed script calls approximate.",
       "Seed record: circle rates, asking range, drive times and score are illustrative; replace with the parsed IGRSUP schedule and broker observations",
       "Source URLs point at portal home pages; replace with the exact schedule PDF and ADA Master Plan 2031 document",
-      "Hindi narrative and broker note to be written or checked by a person"
+      "Hindi narrative and broker note to be written or checked by a person",
+      "askingRange removed: it was the price-band seed from scripts/seed-cities.ts, one of four pairs shared across all 84 localities, and it rendered on indexed pages as \"Market asking range\". A real range is a dated observation of what sellers are asking, which is the same evidence priceObservations needs; add it there and here together."
     ],
     "status": "live",
     "roadSegmentRefs": [
@@ -122,12 +117,6 @@
     "lat": 26.773,
     "lng": 82.14,
     "priceBand": "high",
-    "askingRange": {
-      "low": 7000,
-      "high": 13000,
-      "unit": "sqft",
-      "asOf": "2026-09-01"
-    },
     "landUse": "mixed",
     "landUseSource": "ADA Master Plan 2031",
     "narrative": {
@@ -186,7 +175,8 @@
     "todo": [
       "driveTimes removed: the seeded values were illustrative, as this record's own seed todo said, and they were rendering as fact in the Distances table on an indexed page. Real figures are the broker's to give — minutes to each anchor in data/cities.json — and the column reappears as soon as one locality has them. The straight-line kilometres beside them are computed from coordinates the seed script calls approximate.",
       "Seed record: circle rates, asking range, coordinates, drive times and score are illustrative; replace with parsed IGRSUP data and broker observations",
-      "Confirm Civil Lines is listed under this name in the IGRSUP Ayodhya schedule"
+      "Confirm Civil Lines is listed under this name in the IGRSUP Ayodhya schedule",
+      "askingRange removed: it was the price-band seed from scripts/seed-cities.ts, one of four pairs shared across all 84 localities, and it rendered on indexed pages as \"Market asking range\". A real range is a dated observation of what sellers are asking, which is the same evidence priceObservations needs; add it there and here together."
     ],
     "status": "live",
     "rateRefs": [
@@ -229,12 +219,6 @@
     "lat": 26.805,
     "lng": 82.205,
     "priceBand": "premium",
-    "askingRange": {
-      "low": 12000,
-      "high": 25000,
-      "unit": "sqft",
-      "asOf": "2026-09-01"
-    },
     "landUse": "mixed",
     "landUseSource": "IGRSUP 2025-06-07 (urban)",
     "narrative": {
@@ -259,7 +243,8 @@
       "Narrative drafted from the published 2025 rate list only — the rows, their categories and the priced road segments. It contains no local market knowledge and no claim about who buys here or why; the broker should read it, correct it and add that. status stays \"draft\" so the page renders noindex and out of the sitemaps until he does.",
       "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder.",
       "fit carries commercial only. The rating and reason come from the published schedule — the shop rate and whether a corridor through the locality is priced above it — not from trade, footfall or demand, which no schedule records. residential and investment are deliberately absent: they need amenities and a price series the data does not have. Confirm the commercial read and supply the other two.",
-      "residential and investment fit are the weakest drafts on this record and need the broker before they go live. Residential leans on straight-line distance to the city anchors, computed from seed coordinates that scripts/seed-cities.ts calls approximate and from anchor coordinates data/cities.json still flags for verification — not drive times, and not amenities, services or who lives there, none of which the data holds. Investment is a reading of position only: no locality on this site has a computable price momentum, so nothing here forecasts a price."
+      "residential and investment fit are the weakest drafts on this record and need the broker before they go live. Residential leans on straight-line distance to the city anchors, computed from seed coordinates that scripts/seed-cities.ts calls approximate and from anchor coordinates data/cities.json still flags for verification — not drive times, and not amenities, services or who lives there, none of which the data holds. Investment is a reading of position only: no locality on this site has a computable price momentum, so nothing here forecasts a price.",
+      "askingRange removed: it was the price-band seed from scripts/seed-cities.ts, one of four pairs shared across all 84 localities, and it rendered on indexed pages as \"Market asking range\". A real range is a dated observation of what sellers are asking, which is the same evidence priceObservations needs; add it there and here together."
     ],
     "rateRefs": [
       {
@@ -295,12 +280,6 @@
     "lat": 26.797,
     "lng": 82.196,
     "priceBand": "premium",
-    "askingRange": {
-      "low": 12000,
-      "high": 25000,
-      "unit": "sqft",
-      "asOf": "2026-09-01"
-    },
     "circleRate": {
       "residential": 30000,
       "commercial": 60000,
@@ -330,7 +309,8 @@
     "todo": [
       "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative and score are placeholders by price band",
       "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages",
-      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder."
+      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder.",
+      "askingRange removed: it was the price-band seed from scripts/seed-cities.ts, one of four pairs shared across all 84 localities, and it rendered on indexed pages as \"Market asking range\". A real range is a dated observation of what sellers are asking, which is the same evidence priceObservations needs; add it there and here together."
     ]
   },
   {
@@ -344,12 +324,6 @@
     "lat": 26.79,
     "lng": 82.19,
     "priceBand": "premium",
-    "askingRange": {
-      "low": 12000,
-      "high": 25000,
-      "unit": "sqft",
-      "asOf": "2026-09-01"
-    },
     "circleRate": {
       "residential": 30000,
       "commercial": 60000,
@@ -379,7 +353,8 @@
     "todo": [
       "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative and score are placeholders by price band",
       "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages",
-      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder."
+      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder.",
+      "askingRange removed: it was the price-band seed from scripts/seed-cities.ts, one of four pairs shared across all 84 localities, and it rendered on indexed pages as \"Market asking range\". A real range is a dated observation of what sellers are asking, which is the same evidence priceObservations needs; add it there and here together."
     ]
   },
   {
@@ -393,12 +368,6 @@
     "lat": 26.796,
     "lng": 82.2,
     "priceBand": "premium",
-    "askingRange": {
-      "low": 12000,
-      "high": 25000,
-      "unit": "sqft",
-      "asOf": "2026-09-01"
-    },
     "circleRate": {
       "residential": 30000,
       "commercial": 60000,
@@ -428,7 +397,8 @@
     "todo": [
       "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative and score are placeholders by price band",
       "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages",
-      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder."
+      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder.",
+      "askingRange removed: it was the price-band seed from scripts/seed-cities.ts, one of four pairs shared across all 84 localities, and it rendered on indexed pages as \"Market asking range\". A real range is a dated observation of what sellers are asking, which is the same evidence priceObservations needs; add it there and here together."
     ]
   },
   {
@@ -442,12 +412,6 @@
     "lat": 26.78,
     "lng": 82.135,
     "priceBand": "high",
-    "askingRange": {
-      "low": 7000,
-      "high": 13000,
-      "unit": "sqft",
-      "asOf": "2026-09-01"
-    },
     "landUse": "mixed",
     "landUseSource": "IGRSUP 2025-06-07 (urban)",
     "narrative": {
@@ -472,7 +436,8 @@
       "Narrative drafted from the published 2025 rate list only — the rows, their categories and the priced road segments. It contains no local market knowledge and no claim about who buys here or why; the broker should read it, correct it and add that. status stays \"draft\" so the page renders noindex and out of the sitemaps until he does.",
       "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder.",
       "fit carries commercial only. The rating and reason come from the published schedule — the shop rate and whether a corridor through the locality is priced above it — not from trade, footfall or demand, which no schedule records. residential and investment are deliberately absent: they need amenities and a price series the data does not have. Confirm the commercial read and supply the other two.",
-      "residential and investment fit are the weakest drafts on this record and need the broker before they go live. Residential leans on straight-line distance to the city anchors, computed from seed coordinates that scripts/seed-cities.ts calls approximate and from anchor coordinates data/cities.json still flags for verification — not drive times, and not amenities, services or who lives there, none of which the data holds. Investment is a reading of position only: no locality on this site has a computable price momentum, so nothing here forecasts a price."
+      "residential and investment fit are the weakest drafts on this record and need the broker before they go live. Residential leans on straight-line distance to the city anchors, computed from seed coordinates that scripts/seed-cities.ts calls approximate and from anchor coordinates data/cities.json still flags for verification — not drive times, and not amenities, services or who lives there, none of which the data holds. Investment is a reading of position only: no locality on this site has a computable price momentum, so nothing here forecasts a price.",
+      "askingRange removed: it was the price-band seed from scripts/seed-cities.ts, one of four pairs shared across all 84 localities, and it rendered on indexed pages as \"Market asking range\". A real range is a dated observation of what sellers are asking, which is the same evidence priceObservations needs; add it there and here together."
     ],
     "rateRefs": [
       {
@@ -519,12 +484,6 @@
     "lat": 26.772,
     "lng": 82.145,
     "priceBand": "high",
-    "askingRange": {
-      "low": 7000,
-      "high": 13000,
-      "unit": "sqft",
-      "asOf": "2026-09-01"
-    },
     "landUse": "mixed",
     "landUseSource": "IGRSUP 2025-06-07 (urban)",
     "narrative": {
@@ -549,7 +508,8 @@
       "Narrative drafted from the published 2025 rate list only — the rows, their categories and the priced road segments. It contains no local market knowledge and no claim about who buys here or why; the broker should read it, correct it and add that. status stays \"draft\" so the page renders noindex and out of the sitemaps until he does.",
       "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder.",
       "fit carries commercial only. The rating and reason come from the published schedule — the shop rate and whether a corridor through the locality is priced above it — not from trade, footfall or demand, which no schedule records. residential and investment are deliberately absent: they need amenities and a price series the data does not have. Confirm the commercial read and supply the other two.",
-      "residential and investment fit are the weakest drafts on this record and need the broker before they go live. Residential leans on straight-line distance to the city anchors, computed from seed coordinates that scripts/seed-cities.ts calls approximate and from anchor coordinates data/cities.json still flags for verification — not drive times, and not amenities, services or who lives there, none of which the data holds. Investment is a reading of position only: no locality on this site has a computable price momentum, so nothing here forecasts a price."
+      "residential and investment fit are the weakest drafts on this record and need the broker before they go live. Residential leans on straight-line distance to the city anchors, computed from seed coordinates that scripts/seed-cities.ts calls approximate and from anchor coordinates data/cities.json still flags for verification — not drive times, and not amenities, services or who lives there, none of which the data holds. Investment is a reading of position only: no locality on this site has a computable price momentum, so nothing here forecasts a price.",
+      "askingRange removed: it was the price-band seed from scripts/seed-cities.ts, one of four pairs shared across all 84 localities, and it rendered on indexed pages as \"Market asking range\". A real range is a dated observation of what sellers are asking, which is the same evidence priceObservations needs; add it there and here together."
     ],
     "rateRefs": [
       {
@@ -585,12 +545,6 @@
     "lat": 26.768,
     "lng": 82.16,
     "priceBand": "mid",
-    "askingRange": {
-      "low": 4500,
-      "high": 9000,
-      "unit": "sqft",
-      "asOf": "2026-09-01"
-    },
     "landUse": "mixed",
     "landUseSource": "IGRSUP 2025-06-07 (semi-urban and urban)",
     "narrative": {
@@ -615,7 +569,8 @@
       "Narrative drafted from the published 2025 rate list only — the rows, their categories and the priced road segments. It contains no local market knowledge and no claim about who buys here or why; the broker should read it, correct it and add that. status stays \"draft\" so the page renders noindex and out of the sitemaps until he does.",
       "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder.",
       "fit carries commercial only. The rating and reason come from the published schedule — the shop rate and whether a corridor through the locality is priced above it — not from trade, footfall or demand, which no schedule records. residential and investment are deliberately absent: they need amenities and a price series the data does not have. Confirm the commercial read and supply the other two.",
-      "residential and investment fit are the weakest drafts on this record and need the broker before they go live. Residential leans on straight-line distance to the city anchors, computed from seed coordinates that scripts/seed-cities.ts calls approximate and from anchor coordinates data/cities.json still flags for verification — not drive times, and not amenities, services or who lives there, none of which the data holds. Investment is a reading of position only: no locality on this site has a computable price momentum, so nothing here forecasts a price."
+      "residential and investment fit are the weakest drafts on this record and need the broker before they go live. Residential leans on straight-line distance to the city anchors, computed from seed coordinates that scripts/seed-cities.ts calls approximate and from anchor coordinates data/cities.json still flags for verification — not drive times, and not amenities, services or who lives there, none of which the data holds. Investment is a reading of position only: no locality on this site has a computable price momentum, so nothing here forecasts a price.",
+      "askingRange removed: it was the price-band seed from scripts/seed-cities.ts, one of four pairs shared across all 84 localities, and it rendered on indexed pages as \"Market asking range\". A real range is a dated observation of what sellers are asking, which is the same evidence priceObservations needs; add it there and here together."
     ],
     "rateRefs": [
       {
@@ -668,12 +623,6 @@
     "lat": 26.788,
     "lng": 82.18,
     "priceBand": "mid",
-    "askingRange": {
-      "low": 4500,
-      "high": 9000,
-      "unit": "sqft",
-      "asOf": "2026-09-01"
-    },
     "landUse": "mixed",
     "landUseSource": "IGRSUP 2025-06-07 (semi-urban and urban)",
     "narrative": {
@@ -698,7 +647,8 @@
       "Narrative drafted from the published 2025 rate list only — the rows, their categories and the priced road segments. It contains no local market knowledge and no claim about who buys here or why; the broker should read it, correct it and add that. status stays \"draft\" so the page renders noindex and out of the sitemaps until he does.",
       "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder.",
       "fit carries commercial only. The rating and reason come from the published schedule — the shop rate and whether a corridor through the locality is priced above it — not from trade, footfall or demand, which no schedule records. residential and investment are deliberately absent: they need amenities and a price series the data does not have. Confirm the commercial read and supply the other two.",
-      "residential and investment fit are the weakest drafts on this record and need the broker before they go live. Residential leans on straight-line distance to the city anchors, computed from seed coordinates that scripts/seed-cities.ts calls approximate and from anchor coordinates data/cities.json still flags for verification — not drive times, and not amenities, services or who lives there, none of which the data holds. Investment is a reading of position only: no locality on this site has a computable price momentum, so nothing here forecasts a price."
+      "residential and investment fit are the weakest drafts on this record and need the broker before they go live. Residential leans on straight-line distance to the city anchors, computed from seed coordinates that scripts/seed-cities.ts calls approximate and from anchor coordinates data/cities.json still flags for verification — not drive times, and not amenities, services or who lives there, none of which the data holds. Investment is a reading of position only: no locality on this site has a computable price momentum, so nothing here forecasts a price.",
+      "askingRange removed: it was the price-band seed from scripts/seed-cities.ts, one of four pairs shared across all 84 localities, and it rendered on indexed pages as \"Market asking range\". A real range is a dated observation of what sellers are asking, which is the same evidence priceObservations needs; add it there and here together."
     ],
     "rateRefs": [
       {
@@ -760,12 +710,6 @@
     "lat": 26.76,
     "lng": 82.15,
     "priceBand": "mid",
-    "askingRange": {
-      "low": 4500,
-      "high": 9000,
-      "unit": "sqft",
-      "asOf": "2026-09-01"
-    },
     "circleRate": {
       "residential": 12000,
       "commercial": 24000,
@@ -795,7 +739,8 @@
     "todo": [
       "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative and score are placeholders by price band",
       "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages",
-      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder."
+      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder.",
+      "askingRange removed: it was the price-band seed from scripts/seed-cities.ts, one of four pairs shared across all 84 localities, and it rendered on indexed pages as \"Market asking range\". A real range is a dated observation of what sellers are asking, which is the same evidence priceObservations needs; add it there and here together."
     ],
     "roadSegmentRefs": [
       {
@@ -841,12 +786,6 @@
     "lat": 26.755,
     "lng": 82.16,
     "priceBand": "high",
-    "askingRange": {
-      "low": 7000,
-      "high": 13000,
-      "unit": "sqft",
-      "asOf": "2026-09-01"
-    },
     "circleRate": {
       "residential": 18000,
       "commercial": 36000,
@@ -876,7 +815,8 @@
     "todo": [
       "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative and score are placeholders by price band",
       "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages",
-      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder."
+      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder.",
+      "askingRange removed: it was the price-band seed from scripts/seed-cities.ts, one of four pairs shared across all 84 localities, and it rendered on indexed pages as \"Market asking range\". A real range is a dated observation of what sellers are asking, which is the same evidence priceObservations needs; add it there and here together."
     ],
     "roadSegmentRefs": [
       {
@@ -904,12 +844,6 @@
     "lat": 26.77,
     "lng": 82.11,
     "priceBand": "mid",
-    "askingRange": {
-      "low": 4500,
-      "high": 9000,
-      "unit": "sqft",
-      "asOf": "2026-09-01"
-    },
     "circleRate": {
       "residential": 12000,
       "commercial": 24000,
@@ -939,7 +873,8 @@
     "todo": [
       "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative and score are placeholders by price band",
       "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages",
-      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder."
+      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder.",
+      "askingRange removed: it was the price-band seed from scripts/seed-cities.ts, one of four pairs shared across all 84 localities, and it rendered on indexed pages as \"Market asking range\". A real range is a dated observation of what sellers are asking, which is the same evidence priceObservations needs; add it there and here together."
     ],
     "roadSegmentRefs": [
       {
@@ -973,12 +908,6 @@
     "lat": 26.7,
     "lng": 82.06,
     "priceBand": "low",
-    "askingRange": {
-      "low": 1500,
-      "high": 3500,
-      "unit": "sqft",
-      "asOf": "2026-09-01"
-    },
     "landUse": "mixed",
     "landUseSource": "IGRSUP 2025-06-07 (semi-urban town area)",
     "narrative": {
@@ -1004,7 +933,8 @@
       "Upgrade status to live only with the ADA Master Plan land use, drive times, and the broker's own reading of the market in both languages. The narrative here describes what the 2025 list shows and nothing beyond it.",
       "Seed record said tehsil Bikapur; corrected to Sadar against the 2025-06-07 list, where गोशाईगंज is the टाउन एरिया ward in the Sadar SRO.",
       "landUse was 'agricultural', which is wrong for a town area; set to 'mixed' from the list. Confirm against the master plan and update landUseSource.",
-      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder."
+      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder.",
+      "askingRange removed: it was the price-band seed from scripts/seed-cities.ts, one of four pairs shared across all 84 localities, and it rendered on indexed pages as \"Market asking range\". A real range is a dated observation of what sellers are asking, which is the same evidence priceObservations needs; add it there and here together."
     ],
     "rateRefs": [
       {
@@ -1073,12 +1003,6 @@
     "lat": 26.7,
     "lng": 82.12,
     "priceBand": "low",
-    "askingRange": {
-      "low": 1500,
-      "high": 3500,
-      "unit": "sqft",
-      "asOf": "2026-09-01"
-    },
     "landUse": "mixed",
     "landUseSource": "IGRSUP 2025-06-07 (semi-urban)",
     "narrative": {
@@ -1103,7 +1027,8 @@
       "Narrative drafted from the published 2025 rate list only — the rows, their categories and the priced road segments. It contains no local market knowledge and no claim about who buys here or why; the broker should read it, correct it and add that. status stays \"draft\" so the page renders noindex and out of the sitemaps until he does.",
       "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder.",
       "fit carries commercial only. The rating and reason come from the published schedule — the shop rate and whether a corridor through the locality is priced above it — not from trade, footfall or demand, which no schedule records. residential and investment are deliberately absent: they need amenities and a price series the data does not have. Confirm the commercial read and supply the other two.",
-      "residential and investment fit are the weakest drafts on this record and need the broker before they go live. Residential leans on straight-line distance to the city anchors, computed from seed coordinates that scripts/seed-cities.ts calls approximate and from anchor coordinates data/cities.json still flags for verification — not drive times, and not amenities, services or who lives there, none of which the data holds. Investment is a reading of position only: no locality on this site has a computable price momentum, so nothing here forecasts a price."
+      "residential and investment fit are the weakest drafts on this record and need the broker before they go live. Residential leans on straight-line distance to the city anchors, computed from seed coordinates that scripts/seed-cities.ts calls approximate and from anchor coordinates data/cities.json still flags for verification — not drive times, and not amenities, services or who lives there, none of which the data holds. Investment is a reading of position only: no locality on this site has a computable price momentum, so nothing here forecasts a price.",
+      "askingRange removed: it was the price-band seed from scripts/seed-cities.ts, one of four pairs shared across all 84 localities, and it rendered on indexed pages as \"Market asking range\". A real range is a dated observation of what sellers are asking, which is the same evidence priceObservations needs; add it there and here together."
     ],
     "rateRefs": [
       {
@@ -1147,12 +1072,6 @@
     "lat": 26.76,
     "lng": 82.06,
     "priceBand": "low",
-    "askingRange": {
-      "low": 1500,
-      "high": 3500,
-      "unit": "sqft",
-      "asOf": "2026-09-01"
-    },
     "landUse": "agricultural",
     "landUseSource": "IGRSUP 2025-06-07 (rural)",
     "narrative": {
@@ -1177,7 +1096,8 @@
       "Narrative drafted from the published 2025 rate list only — the rows, their categories and the priced road segments. It contains no local market knowledge and no claim about who buys here or why; the broker should read it, correct it and add that. status stays \"draft\" so the page renders noindex and out of the sitemaps until he does.",
       "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder.",
       "fit carries commercial only. The rating and reason come from the published schedule — the shop rate and whether a corridor through the locality is priced above it — not from trade, footfall or demand, which no schedule records. residential and investment are deliberately absent: they need amenities and a price series the data does not have. Confirm the commercial read and supply the other two.",
-      "residential and investment fit are the weakest drafts on this record and need the broker before they go live. Residential leans on straight-line distance to the city anchors, computed from seed coordinates that scripts/seed-cities.ts calls approximate and from anchor coordinates data/cities.json still flags for verification — not drive times, and not amenities, services or who lives there, none of which the data holds. Investment is a reading of position only: no locality on this site has a computable price momentum, so nothing here forecasts a price."
+      "residential and investment fit are the weakest drafts on this record and need the broker before they go live. Residential leans on straight-line distance to the city anchors, computed from seed coordinates that scripts/seed-cities.ts calls approximate and from anchor coordinates data/cities.json still flags for verification — not drive times, and not amenities, services or who lives there, none of which the data holds. Investment is a reading of position only: no locality on this site has a computable price momentum, so nothing here forecasts a price.",
+      "askingRange removed: it was the price-band seed from scripts/seed-cities.ts, one of four pairs shared across all 84 localities, and it rendered on indexed pages as \"Market asking range\". A real range is a dated observation of what sellers are asking, which is the same evidence priceObservations needs; add it there and here together."
     ],
     "rateRefs": [
       {
@@ -1213,12 +1133,6 @@
     "lat": 26.74,
     "lng": 82.15,
     "priceBand": "low",
-    "askingRange": {
-      "low": 1500,
-      "high": 3500,
-      "unit": "sqft",
-      "asOf": "2026-09-01"
-    },
     "circleRate": {
       "residential": 6000,
       "commercial": 12000,
@@ -1248,7 +1162,8 @@
     "todo": [
       "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative and score are placeholders by price band",
       "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages",
-      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder."
+      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder.",
+      "askingRange removed: it was the price-band seed from scripts/seed-cities.ts, one of four pairs shared across all 84 localities, and it rendered on indexed pages as \"Market asking range\". A real range is a dated observation of what sellers are asking, which is the same evidence priceObservations needs; add it there and here together."
     ]
   },
   {
@@ -1262,12 +1177,6 @@
     "lat": 26.745,
     "lng": 82.135,
     "priceBand": "mid",
-    "askingRange": {
-      "low": 4500,
-      "high": 9000,
-      "unit": "sqft",
-      "asOf": "2026-09-01"
-    },
     "circleRate": {
       "residential": 12000,
       "commercial": 24000,
@@ -1297,7 +1206,8 @@
     "todo": [
       "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative and score are placeholders by price band",
       "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages",
-      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder."
+      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder.",
+      "askingRange removed: it was the price-band seed from scripts/seed-cities.ts, one of four pairs shared across all 84 localities, and it rendered on indexed pages as \"Market asking range\". A real range is a dated observation of what sellers are asking, which is the same evidence priceObservations needs; add it there and here together."
     ]
   },
   {
@@ -1311,12 +1221,6 @@
     "lat": 26.785,
     "lng": 82.23,
     "priceBand": "low",
-    "askingRange": {
-      "low": 1500,
-      "high": 3500,
-      "unit": "sqft",
-      "asOf": "2026-09-01"
-    },
     "circleRate": {
       "residential": 6000,
       "commercial": 12000,
@@ -1346,7 +1250,8 @@
     "todo": [
       "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative and score are placeholders by price band",
       "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages",
-      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder."
+      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder.",
+      "askingRange removed: it was the price-band seed from scripts/seed-cities.ts, one of four pairs shared across all 84 localities, and it rendered on indexed pages as \"Market asking range\". A real range is a dated observation of what sellers are asking, which is the same evidence priceObservations needs; add it there and here together."
     ],
     "roadSegmentRefs": [
       {
@@ -1395,12 +1300,6 @@
     "lat": 26.74,
     "lng": 82.24,
     "priceBand": "low",
-    "askingRange": {
-      "low": 1500,
-      "high": 3500,
-      "unit": "sqft",
-      "asOf": "2026-09-01"
-    },
     "landUse": "mixed",
     "landUseSource": "IGRSUP 2025-06-07 (semi-urban)",
     "narrative": {
@@ -1425,7 +1324,8 @@
       "Narrative drafted from the published 2025 rate list only — the rows, their categories and the priced road segments. It contains no local market knowledge and no claim about who buys here or why; the broker should read it, correct it and add that. status stays \"draft\" so the page renders noindex and out of the sitemaps until he does.",
       "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder.",
       "fit carries commercial only. The rating and reason come from the published schedule — the shop rate and whether a corridor through the locality is priced above it — not from trade, footfall or demand, which no schedule records. residential and investment are deliberately absent: they need amenities and a price series the data does not have. Confirm the commercial read and supply the other two.",
-      "residential and investment fit are the weakest drafts on this record and need the broker before they go live. Residential leans on straight-line distance to the city anchors, computed from seed coordinates that scripts/seed-cities.ts calls approximate and from anchor coordinates data/cities.json still flags for verification — not drive times, and not amenities, services or who lives there, none of which the data holds. Investment is a reading of position only: no locality on this site has a computable price momentum, so nothing here forecasts a price."
+      "residential and investment fit are the weakest drafts on this record and need the broker before they go live. Residential leans on straight-line distance to the city anchors, computed from seed coordinates that scripts/seed-cities.ts calls approximate and from anchor coordinates data/cities.json still flags for verification — not drive times, and not amenities, services or who lives there, none of which the data holds. Investment is a reading of position only: no locality on this site has a computable price momentum, so nothing here forecasts a price.",
+      "askingRange removed: it was the price-band seed from scripts/seed-cities.ts, one of four pairs shared across all 84 localities, and it rendered on indexed pages as \"Market asking range\". A real range is a dated observation of what sellers are asking, which is the same evidence priceObservations needs; add it there and here together."
     ],
     "rateRefs": [
       {
@@ -1461,12 +1361,6 @@
     "lat": 26.72,
     "lng": 82.25,
     "priceBand": "low",
-    "askingRange": {
-      "low": 1500,
-      "high": 3500,
-      "unit": "sqft",
-      "asOf": "2026-09-01"
-    },
     "landUse": "agricultural",
     "landUseSource": "IGRSUP 2025-06-07 (rural)",
     "narrative": {
@@ -1492,7 +1386,8 @@
       "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder.",
       "Seed record said tehsil Sadar; corrected to Sohawal against the 2025-06-07 list, where every भदरसा row sits in the Sohawal SRO.",
       "fit carries commercial only. The rating and reason come from the published schedule — the shop rate and whether a corridor through the locality is priced above it — not from trade, footfall or demand, which no schedule records. residential and investment are deliberately absent: they need amenities and a price series the data does not have. Confirm the commercial read and supply the other two.",
-      "residential and investment fit are the weakest drafts on this record and need the broker before they go live. Residential leans on straight-line distance to the city anchors, computed from seed coordinates that scripts/seed-cities.ts calls approximate and from anchor coordinates data/cities.json still flags for verification — not drive times, and not amenities, services or who lives there, none of which the data holds. Investment is a reading of position only: no locality on this site has a computable price momentum, so nothing here forecasts a price."
+      "residential and investment fit are the weakest drafts on this record and need the broker before they go live. Residential leans on straight-line distance to the city anchors, computed from seed coordinates that scripts/seed-cities.ts calls approximate and from anchor coordinates data/cities.json still flags for verification — not drive times, and not amenities, services or who lives there, none of which the data holds. Investment is a reading of position only: no locality on this site has a computable price momentum, so nothing here forecasts a price.",
+      "askingRange removed: it was the price-band seed from scripts/seed-cities.ts, one of four pairs shared across all 84 localities, and it rendered on indexed pages as \"Market asking range\". A real range is a dated observation of what sellers are asking, which is the same evidence priceObservations needs; add it there and here together."
     ],
     "rateRefs": [
       {
@@ -1539,12 +1434,6 @@
     "lat": 26.775,
     "lng": 82.09,
     "priceBand": "low",
-    "askingRange": {
-      "low": 1500,
-      "high": 3500,
-      "unit": "sqft",
-      "asOf": "2026-09-01"
-    },
     "circleRate": {
       "residential": 6000,
       "commercial": 12000,
@@ -1574,7 +1463,8 @@
     "todo": [
       "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative and score are placeholders by price band",
       "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages",
-      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder."
+      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder.",
+      "askingRange removed: it was the price-band seed from scripts/seed-cities.ts, one of four pairs shared across all 84 localities, and it rendered on indexed pages as \"Market asking range\". A real range is a dated observation of what sellers are asking, which is the same evidence priceObservations needs; add it there and here together."
     ]
   },
   {
@@ -1588,12 +1478,6 @@
     "lat": 26.7,
     "lng": 82.18,
     "priceBand": "low",
-    "askingRange": {
-      "low": 1500,
-      "high": 3500,
-      "unit": "sqft",
-      "asOf": "2026-09-01"
-    },
     "circleRate": {
       "residential": 6000,
       "commercial": 12000,
@@ -1623,7 +1507,8 @@
     "todo": [
       "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative and score are placeholders by price band",
       "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages",
-      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder."
+      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder.",
+      "askingRange removed: it was the price-band seed from scripts/seed-cities.ts, one of four pairs shared across all 84 localities, and it rendered on indexed pages as \"Market asking range\". A real range is a dated observation of what sellers are asking, which is the same evidence priceObservations needs; add it there and here together."
     ],
     "roadSegmentRefs": [
       {
@@ -1651,12 +1536,6 @@
     "lat": 26.85,
     "lng": 81,
     "priceBand": "premium",
-    "askingRange": {
-      "low": 12000,
-      "high": 25000,
-      "unit": "sqft",
-      "asOf": "2026-09-01"
-    },
     "circleRate": {
       "residential": 30000,
       "commercial": 60000,
@@ -1686,7 +1565,8 @@
     "todo": [
       "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative and score are placeholders by price band",
       "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages",
-      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder."
+      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder.",
+      "askingRange removed: it was the price-band seed from scripts/seed-cities.ts, one of four pairs shared across all 84 localities, and it rendered on indexed pages as \"Market asking range\". A real range is a dated observation of what sellers are asking, which is the same evidence priceObservations needs; add it there and here together."
     ]
   },
   {
@@ -1700,12 +1580,6 @@
     "lat": 26.85,
     "lng": 81.04,
     "priceBand": "high",
-    "askingRange": {
-      "low": 7000,
-      "high": 13000,
-      "unit": "sqft",
-      "asOf": "2026-09-01"
-    },
     "circleRate": {
       "residential": 18000,
       "commercial": 36000,
@@ -1735,7 +1609,8 @@
     "todo": [
       "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative and score are placeholders by price band",
       "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages",
-      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder."
+      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder.",
+      "askingRange removed: it was the price-band seed from scripts/seed-cities.ts, one of four pairs shared across all 84 localities, and it rendered on indexed pages as \"Market asking range\". A real range is a dated observation of what sellers are asking, which is the same evidence priceObservations needs; add it there and here together."
     ]
   },
   {
@@ -1749,12 +1624,6 @@
     "lat": 26.79,
     "lng": 81.01,
     "priceBand": "high",
-    "askingRange": {
-      "low": 7000,
-      "high": 13000,
-      "unit": "sqft",
-      "asOf": "2026-09-01"
-    },
     "circleRate": {
       "residential": 18000,
       "commercial": 36000,
@@ -1784,7 +1653,8 @@
     "todo": [
       "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative and score are placeholders by price band",
       "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages",
-      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder."
+      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder.",
+      "askingRange removed: it was the price-band seed from scripts/seed-cities.ts, one of four pairs shared across all 84 localities, and it rendered on indexed pages as \"Market asking range\". A real range is a dated observation of what sellers are asking, which is the same evidence priceObservations needs; add it there and here together."
     ]
   },
   {
@@ -1798,12 +1668,6 @@
     "lat": 26.815,
     "lng": 81,
     "priceBand": "premium",
-    "askingRange": {
-      "low": 12000,
-      "high": 25000,
-      "unit": "sqft",
-      "asOf": "2026-09-01"
-    },
     "circleRate": {
       "residential": 30000,
       "commercial": 60000,
@@ -1833,7 +1697,8 @@
     "todo": [
       "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative and score are placeholders by price band",
       "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages",
-      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder."
+      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder.",
+      "askingRange removed: it was the price-band seed from scripts/seed-cities.ts, one of four pairs shared across all 84 localities, and it rendered on indexed pages as \"Market asking range\". A real range is a dated observation of what sellers are asking, which is the same evidence priceObservations needs; add it there and here together."
     ]
   },
   {
@@ -1847,12 +1712,6 @@
     "lat": 26.78,
     "lng": 80.95,
     "priceBand": "mid",
-    "askingRange": {
-      "low": 4500,
-      "high": 9000,
-      "unit": "sqft",
-      "asOf": "2026-09-01"
-    },
     "circleRate": {
       "residential": 12000,
       "commercial": 24000,
@@ -1882,7 +1741,8 @@
     "todo": [
       "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative and score are placeholders by price band",
       "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages",
-      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder."
+      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder.",
+      "askingRange removed: it was the price-band seed from scripts/seed-cities.ts, one of four pairs shared across all 84 localities, and it rendered on indexed pages as \"Market asking range\". A real range is a dated observation of what sellers are asking, which is the same evidence priceObservations needs; add it there and here together."
     ]
   },
   {
@@ -1896,12 +1756,6 @@
     "lat": 26.8,
     "lng": 80.89,
     "priceBand": "mid",
-    "askingRange": {
-      "low": 4500,
-      "high": 9000,
-      "unit": "sqft",
-      "asOf": "2026-09-01"
-    },
     "circleRate": {
       "residential": 12000,
       "commercial": 24000,
@@ -1931,7 +1785,8 @@
     "todo": [
       "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative and score are placeholders by price band",
       "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages",
-      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder."
+      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder.",
+      "askingRange removed: it was the price-band seed from scripts/seed-cities.ts, one of four pairs shared across all 84 localities, and it rendered on indexed pages as \"Market asking range\". A real range is a dated observation of what sellers are asking, which is the same evidence priceObservations needs; add it there and here together."
     ]
   },
   {
@@ -1945,12 +1800,6 @@
     "lat": 26.84,
     "lng": 80.85,
     "priceBand": "low",
-    "askingRange": {
-      "low": 1500,
-      "high": 3500,
-      "unit": "sqft",
-      "asOf": "2026-09-01"
-    },
     "circleRate": {
       "residential": 6000,
       "commercial": 12000,
@@ -1980,7 +1829,8 @@
     "todo": [
       "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative and score are placeholders by price band",
       "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages",
-      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder."
+      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder.",
+      "askingRange removed: it was the price-band seed from scripts/seed-cities.ts, one of four pairs shared across all 84 localities, and it rendered on indexed pages as \"Market asking range\". A real range is a dated observation of what sellers are asking, which is the same evidence priceObservations needs; add it there and here together."
     ]
   },
   {
@@ -1994,12 +1844,6 @@
     "lat": 26.88,
     "lng": 81.05,
     "priceBand": "mid",
-    "askingRange": {
-      "low": 4500,
-      "high": 9000,
-      "unit": "sqft",
-      "asOf": "2026-09-01"
-    },
     "circleRate": {
       "residential": 12000,
       "commercial": 24000,
@@ -2029,7 +1873,8 @@
     "todo": [
       "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative and score are placeholders by price band",
       "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages",
-      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder."
+      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder.",
+      "askingRange removed: it was the price-band seed from scripts/seed-cities.ts, one of four pairs shared across all 84 localities, and it rendered on indexed pages as \"Market asking range\". A real range is a dated observation of what sellers are asking, which is the same evidence priceObservations needs; add it there and here together."
     ]
   },
   {
@@ -2043,12 +1888,6 @@
     "lat": 26.88,
     "lng": 81.02,
     "priceBand": "high",
-    "askingRange": {
-      "low": 7000,
-      "high": 13000,
-      "unit": "sqft",
-      "asOf": "2026-09-01"
-    },
     "circleRate": {
       "residential": 18000,
       "commercial": 36000,
@@ -2078,7 +1917,8 @@
     "todo": [
       "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative and score are placeholders by price band",
       "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages",
-      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder."
+      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder.",
+      "askingRange removed: it was the price-band seed from scripts/seed-cities.ts, one of four pairs shared across all 84 localities, and it rendered on indexed pages as \"Market asking range\". A real range is a dated observation of what sellers are asking, which is the same evidence priceObservations needs; add it there and here together."
     ]
   },
   {
@@ -2092,12 +1932,6 @@
     "lat": 26.92,
     "lng": 80.94,
     "priceBand": "mid",
-    "askingRange": {
-      "low": 4500,
-      "high": 9000,
-      "unit": "sqft",
-      "asOf": "2026-09-01"
-    },
     "circleRate": {
       "residential": 12000,
       "commercial": 24000,
@@ -2127,7 +1961,8 @@
     "todo": [
       "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative and score are placeholders by price band",
       "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages",
-      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder."
+      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder.",
+      "askingRange removed: it was the price-band seed from scripts/seed-cities.ts, one of four pairs shared across all 84 localities, and it rendered on indexed pages as \"Market asking range\". A real range is a dated observation of what sellers are asking, which is the same evidence priceObservations needs; add it there and here together."
     ]
   },
   {
@@ -2141,12 +1976,6 @@
     "lat": 26.89,
     "lng": 80.88,
     "priceBand": "low",
-    "askingRange": {
-      "low": 1500,
-      "high": 3500,
-      "unit": "sqft",
-      "asOf": "2026-09-01"
-    },
     "circleRate": {
       "residential": 6000,
       "commercial": 12000,
@@ -2176,7 +2005,8 @@
     "todo": [
       "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative and score are placeholders by price band",
       "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages",
-      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder."
+      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder.",
+      "askingRange removed: it was the price-band seed from scripts/seed-cities.ts, one of four pairs shared across all 84 localities, and it rendered on indexed pages as \"Market asking range\". A real range is a dated observation of what sellers are asking, which is the same evidence priceObservations needs; add it there and here together."
     ]
   },
   {
@@ -2190,12 +2020,6 @@
     "lat": 26.93,
     "lng": 80.98,
     "priceBand": "mid",
-    "askingRange": {
-      "low": 4500,
-      "high": 9000,
-      "unit": "sqft",
-      "asOf": "2026-09-01"
-    },
     "circleRate": {
       "residential": 12000,
       "commercial": 24000,
@@ -2225,7 +2049,8 @@
     "todo": [
       "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative and score are placeholders by price band",
       "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages",
-      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder."
+      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder.",
+      "askingRange removed: it was the price-band seed from scripts/seed-cities.ts, one of four pairs shared across all 84 localities, and it rendered on indexed pages as \"Market asking range\". A real range is a dated observation of what sellers are asking, which is the same evidence priceObservations needs; add it there and here together."
     ]
   },
   {
@@ -2239,12 +2064,6 @@
     "lat": 26.93,
     "lng": 80.91,
     "priceBand": "mid",
-    "askingRange": {
-      "low": 4500,
-      "high": 9000,
-      "unit": "sqft",
-      "asOf": "2026-09-01"
-    },
     "circleRate": {
       "residential": 12000,
       "commercial": 24000,
@@ -2274,7 +2093,8 @@
     "todo": [
       "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative and score are placeholders by price band",
       "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages",
-      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder."
+      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder.",
+      "askingRange removed: it was the price-band seed from scripts/seed-cities.ts, one of four pairs shared across all 84 localities, and it rendered on indexed pages as \"Market asking range\". A real range is a dated observation of what sellers are asking, which is the same evidence priceObservations needs; add it there and here together."
     ]
   },
   {
@@ -2288,12 +2108,6 @@
     "lat": 26.77,
     "lng": 80.89,
     "priceBand": "high",
-    "askingRange": {
-      "low": 7000,
-      "high": 13000,
-      "unit": "sqft",
-      "asOf": "2026-09-01"
-    },
     "circleRate": {
       "residential": 18000,
       "commercial": 36000,
@@ -2323,7 +2137,8 @@
     "todo": [
       "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative and score are placeholders by price band",
       "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages",
-      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder."
+      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder.",
+      "askingRange removed: it was the price-band seed from scripts/seed-cities.ts, one of four pairs shared across all 84 localities, and it rendered on indexed pages as \"Market asking range\". A real range is a dated observation of what sellers are asking, which is the same evidence priceObservations needs; add it there and here together."
     ]
   },
   {
@@ -2337,12 +2152,6 @@
     "lat": 26.78,
     "lng": 81.02,
     "priceBand": "premium",
-    "askingRange": {
-      "low": 12000,
-      "high": 25000,
-      "unit": "sqft",
-      "asOf": "2026-09-01"
-    },
     "circleRate": {
       "residential": 30000,
       "commercial": 60000,
@@ -2372,7 +2181,8 @@
     "todo": [
       "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative and score are placeholders by price band",
       "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages",
-      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder."
+      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder.",
+      "askingRange removed: it was the price-band seed from scripts/seed-cities.ts, one of four pairs shared across all 84 localities, and it rendered on indexed pages as \"Market asking range\". A real range is a dated observation of what sellers are asking, which is the same evidence priceObservations needs; add it there and here together."
     ]
   },
   {
@@ -2386,12 +2196,6 @@
     "lat": 26.77,
     "lng": 80.96,
     "priceBand": "high",
-    "askingRange": {
-      "low": 7000,
-      "high": 13000,
-      "unit": "sqft",
-      "asOf": "2026-09-01"
-    },
     "circleRate": {
       "residential": 18000,
       "commercial": 36000,
@@ -2421,7 +2225,8 @@
     "todo": [
       "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative and score are placeholders by price band",
       "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages",
-      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder."
+      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder.",
+      "askingRange removed: it was the price-band seed from scripts/seed-cities.ts, one of four pairs shared across all 84 localities, and it rendered on indexed pages as \"Market asking range\". A real range is a dated observation of what sellers are asking, which is the same evidence priceObservations needs; add it there and here together."
     ]
   },
   {
@@ -2435,12 +2240,6 @@
     "lat": 26.91,
     "lng": 80.95,
     "priceBand": "high",
-    "askingRange": {
-      "low": 7000,
-      "high": 13000,
-      "unit": "sqft",
-      "asOf": "2026-09-01"
-    },
     "circleRate": {
       "residential": 18000,
       "commercial": 36000,
@@ -2470,7 +2269,8 @@
     "todo": [
       "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative and score are placeholders by price band",
       "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages",
-      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder."
+      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder.",
+      "askingRange removed: it was the price-band seed from scripts/seed-cities.ts, one of four pairs shared across all 84 localities, and it rendered on indexed pages as \"Market asking range\". A real range is a dated observation of what sellers are asking, which is the same evidence priceObservations needs; add it there and here together."
     ]
   },
   {
@@ -2484,12 +2284,6 @@
     "lat": 26.89,
     "lng": 80.94,
     "priceBand": "premium",
-    "askingRange": {
-      "low": 12000,
-      "high": 25000,
-      "unit": "sqft",
-      "asOf": "2026-09-01"
-    },
     "circleRate": {
       "residential": 30000,
       "commercial": 60000,
@@ -2519,7 +2313,8 @@
     "todo": [
       "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative and score are placeholders by price band",
       "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages",
-      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder."
+      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder.",
+      "askingRange removed: it was the price-band seed from scripts/seed-cities.ts, one of four pairs shared across all 84 localities, and it rendered on indexed pages as \"Market asking range\". A real range is a dated observation of what sellers are asking, which is the same evidence priceObservations needs; add it there and here together."
     ]
   },
   {
@@ -2533,12 +2328,6 @@
     "lat": 26.88,
     "lng": 80.99,
     "priceBand": "premium",
-    "askingRange": {
-      "low": 12000,
-      "high": 25000,
-      "unit": "sqft",
-      "asOf": "2026-09-01"
-    },
     "circleRate": {
       "residential": 30000,
       "commercial": 60000,
@@ -2568,7 +2357,8 @@
     "todo": [
       "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative and score are placeholders by price band",
       "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages",
-      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder."
+      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder.",
+      "askingRange removed: it was the price-band seed from scripts/seed-cities.ts, one of four pairs shared across all 84 localities, and it rendered on indexed pages as \"Market asking range\". A real range is a dated observation of what sellers are asking, which is the same evidence priceObservations needs; add it there and here together."
     ]
   },
   {
@@ -2582,12 +2372,6 @@
     "lat": 26.885,
     "lng": 81.04,
     "priceBand": "mid",
-    "askingRange": {
-      "low": 4500,
-      "high": 9000,
-      "unit": "sqft",
-      "asOf": "2026-09-01"
-    },
     "circleRate": {
       "residential": 12000,
       "commercial": 24000,
@@ -2617,7 +2401,8 @@
     "todo": [
       "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative and score are placeholders by price band",
       "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages",
-      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder."
+      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder.",
+      "askingRange removed: it was the price-band seed from scripts/seed-cities.ts, one of four pairs shared across all 84 localities, and it rendered on indexed pages as \"Market asking range\". A real range is a dated observation of what sellers are asking, which is the same evidence priceObservations needs; add it there and here together."
     ]
   },
   {
@@ -2631,12 +2416,6 @@
     "lat": 26.9,
     "lng": 80.82,
     "priceBand": "low",
-    "askingRange": {
-      "low": 1500,
-      "high": 3500,
-      "unit": "sqft",
-      "asOf": "2026-09-01"
-    },
     "circleRate": {
       "residential": 6000,
       "commercial": 12000,
@@ -2666,7 +2445,8 @@
     "todo": [
       "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative and score are placeholders by price band",
       "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages",
-      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder."
+      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder.",
+      "askingRange removed: it was the price-band seed from scripts/seed-cities.ts, one of four pairs shared across all 84 localities, and it rendered on indexed pages as \"Market asking range\". A real range is a dated observation of what sellers are asking, which is the same evidence priceObservations needs; add it there and here together."
     ]
   },
   {
@@ -2680,12 +2460,6 @@
     "lat": 26.87,
     "lng": 80.86,
     "priceBand": "low",
-    "askingRange": {
-      "low": 1500,
-      "high": 3500,
-      "unit": "sqft",
-      "asOf": "2026-09-01"
-    },
     "circleRate": {
       "residential": 6000,
       "commercial": 12000,
@@ -2715,7 +2489,8 @@
     "todo": [
       "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative and score are placeholders by price band",
       "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages",
-      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder."
+      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder.",
+      "askingRange removed: it was the price-band seed from scripts/seed-cities.ts, one of four pairs shared across all 84 localities, and it rendered on indexed pages as \"Market asking range\". A real range is a dated observation of what sellers are asking, which is the same evidence priceObservations needs; add it there and here together."
     ]
   },
   {
@@ -2729,12 +2504,6 @@
     "lat": 26.8,
     "lng": 80.9,
     "priceBand": "mid",
-    "askingRange": {
-      "low": 4500,
-      "high": 9000,
-      "unit": "sqft",
-      "asOf": "2026-09-01"
-    },
     "circleRate": {
       "residential": 12000,
       "commercial": 24000,
@@ -2764,7 +2533,8 @@
     "todo": [
       "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative and score are placeholders by price band",
       "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages",
-      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder."
+      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder.",
+      "askingRange removed: it was the price-band seed from scripts/seed-cities.ts, one of four pairs shared across all 84 localities, and it rendered on indexed pages as \"Market asking range\". A real range is a dated observation of what sellers are asking, which is the same evidence priceObservations needs; add it there and here together."
     ]
   },
   {
@@ -2778,12 +2548,6 @@
     "lat": 26.8,
     "lng": 80.93,
     "priceBand": "high",
-    "askingRange": {
-      "low": 7000,
-      "high": 13000,
-      "unit": "sqft",
-      "asOf": "2026-09-01"
-    },
     "circleRate": {
       "residential": 18000,
       "commercial": 36000,
@@ -2813,7 +2577,8 @@
     "todo": [
       "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative and score are placeholders by price band",
       "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages",
-      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder."
+      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder.",
+      "askingRange removed: it was the price-band seed from scripts/seed-cities.ts, one of four pairs shared across all 84 localities, and it rendered on indexed pages as \"Market asking range\". A real range is a dated observation of what sellers are asking, which is the same evidence priceObservations needs; add it there and here together."
     ]
   },
   {
@@ -2827,12 +2592,6 @@
     "lat": 26.82,
     "lng": 80.91,
     "priceBand": "high",
-    "askingRange": {
-      "low": 7000,
-      "high": 13000,
-      "unit": "sqft",
-      "asOf": "2026-09-01"
-    },
     "circleRate": {
       "residential": 18000,
       "commercial": 36000,
@@ -2862,7 +2621,8 @@
     "todo": [
       "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative and score are placeholders by price band",
       "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages",
-      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder."
+      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder.",
+      "askingRange removed: it was the price-band seed from scripts/seed-cities.ts, one of four pairs shared across all 84 localities, and it rendered on indexed pages as \"Market asking range\". A real range is a dated observation of what sellers are asking, which is the same evidence priceObservations needs; add it there and here together."
     ]
   },
   {
@@ -2876,12 +2636,6 @@
     "lat": 26.87,
     "lng": 80.96,
     "priceBand": "premium",
-    "askingRange": {
-      "low": 12000,
-      "high": 25000,
-      "unit": "sqft",
-      "asOf": "2026-09-01"
-    },
     "circleRate": {
       "residential": 30000,
       "commercial": 60000,
@@ -2911,7 +2665,8 @@
     "todo": [
       "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative and score are placeholders by price band",
       "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages",
-      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder."
+      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder.",
+      "askingRange removed: it was the price-band seed from scripts/seed-cities.ts, one of four pairs shared across all 84 localities, and it rendered on indexed pages as \"Market asking range\". A real range is a dated observation of what sellers are asking, which is the same evidence priceObservations needs; add it there and here together."
     ]
   },
   {
@@ -2925,12 +2680,6 @@
     "lat": 26.85,
     "lng": 80.945,
     "priceBand": "premium",
-    "askingRange": {
-      "low": 12000,
-      "high": 25000,
-      "unit": "sqft",
-      "asOf": "2026-09-01"
-    },
     "circleRate": {
       "residential": 30000,
       "commercial": 60000,
@@ -2960,7 +2709,8 @@
     "todo": [
       "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative and score are placeholders by price band",
       "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages",
-      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder."
+      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder.",
+      "askingRange removed: it was the price-band seed from scripts/seed-cities.ts, one of four pairs shared across all 84 localities, and it rendered on indexed pages as \"Market asking range\". A real range is a dated observation of what sellers are asking, which is the same evidence priceObservations needs; add it there and here together."
     ]
   },
   {
@@ -2974,12 +2724,6 @@
     "lat": 26.86,
     "lng": 81.01,
     "priceBand": "premium",
-    "askingRange": {
-      "low": 12000,
-      "high": 25000,
-      "unit": "sqft",
-      "asOf": "2026-09-01"
-    },
     "circleRate": {
       "residential": 30000,
       "commercial": 60000,
@@ -3009,7 +2753,8 @@
     "todo": [
       "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative and score are placeholders by price band",
       "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages",
-      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder."
+      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder.",
+      "askingRange removed: it was the price-band seed from scripts/seed-cities.ts, one of four pairs shared across all 84 localities, and it rendered on indexed pages as \"Market asking range\". A real range is a dated observation of what sellers are asking, which is the same evidence priceObservations needs; add it there and here together."
     ]
   },
   {
@@ -3023,12 +2768,6 @@
     "lat": 26.845,
     "lng": 81.01,
     "priceBand": "premium",
-    "askingRange": {
-      "low": 12000,
-      "high": 25000,
-      "unit": "sqft",
-      "asOf": "2026-09-01"
-    },
     "circleRate": {
       "residential": 30000,
       "commercial": 60000,
@@ -3058,7 +2797,8 @@
     "todo": [
       "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative and score are placeholders by price band",
       "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages",
-      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder."
+      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder.",
+      "askingRange removed: it was the price-band seed from scripts/seed-cities.ts, one of four pairs shared across all 84 localities, and it rendered on indexed pages as \"Market asking range\". A real range is a dated observation of what sellers are asking, which is the same evidence priceObservations needs; add it there and here together."
     ]
   },
   {
@@ -3072,12 +2812,6 @@
     "lat": 26.9,
     "lng": 80.96,
     "priceBand": "high",
-    "askingRange": {
-      "low": 7000,
-      "high": 13000,
-      "unit": "sqft",
-      "asOf": "2026-09-01"
-    },
     "circleRate": {
       "residential": 18000,
       "commercial": 36000,
@@ -3107,7 +2841,8 @@
     "todo": [
       "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative and score are placeholders by price band",
       "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages",
-      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder."
+      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder.",
+      "askingRange removed: it was the price-band seed from scripts/seed-cities.ts, one of four pairs shared across all 84 localities, and it rendered on indexed pages as \"Market asking range\". A real range is a dated observation of what sellers are asking, which is the same evidence priceObservations needs; add it there and here together."
     ]
   },
   {
@@ -3121,12 +2856,6 @@
     "lat": 26.79,
     "lng": 80.96,
     "priceBand": "mid",
-    "askingRange": {
-      "low": 4500,
-      "high": 9000,
-      "unit": "sqft",
-      "asOf": "2026-09-01"
-    },
     "circleRate": {
       "residential": 12000,
       "commercial": 24000,
@@ -3156,7 +2885,8 @@
     "todo": [
       "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative and score are placeholders by price band",
       "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages",
-      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder."
+      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder.",
+      "askingRange removed: it was the price-band seed from scripts/seed-cities.ts, one of four pairs shared across all 84 localities, and it rendered on indexed pages as \"Market asking range\". A real range is a dated observation of what sellers are asking, which is the same evidence priceObservations needs; add it there and here together."
     ]
   },
   {
@@ -3170,12 +2900,6 @@
     "lat": 26.8,
     "lng": 80.945,
     "priceBand": "mid",
-    "askingRange": {
-      "low": 4500,
-      "high": 9000,
-      "unit": "sqft",
-      "asOf": "2026-09-01"
-    },
     "circleRate": {
       "residential": 12000,
       "commercial": 24000,
@@ -3205,7 +2929,8 @@
     "todo": [
       "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative and score are placeholders by price band",
       "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages",
-      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder."
+      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder.",
+      "askingRange removed: it was the price-band seed from scripts/seed-cities.ts, one of four pairs shared across all 84 localities, and it rendered on indexed pages as \"Market asking range\". A real range is a dated observation of what sellers are asking, which is the same evidence priceObservations needs; add it there and here together."
     ]
   },
   {
@@ -3219,12 +2944,6 @@
     "lat": 26.78,
     "lng": 80.88,
     "priceBand": "mid",
-    "askingRange": {
-      "low": 4500,
-      "high": 9000,
-      "unit": "sqft",
-      "asOf": "2026-09-01"
-    },
     "circleRate": {
       "residential": 12000,
       "commercial": 24000,
@@ -3254,7 +2973,8 @@
     "todo": [
       "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative and score are placeholders by price band",
       "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages",
-      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder."
+      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder.",
+      "askingRange removed: it was the price-band seed from scripts/seed-cities.ts, one of four pairs shared across all 84 localities, and it rendered on indexed pages as \"Market asking range\". A real range is a dated observation of what sellers are asking, which is the same evidence priceObservations needs; add it there and here together."
     ]
   },
   {
@@ -3268,12 +2988,6 @@
     "lat": 26.99,
     "lng": 80.92,
     "priceBand": "low",
-    "askingRange": {
-      "low": 1500,
-      "high": 3500,
-      "unit": "sqft",
-      "asOf": "2026-09-01"
-    },
     "circleRate": {
       "residential": 6000,
       "commercial": 12000,
@@ -3303,7 +3017,8 @@
     "todo": [
       "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative and score are placeholders by price band",
       "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages",
-      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder."
+      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder.",
+      "askingRange removed: it was the price-band seed from scripts/seed-cities.ts, one of four pairs shared across all 84 localities, and it rendered on indexed pages as \"Market asking range\". A real range is a dated observation of what sellers are asking, which is the same evidence priceObservations needs; add it there and here together."
     ]
   },
   {
@@ -3317,12 +3032,6 @@
     "lat": 27.04,
     "lng": 80.9,
     "priceBand": "low",
-    "askingRange": {
-      "low": 1500,
-      "high": 3500,
-      "unit": "sqft",
-      "asOf": "2026-09-01"
-    },
     "circleRate": {
       "residential": 6000,
       "commercial": 12000,
@@ -3352,7 +3061,8 @@
     "todo": [
       "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative and score are placeholders by price band",
       "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages",
-      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder."
+      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder.",
+      "askingRange removed: it was the price-band seed from scripts/seed-cities.ts, one of four pairs shared across all 84 localities, and it rendered on indexed pages as \"Market asking range\". A real range is a dated observation of what sellers are asking, which is the same evidence priceObservations needs; add it there and here together."
     ]
   },
   {
@@ -3366,12 +3076,6 @@
     "lat": 26.87,
     "lng": 80.78,
     "priceBand": "low",
-    "askingRange": {
-      "low": 1500,
-      "high": 3500,
-      "unit": "sqft",
-      "asOf": "2026-09-01"
-    },
     "circleRate": {
       "residential": 6000,
       "commercial": 12000,
@@ -3401,7 +3105,8 @@
     "todo": [
       "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative and score are placeholders by price band",
       "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages",
-      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder."
+      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder.",
+      "askingRange removed: it was the price-band seed from scripts/seed-cities.ts, one of four pairs shared across all 84 localities, and it rendered on indexed pages as \"Market asking range\". A real range is a dated observation of what sellers are asking, which is the same evidence priceObservations needs; add it there and here together."
     ]
   },
   {
@@ -3415,12 +3120,6 @@
     "lat": 26.77,
     "lng": 83.4,
     "priceBand": "high",
-    "askingRange": {
-      "low": 7000,
-      "high": 13000,
-      "unit": "sqft",
-      "asOf": "2026-09-01"
-    },
     "circleRate": {
       "residential": 18000,
       "commercial": 36000,
@@ -3450,7 +3149,8 @@
     "todo": [
       "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative and score are placeholders by price band",
       "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages",
-      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder."
+      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder.",
+      "askingRange removed: it was the price-band seed from scripts/seed-cities.ts, one of four pairs shared across all 84 localities, and it rendered on indexed pages as \"Market asking range\". A real range is a dated observation of what sellers are asking, which is the same evidence priceObservations needs; add it there and here together."
     ]
   },
   {
@@ -3464,12 +3164,6 @@
     "lat": 26.73,
     "lng": 83.43,
     "priceBand": "high",
-    "askingRange": {
-      "low": 7000,
-      "high": 13000,
-      "unit": "sqft",
-      "asOf": "2026-09-01"
-    },
     "circleRate": {
       "residential": 18000,
       "commercial": 36000,
@@ -3499,7 +3193,8 @@
     "todo": [
       "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative and score are placeholders by price band",
       "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages",
-      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder."
+      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder.",
+      "askingRange removed: it was the price-band seed from scripts/seed-cities.ts, one of four pairs shared across all 84 localities, and it rendered on indexed pages as \"Market asking range\". A real range is a dated observation of what sellers are asking, which is the same evidence priceObservations needs; add it there and here together."
     ]
   },
   {
@@ -3513,12 +3208,6 @@
     "lat": 26.74,
     "lng": 83.39,
     "priceBand": "premium",
-    "askingRange": {
-      "low": 12000,
-      "high": 25000,
-      "unit": "sqft",
-      "asOf": "2026-09-01"
-    },
     "circleRate": {
       "residential": 30000,
       "commercial": 60000,
@@ -3548,7 +3237,8 @@
     "todo": [
       "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative and score are placeholders by price band",
       "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages",
-      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder."
+      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder.",
+      "askingRange removed: it was the price-band seed from scripts/seed-cities.ts, one of four pairs shared across all 84 localities, and it rendered on indexed pages as \"Market asking range\". A real range is a dated observation of what sellers are asking, which is the same evidence priceObservations needs; add it there and here together."
     ]
   },
   {
@@ -3562,12 +3252,6 @@
     "lat": 26.74,
     "lng": 83.25,
     "priceBand": "mid",
-    "askingRange": {
-      "low": 4500,
-      "high": 9000,
-      "unit": "sqft",
-      "asOf": "2026-09-01"
-    },
     "circleRate": {
       "residential": 12000,
       "commercial": 24000,
@@ -3597,7 +3281,8 @@
     "todo": [
       "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative and score are placeholders by price band",
       "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages",
-      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder."
+      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder.",
+      "askingRange removed: it was the price-band seed from scripts/seed-cities.ts, one of four pairs shared across all 84 localities, and it rendered on indexed pages as \"Market asking range\". A real range is a dated observation of what sellers are asking, which is the same evidence priceObservations needs; add it there and here together."
     ]
   },
   {
@@ -3611,12 +3296,6 @@
     "lat": 26.72,
     "lng": 83.42,
     "priceBand": "mid",
-    "askingRange": {
-      "low": 4500,
-      "high": 9000,
-      "unit": "sqft",
-      "asOf": "2026-09-01"
-    },
     "circleRate": {
       "residential": 12000,
       "commercial": 24000,
@@ -3646,7 +3325,8 @@
     "todo": [
       "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative and score are placeholders by price band",
       "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages",
-      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder."
+      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder.",
+      "askingRange removed: it was the price-band seed from scripts/seed-cities.ts, one of four pairs shared across all 84 localities, and it rendered on indexed pages as \"Market asking range\". A real range is a dated observation of what sellers are asking, which is the same evidence priceObservations needs; add it there and here together."
     ]
   },
   {
@@ -3660,12 +3340,6 @@
     "lat": 26.77,
     "lng": 83.45,
     "priceBand": "mid",
-    "askingRange": {
-      "low": 4500,
-      "high": 9000,
-      "unit": "sqft",
-      "asOf": "2026-09-01"
-    },
     "circleRate": {
       "residential": 12000,
       "commercial": 24000,
@@ -3695,7 +3369,8 @@
     "todo": [
       "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative and score are placeholders by price band",
       "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages",
-      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder."
+      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder.",
+      "askingRange removed: it was the price-band seed from scripts/seed-cities.ts, one of four pairs shared across all 84 localities, and it rendered on indexed pages as \"Market asking range\". A real range is a dated observation of what sellers are asking, which is the same evidence priceObservations needs; add it there and here together."
     ]
   },
   {
@@ -3709,12 +3384,6 @@
     "lat": 26.72,
     "lng": 83.36,
     "priceBand": "mid",
-    "askingRange": {
-      "low": 4500,
-      "high": 9000,
-      "unit": "sqft",
-      "asOf": "2026-09-01"
-    },
     "circleRate": {
       "residential": 12000,
       "commercial": 24000,
@@ -3744,7 +3413,8 @@
     "todo": [
       "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative and score are placeholders by price band",
       "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages",
-      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder."
+      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder.",
+      "askingRange removed: it was the price-band seed from scripts/seed-cities.ts, one of four pairs shared across all 84 localities, and it rendered on indexed pages as \"Market asking range\". A real range is a dated observation of what sellers are asking, which is the same evidence priceObservations needs; add it there and here together."
     ]
   },
   {
@@ -3758,12 +3428,6 @@
     "lat": 26.735,
     "lng": 83.375,
     "priceBand": "high",
-    "askingRange": {
-      "low": 7000,
-      "high": 13000,
-      "unit": "sqft",
-      "asOf": "2026-09-01"
-    },
     "circleRate": {
       "residential": 18000,
       "commercial": 36000,
@@ -3793,7 +3457,8 @@
     "todo": [
       "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative and score are placeholders by price band",
       "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages",
-      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder."
+      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder.",
+      "askingRange removed: it was the price-band seed from scripts/seed-cities.ts, one of four pairs shared across all 84 localities, and it rendered on indexed pages as \"Market asking range\". A real range is a dated observation of what sellers are asking, which is the same evidence priceObservations needs; add it there and here together."
     ]
   },
   {
@@ -3807,12 +3472,6 @@
     "lat": 26.755,
     "lng": 83.4,
     "priceBand": "high",
-    "askingRange": {
-      "low": 7000,
-      "high": 13000,
-      "unit": "sqft",
-      "asOf": "2026-09-01"
-    },
     "circleRate": {
       "residential": 18000,
       "commercial": 36000,
@@ -3842,7 +3501,8 @@
     "todo": [
       "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative and score are placeholders by price band",
       "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages",
-      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder."
+      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder.",
+      "askingRange removed: it was the price-band seed from scripts/seed-cities.ts, one of four pairs shared across all 84 localities, and it rendered on indexed pages as \"Market asking range\". A real range is a dated observation of what sellers are asking, which is the same evidence priceObservations needs; add it there and here together."
     ]
   },
   {
@@ -3856,12 +3516,6 @@
     "lat": 26.79,
     "lng": 83.36,
     "priceBand": "high",
-    "askingRange": {
-      "low": 7000,
-      "high": 13000,
-      "unit": "sqft",
-      "asOf": "2026-09-01"
-    },
     "circleRate": {
       "residential": 18000,
       "commercial": 36000,
@@ -3891,7 +3545,8 @@
     "todo": [
       "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative and score are placeholders by price band",
       "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages",
-      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder."
+      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder.",
+      "askingRange removed: it was the price-band seed from scripts/seed-cities.ts, one of four pairs shared across all 84 localities, and it rendered on indexed pages as \"Market asking range\". A real range is a dated observation of what sellers are asking, which is the same evidence priceObservations needs; add it there and here together."
     ]
   },
   {
@@ -3905,12 +3560,6 @@
     "lat": 26.8,
     "lng": 83.38,
     "priceBand": "mid",
-    "askingRange": {
-      "low": 4500,
-      "high": 9000,
-      "unit": "sqft",
-      "asOf": "2026-09-01"
-    },
     "circleRate": {
       "residential": 12000,
       "commercial": 24000,
@@ -3940,7 +3589,8 @@
     "todo": [
       "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative and score are placeholders by price band",
       "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages",
-      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder."
+      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder.",
+      "askingRange removed: it was the price-band seed from scripts/seed-cities.ts, one of four pairs shared across all 84 localities, and it rendered on indexed pages as \"Market asking range\". A real range is a dated observation of what sellers are asking, which is the same evidence priceObservations needs; add it there and here together."
     ]
   },
   {
@@ -3954,12 +3604,6 @@
     "lat": 26.77,
     "lng": 83.37,
     "priceBand": "high",
-    "askingRange": {
-      "low": 7000,
-      "high": 13000,
-      "unit": "sqft",
-      "asOf": "2026-09-01"
-    },
     "circleRate": {
       "residential": 18000,
       "commercial": 36000,
@@ -3989,7 +3633,8 @@
     "todo": [
       "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative and score are placeholders by price band",
       "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages",
-      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder."
+      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder.",
+      "askingRange removed: it was the price-band seed from scripts/seed-cities.ts, one of four pairs shared across all 84 localities, and it rendered on indexed pages as \"Market asking range\". A real range is a dated observation of what sellers are asking, which is the same evidence priceObservations needs; add it there and here together."
     ]
   },
   {
@@ -4003,12 +3648,6 @@
     "lat": 26.78,
     "lng": 83.385,
     "priceBand": "mid",
-    "askingRange": {
-      "low": 4500,
-      "high": 9000,
-      "unit": "sqft",
-      "asOf": "2026-09-01"
-    },
     "circleRate": {
       "residential": 12000,
       "commercial": 24000,
@@ -4038,7 +3677,8 @@
     "todo": [
       "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative and score are placeholders by price band",
       "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages",
-      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder."
+      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder.",
+      "askingRange removed: it was the price-band seed from scripts/seed-cities.ts, one of four pairs shared across all 84 localities, and it rendered on indexed pages as \"Market asking range\". A real range is a dated observation of what sellers are asking, which is the same evidence priceObservations needs; add it there and here together."
     ]
   },
   {
@@ -4052,12 +3692,6 @@
     "lat": 26.8,
     "lng": 83.4,
     "priceBand": "mid",
-    "askingRange": {
-      "low": 4500,
-      "high": 9000,
-      "unit": "sqft",
-      "asOf": "2026-09-01"
-    },
     "circleRate": {
       "residential": 12000,
       "commercial": 24000,
@@ -4087,7 +3721,8 @@
     "todo": [
       "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative and score are placeholders by price band",
       "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages",
-      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder."
+      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder.",
+      "askingRange removed: it was the price-band seed from scripts/seed-cities.ts, one of four pairs shared across all 84 localities, and it rendered on indexed pages as \"Market asking range\". A real range is a dated observation of what sellers are asking, which is the same evidence priceObservations needs; add it there and here together."
     ]
   },
   {
@@ -4101,12 +3736,6 @@
     "lat": 26.79,
     "lng": 83.41,
     "priceBand": "mid",
-    "askingRange": {
-      "low": 4500,
-      "high": 9000,
-      "unit": "sqft",
-      "asOf": "2026-09-01"
-    },
     "circleRate": {
       "residential": 12000,
       "commercial": 24000,
@@ -4136,7 +3765,8 @@
     "todo": [
       "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative and score are placeholders by price band",
       "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages",
-      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder."
+      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder.",
+      "askingRange removed: it was the price-band seed from scripts/seed-cities.ts, one of four pairs shared across all 84 localities, and it rendered on indexed pages as \"Market asking range\". A real range is a dated observation of what sellers are asking, which is the same evidence priceObservations needs; add it there and here together."
     ]
   },
   {
@@ -4150,12 +3780,6 @@
     "lat": 26.81,
     "lng": 83.34,
     "priceBand": "low",
-    "askingRange": {
-      "low": 1500,
-      "high": 3500,
-      "unit": "sqft",
-      "asOf": "2026-09-01"
-    },
     "circleRate": {
       "residential": 6000,
       "commercial": 12000,
@@ -4185,7 +3809,8 @@
     "todo": [
       "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative and score are placeholders by price band",
       "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages",
-      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder."
+      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder.",
+      "askingRange removed: it was the price-band seed from scripts/seed-cities.ts, one of four pairs shared across all 84 localities, and it rendered on indexed pages as \"Market asking range\". A real range is a dated observation of what sellers are asking, which is the same evidence priceObservations needs; add it there and here together."
     ]
   },
   {
@@ -4199,12 +3824,6 @@
     "lat": 26.82,
     "lng": 83.36,
     "priceBand": "mid",
-    "askingRange": {
-      "low": 4500,
-      "high": 9000,
-      "unit": "sqft",
-      "asOf": "2026-09-01"
-    },
     "circleRate": {
       "residential": 12000,
       "commercial": 24000,
@@ -4234,7 +3853,8 @@
     "todo": [
       "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative and score are placeholders by price band",
       "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages",
-      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder."
+      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder.",
+      "askingRange removed: it was the price-band seed from scripts/seed-cities.ts, one of four pairs shared across all 84 localities, and it rendered on indexed pages as \"Market asking range\". A real range is a dated observation of what sellers are asking, which is the same evidence priceObservations needs; add it there and here together."
     ]
   },
   {
@@ -4248,12 +3868,6 @@
     "lat": 26.83,
     "lng": 83.38,
     "priceBand": "low",
-    "askingRange": {
-      "low": 1500,
-      "high": 3500,
-      "unit": "sqft",
-      "asOf": "2026-09-01"
-    },
     "circleRate": {
       "residential": 6000,
       "commercial": 12000,
@@ -4283,7 +3897,8 @@
     "todo": [
       "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative and score are placeholders by price band",
       "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages",
-      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder."
+      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder.",
+      "askingRange removed: it was the price-band seed from scripts/seed-cities.ts, one of four pairs shared across all 84 localities, and it rendered on indexed pages as \"Market asking range\". A real range is a dated observation of what sellers are asking, which is the same evidence priceObservations needs; add it there and here together."
     ]
   },
   {
@@ -4297,12 +3912,6 @@
     "lat": 26.75,
     "lng": 83.19,
     "priceBand": "low",
-    "askingRange": {
-      "low": 1500,
-      "high": 3500,
-      "unit": "sqft",
-      "asOf": "2026-09-01"
-    },
     "circleRate": {
       "residential": 6000,
       "commercial": 12000,
@@ -4332,7 +3941,8 @@
     "todo": [
       "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative and score are placeholders by price band",
       "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages",
-      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder."
+      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder.",
+      "askingRange removed: it was the price-band seed from scripts/seed-cities.ts, one of four pairs shared across all 84 localities, and it rendered on indexed pages as \"Market asking range\". A real range is a dated observation of what sellers are asking, which is the same evidence priceObservations needs; add it there and here together."
     ]
   },
   {
@@ -4346,12 +3956,6 @@
     "lat": 26.745,
     "lng": 83.4,
     "priceBand": "premium",
-    "askingRange": {
-      "low": 12000,
-      "high": 25000,
-      "unit": "sqft",
-      "asOf": "2026-09-01"
-    },
     "circleRate": {
       "residential": 30000,
       "commercial": 60000,
@@ -4381,7 +3985,8 @@
     "todo": [
       "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative and score are placeholders by price band",
       "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages",
-      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder."
+      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder.",
+      "askingRange removed: it was the price-band seed from scripts/seed-cities.ts, one of four pairs shared across all 84 localities, and it rendered on indexed pages as \"Market asking range\". A real range is a dated observation of what sellers are asking, which is the same evidence priceObservations needs; add it there and here together."
     ]
   },
   {
@@ -4395,12 +4000,6 @@
     "lat": 26.74,
     "lng": 83.44,
     "priceBand": "mid",
-    "askingRange": {
-      "low": 4500,
-      "high": 9000,
-      "unit": "sqft",
-      "asOf": "2026-09-01"
-    },
     "circleRate": {
       "residential": 12000,
       "commercial": 24000,
@@ -4430,7 +4029,8 @@
     "todo": [
       "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative and score are placeholders by price band",
       "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages",
-      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder."
+      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder.",
+      "askingRange removed: it was the price-band seed from scripts/seed-cities.ts, one of four pairs shared across all 84 localities, and it rendered on indexed pages as \"Market asking range\". A real range is a dated observation of what sellers are asking, which is the same evidence priceObservations needs; add it there and here together."
     ]
   },
   {
@@ -4444,12 +4044,6 @@
     "lat": 26.72,
     "lng": 83.45,
     "priceBand": "mid",
-    "askingRange": {
-      "low": 4500,
-      "high": 9000,
-      "unit": "sqft",
-      "asOf": "2026-09-01"
-    },
     "circleRate": {
       "residential": 12000,
       "commercial": 24000,
@@ -4479,7 +4073,8 @@
     "todo": [
       "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative and score are placeholders by price band",
       "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages",
-      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder."
+      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder.",
+      "askingRange removed: it was the price-band seed from scripts/seed-cities.ts, one of four pairs shared across all 84 localities, and it rendered on indexed pages as \"Market asking range\". A real range is a dated observation of what sellers are asking, which is the same evidence priceObservations needs; add it there and here together."
     ]
   },
   {
@@ -4493,12 +4088,6 @@
     "lat": 26.79,
     "lng": 83.32,
     "priceBand": "low",
-    "askingRange": {
-      "low": 1500,
-      "high": 3500,
-      "unit": "sqft",
-      "asOf": "2026-09-01"
-    },
     "circleRate": {
       "residential": 6000,
       "commercial": 12000,
@@ -4528,7 +4117,8 @@
     "todo": [
       "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative and score are placeholders by price band",
       "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages",
-      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder."
+      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder.",
+      "askingRange removed: it was the price-band seed from scripts/seed-cities.ts, one of four pairs shared across all 84 localities, and it rendered on indexed pages as \"Market asking range\". A real range is a dated observation of what sellers are asking, which is the same evidence priceObservations needs; add it there and here together."
     ]
   },
   {
@@ -4542,12 +4132,6 @@
     "lat": 26.7,
     "lng": 83.33,
     "priceBand": "low",
-    "askingRange": {
-      "low": 1500,
-      "high": 3500,
-      "unit": "sqft",
-      "asOf": "2026-09-01"
-    },
     "circleRate": {
       "residential": 6000,
       "commercial": 12000,
@@ -4577,7 +4161,8 @@
     "todo": [
       "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative and score are placeholders by price band",
       "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages",
-      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder."
+      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder.",
+      "askingRange removed: it was the price-band seed from scripts/seed-cities.ts, one of four pairs shared across all 84 localities, and it rendered on indexed pages as \"Market asking range\". A real range is a dated observation of what sellers are asking, which is the same evidence priceObservations needs; add it there and here together."
     ]
   },
   {
@@ -4591,12 +4176,6 @@
     "lat": 26.78,
     "lng": 83.3,
     "priceBand": "low",
-    "askingRange": {
-      "low": 1500,
-      "high": 3500,
-      "unit": "sqft",
-      "asOf": "2026-09-01"
-    },
     "circleRate": {
       "residential": 6000,
       "commercial": 12000,
@@ -4626,7 +4205,8 @@
     "todo": [
       "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative and score are placeholders by price band",
       "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages",
-      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder."
+      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder.",
+      "askingRange removed: it was the price-band seed from scripts/seed-cities.ts, one of four pairs shared across all 84 localities, and it rendered on indexed pages as \"Market asking range\". A real range is a dated observation of what sellers are asking, which is the same evidence priceObservations needs; add it there and here together."
     ]
   }
 ]

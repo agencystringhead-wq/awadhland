@@ -187,7 +187,7 @@ export function getNav(locale: Locale): NavItem[] {
           {
             title: c.panel.projectsRates,
             links: [
-              { label: c.panel.circleRatesOf(name), href: p(`/${city.id}/circle-rates/`) },
+              ...(builtPaths.has(`/${city.id}/circle-rates/`) ? [{ label: c.panel.circleRatesOf(name), href: p(`/${city.id}/circle-rates/`) }] : []),
               ...cityProjects.map((x) => ({ label: pick(locale, x.name, x.nameHi), href: p(`/projects/${x.id}/`), meta: x.status.replace(/-/g, " ") })),
             ],
             more: { label: c.panel.allProjects, href: p(`/${city.id}/`) },

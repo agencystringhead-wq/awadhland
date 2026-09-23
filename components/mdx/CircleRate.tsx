@@ -1,6 +1,7 @@
 import { getBuildableLocalities, getCity, getLocalities } from "@/lib/data";
 import { getLocalityRate } from "@/lib/rates";
 import { formatDate, formatNumber, localePath, pick, ui, type Locale } from "@/lib/i18n";
+import { builtSitePaths } from "@/lib/pages";
 
 export type CircleRateProps = {
   /** locality id from localities.json */
@@ -54,7 +55,9 @@ export function CircleRate({ locality: id, locale }: CircleRateProps) {
         <a href={r.sourceUrl} rel="noopener" className="text-muted">
           {t.source}
         </a>
-        <a href={localePath(locale, `/${city.id}/circle-rates/`)}>{t.fullCircleRateTable} →</a>
+        {builtSitePaths(locale).has(`/${city.id}/circle-rates/`) && (
+          <a href={localePath(locale, `/${city.id}/circle-rates/`)}>{t.fullCircleRateTable} →</a>
+        )}
       </p>
     </figure>
   );

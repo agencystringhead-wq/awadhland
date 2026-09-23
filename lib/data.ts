@@ -18,7 +18,7 @@ import reviewsJson from "../data/reviews.json";
 import standardPagesJson from "../data/standardPages.json";
 import { dataFiles, type DataFileName, type Locale } from "./schemas";
 import { checkIntegrity, type Dataset } from "./integrity";
-import { partitionLocalities, partitionProjects, publishableBroker } from "./guards";
+import { partitionLocalities, partitionProjects, publishableBroker, scheduleIsSourced } from "./guards";
 
 function parse<F extends DataFileName>(file: F, raw: unknown): z.infer<(typeof dataFiles)[F]> {
   const result = dataFiles[file].safeParse(raw);
@@ -92,10 +92,17 @@ export const getPublishedProjectsByCity = (cityId: string) =>
   partitionProjects(dataset.projects).buildable.filter((p) => p.cityId === cityId);
 
 /* circle rates */
-export const getCircleRateSchedules = () => dataset.circleRates;
+/**
+ * Only schedules whose source names a real document (lib/guards.ts). The seeded Lucknow and
+ * Gorakhpur schedules are withheld here, which drops their circle-rate pages and removes them
+ * from the stamp-duty calculator in one move.
+ */
+export const getCircleRateSchedules = () => dataset.circleRates.filter(scheduleIsSourced);
+/** Every schedule including the unsourced ones, for the build-time report only. */
+export const getAllCircleRateSchedules = () => dataset.circleRates;
 /** All schedules for a city, newest effectiveFrom first. The first entry is the current schedule. */
 export const getCircleRateSchedulesByCity = (cityId: string) =>
-  dataset.circleRates.filter((s) => s.cityId === cityId).sort((a, b) => b.effectiveFrom.localeCompare(a.effectiveFrom));
+  getCircleRateSchedules().filter((s) => s.cityId === cityId).sort((a, b) => b.effectiveFrom.localeCompare(a.effectiveFrom));
 export const getCurrentCircleRateSchedule = (cityId: string) => getCircleRateSchedulesByCity(cityId)[0];
 
 /* stamp duty */

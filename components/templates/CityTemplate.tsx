@@ -56,7 +56,10 @@ export function CityTemplate({ locale, cityId }: { locale: Locale; cityId: strin
   const updates = getUpdates()
     .filter((u) => u.cityIds.includes(city.id))
     .slice(0, 5);
-  const brokerNote = pick(locale, city.brokerNote, city.brokerNoteHi);
+  // Lucknow and Gorakhpur carry "TODO: broker note in the broker's own words"; the block is
+  // withheld until it is real rather than printed on an indexed city hub.
+  const rawNote = pick(locale, city.brokerNote, city.brokerNoteHi);
+  const brokerNote = rawNote && !/\bTODO\b/i.test(rawNote) ? rawNote : undefined;
 
   // Section 10: alphabetical, grouped by tehsil (localities without a tehsil go under the city name).
   const byTehsil = new Map<string, typeof localities>();
