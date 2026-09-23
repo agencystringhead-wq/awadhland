@@ -14,14 +14,15 @@
     "images:cities": "tsx scripts/placeholder-city-images.ts",
     "prebuild": "npm run rates:derive && npm run rates:chunks && npm run validate && npm run og",
     "build": "next build",
-    "postbuild": "tsx scripts/drop-flight-payloads.ts && tsx scripts/check-dev-assets.ts",
+    "postbuild": "tsx scripts/drop-flight-payloads.ts && tsx scripts/check-dev-assets.ts && tsx scripts/check-links.ts",
     "check:dev-assets": "tsx scripts/check-dev-assets.ts",
     "typecheck": "tsc --noEmit",
     "lint": "eslint .",
     "rates:import-list": "tsx scripts/import-rate-list.ts",
     "rates:derive": "tsx scripts/derive-circle-rates.ts",
     "rates:chunks": "tsx scripts/build-rate-chunks.ts",
-    "rates:set-archive-urls": "tsx scripts/set-archive-urls.ts"
+    "rates:set-archive-urls": "tsx scripts/set-archive-urls.ts",
+    "check:links": "tsx scripts/check-links.ts"
   },
   "dependencies": {
     "@fontsource-variable/fraunces": "^5.3.0",

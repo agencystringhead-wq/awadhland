@@ -1,4 +1,5 @@
 import type { Locale } from "@/lib/i18n";
+import { builtSitePaths } from "@/lib/pages";
 import { localePath, pick, ui, whatsappText } from "@/lib/i18n";
 import type { City, Locality, TeamMember } from "@/lib/schemas";
 import { Logo } from "./Header";
@@ -20,19 +21,28 @@ export type FooterProps = {
  */
 export function Footer({ locale, cities, localities, broker }: FooterProps) {
   const t = ui[locale];
-  const site = [
+  // Link only pages that were actually built. docs/BUILD-SPEC.md lists /methodology/, /contact/
+  // and /disclaimer/ as well, and they will appear here on their own the moment they exist —
+  // until then they are left out rather than shipped as a 404 in the footer of every page.
+  const built = builtSitePaths(locale);
+  const links = (items: { label: string; sitePath?: string; href?: string }[]) =>
+    items
+      .filter((l) => !l.sitePath || built.has(l.sitePath))
+      .map((l) => ({ label: l.label, href: l.href ?? localePath(locale, l.sitePath!) }));
+
+  const site = links([
     { label: t.guides, href: `${localePath(locale, "/")}#guides` },
     { label: t.tools, href: `${localePath(locale, "/")}#tools` },
-    { label: t.updates, href: localePath(locale, "/updates/") },
-    { label: t.about, href: localePath(locale, "/about/") },
-    { label: t.methodology, href: localePath(locale, "/methodology/") },
-    { label: t.contact, href: localePath(locale, "/contact/") },
-  ];
-  const legal = [
-    { label: t.disclaimer, href: localePath(locale, "/disclaimer/") },
-    { label: t.privacy, href: localePath(locale, "/privacy/") },
-    { label: t.terms, href: localePath(locale, "/terms/") },
-  ];
+    { label: t.updates, sitePath: "/updates/" },
+    { label: t.about, sitePath: "/about/" },
+    { label: t.methodology, sitePath: "/methodology/" },
+    { label: t.contact, sitePath: "/contact/" },
+  ]);
+  const legal = links([
+    { label: t.disclaimer, sitePath: "/disclaimer/" },
+    { label: t.privacy, sitePath: "/privacy/" },
+    { label: t.terms, sitePath: "/terms/" },
+  ]);
   const col = "md:border-l md:border-line md:px-6";
   const link = "text-[13.5px] leading-[1.32] text-ink-soft no-underline hover:text-accent-deep";
   return (

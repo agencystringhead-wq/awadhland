@@ -12,6 +12,7 @@ import { fill, homeCopy, homeStory } from "@/lib/content";
 import { getBroker, getBuildableLocalities, getCircleRateSchedules, getCities, getCityStats, getPublishedProjects, getReviews, getUpdates } from "@/lib/data";
 import { getGuides } from "@/lib/guides";
 import { formatDate, formatNumber, localePath, ui, type Locale } from "@/lib/i18n";
+import { isToolSlug } from "@/lib/tools";
 import { sameAlternate } from "@/lib/routes";
 import { PageShell } from "./PageShell";
 
@@ -36,7 +37,12 @@ export function HomeTemplate({ locale }: { locale: Locale }) {
   const guides = getGuides(locale);
   const localities = getBuildableLocalities(locale).buildable;
   const pageLabel = t.siteName;
-  const guideHref = (slug: string) => localePath(locale, `/guides/${slug}/`);
+  // A situation card names a guide by slug, and not every guide is written in both languages yet.
+  // Link it only where it exists in this locale; elsewhere the card still states the situation.
+  const guideSlugs = new Set(guides.map((g) => g.frontmatter.slug));
+  const guideHref = (slug: string) => (guideSlugs.has(slug) ? localePath(locale, `/guides/${slug}/`) : null);
+  // The spec lists four tools; only the built ones are linked (lib/tools.ts TOOL_SLUGS).
+  const builtTool = (slug: string) => isToolSlug(slug);
   const vars = { years: broker.yearsActive, phone: formatPhone(broker.phone) };
 
   /* C2. By the numbers: computed from /data on every build, never fetched. */
@@ -93,14 +99,20 @@ export function HomeTemplate({ locale }: { locale: Locale }) {
             <li key={s.title} className="card-glass flex flex-col px-6 py-7">
               <span className="caption-mono mb-2.5 block">{String(i + 1).padStart(2, "0")}</span>
               <h3>
-                <a href={guideHref(s.guideSlug)} className="text-ink no-underline hover:text-accent-deep">
-                  {s.title}
-                </a>
+                {guideHref(s.guideSlug) ? (
+                  <a href={guideHref(s.guideSlug)!} className="text-ink no-underline hover:text-accent-deep">
+                    {s.title}
+                  </a>
+                ) : (
+                  <span className="text-ink">{s.title}</span>
+                )}
               </h3>
               <p className="mt-2 line-clamp-2 text-[14.5px] leading-[1.5] text-ink-soft">{s.body}</p>
-              <a href={guideHref(s.guideSlug)} className={arrow}>
-                {story.situations.open}
-              </a>
+              {guideHref(s.guideSlug) && (
+                <a href={guideHref(s.guideSlug)!} className={arrow}>
+                  {story.situations.open}
+                </a>
+              )}
             </li>
           ))}
         </ul>
@@ -122,14 +134,22 @@ export function HomeTemplate({ locale }: { locale: Locale }) {
                 </svg>
               </span>
               <h3>
-                <a href={localePath(locale, `/tools/${tool.slug}/`)} className="text-ink no-underline hover:text-accent-deep">
-                  {tool.title}
-                </a>
+                {builtTool(tool.slug) ? (
+                  <a href={localePath(locale, `/tools/${tool.slug}/`)} className="text-ink no-underline hover:text-accent-deep">
+                    {tool.title}
+                  </a>
+                ) : (
+                  <span className="text-ink">{tool.title}</span>
+                )}
               </h3>
               <p className="mt-2 text-[14.5px] leading-[1.5] text-ink-soft">{tool.body}</p>
-              <a href={localePath(locale, `/tools/${tool.slug}/`)} className={arrow}>
-                {story.tools.tryIt}
-              </a>
+              {builtTool(tool.slug) ? (
+                <a href={localePath(locale, `/tools/${tool.slug}/`)} className={arrow}>
+                  {story.tools.tryIt}
+                </a>
+              ) : (
+                <span className={`${arrow} text-muted`}>{ui[locale].comingSoon}</span>
+              )}
             </li>
           ))}
         </ul>
@@ -142,7 +162,7 @@ export function HomeTemplate({ locale }: { locale: Locale }) {
         tone="surface"
         hairline
         {...story.checklist}
-        aside={<a href={guideHref(copy.checklistGuideSlug)} className="font-semibold text-accent-deep no-underline hover:underline">{story.checklist.fullGuide}</a>}
+        aside={guideHref(copy.checklistGuideSlug) ? <a href={guideHref(copy.checklistGuideSlug)!} className="font-semibold text-accent-deep no-underline hover:underline">{story.checklist.fullGuide}</a> : undefined}
       >
         <ol className="grid md:grid-cols-2 md:gap-x-12">
           {copy.checklist.map((item, i) => (

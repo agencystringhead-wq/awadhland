@@ -72,14 +72,22 @@ function Tools({ panel }: { panel: Extract<NavPanel, { kind: "tools" }> }) {
             </svg>
           </span>
           <h3 className="text-[18px]">
-            <a href={t.href} className="text-ink no-underline hover:text-accent-deep">
-              {t.title}
-            </a>
+            {t.href ? (
+              <a href={t.href} className="text-ink no-underline hover:text-accent-deep">
+                {t.title}
+              </a>
+            ) : (
+              <span className="text-ink">{t.title}</span>
+            )}
           </h3>
           <p className="mt-1.5 text-[13.5px] leading-[1.45] text-ink-soft">{t.body}</p>
-          <a href={t.href} className="nav-tool-more">
-            {panel.more}
-          </a>
+          {t.href ? (
+            <a href={t.href} className="nav-tool-more">
+              {panel.more}
+            </a>
+          ) : (
+            <span className="nav-tool-more text-muted">{panel.comingSoon}</span>
+          )}
         </li>
       ))}
     </ul>

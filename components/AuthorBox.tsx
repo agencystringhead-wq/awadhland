@@ -1,5 +1,6 @@
 import { BrokerCard } from "@/components/BrokerCard";
 import { localePath, ui, type Locale } from "@/lib/i18n";
+import { builtSitePaths } from "@/lib/pages";
 import type { City, TeamMember } from "@/lib/schemas";
 
 export type AuthorBoxProps = {
@@ -19,7 +20,13 @@ export function AuthorBox({ locale, member, cities, pageLabel }: AuthorBoxProps)
       <p className="text-sm font-semibold text-accent">{t.by}</p>
       <h3 className="mt-1 text-xl">{t.editorialByline}</h3>
       <p className="mt-2 max-w-prose text-[15px] text-ink-soft">
-        {t.editorialNote} <a href={localePath(locale, "/methodology/")}>{t.methodology} →</a>
+        {t.editorialNote}
+        {builtSitePaths(locale).has("/methodology/") && (
+          <>
+            {" "}
+            <a href={localePath(locale, "/methodology/")}>{t.methodology} →</a>
+          </>
+        )}
       </p>
     </section>
   );

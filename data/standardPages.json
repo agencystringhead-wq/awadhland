@@ -1,0 +1,196 @@
+[
+  {
+    "id": "privacy",
+    "sitePath": "/privacy/",
+    "title": "Privacy on awadhland.com",
+    "titleHi": "अवधलैंड पर आपकी निजता",
+    "description": "What we collect when you send an enquiry, where it goes, and why this site sets no cookies at all. Written from how the site actually behaves, not from a template.",
+    "descriptionHi": "आप जो फ़ॉर्म में लिखते हैं वही हमारे पास आता है, और वह कहाँ जाता है। यह साइट कोई कुकी सेट नहीं करती — भाषा भी यूआरएल से तय होती है।",
+    "lede": "This is a reference site. It does not ask you to sign in, it does not set a single cookie, and the only personal details it ever holds are the ones you type into an enquiry yourself.",
+    "ledeHi": "यह एक जानकारी की साइट है। न कोई लॉगिन, न कोई कुकी। आपका नाम और नंबर हमारे पास तभी आता है जब आप ख़ुद फ़ॉर्म भरकर भेजते हैं।",
+    "sections": [
+      {
+        "heading": "What we collect",
+        "headingHi": "हम क्या लेते हैं",
+        "body": [
+          "Only what you enter in an enquiry or subscribe form: your name, phone number, and optionally your email, the city you are looking in, what you want the land for, a budget, a preferred location and a message. Along with it we record which page you sent it from, so we know what you were reading when you asked.",
+          "Nothing else. There is no account, no profile and no hidden field. If you never send a form, we hold nothing about you."
+        ],
+        "bodyHi": [
+          "सिर्फ़ वही जो आप फ़ॉर्म में भरते हैं: नाम, फ़ोन नंबर, और चाहें तो ईमेल, शहर, ज़मीन किस काम के लिए चाहिए, बजट, पसंदीदा इलाक़ा और अपना संदेश। इसके साथ यह भी दर्ज होता है कि आपने किस पेज से भेजा, ताकि पता रहे आप क्या पढ़ रहे थे।",
+          "इससे ज़्यादा कुछ नहीं। न कोई खाता, न प्रोफ़ाइल, न कोई छिपा हुआ ख़ाना। अगर आपने कभी फ़ॉर्म नहीं भेजा, तो हमारे पास आपका कुछ भी नहीं है।"
+        ]
+      },
+      {
+        "heading": "Where form data goes",
+        "headingHi": "फ़ॉर्म का डेटा कहाँ जाता है",
+        "body": [
+          "Your submission is posted to our own Cloudflare Worker, which forwards it into JotForm, where we read enquiries. No form script from JotForm or anyone else runs inside your browser — the page you are on sends the fields itself.",
+          "If the endpoint is not configured on a given build, the form falls back to composing a WhatsApp message for you to send, in which case nothing reaches us until you press send in WhatsApp."
+        ],
+        "bodyHi": [
+          "आपका भेजा हुआ फ़ॉर्म हमारे अपने क्लाउडफ़्लेयर वर्कर पर जाता है, जो उसे जॉटफ़ॉर्म में डालता है, जहाँ हम पूछताछ पढ़ते हैं। जॉटफ़ॉर्म या किसी और का कोई स्क्रिप्ट आपके ब्राउज़र में नहीं चलता — पेज ख़ुद फ़ील्ड भेजता है।",
+          "अगर किसी बिल्ड में यह पता सेट नहीं है, तो फ़ॉर्म आपके लिए व्हाट्सऐप संदेश बना देता है। ऐसी हालत में जब तक आप व्हाट्सऐप में भेजें नहीं, हम तक कुछ नहीं पहुँचता।"
+        ]
+      },
+      {
+        "heading": "Cookies: none",
+        "headingHi": "कुकी: एक भी नहीं",
+        "body": [
+          "This site sets no cookies. There is no consent banner because there is nothing to consent to.",
+          "The language you see comes from the address itself — English pages sit under the site root and Hindi pages under /hi/. We never switch your language from a cookie, your browser settings or your IP address. If you want the other language, you use the toggle, and the address changes with it."
+        ],
+        "bodyHi": [
+          "यह साइट कोई कुकी सेट नहीं करती। सहमति वाला बैनर इसलिए नहीं है क्योंकि सहमति देने को कुछ है ही नहीं।",
+          "आपको कौन-सी भाषा दिखेगी यह पते से तय होता है — अंग्रेज़ी पेज साइट की जड़ में और हिंदी पेज /hi/ के नीचे। हम आपकी भाषा कभी कुकी, ब्राउज़र की सेटिंग या आईपी पते से नहीं बदलते। दूसरी भाषा चाहिए तो टॉगल दबाइए, और पता भी उसी के साथ बदल जाएगा।"
+        ]
+      },
+      {
+        "heading": "What we count",
+        "headingHi": "हम क्या गिनते हैं",
+        "body": [
+          "Two clicks: the WhatsApp button and the call button. For each one we record the name of the event, which language the page was in, and the name of the block the button sat in — the header, the hero, a lead form. That is the whole record.",
+          "There is no identifier in it, nothing that can be traced back to a person, and no third-party analytics script anywhere on the site."
+        ],
+        "bodyHi": [
+          "दो क्लिक: व्हाट्सऐप बटन और कॉल बटन। हर बार सिर्फ़ इतना दर्ज होता है कि कौन-सी घटना हुई, पेज किस भाषा में था, और बटन किस हिस्से में था — हेडर, ऊपर का बैनर, या कोई फ़ॉर्म। पूरा रिकॉर्ड बस इतना।",
+          "इसमें कोई पहचान नहीं होती, किसी व्यक्ति तक पहुँचने का कोई रास्ता नहीं, और साइट पर कहीं भी बाहरी एनालिटिक्स स्क्रिप्ट नहीं है।"
+        ]
+      },
+      {
+        "heading": "Maps",
+        "headingHi": "नक़्शे",
+        "body": [
+          "Pages that show a map load Leaflet and fetch the map tiles from tile.openstreetmap.org. That means your IP address reaches OpenStreetMap's servers while the map draws, as it would on any site that uses their tiles. We send them nothing about you beyond that request.",
+          "Leaflet on map pages and the form path described above are the only places anything leaves this site."
+        ],
+        "bodyHi": [
+          "जिन पेजों पर नक़्शा है वे लीफ़लेट लोड करते हैं और नक़्शे के टुकड़े tile.openstreetmap.org से लाते हैं। इसका मतलब है कि नक़्शा बनते समय आपका आईपी पता ओपनस्ट्रीटमैप के सर्वर तक जाता है, जैसा उनके टाइल इस्तेमाल करने वाली हर साइट पर होता है। उस अनुरोध के अलावा आपके बारे में हम उन्हें कुछ नहीं भेजते।",
+          "नक़्शे वाला लीफ़लेट और ऊपर बताया हुआ फ़ॉर्म का रास्ता — इन्हीं दो जगहों से कुछ भी इस साइट से बाहर जाता है।"
+        ]
+      },
+      {
+        "heading": "What we never do",
+        "headingHi": "हम क्या कभी नहीं करते",
+        "body": [
+          "We do not sell your details, pass them to a list, or hand them to another broker. We do not run advertising networks, tracking pixels or retargeting. We do not build a profile of you across visits, because we have nothing to build one from.",
+          "If you have sent us an enquiry and want it deleted, say so on WhatsApp using the button on any page, and we will remove it."
+        ],
+        "bodyHi": [
+          "हम आपकी जानकारी न बेचते हैं, न किसी सूची में डालते हैं, न किसी दूसरे ब्रोकर को देते हैं। न कोई विज्ञापन नेटवर्क, न ट्रैकिंग पिक्सल, न रीटार्गेटिंग। आपकी कोई प्रोफ़ाइल भी नहीं बनती, क्योंकि बनाने के लिए हमारे पास कुछ है ही नहीं।",
+          "अगर आपने पूछताछ भेजी है और उसे हटवाना चाहते हैं, तो किसी भी पेज पर व्हाट्सऐप बटन से कह दीजिए, हम हटा देंगे।"
+        ]
+      }
+    ],
+    "updatedAt": "2026-09-23",
+    "sources": [
+      {
+        "label": "Behaviour of this codebase: lib/i18n.ts (locale from the route segment), components/LeadAnalytics.tsx, lib/leads.ts, components/LocalityMap.tsx",
+        "url": "https://github.com/agencystringhead-wq/awadhland",
+        "accessedAt": "2026-09-23"
+      }
+    ],
+    "todo": [
+      "Editorial draft: accurate to how the site behaves today, but not reviewed by a lawyer. Have it checked against the DPDP Act before launch.",
+      "Name the data fiduciary and a grievance contact once the broker record is real; DPDP requires a named contact and this page currently points only at the WhatsApp button.",
+      "State a retention period for enquiries once one is decided."
+    ]
+  },
+  {
+    "id": "terms",
+    "sitePath": "/terms/",
+    "title": "Terms of use",
+    "titleHi": "इस्तेमाल की शर्तें",
+    "description": "What this site is, what it is not, and when a broker relationship actually begins. Reference published for free; nothing here is advice and nothing here is an offer.",
+    "descriptionHi": "यह साइट क्या है और क्या नहीं, और ब्रोकर का रिश्ता असल में कब शुरू होता है। यहाँ दी गई जानकारी सलाह नहीं है और न ही कोई प्रस्ताव।",
+    "lede": "Plain terms for a reference site. Read them once; they are short on purpose.",
+    "ledeHi": "एक जानकारी देने वाली साइट की सीधी-सादी शर्तें। एक बार पढ़ लीजिए — जान-बूझकर छोटी रखी गई हैं।",
+    "sections": [
+      {
+        "heading": "What this site is",
+        "headingHi": "यह साइट क्या है",
+        "body": [
+          "awadhland.com publishes land reference for Ayodhya, Lucknow and Gorakhpur: circle rates transcribed from the government's own published schedules, government project notices, and written guides. It is free to read and does not require an account.",
+          "It is published by a UP RERA-registered broker, whose registration is shown in the footer of every page."
+        ],
+        "bodyHi": [
+          "awadhland.com अयोध्या, लखनऊ और गोरखपुर की ज़मीन से जुड़ी जानकारी छापता है: सरकार की अपनी प्रकाशित सूचियों से उतारे गए सर्किल रेट, सरकारी परियोजनाओं की सूचनाएँ, और लिखी हुई गाइड। पढ़ना मुफ़्त है और किसी खाते की ज़रूरत नहीं।",
+          "इसे यूपी रेरा में पंजीकृत एक ब्रोकर प्रकाशित करता है, जिसका पंजीकरण हर पेज के नीचे दिखता है।"
+        ]
+      },
+      {
+        "heading": "Information, not advice",
+        "headingHi": "जानकारी है, सलाह नहीं",
+        "body": [
+          "Nothing on this site is legal, financial, tax or investment advice, and nothing on it is an offer to sell land or an invitation to buy any particular plot. A calculator here gives you an estimate to budget with, not a valuation.",
+          "Decisions about a specific plot need a lawyer, the revenue record, and your own inspection."
+        ],
+        "bodyHi": [
+          "इस साइट पर कुछ भी क़ानूनी, वित्तीय, कर या निवेश की सलाह नहीं है, और न ही ज़मीन बेचने का कोई प्रस्ताव या किसी ख़ास प्लॉट को ख़रीदने का न्योता। यहाँ का कोई कैलकुलेटर बजट बनाने का अंदाज़ा देता है, क़ीमत का आकलन नहीं।",
+          "किसी ख़ास प्लॉट का फ़ैसला वकील, राजस्व अभिलेख और आपकी अपनी जाँच के बाद ही होना चाहिए।"
+        ]
+      },
+      {
+        "heading": "Dates matter more than numbers",
+        "headingHi": "तारीख़ नंबर से ज़्यादा मायने रखती है",
+        "body": [
+          "Every data page on this site carries its source and the date that source was read. Circle rates are revised, master plans change, and a project's status moves. A figure that was right on its stated date can be out of date by the time you read it.",
+          "Check the date stamp before you rely on a number, and verify the current schedule at the sub-registrar's office before you pay anything."
+        ],
+        "bodyHi": [
+          "इस साइट के हर डेटा पेज पर उसका स्रोत और वह तारीख़ लिखी होती है जब स्रोत देखा गया था। सर्किल रेट बदलते हैं, मास्टर प्लान बदलते हैं, परियोजना की स्थिति आगे बढ़ती है। जो आँकड़ा अपनी तारीख़ पर सही था, वह आपके पढ़ने तक पुराना हो सकता है।",
+          "किसी आँकड़े पर भरोसा करने से पहले उसकी तारीख़ देखिए, और कुछ भी चुकाने से पहले उप-निबंधक कार्यालय में मौजूदा सूची से मिलान कर लीजिए।"
+        ]
+      },
+      {
+        "heading": "When a broker relationship starts",
+        "headingHi": "ब्रोकर का रिश्ता कब शुरू होता है",
+        "body": [
+          "Reading this site does not make us your broker, and sending an enquiry does not either. A relationship begins only when it is agreed between us in writing, with the scope and the fee written down before any site visit.",
+          "Until then you owe nothing and we represent nobody on your behalf."
+        ],
+        "bodyHi": [
+          "इस साइट को पढ़ने से हम आपके ब्रोकर नहीं बन जाते, और पूछताछ भेजने से भी नहीं। रिश्ता तभी शुरू होता है जब हमारे बीच लिखित में तय हो जाए, और किसी भी साइट विज़िट से पहले काम का दायरा और फ़ीस लिखी जा चुकी हो।",
+          "उससे पहले तक आप पर कुछ बकाया नहीं है और हम आपकी ओर से किसी का प्रतिनिधित्व नहीं करते।"
+        ]
+      },
+      {
+        "heading": "What you may do with the content",
+        "headingHi": "यहाँ की सामग्री का आप क्या कर सकते हैं",
+        "body": [
+          "The circle rates and notices here come from public government records; those records are nobody's property and you are free to use them. The writing, the layout and the way the data is organised on this site are ours.",
+          "Quote a page and link to it freely. Do not copy the site wholesale or republish its guides as your own."
+        ],
+        "bodyHi": [
+          "यहाँ के सर्किल रेट और सूचनाएँ सार्वजनिक सरकारी अभिलेखों से आती हैं; वे अभिलेख किसी की निजी संपत्ति नहीं हैं और आप उन्हें बेझिझक इस्तेमाल कर सकते हैं। लिखाई, सजावट और डेटा को यहाँ जिस तरह सजाया गया है, वह हमारा है।",
+          "किसी पेज से उद्धरण लीजिए और लिंक दीजिए, खुलकर। पूरी साइट की नक़ल मत कीजिए और यहाँ की गाइड अपने नाम से मत छापिए।"
+        ]
+      },
+      {
+        "heading": "Limits",
+        "headingHi": "सीमाएँ",
+        "body": [
+          "We take care with the transcription and show our sources so you can check us, but we do not warrant that every figure is current or error-free, and we are not liable for a decision taken on the strength of a page here without verifying it.",
+          "If you find a mistake, tell us on WhatsApp and we will correct it and re-date the page."
+        ],
+        "bodyHi": [
+          "हम उतारने में सावधानी बरतते हैं और स्रोत दिखाते हैं ताकि आप हमें जाँच सकें, लेकिन हम यह गारंटी नहीं देते कि हर आँकड़ा मौजूदा और निर्दोष है, और बिना जाँचे यहाँ के किसी पेज के भरोसे लिए गए फ़ैसले के लिए हम ज़िम्मेदार नहीं हैं।",
+          "कोई ग़लती दिखे तो व्हाट्सऐप पर बताइए; हम उसे सुधारकर पेज की तारीख़ फिर से डाल देंगे।"
+        ]
+      }
+    ],
+    "updatedAt": "2026-09-23",
+    "sources": [
+      {
+        "label": "Editorial policy and source rules, docs/BUILD-SPEC.md",
+        "url": "https://github.com/agencystringhead-wq/awadhland",
+        "accessedAt": "2026-09-23"
+      }
+    ],
+    "todo": [
+      "Editorial draft: not reviewed by a lawyer. Have the liability and intellectual-property wording checked before launch.",
+      "Governing law and jurisdiction are deliberately not stated; add them on legal advice rather than guessing a seat.",
+      "Cross-link the disclaimer once /disclaimer/ exists; it cannot ship while data/team.json's reraNumber is a placeholder."
+    ]
+  }
+]

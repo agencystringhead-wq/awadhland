@@ -15,6 +15,7 @@ import {
   type Reviews,
   type Scoring,
   type StampDutyRule,
+  type StandardPage,
   type TeamMember,
   type Update,
 } from "./schemas";
@@ -29,6 +30,7 @@ export type Dataset = {
   priceObservations: PriceObservation[];
   team: TeamMember[];
   scoring: Scoring;
+  standardPages: StandardPage[];
   reviews: Reviews;
 };
 

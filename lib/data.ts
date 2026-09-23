@@ -15,6 +15,7 @@ import priceObservationsJson from "../data/priceObservations.json";
 import teamJson from "../data/team.json";
 import scoringJson from "../data/scoring.json";
 import reviewsJson from "../data/reviews.json";
+import standardPagesJson from "../data/standardPages.json";
 import { dataFiles, type DataFileName, type Locale } from "./schemas";
 import { checkIntegrity, type Dataset } from "./integrity";
 import { partitionLocalities, partitionProjects } from "./guards";
@@ -38,6 +39,7 @@ const dataset: Dataset = {
   team: parse("team.json", teamJson),
   scoring: parse("scoring.json", scoringJson),
   reviews: parse("reviews.json", reviewsJson),
+  standardPages: parse("standardPages.json", standardPagesJson),
 };
 
 const integrityErrors = checkIntegrity(dataset);
@@ -140,3 +142,7 @@ export const getScoring = () => dataset.scoring;
 
 /* reviews */
 export const getReviews = () => dataset.reviews;
+
+/* standard pages */
+export const getStandardPages = () => dataset.standardPages;
+export const getStandardPage = (id: string) => dataset.standardPages.find((p) => p.id === id);

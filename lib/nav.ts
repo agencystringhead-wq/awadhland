@@ -5,8 +5,9 @@
  */
 import { getBroker, getBuildableLocalities, getCities, getCurrentCircleRateSchedule, getPublishedProjects, getReviews, getUpdates } from "./data";
 import { getGuides, heroImageSrc } from "./guides";
-import { formatDate, formatNumber, localePath, pick, type Locale } from "./i18n";
+import { formatDate, formatNumber, localePath, pick, ui, type Locale } from "./i18n";
 import type { City, TeamMember } from "./schemas";
+import { builtSitePaths } from "./pages";
 import { TOOL_SLUGS } from "./tools";
 import { homeCopy, toolCopy } from "./content";
 import { updateTypeLabels } from "@/components/UpdateRow";
@@ -17,7 +18,7 @@ export type NavImage = { src: string; alt: string; caption: string; href: string
 
 export type NavPanel =
   | { kind: "columns"; columns: NavColumn[]; image?: NavImage }
-  | { kind: "tools"; tools: { href: string; title: string; body: string; slug: string }[]; more: string }
+  | { kind: "tools"; tools: { href: string | null; title: string; body: string; slug: string }[]; more: string; comingSoon: string }
   | { kind: "about"; broker: Pick<TeamMember, "name" | "nameHi" | "reraNumber" | "reraUrl" | "photo" | "phone" | "whatsapp">; links: NavLink[] };
 
 export type NavKey = string;
@@ -148,6 +149,7 @@ export function getNav(locale: Locale): NavItem[] {
   const updates = getUpdates();
   const broker = getBroker();
   const p = (path: string) => localePath(locale, path);
+  const builtPaths = builtSitePaths(locale);
   const items: NavItem[] = [];
 
   /* City cells */
@@ -257,13 +259,18 @@ export function getNav(locale: Locale): NavItem[] {
   });
 
   /* Tools */
-  const toolCards = homeCopy[locale].tools.map((t) => ({
-    slug: t.slug,
-    title: (TOOL_SLUGS as readonly string[]).includes(t.slug) ? toolCopy[locale][t.slug as (typeof TOOL_SLUGS)[number]].title : t.title,
-    body: t.body,
-    href: p(`/tools/${t.slug}/`),
-  }));
-  items.push({ key: "tools", label: c.cells.tools, sub: c.cells.toolsSub, href: `${p("/")}#tools`, panel: { kind: "tools", tools: toolCards, more: c.panel.tryIt } });
+  // A tool that has not been built yet keeps its card but gets no href, so the panel still says
+  // what is coming without linking every page on the site at a 404 (lib/tools.ts TOOL_SLUGS).
+  const toolCards = homeCopy[locale].tools.map((t) => {
+    const built = (TOOL_SLUGS as readonly string[]).includes(t.slug);
+    return {
+      slug: t.slug,
+      title: built ? toolCopy[locale][t.slug as (typeof TOOL_SLUGS)[number]].title : t.title,
+      body: t.body,
+      href: built ? p(`/tools/${t.slug}/`) : null,
+    };
+  });
+  items.push({ key: "tools", label: c.cells.tools, sub: c.cells.toolsSub, href: `${p("/")}#tools`, panel: { kind: "tools", tools: toolCards, more: c.panel.tryIt, comingSoon: ui[locale].comingSoon } });
 
   /* Updates */
   const types = [...new Set(updates.map((u) => u.type))];
@@ -301,12 +308,14 @@ export function getNav(locale: Locale): NavItem[] {
     panel: {
       kind: "about",
       broker,
+      // /methodology/ and /contact/ are in the spec but not built yet, so they are left out of
+      // the panel rather than linked from the nav of every page (see builtSitePaths).
       links: [
-        { label: c.panel.methodology, href: p("/methodology/") },
+        ...(builtPaths.has("/methodology/") ? [{ label: c.panel.methodology, href: p("/methodology/") }] : []),
         { label: c.panel.howWeWork, href: `${p("/about/")}#how-we-work` },
         // The star meta appears only once the profile has a real rating.
         { label: c.panel.reviews, href: `${p("/about/")}#reviews`, ...(getReviews().rating !== null ? { meta: `${getReviews().rating!.toFixed(1)} ★` } : {}) },
-        { label: c.panel.contact, href: p("/contact/") },
+        ...(builtPaths.has("/contact/") ? [{ label: c.panel.contact, href: p("/contact/") }] : []),
       ],
     },
   });
