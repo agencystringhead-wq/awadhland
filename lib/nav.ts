@@ -8,6 +8,7 @@ import { getGuides, heroImageSrc } from "./guides";
 import { formatDate, formatNumber, localePath, pick, ui, type Locale } from "./i18n";
 import type { City, TeamMember } from "./schemas";
 import { builtSitePaths } from "./pages";
+import { rankLocalities } from "./scoring";
 import { TOOL_SLUGS } from "./tools";
 import { homeCopy, toolCopy } from "./content";
 import { updateTypeLabels } from "@/components/UpdateRow";
@@ -156,7 +157,8 @@ export function getNav(locale: Locale): NavItem[] {
   for (const city of cities) {
     const name = pick(locale, city.name, city.nameHi);
     const ls = built.filter((l) => l.cityId === city.id);
-    const top = [...ls].sort((a, b) => (b.score ?? 0) - (a.score ?? 0)).slice(0, 8);
+    // Ordered by score where one can be computed; otherwise left in record order with no chip.
+    const top = rankLocalities(ls).list.slice(0, 8);
     const byArea = new Map<string, typeof ls>();
     for (const l of ls) byArea.set(l.tehsil ?? "—", [...(byArea.get(l.tehsil ?? "—") ?? []), l]);
     const areaLinks: NavLink[] = [];
@@ -178,7 +180,7 @@ export function getNav(locale: Locale): NavItem[] {
         columns: [
           {
             title: c.panel.top,
-            links: top.map((l) => ({ label: pick(locale, l.name, l.nameHi), href: p(`/${city.id}/${l.id}/`), chip: l.score !== undefined ? String(l.score) : undefined })),
+            links: top.map(({ locality: l, score }) => ({ label: pick(locale, l.name, l.nameHi), href: p(`/${city.id}/${l.id}/`), chip: score !== undefined ? String(score) : undefined })),
             more: { label: c.panel.all(ls.length), href: p(`/${city.id}/`) },
           },
           { title: c.panel.byArea, links: areaLinks.slice(0, 10), more: { label: c.panel.seeAll, href: p(`/${city.id}/`) } },

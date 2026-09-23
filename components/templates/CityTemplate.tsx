@@ -26,6 +26,7 @@ import {
 import { getGuides } from "@/lib/guides";
 import { formatNumber, localePath, pick, ui, type Locale } from "@/lib/i18n";
 import { builtSitePaths } from "@/lib/pages";
+import { rankLocalities } from "@/lib/scoring";
 import { builtLocalityIds, sameAlternate } from "@/lib/routes";
 import { PageShell } from "./PageShell";
 
@@ -40,6 +41,7 @@ export function CityTemplate({ locale, cityId }: { locale: Locale; cityId: strin
   const pageLabel = name;
 
   const stats = getCityStats(city.id, locale);
+  const areas = rankLocalities(stats.topLocalities);
   const localities = getBuildableLocalities(locale).buildable.filter((l) => l.cityId === city.id);
   // The guard already requires lat/lng; this narrows the type for the map without repeating the check elsewhere.
   const mapLocalities: MapLocality[] = localities.flatMap((l) =>
@@ -109,21 +111,26 @@ export function CityTemplate({ locale, cityId }: { locale: Locale; cityId: strin
       )}
 
       {/* 3. High-potential areas */}
-      {stats.topLocalities.length > 0 && (
-        <Section title={t.topAreas} aside={builtSitePaths(locale).has("/methodology/") ? <a href={localePath(locale, "/methodology/")}>{t.methodology} →</a> : undefined}>
+      {areas.list.length > 0 && (
+        <Section
+          title={areas.ranked ? t.topAreas : t.areas}
+          aside={areas.ranked && builtSitePaths(locale).has("/methodology/") ? <a href={localePath(locale, "/methodology/")}>{t.methodology} →</a> : undefined}
+        >
           <ol className="card divide-y divide-line px-5">
-            {stats.topLocalities.slice(0, 10).map((l, i) => (
+            {areas.list.slice(0, 10).map(({ locality: l, score }, i) => (
               <li key={l.id} className="flex items-start gap-4 py-3.5">
-                <span className="w-6 shrink-0 pt-0.5 text-sm tabular-nums text-muted">{i + 1}</span>
+                {areas.ranked && <span className="w-6 shrink-0 pt-0.5 text-sm tabular-nums text-muted">{i + 1}</span>}
                 <div className="min-w-0 flex-1">
                   <a href={localePath(locale, `/${city.id}/${l.id}/`)} className="font-semibold no-underline hover:underline">
                     {pick(locale, l.name, l.nameHi)}
                   </a>
                   {topAreaReason(l, locale) && <p className="text-[15px] text-ink-soft">{topAreaReason(l, locale)}</p>}
                 </div>
-                <span className="shrink-0 rounded-chip bg-accent-soft px-2.5 py-0.5 text-sm font-semibold tabular-nums text-accent-deep">
-                  {l.score}
-                </span>
+                {score !== undefined && (
+                  <span className="shrink-0 rounded-chip bg-accent-soft px-2.5 py-0.5 text-sm font-semibold tabular-nums text-accent-deep">
+                    {score}
+                  </span>
+                )}
               </li>
             ))}
           </ol>

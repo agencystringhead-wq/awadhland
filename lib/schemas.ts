@@ -188,7 +188,6 @@ export const localitySchema = z
     brokerNote: z.string().optional(),
     brokerNoteHi: z.string().optional(),
     brokerNoteDate: isoDate.optional(),
-    score: z.number().int().min(0).max(100).optional(),
     ...recordBase,
   })
   .strict();

@@ -1,5 +1,6 @@
 import type { Locale } from "@/lib/i18n";
 import { formatNumber, localePath, pick, ui } from "@/lib/i18n";
+import { rankLocalities } from "@/lib/scoring";
 import type { City, Locality } from "@/lib/schemas";
 
 export type CityCardProps = {
@@ -8,16 +9,18 @@ export type CityCardProps = {
   stats: {
     localityCount: number;
     askingRange: { low: number; high: number } | null;
-    topLocalities: Pick<Locality, "id" | "name" | "nameHi" | "score">[];
+    topLocalities: Locality[];
   };
   /** Ayodhya renders first and spans two columns (spec Template 1, section 4) */
   hero?: boolean;
   labels: { seeCity: string; topAreas: string; priceBand: string };
 };
 
-/** City card: name in both scripts, two-line market read, asking range, top three areas with score, link. */
+/** City card: name in both scripts, two-line market read, asking range, three areas, link.
+ * The areas are numbered and carry a score only when one can be computed (lib/scoring.ts). */
 export function CityCard({ locale, city, stats, hero = false, labels }: CityCardProps) {
   const t = ui[locale];
+  const areas = rankLocalities(stats.topLocalities);
   const name = pick(locale, city.name, city.nameHi);
   return (
     <article data-component="CityCard" className={`card flex flex-col p-7 ${hero ? "md:col-span-2" : ""}`}>
@@ -46,19 +49,21 @@ export function CityCard({ locale, city, stats, hero = false, labels }: CityCard
           <dd className="stat-number">{stats.localityCount}</dd>
         </div>
       </dl>
-      {stats.topLocalities.length > 0 && (
+      {areas.list.length > 0 && (
         <div className="mt-5">
-          <p className="caption-mono">{labels.topAreas}</p>
+          <p className="caption-mono">{areas.ranked ? labels.topAreas : t.areas}</p>
           <ol className="mt-2 divide-y divide-line">
-            {stats.topLocalities.slice(0, 3).map((l, i) => (
+            {areas.list.slice(0, 3).map(({ locality: l, score }, i) => (
               <li key={l.id} className="flex items-baseline gap-3 py-2 text-[15px]">
-                <span aria-hidden="true" className="w-5 font-mono text-[11px] text-accent-deep">
-                  {String(i + 1).padStart(2, "0")}
-                </span>
+                {areas.ranked && (
+                  <span aria-hidden="true" className="w-5 font-mono text-[11px] text-accent-deep">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                )}
                 <a href={localePath(locale, `/${city.id}/${l.id}/`)} className="text-ink no-underline hover:text-accent-deep">
                   {pick(locale, l.name, l.nameHi)}
                 </a>
-                <span className="ml-auto font-mono text-xs text-muted tabular-nums">{l.score}</span>
+                {score !== undefined && <span className="ml-auto font-mono text-xs text-muted tabular-nums">{score}</span>}
               </li>
             ))}
           </ol>

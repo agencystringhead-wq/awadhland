@@ -69,7 +69,9 @@ export function getCityStats(cityId: string, locale: Locale) {
     projectCount: partitionProjects(dataset.projects).buildable.filter((p) => p.cityId === cityId).length,
     /** ₹ per sq ft across the city's localities, or null when no asking ranges are recorded */
     askingRange: ranges.length > 0 ? { low: Math.min(...ranges.map((r) => r.low)), high: Math.max(...ranges.map((r) => r.high)) } : null,
-    topLocalities: [...localities].filter((l) => l.score !== undefined).sort((a, b) => b.score! - a.score!),
+    /** The city's buildable localities. Ranking is the caller's job (lib/scoring.ts), because
+     * a score exists only when every signal has an input. */
+    topLocalities: localities,
   };
 }
 

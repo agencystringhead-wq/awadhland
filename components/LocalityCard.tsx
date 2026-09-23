@@ -1,17 +1,19 @@
 import type { Locale } from "@/lib/i18n";
 import { localePath, pick, ui } from "@/lib/i18n";
+import { localityScore } from "@/lib/scoring";
 import type { Locality } from "@/lib/schemas";
 import { PriceBandChip } from "./PriceBandChip";
 
 export type LocalityCardProps = {
   locale: Locale;
-  locality: Pick<Locality, "id" | "cityId" | "name" | "nameHi" | "priceBand" | "score" | "tehsil">;
+  locality: Locality;
   /** km, shown in "nearby localities" */
   distanceKm?: number;
 };
 
 export function LocalityCard({ locale, locality, distanceKm }: LocalityCardProps) {
   const t = ui[locale];
+  const score = localityScore(locality);
   return (
     <article data-component="LocalityCard" className="card flex items-center justify-between gap-3 p-4">
       <div>
@@ -28,10 +30,10 @@ export function LocalityCard({ locale, locality, distanceKm }: LocalityCardProps
               {distanceKm} {t.km}
             </>
           )}
-          {locality.score !== undefined && (
+          {score !== undefined && (
             <>
               {" · "}
-              {t.score} {locality.score}
+              {t.score} {score}
             </>
           )}
         </p>

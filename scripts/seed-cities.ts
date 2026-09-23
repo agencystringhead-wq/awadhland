@@ -123,10 +123,10 @@ const GORAKHPUR: Seed[] = [
 ];
 
 const BAND = {
-  low: { res: 6000, com: 12000, agri: 2500000, ask: [1500, 3500], score: 52 },
-  mid: { res: 12000, com: 24000, agri: 4500000, ask: [4500, 9000], score: 62 },
-  high: { res: 18000, com: 36000, agri: 6000000, ask: [7000, 13000], score: 70 },
-  premium: { res: 30000, com: 60000, agri: 9000000, ask: [12000, 25000], score: 78 },
+  low: { res: 6000, com: 12000, agri: 2500000, ask: [1500, 3500] },
+  mid: { res: 12000, com: 24000, agri: 4500000, ask: [4500, 9000] },
+  high: { res: 18000, com: 36000, agri: 6000000, ask: [7000, 13000] },
+  premium: { res: 30000, com: 60000, agri: 9000000, ask: [12000, 25000] },
 } as const;
 
 const USE_HI: Record<Use, string> = {
@@ -245,11 +245,10 @@ function locality(seed: Seed, cityId: string, cityName: string, cityNameHi: stri
       commercial: { rating: "mixed", reason: "PLACEHOLDER: fit to be assessed by the broker", reasonHi: "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी" },
       investment: { rating: "mixed", reason: "PLACEHOLDER: fit to be assessed by the broker", reasonHi: "प्लेसहोल्डर: ब्रोकर द्वारा आकलन बाक़ी" },
     },
-    score: b.score,
     sources: placeholderSource,
     updatedAt: TODAY,
     todo: [
-      "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative, fit and score are placeholders by price band",
+      "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative and fit are placeholders by price band",
       "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages",
     ],
   };
