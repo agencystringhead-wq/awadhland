@@ -6,7 +6,7 @@ import type { City, TeamMember } from "@/lib/schemas";
 export type TopStripProps = {
   locale: Locale;
   cities: Pick<City, "id" | "name" | "nameHi">[];
-  broker: Pick<TeamMember, "yearsActive" | "reraUrl">;
+  broker: Pick<TeamMember, "yearsActive" | "reraNumber" | "reraUrl">;
 };
 
 /** Five stars. Amber on the dark strip, gold elsewhere. */
@@ -48,14 +48,17 @@ export function TopStrip({ locale, cities, broker }: TopStripProps) {
         <p className="hidden shrink-0 items-center gap-2 text-[rgb(255_235_210_/_0.78)] lg:flex">
           <Stars className="text-[oklch(86%_0.17_75)] [text-shadow:0_0_8px_oklch(78%_0.16_70_/_0.4)]" />
           <span>
-            {broker.reraUrl ? (
-              <a href={broker.reraUrl} rel="noopener" className="text-inherit no-underline hover:text-white">
-                {c.rera}
-              </a>
-            ) : (
-              c.rera
-            )}{" "}
-            · {broker.yearsActive} {c.years}
+            {/* The registration claim only appears with a real number behind it (lib/guards.ts). */}
+            {broker.reraNumber &&
+              (broker.reraUrl ? (
+                <a href={broker.reraUrl} rel="noopener" className="text-inherit no-underline hover:text-white">
+                  {c.rera}
+                </a>
+              ) : (
+                <>{c.rera}</>
+              ))}
+            {broker.reraNumber && " · "}
+            {broker.yearsActive} {c.years}
           </span>
         </p>
       </div>

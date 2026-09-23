@@ -12,7 +12,7 @@
  * Hindi pages additionally need nameHi and at least one Hindi narrative paragraph,
  * because the Hindi template reads those fields and must not fall back to English copy.
  */
-import type { Locale, Locality, Project } from "./schemas";
+import type { Locale, Locality, Project, TeamMember } from "./schemas";
 
 export function missingMinimumFields(l: Locality, locale: Locale): string[] {
   const missing: string[] = [];
@@ -123,5 +123,78 @@ export function logSkippedProjects(skipped: { id: string; missing: string[] }[])
   }
   console.warn(
     `[source-guard] projects: skipped ${skipped.length}: ` + skipped.map((s) => `${s.id} (missing ${s.missing.join(", ")})`).join("; "),
+  );
+}
+
+/* ---------------------------------------------------------------- broker record */
+
+/**
+ * The broker record is seeded with TODO values, and unlike a missing rate or a thin narrative it
+ * cannot simply be withheld: the name, phone and WhatsApp are the site's spine, read by 25 files.
+ *
+ * One part of it can and must be withheld, though. `reraNumber` is a regulatory credential and
+ * lib/jsonld.ts publishes it as machine-readable structured data (propertyID "UP RERA"), while
+ * `reraUrl` is emitted as a `sameAs` identity claim. A placeholder in either is a false claim about
+ * a real regulator, not merely an unfinished page, so publishableBroker() nulls them. Both fields
+ * are nullable in the schema and every component already guards on them, so the RERA disclosure,
+ * the trust badge and the structured-data identifier all disappear on their own.
+ *
+ * The remaining TODOs stay visible. "TODO Broker Name" is obviously unfinished; a plausible-looking
+ * registration number is the thing that misleads.
+ */
+const TODO_TEXT = /^\s*TODO/i;
+/** A phone or wa.me number that is all zeros after the country code. */
+const BLANK_NUMBER = /^\+?910{10}$/;
+/** The UP RERA portal itself, rather than this broker's record on it. */
+const RERA_PORTAL_ROOT = /^https?:\/\/(www\.)?up-rera\.in\/?$/i;
+
+export function brokerPlaceholders(b: TeamMember): string[] {
+  const missing: string[] = [];
+  if (TODO_TEXT.test(b.name)) missing.push("name");
+  if (TODO_TEXT.test(b.nameHi)) missing.push("nameHi");
+  if (b.reraNumber && TODO_TEXT.test(b.reraNumber)) missing.push("reraNumber");
+  if (b.reraUrl && RERA_PORTAL_ROOT.test(b.reraUrl)) missing.push("reraUrl (points at the portal, not the broker's record)");
+  if (BLANK_NUMBER.test(b.phone)) missing.push("phone");
+  if (BLANK_NUMBER.test(b.whatsapp)) missing.push("whatsapp");
+  if (TODO_TEXT.test(b.bio)) missing.push("bio");
+  if (TODO_TEXT.test(b.bioHi)) missing.push("bioHi");
+  // The seeded id is "broker-todo", so the marker is a slug segment rather than a prefix.
+  if (/(^|-)todo($|-)/i.test(b.id)) missing.push("id (a slug of the broker's name, once there is one)");
+  return missing;
+}
+
+/** The record as it may be published: the RERA claims are dropped unless they are real. */
+export function publishableBroker(b: TeamMember): TeamMember {
+  const bad = new Set(brokerPlaceholders(b).map((f) => f.split(" ")[0]));
+  if (!bad.has("reraNumber") && !bad.has("reraUrl")) return b;
+  return {
+    ...b,
+    ...(bad.has("reraNumber") ? { reraNumber: null } : {}),
+    ...(bad.has("reraUrl") ? { reraUrl: null } : {}),
+  };
+}
+
+/** True only when a real registration number is on the record to back the claim. */
+export const brokerIsRegistered = (b: Pick<TeamMember, "reraNumber">) => Boolean(b.reraNumber);
+
+/**
+ * Drop a "UP RERA registered" line from a trust strip when nothing backs it.
+ *
+ * Matched by content rather than position because the claim sits at index 0 in both languages
+ * today and that is not a guarantee. The registration wording is the only RERA reference in these
+ * strips, so the test is safe.
+ */
+export const withoutUnbackedReraClaim = (items: string[], registered: boolean) =>
+  registered ? items : items.filter((s) => !/rera|रेरा/i.test(s));
+
+export function logBrokerPlaceholders(b: TeamMember) {
+  const missing = brokerPlaceholders(b);
+  if (missing.length === 0) {
+    console.log("[broker-guard] broker record is real");
+    return;
+  }
+  console.warn(
+    `[broker-guard] ${missing.length} placeholder field(s) in data/team.json: ${missing.join(", ")}. ` +
+      "The UP RERA number and link are withheld from the page and the structured data until they are real.",
   );
 }

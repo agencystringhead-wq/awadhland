@@ -18,7 +18,7 @@ import reviewsJson from "../data/reviews.json";
 import standardPagesJson from "../data/standardPages.json";
 import { dataFiles, type DataFileName, type Locale } from "./schemas";
 import { checkIntegrity, type Dataset } from "./integrity";
-import { partitionLocalities, partitionProjects } from "./guards";
+import { partitionLocalities, partitionProjects, publishableBroker } from "./guards";
 
 function parse<F extends DataFileName>(file: F, raw: unknown): z.infer<(typeof dataFiles)[F]> {
   const result = dataFiles[file].safeParse(raw);
@@ -134,10 +134,19 @@ export function getCityPriceSeries(cityId: string): { date: string; median: numb
 }
 
 /* team */
-export const getTeam = () => dataset.team;
-export const getTeamMember = (id: string) => dataset.team.find((t) => t.id === id);
+// Every path that hands out a team record goes through the guard, not just getBroker(): the guide
+// author box resolves its member by id, and that is where the placeholder RERA number was still
+// reaching the page after getBroker() had been fixed.
+export const getTeam = () => dataset.team.map(publishableBroker);
+export const getTeamMember = (id: string) => {
+  const member = dataset.team.find((t) => t.id === id);
+  return member ? publishableBroker(member) : undefined;
+};
 /** The broker shown in the header, trust blocks and author boxes: the first team.json record. */
-export const getBroker = () => dataset.team[0];
+/** The broker as it may be published: placeholder RERA claims are withheld (lib/guards.ts). */
+export const getBroker = () => publishableBroker(dataset.team[0]);
+/** The raw record, for the build-time placeholder report only. */
+export const getBrokerRecord = () => dataset.team[0];
 
 /* scoring */
 export const getScoring = () => dataset.scoring;

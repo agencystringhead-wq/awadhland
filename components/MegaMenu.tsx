@@ -108,7 +108,7 @@ function About({ panel, locale }: { panel: Extract<NavPanel, { kind: "about" }>;
           <p lang={locale === "hi" ? "en" : "hi"} className="text-sm text-muted">
             {pick(locale, b.nameHi, b.name)}
           </p>
-          <p className="caption-mono mt-1 text-[9.5px]">UP RERA {b.reraNumber ?? "TODO"}</p>
+          {b.reraNumber && <p className="caption-mono mt-1 text-[9.5px]">UP RERA {b.reraNumber}</p>}
           <div className="mt-3 flex flex-wrap gap-2">
             <Button href={whatsappHref(b.whatsapp, whatsappText(locale, t.about))} variant="primary" size="sm" icon={<WhatsAppIcon />}>
               {t.whatsapp}

@@ -1,5 +1,6 @@
 import { fill, homeStory } from "@/lib/content";
 import type { Locale } from "@/lib/i18n";
+import { brokerIsRegistered, withoutUnbackedReraClaim } from "@/lib/guards";
 import { ui, whatsappText } from "@/lib/i18n";
 import type { TeamMember } from "@/lib/schemas";
 import { EnquiryForm } from "./EnquiryForm";
@@ -9,7 +10,7 @@ import { whatsappHref } from "./WhatsAppButton";
 
 export type LeadFormProps = {
   locale: Locale;
-  broker: Pick<TeamMember, "phone" | "whatsapp" | "yearsActive">;
+  broker: Pick<TeamMember, "reraNumber" | "phone" | "whatsapp" | "yearsActive">;
   /** Human page name for the WhatsApp prefill */
   pageLabel: string;
   /** city id for prefill */
@@ -47,10 +48,10 @@ export function LeadForm({ locale, broker, pageLabel, city, locality, context }:
         <EnquiryForm
           locale={locale}
           variant="band"
-          copy={story.form}
+          copy={{ ...story.form, trust: withoutUnbackedReraClaim(story.form.trust, brokerIsRegistered(broker)) }}
           whatsapp={broker.whatsapp}
           phoneDisplay={formatPhone(broker.phone)}
-          trust={story.form.trust.map((s) => fill(s, vars))}
+          trust={withoutUnbackedReraClaim(story.form.trust, brokerIsRegistered(broker)).map((s) => fill(s, vars))}
           city={city}
           locality={locality}
           context={context}
