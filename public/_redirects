@@ -1,0 +1,16 @@
+# Cloudflare Pages redirects. Copied verbatim into the export from public/, and read by Pages
+# rather than served as a file.
+#
+# Locality slugs are stable ids (BUILD-SPEC, "URL structure and language"): a locality's display
+# name may change, its slug may not. So a slug only ever disappears when two records turn out to
+# be the same place, and when that happens the retired URL redirects rather than 404s — it has
+# been served publicly, even if it was noindex.
+#
+# Format: <from> <to> <status>. Both trees need their own line.
+
+# देवकाली was recorded twice, as devkali and deokali. Merged into devkali, which carries the
+# published rate rows (sadar-s225 and sadar-s226) and the conventional transliteration.
+/ayodhya/deokali/     /ayodhya/devkali/     301
+/ayodhya/deokali      /ayodhya/devkali/     301
+/hi/ayodhya/deokali/  /hi/ayodhya/devkali/  301
+/hi/ayodhya/deokali   /hi/ayodhya/devkali/  301
