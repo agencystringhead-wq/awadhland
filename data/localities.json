@@ -244,7 +244,7 @@
       "asOf": "2026-09-01"
     },
     "landUse": "mixed",
-    "landUseSource": "PLACEHOLDER: master plan reference to be confirmed",
+    "landUseSource": "IGRSUP 2025-06-07 (urban)",
     "narrative": {
       "drivers": [
         "PLACEHOLDER (draft): Naya Ghat is a mixed locality in Sadar tehsil, Ayodhya. The circle rate, asking range and land use shown here are seed values by price band, not sourced figures. This page is not indexed until the record is upgraded to live with the IGRSUP schedule and the broker's observations."
@@ -298,7 +298,7 @@
       "sourceUrl": "https://igrsup.gov.in/"
     },
     "landUse": "commercial",
-    "landUseSource": "PLACEHOLDER: master plan reference to be confirmed",
+    "landUseSource": "PLACEHOLDER: seeded from the price band, not read from a plan; confirm against the ADA Master Plan 2031 land-use map",
     "narrative": {
       "drivers": [
         "PLACEHOLDER (draft): Ram Path is a commercial locality in Sadar tehsil, Ayodhya. The circle rate, asking range and land use shown here are seed values by price band, not sourced figures. This page is not indexed until the record is upgraded to live with the IGRSUP schedule and the broker's observations."
@@ -347,7 +347,7 @@
       "sourceUrl": "https://igrsup.gov.in/"
     },
     "landUse": "commercial",
-    "landUseSource": "PLACEHOLDER: master plan reference to be confirmed",
+    "landUseSource": "PLACEHOLDER: seeded from the price band, not read from a plan; confirm against the ADA Master Plan 2031 land-use map",
     "narrative": {
       "drivers": [
         "PLACEHOLDER (draft): Dharma Path is a commercial locality in Sadar tehsil, Ayodhya. The circle rate, asking range and land use shown here are seed values by price band, not sourced figures. This page is not indexed until the record is upgraded to live with the IGRSUP schedule and the broker's observations."
@@ -396,7 +396,7 @@
       "sourceUrl": "https://igrsup.gov.in/"
     },
     "landUse": "commercial",
-    "landUseSource": "PLACEHOLDER: master plan reference to be confirmed",
+    "landUseSource": "PLACEHOLDER: seeded from the price band, not read from a plan; confirm against the ADA Master Plan 2031 land-use map",
     "narrative": {
       "drivers": [
         "PLACEHOLDER (draft): Bhakti Path is a commercial locality in Sadar tehsil, Ayodhya. The circle rate, asking range and land use shown here are seed values by price band, not sourced figures. This page is not indexed until the record is upgraded to live with the IGRSUP schedule and the broker's observations."
@@ -437,7 +437,7 @@
       "asOf": "2026-09-01"
     },
     "landUse": "mixed",
-    "landUseSource": "PLACEHOLDER: master plan reference to be confirmed",
+    "landUseSource": "IGRSUP 2025-06-07 (urban)",
     "narrative": {
       "drivers": [
         "PLACEHOLDER (draft): Sahadatganj is a mixed locality in Sadar tehsil, Ayodhya. The circle rate, asking range and land use shown here are seed values by price band, not sourced figures. This page is not indexed until the record is upgraded to live with the IGRSUP schedule and the broker's observations."
@@ -494,7 +494,7 @@
       "asOf": "2026-09-01"
     },
     "landUse": "mixed",
-    "landUseSource": "PLACEHOLDER: master plan reference to be confirmed",
+    "landUseSource": "IGRSUP 2025-06-07 (urban)",
     "narrative": {
       "drivers": [
         "PLACEHOLDER (draft): Rikabganj is a mixed locality in Sadar tehsil, Ayodhya. The circle rate, asking range and land use shown here are seed values by price band, not sourced figures. This page is not indexed until the record is upgraded to live with the IGRSUP schedule and the broker's observations."
@@ -539,8 +539,8 @@
       "unit": "sqft",
       "asOf": "2026-09-01"
     },
-    "landUse": "residential",
-    "landUseSource": "PLACEHOLDER: master plan reference to be confirmed",
+    "landUse": "mixed",
+    "landUseSource": "IGRSUP 2025-06-07 (semi-urban and urban)",
     "narrative": {
       "drivers": [
         "PLACEHOLDER (draft): Devkali is a residential locality in Sadar tehsil, Ayodhya. The circle rate, asking range and land use shown here are seed values by price band, not sourced figures. This page is not indexed until the record is upgraded to live with the IGRSUP schedule and the broker's observations."
@@ -602,8 +602,8 @@
       "unit": "sqft",
       "asOf": "2026-09-01"
     },
-    "landUse": "residential",
-    "landUseSource": "PLACEHOLDER: master plan reference to be confirmed",
+    "landUse": "mixed",
+    "landUseSource": "IGRSUP 2025-06-07 (semi-urban and urban)",
     "narrative": {
       "drivers": [
         "PLACEHOLDER (draft): Ranopali is a residential locality in Sadar tehsil, Ayodhya. The circle rate, asking range and land use shown here are seed values by price band, not sourced figures. This page is not indexed until the record is upgraded to live with the IGRSUP schedule and the broker's observations."
@@ -683,7 +683,7 @@
       "sourceUrl": "https://igrsup.gov.in/"
     },
     "landUse": "commercial",
-    "landUseSource": "PLACEHOLDER: master plan reference to be confirmed",
+    "landUseSource": "PLACEHOLDER: seeded from the price band, not read from a plan; confirm against the ADA Master Plan 2031 land-use map",
     "narrative": {
       "drivers": [
         "PLACEHOLDER (draft): Ayodhya Bypass (NH-27) is a commercial locality in Sadar tehsil, Ayodhya. The circle rate, asking range and land use shown here are seed values by price band, not sourced figures. This page is not indexed until the record is upgraded to live with the IGRSUP schedule and the broker's observations."
@@ -764,7 +764,7 @@
       "sourceUrl": "https://igrsup.gov.in/"
     },
     "landUse": "mixed",
-    "landUseSource": "PLACEHOLDER: master plan reference to be confirmed",
+    "landUseSource": "PLACEHOLDER: seeded from the price band, not read from a plan; confirm against the ADA Master Plan 2031 land-use map",
     "narrative": {
       "drivers": [
         "PLACEHOLDER (draft): Airport Road is a mixed locality in Sadar tehsil, Ayodhya. The circle rate, asking range and land use shown here are seed values by price band, not sourced figures. This page is not indexed until the record is upgraded to live with the IGRSUP schedule and the broker's observations."
@@ -827,7 +827,7 @@
       "sourceUrl": "https://igrsup.gov.in/"
     },
     "landUse": "residential",
-    "landUseSource": "PLACEHOLDER: master plan reference to be confirmed",
+    "landUseSource": "PLACEHOLDER: seeded from the price band, not read from a plan; confirm against the ADA Master Plan 2031 land-use map",
     "narrative": {
       "drivers": [
         "PLACEHOLDER (draft): Lucknow Road is a residential locality in Sadar tehsil, Ayodhya. The circle rate, asking range and land use shown here are seed values by price band, not sourced figures. This page is not indexed until the record is upgraded to live with the IGRSUP schedule and the broker's observations."
@@ -987,8 +987,8 @@
       "unit": "sqft",
       "asOf": "2026-09-01"
     },
-    "landUse": "agricultural",
-    "landUseSource": "PLACEHOLDER: master plan reference to be confirmed",
+    "landUse": "mixed",
+    "landUseSource": "IGRSUP 2025-06-07 (semi-urban)",
     "narrative": {
       "drivers": [
         "PLACEHOLDER (draft): Bikapur Road is a agricultural locality in Bikapur tehsil, Ayodhya. The circle rate, asking range and land use shown here are seed values by price band, not sourced figures. This page is not indexed until the record is upgraded to live with the IGRSUP schedule and the broker's observations."
@@ -1042,7 +1042,7 @@
       "asOf": "2026-09-01"
     },
     "landUse": "agricultural",
-    "landUseSource": "PLACEHOLDER: master plan reference to be confirmed",
+    "landUseSource": "IGRSUP 2025-06-07 (rural)",
     "narrative": {
       "drivers": [
         "PLACEHOLDER (draft): Sohawal is a agricultural locality in Sohawal tehsil, Ayodhya. The circle rate, asking range and land use shown here are seed values by price band, not sourced figures. This page is not indexed until the record is upgraded to live with the IGRSUP schedule and the broker's observations."
@@ -1096,7 +1096,7 @@
       "sourceUrl": "https://igrsup.gov.in/"
     },
     "landUse": "agricultural",
-    "landUseSource": "PLACEHOLDER: master plan reference to be confirmed",
+    "landUseSource": "PLACEHOLDER: seeded from the price band, not read from a plan; confirm against the ADA Master Plan 2031 land-use map",
     "narrative": {
       "drivers": [
         "PLACEHOLDER (draft): Masodha is a agricultural locality in Sadar tehsil, Ayodhya. The circle rate, asking range and land use shown here are seed values by price band, not sourced figures. This page is not indexed until the record is upgraded to live with the IGRSUP schedule and the broker's observations."
@@ -1145,7 +1145,7 @@
       "sourceUrl": "https://igrsup.gov.in/"
     },
     "landUse": "mixed",
-    "landUseSource": "PLACEHOLDER: master plan reference to be confirmed",
+    "landUseSource": "PLACEHOLDER: seeded from the price band, not read from a plan; confirm against the ADA Master Plan 2031 land-use map",
     "narrative": {
       "drivers": [
         "PLACEHOLDER (draft): Barun Bypass is a mixed locality in Sadar tehsil, Ayodhya. The circle rate, asking range and land use shown here are seed values by price band, not sourced figures. This page is not indexed until the record is upgraded to live with the IGRSUP schedule and the broker's observations."
@@ -1194,7 +1194,7 @@
       "sourceUrl": "https://igrsup.gov.in/"
     },
     "landUse": "agricultural",
-    "landUseSource": "PLACEHOLDER: master plan reference to be confirmed",
+    "landUseSource": "PLACEHOLDER: seeded from the price band, not read from a plan; confirm against the ADA Master Plan 2031 land-use map",
     "narrative": {
       "drivers": [
         "PLACEHOLDER (draft): Mahobra is a agricultural locality in Sadar tehsil, Ayodhya. The circle rate, asking range and land use shown here are seed values by price band, not sourced figures. This page is not indexed until the record is upgraded to live with the IGRSUP schedule and the broker's observations."
@@ -1269,8 +1269,8 @@
       "unit": "sqft",
       "asOf": "2026-09-01"
     },
-    "landUse": "residential",
-    "landUseSource": "PLACEHOLDER: master plan reference to be confirmed",
+    "landUse": "mixed",
+    "landUseSource": "IGRSUP 2025-06-07 (semi-urban)",
     "narrative": {
       "drivers": [
         "PLACEHOLDER (draft): Darshan Nagar is a residential locality in Sadar tehsil, Ayodhya. The circle rate, asking range and land use shown here are seed values by price band, not sourced figures. This page is not indexed until the record is upgraded to live with the IGRSUP schedule and the broker's observations."
@@ -1316,7 +1316,7 @@
       "asOf": "2026-09-01"
     },
     "landUse": "agricultural",
-    "landUseSource": "PLACEHOLDER: master plan reference to be confirmed",
+    "landUseSource": "IGRSUP 2025-06-07 (rural)",
     "narrative": {
       "drivers": [
         "PLACEHOLDER (draft): Bhadarsa Road is a agricultural locality in Sadar tehsil, Ayodhya. The circle rate, asking range and land use shown here are seed values by price band, not sourced figures. This page is not indexed until the record is upgraded to live with the IGRSUP schedule and the broker's observations."
@@ -1381,7 +1381,7 @@
       "sourceUrl": "https://igrsup.gov.in/"
     },
     "landUse": "agricultural",
-    "landUseSource": "PLACEHOLDER: master plan reference to be confirmed",
+    "landUseSource": "PLACEHOLDER: seeded from the price band, not read from a plan; confirm against the ADA Master Plan 2031 land-use map",
     "narrative": {
       "drivers": [
         "PLACEHOLDER (draft): Rudauli Road is a agricultural locality in Sohawal tehsil, Ayodhya. The circle rate, asking range and land use shown here are seed values by price band, not sourced figures. This page is not indexed until the record is upgraded to live with the IGRSUP schedule and the broker's observations."
@@ -1430,7 +1430,7 @@
       "sourceUrl": "https://igrsup.gov.in/"
     },
     "landUse": "agricultural",
-    "landUseSource": "PLACEHOLDER: master plan reference to be confirmed",
+    "landUseSource": "PLACEHOLDER: seeded from the price band, not read from a plan; confirm against the ADA Master Plan 2031 land-use map",
     "narrative": {
       "drivers": [
         "PLACEHOLDER (draft): Kumarganj Road is a agricultural locality in Bikapur tehsil, Ayodhya. The circle rate, asking range and land use shown here are seed values by price band, not sourced figures. This page is not indexed until the record is upgraded to live with the IGRSUP schedule and the broker's observations."
@@ -1493,7 +1493,7 @@
       "sourceUrl": "https://igrsup.gov.in/"
     },
     "landUse": "residential",
-    "landUseSource": "PLACEHOLDER: master plan reference to be confirmed",
+    "landUseSource": "PLACEHOLDER: seeded from the price band, not read from a plan; confirm against the LDA master plan land-use map",
     "narrative": {
       "drivers": [
         "PLACEHOLDER (draft): Gomti Nagar is a residential locality in Sadar tehsil, Lucknow. The circle rate, asking range and land use shown here are seed values by price band, not sourced figures. This page is not indexed until the record is upgraded to live with the IGRSUP schedule and the broker's observations."
@@ -1542,7 +1542,7 @@
       "sourceUrl": "https://igrsup.gov.in/"
     },
     "landUse": "residential",
-    "landUseSource": "PLACEHOLDER: master plan reference to be confirmed",
+    "landUseSource": "PLACEHOLDER: seeded from the price band, not read from a plan; confirm against the LDA master plan land-use map",
     "narrative": {
       "drivers": [
         "PLACEHOLDER (draft): Gomti Nagar Extension is a residential locality in Sadar tehsil, Lucknow. The circle rate, asking range and land use shown here are seed values by price band, not sourced figures. This page is not indexed until the record is upgraded to live with the IGRSUP schedule and the broker's observations."
@@ -1591,7 +1591,7 @@
       "sourceUrl": "https://igrsup.gov.in/"
     },
     "landUse": "residential",
-    "landUseSource": "PLACEHOLDER: master plan reference to be confirmed",
+    "landUseSource": "PLACEHOLDER: seeded from the price band, not read from a plan; confirm against the LDA master plan land-use map",
     "narrative": {
       "drivers": [
         "PLACEHOLDER (draft): Sultanpur Road is a residential locality in Mohanlalganj tehsil, Lucknow. The circle rate, asking range and land use shown here are seed values by price band, not sourced figures. This page is not indexed until the record is upgraded to live with the IGRSUP schedule and the broker's observations."
@@ -1640,7 +1640,7 @@
       "sourceUrl": "https://igrsup.gov.in/"
     },
     "landUse": "mixed",
-    "landUseSource": "PLACEHOLDER: master plan reference to be confirmed",
+    "landUseSource": "PLACEHOLDER: seeded from the price band, not read from a plan; confirm against the LDA master plan land-use map",
     "narrative": {
       "drivers": [
         "PLACEHOLDER (draft): Shaheed Path is a mixed locality in Sadar tehsil, Lucknow. The circle rate, asking range and land use shown here are seed values by price band, not sourced figures. This page is not indexed until the record is upgraded to live with the IGRSUP schedule and the broker's observations."
@@ -1689,7 +1689,7 @@
       "sourceUrl": "https://igrsup.gov.in/"
     },
     "landUse": "residential",
-    "landUseSource": "PLACEHOLDER: master plan reference to be confirmed",
+    "landUseSource": "PLACEHOLDER: seeded from the price band, not read from a plan; confirm against the LDA master plan land-use map",
     "narrative": {
       "drivers": [
         "PLACEHOLDER (draft): Raebareli Road is a residential locality in Mohanlalganj tehsil, Lucknow. The circle rate, asking range and land use shown here are seed values by price band, not sourced figures. This page is not indexed until the record is upgraded to live with the IGRSUP schedule and the broker's observations."
@@ -1738,7 +1738,7 @@
       "sourceUrl": "https://igrsup.gov.in/"
     },
     "landUse": "mixed",
-    "landUseSource": "PLACEHOLDER: master plan reference to be confirmed",
+    "landUseSource": "PLACEHOLDER: seeded from the price band, not read from a plan; confirm against the LDA master plan land-use map",
     "narrative": {
       "drivers": [
         "PLACEHOLDER (draft): Kanpur Road is a mixed locality in Sarojini Nagar tehsil, Lucknow. The circle rate, asking range and land use shown here are seed values by price band, not sourced figures. This page is not indexed until the record is upgraded to live with the IGRSUP schedule and the broker's observations."
@@ -1787,7 +1787,7 @@
       "sourceUrl": "https://igrsup.gov.in/"
     },
     "landUse": "residential",
-    "landUseSource": "PLACEHOLDER: master plan reference to be confirmed",
+    "landUseSource": "PLACEHOLDER: seeded from the price band, not read from a plan; confirm against the LDA master plan land-use map",
     "narrative": {
       "drivers": [
         "PLACEHOLDER (draft): Mohan Road is a residential locality in Sadar tehsil, Lucknow. The circle rate, asking range and land use shown here are seed values by price band, not sourced figures. This page is not indexed until the record is upgraded to live with the IGRSUP schedule and the broker's observations."
@@ -1836,7 +1836,7 @@
       "sourceUrl": "https://igrsup.gov.in/"
     },
     "landUse": "residential",
-    "landUseSource": "PLACEHOLDER: master plan reference to be confirmed",
+    "landUseSource": "PLACEHOLDER: seeded from the price band, not read from a plan; confirm against the LDA master plan land-use map",
     "narrative": {
       "drivers": [
         "PLACEHOLDER (draft): Deva Road is a residential locality in Sadar tehsil, Lucknow. The circle rate, asking range and land use shown here are seed values by price band, not sourced figures. This page is not indexed until the record is upgraded to live with the IGRSUP schedule and the broker's observations."
@@ -1885,7 +1885,7 @@
       "sourceUrl": "https://igrsup.gov.in/"
     },
     "landUse": "mixed",
-    "landUseSource": "PLACEHOLDER: master plan reference to be confirmed",
+    "landUseSource": "PLACEHOLDER: seeded from the price band, not read from a plan; confirm against the LDA master plan land-use map",
     "narrative": {
       "drivers": [
         "PLACEHOLDER (draft): Faizabad Road (Chinhat) is a mixed locality in Sadar tehsil, Lucknow. The circle rate, asking range and land use shown here are seed values by price band, not sourced figures. This page is not indexed until the record is upgraded to live with the IGRSUP schedule and the broker's observations."
@@ -1934,7 +1934,7 @@
       "sourceUrl": "https://igrsup.gov.in/"
     },
     "landUse": "residential",
-    "landUseSource": "PLACEHOLDER: master plan reference to be confirmed",
+    "landUseSource": "PLACEHOLDER: seeded from the price band, not read from a plan; confirm against the LDA master plan land-use map",
     "narrative": {
       "drivers": [
         "PLACEHOLDER (draft): Sitapur Road is a residential locality in Sadar tehsil, Lucknow. The circle rate, asking range and land use shown here are seed values by price band, not sourced figures. This page is not indexed until the record is upgraded to live with the IGRSUP schedule and the broker's observations."
@@ -1983,7 +1983,7 @@
       "sourceUrl": "https://igrsup.gov.in/"
     },
     "landUse": "residential",
-    "landUseSource": "PLACEHOLDER: master plan reference to be confirmed",
+    "landUseSource": "PLACEHOLDER: seeded from the price band, not read from a plan; confirm against the LDA master plan land-use map",
     "narrative": {
       "drivers": [
         "PLACEHOLDER (draft): Hardoi Road is a residential locality in Sadar tehsil, Lucknow. The circle rate, asking range and land use shown here are seed values by price band, not sourced figures. This page is not indexed until the record is upgraded to live with the IGRSUP schedule and the broker's observations."
@@ -2032,7 +2032,7 @@
       "sourceUrl": "https://igrsup.gov.in/"
     },
     "landUse": "residential",
-    "landUseSource": "PLACEHOLDER: master plan reference to be confirmed",
+    "landUseSource": "PLACEHOLDER: seeded from the price band, not read from a plan; confirm against the LDA master plan land-use map",
     "narrative": {
       "drivers": [
         "PLACEHOLDER (draft): Kursi Road is a residential locality in Bakshi Ka Talab tehsil, Lucknow. The circle rate, asking range and land use shown here are seed values by price band, not sourced figures. This page is not indexed until the record is upgraded to live with the IGRSUP schedule and the broker's observations."
@@ -2081,7 +2081,7 @@
       "sourceUrl": "https://igrsup.gov.in/"
     },
     "landUse": "residential",
-    "landUseSource": "PLACEHOLDER: master plan reference to be confirmed",
+    "landUseSource": "PLACEHOLDER: seeded from the price band, not read from a plan; confirm against the LDA master plan land-use map",
     "narrative": {
       "drivers": [
         "PLACEHOLDER (draft): IIM Road is a residential locality in Sadar tehsil, Lucknow. The circle rate, asking range and land use shown here are seed values by price band, not sourced figures. This page is not indexed until the record is upgraded to live with the IGRSUP schedule and the broker's observations."
@@ -2130,7 +2130,7 @@
       "sourceUrl": "https://igrsup.gov.in/"
     },
     "landUse": "commercial",
-    "landUseSource": "PLACEHOLDER: master plan reference to be confirmed",
+    "landUseSource": "PLACEHOLDER: seeded from the price band, not read from a plan; confirm against the LDA master plan land-use map",
     "narrative": {
       "drivers": [
         "PLACEHOLDER (draft): Amausi / Airport is a commercial locality in Sarojini Nagar tehsil, Lucknow. The circle rate, asking range and land use shown here are seed values by price band, not sourced figures. This page is not indexed until the record is upgraded to live with the IGRSUP schedule and the broker's observations."
@@ -2179,7 +2179,7 @@
       "sourceUrl": "https://igrsup.gov.in/"
     },
     "landUse": "residential",
-    "landUseSource": "PLACEHOLDER: master plan reference to be confirmed",
+    "landUseSource": "PLACEHOLDER: seeded from the price band, not read from a plan; confirm against the LDA master plan land-use map",
     "narrative": {
       "drivers": [
         "PLACEHOLDER (draft): Sushant Golf City is a residential locality in Mohanlalganj tehsil, Lucknow. The circle rate, asking range and land use shown here are seed values by price band, not sourced figures. This page is not indexed until the record is upgraded to live with the IGRSUP schedule and the broker's observations."
@@ -2228,7 +2228,7 @@
       "sourceUrl": "https://igrsup.gov.in/"
     },
     "landUse": "residential",
-    "landUseSource": "PLACEHOLDER: master plan reference to be confirmed",
+    "landUseSource": "PLACEHOLDER: seeded from the price band, not read from a plan; confirm against the LDA master plan land-use map",
     "narrative": {
       "drivers": [
         "PLACEHOLDER (draft): Vrindavan Yojana is a residential locality in Mohanlalganj tehsil, Lucknow. The circle rate, asking range and land use shown here are seed values by price band, not sourced figures. This page is not indexed until the record is upgraded to live with the IGRSUP schedule and the broker's observations."
@@ -2277,7 +2277,7 @@
       "sourceUrl": "https://igrsup.gov.in/"
     },
     "landUse": "residential",
-    "landUseSource": "PLACEHOLDER: master plan reference to be confirmed",
+    "landUseSource": "PLACEHOLDER: seeded from the price band, not read from a plan; confirm against the LDA master plan land-use map",
     "narrative": {
       "drivers": [
         "PLACEHOLDER (draft): Jankipuram is a residential locality in Sadar tehsil, Lucknow. The circle rate, asking range and land use shown here are seed values by price band, not sourced figures. This page is not indexed until the record is upgraded to live with the IGRSUP schedule and the broker's observations."
@@ -2326,7 +2326,7 @@
       "sourceUrl": "https://igrsup.gov.in/"
     },
     "landUse": "residential",
-    "landUseSource": "PLACEHOLDER: master plan reference to be confirmed",
+    "landUseSource": "PLACEHOLDER: seeded from the price band, not read from a plan; confirm against the LDA master plan land-use map",
     "narrative": {
       "drivers": [
         "PLACEHOLDER (draft): Aliganj is a residential locality in Sadar tehsil, Lucknow. The circle rate, asking range and land use shown here are seed values by price band, not sourced figures. This page is not indexed until the record is upgraded to live with the IGRSUP schedule and the broker's observations."
@@ -2375,7 +2375,7 @@
       "sourceUrl": "https://igrsup.gov.in/"
     },
     "landUse": "residential",
-    "landUseSource": "PLACEHOLDER: master plan reference to be confirmed",
+    "landUseSource": "PLACEHOLDER: seeded from the price band, not read from a plan; confirm against the LDA master plan land-use map",
     "narrative": {
       "drivers": [
         "PLACEHOLDER (draft): Indira Nagar is a residential locality in Sadar tehsil, Lucknow. The circle rate, asking range and land use shown here are seed values by price band, not sourced figures. This page is not indexed until the record is upgraded to live with the IGRSUP schedule and the broker's observations."
@@ -2424,7 +2424,7 @@
       "sourceUrl": "https://igrsup.gov.in/"
     },
     "landUse": "mixed",
-    "landUseSource": "PLACEHOLDER: master plan reference to be confirmed",
+    "landUseSource": "PLACEHOLDER: seeded from the price band, not read from a plan; confirm against the LDA master plan land-use map",
     "narrative": {
       "drivers": [
         "PLACEHOLDER (draft): Chinhat is a mixed locality in Sadar tehsil, Lucknow. The circle rate, asking range and land use shown here are seed values by price band, not sourced figures. This page is not indexed until the record is upgraded to live with the IGRSUP schedule and the broker's observations."
@@ -2473,7 +2473,7 @@
       "sourceUrl": "https://igrsup.gov.in/"
     },
     "landUse": "agricultural",
-    "landUseSource": "PLACEHOLDER: master plan reference to be confirmed",
+    "landUseSource": "PLACEHOLDER: seeded from the price band, not read from a plan; confirm against the LDA master plan land-use map",
     "narrative": {
       "drivers": [
         "PLACEHOLDER (draft): Malihabad Road is a agricultural locality in Malihabad tehsil, Lucknow. The circle rate, asking range and land use shown here are seed values by price band, not sourced figures. This page is not indexed until the record is upgraded to live with the IGRSUP schedule and the broker's observations."
@@ -2522,7 +2522,7 @@
       "sourceUrl": "https://igrsup.gov.in/"
     },
     "landUse": "mixed",
-    "landUseSource": "PLACEHOLDER: master plan reference to be confirmed",
+    "landUseSource": "PLACEHOLDER: seeded from the price band, not read from a plan; confirm against the LDA master plan land-use map",
     "narrative": {
       "drivers": [
         "PLACEHOLDER (draft): Dubagga is a mixed locality in Sadar tehsil, Lucknow. The circle rate, asking range and land use shown here are seed values by price band, not sourced figures. This page is not indexed until the record is upgraded to live with the IGRSUP schedule and the broker's observations."
@@ -2571,7 +2571,7 @@
       "sourceUrl": "https://igrsup.gov.in/"
     },
     "landUse": "residential",
-    "landUseSource": "PLACEHOLDER: master plan reference to be confirmed",
+    "landUseSource": "PLACEHOLDER: seeded from the price band, not read from a plan; confirm against the LDA master plan land-use map",
     "narrative": {
       "drivers": [
         "PLACEHOLDER (draft): Bijnor Road is a residential locality in Sarojini Nagar tehsil, Lucknow. The circle rate, asking range and land use shown here are seed values by price band, not sourced figures. This page is not indexed until the record is upgraded to live with the IGRSUP schedule and the broker's observations."
@@ -2620,7 +2620,7 @@
       "sourceUrl": "https://igrsup.gov.in/"
     },
     "landUse": "residential",
-    "landUseSource": "PLACEHOLDER: master plan reference to be confirmed",
+    "landUseSource": "PLACEHOLDER: seeded from the price band, not read from a plan; confirm against the LDA master plan land-use map",
     "narrative": {
       "drivers": [
         "PLACEHOLDER (draft): Ashiyana is a residential locality in Sadar tehsil, Lucknow. The circle rate, asking range and land use shown here are seed values by price band, not sourced figures. This page is not indexed until the record is upgraded to live with the IGRSUP schedule and the broker's observations."
@@ -2669,7 +2669,7 @@
       "sourceUrl": "https://igrsup.gov.in/"
     },
     "landUse": "commercial",
-    "landUseSource": "PLACEHOLDER: master plan reference to be confirmed",
+    "landUseSource": "PLACEHOLDER: seeded from the price band, not read from a plan; confirm against the LDA master plan land-use map",
     "narrative": {
       "drivers": [
         "PLACEHOLDER (draft): Alambagh is a commercial locality in Sadar tehsil, Lucknow. The circle rate, asking range and land use shown here are seed values by price band, not sourced figures. This page is not indexed until the record is upgraded to live with the IGRSUP schedule and the broker's observations."
@@ -2718,7 +2718,7 @@
       "sourceUrl": "https://igrsup.gov.in/"
     },
     "landUse": "residential",
-    "landUseSource": "PLACEHOLDER: master plan reference to be confirmed",
+    "landUseSource": "PLACEHOLDER: seeded from the price band, not read from a plan; confirm against the LDA master plan land-use map",
     "narrative": {
       "drivers": [
         "PLACEHOLDER (draft): Mahanagar is a residential locality in Sadar tehsil, Lucknow. The circle rate, asking range and land use shown here are seed values by price band, not sourced figures. This page is not indexed until the record is upgraded to live with the IGRSUP schedule and the broker's observations."
@@ -2767,7 +2767,7 @@
       "sourceUrl": "https://igrsup.gov.in/"
     },
     "landUse": "commercial",
-    "landUseSource": "PLACEHOLDER: master plan reference to be confirmed",
+    "landUseSource": "PLACEHOLDER: seeded from the price band, not read from a plan; confirm against the LDA master plan land-use map",
     "narrative": {
       "drivers": [
         "PLACEHOLDER (draft): Hazratganj is a commercial locality in Sadar tehsil, Lucknow. The circle rate, asking range and land use shown here are seed values by price band, not sourced figures. This page is not indexed until the record is upgraded to live with the IGRSUP schedule and the broker's observations."
@@ -2816,7 +2816,7 @@
       "sourceUrl": "https://igrsup.gov.in/"
     },
     "landUse": "commercial",
-    "landUseSource": "PLACEHOLDER: master plan reference to be confirmed",
+    "landUseSource": "PLACEHOLDER: seeded from the price band, not read from a plan; confirm against the LDA master plan land-use map",
     "narrative": {
       "drivers": [
         "PLACEHOLDER (draft): Gomti Nagar Vibhuti Khand is a commercial locality in Sadar tehsil, Lucknow. The circle rate, asking range and land use shown here are seed values by price band, not sourced figures. This page is not indexed until the record is upgraded to live with the IGRSUP schedule and the broker's observations."
@@ -2865,7 +2865,7 @@
       "sourceUrl": "https://igrsup.gov.in/"
     },
     "landUse": "residential",
-    "landUseSource": "PLACEHOLDER: master plan reference to be confirmed",
+    "landUseSource": "PLACEHOLDER: seeded from the price band, not read from a plan; confirm against the LDA master plan land-use map",
     "narrative": {
       "drivers": [
         "PLACEHOLDER (draft): Gomti Nagar Vipul Khand is a residential locality in Sadar tehsil, Lucknow. The circle rate, asking range and land use shown here are seed values by price band, not sourced figures. This page is not indexed until the record is upgraded to live with the IGRSUP schedule and the broker's observations."
@@ -2914,7 +2914,7 @@
       "sourceUrl": "https://igrsup.gov.in/"
     },
     "landUse": "residential",
-    "landUseSource": "PLACEHOLDER: master plan reference to be confirmed",
+    "landUseSource": "PLACEHOLDER: seeded from the price band, not read from a plan; confirm against the LDA master plan land-use map",
     "narrative": {
       "drivers": [
         "PLACEHOLDER (draft): Vikas Nagar is a residential locality in Sadar tehsil, Lucknow. The circle rate, asking range and land use shown here are seed values by price band, not sourced figures. This page is not indexed until the record is upgraded to live with the IGRSUP schedule and the broker's observations."
@@ -2963,7 +2963,7 @@
       "sourceUrl": "https://igrsup.gov.in/"
     },
     "landUse": "residential",
-    "landUseSource": "PLACEHOLDER: master plan reference to be confirmed",
+    "landUseSource": "PLACEHOLDER: seeded from the price band, not read from a plan; confirm against the LDA master plan land-use map",
     "narrative": {
       "drivers": [
         "PLACEHOLDER (draft): Telibagh is a residential locality in Mohanlalganj tehsil, Lucknow. The circle rate, asking range and land use shown here are seed values by price band, not sourced figures. This page is not indexed until the record is upgraded to live with the IGRSUP schedule and the broker's observations."
@@ -3012,7 +3012,7 @@
       "sourceUrl": "https://igrsup.gov.in/"
     },
     "landUse": "mixed",
-    "landUseSource": "PLACEHOLDER: master plan reference to be confirmed",
+    "landUseSource": "PLACEHOLDER: seeded from the price band, not read from a plan; confirm against the LDA master plan land-use map",
     "narrative": {
       "drivers": [
         "PLACEHOLDER (draft): Bangla Bazar is a mixed locality in Sadar tehsil, Lucknow. The circle rate, asking range and land use shown here are seed values by price band, not sourced figures. This page is not indexed until the record is upgraded to live with the IGRSUP schedule and the broker's observations."
@@ -3061,7 +3061,7 @@
       "sourceUrl": "https://igrsup.gov.in/"
     },
     "landUse": "mixed",
-    "landUseSource": "PLACEHOLDER: master plan reference to be confirmed",
+    "landUseSource": "PLACEHOLDER: seeded from the price band, not read from a plan; confirm against the LDA master plan land-use map",
     "narrative": {
       "drivers": [
         "PLACEHOLDER (draft): Sarojini Nagar is a mixed locality in Sarojini Nagar tehsil, Lucknow. The circle rate, asking range and land use shown here are seed values by price band, not sourced figures. This page is not indexed until the record is upgraded to live with the IGRSUP schedule and the broker's observations."
@@ -3110,7 +3110,7 @@
       "sourceUrl": "https://igrsup.gov.in/"
     },
     "landUse": "agricultural",
-    "landUseSource": "PLACEHOLDER: master plan reference to be confirmed",
+    "landUseSource": "PLACEHOLDER: seeded from the price band, not read from a plan; confirm against the LDA master plan land-use map",
     "narrative": {
       "drivers": [
         "PLACEHOLDER (draft): Bakshi Ka Talab is a agricultural locality in Bakshi Ka Talab tehsil, Lucknow. The circle rate, asking range and land use shown here are seed values by price band, not sourced figures. This page is not indexed until the record is upgraded to live with the IGRSUP schedule and the broker's observations."
@@ -3159,7 +3159,7 @@
       "sourceUrl": "https://igrsup.gov.in/"
     },
     "landUse": "agricultural",
-    "landUseSource": "PLACEHOLDER: master plan reference to be confirmed",
+    "landUseSource": "PLACEHOLDER: seeded from the price band, not read from a plan; confirm against the LDA master plan land-use map",
     "narrative": {
       "drivers": [
         "PLACEHOLDER (draft): Itaunja is a agricultural locality in Bakshi Ka Talab tehsil, Lucknow. The circle rate, asking range and land use shown here are seed values by price band, not sourced figures. This page is not indexed until the record is upgraded to live with the IGRSUP schedule and the broker's observations."
@@ -3208,7 +3208,7 @@
       "sourceUrl": "https://igrsup.gov.in/"
     },
     "landUse": "agricultural",
-    "landUseSource": "PLACEHOLDER: master plan reference to be confirmed",
+    "landUseSource": "PLACEHOLDER: seeded from the price band, not read from a plan; confirm against the LDA master plan land-use map",
     "narrative": {
       "drivers": [
         "PLACEHOLDER (draft): Kakori is a agricultural locality in Malihabad tehsil, Lucknow. The circle rate, asking range and land use shown here are seed values by price band, not sourced figures. This page is not indexed until the record is upgraded to live with the IGRSUP schedule and the broker's observations."
@@ -3257,7 +3257,7 @@
       "sourceUrl": "https://igrsup.gov.in/"
     },
     "landUse": "mixed",
-    "landUseSource": "PLACEHOLDER: master plan reference to be confirmed",
+    "landUseSource": "PLACEHOLDER: seeded from the price band, not read from a plan; confirm against the GDA master plan land-use map",
     "narrative": {
       "drivers": [
         "PLACEHOLDER (draft): Medical College Road is a mixed locality in Sadar tehsil, Gorakhpur. The circle rate, asking range and land use shown here are seed values by price band, not sourced figures. This page is not indexed until the record is upgraded to live with the IGRSUP schedule and the broker's observations."
@@ -3306,7 +3306,7 @@
       "sourceUrl": "https://igrsup.gov.in/"
     },
     "landUse": "residential",
-    "landUseSource": "PLACEHOLDER: master plan reference to be confirmed",
+    "landUseSource": "PLACEHOLDER: seeded from the price band, not read from a plan; confirm against the GDA master plan land-use map",
     "narrative": {
       "drivers": [
         "PLACEHOLDER (draft): Kunraghat / AIIMS is a residential locality in Sadar tehsil, Gorakhpur. The circle rate, asking range and land use shown here are seed values by price band, not sourced figures. This page is not indexed until the record is upgraded to live with the IGRSUP schedule and the broker's observations."
@@ -3355,7 +3355,7 @@
       "sourceUrl": "https://igrsup.gov.in/"
     },
     "landUse": "residential",
-    "landUseSource": "PLACEHOLDER: master plan reference to be confirmed",
+    "landUseSource": "PLACEHOLDER: seeded from the price band, not read from a plan; confirm against the GDA master plan land-use map",
     "narrative": {
       "drivers": [
         "PLACEHOLDER (draft): Taramandal is a residential locality in Sadar tehsil, Gorakhpur. The circle rate, asking range and land use shown here are seed values by price band, not sourced figures. This page is not indexed until the record is upgraded to live with the IGRSUP schedule and the broker's observations."
@@ -3404,7 +3404,7 @@
       "sourceUrl": "https://igrsup.gov.in/"
     },
     "landUse": "industrial",
-    "landUseSource": "PLACEHOLDER: master plan reference to be confirmed",
+    "landUseSource": "PLACEHOLDER: seeded from the price band, not read from a plan; confirm against the GDA master plan land-use map",
     "narrative": {
       "drivers": [
         "PLACEHOLDER (draft): GIDA is a industrial locality in Sahjanwa tehsil, Gorakhpur. The circle rate, asking range and land use shown here are seed values by price band, not sourced figures. This page is not indexed until the record is upgraded to live with the IGRSUP schedule and the broker's observations."
@@ -3453,7 +3453,7 @@
       "sourceUrl": "https://igrsup.gov.in/"
     },
     "landUse": "residential",
-    "landUseSource": "PLACEHOLDER: master plan reference to be confirmed",
+    "landUseSource": "PLACEHOLDER: seeded from the price band, not read from a plan; confirm against the GDA master plan land-use map",
     "narrative": {
       "drivers": [
         "PLACEHOLDER (draft): Deoria Road is a residential locality in Sadar tehsil, Gorakhpur. The circle rate, asking range and land use shown here are seed values by price band, not sourced figures. This page is not indexed until the record is upgraded to live with the IGRSUP schedule and the broker's observations."
@@ -3502,7 +3502,7 @@
       "sourceUrl": "https://igrsup.gov.in/"
     },
     "landUse": "mixed",
-    "landUseSource": "PLACEHOLDER: master plan reference to be confirmed",
+    "landUseSource": "PLACEHOLDER: seeded from the price band, not read from a plan; confirm against the GDA master plan land-use map",
     "narrative": {
       "drivers": [
         "PLACEHOLDER (draft): Kushinagar Road is a mixed locality in Sadar tehsil, Gorakhpur. The circle rate, asking range and land use shown here are seed values by price band, not sourced figures. This page is not indexed until the record is upgraded to live with the IGRSUP schedule and the broker's observations."
@@ -3551,7 +3551,7 @@
       "sourceUrl": "https://igrsup.gov.in/"
     },
     "landUse": "commercial",
-    "landUseSource": "PLACEHOLDER: master plan reference to be confirmed",
+    "landUseSource": "PLACEHOLDER: seeded from the price band, not read from a plan; confirm against the GDA master plan land-use map",
     "narrative": {
       "drivers": [
         "PLACEHOLDER (draft): Nausadh is a commercial locality in Sadar tehsil, Gorakhpur. The circle rate, asking range and land use shown here are seed values by price band, not sourced figures. This page is not indexed until the record is upgraded to live with the IGRSUP schedule and the broker's observations."
@@ -3600,7 +3600,7 @@
       "sourceUrl": "https://igrsup.gov.in/"
     },
     "landUse": "residential",
-    "landUseSource": "PLACEHOLDER: master plan reference to be confirmed",
+    "landUseSource": "PLACEHOLDER: seeded from the price band, not read from a plan; confirm against the GDA master plan land-use map",
     "narrative": {
       "drivers": [
         "PLACEHOLDER (draft): Rustampur is a residential locality in Sadar tehsil, Gorakhpur. The circle rate, asking range and land use shown here are seed values by price band, not sourced figures. This page is not indexed until the record is upgraded to live with the IGRSUP schedule and the broker's observations."
@@ -3649,7 +3649,7 @@
       "sourceUrl": "https://igrsup.gov.in/"
     },
     "landUse": "mixed",
-    "landUseSource": "PLACEHOLDER: master plan reference to be confirmed",
+    "landUseSource": "PLACEHOLDER: seeded from the price band, not read from a plan; confirm against the GDA master plan land-use map",
     "narrative": {
       "drivers": [
         "PLACEHOLDER (draft): Mohaddipur is a mixed locality in Sadar tehsil, Gorakhpur. The circle rate, asking range and land use shown here are seed values by price band, not sourced figures. This page is not indexed until the record is upgraded to live with the IGRSUP schedule and the broker's observations."
@@ -3698,7 +3698,7 @@
       "sourceUrl": "https://igrsup.gov.in/"
     },
     "landUse": "mixed",
-    "landUseSource": "PLACEHOLDER: master plan reference to be confirmed",
+    "landUseSource": "PLACEHOLDER: seeded from the price band, not read from a plan; confirm against the GDA master plan land-use map",
     "narrative": {
       "drivers": [
         "PLACEHOLDER (draft): Gorakhnath is a mixed locality in Sadar tehsil, Gorakhpur. The circle rate, asking range and land use shown here are seed values by price band, not sourced figures. This page is not indexed until the record is upgraded to live with the IGRSUP schedule and the broker's observations."
@@ -3747,7 +3747,7 @@
       "sourceUrl": "https://igrsup.gov.in/"
     },
     "landUse": "residential",
-    "landUseSource": "PLACEHOLDER: master plan reference to be confirmed",
+    "landUseSource": "PLACEHOLDER: seeded from the price band, not read from a plan; confirm against the GDA master plan land-use map",
     "narrative": {
       "drivers": [
         "PLACEHOLDER (draft): Padri Bazar is a residential locality in Sadar tehsil, Gorakhpur. The circle rate, asking range and land use shown here are seed values by price band, not sourced figures. This page is not indexed until the record is upgraded to live with the IGRSUP schedule and the broker's observations."
@@ -3796,7 +3796,7 @@
       "sourceUrl": "https://igrsup.gov.in/"
     },
     "landUse": "residential",
-    "landUseSource": "PLACEHOLDER: master plan reference to be confirmed",
+    "landUseSource": "PLACEHOLDER: seeded from the price band, not read from a plan; confirm against the GDA master plan land-use map",
     "narrative": {
       "drivers": [
         "PLACEHOLDER (draft): Shahpur is a residential locality in Sadar tehsil, Gorakhpur. The circle rate, asking range and land use shown here are seed values by price band, not sourced figures. This page is not indexed until the record is upgraded to live with the IGRSUP schedule and the broker's observations."
@@ -3845,7 +3845,7 @@
       "sourceUrl": "https://igrsup.gov.in/"
     },
     "landUse": "residential",
-    "landUseSource": "PLACEHOLDER: master plan reference to be confirmed",
+    "landUseSource": "PLACEHOLDER: seeded from the price band, not read from a plan; confirm against the GDA master plan land-use map",
     "narrative": {
       "drivers": [
         "PLACEHOLDER (draft): Basharatpur is a residential locality in Sadar tehsil, Gorakhpur. The circle rate, asking range and land use shown here are seed values by price band, not sourced figures. This page is not indexed until the record is upgraded to live with the IGRSUP schedule and the broker's observations."
@@ -3894,7 +3894,7 @@
       "sourceUrl": "https://igrsup.gov.in/"
     },
     "landUse": "residential",
-    "landUseSource": "PLACEHOLDER: master plan reference to be confirmed",
+    "landUseSource": "PLACEHOLDER: seeded from the price band, not read from a plan; confirm against the GDA master plan land-use map",
     "narrative": {
       "drivers": [
         "PLACEHOLDER (draft): Gulariha is a residential locality in Sadar tehsil, Gorakhpur. The circle rate, asking range and land use shown here are seed values by price band, not sourced figures. This page is not indexed until the record is upgraded to live with the IGRSUP schedule and the broker's observations."
@@ -3943,7 +3943,7 @@
       "sourceUrl": "https://igrsup.gov.in/"
     },
     "landUse": "residential",
-    "landUseSource": "PLACEHOLDER: master plan reference to be confirmed",
+    "landUseSource": "PLACEHOLDER: seeded from the price band, not read from a plan; confirm against the GDA master plan land-use map",
     "narrative": {
       "drivers": [
         "PLACEHOLDER (draft): Rapti Nagar is a residential locality in Sadar tehsil, Gorakhpur. The circle rate, asking range and land use shown here are seed values by price band, not sourced figures. This page is not indexed until the record is upgraded to live with the IGRSUP schedule and the broker's observations."
@@ -3992,7 +3992,7 @@
       "sourceUrl": "https://igrsup.gov.in/"
     },
     "landUse": "residential",
-    "landUseSource": "PLACEHOLDER: master plan reference to be confirmed",
+    "landUseSource": "PLACEHOLDER: seeded from the price band, not read from a plan; confirm against the GDA master plan land-use map",
     "narrative": {
       "drivers": [
         "PLACEHOLDER (draft): Jhungia is a residential locality in Sadar tehsil, Gorakhpur. The circle rate, asking range and land use shown here are seed values by price band, not sourced figures. This page is not indexed until the record is upgraded to live with the IGRSUP schedule and the broker's observations."
@@ -4041,7 +4041,7 @@
       "sourceUrl": "https://igrsup.gov.in/"
     },
     "landUse": "industrial",
-    "landUseSource": "PLACEHOLDER: master plan reference to be confirmed",
+    "landUseSource": "PLACEHOLDER: seeded from the price band, not read from a plan; confirm against the GDA master plan land-use map",
     "narrative": {
       "drivers": [
         "PLACEHOLDER (draft): HURL Fertilizer belt is a industrial locality in Sadar tehsil, Gorakhpur. The circle rate, asking range and land use shown here are seed values by price band, not sourced figures. This page is not indexed until the record is upgraded to live with the IGRSUP schedule and the broker's observations."
@@ -4090,7 +4090,7 @@
       "sourceUrl": "https://igrsup.gov.in/"
     },
     "landUse": "residential",
-    "landUseSource": "PLACEHOLDER: master plan reference to be confirmed",
+    "landUseSource": "PLACEHOLDER: seeded from the price band, not read from a plan; confirm against the GDA master plan land-use map",
     "narrative": {
       "drivers": [
         "PLACEHOLDER (draft): Maharajganj Road is a residential locality in Sadar tehsil, Gorakhpur. The circle rate, asking range and land use shown here are seed values by price band, not sourced figures. This page is not indexed until the record is upgraded to live with the IGRSUP schedule and the broker's observations."
@@ -4139,7 +4139,7 @@
       "sourceUrl": "https://igrsup.gov.in/"
     },
     "landUse": "agricultural",
-    "landUseSource": "PLACEHOLDER: master plan reference to be confirmed",
+    "landUseSource": "PLACEHOLDER: seeded from the price band, not read from a plan; confirm against the GDA master plan land-use map",
     "narrative": {
       "drivers": [
         "PLACEHOLDER (draft): Sahjanwa is a agricultural locality in Sahjanwa tehsil, Gorakhpur. The circle rate, asking range and land use shown here are seed values by price band, not sourced figures. This page is not indexed until the record is upgraded to live with the IGRSUP schedule and the broker's observations."
@@ -4188,7 +4188,7 @@
       "sourceUrl": "https://igrsup.gov.in/"
     },
     "landUse": "commercial",
-    "landUseSource": "PLACEHOLDER: master plan reference to be confirmed",
+    "landUseSource": "PLACEHOLDER: seeded from the price band, not read from a plan; confirm against the GDA master plan land-use map",
     "narrative": {
       "drivers": [
         "PLACEHOLDER (draft): Ramgarh Tal is a commercial locality in Sadar tehsil, Gorakhpur. The circle rate, asking range and land use shown here are seed values by price band, not sourced figures. This page is not indexed until the record is upgraded to live with the IGRSUP schedule and the broker's observations."
@@ -4237,7 +4237,7 @@
       "sourceUrl": "https://igrsup.gov.in/"
     },
     "landUse": "mixed",
-    "landUseSource": "PLACEHOLDER: master plan reference to be confirmed",
+    "landUseSource": "PLACEHOLDER: seeded from the price band, not read from a plan; confirm against the GDA master plan land-use map",
     "narrative": {
       "drivers": [
         "PLACEHOLDER (draft): Jungle Kaudia / Airport is a mixed locality in Sadar tehsil, Gorakhpur. The circle rate, asking range and land use shown here are seed values by price band, not sourced figures. This page is not indexed until the record is upgraded to live with the IGRSUP schedule and the broker's observations."
@@ -4286,7 +4286,7 @@
       "sourceUrl": "https://igrsup.gov.in/"
     },
     "landUse": "residential",
-    "landUseSource": "PLACEHOLDER: master plan reference to be confirmed",
+    "landUseSource": "PLACEHOLDER: seeded from the price band, not read from a plan; confirm against the GDA master plan land-use map",
     "narrative": {
       "drivers": [
         "PLACEHOLDER (draft): Khorabar is a residential locality in Sadar tehsil, Gorakhpur. The circle rate, asking range and land use shown here are seed values by price band, not sourced figures. This page is not indexed until the record is upgraded to live with the IGRSUP schedule and the broker's observations."
@@ -4335,7 +4335,7 @@
       "sourceUrl": "https://igrsup.gov.in/"
     },
     "landUse": "industrial",
-    "landUseSource": "PLACEHOLDER: master plan reference to be confirmed",
+    "landUseSource": "PLACEHOLDER: seeded from the price band, not read from a plan; confirm against the GDA master plan land-use map",
     "narrative": {
       "drivers": [
         "PLACEHOLDER (draft): Bargadwa is a industrial locality in Sadar tehsil, Gorakhpur. The circle rate, asking range and land use shown here are seed values by price band, not sourced figures. This page is not indexed until the record is upgraded to live with the IGRSUP schedule and the broker's observations."
@@ -4384,7 +4384,7 @@
       "sourceUrl": "https://igrsup.gov.in/"
     },
     "landUse": "agricultural",
-    "landUseSource": "PLACEHOLDER: master plan reference to be confirmed",
+    "landUseSource": "PLACEHOLDER: seeded from the price band, not read from a plan; confirm against the GDA master plan land-use map",
     "narrative": {
       "drivers": [
         "PLACEHOLDER (draft): Sonbarsa is a agricultural locality in Sadar tehsil, Gorakhpur. The circle rate, asking range and land use shown here are seed values by price band, not sourced figures. This page is not indexed until the record is upgraded to live with the IGRSUP schedule and the broker's observations."
@@ -4433,7 +4433,7 @@
       "sourceUrl": "https://igrsup.gov.in/"
     },
     "landUse": "agricultural",
-    "landUseSource": "PLACEHOLDER: master plan reference to be confirmed",
+    "landUseSource": "PLACEHOLDER: seeded from the price band, not read from a plan; confirm against the GDA master plan land-use map",
     "narrative": {
       "drivers": [
         "PLACEHOLDER (draft): Chargawan is a agricultural locality in Sadar tehsil, Gorakhpur. The circle rate, asking range and land use shown here are seed values by price band, not sourced figures. This page is not indexed until the record is upgraded to live with the IGRSUP schedule and the broker's observations."
