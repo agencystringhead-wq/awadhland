@@ -543,12 +543,16 @@ function main() {
     if (l.cityId !== args.city) continue;
     const m = byLocality.get(l.id);
     if (!m) continue;
-    l.rateRefs = m.rateRowIds.map((rateRowId) => ({ rateRowId }));
+    if (m.rateRowIds.length > 0) l.rateRefs = m.rateRowIds.map((rateRowId) => ({ rateRowId }));
     if (m.roadSegmentIds.length > 0) l.roadSegmentRefs = m.roadSegmentIds.map((id) => ({ id }));
     // Step 9 A4: the per-locality figure goes once the published rows are in. Leaving it would
     // keep a seed placeholder — with a date that never existed — feeding the meta description,
     // the OG image and the source stamp while the page body shows the real rows.
-    if (l.circleRate) {
+    //
+    // Only when rows were actually written. A corridor matched to road segments alone has no
+    // rateRefs to replace it, and dropping its circleRate would leave it with no rate at all —
+    // which the thin-page guard reads as an incomplete record.
+    if (m.rateRowIds.length > 0 && l.circleRate) {
       delete l.circleRate;
       droppedLegacy++;
     }

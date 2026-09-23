@@ -97,7 +97,24 @@
       "Source URLs point at portal home pages; replace with the exact schedule PDF and ADA Master Plan 2031 document",
       "Hindi narrative and broker note to be written or checked by a person"
     ],
-    "status": "live"
+    "status": "live",
+    "roadSegmentRefs": [
+      {
+        "id": "sadar-seg59-katra-goshainganj"
+      },
+      {
+        "id": "sadar-seg60-ankaripur"
+      },
+      {
+        "id": "sadar-seg60-katra-goshaiganj"
+      },
+      {
+        "id": "sadar-seg61-ankaripur"
+      },
+      {
+        "id": "sadar-seg61-katra-goshaiganj"
+      }
+    ]
   },
   {
     "id": "civil-lines",
@@ -787,6 +804,26 @@
       "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative and score are placeholders by price band",
       "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages",
       "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder."
+    ],
+    "roadSegmentRefs": [
+      {
+        "id": "sadar-seg5-sivil-lain"
+      },
+      {
+        "id": "sadar-seg5-togpur"
+      },
+      {
+        "id": "sadar-seg5-sahadatganj"
+      },
+      {
+        "id": "sadar-seg26-abbusray"
+      },
+      {
+        "id": "sadar-seg26-gaddopur"
+      },
+      {
+        "id": "sadar-seg26-khojanpur"
+      }
     ]
   },
   {
@@ -907,14 +944,6 @@
       "unit": "sqft",
       "asOf": "2026-09-01"
     },
-    "circleRate": {
-      "residential": 6000,
-      "commercial": 12000,
-      "agricultural": 2500000,
-      "unit": "sqm|hectare",
-      "effectiveFrom": "2026-08-01",
-      "sourceUrl": "https://igrsup.gov.in/"
-    },
     "landUse": "agricultural",
     "landUseSource": "PLACEHOLDER: master plan reference to be confirmed",
     "narrative": {
@@ -938,6 +967,19 @@
       "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative and score are placeholders by price band",
       "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages",
       "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder."
+    ],
+    "rateRefs": [
+      {
+        "rateRowId": "bikapur-1221"
+      }
+    ],
+    "roadSegmentRefs": [
+      {
+        "id": "bikapur-seg1-bikapur"
+      },
+      {
+        "id": "bikapur-seg4-bikapur"
+      }
     ]
   },
   {
@@ -1191,7 +1233,7 @@
     "status": "draft",
     "name": "Bhadarsa Road",
     "nameHi": "भदरसा रोड",
-    "tehsil": "Sadar",
+    "tehsil": "Sohawal",
     "lat": 26.72,
     "lng": 82.25,
     "priceBand": "low",
@@ -1200,14 +1242,6 @@
       "high": 3500,
       "unit": "sqft",
       "asOf": "2026-09-01"
-    },
-    "circleRate": {
-      "residential": 6000,
-      "commercial": 12000,
-      "agricultural": 2500000,
-      "unit": "sqm|hectare",
-      "effectiveFrom": "2026-08-01",
-      "sourceUrl": "https://igrsup.gov.in/"
     },
     "landUse": "agricultural",
     "landUseSource": "PLACEHOLDER: master plan reference to be confirmed",
@@ -1229,9 +1263,25 @@
     ],
     "updatedAt": "2026-09-18",
     "todo": [
-      "Draft seed record: name, tehsil and approximate coordinates only; circle rate, asking range, land use, narrative and score are placeholders by price band",
       "Upgrade status to live only with the parsed IGRSUP row, ADA/LDA/GDA land use, drive times and the broker's own narrative in both languages",
-      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder."
+      "The \"who it suits\" block is omitted until the broker rates residential, commercial and investment fit in both languages. It previously shipped a uniform placeholder.",
+      "Seed record said tehsil Sadar; corrected to Sohawal against the 2025-06-07 list, where every भदरसा row sits in the Sohawal SRO."
+    ],
+    "rateRefs": [
+      {
+        "rateRowId": "sohawal-1093"
+      },
+      {
+        "rateRowId": "sohawal-1094"
+      }
+    ],
+    "roadSegmentRefs": [
+      {
+        "id": "sohawal-seg-r1-taun-eriya-bhadarsa"
+      },
+      {
+        "id": "sohawal-seg-r2-taun-eriya-bhadarsa"
+      }
     ]
   },
   {

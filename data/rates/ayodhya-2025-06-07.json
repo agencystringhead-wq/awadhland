@@ -56046,10 +56046,10 @@
     {
       "label": "IGRSUP मूल्यांकन सूची, Ayodhya district, effective 2025-06-07 (Collector order 2025-06-06)",
       "url": "https://igrsup.gov.in/",
-      "accessedAt": "2026-09-22"
+      "accessedAt": "2026-09-23"
     }
   ],
-  "updatedAt": "2026-09-22",
+  "updatedAt": "2026-09-23",
   "todo": [
     "Upload the five scanned SRO PDFs to R2 and set archiveUrl on each sourceDoc (the files are gitignored; pdfPath is provenance only).",
     "Add per-SRO IGRSUP deep links once stable URLs are available; igrsupUrl is currently the site root for all five."

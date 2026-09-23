@@ -3,8 +3,14 @@
   "aliases": {
     "faizabad-road": {
       "rateRowIds": [],
-      "roadSegmentIds": [],
-      "note": "Corridor, not a village row. The list covers it through Sadar segments 59–61 (अकबरपुर-फैजाबाद रोड). Pick the stretches inside the locality."
+      "roadSegmentIds": [
+        "sadar-seg59-katra-goshainganj",
+        "sadar-seg60-ankaripur",
+        "sadar-seg60-katra-goshaiganj",
+        "sadar-seg61-ankaripur",
+        "sadar-seg61-katra-goshaiganj"
+      ],
+      "note": "A corridor, not a village: the two फैजाबाद rows in the list are फैजाबाद ग्रामीण and मांझामूडाडीहाफैजाबाद, neither of which is this road. The list prices it through Sadar segments 59, 60 and 61 (अकबरपुर-फैजाबाद रोड), all at 12,300 ₹/sq m, which are mapped here. rateRowIds stays empty on purpose, so the locality keeps its own circleRate until someone decides which villages the corridor should quote."
     },
     "civil-lines": {
       "rateRowIds": [
@@ -24,17 +30,17 @@
     "ram-path": {
       "rateRowIds": [],
       "roadSegmentIds": [],
-      "note": "The 2025 Sadar list has no segment called राम पथ. The corridor runs Sahadatganj → Naya Ghat; pick the stretches that cover it from the Sadar segment list."
+      "note": "No segment called राम पथ in the 2025 Sadar list. The corridor runs Sahadatganj → Naya Ghat, both of which are mapped rows; choose the stretches that cover it."
     },
     "dharma-path": {
       "rateRowIds": [],
       "roadSegmentIds": [],
-      "note": "No segment called धर्म पथ in the 2025 Sadar list. Runs from Ram Path towards the Ram Janmabhoomi complex."
+      "note": "No segment called धर्म पथ. Runs from Ram Path towards the Ram Janmabhoomi complex."
     },
     "bhakti-path": {
       "rateRowIds": [],
       "roadSegmentIds": [],
-      "note": "No segment called भक्ति पथ in the 2025 Sadar list. Segment 69 (अर्जुनदास जी के मंदिर → राम कोट) is the closest description."
+      "note": "No segment called भक्ति पथ. Segment 69 (अर्जुनदास जी के मंदिर → राम कोट) is the closest description in the list."
     },
     "devkali": {
       "rateRowIds": [
@@ -68,17 +74,24 @@
     "ayodhya-bypass-nh-27": {
       "rateRowIds": [],
       "roadSegmentIds": [],
-      "note": "No row or segment names the bypass directly. Map to the villages it runs through, or to the segments that reference बाईपास."
+      "note": "No row or segment names the bypass. Several Sadar segments reference बाईपास as a landmark (5, 55, 56, 64, 74) without pricing the bypass itself; pick from the villages along it."
     },
     "airport-road": {
       "rateRowIds": [],
       "roadSegmentIds": [],
-      "note": "The list names no एयरपोर्ट/हवाई अड्डा row or segment. Map to the villages the airport road passes through."
+      "note": "No एयरपोर्ट, हवाई अड्डा or equivalent row or segment. The airport opened after the ground this list covers was last named, so map to the villages the approach road crosses."
     },
     "lucknow-road": {
       "rateRowIds": [],
-      "roadSegmentIds": [],
-      "note": "Corridor. Sadar segments 5 and 26 name लखनऊ रोड explicitly."
+      "roadSegmentIds": [
+        "sadar-seg5-sivil-lain",
+        "sadar-seg5-togpur",
+        "sadar-seg5-sahadatganj",
+        "sadar-seg26-abbusray",
+        "sadar-seg26-gaddopur",
+        "sadar-seg26-khojanpur"
+      ],
+      "note": "A corridor with no village row of its own. Sadar segment 5 (सर्किट हाउस → लखनऊ रोड बाईपास, 33,200–37,000 ₹/sq m) and segment 26 (लखनऊ रोड टी.वी. टावर चौराहा → डी.एम. बंगला, 33,200) name it explicitly. Milkipur also has a segment 5, on the Ayodhya–Raebareli road; it is not this one."
     },
     "gosaiganj": {
       "rateRowIds": [
@@ -105,39 +118,50 @@
       "note": "The list spells it गोशाईगंज and groups the whole town under one ward, टाउन एरिया गोशाईगंज: twelve mohalla rows (कटरा ×6, गोशाईगंज ×3, तेलियागढ़ ×3) that all carry identical figures — 7,700/8,500/9,300 ₹ per sq m, shop 48,200, agri 107 — because the town area is a single rate band. All twelve are mapped, so the page shows the town rather than an arbitrary three of its mohallas. NOTE: the locality record said tehsil Bikapur, which is wrong — no गोशाईगंज row exists outside Sadar in any of the five lists, and the single Bikapur mention is a road heading towards it, priced for तारून. Corrected to Sadar here."
     },
     "bikapur-road": {
-      "rateRowIds": [],
-      "roadSegmentIds": [],
-      "note": "Corridor. Two बीकापुर village rows exist (bikapur-1221, sadar-s324) plus Bikapur segments 1 and 4."
+      "rateRowIds": [
+        "bikapur-1221"
+      ],
+      "roadSegmentIds": [
+        "bikapur-seg1-bikapur",
+        "bikapur-seg4-bikapur"
+      ],
+      "note": "Two unrelated villages are both called बीकापुर: bikapur-1221 in the Bikapur SRO (12,000 ₹/sq m, the town this road runs to) and sadar-s324 in Sadar (2,100, a small rural village that happens to share the name). The locality's own tehsil is Bikapur, so only the first is mapped. Segments 1 (NH Ayodhya–Prayagraj, 32,000) and 4 (Bikapur–Jana road, 26,000) carry its frontage."
     },
     "masodha": {
       "rateRowIds": [],
       "roadSegmentIds": [],
-      "note": "The list has only खानपुर मसौधा (sohawal-1029) plus the Sohawal segments through it. Confirm this is the same Masodha."
+      "note": "The only मसौधा anywhere in the five lists is खानपुर मसौधा (sohawal-1029, 9,500 ₹/sq m). Not mapped, because that asserts Khanpur Masodha and Masodha are the same place and the evidence is circumstantial: the locality record says tehsil Sadar, the row is in Sohawal, and the Sohawal segment through it reads \"खानपुर मसौधा में फैजाबाद तहसील की सीमा से\" — consistent with the boundary but not proof. Confirm locally, then map to sohawal-1029."
     },
     "barun-bypass": {
       "rateRowIds": [],
       "roadSegmentIds": [],
-      "note": "No name overlap in this list. Identify the villages the bypass runs through."
+      "note": "बरुण appears nowhere in the five lists, as a row or a segment village. Identify the villages the bypass runs through, or confirm the name used locally."
     },
     "mahobra": {
       "rateRowIds": [],
       "roadSegmentIds": [],
-      "note": "महोबरा does not appear anywhere in the five lists. Confirm the spelling used locally, or drop the locality."
+      "note": "महोबरा appears nowhere in any of the five lists, in any tehsil, as a row or a segment village. Either the spelling on the list differs, or the locality should be dropped."
     },
     "bhadarsa-road": {
-      "rateRowIds": [],
-      "roadSegmentIds": [],
-      "note": "Corridor. भदरसा appears as a village row; the road itself is not a listed segment."
+      "rateRowIds": [
+        "sohawal-1093",
+        "sohawal-1094"
+      ],
+      "roadSegmentIds": [
+        "sohawal-seg-r1-taun-eriya-bhadarsa",
+        "sohawal-seg-r2-taun-eriya-bhadarsa"
+      ],
+      "note": "Bhadarsa is split inside/outside the town area, the same pattern as Devkali and Ranopali: भदरसा टाउन अन्दर व समस्त मोहल्ले (s1093, 10,600 ₹/sq m) and भदरसा टाउन बाहर (s1094, 8,850). Both mapped. कल्याण भदरसा (sohawal-1025, 7,800) is deliberately excluded — a separately named revenue village, as छोटी देवकाली is to Devkali. NOTE: the locality record says tehsil Sadar, but every भदरसा row in the five lists is in Sohawal; corrected to Sohawal."
     },
     "rudauli-road": {
       "rateRowIds": [],
       "roadSegmentIds": [],
-      "note": "Corridor. Rudauli segments are printed without numbers (सडक …); pick by description."
+      "note": "No रुदौली row or segment village. Rudauli's segments are printed without numbers (सडक …) and are described by their endpoints; pick the stretches that fall on this road."
     },
     "kumarganj-road": {
       "rateRowIds": [],
       "roadSegmentIds": [],
-      "note": "Corridor. Milkipur segment 3 names कुमारगंज."
+      "note": "No कुमारगंज row or segment village in any of the five lists. Milkipur segment 3 names कुमारगंज in its description only. Identify the villages the road runs through and map those."
     },
     "sahadatganj": {
       "rateRowIds": [],
