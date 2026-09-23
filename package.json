@@ -20,7 +20,8 @@
     "lint": "eslint .",
     "rates:import-list": "tsx scripts/import-rate-list.ts",
     "rates:derive": "tsx scripts/derive-circle-rates.ts",
-    "rates:chunks": "tsx scripts/build-rate-chunks.ts"
+    "rates:chunks": "tsx scripts/build-rate-chunks.ts",
+    "rates:set-archive-urls": "tsx scripts/set-archive-urls.ts"
   },
   "dependencies": {
     "@fontsource-variable/fraunces": "^5.3.0",
