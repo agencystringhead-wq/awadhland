@@ -47,7 +47,7 @@
         "sadar-seg55-devkali",
         "sadar-seg64-devkali"
       ],
-      "note": "The list splits Devkali across the municipal boundary: देवकाली अं.न.पा. (s225, अन्तर्गत नगर पालिका, inside, urban) and देवकालीBNP (s226, बाहर नगर पालिका, outside, semi-urban). Both are this locality. छोटी देवकाली (s165) is deliberately NOT included: different ward (अवध खास, not हवेली अवध), different rate tier, and a distinct name — it is its own revenue entry, not part of Devkali. The locality record 'deokali' still duplicates this one and needs resolving."
+      "note": "The list splits Devkali across the municipal boundary: देवकाली अं.न.पा. (s225, अन्तर्गत नगर पालिका, inside, urban) and देवकालीBNP (s226, बाहर नगर पालिका, outside, semi-urban). Both are this locality. छोटी देवकाली (s165) is deliberately NOT included: different ward (अवध खास, not हवेली अवध), different rate tier, and a distinct name — it is its own revenue entry, not part of Devkali. The duplicate locality record 'deokali' was merged into this one; /ayodhya/deokali/ 301s here via public/_redirects."
     },
     "ranopali": {
       "rateRowIds": [
@@ -118,11 +118,6 @@
       "rateRowIds": [],
       "roadSegmentIds": [],
       "note": "No name overlap in this list. Identify the villages the bypass runs through."
-    },
-    "deokali": {
-      "rateRowIds": [],
-      "roadSegmentIds": [],
-      "note": "Duplicate of the 'devkali' locality record — same village, two ids. Resolve the duplicate before mapping."
     },
     "mahobra": {
       "rateRowIds": [],
