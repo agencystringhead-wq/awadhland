@@ -26,6 +26,8 @@ import {
 import { getGuides } from "@/lib/guides";
 import { formatNumber, localePath, pick, ui, type Locale } from "@/lib/i18n";
 import { builtSitePaths } from "@/lib/pages";
+import { getCurrentRateSchedule, getPublishedSros, getTehsilSummary } from "@/lib/rates";
+import { rc } from "@/lib/rate-copy";
 import { rankLocalities } from "@/lib/scoring";
 import { builtLocalityIds, sameAlternate } from "@/lib/routes";
 import { PageShell } from "./PageShell";
@@ -42,6 +44,7 @@ export function CityTemplate({ locale, cityId }: { locale: Locale; cityId: strin
 
   const stats = getCityStats(city.id, locale);
   const areas = rankLocalities(stats.topLocalities);
+  const c = rc(locale);
   const localities = getBuildableLocalities(locale).buildable.filter((l) => l.cityId === city.id);
   // The guard already requires lat/lng; this narrows the type for the map without repeating the check elsewhere.
   const mapLocalities: MapLocality[] = localities.flatMap((l) =>
@@ -50,6 +53,25 @@ export function CityTemplate({ locale, cityId }: { locale: Locale; cityId: strin
   const projects = getPublishedProjectsByCity(city.id);
   const schedule = getCurrentCircleRateSchedule(city.id);
   const topRates = schedule ? [...schedule.rates].sort((a, b) => b.residential - a.residential).slice(0, 10) : [];
+  /*
+   * A city can have a published rate list and no locality-level schedule to table.
+   *
+   * Lucknow is that city: 1,449 sourced rows across seven SROs, and its narrow circleRates.json
+   * entry is withheld seed data, so the section above had nothing to render and the page simply
+   * did not mention circle rates at all -- on a site whose main subject is circle rates.
+   *
+   * The rows are not locality-shaped and cannot go through CircleRateTable, so what gets shown is
+   * the thing that does exist: each sub-registrar list, how many rows it carries and the range of
+   * its base rate, each linking to that SRO's full table.
+   */
+  const fullList = getCurrentRateSchedule(city.id);
+  const sroSummaries =
+    !schedule && fullList
+      ? getPublishedSros(city.id).flatMap((s) => {
+          const summary = getTehsilSummary(city.id, s.id);
+          return summary ? [summary] : [];
+        })
+      : [];
   const localityNames = Object.fromEntries(getLocalitiesByCity(city.id).map((l) => [l.id, pick(locale, l.name, l.nameHi)]));
   const series = getCityPriceSeries(city.id);
   const guides = getGuides(locale).filter((g) => g.frontmatter.cityIds.includes(city.id));
@@ -163,6 +185,33 @@ export function CityTemplate({ locale, cityId }: { locale: Locale; cityId: strin
             compact
           />
           <SourceStamp locale={locale} sources={schedule.sources} updatedAt={schedule.updatedAt} effectiveFrom={schedule.effectiveFrom} />
+        </Section>
+      )}
+
+      {/* 5b. Cities whose rates are published per sub-registrar rather than per locality. */}
+      {sroSummaries.length > 0 && fullList && (
+        <Section title={t.circleRates} aside={<a href={localePath(locale, `/${city.id}/circle-rates/`)}>{t.fullCircleRateTable} →</a>}>
+          <ul className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+            {sroSummaries.map((s) => (
+              <li key={s.tehsil.id}>
+                <a
+                  href={localePath(locale, `/${city.id}/circle-rates/${s.tehsil.id}/`)}
+                  className="block h-full rounded-xl border border-line bg-card p-4 no-underline transition-colors hover:bg-cream-deep"
+                >
+                  <span className="block font-semibold text-ink">{pick(locale, s.tehsil.name, s.tehsil.nameHi)}</span>
+                  <span className="caption-mono mt-1 block text-muted">
+                    {formatNumber(s.rowCount)} {locale === "hi" ? "पंक्तियाँ" : s.rowCount === 1 ? "row" : "rows"}
+                  </span>
+                  {s.minNonAgri !== null && s.maxNonAgri !== null && (
+                    <span className="mt-2 block text-sm tabular-nums text-ink-soft">
+                      ₹{formatNumber(s.minNonAgri)}–{formatNumber(s.maxNonAgri)} {c.perSqM}
+                    </span>
+                  )}
+                </a>
+              </li>
+            ))}
+          </ul>
+          <SourceStamp locale={locale} sources={fullList.sources} updatedAt={fullList.updatedAt} effectiveFrom={fullList.effectiveFrom} />
         </Section>
       )}
 
