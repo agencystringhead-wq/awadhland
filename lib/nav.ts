@@ -4,6 +4,7 @@
  * typed. The Header, MegaMenu, mobile menu and Footer all read from here.
  */
 import { getBroker, getBuildableLocalities, getCities, getCurrentCircleRateSchedule, getPublishedProjects, getReviews, getUpdates } from "./data";
+import { getCurrentRateSchedule, getRowsByTehsil, getTehsilsByCity } from "./rates";
 import { getGuides, heroImageSrc } from "./guides";
 import { formatDate, formatNumber, localePath, pick, ui, type Locale } from "./i18n";
 import type { City, TeamMember } from "./schemas";
@@ -35,8 +36,8 @@ export type NavItem = {
 export type NavCopy = {
   strip: { taking: string; hours: string; sourced: string; rera: string; years: string };
   brand: { est: string; whatsappLabel: string; call: string; whatsapp: string; menu: string };
-  cells: { localities: (n: number) => string; circleRates: string; circleRatesSub: (n: number) => string; guides: string; guidesSub: (n: number) => string; tools: string; toolsSub: string; updates: string; updatesSub: string; about: string; aboutSub: (first: string) => string };
-  panel: { top: string; byArea: string; projectsRates: string; all: (n: number) => string; seeAll: string; allProjects: string; circleRatesOf: (c: string) => string; fullTable: string; calculator: string; revisions: string; how: string; effective: string; buying: string; legal: string; investment: string; allGuides: string; tryIt: string; allUpdates: string; byCity: string; byType: string; methodology: string; howWeWork: string; reviews: string; contact: string; updated: string };
+  cells: { localities: (n: number) => string; rows: (n: number) => string; rateList: (n: number) => string; circleRates: string; circleRatesSub: (n: number) => string; guides: string; guidesSub: (n: number) => string; tools: string; toolsSub: string; updates: string; updatesSub: string; about: string; aboutSub: (first: string) => string };
+  panel: { top: string; byArea: string; sros: string; projectsRates: string; all: (n: number) => string; seeAll: string; allProjects: string; circleRatesOf: (c: string) => string; fullTable: string; calculator: string; revisions: string; how: string; effective: string; buying: string; legal: string; investment: string; allGuides: string; tryIt: string; allUpdates: string; byCity: string; byType: string; methodology: string; howWeWork: string; reviews: string; contact: string; updated: string };
 };
 
 export const navCopy: Record<Locale, NavCopy> = {
@@ -45,6 +46,8 @@ export const navCopy: Record<Locale, NavCopy> = {
     brand: { est: "EST · AYODHYA · UP", whatsappLabel: "WhatsApp · replies within the hour", call: "Call", whatsapp: "WhatsApp →", menu: "Menu" },
     cells: {
       localities: (n) => `${n} ${n === 1 ? "locality" : "localities"}`,
+      rows: (n) => `${n} ${n === 1 ? "row" : "rows"}`,
+      rateList: (n) => `${n} sub-registrar ${n === 1 ? "list" : "lists"}`,
       circleRates: "Circle rates",
       circleRatesSub: (n) => `${n} ${n === 1 ? "city" : "cities"}, sourced`,
       guides: "Guides",
@@ -59,6 +62,7 @@ export const navCopy: Record<Locale, NavCopy> = {
     panel: {
       top: "Top localities",
       byArea: "By area",
+      sros: "Sub-registrar lists",
       projectsRates: "Projects & rates",
       all: (n) => `All ${n} localities →`,
       seeAll: "See all →",
@@ -89,6 +93,8 @@ export const navCopy: Record<Locale, NavCopy> = {
     brand: { est: "स्थापित · अयोध्या · यूपी", whatsappLabel: "व्हाट्सऐप · एक घंटे में जवाब", call: "कॉल", whatsapp: "व्हाट्सऐप →", menu: "मेन्यू" },
     cells: {
       localities: (n) => `${n} इलाक़े`,
+      rows: (n) => `${n} पंक्तियाँ`,
+      rateList: (n) => `${n} उप निबंधक सूचियाँ`,
       circleRates: "सर्किल रेट",
       circleRatesSub: (n) => `${n} शहर, स्रोत सहित`,
       guides: "गाइड",
@@ -103,6 +109,7 @@ export const navCopy: Record<Locale, NavCopy> = {
     panel: {
       top: "प्रमुख इलाक़े",
       byArea: "क्षेत्र के अनुसार",
+      sros: "उप निबंधक सूचियाँ",
       projectsRates: "प्रोजेक्ट और रेट",
       all: (n) => `सभी ${n} इलाक़े →`,
       seeAll: "सभी देखें →",
@@ -170,20 +177,54 @@ export function getNav(locale: Locale): NavItem[] {
     const ranges = ls.flatMap((l) => (l.askingRange ? [l.askingRange] : []));
     const range = ranges.length ? `₹${formatNumber(Math.min(...ranges.map((r) => r.low)))}–${formatNumber(Math.max(...ranges.map((r) => r.high)))}` : null;
     const lastmod = [city.updatedAt, ...ls.map((l) => l.updatedAt)].sort().at(-1)!;
+    /*
+     * A city can have a published rate list and no published locality pages. Lucknow is exactly
+     * that: 1,449 sourced rate rows across seven SROs, and all 36 of its localities still drafts
+     * held back by the thin-page guard. Its panel was therefore three columns wide with two of
+     * them empty and a "All 0 localities" link, which reads as a broken menu rather than as a
+     * city whose locality pages are not written yet.
+     *
+     * So the locality columns appear only when there are localities, and a city with a rate list
+     * instead gets its sub-registrar offices -- which is what there is to look at, and what the
+     * reader wanted from the menu in the first place.
+     */
+    const sroColumn: NavColumn | null = builtPaths.has(`/${city.id}/circle-rates/`)
+      ? {
+          title: c.panel.sros,
+          links: getTehsilsByCity(city.id)
+            .filter((t) => t.ratesStatus !== "pending" && builtPaths.has(`/${city.id}/circle-rates/${t.id}/`))
+            .map((t) => ({
+              label: pick(locale, t.name, t.nameHi),
+              href: p(`/${city.id}/circle-rates/${t.id}/`),
+              meta: c.cells.rows(getRowsByTehsil(city.id, t.id).length),
+            })),
+          more: { label: c.panel.circleRatesOf(name), href: p(`/${city.id}/circle-rates/`) },
+        }
+      : null;
+
+    const localityColumns: NavColumn[] =
+      ls.length > 0
+        ? [
+            {
+              title: c.panel.top,
+              links: top.map(({ locality: l, score }) => ({ label: pick(locale, l.name, l.nameHi), href: p(`/${city.id}/${l.id}/`), chip: score !== undefined ? String(score) : undefined })),
+              more: { label: c.panel.all(ls.length), href: p(`/${city.id}/`) },
+            },
+            { title: c.panel.byArea, links: areaLinks.slice(0, 10), more: { label: c.panel.seeAll, href: p(`/${city.id}/`) } },
+          ]
+        : sroColumn
+          ? [sroColumn]
+          : [];
+
     items.push({
       key: city.id,
       label: name,
-      sub: c.cells.localities(ls.length),
+      sub: ls.length > 0 ? c.cells.localities(ls.length) : sroColumn ? c.cells.rateList(sroColumn.links.length) : c.cells.localities(0),
       href: p(`/${city.id}/`),
       panel: {
         kind: "columns",
         columns: [
-          {
-            title: c.panel.top,
-            links: top.map(({ locality: l, score }) => ({ label: pick(locale, l.name, l.nameHi), href: p(`/${city.id}/${l.id}/`), chip: score !== undefined ? String(score) : undefined })),
-            more: { label: c.panel.all(ls.length), href: p(`/${city.id}/`) },
-          },
-          { title: c.panel.byArea, links: areaLinks.slice(0, 10), more: { label: c.panel.seeAll, href: p(`/${city.id}/`) } },
+          ...localityColumns,
           {
             title: c.panel.projectsRates,
             links: [
@@ -203,10 +244,20 @@ export function getNav(locale: Locale): NavItem[] {
     });
   }
 
-  /* Circle rates */
+  /*
+   * Circle rates.
+   *
+   * A city qualifies on either source: the sourced locality-level schedule, or a transcribed
+   * मूल्यांकन सूची. Lucknow has only the second -- its narrow entry is withheld seed data while its
+   * 1,449 rows are real -- so keying this on the narrow schedule alone left the whole district out
+   * of the menu that exists to reach it. Same condition as lib/pages.ts and lib/routes.ts; all
+   * three have to agree or the page is built and unreachable, or linked and missing.
+   */
   const withSchedule = cities.flatMap((city) => {
-    const s = getCurrentCircleRateSchedule(city.id);
-    return s ? [{ city, s }] : [];
+    const narrow = getCurrentCircleRateSchedule(city.id);
+    const full = getCurrentRateSchedule(city.id);
+    if (!narrow && !full) return [];
+    return [{ city, effectiveFrom: narrow?.effectiveFrom ?? full!.effectiveFrom, hasRevisions: Boolean(narrow) }];
   });
   items.push({
     key: "circle-rates",
@@ -215,12 +266,14 @@ export function getNav(locale: Locale): NavItem[] {
     href: p(`/${cities[0]?.id ?? "ayodhya"}/circle-rates/`),
     panel: {
       kind: "columns",
-      columns: withSchedule.map(({ city, s }) => ({
+      columns: withSchedule.map(({ city, effectiveFrom, hasRevisions }) => ({
         title: pick(locale, city.name, city.nameHi),
         links: [
-          { label: c.panel.fullTable, href: p(`/${city.id}/circle-rates/`), meta: `${c.panel.effective} ${formatDate(s.effectiveFrom, locale)}` },
+          { label: c.panel.fullTable, href: p(`/${city.id}/circle-rates/`), meta: `${c.panel.effective} ${formatDate(effectiveFrom, locale)}` },
           { label: c.panel.calculator, href: `${p(`/${city.id}/circle-rates/`)}#stamp-duty` },
-          { label: c.panel.revisions, href: `${p(`/${city.id}/circle-rates/`)}#revisions` },
+          // The revision history is drawn from the narrow schedule's earlier entries; a city that
+          // has only the transcribed list has no such section to jump to.
+          ...(hasRevisions ? [{ label: c.panel.revisions, href: `${p(`/${city.id}/circle-rates/`)}#revisions` }] : []),
           { label: c.panel.how, href: `${p(`/${city.id}/circle-rates/`)}#how` },
         ],
       })),
