@@ -297,6 +297,25 @@ const uniqueProfileIds = (() => {
 export const hasUniqueRateProfile = (cityId: string, rateRowId: string): boolean =>
   uniqueProfileIds.get(cityId)?.has(rateRowId) ?? false;
 
+/**
+ * The SROs of a city that have a transcribed list, with how many rows each carries.
+ *
+ * This exists because a city can have real published rates and no published locality pages at all.
+ * Lucknow is that city: 1,449 sourced rows across seven SROs, and all 36 of its localities still
+ * drafts held back by the thin-page guard. Every index that lists a city by its localities -- the
+ * mega menu, the footer -- came out empty for it and read as broken.
+ *
+ * So those indexes fall back to this. It lives here, once, rather than being written out at each
+ * index: the same question has now been answered separately in lib/pages, lib/routes, lib/nav and
+ * the footer, and I got it wrong in one of them twice.
+ */
+export function getPublishedSros(cityId: string): { id: string; name: string; nameHi: string; rowCount: number }[] {
+  return getTehsilsByCity(cityId)
+    .filter((t) => t.ratesStatus !== "pending")
+    .map((t) => ({ id: t.id, name: t.name, nameHi: t.nameHi, rowCount: getRowsByTehsil(cityId, t.id).length }))
+    .filter((t) => t.rowCount > 0);
+}
+
 export const getIndexableRowIds = () => indexableIds;
 
 /* ------------------------------------------------------- locality rate view */
