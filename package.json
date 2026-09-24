@@ -12,7 +12,7 @@
     "seed:cities": "tsx scripts/seed-cities.ts",
     "rates:import": "tsx scripts/parse-circle-rates.ts",
     "images:cities": "tsx scripts/placeholder-city-images.ts",
-    "prebuild": "npm run rates:derive && npm run rates:chunks && npm run rates:village-index && npm run rates:village-redirects && npm run validate && npm run check:copy && npm run og",
+    "prebuild": "npm run rates:derive && npm run rates:chunks && npm run frontage:chunks && npm run rates:village-index && npm run rates:village-redirects && npm run validate && npm run check:copy && npm run og",
     "build": "next build",
     "postbuild": "tsx scripts/drop-flight-payloads.ts && tsx scripts/check-dev-assets.ts && tsx scripts/check-links.ts",
     "check:dev-assets": "tsx scripts/check-dev-assets.ts",
@@ -26,7 +26,9 @@
     "check:copy": "tsx scripts/check-dead-copy.ts",
     "rates:village-redirects": "tsx scripts/build-village-redirects.ts",
     "rates:village-index": "tsx scripts/build-village-index.ts",
-    "rates:import-lucknow": "tsx scripts/import-lucknow-rates.ts"
+    "rates:import-lucknow": "tsx scripts/import-lucknow-rates.ts",
+    "frontage:import": "tsx scripts/import-khasra-frontage.ts",
+    "frontage:chunks": "tsx scripts/build-frontage-chunks.ts"
   },
   "dependencies": {
     "@fontsource-variable/fraunces": "^5.3.0",

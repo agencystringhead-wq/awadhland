@@ -524,6 +524,88 @@ export const rateScheduleSchema = z
   })
   .strict();
 
+/* ------------------------------------------------------------- khasra frontage */
+
+/**
+ * Khasra road-frontage lists, data/frontage/<city>-<effectiveFrom>.json (villages) and
+ * data/frontage/<city>-<effectiveFrom>-plots.json (every khasra number).
+ *
+ * For each revenue village, the khasra (gata) numbers that sit on a highway, a district road, a
+ * link road, or next to the abadi. They are part of the valuation list but are NOT rate lists: no ₹
+ * figure appears in them. Under the valuation rules a frontage or abadi-adjacent agricultural plot
+ * is valued above a general one, so the list tells a buyer whether that uplift applies.
+ *
+ * Received for the three Lucknow SROs whose rate list has not arrived, so for now each of their
+ * villages gets a page from this alone. Counts are as transcribed; nothing is inferred.
+ */
+export const frontageCategory = z.enum(["nh", "district", "link", "abadi"]);
+
+const frontageCounts = z
+  .object({ nh: z.number().int().min(0), district: z.number().int().min(0), link: z.number().int().min(0), abadi: z.number().int().min(0) })
+  .strict();
+
+export const frontageVillageSchema = z
+  .object({
+    /** `${sro}-f${serial}` -- f for frontage, so it can never collide with a rate row id */
+    id: z.string().regex(/^[a-z0-9]+-f\d+$/),
+    sro: slug,
+    serial: z.number().int().positive(),
+    nameHi: z.string().min(1),
+    nameEn: z.string().min(1),
+    /** Unique within the SRO. The same transliteration the rate importer uses, so the URL survives the rate list landing. */
+    slug,
+    /** Distinct khasra numbers per category -- what a page shows */
+    counts: frontageCounts,
+    /** The village file's own counts: printed entries, a repeated number counted each time */
+    printedCounts: frontageCounts,
+    /** Named roads, as printed (Malihabad only). Includes the generic "सम्पर्क मार्ग" where that is what the list prints. */
+    roadsHi: z.array(z.string().min(1)),
+    /** The list's own remarks on the village, printed Hindi with transcriber prefixes removed. */
+    notesHi: z.array(z.string().min(1)),
+    /** Pages of the SRO's PDF the village's cells sit on, e.g. "12" or "12–13"; null where no cell was transcribed */
+    pages: z.string().min(1).nullable(),
+  })
+  .strict();
+
+export const frontageFileSchema = z
+  .object({
+    cityId: slug,
+    /** The valuation list these frontage lists are printed as part of */
+    effectiveFrom: isoDate,
+    sourceDocs: z
+      .array(
+        z
+          .object({
+            sro: slug,
+            /** printed pages in the scan */
+            pageCount: z.number().int().positive(),
+            igrsupUrl: url,
+            archiveUrl: url.nullable(),
+            /** the download's own date, where it differs from the list's effective date */
+            downloadDated: isoDate.nullable(),
+          })
+          .strict(),
+      )
+      .min(1),
+    villages: z.array(frontageVillageSchema).min(1),
+    ...recordBase,
+  })
+  .strict();
+
+/**
+ * One tuple per printed khasra number: [khasra as printed, khasra_base, category, road index into
+ * the village's roadsHi or null, uncertain note or null]. Tuples because there are 58,000 of them.
+ */
+export const frontagePlotSchema = z.tuple([
+  z.string().min(1),
+  z.string().regex(/^\d+$/),
+  frontageCategory,
+  z.number().int().min(0).nullable(),
+  z.string().min(1).nullable(),
+]);
+
+export const frontagePlotsFileSchema = z.record(z.string().regex(/^[a-z0-9]+-f\d+$/), z.array(frontagePlotSchema));
+
 /** data/rates/indexable.json — rate rows opened to search, widened in batches. */
 export const indexableRatesFileSchema = z
   .object({
@@ -811,6 +893,10 @@ export type RateRow = z.infer<typeof rateRowSchema>;
 export type RoadSegmentRow = z.infer<typeof roadSegmentRowSchema>;
 export type RoadBand = z.infer<typeof roadBandSchema>;
 export type RateCategory = z.infer<typeof rateCategory>;
+export type FrontageCategory = z.infer<typeof frontageCategory>;
+export type FrontageVillage = z.infer<typeof frontageVillageSchema>;
+export type FrontageFile = z.infer<typeof frontageFileSchema>;
+export type FrontagePlot = z.infer<typeof frontagePlotSchema>;
 export type Units = z.infer<typeof unitsFileSchema>;
 export type ValuationRules = z.infer<typeof valuationRulesFileSchema>;
 export type ValuationRule = z.infer<typeof valuationRuleSchema>;

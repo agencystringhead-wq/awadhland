@@ -1,0 +1,599 @@
+sro,serial,village_hi,category,road_hi,note
+sadar4,2,अमेठिया सलेमपुर,nh,,p2: continued from p1
+sadar4,2,अमेठिया सलेमपुर,link,,p2: continued from p1
+sadar4,2,अमेठिया सलेमपुर,abadi,,p2: continued from p1
+sadar4,4,करझन,link,,p3: continued from p2
+sadar4,6,काकोरी,nh,,p4: continued from p3
+sadar4,6,काकोरी,link,,p4: continued from p3
+sadar4,6,काकोरी,link,,p5: continued from p3
+sadar4,6,काकोरी,link,,p6: continued from p3
+sadar4,6,काकोरी,abadi,,p4: continued from p3
+sadar4,6,काकोरी,abadi,,p5: continued from p3
+sadar4,7,कुशमौरा हुलवापुर,nh,,"p6: printed '2762, /2302' (stray comma; read as 2762/2302)"
+sadar4,7,कुशमौरा हुलवापुर,link,,p7: continued from p6; printed '12951296' (missing comma; split as 1295;1296)
+sadar4,7,कुशमौरा हुलवापुर,link,,p8: continued from p6
+sadar4,9,कोल्हुवा गाढा,abadi,,p8: remark: ग्राम नगर निगम सीमा के अन्तर्गत शहरीकरण हो चुका है।
+sadar4,11,गाजीपुर बलराम,abadi,,"p9: remark: ग्राम का पूर्व में शहरीकरण हो चुका है। ग्राम नगर निगम के अन्तर्गत है।; printed '80मि0' (मि0 abbrev); last token '2' is a number split across page end, continues on p10"
+sadar4,11,गाजीपुर बलराम,abadi,,"p10: first token 261 joined across pages (p-09 ends ""2,"" p-10 starts ""61,""); village serial 11 continued"
+sadar4,14,गौरभीठ,abadi,,"p10: remark: ग्राम नगर निगम सीमा के अन्तर्गत शहरीकरण हो चुका है।; cell continues on p-11 (trailing ""1"" joined there as 126)"
+sadar4,14,गौरभीठ,abadi,,"p11: serial 14 गौरभीठ continued; first token 126 joined across pages (p-10 ends ""1,""); cell continues on p-12 (trailing ""4"" joined there as 432)"
+sadar4,14,गौरभीठ,abadi,,"p12: serial 14 गौरभीठ continued; first token 432 joined across pages (p-11 ends ""4,"")"
+sadar4,17,चकपरेवा,link,,p12: remark: ग्राम में चकबन्दी नही हुई है।
+sadar4,17,चकपरेवा,abadi,,p12: remark: ग्राम में चकबन्दी नही हुई है।
+sadar4,18,टेडवा,nh,,"p12: cell continues on p-13 (trailing ""12"" joined there as 125)"
+sadar4,18,टेडवा,nh,,"p13: serial 18 टेडवा continued; first token 125 joined across pages (p-12 ends ""12""); ""128,,157"" double comma as printed"
+sadar4,18,टेडवा,link,,"p12: ""294284"" printed without comma (likely 294;284)"
+sadar4,19,दरियापुर,none,,"p13: all categories ""—""; remark: सम्पूर्ण ग्राम में शहरीकरण हो चुका है।"
+sadar4,22,दाऊदनगर,link,,p13: cell continues on p-14
+sadar4,22,दाऊदनगर,link,,p14: serial 22 दाऊदनगर continued
+sadar4,22,दाऊदनगर,abadi,,p13: cell continues on p-14
+sadar4,22,दाऊदनगर,abadi,,p14: serial 22 दाऊदनगर continued
+sadar4,23,दुर्गागंज,none,,"p14: all categories ""—""; remark: ग्राम काकोरी का मजरा है।"
+sadar4,24,नरौना,link,,"p14: cell continues on p-15 (trailing ""4"" joined there as 400)"
+sadar4,24,नरौना,link,,"p15: serial 24 नरौना continued; first token 400 joined across pages (p-14 ends ""4"")"
+sadar4,24,नरौना,abadi,,p14: cell continues on p-15
+sadar4,24,नरौना,abadi,,"p15: serial 24 नरौना continued; cell continues on p-16 (trailing ""3"" joined there as 396)"
+sadar4,24,नरौना,abadi,,"p16: serial 24 नरौना continued; first token 396 joined across pages (p-15 ends ""3"")"
+sadar4,25,नौबरता खुर्द,abadi,,p16: remark: ग्राम का पूर्व में शहरीकरण हो चुका है। ग्राम नगर निगम के अन्तर्गत है।
+sadar4,27,पहिया आजमपुर,link,,"p17: ""205,,206"" double comma as printed"
+sadar4,28,पीरनगर,link,,"p17: remark: महोदय, ग्राम एल0डी0ए0 द्वारा अधिग्रहीत है। पूर्ण में शहरीकरण हो चुका है।"
+sadar4,29,फैजुल्लागंज,link,,"p18: ""35,35,35"" repeated as printed; remark: ग्राम फैजुल्लागंज नगर सीमा के अन्तर्गत तथा पूर्ण आबादी विकसित है।"
+sadar4,29,फैजुल्लागंज,abadi,,"p18: ""257258"" printed without comma (likely 257;258); last token ""31"" is a fragment, cell continues on p-19; remark: ग्राम फैजुल्लागंज नगर सीमा के अन्तर्गत तथा पूर्ण आबादी विकसित है।; 311 joined across p18/p19"
+sadar4,29,फैजुल्लागंज,abadi,,p19: first token '1' completes 311 split from p.18 ('31' + '1')
+sadar4,30,बडा गांव,nh,,p19: cell continues on p.20
+sadar4,30,बडा गांव,nh,,p20: continuation of serial 30 (बडा गांव)
+sadar4,30,बडा गांव,link,,"p19: printed '174175' (missing comma; likely 174,175); last token '11' + '76' on p.20 = 1176; 1176 joined across p19/p20"
+sadar4,30,बडा गांव,link,,"p20: continuation of serial 30; first token '76' completes 1176 from p.19; printed '667665' (missing comma; likely 667,665)"
+sadar4,30,बडा गांव,link,,p21: continuation of serial 30 (बडा गांव)
+sadar4,30,बडा गांव,abadi,,p19: cell continues on p.20
+sadar4,30,बडा गांव,abadi,,"p20: continuation of serial 30; '16946' and '16499' printed as such (likely typos, e.g. 1694/1646?)"
+sadar4,31,बरावन कलां,nh,,p21: remark: ग्राम नगर निगम में है। पूर्ण रूप में शहरीकरण हो चुका है।
+sadar4,31,बरावन कलां,abadi,,p21: remark: ग्राम नगर निगम में है। पूर्ण रूप में शहरीकरण हो चुका है।; cell continues on p.22-27
+sadar4,31,बरावन कलां,abadi,,p22: continuation of serial 31 (बरावन कलां); stray mark 'I' between 582 and 601 omitted; last token '9' + '32' on p.23 = 932; 932 joined across p22/p23
+sadar4,31,बरावन कलां,abadi,,p23: continuation of serial 31; first token '32' completes 932 from p.22; last token '5' + '1' on p.24 = 51; 51 joined across p23/p24
+sadar4,31,बरावन कलां,abadi,,"p24: continuation of serial 31; first token '1' completes 51 from p.23; '5611158' = '5611' at line end + '158' with no comma (likely 561,1158 or 5611,158)"
+sadar4,31,बरावन कलां,abadi,,"p25: continuation of serial 31; digit unclear 48? (could be 43); '091' printed with leading zero; '107170' printed without comma (likely 1071,70 or 107,170)"
+sadar4,31,बरावन कलां,abadi,,"p26: continuation of serial 31; printed '1115त्र742/1779' with no comma, split as 1115त्र and 742/1779; last token '18' + '5' on p.27 = 185; 185 joined across p26/p27"
+sadar4,31,बरावन कलां,abadi,,p27: continuation of serial 31; first token '5' completes 185 from p.26; last token '1' continues on p.28; 1748 joined across p27/p28
+sadar4,31,बरावन कलां,abadi,,p28: first token 748 continues from prev page (prev page ends '1' → likely 1748)
+sadar4,32,बरावन खुर्द,abadi,,p29: printed '119121' (missing comma) split as 119;121; remark: लखनऊ विकास प्राधिकरण के द्वारा अधिग्रहीत किया गया।
+sadar4,32,बरावन खुर्द,abadi,,p30: continues serial 32 बरावन खुर्द
+sadar4,32,बरावन खुर्द,abadi,,p31: continues serial 32 बरावन खुर्द
+sadar4,33,बरीकलां,abadi,,p31: remark: लखनऊ विकास प्राधिकरण के द्वारा अधिग्रहीत किया गया।
+sadar4,33,बरीकलां,abadi,,p32: continues serial 33 बरीकलां
+sadar4,33,बरीकलां,abadi,,p33: continues serial 33 बरीकलां
+sadar4,37,भटऊ जमालपुर,link,,p34: continues serial 37 भटऊ जमालपुर
+sadar4,37,भटऊ जमालपुर,abadi,,p34: continues serial 37 भटऊ जमालपुर
+sadar4,38,भलिया,link,,p35: continues serial 38 भलिया
+sadar4,38,भलिया,abadi,,p35: continues serial 38 भलिया
+sadar4,42,मुबारकपुर,link,,p35: remark: ग्राम में चकबन्दी नही हुई है।
+sadar4,42,मुबारकपुर,abadi,,p35: remark: ग्राम में चकबन्दी नही हुई है।
+sadar4,44,रहीमनगर डुडौली,abadi,,"p36: last token 30 cut at page end, continues on next page; remark: ग्राम नगर निगम सीमा के अन्तर्गत शहरीकरण हो चुका है।"
+sadar4,44,रहीमनगर डुडौली,abadi,,"p37: first token 309 split across pages: p36 ends '30', p37 starts '9'"
+sadar4,45,रायपुर (काकोरी),link,,"p37: printed ',,' before 215"
+sadar4,46,लोहरामऊ,abadi,,p37: remark: ग्राम नगर निगम सीमा के अन्तर्गत शहरीकरण हो चुका है।; last token 151 split across p37/p38 ('15'+'1')
+sadar4,46,लोहरामऊ,abadi,,p38: continued from p37; leading '1' completes 151 (listed on p37)
+sadar4,47,बहरू,link,,p38: cell continues on p39
+sadar4,47,बहरू,link,,p39: continued from p38
+sadar4,48,शाहपुर,link,,p39: cell continues on p40
+sadar4,48,शाहपुर,link,,p40: continued from p39
+sadar4,50,सराय मुहिब,none,,"all columns ""—"""
+sadar4,51,सलेमपुर पतौरा,link,,p40: cell continues on p41
+sadar4,51,सलेमपुर पतौरा,link,,p41: continued from p40
+sadar4,51,सलेमपुर पतौरा,abadi,,p40: last token 190 split across p40/p41 ('1'+'90'); cell continues on p41
+sadar4,51,सलेमपुर पतौरा,abadi,,"p41: continued from p40 (leading '90' completes 190, listed on p40); continues on p42"
+sadar4,51,सलेमपुर पतौरा,abadi,,p42: continued from p41
+sadar4,53,सैदपुर महेरी,link,,p42: cell continues on p43
+sadar4,53,सैदपुर महेरी,link,,p43: continued from p42
+sadar4,57,टाउन एरिया काकोरी,none,,"all columns ""—""; remark: ग्राम काकोरी का मजरा है।"
+sadar4,58,सेमरागौढी,nh,,p43: village name and row very faint (name best reading); 281? 290? faint digits
+sadar4,58,सेमरागौढी,link,,p43: faint print; village name best reading
+sadar4,58,सेमरागौढी,abadi,,p43: faint first line; cell continues on p44
+sadar4,58,सेमरागौढी,abadi,,p44: '7677' printed without comma (likely 76 and 77); last token 340 split across p44/p45 ('3'+'40'); continued from p43
+sadar4,58,सेमरागौढी,abadi,,"p45: continued from p44 (leading '40' completes 340, listed on p44)"
+bkt,1,अरम्बा,abadi,,p2: token 467466 printed without comma (likely 467;466)
+bkt,2,अचरामऊ,link,,p2: cell continues on p3; last token 252/1186 spans page break (/1186 printed at top of p3)
+bkt,2,अचरामऊ,link,,"p3: continued from p2; leading /1186 joined to 252 on p2; printed '253,/1187' (stray comma) read as 253/1187"
+bkt,3,अल्दमपुर,link,,p3: cell continues on p4; last token 451 spans page break (4 on p3 + 51 on p4)
+bkt,3,अल्दमपुर,link,,p4: continued from p3 (leading '51' joined to 451 on p3)
+bkt,4,अधार खेडा,link,,p4: cell continues on p5
+bkt,4,अधार खेडा,link,,p5: continued from p4
+bkt,4,अधार खेडा,abadi,,p4: remark: abadi cell text: ग्राम के लगभग समस्त गाटो के आस-पास आबादी विकसित है। वर्तमान मे ग्राम नगर निगम सीमा के अन्तर्गत आता है।
+bkt,6,अजनहर कला,abadi,,p5: remark: abadi cell text: ग्राम के लगभग समस्त गाटो के आस-पास आबादी विकसित है। वर्तमान मे ग्राम नगर निगम सीमा के अन्तर्गत आता है।
+bkt,9,अस्ती,nh,,p5: cell continues on p6
+bkt,9,अस्ती,nh,,p6: continued from p5
+bkt,9,अस्ती,link,,p5: cell continues on p6; last token 628 spans page break (62 on p5 + 8 on p6)
+bkt,9,अस्ती,link,,p6: continued from p5 (leading '8' joined to 628 on p5)
+bkt,12,अतरौरा,link,,p6: cell continues on p7
+bkt,12,अतरौरा,link,,p7: continued from p6
+bkt,12,अतरौरा,abadi,,p6: cell continues on p7
+bkt,12,अतरौरा,abadi,,p7: continued from p6
+bkt,13,इन्दारा,link,,"p7: cell continues on p8; last token 710 spans page break (71 on p7 + 0 on p8); short tokens 76, 81, 72 as printed"
+bkt,13,इन्दारा,link,,"p8: continued from p7 (leading '0' joined to 710 on p7); printed '63ए0' with stray superscript char, read as 630?"
+bkt,14,इटौंजा,abadi,,p8: cell continues on p9
+bkt,14,इटौंजा,abadi,,p9: continued from p8
+bkt,19,कुम्हरावॉ,link,,p10: cell continues on p11
+bkt,19,कुम्हरावॉ,link,,p11: continued from p10
+bkt,20,कुंवरपुर,link,,"p11: cell ends with comma, likely continues on p12"
+bkt,26,कमलाबाद बढौली,nh,,p13: last number split across page: '1' here + '76' on p14 = 176
+bkt,26,कमलाबाद बढौली,nh,,p14: cell starts with '76' completing 176 (recorded on p13)
+bkt,26,कमलाबाद बढौली,abadi,,p13: cell text (no numbers): ग्राम के लगभग समस्त गाटो के आस-पास आबादी विकसित है।
+bkt,26,कमलाबाद बढौली,abadi,,p14: cell text (no numbers): वर्तमान मे ग्राम नगर पंचायत बी0के0टी0 सीमा के अन्तर्गत आता है।
+bkt,32,करीमनगर,link,,p15: last number split across page: '2' here + '46' on p16 = 246
+bkt,32,करीमनगर,link,,p16: cell starts with '46' completing 246 (recorded on p15)
+bkt,37,किशुनपुर,link,,"p18: token 6622 as printed (possibly 662,2 missing comma)"
+bkt,38,खरगपुर जागीर,abadi,,p18: cell text (no numbers): ग्राम के लगभग समस्त गाटो के आस-पास आबादी विकसित है। वर्तमान मे ग्राम नगर निगम सीमा के अन्तर्गत आता है।
+bkt,39,खजुरी,link,,p18: last number split across page: '21' here + '5' on p19 = 215
+bkt,39,खजुरी,link,,p19: cell starts with '5' completing 215 (recorded on p18)
+bkt,42,खटैय्या,link,,p19: last number split across page: '2' here + '9' on p20 = 29
+bkt,42,खटैय्या,link,,p20: cell starts with '9' completing 29 (recorded on p19)
+bkt,42,खटैय्या,abadi,,"p19: token 195216 as printed (possibly 195,216 missing comma)"
+bkt,47,गोधना,link,,p20: last number split across page: '26' here + '7' on p21 = 267
+bkt,47,गोधना,link,,p21: cell starts with '7' completing 267 (recorded on p20)
+bkt,48,गोयला,link,,"p21: printed '65,,61' (double comma); cell continues on p22"
+bkt,48,गोयला,link,,p23: number split across page break: last token 1025 printed as '10' on p23 + '25' on p24
+bkt,48,गोयला,link,,p24: leading fragment '25' belongs to 1025 recorded on p23
+bkt,48,गोयला,abadi,,p21: cell text (no numbers): ग्राम के लगभग समस्त गाटो के आस-पास आबादी विकसित है। वर्तमान मे ग्राम नगर निगम सीमा के अन्तर्गत आता है।
+bkt,51,गांगजोर,link,,p24: 136 wraps as '1'+'36' (maybe 36 intended)
+bkt,54,गुड्म्बा,abadi,,"p25: abadi cell has text, no numbers: ग्राम के लगभग समस्त गाटो के आस- पास आबादी विकसित है। वर्तमान मे ग्राम नगर निगम सीमा के अन्तर्गत आता है।"
+bkt,55,चन्दनापुर,link,,p25: number split across page break: last token 395 printed as '39' on p25 + '5' on p26
+bkt,55,चन्दनापुर,link,,p26: leading fragment '5' belongs to 395 recorded on p25
+bkt,57,चौगवां,link,,p26: number split across page break: last token 462 printed as '4' on p26 + '62' on p27
+bkt,57,चौगवां,link,,p27: leading fragment '62' belongs to 462 recorded on p26
+bkt,58,चॉदपुर खानीपुर,link,,p27: number split across page break: last token 176 printed as '1' on p27 + '76' on p28
+bkt,58,चॉदपुर खानीपुर,link,,p28: leading fragment '76' belongs to 176 recorded on p27
+bkt,63,जमखनवां,abadi,,"p29: double commas printed (551,,630 and 628,,540) - no missing digits visible"
+bkt,65,टिकरी,link,,p30: number split across page break: last token 131 printed as '13' on p30 + '1' on p31
+bkt,65,टिकरी,link,,p31: leading fragment '1' belongs to 131 recorded on p30
+bkt,69,ढिलवासी,link,,p31: number split across page break: last token 294 printed as '2' on p31 + '94' on p32; cell continues on p32
+bkt,69,ढिलवासी,link,,p32: first token 94 may be tail of a number split from previous page
+bkt,69,ढिलवासी,abadi,,p31: number split across page break: last token 101 printed as '1' on p31 + '01' on p32; cell continues on p32
+bkt,69,ढिलवासी,abadi,,p32: first token printed '01' - tail of number split from previous page (likely 101)
+bkt,71,तारनपुर,link,,p32: cell continues p33; last token 291 = '2' (p32) + '91' (p33) joined
+bkt,71,तारनपुर,link,,p33: cont of 71 तारनपुर; leading '91' fragment joined into 291 on p32
+bkt,72,तिवारीपुर,abadi,,p33: note (no khasra listed): ग्राम के लगभग समस्त गाटो के आस-पास आबादी विकसित है। वर्तमान मे ग्राम नगर निगम सीमा के अन्तर्गत आता है। सम्पूर्ण ग्राम में (text ends here)
+bkt,73,दुघरा,abadi,,p33: 956/1488 printed as '956 / 1488' across line break
+bkt,74,दुर्जनपुर,nh,,p33: cell continues p34
+bkt,74,दुर्जनपुर,nh,,p34: cont of 74 दुर्जनपुर
+bkt,74,दुर्जनपुर,link,,p33: cell continues p34; last token 154 = '1' (p33) + '54' (p34) joined
+bkt,74,दुर्जनपुर,link,,p34: cont of 74 दुर्जनपुर; leading '54' fragment joined into 154 on p33
+bkt,75,दुग्गौर,nh,,p34: 348ख printed '348 ख'
+bkt,76,देवरई कला,nh,,p34: '17स.' printed with period
+bkt,77,देवरी रूखारा,nh,,p34: cell continues p35
+bkt,77,देवरी रूखारा,nh,,p35: cont of 77 देवरी रूखारा
+bkt,77,देवरी रूखारा,link,,p34: cell continues p35; last token 55 = '5' (p34) + '5' (p35) joined
+bkt,77,देवरी रूखारा,link,,p35: cont of 77 देवरी रूखारा; leading '5' fragment joined into 55 on p34
+bkt,77,देवरी रूखारा,abadi,,p34: cell continues p35
+bkt,77,देवरी रूखारा,abadi,,p35: cont of 77 देवरी रूखारा; 101/1316 printed '101 / 1316'
+bkt,80,दसौली,link,,p35: cell continues p36; last token 112 = '11' (p35) + '2' (p36) joined
+bkt,80,दसौली,link,,p36: cont of 80 दसौली; leading '2' fragment joined into 112 on p35
+bkt,80,दसौली,abadi,,p35: note (no khasra listed): ग्राम के लगभग समस्त गाटो के आस-पास आबादी विकसित है। (continues p36)
+bkt,80,दसौली,abadi,,p36: cont of 80 दसौली; note (no khasra listed): वर्तमान मे ग्राम नगर निगम सीमा के अन्तर्गत आता है।
+bkt,81,दौलतपुर,abadi,,"p36: '531613' printed without comma (likely 531,613)"
+bkt,83,दिनकरपुर झलौवा,link,,p36: cell continues p37
+bkt,83,दिनकरपुर झलौवा,link,,p37: cont of 83 दिनकरपुर झलौवा
+bkt,87,नरहरपुर,link,,p37: cell continues p38; last token 287 = '2' (p37) + '87' (p38) joined
+bkt,87,नरहरपुर,link,,p38: cont of 87 नरहरपुर; leading '87' fragment joined into 287 on p37
+bkt,87,नरहरपुर,abadi,,p37: note (no khasra listed): ग्राम के लगभग समस्त गाटो के आस-पास आबादी विकसित है। वर्तमान मे ग्राम नगर निगम सीमा के अन्तर्गत आता है।
+bkt,90,नरोसा,abadi,,"p38: '623656' printed without comma (likely 623,656)"
+bkt,91,नवीकोट नन्दना,nh,,p38: cell continues p39; last token 219 = '2' (p38) + '19' (p39) joined; 1010/188 printed '1010 / 188'
+bkt,91,नवीकोट नन्दना,nh,,p39: cont of 91 नवीकोट नन्दना; leading '19' fragment joined into 219 on p38
+bkt,91,नवीकोट नन्दना,link,,p38: cell continues p39
+bkt,91,नवीकोट नन्दना,link,,p39: cont of 91 नवीकोट नन्दना; slashes printed with spaces; '85679' printed without comma
+bkt,91,नवीकोट नन्दना,abadi,,p38: note (no khasra listed): ग्राम के लगभग समस्त गाटो के आस-पास आबादी विकसित है। वर्तमान मे ग्राम नगर पंचायत बी0के0टी0 सीमा के अन्तर्गत आता है।
+bkt,93,नगवामऊ कला,link,,p39: 739/1117 and 739/1118 printed with spaced slash
+bkt,94,परसहिया,nh,,p39: cell continues p40; last token 606 = '6' (p39) + '06' (p40) joined
+bkt,94,परसहिया,nh,,p40: cont of 94 परसहिया; leading '06' fragment joined into 606 on p39
+bkt,94,परसहिया,link,,p39: cell continues p40
+bkt,94,परसहिया,link,,p40: cont of 94 परसहिया; cell continues p41; last token 284 = '28' (p40) + '4' (p41) joined
+bkt,94,परसहिया,link,,p41: cont of 94 परसहिया; leading '4' fragment joined into 284 on p40
+bkt,94,परसहिया,abadi,,p39: cell continues p40
+bkt,94,परसहिया,abadi,,p40: cont of 94 परसहिया
+bkt,96,पल्हरी,link,,p41: cell continues on next page (p42); '2999' as printed
+bkt,96,पल्हरी,link,,p66: continuation row; next serial on this page jumps to 97 (page order not serial)
+bkt,100,पर्वतपुर,link,,p66: cell continues on next page (last token split); 23 joined across p66/p67
+bkt,100,पर्वतपुर,link,,p67: first token 3 likely tail of number split from previous page (2+3)
+bkt,100,पर्वतपुर,abadi,,p66: cell continues on next page (last token split); 193 joined across p66/p67
+bkt,100,पर्वतपुर,abadi,,p67: first token 3 likely tail of number split from previous page (19+3)
+bkt,101,पुरवा,nh,,p67: 247248 printed without comma (likely 247 and 248)
+bkt,103,पहाडपुर,link,,p67: cell continues on next page
+bkt,103,पहाडपुर,abadi,,p67: cell continues on next page
+bkt,105,पैकरामऊ,nh,,p68: cell continues on next page
+bkt,105,पैकरामऊ,link,,p68: cell continues on next page (last token split); 523 joined across p68/p69
+bkt,105,पैकरामऊ,link,,p69: first token 23 is tail of number split from previous page (5+23)
+bkt,105,पैकरामऊ,abadi,,p68: cell continues on next page (last token split); 598 joined across p68/p69
+bkt,105,पैकरामऊ,abadi,,p69: first token 8 is tail of number split from previous page (59+8)
+bkt,108,पोहपपुर,link,,p69: cell continues on next page (last token split); 414 joined across p69/p70
+bkt,108,पोहपपुर,link,,p70: first token 4 is tail of number split from previous page (41+4)
+bkt,108,पोहपपुर,abadi,,p69: cell may continue on next page; आबादी में दर्ज खसरा column: 61; 431 joined across p69/p70
+bkt,108,पोहपपुर,abadi,,p70: first token 1 may be tail of previous page's last number (43+1)
+bkt,111,पिरथीनगर,link,,p70: cell continues on next page
+bkt,113,फतेहपुर खमराई,link,,"p71: 80879 and 7368 printed without commas (likely 80,79 and 73,68)"
+bkt,114,बरगदी कला,link,,p71: cell continues on next page
+bkt,114,बरगदी कला,abadi,,p71: cell continues on next page
+bkt,115,बरगदी मगठ,link,,p72: printed '452 / 187' and '551 / 386' with slash kept as one token; cell continues next page
+bkt,115,बरगदी मगठ,link,,p73: printed '544 / 391' kept as one token
+bkt,116,बरखुरदारपुर,abadi,,p73: no numbers; text: ग्राम के लगभग समस्त गाटो के आस-पास आबादी विकसित है। वर्तमान मे ग्राम नगर निगम सीमा के अन्तर्गत आता है।
+bkt,117,बराखेमपुर,abadi,,p73: printed '644 / 800' kept as one token
+bkt,119,बसहा,link,,"p73: last number split across page break ('1' + '88'), placed here; cell continues next page"
+bkt,119,बसहा,link,,p74: first number 188 split from prev page listed on p73
+bkt,119,बसहा,abadi,,p73: no numbers; text: ग्राम के लगभग समस्त गाटो के आस-पास आबादी विकसित है। (continues next page)
+bkt,119,बसहा,abadi,,p74: no numbers; text (cont.): वर्तमान मे ग्राम नगर निगम सीमा के अन्तर्गत आता है।
+bkt,122,बेहटा,link,,"p74: last number split across page break ('4' + '54'), placed here; cell continues next page"
+bkt,122,बेहटा,link,,p75: first number 454 split from prev page listed on p74
+bkt,123,बाजपुर गंगौरा,link,,p75: '327322' printed without comma (likely 327;322)
+bkt,125,बगहा,link,,p75: cell continues next page
+bkt,125,बगहा,abadi,,p75: cell continues next page
+bkt,125,बगहा,abadi,,p76: printed '357 / 182' kept as one token
+bkt,126,बौरूमऊ,nh,,p76: cell continues next page
+bkt,126,बौरूमऊ,nh,,p77: '9005' as printed (9 + 005 across line wrap); '900क899' printed without comma across line wrap (likely 900क;899)
+bkt,126,बौरूमऊ,link,,p76: cell continues next page
+bkt,126,बौरूमऊ,link,,"p77: missing commas as printed: '909907' (909;907?), '6688858' (668 + 8858 across wrap), '13091314' (1309;1314?); '2011' as printed; last number split across page break ('151' + '4'), placed here"
+bkt,126,बौरूमऊ,link,,p78: first number 1514 split from prev page listed on p77
+bkt,126,बौरूमऊ,abadi,,p76: cell continues next page
+bkt,133,भिठौली खुर्द,link,,p80: no numbers; cell reads '— लखनऊ विकास प्राधिकरण में अधिग्रहित भूमि'
+bkt,133,भिठौली खुर्द,abadi,,p80: no numbers; text: ग्राम के लगभग समस्त गाटो के आस-पास आबादी विकसित है। वर्तमान मे ग्राम नगर निगम सीमा के अन्तर्गत (continues next page)
+bkt,133,भिठौली खुर्द,abadi,,"p42: no numbers; text continuation from p41: ""आता है।"""
+bkt,136,भवानीपुर,link,,"p42: cell continues on p43; last number 216 split across pages (""2"" p42 + ""16"" p43)"
+bkt,136,भवानीपुर,link,,"p43: cont of 136 भवानीपुर; leading ""16"" fragment joined into 216 on p42 row; cell ends with trailing comma"
+bkt,136,भवानीपुर,abadi,,p42: cell continues on p43
+bkt,136,भवानीपुर,abadi,,p43: cont of 136 भवानीपुर
+bkt,138,भैसामऊ,link,,"p43: cell continues on p44; last number 702 split across pages (""70"" p43 + ""2"" p44)"
+bkt,138,भैसामऊ,link,,"p44: cont of 138 भैसामऊ; leading ""2"" fragment joined into 702 on p43 row"
+bkt,138,भैसामऊ,abadi,,"p43: double comma printed after 260 (""260,,64"")"
+bkt,139,भौली,link,,"p44: cell continues on p45; last number 2183 split across pages (""21"" p44 + ""83"" p45)"
+bkt,139,भौली,link,,"p45: cont of 139 भौली; leading ""83"" fragment joined into 2183 on p44 row; continues on p46"
+bkt,139,भौली,link,,p46: cont of 139 भौली
+bkt,140,भगौतीपुर,link,,p46: cell ends with trailing comma; next page starts new serial 141
+bkt,142,भीखमपुर,abadi,,p47: cell ends with trailing comma
+bkt,143,भटेसुवा,link,,p47: cell continues on p48
+bkt,143,भटेसुवा,link,,p48: cont of 143 भटेसुवा
+bkt,143,भटेसुवा,abadi,,p47: cell ends with trailing comma; nothing further on p48
+bkt,144,भिखारीपुर,abadi,,"p48: 1139 as printed (wraps ""11""/""39""; sequence suggests maybe 139)"
+bkt,145,मरपा,link,,p48: leading zeros as printed; cell ends with trailing comma
+bkt,145,मरपा,abadi,,p48: leading zeros as printed
+bkt,146,मल्हीपुर,link,,p48: 09 as printed
+bkt,147,मलूकपुर,link,,"p48: cell continues on p49; last number 719 split across pages (""7"" p48 + ""19"" p49)"
+bkt,147,मलूकपुर,link,,"p49: cont of 147 मलूकपुर; leading ""19"" fragment joined into 719 on p48 row; last number 381 split across pages (""3"" p49 + ""81"" p50)"
+bkt,147,मलूकपुर,link,,"p50: cont of 147 मलूकपुर; leading ""81"" fragment joined into 381 on p49 row"
+bkt,147,मलूकपुर,abadi,,p48: cell continues on p49
+bkt,147,मलूकपुर,abadi,,p49: cont of 147 मलूकपुर
+bkt,148,मड़ियांव,link,,"p50: cell continues on p51; last number 406 split across pages (""40"" p50 + ""6"" p51)"
+bkt,148,मड़ियांव,link,,"p51: cont of 148 मड़ियांव; leading ""6"" fragment joined into 406 on p50 row"
+bkt,148,मड़ियांव,abadi,,"p50: no numbers; cell text: ""ग्राम के लगभग समस्त गाटो के आस-पास आबादी विकसित है। वर्तमान मे ग्राम नगर निगम सीमा के अन्तर्गत आता है।"""
+bkt,150,महिगवॉ,link,,"p51: cell continues on p52; trailing fragment ""1"" at page end is the start of a number completed on p52 (not included)"
+bkt,150,महिगवॉ,link,,p52: 1789 joined across p51/p52
+bkt,150,महिगवॉ,abadi,,p51: 171708 as printed (verified at zoom; likely typo e.g. 1708)
+bkt,153,मुबारकपुर,link,,p52: cell continues on next page
+bkt,153,मुबारकपुर,link,,p53: last token 126 printed split across pages ('1' on p53 + '26' on p54); cell continues on next page
+bkt,153,मुबारकपुर,link,,p54: first printed '26' is tail of 126 recorded on p53
+bkt,154,मुहीउददीनपुर,link,,p54: no numbers; cell text: — लखनऊ विकास प्राधिकरण में अधिग्रहित भूमि
+bkt,154,मुहीउददीनपुर,abadi,,p54: no numbers; cell text: ग्राम के लगभग समस्त गाटो के आस- पास आबादी विकसित है। वर्तमान मे ग्राम नगर निगम सीमा के अन्तर्गत आता है।
+bkt,155,मुसपिपरी,link,,p54: last token 586 printed split across pages ('58' on p54 + '6' on p55); cell continues on next page
+bkt,155,मुसपिपरी,link,,p55: first printed '6' is tail of 586 recorded on p54
+bkt,157,मामपुर बाना,nh,,p55: last token 754 printed split across pages ('7' on p55 + '54' on p56); cell continues on next page
+bkt,157,मामपुर बाना,nh,,p56: first printed '54' is tail of 754 recorded on p55
+bkt,157,मामपुर बाना,link,,"p55: printed '828,/942' (stray comma before slash) recorded as 828/942; last token 660/647 printed split across pages ('660' on p55 + '/647' on p56); cell continues on next page"
+bkt,157,मामपुर बाना,link,,p56: first printed '/647' is tail of 660/647 recorded on p55
+bkt,157,मामपुर बाना,abadi,,p55: cell continues on next page
+bkt,158,मंडौली,link,,p56: cell continues on next page
+bkt,159,माधौपुर,link,,p57: cell continues on next page
+bkt,160,मोहम्मदपुर मजरा,link,,p58: digit unclear 86? (2nd glyph odd); last token 391 printed split across pages ('3' on p58 + '91' on p59); cell continues on next page
+bkt,160,मोहम्मदपुर मजरा,link,,p59: first printed '91' is tail of 391 recorded on p58
+bkt,160,मोहम्मदपुर मजरा,abadi,,p58: no numbers; cell text: ग्राम के लगभग समस्त गाटो के आस- पास आबादी विकसित है। वर्तमान मे ग्राम नगर निगम सीमा के अन्तर्गत आता है।
+bkt,164,मानपुरलाला,nh,,p59: cell continues on next page
+bkt,164,मानपुरलाला,nh,,"p60: 'मि.' printed with trailing dot, recorded as मि; last token 299 printed split across pages ('2' on p60 + '99' on p61); cell continues on next page"
+bkt,164,मानपुरलाला,nh,,p61: first printed '99' is tail of 299 recorded on p60
+bkt,164,मानपुरलाला,link,,p59: last token 887 printed split across pages ('8' on p59 + '87' on p60); cell continues on next page
+bkt,164,मानपुरलाला,link,,p60: first printed '87' is tail of 887 recorded on p59
+bkt,164,मानपुरलाला,abadi,,p59: last token 42 printed split across pages ('4' on p59 + '2' on p60); cell continues on next page
+bkt,164,मानपुरलाला,abadi,,"p60: first printed '2' is tail of 42 recorded on p59; '379,8' + '886' joins to 8886 as printed (possibly 886 with stray 8)"
+bkt,166,मिश्रपुर,link,,"p61: cell continues on next page (p62, outside this range); last token '4' is incomplete; 462 joined across p61/p62"
+bkt,166,मिश्रपुर,link,,p62: first token 62 likely tail of a number split from previous page
+bkt,166,मिश्रपुर,abadi,,p61: no numbers; cell text (continues on p62): ग्राम के लगभग समस्त गाटो के आस- पास आबादी विकसित है। वर्तमान मे ग्राम नगर ...
+bkt,166,मिश्रपुर,abadi,,p62: cell text: निगम सीमा के अन्तर्गत आता है।
+bkt,168,मिर्जापुर,link,,p62: cell continues on next page
+bkt,168,मिर्जापुर,abadi,,p62: cell text: ग्राम के लगभग समस्त गाटो के आस–पास आबादी विकसित है।
+bkt,168,मिर्जापुर,abadi,,p63: cell text: वर्तमान मे ग्राम नगर निगम सीमा के अन्तर्गत आता है।
+bkt,169,यकड़रिया कला,link,,p63: abbreviated tokens kept as printed (e.g. 79 after 3780); cell continues on next page (last token split); 2046 joined across p63/p64
+bkt,169,यकड़रिया कला,link,,"p64: first token 046 is tail of number split from previous page (2+046); separator after 832 printed as '.'; last token split, continues next page; 2576 joined across p64/p65"
+bkt,169,यकड़रिया कला,link,,p65: first token 76 is tail of number split from previous page (25+76)
+bkt,171,रायपुर बाबू,link,,p65: cell continues on next page
+bkt,171,रायपुर बाबू,link,,p81: page begins mid-village; serials jump from 133 (p80) to 172 on this page
+bkt,172,रामपुर निस्फ,abadi,,p81: no numbers; text: ग्राम के लगभग समस्त गाटो के आस-पास आबादी विकसित है। वर्तमान मे ग्राम नगर निगम सीमा के अन्तर्गत आता है।
+bkt,173,रामपुर देवरई,district,,p81: '617618' printed without comma across line wrap (likely 617;618); printed '953 / 388' kept as one token
+bkt,173,रामपुर देवरई,abadi,,p81: cell continues next page
+bkt,176,राजापुर इन्दौरा,nh,,"p82: last number split across pages (""3""+""54""=354) recorded on p83"
+bkt,176,राजापुर इन्दौरा,nh,,"p83: first number 354 joined from ""3"" at end of p82"
+bkt,178,रसूलपुर सादात,abadi,,p83: abadi cell text (no numbers): ग्राम के लगभग समस्त गाटो के आस-पास आबादी विकसित है। वर्तमान मे ग्राम नगर निगम सीमा के अन्तर्गत आता है।
+bkt,179,रसूलपुर कायस्थ,abadi,,p83: abadi cell text (no numbers): ग्राम के लगभग समस्त गाटो के आस-पास आबादी विकसित है। वर्तमान मे ग्राम नगर निगम सीमा के अन्तर्गत आता है।
+bkt,180,रजौली,link,,"p84: serial 180 रजौली continued; last number split across pages (""7""+""00""=700) recorded on p85"
+bkt,180,रजौली,link,,"p85: number joined from ""7"" at end of p84 + ""00"" (serial 180 रजौली)"
+bkt,181,रैथा,link,,"p85: printed ""8,,9"" (double comma); ""69"" printed as-is; last number split across pages (""71""+next) recorded on p86"
+bkt,181,रैथा,link,,"p86: serial 181 रैथा continued; first number 713 joined from ""71"" at end of p85; printed ""12031204"" (missing comma) split as 1203;1204"
+bkt,181,रैथा,link,,"p87: serial 181 रैथा continued; ""114"" printed as-is (11+4 across line; maybe 1114)"
+bkt,183,रूदही,link,,p87: continues on next page
+bkt,183,रूदही,link,,p90: serial 183 रूदही continued
+bkt,183,रूदही,abadi,,p87: continues on next page
+bkt,183,रूदही,abadi,,p90: serial 183 रूदही continued
+bkt,184,लोधौली,link,,"p90: last number split across pages (""1""+""22""=122) recorded on p91"
+bkt,184,लोधौली,link,,"p91: serial 184 लोधौली continued; first number 122 joined from ""1"" at end of p90"
+bkt,184,लोधौली,abadi,,p90: continues on next page
+bkt,184,लोधौली,abadi,,p91: serial 184 लोधौली continued
+bkt,187,सरैया,link,,"p91: last number split across pages (""3""+next) recorded on p92"
+bkt,187,सरैया,link,,"p92: serial 187 सरैया continued; first number 321 joined from ""3"" at end of p91"
+bkt,192,सैरपुर,link,,p93: serial 192 सैरपुर continued
+bkt,193,सैदापुर,link,,"p93: ""919"" printed as-is (odd in sequence)"
+bkt,195,सैदपुर जागीर,link,,"p93: last number ""13"" cut at page end, continues on p94; 137 joined across p93/p94"
+bkt,195,सैदपुर जागीर,link,,p94: first token 7 is tail of a number wrapped from previous page
+bkt,195,सैदपुर जागीर,abadi,,p93: abadi cell text (no numbers): ग्राम के लगभग समस्त गाटो के आस-पास आबादी विकसित है। वर्तमान मे ग्राम नगर निगम सीमा के अन्तर्गत ... (continues on p94)
+bkt,195,सैदपुर जागीर,abadi,,p94: cell text only: आता है। (end of sentence continued from previous page)
+bkt,196,सरकपुर,link,,p94: last token 2 wraps onto next page (joined with first digits of p95); 91 printed after 8 (as printed); 296 joined across p94/p95
+bkt,196,सरकपुर,link,,p95: first token 96 is tail of number wrapped from p94 (2+96 = 296); village 196 सरकपुर continued
+bkt,198,सरौरा,link,,p95: last token 1 wraps onto p96; 134 joined across p95/p96
+bkt,198,सरौरा,link,,p96: first token 34 is tail of number wrapped from p95 (1+34 = 134); village 198 सरौरा continued; 9001 as printed (possibly 1001)
+bkt,198,सरौरा,link,,p97: village 198 सरौरा continued; 1013 printed twice
+bkt,199,सुल्तानपुर,link,,p97: remark: चकबन्दी (cell reads chakbandi/consolidation; no khasra listed)
+bkt,200,सुवंशीपुर,link,,p98: village 200 सुवंशीपुर continued
+bkt,200,सुवंशीपुर,abadi,,p97: last token 3 wraps onto p98; 98 printed twice; 391 joined across p97/p98
+bkt,200,सुवंशीपुर,abadi,,p98: first token 91 is tail of number wrapped from p97 (3+91 = 391); village 200 सुवंशीपुर continued
+bkt,202,साधूपुर,link,,p98: last token 9 wraps onto p99; 99 joined across p98/p99
+bkt,202,साधूपुर,link,,p99: first token 9 is tail of number wrapped from p98 (9+9 = 99); village 202 साधूपुर continued
+bkt,203,सोनवा,link,,p99: last token 4 wraps onto p100; 468 joined across p99/p100
+bkt,203,सोनवा,link,,p100: first token 68 is tail of number wrapped from p99 (4+68 = 468); village 203 सोनवा continued
+bkt,203,सोनवा,abadi,,p100: village 203 सोनवा continued
+bkt,208,शेखपुर,district,,p101: cell continues on p102
+bkt,208,शेखपुर,district,,p102: village 208 शेखपुर continued
+bkt,211,शिवपुरी,link,,p102: remark: चकबन्दी (cell reads chakbandi/consolidation; no khasra listed)
+bkt,214,हेमी,link,,p103: last token 65 wraps onto p104; 655 joined across p103/p104
+bkt,214,हेमी,link,,p104: first token 5 is tail of number wrapped from p103 (65+5 = 655); village 214 हेमी continued
+bkt,214,हेमी,abadi,,p103: 2024 as printed (possibly 204)
+bkt,217,हरधौरपुर,nh,,p104: cell continues on p105
+bkt,217,हरधौरपुर,nh,,p105: village 217 हरधौरपुर continued
+bkt,217,हरधौरपुर,link,,p104: last token 3 wraps onto p105; 346 joined across p104/p105
+bkt,217,हरधौरपुर,link,,p105: first token 46 is tail of number wrapped from p104 (3+46 = 346); village 217 हरधौरपुर continued
+bkt,217,हरधौरपुर,abadi,,p104: cell continues on p105
+bkt,217,हरधौरपुर,abadi,,p105: village 217 हरधौरपुर continued
+bkt,219,हिम्मतपुर,abadi,,"p105: note (signed, p105): नोट-1. उपरोक्त सूची में किसी प्रकार के विवाद की स्थिति में तहसीलदार बख्शी का तालाब, लखनऊ का निर्णय निबंधन के विषय में अंतिम होगा। 2. उपरोक्त सूची, मूल्यांकन सूचीदर 01.08.2025 का भाग होगा। (signed by तहसीलदार बख्शी का तालाब and उप जिलाधिकारी)"
+malihabad,5,रुदान खेड़ा,abadi,,p1: digit unclear 284? (under tehsildar stamp); cell continues on next page
+malihabad,5,रुदान खेड़ा,link,माल–भरावन,p1: cell continues on next page
+malihabad,10,गौन्दा मुअज्जम नगर,abadi,,"p5: empty list entries ("", ,"") after 2373 and 2268 skipped"
+malihabad,11,दनौर,abadi,,p5: cell continues on next page
+malihabad,11,दनौर,link,,p5: cell continues on next page
+malihabad,14,कटौली,nh,राष्ट्रीय राज्य मार्ग (आउटर रिंग रोड),p9: road named as राष्ट्रीय राज्य मार्ग (Outer Ring Road) in road column; may belong to nh
+malihabad,14,कटौली,nh,राष्ट्रीय राज्य मार्ग (आउटर रिंग रोड),moved to nh: road named राष्ट्रीय राज्य मार्ग (आउटर रिंग रोड)
+malihabad,14,कटौली,link,सम्पर्क मार्ग,p9: cell continues on next page
+malihabad,14,कटौली,link,सम्पर्क मार्ग,p11: continuation of सम्पर्क मार्ग list from previous page (no label printed here)
+malihabad,18,ढेढेमऊ,abadi,,p11: second sub-list labelled 'आबादी के नम्बर' starts at 2nd 699; cell continues on next page
+malihabad,18,ढेढेमऊ,abadi,,p13: continuation of 'आबादी के नम्बर' sub-list
+malihabad,18,ढेढेमऊ,link,,p11: cell continues on next page
+malihabad,18,ढेढेमऊ,link,,p13: printed '3.6' read as 36?; '01' as printed
+malihabad,19,तिलसुवा,abadi,,p13: second sub-list labelled 'आबादी के नम्बर' starts at 87
+malihabad,19,तिलसुवा,link,,p13: missing comma between 43 and 66 in print
+malihabad,20,पुरवा,abadi,,p13: second sub-list labelled 'आबादी के नम्बर' starts at 294
+malihabad,23,कसमण्डी खुर्द,link,,p17: missing comma between 2296 and 2431 in print; cell continues on next page
+malihabad,23,कसमण्डी खुर्द,link,,p19: continuation of unlabeled list from previous page
+malihabad,23,कसमण्डी खुर्द,link,माल मार्ग से हटौली नहर रोड,p19: cell continues on next page (list ends with comma)
+malihabad,23,कसमण्डी खुर्द,link,माल मार्ग से हटौली नहर रोड,p21: road continues from p19 (माल मार्ग से हटौली नहर रोड)
+malihabad,24,देवरी भारत,abadi,,p21: 122 partly obscured by punch hole
+malihabad,24,देवरी भारत,link,,p21: no road name printed
+malihabad,25,मड़वाना,abadi,,p21: continues on next page
+malihabad,25,मड़वाना,abadi,,"p23: continued from p21 (serial 25); commas missing in ""468 469"" and ""840 842"""
+malihabad,25,मड़वाना,link,,p21: no road name printed; continues on next page
+malihabad,25,मड़वाना,link,,"p23: continued from p21 (serial 25); no road name; comma missing in ""83 85"""
+malihabad,26,रामपुर बस्ती,link,,p23: no road name printed
+malihabad,27,बिराहिमपुर,link,,p23: no road name printed
+malihabad,28,गढ़ी संजर खॉ,abadi,,p23: continues on next page
+malihabad,28,गढ़ी संजर खॉ,abadi,,p25: continued from p23 (serial 28)
+malihabad,28,गढ़ी संजर खॉ,link,,p23: no road name printed; continues on next page
+malihabad,28,गढ़ी संजर खॉ,link,,p25: continued from p23 (serial 28); no road name
+malihabad,29,रसूलपुर,abadi,,"p25: comma missing in ""237क 231ख"""
+malihabad,29,रसूलपुर,link,,p25: no road name printed
+malihabad,30,शहजादपुर,link,,p25: no road name printed
+malihabad,31,गोड़वा,link,,p25: no road name printed
+malihabad,32,कसमण्डी कलां,link,मुख्य मार्ग नवी पनाह अन्धे की चौकी,p25: continues on next page
+malihabad,32,कसमण्डी कलां,link,मुख्य मार्ग नवी पनाह अन्धे की चौकी,p27: continued from p25 (serial 32); road continues from p25 (मुख्य मार्ग नवी पनाह अन्धे की चौकी)
+malihabad,32,कसमण्डी कलां,link,कसमण्डी से मलिहाबाद मार्ग,p27: continued from p25 (serial 32)
+malihabad,32,कसमण्डी कलां,link,कसमण्डी से मीठे नगर मार्ग,p27: continued from p25 (serial 32)
+malihabad,35,पारा भदराही,abadi,,p27: continues on next page
+malihabad,35,पारा भदराही,abadi,,"p29: continued from p27 (serial 35); comma missing in ""475 581"""
+malihabad,35,पारा भदराही,link,,p27: no road name printed; continues on next page
+malihabad,35,पारा भदराही,link,,p29: continued from p27 (serial 35); no road name
+malihabad,36,जिन्दाना,abadi,,"p29: comma missing in ""120 30"""
+malihabad,36,जिन्दाना,link,,p29: no road name printed
+malihabad,37,बिशुनपुर,link,,p29: no road name printed
+malihabad,38,मलहा,link,सिध्देश्वरी मंदिर को जाने वाला मार्ग,p29: continues on next page
+malihabad,38,मलहा,link,सिध्देश्वरी मंदिर को जाने वाला मार्ग,p31: continued from p29 (serial 38); road continues from p29 (सिध्देश्वरी मंदिर को जाने वाला मार्ग)
+malihabad,38,मलहा,link,आउटर रिंग रोड/किसान पथ,"p31: continued from p29 (serial 38); printed ""आउटर रिंग रोड/किसान पथ से लगें गाटा संख्या""; comma missing in ""470 469"""
+malihabad,40,बहेलिया,link,कसमण्डी कला से बहेलिया जाने वाला मार्ग,p33: 87ब suffix printed as ब
+malihabad,41,पिपरी कुराखर,link,पिपरी से पुरवा मार्ग,p35: continued from p33 (serial 41)
+malihabad,42,बहरौरा,link,जनपदीय मार्ग माल - इटौंजा मार्ग से बहरौरा सम्पर्क मार्ग,p35: road name mentions जनपदीय मार्ग but listed in road column
+malihabad,45,चन्दवारा,abadi,,"p37: comma missing in ""225 227"""
+malihabad,45,चन्दवारा,link,,"p37: no road name printed; comma missing in ""254 30/340""; last printed as ""191300"" (no comma), read as 191 and 300"
+malihabad,46,शाहमऊ,link,,p37: no road name printed
+malihabad,47,नौबस्ता,link,,p37: no road name printed
+malihabad,48,भंवर,link,,p37: no road name printed
+malihabad,49,ऑट,abadi,,"p37: comma missing in ""136 196"""
+malihabad,49,ऑट,link,,p37: no road name printed
+malihabad,50,भुलसी,link,,p37: no road name printed; continues on next page
+malihabad,50,भुलसी,link,,p39: continued from p37 (serial 50); no road name
+malihabad,51,दुलारमऊ,link,,p39: no road name printed
+malihabad,52,कुन्डरा खुर्द,link,,p39: no road name printed
+malihabad,53,कुन्डरा कलां,link,,"p39: no road name printed; comma missing in ""58 114"""
+malihabad,54,शेरपुर भौसा,link,,p39: no road name printed; continues on next page
+malihabad,55,मलिहाबाद,abadi,,p41: cell continues on next page
+malihabad,55,मलिहाबाद,abadi,,p43: continued from previous page
+malihabad,55,मलिहाबाद,nh,एन.एच.आई.,moved to nh: road named एन.एच.आई.
+malihabad,55,मलिहाबाद,link,हरदोई रोड से गल्लामंडी,"p43: printed "",,"" empty token after 1209/2805 skipped"
+malihabad,59,कहला,link,,p43: cell continues on next page
+malihabad,59,कहला,link,,p45: continued from previous page
+malihabad,62,सैबसी,link,सम्पर्क मार्ग,"p47: ""96 93"" printed without comma, read as two numbers"
+malihabad,63,सरथरा,link,सम्पर्क मार्ग,"p47: ""10"" at line end then ""382"" on next line with no comma; read as separate 10 and 382"
+malihabad,64,थरी,abadi,,p47: cell continues on next page
+malihabad,64,थरी,abadi,,p49: continued from previous page
+malihabad,64,थरी,link,,p47: cell continues on next page
+malihabad,64,थरी,link,,p49: continued from previous page
+malihabad,66,दुगौली,link,,"p49: ""185 184"" printed without comma, read as two numbers"
+malihabad,67,सालिहाबाद,link,,p49: 2227 printed as is (possibly 22 and 27 missing comma)
+malihabad,68,टिकैतगंज,link,,"p51: cell has two unnamed blocks (second starts at 199), merged; ""269 243"" and ""240 239"" printed without commas"
+malihabad,69,अल्लूपुर,abadi,,"p51: ""19 20"" and ""89""/""135"" printed without commas"
+malihabad,69,अल्लूपुर,link,,"p51: ""154 155"" and ""133 86"" printed without commas"
+malihabad,70,हबीबपुर,link,,p51: cell continues on next page
+malihabad,70,हबीबपुर,link,,p53: continued from previous page
+malihabad,73,वाजिद नगर,abadi,,p53: cell continues on next page
+malihabad,73,वाजिद नगर,abadi,,p55: continued from previous page
+malihabad,73,वाजिद नगर,link,,p53: cell continues on next page
+malihabad,73,वाजिद नगर,link,,p55: continued from previous page
+malihabad,75,ढखवा,link,,p55: cell continues on next page; 6066 printed as is
+malihabad,75,ढखवा,link,,p57: continued from previous page
+malihabad,76,गहदों,link,,"p57: cell continues on next page; 681683 printed as is (likely 681 and 683 missing comma); printed "",,"" empty token after 673 skipped"
+malihabad,76,गहदों,link,,"p59: continued from previous page; printed "", ,"" empty token after 1140 skipped"
+malihabad,79,नेजाभारी,link,,p59: cell continues on next page (61)
+malihabad,79,नेजाभारी,link,,p61: verified p61
+malihabad,80,सदरपुर,abadi,,p61: verified p61
+malihabad,80,सदरपुर,link,,p61: verified p61
+malihabad,81,फिरोजपुर,abadi,,p61: verified p61
+malihabad,81,फिरोजपुर,link,,p61: verified p61
+malihabad,82,मुजासा,abadi,,p61: empty entry between commas after 250 as printed; verified p61
+malihabad,82,मुजासा,link,,p61: verified p61
+malihabad,83,दौलतपुर,abadi,,"p61: ""60 69"" printed without comma; verified p61"
+malihabad,83,दौलतपुर,link,,p61: verified p61
+malihabad,84,भटपुरवा,abadi,,p61: verified p61
+malihabad,84,भटपुरवा,link,,p61: verified p61
+malihabad,85,मवई कलां,abadi,,"p63: ""844871"" printed as one token (likely 844, 871 missing comma); page starts with an empty table row; verified p63"
+malihabad,85,मवई कलां,link,,p63: verified p63
+malihabad,86,अटरिया,abadi,,p63: note in cell: गाटा संख्या 72 आबादी; verified p63
+malihabad,86,अटरिया,link,,p63: verified p63
+malihabad,87,मंझी निकरोजपुर,abadi,,p63: verified p63
+malihabad,87,मंझी निकरोजपुर,link,,p63: continues on next page; verified p63
+malihabad,87,मंझी निकरोजपुर,link,,p65: verified p65
+malihabad,88,कनार,abadi,,p65: verified p65
+malihabad,88,कनार,link,,p65: verified p65
+malihabad,89,खालिसपुर,abadi,,p65: verified p65
+malihabad,89,खालिसपुर,link,,p65: verified p65
+malihabad,90,बेलगढ़ा,abadi,,p67: verified p67
+malihabad,90,बेलगढ़ा,link,,p67: verified p67
+malihabad,91,लोधौसी,abadi,,"p67: printed ""27,2 273"" read as 272, 273; verified p67"
+malihabad,91,लोधौसी,link,,p67: verified p67
+malihabad,92,खड़ता,abadi,,p67: verified p67
+malihabad,92,खड़ता,link,,p67: verified p67
+malihabad,93,दतली,abadi,,p67: verified p67
+malihabad,93,दतली,link,,p67: continues on next page; verified p67
+malihabad,94,मवई खुर्द,link,,"p69: ""80"" printed between 809 and 807 (possibly 808); empty entries between commas after 42 and 41"
+malihabad,95,मीठे नगर,link,,p69: empty entry between commas after 626
+malihabad,96,सहिलामऊ,abadi,,p69: continues on next page
+malihabad,96,सहिलामऊ,abadi,,p71: continued from previous page
+malihabad,96,सहिलामऊ,link,,p69: continues on next page
+malihabad,96,सहिलामऊ,link,,p71: continued from previous page
+malihabad,102,शालेह नगर,abadi,,p71: continues on next page
+malihabad,102,शालेह नगर,abadi,,p73: continued from previous page
+malihabad,102,शालेह नगर,link,,p71: continues on next page
+malihabad,102,शालेह नगर,link,,p73: continued from previous page
+malihabad,104,अटौरा,link,,"p73: ""320 321"" printed without comma"
+malihabad,106,महदोइया,abadi,,p73: continues on next page
+malihabad,106,महदोइया,abadi,,p75: continued from previous page
+malihabad,106,महदोइया,link,,p73: continues on next page
+malihabad,106,महदोइया,link,,p75: continued from previous page
+malihabad,108,गोड़वा बरौकी,abadi,,"p75: ""686 791"" printed without comma"
+malihabad,109,बहिर,abadi,,p77: page starts with an empty table row
+malihabad,112,बसन्तपुर,link,,"p79: ""164 256"" printed without comma"
+malihabad,114,मसीढ़ा हमीर,abadi,,p79: continues on next page
+malihabad,114,मसीढ़ा हमीर,link,मुख्य मार्ग माल–मलिहाबाद,p79: continues on next page
+malihabad,114,मसीढ़ा हमीर,link,मुख्य मार्ग माल–मलिहाबाद,p81: continues from p79 (serial 114 मसीढ़ा हमीर); road name from p79
+malihabad,118,कमालपुर लोधौरा,link,,p83: cell continues on next page
+malihabad,118,कमालपुर लोधौरा,link,,p85: continues from p83 (serial 118 कमालपुर लोधौरा)
+malihabad,119,रायपुर,link,,"p85: printed ""322327"" with no comma (likely 322, 327)"
+malihabad,120,बीरपुर,abadi,,p85: cell continues on next page
+malihabad,120,बीरपुर,abadi,,p87: continues from p85 (serial 120 बीरपुर)
+malihabad,120,बीरपुर,link,,p85: cell continues on next page
+malihabad,120,बीरपुर,link,,p87: continues from p85 (serial 120 बीरपुर)
+malihabad,121,भानपुर,abadi,,"p87: printed ""7082"" with no comma (likely 70, 82)"
+malihabad,123,नवीपनाह,abadi,,"p87: empty token "", ,"" after 65 as printed; cell continues on next page"
+malihabad,123,नवीपनाह,abadi,,"p89: continues from p87 (serial 123 नवीपनाह); ""2 4"" printed without comma; empty token "", ,"" after 783"
+malihabad,123,नवीपनाह,link,,p87: cell continues on next page
+malihabad,123,नवीपनाह,link,,"p89: continues from p87 (serial 123 नवीपनाह); digit unclear 907/1671? (overtyped); printed ""602604"" with no comma (likely 602, 604)"
+malihabad,123,नवीपनाह,link,,p91: continues from p89 (serial 123 नवीपनाह)
+malihabad,125,हसनापुर,abadi,,p91: cell continues on next page
+malihabad,125,हसनापुर,abadi,,p93: continues from p91 (serial 125 हसनापुर)
+malihabad,125,हसनापुर,link,,p91: cell continues on next page
+malihabad,125,हसनापुर,link,,p93: continues from p91 (serial 125 हसनापुर)
+malihabad,128,जिन्दौर,abadi,,p93: cell continues on next page
+malihabad,128,जिन्दौर,abadi,,p95: continues from p93 (serial 128 जिन्दौर)
+malihabad,128,जिन्दौर,nh,एन.एच.,"p93: printed in road column as ""एन.एच. पर स्थित गाटा संख्याएँ निम्नवत है""; cell continues on next page"
+malihabad,128,जिन्दौर,nh,एन.एच.,"p95: continues from p93 (serial 128 जिन्दौर); printed in road column under ""एन.एच. पर स्थित गाटा"""
+malihabad,128,जिन्दौर,link,मुसीबत गंज सम्पर्क मार्ग,p95: continues from p93 (serial 128 जिन्दौर)
+malihabad,128,जिन्दौर,link,हरदोई रोड से दौलत पुर सम्पर्क मार्ग,p95: continues from p93 (serial 128 जिन्दौर)
+malihabad,128,जिन्दौर,link,हरदोई रोड से लालू हार खड़ंजा मार्ग,p95: continues from p93 (serial 128 जिन्दौर)
+malihabad,128,जिन्दौर,link,हरदोई रोड से जानकी नगर सम्पर्क मार्ग,p95: continues from p93 (serial 128 जिन्दौर)
+malihabad,128,जिन्दौर,link,हरदोई रोड से लालता खेड़ा सम्पर्क मार्ग,p95: continues from p93 (serial 128 जिन्दौर)
+malihabad,128,जिन्दौर,link,हरदोई रोड से तिरगवां सम्पर्क मार्ग,p95: continues from p93 (serial 128 जिन्दौर)
+malihabad,128,जिन्दौर,link,गदिया खेड़ा से राम नगर सम्पर्क मार्ग,p97: continues from p95 (serial 128 जिन्दौर)
+malihabad,128,जिन्दौर,link,हरदोई रोड से गदियन खेड़ा सम्पर्क मार्ग,p97: continues from p95 (serial 128 जिन्दौर)
+malihabad,129,मोहम्मद नगर तालुकेदारी,link,,"p97: ""116 304"" printed without comma"
+malihabad,131,नई बस्ती धनेवा,link,,"p99: ""190 189"" printed without comma; 4193 as printed (likely 193); cell continues on next page"
+malihabad,131,नई बस्ती धनेवा,link,,p101: continues from p99 (serial 131 नई बस्ती धनेवा)
+malihabad,135,टिकरी खुर्द,link,सम्पर्क मार्ग,p103: continues from p101
+malihabad,136,सरावां,nh,एन.एच.,"p103: ""520 526"" printed without comma"
+malihabad,140,जमोलिया,link,दिलावर नगर से ससपन मार्ग,p105: 2725 as printed
+malihabad,140,जमोलिया,link,रहीमाबाद से जमोलिया मार्ग,p105: 18187 as printed (5 digits)
+malihabad,141,खड़ौहॉ,nh,लखनऊ हरदोई पक्की सड़क राज्य मार्ग,p105: state highway (राज्य मार्ग) in road column; mapped to nh
+malihabad,141,खड़ौहॉ,link,लखनऊ हरदोई रोड चिहुटा,"p105: ""683 689"" printed without comma"
+malihabad,141,खड़ौहॉ,link,लखनऊ हरदोई रोड से चिहुटा पर खड़ौहॉ पक्की सड़क,p105: cell continues on next page
+malihabad,141,खड़ौहॉ,link,लखनऊ हरदोई रोड से चिहुटा पर खड़ौहॉ पक्की सड़क,p109: continues from p105/p107; road name from p105
+malihabad,141,खड़ौहॉ,link,खड़ौहॉ से बांक व पहाड़पुर जाने वाली पक्की सड़क,"p109: ""2340 2338"" printed without comma"
+malihabad,141,खड़ौहॉ,link,,p109: unlabeled group on new line after खड़ौहॉ से बांक व पहाड़पुर road list (road unclear; may belong to it)
+malihabad,142,अऊमऊ,link,,p109: cell continues on next page
+malihabad,142,अऊमऊ,link,,"p111: continues from p109; ""143 144"" printed without comma"
+malihabad,143,आदमपुर,link,,"p111: ""133,1 34"" read as 133;134"
+malihabad,144,कोलवा भनौरा,abadi,,"p111: last token ""41"" runs into cell border, possibly truncated"
+malihabad,144,कोलवा भनौरा,link,,"p111: ""126,1 37"" and ""176,1 94"" read as 126;137 and 176;194"
+malihabad,148,सुल्तानपुर,abadi,,"p113: ""88"" as printed (sequence suggests 188?)"
+malihabad,151,घुसौली,link,,"p113: ""390 391"" printed without comma"
+malihabad,152,गुमसेना,abadi,,p113: ends with trailing comma; may continue on next page
+malihabad,152,गुमसेना,link,,p113: 3328 as printed (4 digits); cell continues on next page
+malihabad,152,गुमसेना,link,,p115: continues from p113
+malihabad,155,रनीपारा,link,,"p115: ""492 493"" printed without comma"
+malihabad,156,हमिरापुर,abadi,,p115: cell continues on next page
+malihabad,156,हमिरापुर,abadi,,p117: continues from p115
+malihabad,156,हमिरापुर,link,,p115: cell continues on next page
+malihabad,156,हमिरापुर,link,,p117: continues from p115
+malihabad,157,सहिजना,link,,"p117: ""1173 1172 1171"" printed without commas"
+malihabad,158,तरौना,link,,"p117: ""290 291"" printed without comma; cell continues on next page"
+malihabad,158,तरौना,link,,p119: continues from p117
+malihabad,159,फतेहपुर,abadi,,"p119: ""8"" and ""09"" as printed"
+malihabad,160,कैथुलिया,link,,"p119: ""01"" as printed"
+malihabad,161,तिलन,abadi,,"p119: ""640 430"" printed without comma; cell ends with comma, may continue on p121"
+malihabad,161,तिलन,abadi,,p121: continues from previous page
+malihabad,161,तिलन,link,,"p119: cell ends with comma, continues on p121"
+malihabad,161,तिलन,link,,p121: continues from previous page
+malihabad,163,मुडियारा,link,,"p121: ""-1054"" printed with leading dash"
+malihabad,164,सिसवारा,link,गहदो मार्ग,"p123: second ""गहदो मार्ग"" entry in same cell (road name printed twice)"
+malihabad,166,बड़खोरवा,link,,p123: cell continues on next page
+malihabad,166,बड़खोरवा,link,,p125: continues from previous page
+malihabad,167,ससपन,abadi,,"p125: ""544 545"" printed without comma; cell continues on next page"
+malihabad,167,ससपन,abadi,,p127: continues from previous page
+malihabad,168,गोपालपुर,link,,"p127: printed ""31,2 314"" (read as 312?)"
+malihabad,169,ऑट गढ़ी सौरा,link,,"p127: ""1471 1472"" and ""1701 1700"" printed without comma; cell continues on next page"
+malihabad,169,ऑट गढ़ी सौरा,link,,p129: continues from previous page
+malihabad,173,रहटा,abadi,,p129: cell ends with comma; may continue on next page
+malihabad,173,रहटा,nh,गहदों से रहीमाबाद राजमार्ग,p129: cell continues on next page
+malihabad,173,रहटा,nh,गहदों से रहीमाबाद राजमार्ग,p131: continues from previous page; road name from p129
+malihabad,173,रहटा,nh,गहदों से रहीमाबाद राजमार्ग,moved to nh: road named गहदों से रहीमाबाद राजमार्ग
+malihabad,178,मनकौटी,abadi,,p131: cell continues on next page
+malihabad,178,मनकौटी,abadi,,p133: continues from previous page
+malihabad,178,मनकौटी,link,,p131: cell continues on next page
+malihabad,178,मनकौटी,link,,p133: continues from previous page
+malihabad,179,रघुरामपुर,abadi,,p133: cell text (no numbers): गैर आबाद
+malihabad,181,कुकरा,link,,"p133: ""139 141"" and ""345 354"" printed without comma"
+malihabad,182,बरी जलालपुर,abadi,,"p133: ""153 154"" printed without comma"
+malihabad,184,बख्त्यार नगर,abadi,,p135: cell continues on next page
+malihabad,184,बख्त्यार नगर,abadi,,"p137: continues from previous page; ""521 522"" printed without comma"
+malihabad,184,बख्त्यार नगर,link,,"p135: ""02"" as printed (likely 102); ""490 475"" printed without comma; cell continues on next page"
+malihabad,184,बख्त्यार नगर,link,,p137: continues from previous page
+malihabad,186,हरिहरपुर,link,,"p137: ""448 148"" printed without comma"
+malihabad,187,ईशापुर,abadi,,"p137: printed ""46,3 464"" (read as 463?); cell continues on next page"
+malihabad,187,ईशापुर,abadi,,p139: continues from previous page
+malihabad,187,ईशापुर,link,,p137: cell continues on next page
+malihabad,187,ईशापुर,link,,p139: continues from previous page
+malihabad,188,सेंधरवा,abadi,,"p139: ""5543/106"" as printed (likely 543/1056?); ""312 552"" printed without comma"
+malihabad,188,सेंधरवा,link,,"p139: ""195 178"" and ""180 200"" printed without comma; signed note below table: नोटः– 1. उपरोक्त सूची में किसी भी प्रकार की विवाद की स्थिति में तहसीलदार का निर्णय निबंधन के विषय में अंतिम माना जाएगा। 2. उपरोक्त सूची मूल्यांकन सूची दर 01/08/2025 का भाग होगा। (signed तहसीलदार मलिहाबाद)"

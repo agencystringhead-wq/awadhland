@@ -15,7 +15,9 @@ import { buyerCategoryLabels } from "@/lib/labels";
 import { rc } from "@/lib/rate-copy";
 import { getCurrentRateSchedule, getTehsilsByCity, getTehsilSummary } from "@/lib/rates";
 import { builtLocalityIds, sameAlternate } from "@/lib/routes";
-import { stampDutyCalculatorData } from "@/lib/tools";
+import { frontageToolHref, stampDutyCalculatorData } from "@/lib/tools";
+import { getFrontageOnlySros, getFrontageVillages } from "@/lib/frontage";
+import { fc } from "@/lib/frontage-copy";
 import { PageShell } from "./PageShell";
 
 const th = "px-4 py-2.5 font-semibold";
@@ -63,6 +65,10 @@ export function CircleRatesTemplate({ locale, cityId }: { locale: Locale; cityId
     : [];
   // Registered SROs with no transcribed list. They get a card that says so, and no link.
   const pending = tehsils.filter((th) => th.ratesStatus === "pending");
+  // Of those, the ones with a khasra frontage list: their card links to a village index.
+  const frontageOnly = getFrontageOnlySros(city.id);
+  const f = fc(locale);
+  const listJoin = (xs: string[], l: Locale) => (xs.length < 2 ? xs.join("") : `${xs.slice(0, -1).join(", ")} ${l === "hi" ? "और" : "and"} ${xs.at(-1)}`);
 
   return (
     <PageShell locale={locale} alternate={sameAlternate(locale, `/${city.id}/circle-rates/`)} pageLabel={pageLabel}>
@@ -188,16 +194,48 @@ export function CircleRatesTemplate({ locale, cityId }: { locale: Locale; cityId
              * district. Saying which three are missing is the difference between an incomplete
              * list and a wrong one.
              */}
-            {pending.map((th) => (
-              <li key={th.id}>
-                <div className="block h-full rounded-2xl border border-dashed border-line bg-cream-deep/40 p-5">
+            {pending.map((th) => {
+              // A pending SRO with a khasra frontage list has a village index; link it.
+              const villages = frontageOnly.includes(th.id) ? getFrontageVillages(city.id, th.id).length : 0;
+              const body = (
+                <>
                   <h3 className="text-xl text-ink-soft">{pick(locale, th.name, th.nameHi)}</h3>
                   <p className="caption-mono mt-1 text-muted">{pick(locale, th.sroName, th.sroNameHi)}</p>
-                  <p className="mt-4 text-sm text-muted">{c.ratesPending}</p>
-                </div>
-              </li>
-            ))}
+                  <p className="mt-4 text-sm text-muted">{villages > 0 ? f.ratesAwaited : c.ratesPending}</p>
+                  {villages > 0 && (
+                    <p className="mt-1.5 text-sm">
+                      {formatNumber(villages)} {f.villagesInSro} · {f.cardFrontage}
+                    </p>
+                  )}
+                </>
+              );
+              return (
+                <li key={th.id}>
+                  {villages > 0 ? (
+                    <a
+                      href={localePath(locale, `/${city.id}/circle-rates/${th.id}/`)}
+                      className="block h-full rounded-2xl border border-dashed border-line bg-cream-deep/40 p-5 transition-colors hover:bg-cream-deep"
+                    >
+                      {body}
+                    </a>
+                  ) : (
+                    <div className="block h-full rounded-2xl border border-dashed border-line bg-cream-deep/40 p-5">{body}</div>
+                  )}
+                </li>
+              );
+            })}
           </ul>
+          {frontageOnly.length > 0 && (
+            <div className="mt-6 rounded-2xl border border-line bg-card p-5 md:flex md:items-center md:justify-between md:gap-6">
+              <div>
+                <p className="font-semibold">{f.checkTitle}</p>
+                <p className="mt-1 max-w-2xl text-sm text-ink-soft">{f.hubToolLede.replace("{sros}", listJoin(pending.filter((th) => frontageOnly.includes(th.id)).map((th) => pick(locale, th.name, th.nameHi)), locale))}</p>
+              </div>
+              <a href={frontageToolHref(locale)} className="btn btn-primary mt-4 shrink-0 gap-2 px-5 py-3 text-[15px] md:mt-0">
+                {f.hubToolCta} →
+              </a>
+            </div>
+          )}
         </Section>
       )}
 

@@ -7,6 +7,7 @@ import { logBrokerPlaceholders, logSkippedLocalities, logSkippedProjects, logWit
 import { logScoreCoverage } from "./scoring";
 import { getGuides } from "./guides";
 import { getCitiesWithRateList, getRowsByTehsil, getTehsilsByCity } from "./rates";
+import { getFrontageCities, getFrontageOnlySros, getFrontageVillages } from "./frontage";
 import { localePath, otherLocale, type Locale } from "./i18n";
 import { TOOL_SLUGS } from "./tools";
 
@@ -55,7 +56,10 @@ export const circleRateParams = () =>
     [...new Set([...getCircleRateSchedules().map((s) => s.cityId), ...getCitiesWithRateList()])].map((city) => ({ city })),
   );
 
-/** /[city]/circle-rates/[tehsil]/ — one per tehsil that has rows in the current schedule. */
+/**
+ * /[city]/circle-rates/[tehsil]/ — one per tehsil that has rows in the current schedule, plus one
+ * per SRO that has only a khasra frontage list so far.
+ */
 export const rateTehsilParams = () =>
   nonEmpty(
     "/[city]/circle-rates/[tehsil]/",
@@ -63,6 +67,9 @@ export const rateTehsilParams = () =>
       getTehsilsByCity(city)
         .filter((t) => getRowsByTehsil(city, t.id).length > 0)
         .map((t) => ({ city, tehsil: t.id })),
+    ).concat(
+      // SROs whose rate list has not arrived but whose khasra frontage list has: a village index.
+      getFrontageCities().flatMap((city) => getFrontageOnlySros(city).map((tehsil) => ({ city, tehsil }))),
     ),
   );
 
@@ -75,6 +82,11 @@ export const rateVillageParams = () =>
     "/[city]/circle-rates/[tehsil]/[village]/",
     getCitiesWithRateList().flatMap((city) =>
       getTehsilsByCity(city).flatMap((t) => getRowsByTehsil(city, t.id).map((r) => ({ city, tehsil: t.id, village: r.slug }))),
+    ).concat(
+      // Villages known only from a frontage list: same URL the rate row will take when it lands.
+      getFrontageCities().flatMap((city) =>
+        getFrontageOnlySros(city).flatMap((tehsil) => getFrontageVillages(city, tehsil).map((v) => ({ city, tehsil, village: v.slug }))),
+      ),
     ),
   );
 

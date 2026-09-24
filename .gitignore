@@ -25,3 +25,6 @@ next-env.d.ts
 # Local build log
 /.build.log
 /.playwright-mcp/
+
+# Per-village khasra frontage chunks, generated at build by scripts/build-frontage-chunks.ts
+/public/frontage/

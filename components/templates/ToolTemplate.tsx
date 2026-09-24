@@ -3,12 +3,14 @@ import { Breadcrumb } from "@/components/Breadcrumb";
 import { FAQ } from "@/components/FAQ";
 import { LeadForm } from "@/components/LeadForm";
 import { Section } from "@/components/Section";
+import { KhasraFrontageCheck } from "@/components/KhasraFrontageCheck";
 import { StampDutyCalculator } from "@/components/StampDutyCalculator";
 import { toolCopy } from "@/lib/content";
+import { fc } from "@/lib/frontage-copy";
 import { getBroker } from "@/lib/data";
 import { localePath, ui, type Locale } from "@/lib/i18n";
 import { sameAlternate } from "@/lib/routes";
-import { isToolSlug, stampDutyCalculatorData } from "@/lib/tools";
+import { frontageCheckData, isToolSlug, stampDutyCalculatorData } from "@/lib/tools";
 import { PageShell } from "./PageShell";
 
 /**
@@ -27,6 +29,8 @@ export function ToolTemplate({ locale, slug }: { locale: Locale; slug: string })
     switch (slug) {
       case "stamp-duty-calculator":
         return <StampDutyCalculator locale={locale} data={stampDutyCalculatorData(locale)} whatsapp={broker.whatsapp} title={t.stampDuty} />;
+      case "khasra-frontage-check":
+        return <KhasraFrontageCheck locale={locale} data={frontageCheckData(locale)} whatsapp={broker.whatsapp} title={fc(locale).checkTitle} />;
     }
   })();
 

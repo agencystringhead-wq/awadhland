@@ -1,6 +1,6 @@
 # Awadhland.com — Page-Type Inventory & Build Spec
 
-As of 2026-09-23. Source of truth for structure, templates, data model and SEO. Change this file first, then the code.
+As of 2026-09-24. Source of truth for structure, templates, data model and SEO. Change this file first, then the code.
 
 ## Overview
 
@@ -183,6 +183,8 @@ One per tehsil of a published list (`/<city>/circle-rates/<tehsil>/`), rendered 
 - Every table carries its own source line: "IGRSUP list, `<SRO>`, effective `<date>`, printed page `<N>`". The five SROs publish separately and must never be merged into one citation.
 - Always indexable.
 
+**SROs with only a khasra frontage list.** An SRO registered as `ratesStatus: "pending"` whose rate list has not arrived, but whose khasra road-frontage list has (Lucknow: Sadar-4, Bakshi Ka Talab, Malihabad), builds at the same URL as a village index instead: the line "Circle rates for this SRO are awaited.", every village in printed serial order with its count of khasra plots on a highway, a district road, a link road and next to the abadi, each linked to its village page, a link to the plot check tool, and the source line. It ships `noindex, follow` until the rate list lands, at which point the SRO leaves the frontage path and this template builds its rate table at the same URL. The city hub's card for such an SRO links here; a pending SRO without a frontage list stays an unlinked card.
+
 ## Template 5b: Village rate page
 
 One per row of a published list (`/<city>/circle-rates/<tehsil>/<village-slug>/`). Roughly 1,630 per language for Ayodhya alone, so the indexing rule below matters more than the template.
@@ -202,6 +204,8 @@ One per row of a published list (`/<city>/circle-rates/<tehsil>/<village-slug>/`
 **Indexing rule**
 
 Every village page builds in both trees. A page is indexable only when a **live** locality references its row through `rateRefs`, or its row id is listed in `data/rates/indexable.json`. Everything else ships `noindex, follow` and is absent from the sitemaps and `llms.txt`. The list is widened in batches while watching Search Console; it is not a backlog to clear.
+
+**Villages known only from a khasra frontage list.** Under an SRO on the frontage path (Template 5a), each village of the frontage list builds at `/<city>/circle-rates/<tehsil>/<village-slug>/`, the URL its rate row will take, with the slug from the same transliteration. There is no rate table. In its place: "Circle rates for this SRO are awaited.", the four frontage counts (distinct khasra numbers per heading), the named roads where the list prints them (Malihabad), the list's remarks as printed in Hindi with an English gloss on the English page ("inside nagar nigam limits", "acquired by LDA", "chakbandi"), a link to the plot check prefilled with the SRO and village, the Tehsil verification line, six neighbouring villages by serial, the source line with the PDF pages, and the lead form. All of them ship `noindex, follow` and stay out of the sitemaps and `llms.txt` until the rates land.
 
 ## Template 6: Guide
 
@@ -255,12 +259,14 @@ Client-side calculators and checklists at `/tools/<slug>/`. No signup, no server
 | Circle rate lookup | Type a locality, get its current rates and effective date | Locality search (fuzzy, both scripts) | `circleRates.json` |
 | Land safety checklist | Interactive checklist with explanations; prints or saves as PDF | Checkbox per item, optional notes | static |
 | Plot yield calculator | Compare a plot purchase against FD returns over 5 / 10 years using the user's own growth assumption | Price, area, expected annual growth %, holding period | static |
+| Khasra frontage check (`/tools/khasra-frontage-check/`) | Whether the district's khasra list puts a plot on a highway, a district road, a link road or next to the abadi | SRO, village, khasra number (matched on its leading digits, so 123 finds 123क and 123/2) | `data/frontage/`, one chunk per village from `public/frontage/` |
 
 **Rules**
 
 - Every tool renders correctly with JavaScript off: a static explainer and a link to the relevant data page. The interactive part enhances.
 - Results screens carry a "Send this to us on WhatsApp" button that prefills the inputs into the message.
 - Tools share one `Calculator` shell component (inputs left, result right on desktop; stacked on mobile).
+- The khasra frontage check loads one village's list (a few KB) when the village is picked, never the whole list. Entries the transcriber flagged as uncertain say "verify at the Tehsil", and every result carries "Verify with the Tehsil / Sub-Registrar office. The Tehsildar's decision is final." Village pages and the SRO page link to it with `?sro=&village=` to preselect. It gives no rate.
 
 ## Template 8: Updates archive
 
@@ -416,6 +422,8 @@ All entity data lives in `/data/*.json`, validated with Zod at build. A failed v
 Units are exactly as published and are never converted in storage: `nonAgri.*` and `commercial.*` in ₹ per sq m, `agriLakhPerHa.*` in **lakh** ₹ per hectare, `null` where the printed row leaves the cell empty. `note` carries the transcriber's flag on an oddly printed row and is never rendered. Row ids are `${sro}-${vcode || 's'+serial}`; slugs are unique within a tehsil, with the ward or V-code appended when two rows share a name.
 
 **data/rates/indexable.json** — `rateRowIds[]`, the village rows opened to search beyond those a live locality references. See Template 5b.
+
+**data/frontage/`<city>`-`<effectiveFrom>`.json** and **…-plots.json** — khasra road-frontage lists, printed as part of a valuation list but carrying no ₹ figures. The first file has `sourceDocs[]` (`{sro, pageCount, igrsupUrl, archiveUrl, downloadDated}`) and `villages[]` (`{id, sro, serial, nameHi, nameEn, slug, counts, printedCounts, roadsHi[], notesHi[], pages}`): `counts` are distinct khasra numbers per heading (`nh`, `district`, `link`, `abadi`), `printedCounts` the transcription's own counts with repeats. The plots file maps each village id to `[khasra as printed, khasra_base, category, road index | null, uncertain | null]` tuples; only scripts read it. `npm run frontage:import` writes both from `data/sources/khasra-frontage/`, and `npm run frontage:chunks` (in `prebuild`) splits the plots into `public/frontage/<city>/<sro>/<slug>.json`.
 
 **units.json** — `sqmPerHectare`, and the local `bigha` with its size in sq m, its label and its source. Display conversions only; nothing converted is ever stored.
 
