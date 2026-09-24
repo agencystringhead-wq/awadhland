@@ -182,7 +182,7 @@ export type ToolCopy = {
  * Tool page copy (spec Template 7), written per language. Keyed by tool slug; the slug list
  * that actually builds lives in lib/tools.ts.
  */
-export const toolCopy: Record<Locale, Record<"stamp-duty-calculator", ToolCopy>> = {
+export const toolCopy: Record<Locale, Record<"stamp-duty-calculator" | "khasra-frontage-check", ToolCopy>> = {
   en: {
     "stamp-duty-calculator": {
       title: "Stamp duty calculator for land in UP",
@@ -211,6 +211,37 @@ export const toolCopy: Record<Locale, Record<"stamp-duty-calculator", ToolCopy>>
         {
           q: "Does the total include brokerage or lawyer's fees?",
           a: "No. The total is stamp duty plus registration fee, the government charges at registry. Brokerage, legal fees and mutation charges are separate and should be agreed in writing beforehand.",
+        },
+      ],
+    },
+    "khasra-frontage-check": {
+      title: "Check your plot: is your khasra on a road or next to the abadi?",
+      intro: "Pick the sub-registrar office and the village, type the khasra number, and see whether the district's list puts that plot on a highway, a district road, a link road or next to the abadi.",
+      explainer: [
+        "An agricultural plot in Uttar Pradesh is not valued at one flat rate for its village. The district's valuation list carries a general agricultural rate and higher rates for plots that front a national or state highway, a district road (जनपदीय मार्ग) or a link road, and for plots next to the abadi, the village's settled area. Which of those applies to a plot decides its circle value, and the circle value is the floor stamp duty is charged on.",
+        "To make that decidable plot by plot, the district prints a khasra list alongside the valuation list: for each revenue village, the khasra (gata) numbers that sit on each kind of road and next to the abadi. The signed notes on the Lucknow lists say they are part of the valuation list effective 1 August 2025, and that in any dispute the Tehsildar's decision is final. This tool searches that list. It covers the three Lucknow sub-registrar offices whose lists we hold: Sadar-4, Bakshi Ka Talab and Malihabad, about 58,000 khasra numbers across 465 villages.",
+        "How to use it. Take the khasra number from the khatauni or the seller's papers, pick the SRO and the village, and type the number as printed. The tool matches on the number's leading digits, so 123 also finds 123क and 123/2, and every entry sharing those digits is shown with the heading it sits under. If the list names the plot under more than one heading, for example on a link road and next to the abadi, you see both.",
+        "Where the result says to verify at the Tehsil, the transcriber could not be sure of that entry: a digit was unreadable in the scan, or two numbers were printed with no comma between them and had to be split. Treat those as leads, not answers.",
+        "A number that is not found is not proof that the plot is general agricultural land. The lists were transcribed by hand from scanned pages, and a scan can hide a digit. Some villages are also described rather than listed: in parts of Bakshi Ka Talab the list notes that almost every plot has abadi around it and that the village now falls inside municipal limits, and names few or no abadi plots one by one. The tool tells you when the village you picked is one of these.",
+        "What the tool does not do is give you a rate. The valuation list for these three SROs, the one with the ₹ figures, has not been published on this site yet, so the village pages say so plainly. When it lands, each village page will carry its rates alongside this list, at the same address.",
+        "Use the result the way you would use a note from someone who has read the list for you: to know what to ask, and what the valuation at registry is likely to assume. Then confirm it where it counts. The Tehsil or the sub-registrar's office holds the signed list, and the Tehsildar's decision is final.",
+      ],
+      faq: [
+        {
+          q: "Why does it matter whether my plot is on a road?",
+          a: "Because the valuation list rates a road-front or abadi-adjacent agricultural plot above a general one, the circle value, and so the stamp duty floor, is higher for it.",
+        },
+        {
+          q: "I typed 123 and got 123/1 and 123क as well. Which is mine?",
+          a: "The one written on your khatauni. The tool shows every entry that shares the leading digits so that a sub-division is not missed; the exact match, if there is one, is marked.",
+        },
+        {
+          q: "My khasra is not on the list. Is it general land then?",
+          a: "Usually, but not certainly. A number can be missed in a scanned list, and some villages are described as abadi throughout rather than listed. Ask at the Tehsil before relying on it.",
+        },
+        {
+          q: "Which villages does it cover?",
+          a: "All 465 villages of the Sadar-4, Bakshi Ka Talab and Malihabad sub-registrar offices in Lucknow district, from the lists printed as part of the valuation list effective 1 August 2025.",
         },
       ],
     },
@@ -243,6 +274,37 @@ export const toolCopy: Record<Locale, Record<"stamp-duty-calculator", ToolCopy>>
         {
           q: "क्या कुल में ब्रोकरेज या वकील की फ़ीस शामिल है?",
           a: "नहीं। कुल स्टाम्प ड्यूटी और रजिस्ट्री शुल्क का जोड़ है, यानी रजिस्ट्री पर सरकारी शुल्क। ब्रोकरेज, क़ानूनी फ़ीस और दाख़िल-ख़ारिज का ख़र्च अलग है और पहले लिखित में तय होना चाहिए।",
+        },
+      ],
+    },
+    "khasra-frontage-check": {
+      title: "अपना गाटा जाँचें: खसरा सड़क पर है या आबादी से लगा?",
+      intro: "उप निबंधक कार्यालय और गाँव चुनें, खसरा नंबर लिखें, और देखें कि ज़िले की सूची उस गाटे को राजमार्ग, जनपदीय मार्ग, सम्पर्क मार्ग पर या आबादी से लगा बताती है या नहीं।",
+      explainer: [
+        "उत्तर प्रदेश में कृषि गाटे का मूल्य पूरे गाँव के लिए एक दर से नहीं आँका जाता। ज़िले की मूल्यांकन सूची में एक सामान्य कृषि दर होती है, और उससे ऊँची दरें उन गाटों के लिए जो राष्ट्रीय या राज्य राजमार्ग, जनपदीय मार्ग या सम्पर्क मार्ग पर हैं, और जो आबादी से लगे हैं। किसी गाटे पर इनमें से कौन सी दर लगेगी, उसी से उसका सर्किल मूल्य तय होता है, और स्टाम्प ड्यूटी उसी न्यूनतम मूल्य पर लगती है।",
+        "यह गाटा-दर-गाटा तय हो सके, इसके लिए ज़िला मूल्यांकन सूची के साथ एक खसरा सूची छापता है: हर राजस्व गाँव के वे खसरा (गाटा) नंबर जो हर तरह की सड़क पर या आबादी से लगे हैं। लखनऊ की सूचियों पर हस्ताक्षरित टिप्पणी कहती है कि यह 01.08.2025 की मूल्यांकन सूची का भाग है, और किसी विवाद में तहसीलदार का निर्णय अंतिम होगा। यह टूल उसी सूची में खोजता है। इसमें लखनऊ के तीन उप निबंधक कार्यालय हैं जिनकी सूची हमारे पास है: सदर-4, बख्शी का तालाब और मलिहाबाद, 465 गाँवों के लगभग 58,000 खसरा नंबर।",
+        "कैसे इस्तेमाल करें। खतौनी या बेचने वाले के काग़ज़ से खसरा नंबर लें, एसआरओ और गाँव चुनें, और नंबर वैसा ही लिखें जैसा छपा है। टूल नंबर के शुरू के अंकों से मिलान करता है, इसलिए 123 लिखने पर 123क और 123/2 भी मिलेंगे, और उन अंकों वाली हर प्रविष्टि अपने खाने के साथ दिखेगी। अगर सूची गाटे को एक से ज़्यादा खाने में रखती है, जैसे सम्पर्क मार्ग पर भी और आबादी से लगा भी, तो दोनों दिखेंगे।",
+        "जहाँ नतीजा कहे कि तहसील से पुष्टि करें, वहाँ पढ़ने वाले को उस प्रविष्टि पर पक्का भरोसा नहीं था: स्कैन में कोई अंक पढ़ा नहीं गया, या दो नंबर बिना कॉमा के छपे थे और उन्हें अलग करना पड़ा। उन्हें इशारा मानें, जवाब नहीं।",
+        "नंबर न मिलना इस बात का सबूत नहीं कि गाटा सामान्य कृषि भूमि है। सूचियाँ स्कैन किए पन्नों से हाथ से उतारी गई हैं, और स्कैन में कोई अंक छिप सकता है। कुछ गाँवों की सूची नंबरों की जगह टिप्पणी देती है: बख्शी का तालाब के कई गाँवों में लिखा है कि लगभग सभी गाटों के आस-पास आबादी है और गाँव अब नगर निगम सीमा में है, और आबादी वाले गाटे अलग से कम या बिल्कुल नहीं गिनाए गए। आपका चुना गाँव ऐसा है तो टूल बता देगा।",
+        "यह टूल दर नहीं बताता। इन तीन एसआरओ की मूल्यांकन सूची, जिसमें रुपये के आँकड़े हैं, अभी इस साइट पर नहीं आई, और गाँव के पेज यह साफ़ लिखते हैं। जब वह आएगी, हर गाँव के पेज पर इसी सूची के साथ उसकी दरें भी होंगी, इसी पते पर।",
+        "नतीजे को ऐसे बरतें जैसे किसी ने आपके लिए सूची पढ़कर नोट दिया हो: क्या पूछना है और रजिस्ट्री पर मूल्यांकन क्या मानकर चलेगा, यह जानने के लिए। फिर जहाँ मायने रखता है वहाँ पुष्टि करें। हस्ताक्षरित सूची तहसील या उप निबंधक कार्यालय में है, और तहसीलदार का निर्णय अंतिम है।",
+      ],
+      faq: [
+        {
+          q: "गाटा सड़क पर है या नहीं, इससे क्या फ़र्क़ पड़ता है?",
+          a: "मूल्यांकन सूची सड़क से लगे या आबादी से सटे कृषि गाटे की दर सामान्य गाटे से ऊँची रखती है, इसलिए उसका सर्किल मूल्य, और स्टाम्प ड्यूटी की न्यूनतम सीमा, ज़्यादा होती है।",
+        },
+        {
+          q: "मैंने 123 लिखा और 123/1 और 123क भी आए। मेरा कौन सा है?",
+          a: "जो आपकी खतौनी में लिखा है। टूल एक जैसे शुरुआती अंकों वाली हर प्रविष्टि दिखाता है ताकि कोई बँटवारा छूटे नहीं; हूबहू मेल हो तो उस पर निशान लगा होता है।",
+        },
+        {
+          q: "मेरा खसरा सूची में नहीं है। तो क्या यह सामान्य ज़मीन है?",
+          a: "आम तौर पर हाँ, पर पक्का नहीं। स्कैन की गई सूची में नंबर छूट सकता है, और कुछ गाँव पूरे आबादी वाले बताए गए हैं, गिनाए नहीं गए। भरोसा करने से पहले तहसील में पूछें।",
+        },
+        {
+          q: "इसमें कौन से गाँव हैं?",
+          a: "लखनऊ ज़िले के सदर-4, बख्शी का तालाब और मलिहाबाद उप निबंधक कार्यालयों के सभी 465 गाँव, 01.08.2025 से लागू मूल्यांकन सूची के भाग के रूप में छपी सूचियों से।",
         },
       ],
     },

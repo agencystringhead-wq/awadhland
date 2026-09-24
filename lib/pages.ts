@@ -40,6 +40,7 @@ import type { Locality } from "./schemas";
 import { TOOL_SLUGS } from "./tools";
 import { getVillageContent, villageCopy, villageContentIndexableIds } from "./village-content";
 import { getVillageNote } from "./data";
+import { getFrontage, getFrontageOnlySros, getFrontageVillages } from "./frontage";
 import { updateTypeLabels } from "@/components/UpdateRow";
 
 export type PageKind =
@@ -47,9 +48,12 @@ export type PageKind =
   | "city"
   | "locality"
   | "circle-rates"
-  /** /<city>/circle-rates/<tehsil>/ — one per tehsil, always indexable */
+  /**
+   * /<city>/circle-rates/<tehsil>/ — one per tehsil, indexable; an SRO known only from its khasra
+   * frontage list builds here too, noindex until its rates land
+   */
   | "rate-tehsil"
-  /** /<city>/circle-rates/<tehsil>/<village>/ — one per row of the published list, noindex by default */
+  /** /<city>/circle-rates/<tehsil>/<village>/ — one per row of the published list (or of a frontage list), noindex by default */
   | "rate-village"
   | "project"
   | "guide"
@@ -388,6 +392,59 @@ export function getPages(locale: Locale): PageEntry[] {
             noindex: !indexable,
           });
         }
+      }
+    }
+
+    /*
+     * SROs whose rate list has not arrived but whose khasra frontage list has (Sadar-4, Bakshi Ka
+     * Talab, Malihabad). An SRO page listing its villages, and a page per village with its frontage
+     * counts, the list's remarks and a link to the plot check. All noindex until the rates land:
+     * without them a village page is a list of counts, which is useful to someone who arrived
+     * looking for that village and thin to a search engine.
+     */
+    const frontage = getFrontage(c.id);
+    for (const sro of frontage ? getFrontageOnlySros(c.id) : []) {
+      const tehsil = getTehsilsByCity(c.id).find((t) => t.id === sro)!;
+      const tName = pick(locale, tehsil.name, tehsil.nameHi);
+      const villages = getFrontageVillages(c.id, sro);
+      const og: OgText = {
+        title: hi ? `${tName}: सड़क से लगे खसरा` : `${tName}: khasra frontage list`,
+        subtitle: hi ? "सर्किल रेट सूची की प्रतीक्षा" : "Circle rates awaited",
+        chip: `${formatNumber(villages.length)} ${hi ? "गाँव" : "villages"}`,
+      };
+      add({
+        kind: "rate-tehsil",
+        sitePath: `/${c.id}/circle-rates/${sro}/`,
+        title: hi
+          ? `${tName} के ${formatNumber(villages.length)} गाँव: सड़क और आबादी से लगे खसरा नंबर · ${site}`
+          : `${tName} villages: which khasra plots front a road or the abadi · ${name}`,
+        description: hi
+          ? `${tName} (${tehsil.sroNameHi}) के ${n(villages.length, "गाँव", "गाँवों")} की सूची, हर गाँव के राजमार्ग, जनपदीय मार्ग, सम्पर्क मार्ग और आबादी से लगे खसरा नंबरों के साथ। इस एसआरओ की सर्किल रेट सूची अभी आनी है।`
+          : `All ${n(villages.length, "village", "villages")} under ${tehsil.sroName}, with how many khasra plots in each sit on a highway, a district road, a link road or next to the abadi. Circle rates awaited.`,
+        lastmod: frontage!.updatedAt,
+        alternate: sameAlternate(locale, `/${c.id}/circle-rates/${sro}/`),
+        og,
+        ogSlug: `${c.id}--circle-rates--${sro}`,
+        noindex: true,
+      });
+      for (const v of villages) {
+        const counts = v.counts;
+        add({
+          kind: "rate-village",
+          sitePath: `/${c.id}/circle-rates/${sro}/${v.slug}/`,
+          title: hi
+            ? `${v.nameHi} खसरा सूची: सड़क और आबादी से लगे गाटे · ${tName}, ${name}`
+            : `${v.nameEn} khasra list: plots on a road or next to the abadi · ${tName}, ${name}`,
+          description: hi
+            ? `${v.nameHi}, ${tName} तहसील। राजमार्ग पर ${counts.nh}, जनपदीय मार्ग पर ${counts.district}, सम्पर्क मार्ग पर ${counts.link} और आबादी से लगे ${counts.abadi} खसरा। अपना खसरा नंबर जाँचें।`
+            : `${v.nameEn} (${v.nameHi}), ${tName}. Khasra plots listed on a highway: ${counts.nh}, district road: ${counts.district}, link road: ${counts.link}, next to the abadi: ${counts.abadi}. Check your plot.`,
+          lastmod: frontage!.updatedAt,
+          alternate: sameAlternate(locale, `/${c.id}/circle-rates/${sro}/${v.slug}/`),
+          // Shares its SRO page's card, as the rate villages share their tehsil's.
+          og,
+          ogSlug: `${c.id}--circle-rates--${sro}`,
+          noindex: true,
+        });
       }
     }
 

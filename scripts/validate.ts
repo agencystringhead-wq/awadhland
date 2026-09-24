@@ -9,7 +9,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import { z } from "zod";
-import { dataFiles, indexableRatesFileSchema, rateScheduleSchema, type DataFileName } from "../lib/schemas";
+import { dataFiles, frontageFileSchema, frontagePlotsFileSchema, indexableRatesFileSchema, rateScheduleSchema, type DataFileName } from "../lib/schemas";
 import { checkIntegrity, type Dataset } from "../lib/integrity";
 import { checkGuideBodies, checkGuideReferences, dataPageLinks, readGuides } from "../lib/guide-files";
 import { partitionLocalities, partitionProjects } from "../lib/guards";
@@ -185,6 +185,67 @@ async function main() {
           `${orderWarnings > 0 ? `, ${orderWarnings} flagged row${orderWarnings === 1 ? "" : "s"} out of the usual order` : ""}`,
       );
       for (const t of s.todo ?? []) todos.push(`${at}: ${t}`);
+    }
+  }
+
+  /* 3c. Khasra frontage lists in data/frontage/: villages, their plots, and the tehsils they hang off. */
+  const frontageDir = path.join(dataDir, "frontage");
+  if (fs.existsSync(frontageDir)) {
+    const tehsils = parsed["tehsils.json"] ?? [];
+    const readJson = (at: string, file: string): unknown => {
+      try {
+        return JSON.parse(fs.readFileSync(file, "utf8"));
+      } catch (e) {
+        errors.push(`${at}: not valid JSON (${(e as Error).message})`);
+        return undefined;
+      }
+    };
+    for (const f of fs.readdirSync(frontageDir).filter((f) => f.endsWith(".json") && !f.endsWith("-plots.json"))) {
+      const at = `data/frontage/${f}`;
+      const plotsAt = at.replace(/\.json$/, "-plots.json");
+      const listRaw = readJson(at, path.join(frontageDir, f));
+      const plotsRaw = readJson(plotsAt, path.join(root, plotsAt));
+      if (listRaw === undefined || plotsRaw === undefined) continue;
+      const list = frontageFileSchema.safeParse(listRaw);
+      const plots = frontagePlotsFileSchema.safeParse(plotsRaw);
+      if (!list.success) errors.push(`${at}:\n${indent(z.prettifyError(list.error))}`);
+      if (!plots.success) errors.push(`${plotsAt}:\n${indent(z.prettifyError(plots.error))}`);
+      if (!list.success || !plots.success) continue;
+      const l = list.data;
+
+      const docSros = new Set(l.sourceDocs.map((d) => d.sro));
+      for (const sro of docSros) {
+        const t = tehsils.find((x) => x.cityId === l.cityId && x.id === sro);
+        if (!t) errors.push(`${at}: SRO "${sro}" is not in data/tehsils.json for ${l.cityId}`);
+      }
+      const ids = new Set<string>();
+      const slugs = new Set<string>();
+      for (const v of l.villages) {
+        if (ids.has(v.id)) errors.push(`${at}: duplicate village id "${v.id}"`);
+        ids.add(v.id);
+        if (slugs.has(`${v.sro}/${v.slug}`)) errors.push(`${at}: slug "${v.sro}/${v.slug}" is used twice — they would share a URL`);
+        slugs.add(`${v.sro}/${v.slug}`);
+        if (!docSros.has(v.sro)) errors.push(`${at}: ${v.id} is under SRO "${v.sro}", which has no sourceDocs entry`);
+        const ps = plots.data[v.id];
+        if (!ps) {
+          errors.push(`${plotsAt}: no plots entry for ${v.id} (${v.nameHi})`);
+          continue;
+        }
+        // The counts a page shows must be the plots the tool will find.
+        for (const cat of ["nh", "district", "link", "abadi"] as const) {
+          const n = new Set(ps.filter((p) => p[2] === cat && !(p[4] ?? "").startsWith("split from")).map((p) => p[0])).size;
+          if (n !== v.counts[cat]) errors.push(`${at}: ${v.id} ${cat} count ${v.counts[cat]} but ${plotsAt} lists ${n} distinct`);
+        }
+        for (const p of ps) {
+          if (p[3] !== null && p[3] >= v.roadsHi.length) errors.push(`${plotsAt}: ${v.id} khasra ${p[0]} points at road ${p[3]}, which ${v.id} does not list`);
+          // "04" is printed with its zero; its base is "4", so compare without leading zeros.
+          if (!p[0].replace(/^0+(?=\d)/, "").startsWith(p[1])) errors.push(`${plotsAt}: ${v.id} khasra "${p[0]}" does not start with its base "${p[1]}"`);
+        }
+      }
+      for (const id of Object.keys(plots.data)) if (!ids.has(id)) errors.push(`${plotsAt}: plots for "${id}", which is not a village in ${at}`);
+      const plotCount = Object.values(plots.data).reduce((n, ps) => n + ps.length, 0);
+      console.log(`ok   ${at} (${l.villages.length} villages across ${docSros.size} SROs, ${plotCount} khasra entries)`);
+      for (const t of l.todo ?? []) todos.push(`${at}: ${t}`);
     }
   }
 

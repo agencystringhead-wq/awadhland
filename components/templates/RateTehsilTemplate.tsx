@@ -21,6 +21,8 @@ import {
 import { sameAlternate } from "@/lib/routes";
 import { agriUnitLabel } from "@/lib/units";
 import { commercialKindLabel } from "@/lib/valuation";
+import { getFrontageOnlySros } from "@/lib/frontage";
+import { FrontageTehsilTemplate } from "./FrontageTemplates";
 import { PageShell } from "./PageShell";
 
 const th = "px-3 py-2.5 text-left font-semibold whitespace-nowrap";
@@ -36,6 +38,8 @@ const PRERENDERED_ROWS = 100;
  * the SRO and the printed page, because the five SROs publish separately.
  */
 export function RateTehsilTemplate({ locale, cityId, tehsilId }: { locale: Locale; cityId: string; tehsilId: string }) {
+  // No rate list yet, only the khasra frontage list: a village index instead of a rate table.
+  if (getFrontageOnlySros(cityId).includes(tehsilId)) return <FrontageTehsilTemplate locale={locale} cityId={cityId} tehsilId={tehsilId} />;
   const city = getCity(cityId);
   const tehsil = getTehsil(cityId, tehsilId);
   const schedule = getCurrentRateSchedule(cityId);

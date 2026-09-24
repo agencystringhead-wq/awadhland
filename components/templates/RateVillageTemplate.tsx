@@ -35,6 +35,8 @@ import {
   valuePlot,
 } from "@/lib/valuation";
 import { agriUnitLabel, lakhPerHaToRupeesPerBigha, lakhPerHaToRupeesPerSqm } from "@/lib/units";
+import { getFrontageOnlySros } from "@/lib/frontage";
+import { FrontageVillageTemplate } from "./FrontageTemplates";
 import { PageShell } from "./PageShell";
 
 const th = "px-3 py-2 text-left font-semibold";
@@ -82,6 +84,11 @@ export function RateVillageTemplate({
   tehsilId: string;
   villageSlug: string;
 }) {
+  // An SRO whose rate list has not arrived builds its villages from the khasra frontage list, at
+  // the URLs its rate rows will take.
+  if (getFrontageOnlySros(cityId).includes(tehsilId)) {
+    return <FrontageVillageTemplate locale={locale} cityId={cityId} tehsilId={tehsilId} villageSlug={villageSlug} />;
+  }
   const city = getCity(cityId);
   const tehsil = getTehsil(cityId, tehsilId);
   const schedule = getCurrentRateSchedule(cityId);
