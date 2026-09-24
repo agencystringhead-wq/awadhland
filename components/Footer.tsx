@@ -1,6 +1,7 @@
 import type { Locale } from "@/lib/i18n";
 import { brokerIsRegistered } from "@/lib/guards";
 import { builtSitePaths } from "@/lib/pages";
+import { getPublishedSros } from "@/lib/rates";
 import { localePath, pick, ui, whatsappText } from "@/lib/i18n";
 import type { City, Locality, TeamMember } from "@/lib/schemas";
 import { Logo } from "./Header";
@@ -75,7 +76,7 @@ export function Footer({ locale, cities, localities, broker }: FooterProps) {
                   </a>
                 </h2>
                 <p className="mb-4 border-b border-line pb-3.5 pt-1 text-[11.5px] leading-[1.35] text-muted">
-                  {list.length} {t.localities}
+                  {list.length > 0 ? `${list.length} ${t.localities}` : `${getPublishedSros(c.id).length} ${t.sroLists}`}
                   {/* Only cities whose schedule is sourced have a rate page (lib/guards.ts). */}
                   {built.has(`/${c.id}/circle-rates/`) && (
                     <>
@@ -86,14 +87,27 @@ export function Footer({ locale, cities, localities, broker }: FooterProps) {
                     </>
                   )}
                 </p>
+                {/*
+                 * A city with no published locality pages lists its sub-registrar rate lists
+                 * instead. Lucknow has 1,449 sourced rate rows and 36 localities still in draft,
+                 * so its column was a heading over an empty list.
+                 */}
                 <ul className="space-y-3.5">
-                  {list.map((l) => (
-                    <li key={l.id} className="pl-[11px] -indent-[11px]">
-                      <a href={localePath(locale, `/${c.id}/${l.id}/`)} className={link}>
-                        {pick(locale, l.name, l.nameHi)}
-                      </a>
-                    </li>
-                  ))}
+                  {list.length > 0
+                    ? list.map((l) => (
+                        <li key={l.id} className="pl-[11px] -indent-[11px]">
+                          <a href={localePath(locale, `/${c.id}/${l.id}/`)} className={link}>
+                            {pick(locale, l.name, l.nameHi)}
+                          </a>
+                        </li>
+                      ))
+                    : getPublishedSros(c.id).map((s) => (
+                        <li key={s.id} className="pl-[11px] -indent-[11px]">
+                          <a href={localePath(locale, `/${c.id}/circle-rates/${s.id}/`)} className={link}>
+                            {pick(locale, s.name, s.nameHi)}
+                          </a>
+                        </li>
+                      ))}
                   <li className="pt-1">
                     <a href={localePath(locale, `/${c.id}/`)} className="text-[13.5px] font-semibold text-accent-deep no-underline hover:underline">
                       {t.allLocalitiesIn} {pick(locale, c.name, c.nameHi)} →

@@ -4,7 +4,7 @@
  * typed. The Header, MegaMenu, mobile menu and Footer all read from here.
  */
 import { getBroker, getBuildableLocalities, getCities, getCurrentCircleRateSchedule, getPublishedProjects, getReviews, getUpdates } from "./data";
-import { getCurrentRateSchedule, getRowsByTehsil, getTehsilsByCity } from "./rates";
+import { getCurrentRateSchedule, getPublishedSros } from "./rates";
 import { getGuides, heroImageSrc } from "./guides";
 import { formatDate, formatNumber, localePath, pick, ui, type Locale } from "./i18n";
 import type { City, TeamMember } from "./schemas";
@@ -191,12 +191,12 @@ export function getNav(locale: Locale): NavItem[] {
     const sroColumn: NavColumn | null = builtPaths.has(`/${city.id}/circle-rates/`)
       ? {
           title: c.panel.sros,
-          links: getTehsilsByCity(city.id)
-            .filter((t) => t.ratesStatus !== "pending" && builtPaths.has(`/${city.id}/circle-rates/${t.id}/`))
-            .map((t) => ({
-              label: pick(locale, t.name, t.nameHi),
-              href: p(`/${city.id}/circle-rates/${t.id}/`),
-              meta: c.cells.rows(getRowsByTehsil(city.id, t.id).length),
+          links: getPublishedSros(city.id)
+            .filter((s) => builtPaths.has(`/${city.id}/circle-rates/${s.id}/`))
+            .map((s) => ({
+              label: pick(locale, s.name, s.nameHi),
+              href: p(`/${city.id}/circle-rates/${s.id}/`),
+              meta: c.cells.rows(s.rowCount),
             })),
           more: { label: c.panel.circleRatesOf(name), href: p(`/${city.id}/circle-rates/`) },
         }
