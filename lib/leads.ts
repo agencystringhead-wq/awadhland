@@ -25,7 +25,7 @@ export type LeadPayload = {
   website: string;
 };
 
-export type LeadEvent = "lead_submit" | "lead_fail" | "whatsapp_click" | "call_click" | "digest_subscribe";
+export type LeadEvent = "lead_submit" | "lead_fail" | "whatsapp_click" | "call_click" | "digest_subscribe" | "checklist_download";
 
 async function post(path: string, body: unknown): Promise<{ ok: boolean; error?: string }> {
   try {

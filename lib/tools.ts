@@ -14,6 +14,17 @@ export type ToolSlug = (typeof TOOL_SLUGS)[number];
 
 export const isToolSlug = (s: string): s is ToolSlug => (TOOL_SLUGS as readonly string[]).includes(s);
 
+/**
+ * Where a homepage / Tools-menu card links, as a site path, or null while the tool is unbuilt.
+ * The land safety checklist is a guide page with a download rather than a tool
+ * (/guides/land-safety-checklist/), so its card points there.
+ */
+export function toolCardPath(slug: string): string | null {
+  if (isToolSlug(slug)) return `/tools/${slug}/`;
+  if (slug === "land-safety-checklist") return "/guides/land-safety-checklist/";
+  return null;
+}
+
 /* --------------------------------------------------- stamp duty calculator */
 
 export type CalculatorLocality = {

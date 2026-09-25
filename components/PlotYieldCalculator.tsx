@@ -13,6 +13,7 @@
  * result, and ?loc=<row id> (from the lookup and the village pages) preselects the place.
  */
 import { useEffect, useMemo, useRef, useState } from "react";
+import { BeforeYouBuyCard } from "@/components/BeforeYouBuyCard";
 import { PlaceCombobox, useLookupData } from "@/components/PlaceSearch";
 import { whatsappHref } from "@/components/WhatsAppButton";
 import { formatNumber, type Locale } from "@/lib/i18n";
@@ -675,6 +676,8 @@ export function PlotYieldCalculator({ locale, whatsapp, bighaSqm, dutyRules, rul
           {c.whatsapp}
         </a>
       </div>
+
+      <BeforeYouBuyCard locale={locale} className="print:hidden" />
 
       <p className="border-t border-line pt-3 text-sm font-semibold">{c.disclaimer}</p>
       <p className="text-xs text-muted">{c.estimateNote}</p>

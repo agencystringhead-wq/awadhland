@@ -10,7 +10,7 @@ import { formatDate, formatNumber, localePath, pick, ui, type Locale } from "./i
 import type { City, TeamMember } from "./schemas";
 import { builtSitePaths } from "./pages";
 import { rankLocalities } from "./scoring";
-import { TOOL_SLUGS } from "./tools";
+import { TOOL_SLUGS, toolCardPath } from "./tools";
 import { homeCopy, toolCopy } from "./content";
 import { updateTypeLabels } from "@/components/UpdateRow";
 
@@ -318,11 +318,12 @@ export function getNav(locale: Locale): NavItem[] {
   // what is coming without linking every page on the site at a 404 (lib/tools.ts TOOL_SLUGS).
   const toolCards = homeCopy[locale].tools.map((t) => {
     const built = (TOOL_SLUGS as readonly string[]).includes(t.slug);
+    const path = toolCardPath(t.slug);
     return {
       slug: t.slug,
       title: built ? toolCopy[locale][t.slug as (typeof TOOL_SLUGS)[number]].title : t.title,
       body: t.body,
-      href: built ? p(`/tools/${t.slug}/`) : null,
+      href: path ? p(path) : null,
     };
   });
   items.push({ key: "tools", label: c.cells.tools, sub: c.cells.toolsSub, href: `${p("/")}#tools`, panel: { kind: "tools", tools: toolCards, more: c.panel.tryIt, comingSoon: ui[locale].comingSoon } });

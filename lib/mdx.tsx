@@ -12,6 +12,8 @@ import { CircleRate } from "@/components/mdx/CircleRate";
 import { Distance } from "@/components/mdx/Distance";
 import { GuideProjectCard } from "@/components/mdx/GuideProjectCard";
 import { MidArticleCta } from "@/components/mdx/MidArticleCta";
+import { ChecklistDownload } from "@/components/mdx/ChecklistDownload";
+import { ChecklistSchema, SafetyChecklist } from "@/components/mdx/SafetyChecklist";
 import { guideHeadings, MID_CTA_TAG, plainHeadingText, slugifyHeading, withMidArticleCta, type GuideComponentName, type Heading } from "./guide-files";
 import type { Locale } from "./i18n";
 import type { TeamMember } from "./schemas";
@@ -40,6 +42,9 @@ function guideComponents(ctx: RenderContext) {
     ProjectCard: (p: { id: string }) => <GuideProjectCard id={p.id} locale={ctx.locale} />,
     Callout,
     Checklist,
+    SafetyChecklist: (p: { stage?: string; part?: "redFlags" | "documents" }) => <SafetyChecklist {...p} locale={ctx.locale} />,
+    ChecklistSchema: (p: { name: string }) => <ChecklistSchema name={p.name} locale={ctx.locale} />,
+    ChecklistDownload: () => <ChecklistDownload locale={ctx.locale} />,
   } satisfies Record<GuideComponentName, unknown>;
   return {
     ...authorFacing,
