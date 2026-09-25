@@ -20,7 +20,7 @@ export function LeadAnalytics({ locale }: { locale: Locale }) {
       const where = a.closest('[data-component]:not([data-component="Button"]):not([data-component="WhatsAppButton"])')?.getAttribute("data-component") ?? "";
       if (href.startsWith("https://wa.me/")) track("whatsapp_click", locale, where);
       else if (href.startsWith("tel:")) track("call_click", locale, where);
-      else if (href.endsWith("/downloads/AwadhLand-Land-Safety-Checklist-UP.pdf")) track("checklist_download", locale, where);
+      else if (href.includes("/downloads/awadhland-land-safety-checklist-")) track("checklist_download", locale, where);
     };
     document.addEventListener("click", onClick, { capture: true, passive: true });
     return () => document.removeEventListener("click", onClick, { capture: true });

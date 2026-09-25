@@ -31,7 +31,8 @@
     "frontage:chunks": "tsx scripts/build-frontage-chunks.ts",
     "rates:import-gorakhpur": "tsx scripts/import-gorakhpur-rates.ts",
     "lookup:index": "tsx scripts/build-lookup-index.ts",
-    "test": "tsx --test lib/yield.test.ts"
+    "test": "tsx --test lib/yield.test.ts",
+    "checklist:pdf": "tsx scripts/build-checklist-pdf.ts"
   },
   "dependencies": {
     "@fontsource-variable/fraunces": "^5.3.0",

@@ -333,19 +333,41 @@ export const CHECKLIST_DOCUMENTS: T[] = [
 export const CHECKLIST_COUNT = CHECKLIST_STAGES.reduce((n, s) => n + s.items.length, 0);
 
 /**
- * The printable copy.
- *
- * `approved` stays false while the PDF's closing box says "a UP RERA-registered broker" and
- * data/team.json has no RERA number: the site withholds that claim everywhere (lib/guards.ts), and
- * a direct download would put it back in circulation. The download button shows when this is
- * true, or when the broker's registration is on record. Flip it after replacing the file with one
- * that drops the line.
+ * The printable copies, one per language, generated from the lists above by
+ * scripts/build-checklist-pdf.ts (npm run checklist:pdf) and committed. Generated rather than
+ * designed by hand so the PDF and the page cannot say different things, and so neither carries a
+ * claim the site withholds: the hand-designed PDF named a UP RERA registration that is not yet on
+ * record. scripts/validate.ts fails the build when the lists change and the PDFs were not rebuilt.
  */
-export const CHECKLIST_PDF = {
-  href: "/downloads/AwadhLand-Land-Safety-Checklist-UP.pdf",
-  file: "public/downloads/AwadhLand-Land-Safety-Checklist-UP.pdf",
-  approved: false,
-  preview: { src: "/images/guides/land-safety-checklist-page1.webp", width: 720, height: 1018 },
-} as const;
+export const CHECKLIST_PDFS: Record<Locale, { href: string; file: string; preview: { src: string; width: number; height: number } }> = {
+  en: {
+    href: "/downloads/awadhland-land-safety-checklist-en.pdf",
+    file: "public/downloads/awadhland-land-safety-checklist-en.pdf",
+    preview: { src: "/images/guides/land-safety-checklist-page1-en.webp", width: 720, height: 1018 },
+  },
+  hi: {
+    href: "/downloads/awadhland-land-safety-checklist-hi.pdf",
+    file: "public/downloads/awadhland-land-safety-checklist-hi.pdf",
+    preview: { src: "/images/guides/land-safety-checklist-page1-hi.webp", width: 720, height: 1018 },
+  },
+};
+
+/** Where the lock file records what the committed PDFs were generated from. */
+export const CHECKLIST_PDF_LOCK = "scripts/checklist-pdf.lock.json";
+
+/**
+ * A short hash of everything the PDFs print: the stages, the red flags and the documents. Written
+ * into the lock file by the generator and compared by validate, so an edit here without a rebuild
+ * fails the build instead of shipping a PDF that disagrees with the page.
+ */
+export function checklistContentHash(extra = ""): string {
+  const text = JSON.stringify([CHECKLIST_STAGES, CHECKLIST_RED_FLAGS, CHECKLIST_DOCUMENTS]) + extra;
+  let h = 2166136261;
+  for (let i = 0; i < text.length; i++) {
+    h ^= text.charCodeAt(i);
+    h = Math.imul(h, 16777619) >>> 0;
+  }
+  return h.toString(16).padStart(8, "0");
+}
 
 export const CHECKLIST_GUIDE_SLUG = "land-safety-checklist";

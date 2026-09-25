@@ -17,16 +17,16 @@ faq: []
 heroImage: "/images/guides/land-safety-checklist.webp"
 pairedSlug: land-safety-checklist
 todo:
-  - "The PDF download is held (lib/checklist.ts CHECKLIST_PDF.approved = false) until the PDF drops the 'UP RERA-registered broker' line or the RERA number is in team.json"
+  - "The PDFs are generated from lib/checklist.ts (npm run checklist:pdf); rerun it after any change to the checks"
   - "Legal review of the 30 checks before launch; the text must stay the same as the PDF"
   - "heroImage: a landscape card image, WebP 60-115 KB; the page-1 preview is shown in the download block instead"
 ---
 
+<ChecklistDownload />
+
 Most land disputes in UP start with something a buyer could have checked before paying the token: a khasra number that does not match the plot, a co-owner who never signed, Gram Sabha land sold as private, or a power-of-attorney "sale" that never transferred ownership. This checklist puts those checks in order.
 
 It has 30 checks in five stages: identifying the land, the legal checks, the site visit, the money and the registry, and what to do after it. Tick a box only after you have seen the document yourself, not after someone tells you it is fine. One unticked box in stage 1 or 2 means don't pay the token yet.
-
-<ChecklistDownload />
 
 <ChecklistSchema name="Land safety checklist for Uttar Pradesh: 30 checks" />
 
