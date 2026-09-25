@@ -28,3 +28,6 @@ next-env.d.ts
 
 # Per-village khasra frontage chunks, generated at build by scripts/build-frontage-chunks.ts
 /public/frontage/
+
+# Circle rate lookup index and per-SRO chunks, generated at build by scripts/build-lookup-index.ts
+/public/lookup/

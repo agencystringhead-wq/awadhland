@@ -86,6 +86,12 @@ export function CircleRatesTemplate({ locale, cityId }: { locale: Locale; cityId
           <h1>
             {cityName} {t.circleRates}
           </h1>
+          {/* The lookup, above the fold: most readers arrive wanting one village's rate. */}
+          <p className="mt-4">
+            <a href={`${localePath(locale, "/tools/circle-rate-lookup/")}?city=${city.id}`} className="btn btn-primary gap-2 px-5 py-3 text-[15px]">
+              {t.circleRateLookup}: {locale === "hi" ? "गाँव या मोहल्ले का नाम लिखें" : "type a village or mohalla"} →
+            </a>
+          </p>
           {/* Only where the locality-level schedule is sourced; Lucknow's header comes from the
               transcribed list below instead. */}
           {current ? (

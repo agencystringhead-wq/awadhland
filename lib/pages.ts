@@ -545,7 +545,7 @@ export function getPages(locale: Locale): PageEntry[] {
       kind: "tool",
       sitePath: `/tools/${slug}/`,
       title: `${copy.title} · ${site}`,
-      description: copy.intro,
+      description: copy.metaDescription ?? copy.intro,
       lastmod: toolsLastmod,
       alternate: sameAlternate(locale, `/tools/${slug}/`),
       og: { title: copy.title, subtitle: hi ? "मुफ़्त टूल · कोई साइनअप नहीं" : "Free tool · no signup", chip: hi ? "टूल" : "Tool" },
