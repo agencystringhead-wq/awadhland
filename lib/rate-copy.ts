@@ -33,7 +33,7 @@ export const rateCopy = {
     agriColumns: "Agricultural land, by frontage",
 
     /* city page */
-    tehsilSelectorTitle: "Five tehsils, five lists",
+    tehsilSelectorTitle: "{n} tehsils, {n} lists",
     tehsilSelectorLede:
       "The district publishes one list per sub-registrar office. Pick a tehsil for its full table, or search every village below.",
     rowsInTehsil: "villages",
@@ -115,13 +115,28 @@ export const rateCopy = {
     buyer: "Buyer",
     rulesApplied: "Rules applied",
     noRulesApplied: "No percentage adjustment applied.",
-    largePlotNote: "Plot over 1,000 sq m: the part above that is valued at 75%.",
+    largePlotNote: "Plot over {threshold} sq m: the part above that is valued at {pct}%.",
     segmentNotForAgri: "Road-segment rates do not apply to agricultural land (instruction 24), so the village rate was used.",
     estimateOnly: "Estimate only. The sub-registrar's valuation is final.",
     baseValue: "Base value",
     adjustments: "Adjustments",
     registrationFee: "Registration fee",
     total: "Total payable at registry",
+
+    /* lists shaped differently (Gorakhpur) */
+    workedExampleLedeBand: "A 1,000 sq ft plot in the list's first road-width column ({band}), at this village's rate.",
+    rentTitle: "Commercial rent",
+    rentUnit: "₹ per sq m per month",
+    rentNote: "This SRO's list prices commercial property by monthly rent per sq m, not by a shop or office rate.",
+    commercialAmended: "Commercial rates from the amendment effective {date}.",
+    rule2025: "2025 rule",
+    agriGridNote: "Lakh ₹ per hectare, by frontage and plot size. The whole plot takes the rate of the size band its area falls in. A dash means the list prints no rate there.",
+    colonyDistance: "Distance from plotting or a colony",
+    colonyNone: "More than 200 m",
+    colonyWithin50: "Within 50 m",
+    colony50to200: "50–200 m",
+    slabUsed: "Plot-size band",
+    noLandRate: "The list prints no land rate for this row; it appears only in its commercial or agricultural table.",
   },
   hi: {
     /* shared */
@@ -147,7 +162,7 @@ export const rateCopy = {
     agriColumns: "कृषि भूमि, फ्रंटेज के हिसाब से",
 
     /* city page */
-    tehsilSelectorTitle: "पाँच तहसीलें, पाँच सूचियाँ",
+    tehsilSelectorTitle: "{n} तहसीलें, {n} सूचियाँ",
     tehsilSelectorLede: "ज़िला हर उप निबंधक कार्यालय की अलग सूची छापता है। तहसील चुनिए, या नीचे पूरे ज़िले में गाँव खोजिए।",
     rowsInTehsil: "गाँव",
     coveredRates: "निर्माण (निर्मित क्षेत्र)",
@@ -227,14 +242,38 @@ export const rateCopy = {
     buyer: "ख़रीदार",
     rulesApplied: "लगाए गए नियम",
     noRulesApplied: "कोई प्रतिशत समायोजन नहीं लगा।",
-    largePlotNote: "1,000 वर्ग मीटर से बड़ा प्लॉट: उससे ऊपर का हिस्सा 75% पर आँका जाता है।",
+    largePlotNote: "{threshold} वर्ग मीटर से बड़ा प्लॉट: उससे ऊपर का हिस्सा {pct}% पर आँका जाता है।",
     segmentNotForAgri: "कृषि भूमि पर सड़क खंड की दर नहीं लगती (निर्देश 24), इसलिए गाँव की दर ली गई।",
     estimateOnly: "यह सिर्फ़ अनुमान है। उप निबंधक का मूल्यांकन ही अंतिम है।",
     baseValue: "आधार मूल्य",
     adjustments: "समायोजन",
     registrationFee: "पंजीकरण शुल्क",
     total: "रजिस्ट्री पर कुल देय",
+
+    workedExampleLedeBand: "सूची के पहले सड़क-चौड़ाई खाने ({band}) में 1,000 वर्ग फ़ुट का प्लॉट, इसी गाँव की दर पर।",
+    rentTitle: "व्यावसायिक किराया",
+    rentUnit: "₹ प्रति वर्ग मीटर प्रति माह",
+    rentNote: "इस एसआरओ की सूची व्यावसायिक संपत्ति को दुकान या कार्यालय की दर से नहीं, मासिक किराये प्रति वर्ग मीटर से आँकती है।",
+    commercialAmended: "व्यावसायिक दरें {date} से लागू संशोधन की हैं।",
+    rule2025: "2025 का नियम",
+    agriGridNote: "लाख ₹ प्रति हेक्टेयर, फ्रंटेज और प्लॉट के आकार के हिसाब से। पूरे प्लॉट पर उसी आकार-श्रेणी की दर लगती है जिसमें उसका क्षेत्रफल आता है। डैश का मतलब सूची वहाँ कोई दर नहीं छापती।",
+    colonyDistance: "प्लॉटिंग या कॉलोनी से दूरी",
+    colonyNone: "200 मीटर से अधिक",
+    colonyWithin50: "50 मीटर के भीतर",
+    colony50to200: "50–200 मीटर",
+    slabUsed: "प्लॉट आकार श्रेणी",
+    noLandRate: "सूची इस पंक्ति के लिए भूमि दर नहीं छापती; यह केवल व्यावसायिक या कृषि तालिका में है।",
   },
 } as const;
 
 export const rc = (locale: Locale) => rateCopy[locale];
+
+const EN_NUM = ["zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten", "eleven", "twelve"];
+const HI_NUM = ["शून्य", "एक", "दो", "तीन", "चार", "पाँच", "छह", "सात", "आठ", "नौ", "दस", "ग्यारह", "बारह"];
+
+/** "Five tehsils, five lists" for however many SROs the city publishes. */
+export function tehsilSelectorTitle(locale: Locale, n: number): string {
+  const word = (locale === "hi" ? HI_NUM : EN_NUM)[n] ?? String(n);
+  const t = rateCopy[locale].tehsilSelectorTitle.replaceAll("{n}", word);
+  return t.charAt(0).toUpperCase() + t.slice(1);
+}

@@ -9,13 +9,14 @@
  * rows across five tehsils, and re-sorting a large table without re-reading the DOM.
  *
  * Field names are one or two characters because 1,630 rows of verbose keys is most of the payload.
- * The shape is mirrored by RateChunkRow in lib/rate-chunks.ts; change both together.
+ * The row shape and columns come from lib/rate-chunks.ts, shared with the tehsil page.
  *
  * Generated, gitignored, rebuilt on every prebuild.
  */
 import fs from "node:fs";
 import path from "node:path";
 import { z } from "zod";
+import { tableColumns, toChunkRow } from "../lib/rate-chunks";
 import { rateScheduleSchema, type RateSchedule } from "../lib/schemas";
 
 const ratesDir = path.join("data", "rates");
@@ -56,36 +57,22 @@ function main() {
 
   for (const [cityId, schedule] of current) {
     for (const sro of [...new Set(schedule.rows.map((r) => r.sro))].sort()) {
+      // Same columns and row shape the tehsil page prerenders (lib/rate-chunks), so the first 100
+      // rows and the rest can never disagree about what a column means.
+      const cols = tableColumns(schedule, sro);
       const rows = schedule.rows
         .filter((r) => r.sro === sro)
         .sort((a, b) => a.serial - b.serial)
-        .map((r) => ({
-          i: r.id,
-          s: r.slug,
-          n: r.nameEn,
-          h: r.nameHi,
-          w: r.wardHi,
-          c: r.category,
-          p: r.page,
-          // One entry per band of this city's schedule, in its order; null where the row is blank.
-          r: schedule.roadBands.map((b) => r.nonAgri[b.key] ?? null),
-          m: r.commercial ? [r.commercial.shop, r.commercial.office, r.commercial.godown] : null,
-          a: [
-            r.agriLakhPerHa.nh,
-            r.agriLakhPerHa.state,
-            r.agriLakhPerHa.link,
-            r.agriLakhPerHa.chakmarg,
-            r.agriLakhPerHa.abadi,
-            r.agriLakhPerHa.general,
-          ],
-        }));
+        .map((r) => toChunkRow(r, cols));
 
       const file = path.join(outDir, `${cityId}-${sro}.json`);
       const body = JSON.stringify({
         cityId,
         tehsil: sro,
         effectiveFrom: schedule.effectiveFrom,
-        bands: schedule.roadBands,
+        bands: cols.bands,
+        commercial: cols.commercial,
+        agri: cols.agri,
         rows,
       });
       fs.writeFileSync(file, body);

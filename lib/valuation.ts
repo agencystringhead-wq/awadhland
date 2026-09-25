@@ -25,8 +25,31 @@ import type { RateCategory, RateRow, RoadSegmentRow, ValuationRules } from "./sc
  */
 export type RoadWidth = string;
 
-/** Which frontage column of the agricultural table applies. */
-export type AgriFrontage = "nh" | "state" | "link" | "chakmarg" | "abadi" | "general";
+/**
+ * Which frontage column of the agricultural table applies. The first six are the Ayodhya and
+ * Lucknow columns; "district" and "other" are Gorakhpur's grid rows (with its nh and link).
+ */
+export type AgriFrontage = "nh" | "state" | "link" | "chakmarg" | "abadi" | "general" | "district" | "other";
+
+/** Gorakhpur's grid frontages, in printed order. */
+export type AgriGridFrontage = "nh" | "district" | "link" | "other";
+export const AGRI_GRID_FRONTAGES: AgriGridFrontage[] = ["nh", "district", "link", "other"];
+
+/** Which of a grid's four plot-size slabs an area falls in: 0 up to the first limit, 3 above the third. */
+export function agriSlabIndex(slabsHa: readonly [number, number, number], hectares: number): 0 | 1 | 2 | 3 {
+  return hectares <= slabsHa[0] ? 0 : hectares <= slabsHa[1] ? 1 : hectares <= slabsHa[2] ? 2 : 3;
+}
+
+/** "Up to 0.040 ha", "0.040–0.100 ha", …, "Over 0.200 ha" for a grid's four slabs. */
+export function agriSlabLabels(slabsHa: readonly [number, number, number], locale: "en" | "hi"): string[] {
+  const f = (n: number) => n.toFixed(3);
+  return locale === "hi"
+    ? [`${f(slabsHa[0])} हे. तक`, `${f(slabsHa[0])}–${f(slabsHa[1])} हे.`, `${f(slabsHa[1])}–${f(slabsHa[2])} हे.`, `${f(slabsHa[2])} हे. से अधिक`]
+    : [`Up to ${f(slabsHa[0])} ha`, `${f(slabsHa[0])}–${f(slabsHa[1])} ha`, `${f(slabsHa[1])}–${f(slabsHa[2])} ha`, `Over ${f(slabsHa[2])} ha`];
+}
+
+/** Gorakhpur 2025: distance from plotting or a residential colony, for agricultural land. */
+export type ColonyDistance = "none" | "within50" | "50to200";
 
 /**
  * "covered" is construction, not land: ₹ per sq m of built area, साधारण or प्रीमियम.
@@ -46,8 +69,11 @@ export const coveredGradeLabel: Record<CoveredGrade, { en: string; hi: string }>
   premium: { en: "Premium", hi: "प्रीमियम" },
 };
 
-/** Commercial sub-type; the list prices shop, office and godown separately. */
-export type CommercialKind = "shop" | "office" | "godown";
+/**
+ * Commercial sub-type: a key of the schedule's commercialKinds. Ayodhya and Lucknow print shop,
+ * office and godown; Gorakhpur prints shop (single, land), shopMulti and office.
+ */
+export type CommercialKind = string;
 
 export type ValuationInput = {
   row: RateRow;
@@ -77,6 +103,8 @@ export type ValuationInput = {
   adjoiningRoads?: 0 | 1 | 2;
   /** instruction 17: whether it adjoins abadi */
   adjoiningAbadi?: boolean;
+  /** Gorakhpur 2025: distance from plotting or a colony */
+  colonyDistance?: ColonyDistance;
 };
 
 export type AppliedRule = {
@@ -104,6 +132,8 @@ export type ValuationResult = {
   circleValue: number;
   /** set when a rule was requested but the list forbids it here */
   notes: ValuationNote[];
+  /** on a farmland grid, which plot-size slab the area fell in (0–3) */
+  slab?: number;
 };
 
 export type ValuationNote = "segment-not-applicable-to-agricultural" | "agri-rate-missing-for-frontage";
@@ -112,6 +142,26 @@ export type ValuationNote = "segment-not-applicable-to-agricultural" | "agri-rat
 const SMALL_PLOT_CATEGORIES: RateCategory[] = ["urban", "semi-urban", "developing"];
 
 const rule = (rules: ValuationRules, id: string) => rules.rules.find((r) => r.id === id);
+
+/** The rule that defines `roadWidth` as a virtual band, if any. */
+const bandRule = (rules: ValuationRules, roadWidth: string | undefined) =>
+  roadWidth ? rules.rules.find((r) => r.band?.key === roadWidth) : undefined;
+
+/** Road widths a city's rules add beyond its printed columns, for a row that prints the base band. */
+export const extraRoadWidths = (rules: ValuationRules, row: RateRow) =>
+  rules.rules.flatMap((r) => (r.band && typeof row.nonAgri[r.band.fromKey] === "number" ? [r.band] : []));
+
+/** A segment's rate for one commercial kind, or null where it prints none. */
+function segmentCommercial(seg: RoadSegmentRow, kind: string): number | null {
+  if (kind === "shop") return seg.shop;
+  if (kind === "office") return seg.office;
+  if (kind === "godown") return seg.godown;
+  if (kind === "shopMulti") return seg.shopMulti ?? null;
+  return null;
+}
+
+/** True where the city's rules carry this rule id, so the calculator only offers what applies. */
+export const hasRule = (rules: ValuationRules, id: string) => rules.rules.some((r) => r.id === id);
 
 const toApplied = (r: NonNullable<ReturnType<typeof rule>>): AppliedRule => ({
   id: r.id,
@@ -134,8 +184,18 @@ export function valuePlot(input: ValuationInput): ValuationResult {
   const applied: AppliedRule[] = [];
 
   if (kind === "agricultural") {
-    const frontage = input.frontage ?? "general";
-    const lakhPerHa = row.agriLakhPerHa[frontage];
+    const hectares = areaSqm / SQM_PER_HECTARE;
+    /*
+     * A grid (Gorakhpur) prices by frontage and plot size together: the whole plot takes the rate
+     * of the slab its area falls in. Otherwise one figure per frontage.
+     */
+    const grid = row.agriGrid ?? null;
+    const slab = grid ? agriSlabIndex(grid.slabsHa, hectares) : undefined;
+    const gridFrontage: AgriGridFrontage = (AGRI_GRID_FRONTAGES as string[]).includes(input.frontage ?? "")
+      ? (input.frontage as AgriGridFrontage)
+      : "other";
+    const sixKey = (input.frontage ?? "general") as keyof RateRow["agriLakhPerHa"];
+    const lakhPerHa = grid ? grid[gridFrontage][slab!] : (row.agriLakhPerHa[sixKey] ?? null);
     if (lakhPerHa === null) {
       // Urban rows print no agricultural figures at all.
       notes.push("agri-rate-missing-for-frontage");
@@ -149,13 +209,13 @@ export function valuePlot(input: ValuationInput): ValuationResult {
         upliftPct: 0,
         circleValue: 0,
         notes,
+        slab,
       };
     }
     // Instruction 24: a road-segment rate never applies to agricultural land.
     if (input.segment) notes.push("segment-not-applicable-to-agricultural");
 
     const ratePerHa = lakhPerHa * LAKH;
-    const hectares = areaSqm / SQM_PER_HECTARE;
     const baseValue = ratePerHa * hectares;
 
     // Instruction 18: small plots in urban, semi-urban and developing villages, where the plot
@@ -186,6 +246,12 @@ export function valuePlot(input: ValuationInput): ValuationResult {
       if (r) applied.push(toApplied(r));
     }
 
+    // Gorakhpur 2025: near plotting or a colony. Only fires where the city's rules carry it.
+    if (input.colonyDistance === "within50" || input.colonyDistance === "50to200") {
+      const r = rule(rules, input.colonyDistance === "within50" ? "agri-colony-within-50m" : "agri-colony-50-200m");
+      if (r) applied.push(toApplied(r));
+    }
+
     const upliftPct = applied.reduce((s, r) => s + r.pct, 0);
     return {
       baseRate: ratePerHa,
@@ -197,6 +263,7 @@ export function valuePlot(input: ValuationInput): ValuationResult {
       upliftPct,
       circleValue: Math.round(baseValue * (1 + upliftPct / 100)),
       notes,
+      slab,
     };
   }
 
@@ -213,13 +280,20 @@ export function valuePlot(input: ValuationInput): ValuationResult {
     basis = "covered";
   } else if (kind === "commercial") {
     const which = input.commercialKind ?? "shop";
-    // A listed road stretch prices its commercial frontage too.
+    // A listed road stretch prices its commercial frontage too, where it prints that kind.
     // A row with no printed commercial line has no commercial value to quote.
-    baseRate = input.segment ? input.segment[which] : (row.commercial?.[which] ?? 0);
-    basis = input.segment ? "road-segment" : "commercial";
-  } else if (input.segment) {
+    const onSegment = input.segment ? segmentCommercial(input.segment, which) : null;
+    baseRate = onSegment ?? row.commercial?.[which] ?? 0;
+    basis = onSegment !== null ? "road-segment" : "commercial";
+  } else if (input.segment && input.segment.nonAgri !== null) {
     baseRate = input.segment.nonAgri;
     basis = "road-segment";
+  } else if (bandRule(rules, input.roadWidth)) {
+    // A width the list prints no column for, valued off another band (Gorakhpur: over 12 m).
+    const r = bandRule(rules, input.roadWidth)!;
+    baseRate = row.nonAgri[r.band!.fromKey] ?? 0;
+    basis = "road-width";
+    applied.push(toApplied(r));
   } else {
     // Fall back to the row's cheapest printed band when the caller names none, or names one this
     // row does not carry: Lucknow Sadar-2 भरवारा prints only the first of the four columns.
@@ -229,11 +303,13 @@ export function valuePlot(input: ValuationInput): ValuationResult {
     basis = "road-width";
   }
 
-  // Plots over the threshold: the excess is valued at largePlotPct of the rate.
+  // Plots over the threshold: the excess is valued at largePlotPct of the rate. Where the rules
+  // name the kinds it applies to (Gorakhpur: land only), other kinds are valued in full.
   const { largePlotThresholdSqm: threshold, largePlotPct } = rules;
+  const largePlotApplies = !rules.largePlotKinds || rules.largePlotKinds.includes(kind as "non-agricultural");
   let baseValue: number;
   let largePlot: ValuationResult["largePlot"] = null;
-  if (areaSqm > threshold) {
+  if (largePlotApplies && areaSqm > threshold) {
     const excess = areaSqm - threshold;
     const full = threshold * baseRate;
     const discounted = excess * baseRate * (largePlotPct / 100);
@@ -264,7 +340,9 @@ export function valuePlot(input: ValuationInput): ValuationResult {
 }
 
 export const ROAD_WIDTHS: RoadWidth[] = ["lt9m", "m9to18", "ge18m"];
-export const AGRI_FRONTAGES: AgriFrontage[] = ["nh", "state", "link", "chakmarg", "abadi", "general"];
+/** The six single-figure frontage columns of the Ayodhya and Lucknow lists. */
+export type SixAgriFrontage = keyof RateRow["agriLakhPerHa"];
+export const AGRI_FRONTAGES: SixAgriFrontage[] = ["nh", "state", "link", "chakmarg", "abadi", "general"];
 export const COMMERCIAL_KINDS: CommercialKind[] = ["shop", "office", "godown"];
 
 export const roadWidthLabel: Record<RoadWidth, { en: string; hi: string }> = {
@@ -274,12 +352,22 @@ export const roadWidthLabel: Record<RoadWidth, { en: string; hi: string }> = {
 };
 
 export const agriFrontageLabel: Record<AgriFrontage, { en: string; hi: string }> = {
+  district: { en: "District road", hi: "जनपदीय मार्ग" },
+  other: { en: "Elsewhere", hi: "अन्यत्र" },
   nh: { en: "National highway", hi: "राष्ट्रीय राजमार्ग" },
   state: { en: "State or district road", hi: "राज्य या जनपदीय मार्ग" },
   link: { en: "Link road", hi: "सम्पर्क मार्ग" },
   chakmarg: { en: "Chakmarg", hi: "चकमार्ग" },
   abadi: { en: "Adjoining abadi", hi: "आबादी से लगी" },
   general: { en: "General", hi: "सामान्य" },
+};
+
+/** Gorakhpur's grid rows, as its list heads them. */
+export const agriGridFrontageLabel: Record<AgriGridFrontage, { en: string; hi: string }> = {
+  nh: { en: "NH or state highway", hi: "राष्ट्रीय / राज्य राजमार्ग" },
+  district: { en: "District road", hi: "जनपदीय मार्ग" },
+  link: { en: "Link road", hi: "सम्पर्क मार्ग" },
+  other: { en: "Elsewhere", hi: "अन्यत्र" },
 };
 
 export const commercialKindLabel: Record<CommercialKind, { en: string; hi: string }> = {

@@ -12,7 +12,8 @@ import { getBroker, getCircleRateSchedulesByCity, getCity, getLocalitiesByCity, 
 import { circleRateFaq } from "@/lib/faq";
 import { formatDate, formatNumber, localePath, pick, ui, type Locale } from "@/lib/i18n";
 import { buyerCategoryLabels } from "@/lib/labels";
-import { rc } from "@/lib/rate-copy";
+import { rc, tehsilSelectorTitle } from "@/lib/rate-copy";
+import { InForceNote } from "@/components/rates/InForceNote";
 import { getCurrentRateSchedule, getTehsilsByCity, getTehsilSummary } from "@/lib/rates";
 import { builtLocalityIds, sameAlternate } from "@/lib/routes";
 import { frontageToolHref, stampDutyCalculatorData } from "@/lib/tools";
@@ -143,12 +144,13 @@ export function CircleRatesTemplate({ locale, cityId }: { locale: Locale; cityId
               })}
             </p>
           )}
+          <InForceNote locale={locale} cityId={city.id} className="mt-4" />
         </div>
       </section>
 
       {/* Tehsil selector: one card per sub-registrar list */}
       {rateSchedule && summaries.length > 0 && (
-        <Section id="tehsils" title={c.tehsilSelectorTitle}>
+        <Section id="tehsils" title={tehsilSelectorTitle(locale, summaries.length)}>
           <p className="lede mb-6 max-w-2xl">{c.tehsilSelectorLede}</p>
           <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {summaries.map((s) => (

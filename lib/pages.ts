@@ -26,6 +26,7 @@ import {
   baseRate,
   getCurrentRateSchedule,
   getLocalityRate,
+  getRoadBands,
   getRowsByTehsil,
   getTehsilSummary,
   getTehsilsByCity,
@@ -36,7 +37,7 @@ import {
 import { formatDate, formatNumber, localePath, pick, SITE_URL, type Locale } from "./i18n";
 import { landUseLabels } from "./labels";
 import { guideAlternate, localityAlternate, sameAlternate, type Alternate } from "./routes";
-import type { Locality } from "./schemas";
+import type { Locality, RateRow, RoadBand } from "./schemas";
 import { TOOL_SLUGS } from "./tools";
 import { getVillageContent, villageCopy, villageContentIndexableIds } from "./village-content";
 import { getVillageNote } from "./data";
@@ -152,6 +153,27 @@ const priceBandLabel: Record<NonNullable<Locality["priceBand"]>, Record<Locale, 
   high: { en: "High band", hi: "ऊँचा दाम" },
   premium: { en: "Premium", hi: "प्रीमियम" },
 };
+
+/**
+ * Meta description for a village row of a list that carries no printed page (Gorakhpur): the base
+ * land rate under its SRO's own first band, the single-shop land rate, the "elsewhere, largest
+ * plots" farmland figure, and the SRO's list date. A row printed with no land rate leads with
+ * what it does print.
+ */
+function listOnlyDescription(row: RateRow, tName: string, cityName: string, bands: RoadBand[], effective: string, locale: Locale): string {
+  const hi = locale === "hi";
+  const base = baseRate(row);
+  const first = bands.find((b) => typeof row.nonAgri[b.key] === "number");
+  const parts: string[] = [];
+  if (base > 0 && first) parts.push(hi ? `भूमि ₹${formatNumber(base)} प्रति वर्ग मीटर (${first.labelHi})` : `land ₹${formatNumber(base)} per sq m (${first.labelEn.toLowerCase()})`);
+  if (row.commercial) parts.push(hi ? `एकल दुकान ₹${formatNumber(row.commercial.shop)}` : `single shop ₹${formatNumber(row.commercial.shop)}`);
+  if (row.commercialRent) parts.push(hi ? `व्यावसायिक किराया ₹${formatNumber(row.commercialRent)} प्रति वर्ग मीटर प्रति माह` : `commercial rent ₹${formatNumber(row.commercialRent)} per sq m a month`);
+  if (row.agriLakhPerHa.general !== null) parts.push(hi ? `कृषि ₹${formatNumber(row.agriLakhPerHa.general)} लाख प्रति हेक्टेयर` : `farmland ₹${formatNumber(row.agriLakhPerHa.general)} lakh per ha`);
+  const what = parts.join(", ");
+  return hi
+    ? `${row.nameHi} (${row.nameEn}), ${tName}, ${cityName}। सर्किल रेट: ${what}। ${formatDate(effective, locale)} की सूची, अब भी लागू।`
+    : `${row.nameEn} (${row.nameHi}), ${tName}, ${cityName}. Circle rate: ${what}. From the ${formatDate(effective, locale)} list, still in force.`;
+}
 
 const cache = new Map<Locale, PageEntry[]>();
 
@@ -320,6 +342,7 @@ export function getPages(locale: Locale): PageEntry[] {
         const summary = getTehsilSummary(c.id, tehsil.id);
         if (!summary || summary.rowCount === 0) continue;
         const tName = pick(locale, tehsil.name, tehsil.nameHi);
+        const tEffective = rowEffectiveFrom(rateSchedule, tehsil.id);
         const band =
           summary.minNonAgri !== null && summary.maxNonAgri !== null
             ? `₹${formatNumber(summary.minNonAgri)}–${formatNumber(summary.maxNonAgri)}`
@@ -332,17 +355,20 @@ export function getPages(locale: Locale): PageEntry[] {
             ? `${tName} तहसील सर्किल रेट ${YEAR}: सभी ${formatNumber(summary.rowCount)} गाँव · ${site}`
             : `${tName} tehsil circle rates ${YEAR}: all ${formatNumber(summary.rowCount)} villages · ${name}`,
           description: hi
-            ? `${tName} तहसील (${tehsil.sroNameHi}) के ${n(summary.rowCount, "गाँव", "गाँवों")} की पूरी सर्किल रेट सूची, ${formatDate(rateSchedule.effectiveFrom, locale)} से लागू। ज़मीन, व्यावसायिक और कृषि दरें${band ? `, ज़मीन ${band} प्रति वर्ग मीटर` : ""}।`
-            : `The full circle-rate list for ${n(summary.rowCount, "village", "villages")} in ${tName} tehsil (${tehsil.sroName}), effective ${formatDate(rateSchedule.effectiveFrom, locale)}. Land, commercial and agricultural rates${band ? `, land ${band} per sq m` : ""}.`,
+            ? `${tName} तहसील (${tehsil.sroNameHi}) के ${n(summary.rowCount, "गाँव", "गाँवों")} की पूरी सर्किल रेट सूची, ${formatDate(tEffective, locale)} से लागू। ज़मीन, व्यावसायिक और कृषि दरें${band ? `, ज़मीन ${band} प्रति वर्ग मीटर` : ""}।`
+            : `The full circle-rate list for ${n(summary.rowCount, "village", "villages")} in ${tName} tehsil (${tehsil.sroName}), effective ${formatDate(tEffective, locale)}. Land, commercial and agricultural rates${band ? `, land ${band} per sq m` : ""}.`,
           lastmod: rateSchedule.updatedAt,
           alternate: sameAlternate(locale, `/${c.id}/circle-rates/${tehsil.id}/`),
           og: {
             title: hi ? `${tName} सर्किल रेट` : `${tName} circle rates`,
-            subtitle: `${hi ? "लागू" : "Effective"} ${formatDate(rateSchedule.effectiveFrom, locale)}`,
+            subtitle: `${hi ? "लागू" : "Effective"} ${formatDate(tEffective, locale)}`,
             chip: `${formatNumber(summary.rowCount)} ${hi ? "गाँव" : "villages"}`,
           },
           ogSlug: `${c.id}--circle-rates--${tehsil.id}`,
         });
+
+        // This SRO's own column labels (Gorakhpur's differ by SRO; everywhere else the city's).
+        const sroBands = getRoadBands(c.id, tehsil.id);
 
         for (const row of getRowsByTehsil(c.id, tehsil.id)) {
           /*
@@ -376,7 +402,11 @@ export function getPages(locale: Locale): PageEntry[] {
               (hi ? `${row.nameHi} सर्किल रेट ${YEAR} · ${tName}, ${name}` : `${row.nameEn} circle rate ${YEAR} · ${tName}, ${name}`),
             description:
               vcopy?.metaDescription ??
-              (hi
+              // A list with no printed pages (Gorakhpur) gets its own pair: no page to cite, a
+              // single-shop rate rather than "shop", and the farmland grid's headline cell.
+              (row.page === null
+                ? listOnlyDescription(row, tName, name, sroBands, rowEffectiveFrom(rateSchedule, row.sro), locale)
+                : hi
               ? `${row.nameHi} (${row.nameEn}), ${tName} तहसील। सर्किल रेट ₹${formatNumber(baseRate(row))} प्रति वर्ग मीटर ${rateSchedule.roadBands[0].labelHi} चौड़ी सड़क पर${row.commercial ? `, दुकान ₹${formatNumber(row.commercial.shop)} प्रति वर्ग मीटर` : ""}। ${formatDate(rowEffectiveFrom(rateSchedule, row.sro), locale)} से लागू, मुद्रित पृष्ठ ${row.page}।`
               : `${row.nameEn} (${row.nameHi}), ${tName} tehsil. Circle rate ₹${formatNumber(baseRate(row))} per sq m on a road ${rateSchedule.roadBands[0].labelEn.toLowerCase()}${row.commercial ? `, shop ₹${formatNumber(row.commercial.shop)} per sq m` : ""}. Effective ${formatDate(rowEffectiveFrom(rateSchedule, row.sro), locale)}, printed page ${row.page}.`),
             lastmod: rateSchedule.updatedAt,
@@ -385,7 +415,7 @@ export function getPages(locale: Locale): PageEntry[] {
             // nothing and would have to be rendered on every clean build.
             og: {
               title: hi ? `${tName} सर्किल रेट` : `${tName} circle rates`,
-              subtitle: `${hi ? "लागू" : "Effective"} ${formatDate(rateSchedule.effectiveFrom, locale)}`,
+              subtitle: `${hi ? "लागू" : "Effective"} ${formatDate(tEffective, locale)}`,
               chip: `${formatNumber(summary.rowCount)} ${hi ? "गाँव" : "villages"}`,
             },
             ogSlug: `${c.id}--circle-rates--${tehsil.id}`,

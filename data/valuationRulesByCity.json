@@ -1,0 +1,69 @@
+[
+  {
+    "cityId": "gorakhpur",
+    "effectiveFrom": "2025-03-05",
+    "largePlotThresholdSqm": 1000,
+    "largePlotPct": 85,
+    "largePlotKinds": ["non-agricultural"],
+    "orders": [
+      { "sros": ["sadar1", "sadar2"], "orderDate": "2025-03-05", "effectiveFrom": "2025-03-05" },
+      {
+        "sros": ["gola", "bansgaon", "khajni", "sahjanwa", "chaurichaura", "campierganj"],
+        "orderDate": "2025-04-26",
+        "effectiveFrom": "2025-04-28"
+      }
+    ],
+    "rules": [
+      {
+        "id": "nonagri-road-over-12m",
+        "instruction": "2025 order",
+        "applies": "non-agricultural",
+        "pct": 30,
+        "label": "Road wider than 12 m",
+        "labelHi": "12 मीटर से अधिक चौड़ी सड़क",
+        "description": "The list prints no column for roads wider than 12 m. Land on such a road is valued at the 9–12 m rate plus 30%.",
+        "descriptionHi": "सूची में 12 मीटर से चौड़ी सड़क का कोई खाना नहीं है। ऐसी सड़क पर भूमि 9–12 मीटर की दर से 30% अधिक पर आँकी जाती है।",
+        "band": { "key": "gt12m", "fromKey": "m9to12", "labelEn": "Over 12 m (9–12 m rate +30%)", "labelHi": "12 मीटर से अधिक (9–12 मीटर की दर +30%)" },
+        "sources": [{ "label": "Collector's orders, Gorakhpur, 05-03-2025 (Sadar-1, Sadar-2) and 26-04-2025 (other SROs)", "url": "https://igrsup.gov.in/", "accessedAt": "2026-09-25" }],
+        "updatedAt": "2026-09-25"
+      },
+      {
+        "id": "agri-colony-within-50m",
+        "instruction": "2025 order",
+        "applies": "agricultural",
+        "pct": 60,
+        "label": "Within 50 m of plotting or a colony",
+        "labelHi": "प्लॉटिंग या कॉलोनी से 50 मीटर के भीतर",
+        "description": "Agricultural land within 50 m of plotting or a residential colony is valued 60% above the printed rate.",
+        "descriptionHi": "प्लॉटिंग या आवासीय कॉलोनी से 50 मीटर के भीतर की कृषि भूमि मुद्रित दर से 60% अधिक पर आँकी जाती है।",
+        "sources": [{ "label": "Collector's orders, Gorakhpur, 05-03-2025 (Sadar-1, Sadar-2) and 26-04-2025 (other SROs)", "url": "https://igrsup.gov.in/", "accessedAt": "2026-09-25" }],
+        "updatedAt": "2026-09-25"
+      },
+      {
+        "id": "agri-colony-50-200m",
+        "instruction": "2025 order",
+        "applies": "agricultural",
+        "pct": 40,
+        "label": "50–200 m from plotting or a colony",
+        "labelHi": "प्लॉटिंग या कॉलोनी से 50–200 मीटर",
+        "description": "Agricultural land 50 to 200 m from plotting or a residential colony is valued 40% above the printed rate.",
+        "descriptionHi": "प्लॉटिंग या आवासीय कॉलोनी से 50 से 200 मीटर की दूरी वाली कृषि भूमि मुद्रित दर से 40% अधिक पर आँकी जाती है।",
+        "sources": [{ "label": "Collector's orders, Gorakhpur, 05-03-2025 (Sadar-1, Sadar-2) and 26-04-2025 (other SROs)", "url": "https://igrsup.gov.in/", "accessedAt": "2026-09-25" }],
+        "updatedAt": "2026-09-25"
+      }
+    ],
+    "sources": [
+      {
+        "label": "Collector's orders, Gorakhpur: 05-03-2025 (Sadar-1, Sadar-2) and 26-04-2025, effective 28-04-2025 (Gola, Bansgaon, Khajni, Sahjanwa, Chauri Chaura, Campierganj)",
+        "url": "https://igrsup.gov.in/",
+        "accessedAt": "2026-09-25"
+      }
+    ],
+    "updatedAt": "2026-09-25",
+    "todo": [
+      "TODO legal-review: transcribed from the README summary of the 2025 orders; check each figure against the order PDFs before relying on the calculator",
+      "The 2025 orders also set flat uplifts (+0/20/30/50% by super area, +5% per amenity), a commercial covered-construction rate of ₹25,000 per sq m, and tin-shed and boundary-wall rates. None are in the calculator yet.",
+      "Upload the two 2025 order PDFs to R2 and point the sources at them"
+    ]
+  }
+]

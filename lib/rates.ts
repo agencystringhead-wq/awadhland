@@ -12,21 +12,26 @@
 import { z } from "zod";
 import ayodhya20250607 from "../data/rates/ayodhya-2025-06-07.json";
 import lucknow20250801 from "../data/rates/lucknow-2025-08-01.json";
+import gorakhpur20160803 from "../data/rates/gorakhpur-2016-08-03.json";
 import indexableJson from "../data/rates/indexable.json";
 import tehsilsJson from "../data/tehsils.json";
 import unitsJson from "../data/units.json";
 import valuationRulesJson from "../data/valuationRules.json";
+import cityValuationRulesJson from "../data/valuationRulesByCity.json";
 import {
+  cityValuationRulesFileSchema,
   indexableRatesFileSchema,
   rateScheduleSchema,
   tehsilsFileSchema,
   unitsFileSchema,
   valuationRulesFileSchema,
+  type CommercialKindDef,
   type RateRow,
   type RateSchedule,
   type RoadBand,
   type RoadSegmentRow,
   type Tehsil,
+  type ValuationRules,
 } from "./schemas";
 import villageSlugs from "../data/villageSlugs.json";
 
@@ -65,11 +70,14 @@ const schedules: RateSchedule[] = [
   // Lucknow has no written page content yet, so no slug override: its names come from the
   // transliterator at import, as Ayodhya&apos;s did before the content landed.
   parse("data/rates/lucknow-2025-08-01.json", rateScheduleSchema, lucknow20250801),
+  // Gorakhpur, like Lucknow, has no written page content: names come from the transliterator.
+  parse("data/rates/gorakhpur-2016-08-03.json", rateScheduleSchema, gorakhpur20160803),
 ];
 
 const tehsils = parse("data/tehsils.json", tehsilsFileSchema, tehsilsJson);
 const units = parse("data/units.json", unitsFileSchema, unitsJson);
 const valuationRules = parse("data/valuationRules.json", valuationRulesFileSchema, valuationRulesJson);
+const cityValuationRules = parse("data/valuationRulesByCity.json", cityValuationRulesFileSchema, cityValuationRulesJson);
 const indexable = parse("data/rates/indexable.json", indexableRatesFileSchema, indexableJson);
 
 /* -------------------------------------------------------------------- schedules */
@@ -133,8 +141,29 @@ export function getRowBySlug(cityId: string, tehsilId: string, slug: string): Ra
  * Ayodhya prints three and Lucknow four, so nothing may assume a fixed set. Everything that reads
  * a land rate goes through these three helpers rather than naming a key.
  */
-export function getRoadBands(cityId: string): RoadBand[] {
-  return getCurrentRateSchedule(cityId)?.roadBands ?? [];
+export function getRoadBands(cityId: string, sro?: string): RoadBand[] {
+  const s = getCurrentRateSchedule(cityId);
+  if (!s) return [];
+  // An SRO may print the same columns under its own widths (Gorakhpur); same keys, own labels.
+  return (sro ? s.sourceDocs.find((d) => d.sro === sro)?.roadBands : undefined) ?? s.roadBands;
+}
+
+/** The commercial columns a city's list prints. Ayodhya and Lucknow: shop / office / godown. */
+export const DEFAULT_COMMERCIAL_KINDS: CommercialKindDef[] = [
+  { key: "shop", labelEn: "Shop", labelHi: "दुकान" },
+  { key: "office", labelEn: "Office", labelHi: "कार्यालय" },
+  { key: "godown", labelEn: "Godown", labelHi: "गोदाम" },
+];
+
+export function getCommercialKinds(cityId: string): CommercialKindDef[] {
+  return getCurrentRateSchedule(cityId)?.commercialKinds ?? DEFAULT_COMMERCIAL_KINDS;
+}
+
+/** The "which list is in force" line for a city, or for one SRO where it differs. */
+export function getInForceNote(cityId: string, sro?: string): { en: string; hi: string } | null {
+  const s = getCurrentRateSchedule(cityId);
+  if (!s) return null;
+  return (sro ? s.sourceDocs.find((d) => d.sro === sro)?.inForceNote : undefined) ?? s.inForceNote ?? null;
 }
 
 /** The bands this row actually prints, in the schedule's order. Some rows fill only the first. */
@@ -210,7 +239,9 @@ export function getTehsilSummary(cityId: string, tehsilId: string): TehsilSummar
   if (!tehsil) return null;
   const rows = getRowsByTehsil(cityId, tehsilId);
   const segments = getRoadSegmentsByTehsil(cityId, tehsilId);
-  const base = rows.map((r) => r.nonAgri.lt9m);
+  // Across the base rate every priced row carries; the few rows printed with no land rate at all
+  // (Gorakhpur's partial rows) would read as zero and drag the minimum and median down.
+  const base = rows.map(baseRate).filter((v) => v > 0);
   return {
     tehsil,
     rowCount: rows.length,
@@ -218,11 +249,20 @@ export function getTehsilSummary(cityId: string, tehsilId: string): TehsilSummar
     minNonAgri: base.length ? Math.min(...base) : null,
     maxNonAgri: base.length ? Math.max(...base) : null,
     medianNonAgri: median(base),
-    topSegmentRate: segments.length ? Math.max(...segments.map((s) => s.nonAgri)) : null,
+    // Stretches printed with commercial rates only (Gorakhpur) carry no land figure to compare.
+    topSegmentRate: (() => {
+      const land = segments.flatMap((s) => (s.nonAgri === null ? [] : [s.nonAgri]));
+      return land.length ? Math.max(...land) : null;
+    })(),
   };
 }
 
-export const getTehsilMedian = (cityId: string, tehsilId: string) => median(getRowsByTehsil(cityId, tehsilId).map((r) => r.nonAgri.lt9m));
+export const getTehsilMedian = (cityId: string, tehsilId: string) =>
+  median(
+    getRowsByTehsil(cityId, tehsilId)
+      .map(baseRate)
+      .filter((v) => v > 0),
+  );
 
 /**
  * Nearest rows by rate similarity within the same tehsil (spec: "6 nearest villages in the same
@@ -230,8 +270,8 @@ export const getTehsilMedian = (cityId: string, tehsilId: string) => median(getR
  */
 export function getSimilarRows(cityId: string, row: RateRow, count = 6): RateRow[] {
   return getRowsByTehsil(cityId, row.sro)
-    .filter((r) => r.id !== row.id)
-    .map((r) => ({ r, d: Math.abs(r.nonAgri.lt9m - row.nonAgri.lt9m) }))
+    .filter((r) => r.id !== row.id && baseRate(r) > 0)
+    .map((r) => ({ r, d: Math.abs(baseRate(r) - baseRate(row)) }))
     .sort((a, b) => a.d - b.d || a.r.serial - b.r.serial)
     .slice(0, count)
     .map((x) => x.r);
@@ -267,6 +307,19 @@ export function isRowIndexable(rateRowId: string, referencedByLiveLocality: bool
  * figures. When Lucknow's page content is written this should give way to an allowlist, as
  * Ayodhya's did.
  */
+/**
+ * The figures beyond the shared set that a row's profile must also match on: Gorakhpur's
+ * other-shop rate, its rent line and its sixteen-cell farmland grid. Empty for Ayodhya and
+ * Lucknow rows, which print none of them.
+ */
+function extraProfile(row: RateRow): string[] {
+  const out: string[] = [];
+  if (row.commercial?.shopMulti !== undefined) out.push(`sm${row.commercial.shopMulti}`);
+  if (row.commercialRent) out.push(`rent${row.commercialRent}`);
+  if (row.agriGrid) out.push(JSON.stringify([row.agriGrid.nh, row.agriGrid.district, row.agriGrid.link, row.agriGrid.other]));
+  return out;
+}
+
 const uniqueProfileIds = (() => {
   const out = new Map<string, Set<string>>();
   for (const s of schedules) {
@@ -281,6 +334,9 @@ const uniqueProfileIds = (() => {
         row.covered?.ordinary ?? "-",
         row.covered?.premium ?? "-",
         row.agriLakhPerHa.general ?? "-",
+        // Figures only some lists print, appended only where present so the Ayodhya and Lucknow
+        // profiles -- and so which of their rows are indexable -- are exactly as before.
+        ...extraProfile(row),
       ].join("|");
       if (!bySro.has(row.sro)) bySro.set(row.sro, new Map());
       const m = bySro.get(row.sro)!;
@@ -375,7 +431,21 @@ export function getLocalityRate(locality: {
 /* ---------------------------------------------------------------------- units */
 
 export const getUnits = () => units;
-export const getValuationRules = () => valuationRules;
+/**
+ * The valuation rules a city's plots are valued under: its own where its list has them
+ * (data/valuationRulesByCity.json, Gorakhpur's 2025 orders), otherwise data/valuationRules.json.
+ */
+export const getValuationRules = (cityId?: string): ValuationRules => {
+  const own = cityId ? cityValuationRules.find((r) => r.cityId === cityId) : undefined;
+  if (!own) return valuationRules;
+  // Same shape as the default file; the city and its orders stay available through getCityValuationRules.
+  const { cityId: _city, orders: _orders, ...rules } = own;
+  void _city;
+  void _orders;
+  return rules;
+};
+
+export const getCityValuationRules = (cityId: string) => cityValuationRules.find((r) => r.cityId === cityId);
 
 /**
  * Villages in a tehsil that share an identical set of rates.
@@ -399,6 +469,7 @@ export function getRateBands(cityId: string, tehsilId: string): { key: string; r
       row.commercial?.office ?? "-",
       row.commercial?.godown ?? "-",
       row.agriLakhPerHa.general ?? "-",
+      ...extraProfile(row),
     ].join("|");
     if (!groups.has(key)) groups.set(key, []);
     groups.get(key)!.push(row);

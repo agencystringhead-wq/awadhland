@@ -1,0 +1,1488 @@
+sro,serial,vcode,village_hi,note
+sadar1,1,0058,अधियारी बांग,agri: all rate cols printed as dash
+sadar1,2,0058,अधियारी बांग आंशिक,agri: all rate cols printed as dash
+sadar1,3,0082,अलीनगर उत्तरी,agri: all rate cols printed as dash
+sadar1,4,0083,अलीनगर दक्षिणी,agri: all rate cols printed as dash
+sadar1,5,0089,अबू बाजार,agri: all rate cols printed as dash
+sadar1,16,4903,अजवनिया,agri: col6 last digit under signature; read 115
+sadar1,21,0099,इलाहीबाग,agri: all rate cols printed as dash
+sadar1,22,0044,इस्माईलपुर,agri: all rate cols printed as dash
+sadar1,23,0090,इस्लाम चक,agri: all rate cols printed as dash
+sadar1,26,0053,उर्वरक नगर,"agri: 0 printed in cols 5,9,13,17"
+sadar1,27,4935,ऊचगॉव,agri: col11=80 as printed (95 in similar rows)
+sadar1,30,5402,उनौला खुर्द,comm: vcode last digit smudged (read 5402; sequence 5401/5403)
+sadar1,32,4931,उस्का,comm: village name illegible in scan (best reading)
+sadar1,35,4190,एकडंगा,"agri: 0 printed in cols 5,9,13,17"
+sadar1,36,4814,एकला (बाजार),agri: vcode first digit under signature (read 4814); col7 last digit under signature (read 182)
+sadar1,37,0071,कल्याणपुर,agri: all rate cols printed as dash
+sadar1,38,0075,काजीपुर कला,agri: all rate cols printed as dash
+sadar1,39,0121,कृष्णा नगर कालोनी,agri: all rate cols printed as dash
+sadar1,40,0122,कारागार,agri: all rate cols printed as dash
+sadar1,41,4192,कोलिया,"agri: 0 printed in cols 5,9,13,17"
+sadar1,42,4193,कोल्हुआ,"agri: 0 printed in cols 5,9,13,17"
+sadar1,57,4943,कोडर तप्पा हवेली,comm: village name partly illegible (first word)
+sadar1,59,4961,कोटवा,comm: village name partly illegible
+sadar1,65,0043,खूनीपुर,agri: all rate cols printed as dash
+sadar1,66,0043,खूनीपुर आशिंक,agri: all rate cols printed as dash
+sadar1,67,0049,खोखरटोला,agri: all rate cols printed as dash
+sadar1,75,0123,गीतावाटिका,agri: all rate cols printed as dash
+sadar1,76,0067,गाजीरौजा,agri: all rate cols printed as dash; vcode last digit under signature (read 0067)
+sadar1,79,5404,गुरौली खुर्द,road: vcode first digit partly obscured by signature
+sadar1,86,0046,घासीकटरा,agri: all rate cols printed as dash
+sadar1,87,0046,घासीकटरा,agri: all rate cols printed as dash
+sadar1,88,0057,घोषीपुरवा आंशिक,agri: all rate cols printed as dash
+sadar1,89,0100,घोषीपुर,agri: all rate cols printed as dash
+sadar1,91,0001,चरगॉवा,"agri: 0 printed in cols 5,9,13,17"
+sadar1,92,0031,चकसाहुसैन,"agri: 0 printed in cols 5,9,13,17"
+sadar1,93,0031,चकसा हुसैन आंशिक,"agri: 0 printed in cols 5,9,13,17"
+sadar1,94,0008,चैनपुर,"agri: 0 printed in cols 5,9,13,17"
+sadar1,96,5024,चकटेल्हना,road: village name partly unclear (scan streak)
+sadar1,103,4863,चिलबिलवा,agri: other_a printed with stray mark (.150); read 150
+sadar1,117,0038,जटेपुर उत्तरी,agri: duplicate vcode+name with serial 118 as printed
+sadar1,118,0038,जटेपुर उत्तरी,agri: duplicate vcode+name with serial 117 as printed
+sadar1,123,0146,जनप्रिय विहार कालोनी,agri: vcode 0146 also printed for serial 126
+sadar1,126,0146,जनप्रिय विहार आवासीय योजना,agri: vcode 0146 also printed for serial 123
+sadar1,163,5068,जंगल विश्रामपुर,road: vcode first digit partly obscured by signature
+sadar1,171,4857,जंगल नन्दलाल सिंह,basic: serial partly hidden by signature; read as 171 by continuity
+sadar1,176,5102,टोटहा मुस्तकिल,agri: vcode 2nd digit obscured by signature (5102 or 5002); read 5102
+sadar1,182,4812,डांगीपार,agri: serial middle digit faint (looks 162); 182 by sequence
+sadar1,188,0059,तकियाकवलदह,agri: duplicate vcode+name with serial 189 as printed
+sadar1,189,0059,तकियाकवलदह,agri: duplicate vcode+name with serial 188 as printed
+sadar1,190,0070,तिवारीपुर,agri: duplicate vcode+name with serial 191 as printed
+sadar1,191,0070,तिवारीपुर,basic: serial partly hidden by signature; read as 191 by continuity | agri: duplicate vcode+name with serial 190 as printed
+sadar1,193,2341,ताजपिपरा,comm: vcode 2341 printed (out of pattern; verify)
+sadar1,196,5130,तेलियाडीह,agri: vcode 3rd digit obscured by signature (5130 or 5120); read 5130
+sadar1,205,5126,तुलसीदेउर,road: vcode first digit partly obscured by signature
+sadar1,215,5142,धोबही,agri: vcode partly covered by signature; read 5142
+sadar1,216,0048,नसीराबाद,agri: vcode partly covered by signature; read 0048
+sadar1,223,0155,नेताजी सुबाष चन्द्र बोष नगर,agri: name truncated in print
+sadar1,226,5161,नैयापार बुजुर्ग,road: vcode first digit partly obscured by signature
+sadar1,232,5157,नियामतपुर,comm: vcode smudged (read 5157)
+sadar1,233,5159,नवापार,comm: village name first letters smudged
+sadar1,235,0042,पुराना गोरखपुर,agri: vcode partly covered by signature; read 0042
+sadar1,236,0094,पोखरभिण्डा उर्फ करीमगनर,comm: name end smudged (read करीमनगर)
+sadar1,247,5186,पिपरा बनवारी,road: vcode first digit partly obscured by signature
+sadar1,255,5202,फतेहडी,agri: vcode last digit covered by signature; read 5202 (could be 5209)
+sadar1,257,0028,वहरामपुर उर्फ पिपरापुर,agri: duplicate of serial 258 as printed
+sadar1,258,0028,वहरामपुर उर्फ पिपरापुर,road: duplicate of serial 257 as printed | agri: duplicate of serial 257 as printed
+sadar1,261,0078,वौलिया कालोनी आंशिक,basic: ward cell ends with a stray-looking '१' as printed
+sadar1,266,0056,बसन्तपुर मुतनाजा,road: duplicate of serial 265 as printed
+sadar1,268,0091,बशारतपुर पश्चिमी,road: vcode first digit under signature; duplicate of serial 259 as printed
+sadar1,272,4187,बड़गो,comm: अर्धनगरीय but rates equal the 64000/73500/63000 urban tier (other अर्धनगरीय rows are 61500/68000/61000); as printed
+sadar1,281,5216,बिजुलिया जोत,agri: serial printed 261 (sequence implies 281)
+sadar1,289,5205,बरौली तप्पा पतरा,road: vcode first digit under signature
+sadar1,292,0050,भेडियागढ,agri: all rate cells printed as dash
+sadar1,295,5242,भगड़ा पाण्डेय,agri: vcode first digit under signature; read 5242
+sadar1,308,0040,मिर्जापुर पचपेड़वा आंशिक,"agri: dist_c ink-blotted, reads 520"
+sadar1,310,0005,मानबेला,road: vcode first digit under signature
+sadar1,312,0085,मिर्जापुर,agri: all rate cells printed as dash
+sadar1,315,4194,मुण्डेरी चक एहतमाली,agri: vcode middle digits under signature; best reading 4104
+sadar1,325,5280,मीरापुर तप्पा पतरा,comm: right-hand columns (category+rates) printed one row lower than serial/name rows on this page; mapped 1:1 in order (row 325 gets first value row) - verify
+sadar1,326,5268,मुगलहा,comm: right-hand columns (category+rates) printed one row lower than serial/name rows on this page; mapped 1:1 in order (row 325 gets first value row) - verify | agri: vcode 5268 also printed for serial 332
+sadar1,327,5282,मुण्डेरी बुजुर्ग,comm: right-hand columns (category+rates) printed one row lower than serial/name rows on this page; mapped 1:1 in order (row 325 gets first value row) - verify
+sadar1,328,5283,मुण्डेरी खुर्द,comm: right-hand columns (category+rates) printed one row lower than serial/name rows on this page; mapped 1:1 in order (row 325 gets first value row) - verify
+sadar1,329,4819,मुण्डेरी गढवा,comm: right-hand columns (category+rates) printed one row lower than serial/name rows on this page; mapped 1:1 in order (row 325 gets first value row) - verify
+sadar1,330,5269,मुडियारी खुर्द,comm: right-hand columns (category+rates) printed one row lower than serial/name rows on this page; mapped 1:1 in order (row 325 gets first value row) - verify
+sadar1,331,5270,मुडियारी बुजुर्ग,road: vcode partly under signature | comm: right-hand columns (category+rates) printed one row lower than serial/name rows on this page; mapped 1:1 in order (row 325 gets first value row) - verify
+sadar1,332,5268,मोगलहा,comm: right-hand columns (category+rates) printed one row lower than serial/name rows on this page; mapped 1:1 in order (row 325 gets first value row) - verify | agri: vcode 5268 also printed for serial 326
+sadar1,333,0125,राजेन्द्र नगर,comm: right-hand columns (category+rates) printed one row lower than serial/name rows on this page; mapped 1:1 in order (row 325 gets first value row) - verify | agri: all rate cells printed as dash
+sadar1,334,0074,रमदत्तपुर,comm: right-hand columns (category+rates) printed one row lower than serial/name rows on this page; mapped 1:1 in order (row 325 gets first value row) - verify | agri: all rate cells printed as dash
+sadar1,335,0077,रूस्तमपुर,"comm: right-hand columns (category+rates) printed one row lower than serial/name rows on this page; mapped 1:1 in order (row 325 gets first value row) - verify | agri: all rate cells printed as dash; vcode partly under signature, best reading 0077"
+sadar1,336,0016,राप्तीनगर आंशिक,comm: right-hand columns (category+rates) printed one row lower than serial/name rows on this page; mapped 1:1 in order (row 325 gets first value row) - verify | agri: all rate cells printed as dash
+sadar1,337,0065,रूद्रपुर,comm: right-hand columns (category+rates) printed one row lower than serial/name rows on this page; mapped 1:1 in order (row 325 gets first value row) - verify | agri: all rate cells printed as dash
+sadar1,338,0096,रकाबगंज,comm: right-hand columns (category+rates) printed one row lower than serial/name rows on this page; mapped 1:1 in order (row 325 gets first value row) - verify | agri: all rate cells printed as dash
+sadar1,339,0047,रहमत नगर,comm: right-hand columns (category+rates) printed one row lower than serial/name rows on this page; mapped 1:1 in order (row 325 gets first value row) - verify | agri: all rate cells printed as dash
+sadar1,340,0022,रसूलपुर,comm: right-hand columns (category+rates) printed one row lower than serial/name rows on this page; mapped 1:1 in order (row 325 gets first value row) - verify
+sadar1,341,0022,रसूलपुर आंशिक,comm: right-hand columns (category+rates) printed one row lower than serial/name rows on this page; mapped 1:1 in order (row 325 gets first value row) - verify
+sadar1,342,0016,राप्तीनगर,comm: right-hand columns (category+rates) printed one row lower than serial/name rows on this page; mapped 1:1 in order (row 325 gets first value row) - verify | agri: all rate cells printed as dash
+sadar1,343,0016,राप्तीनगर आंशिक,comm: right-hand columns (category+rates) printed one row lower than serial/name rows on this page; mapped 1:1 in order (row 325 gets first value row) - verify | agri: all rate cells printed as dash
+sadar1,344,0020,रामपुर नयागॉव,comm: right-hand columns (category+rates) printed one row lower than serial/name rows on this page; mapped 1:1 in order (row 325 gets first value row) - verify
+sadar1,345,0126,राजेन्द्र नगर लच्छीपुर,comm: right-hand columns (category+rates) printed one row lower than serial/name rows on this page; mapped 1:1 in order (row 325 gets first value row) - verify
+sadar1,346,0153,राप्तीनगर प्रथम चरण,comm: right-hand columns (category+rates) printed one row lower than serial/name rows on this page; mapped 1:1 in order (row 325 gets first value row) - verify | agri: all rate cells printed as dash
+sadar1,347,0152,राप्तीनगर द्वितीय चरण,agri: all rate cells printed as dash
+sadar1,348,0151,राप्तीनगर तृतीय चरण,agri: all rate cells printed as dash
+sadar1,349,0150,राप्तीनगर चतुर्थ चरण,agri: all rate cells printed as dash
+sadar1,350,0154,राप्तीनगर विस्तार,comm: serial printed 360; sequence implies 350 | agri: all rate cells printed as dash
+sadar1,351,0127,रेलविहार आवासीय योजना,agri: all rate cells printed as dash
+sadar1,352,0173,रूस्तमपुर,road: vcode partly under signature | agri: all rate cells printed as dash
+sadar1,355,4822,रायगंज,agri: vcode second digit partly under signature; read 4822
+sadar1,363,0019,लक्ष्मीपुर,comm: नगरीय with rural-tier rates 16500/25000/22000; as printed
+sadar1,365,0128,लोहिया नगर,agri: all rate cells printed as dash
+sadar1,366,0142,ललितापुरम,agri: all rate cells printed as dash
+sadar1,367,0144,ललितापुरम विस्तार,agri: all rate cells printed as dash
+sadar1,373,5308,लालपुर टीकर,road: vcode first digit under signature
+sadar1,374,0072,विन्द टोला,agri: all rate cells printed as dash
+sadar1,375,0129,विष्णुपुरम,agri: vcode 3rd digit under signature: 0129 or 0139; all rate cells printed as dash
+sadar1,376,0149,विकास नगर (लच्छीपुर),agri: all rate cells printed as dash
+sadar1,377,0138,विकास नगर आवासीय योजना,agri: name truncated in print; all rate cells printed as dash
+sadar1,378,0135,विकास नगर विस्तार,agri: rate cells blank (no dashes printed)
+sadar1,379,0149,विकास नगर कालोनी,road: vcode 0149 printed same as serial 376 | agri: all rate cells printed as dash
+sadar1,386,0147,शाहपुर आवास विकास कालोनी,agri: name truncated in print; all rate cells printed as dash
+sadar1,387,0147,शाहपुर आ0 वि0 कालोनी,agri: all rate cells printed as dash
+sadar1,389,0130,शताब्दीपुरम,agri: all rate cells printed as dash
+sadar1,390,0131,शिवपुर कालोनी,agri: all rate cells printed as dash
+sadar1,391,0055,शेषपुर,agri: all rate cells printed as dash
+sadar1,392,0068,शाहपुर,agri: all rate cells printed as dash
+sadar1,393,0032,शिवपुर सहबाजगंज,road: duplicate of serial 388 as printed
+sadar1,394,0132,शक्तिनगर,road: vcode first digit under signature
+sadar1,395,0139,शास्त्रीनगर आवासीय योजना,agri: vcode partly under signature; best reading 0139; all rate cells printed as dash
+sadar1,396,0140,शास्त्रीपुरम आवासीय योजना,agri: all rate cells printed as dash
+sadar1,397,0141,शास्त्रीपुरम विस्तार,agri: all rate cells printed as dash
+sadar1,398,0147,शाहपुर,agri: all rate cells printed as dash
+sadar1,400,0170,शास्त्रीनगर,"basic: vcode 0170 printed, same as serial 380 (विवेकानन्दनगर)"
+sadar1,409,0133,सूर्यकुण्ड कालोनी,agri: all 16 cells printed as 0
+sadar1,411,0134,संकटमोचन नगर,agri: all rate cells printed as dash
+sadar1,412,0145,सूर्यविहार आवासीय योजना,agri: all rate cells printed as dash
+sadar1,413,0148,सूरजकुण्ड,agri: all rate cells printed as dash
+sadar1,414,4186,सेन्दुली बेन्दुली,agri: link_d 225 printed (> dist_d 215); identical row 315 on p142 has 210
+sadar1,415,0172,सुबाष चन्द्र बोष नगर,road: vcode second digit hidden by signature stroke; read 0172 | agri: vcode last digits under signature; best reading 0172
+sadar1,435,5351,सोनवे मुस्तकिल,agri: vcode last digit obscured by signature; read 5351 (sequence 5349/5350)
+sadar1,436,5341,सुग्गाटारी,road: vcode first digit under signature
+sadar1,440,0036,हुमायूपुर उत्तरी आंशिक,"agri: all rate cells printed as ""-"""
+sadar1,441,0037,हुमायूपुर उत्तरी,"agri: all rate cells printed as ""-"""
+sadar1,442,0084,हुमायूपुर दक्षिणी,"agri: all rate cells printed as ""-"""
+sadar1,443,0103,हजारीपुर,"agri: all rate cells printed as ""-"""
+sadar1,450,5368,हरिभंजन जंगल,agri: vcode partly under signature; read 5368
+sadar2,7,5105,अमवा,agri: nh_a printed as dash (other अर्द्धनगरीय rows print 0)
+sadar2,13,5111,अवई पाकड़,basic: duplicate vcode 5111 also printed for serial 19 (इन्जीनियरिंग कालेज)
+sadar2,19,5111,इन्जीनियरिंग कालेज,basic: duplicate vcode 5111 also printed for serial 13 (अवई पाकड़) | road: V-code 5111 printed here and also for serial 13 (अवई पाकड़); verified on scan
+sadar2,28,5164,उपधौली,road: 3-5 m band 6800 exceeds 5-9 m 1700 and 9-12 m 1800 (non-monotone); clearly printed 6800 on scan
+sadar2,29,5162,उमरपुर,agri: nh_a printed as dash (other अर्द्धनगरीय rows print 0)
+sadar2,59,0047,खुर्रमपुर,basic: vcode 0047 also printed for serial 157 | road: V-code 0047 as printed (seg table p60 uses 0047 for दिलेजाकपुर)
+sadar2,66,002,गिरधरगंज,"basic: vcode printed as 3 digits (002) | road: V-code printed with 3 digits ""002"" (seg table uses 0003 for गिरधरगंज); kept as printed"
+sadar2,83,0012,चकरा अव्वल,agri: नगरीय row with non-standard rates (560/476/196 set) - verified
+sadar2,85,0037,चिलमापुर,agri: नगरीय row with non-standard rates (560/476/196 set) - verified
+sadar2,91,5368,चकखान मोहम्मद,road: rent 70 (lowest in table) verified on zoom
+sadar2,93,0059,जटेपुर दक्षिणी,basic: vcode 0059 also printed for serial 165
+sadar2,96,0003,जंगल तुलसी राम पश्चिमी,basic: vcode 0003 also printed for serial 263
+sadar2,98,0206,जी0डी0ए0 कार्पोरेट पार्क योजना,agri: all cells dash; other_d cell blank
+sadar2,106,5471,जादोपुर,basic: vcode 5471 also printed for serial 134 | road: V-code 5471 also printed for serial 134 झरना टोला
+sadar2,108,5451,जं0 हरपुर,road: V-code 5451 also printed for serial 101 जं0 छत्रधारी
+sadar2,121,5480,जं0 डुमरी नं0-1,no row in road/agri table
+sadar2,123,5481,जं0 जैनुल आबदीन उर्फ जैनपुर,road: 3-5 m band printed 1320 (others in class 1600); verified on zoom
+sadar2,129,5467,जं0 रामगढ़ उर्फ रजही,road: 9-12 m band 1800 lower than 5-9 m 7000 (non-monotone); verified on zoom
+sadar2,134,5471,झरना टोला,"basic: vcode 5471 printed, same as serial 106 (जादोपुर); urban rows otherwise use 00xx codes | road: V-code 5471 also printed for serial 106 जादोपुर"
+sadar2,136,0083,ट्रांसपोर्टनगर,basic: vcode 0083 also printed for serial 168
+sadar2,144,014,तुर्कमानपुर,"basic: vcode printed as 3 digits (014) | road: V-code printed with 3 digits ""014""; kept as printed"
+sadar2,147,5669,ताल जमुआड़,road: 3-5 m figure partly broken in scan (reads 16?0); 1600 by stroke shape and row pattern
+sadar2,157,0047,दिलेजाकपुर,"basic: vcode 0047 printed, same as serial 59 (खुर्रमपुर)"
+sadar2,158,0031,दीवान दयाराम,road: vcode 0031 also on serial 340
+sadar2,165,0059,धम्माल,"basic: vcode 0059 printed, same as serial 93 (जटेपुर दक्षिणी)"
+sadar2,167,005,नौसढ़,basic: vcode printed as 3 digits (005) | road: vcode printed as 3 digits 005
+sadar2,168,0083,न्यू ट्रांसपोर्टनगर,"basic: vcode 0083 printed, same as serial 136 (ट्रांसपोर्टनगर) | road: vcode 0083 also on serial 136"
+sadar2,178,0057,पहाड़पुर,basic: vcode 0057 also printed for serial 200 | road: vcode 0057 also on serial 200
+sadar2,196,5883,फुलवरिया तप्पा-पचवारा,road: rent 70 printed (other 1600-rate villages have 90)
+sadar2,198,0044,बेतियाहाता,basic: vcode 0044 also printed for serial 201 | road: vcode 0044 also on serial 201
+sadar2,200,0057,बक्शीपुर,basic: vcode 0057 also printed for serial 178 | road: vcode 0057 also on serial 178
+sadar2,201,0044,बनकटीचक,basic: vcode 0044 also printed for serial 198 | road: vcode 0044 also on serial 198
+sadar2,208,0406,बुद्ध बिहार आवासीय योजना (यशोधरा खण्ड),road: name cut off at cell edge in print | agri: name truncated in print
+sadar2,260,0023,मियाँ बाजार - बैंक रोड से पूरब गोलघर की तरफ,basic: serial 260 split into 2 printed sub-rows (parent row मियाँ बाजार has no rate) | road: rent 90 printed on main row (sub-rows show 325); serial 260 has 3 printed rows
+sadar2,260,0023,मियाँ बाजार - बैंक रोड से पश्चिम कोतवाली की तरफ,basic: serial 260 split into 2 printed sub-rows (parent row मियाँ बाजार has no rate) | road: sub-row of serial 260 (no own serial/vcode printed) | no row in agri table
+sadar2,263,0003,महादेव झारखण्डी आवास विकास कालोनी,basic: vcode 0003 also printed for serial 96 | road: name cut off at cell edge in print
+sadar2,265,0060,महादेव झारखण्डी टु0 नं0-3,basic: ward printed as टु0 नं0-2-08 (same as serial 264) for टु0 नं0-3 | road: serial printed as 235 (sequence implies 265)
+sadar2,267,029,मुफ्तीपुर,basic: vcode printed as 3 digits (029) | road: vcode printed as 3 digits 029
+sadar2,268,0010,महुईसुधरपुर,road: vcode printed as 3 digits 015
+sadar2,273,042,मोहददीपुर,basic: vcode printed as 3 digits (042) | road: vcode printed as 3 digits 042 | agri: all rate cells printed as dash
+sadar2,282,6003,मोहनपुर,road: same name as serial 293 (vcode 5004)
+sadar2,293,5004,मोहनपुर,basic: vcode 5004 printed clearly; out of sequence with neighbouring 59xx-60xx codes (possible print error for 6004) | road: vcode 5004 printed (out of 59xx-60xx sequence; serial 282 is मोहनपुर 6004)
+sadar2,303,0202,यशोधरा कुन्ज आवासीय योजना,agri: all rate cells printed as dash
+sadar2,306,0030,रेती,agri: all rate cells printed as dash
+sadar2,307,0017,रूस्तमपुर हाईवे के उत्तर,agri: all rate cells printed as dash
+sadar2,308,0038,रूस्तमपुर हाईवे के दक्षिण,road: vcode 0038 also on serials 376-377 | agri: vcode 0038 also used for 376/377; all rate cells printed as dash
+sadar2,309,0009,रायगंज दक्षिणी,agri: all rate cells printed as dash
+sadar2,310,0043,रायगंज उत्तरी,basic: pargana/ward cell blank as printed | agri: all rate cells printed as dash
+sadar2,311,0085,रेलवे डेयरी कालोनी,road: vcode cell merged with serial 312 | agri: all rate cells printed as dash
+sadar2,312,0085,रेलवे बिछिया कालोनी,basic: vcode cell merged with serial 311 (0085 printed once); pargana/ward blank | road: vcode cell merged with serial 311 | agri: vcode cell blank (merged with 311 row printing 0085?); all rate cells printed as dash
+sadar2,313,0093,रेलवे स्टेशन सौन्दर्यकरण योजना,agri: all rate cells printed as dash
+sadar2,324,6079,रसूलपुर तप्पा खुटहन,road: vcode 6079 also on serial 332
+sadar2,332,6079,रिठना,"basic: vcode 6079 also printed for serial 324 (रसूलपुर तप्पा खुटहन); as printed | road: vcode 6079 also on serial 324 | agri: vcode 6079 as printed, same as serial 324"
+sadar2,333,0090,लेक ब्यू आवासीय योजना,agri: all rate cells printed as dash
+sadar2,334,0091,लेक ब्यू विस्तार योजना,agri: all rate cells printed as dash
+sadar2,335,0205,लोहिया इन्क्लेव योजना,agri: all rate cells printed as dash
+sadar2,339,0058,शाहमारूफ,agri: all rate cells printed as dash
+sadar2,340,0031,शेषपुर,road: unusual non-round rates 22550/23575 as printed; vcode 0031 also on serial 158 | agri: all rate cells printed as dash
+sadar2,341,0071,सैनिक सहकारी आवास समिति,agri: all rate cells printed as dash
+sadar2,342,0087,सिद्धार्थ इन्क्लेव फेज-2 आवासीय योजन,basic: name truncated at cell edge as printed (योजना) | road: name cut off at cell edge in print | agri: all rate cells printed as dash
+sadar2,343,0088,सिद्धार्थपुरम आवासीय योजना,basic: pargana/ward blank as printed | agri: all rate cells printed as dash
+sadar2,344,0089,सिद्धार्थपुरम आवासीय विस्तार योजना,basic: pargana/ward blank as printed | agri: all rate cells printed as dash
+sadar2,345,0086,सिद्धार्थपुरम इन्क्लेव विस्तार,basic: pargana/ward blank as printed | agri: all rate cells printed as dash
+sadar2,375,0074,सहारा स्टेट,basic: pargana/ward blank as printed | agri: all rate cells printed as dash
+sadar2,376,0038,हँसूपुर मुस्तकिल,basic: vcode 0038 also printed for serial 308 (रूस्तमपुर हाईवे के दक्षिण); as printed | road: vcode 0038 also on serials 308/377 | agri: vcode 0038 shared with 308/377
+sadar2,377,039,हँसूपुर एहतमाली,basic: vcode printed with 3 digits (039) | no row in road/agri table
+sadar2,123,5482,जं0 डुमरी नं0-2,only found in the road table (V-code or name printed differently elsewhere)
+sadar2,260,0023,मियाँ बाजार / बैंक रोड से पश्चिम कोतवाली की तरफ,road: sub-row of serial 260 (no own serial/vcode printed); last letter cut off in print | only found in the road table (V-code or name printed differently elsewhere)
+sadar2,377,0038,हाँसूपुर एहतमाली,road: vcode 0038 also on serials 308/376 | only found in the road table (V-code or name printed differently elsewhere)
+sadar2,123,5482,जं0 डुमरी नं0-2,only found in the agri table (V-code or name printed differently elsewhere)
+sadar2,,,बैंक रोड से पूरब गोलघर की तर,agri: sub-row of serial 260 (no serial/vcode printed); name truncated in print | only found in the agri table (V-code or name printed differently elsewhere)
+sadar2,,,बैंक रोड से पश्चिम कोतवाली की,agri: sub-row of serial 260 (no serial/vcode printed); name truncated in print | only found in the agri table (V-code or name printed differently elsewhere)
+sadar2,377,0038,हॅंसूपुर एहतमाली नदी के तरफ,agri: vcode 0038 shared with 308/376 | only found in the agri table (V-code or name printed differently elsewhere)
+sahjanwa,2,1002,अमौली,"agri: link_d 78 > link_c 57 as printed (systematic) | agri link_d printed 78, corrected to 38 per AIG Registration order 09.01.2017 printed in the list"
+sahjanwa,3,1002,अमसार,"basic: vcode printed 1002 (duplicate of serial 2; index p12 gives 1003) | agri: link_d 78 > link_c 57 as printed (systematic) | agri link_d printed 78, corrected to 38 per AIG Registration order 09.01.2017 printed in the list"
+sahjanwa,4,1004,अडिलापार,"agri: link_d 78 > link_c 57 as printed (systematic) | agri link_d printed 78, corrected to 38 per AIG Registration order 09.01.2017 printed in the list"
+sahjanwa,5,1005,अचियापार,"agri: link_d 78 > link_c 57 as printed (systematic); link_a 260 (neighbours 250) as printed | agri link_d printed 78, corrected to 38 per AIG Registration order 09.01.2017 printed in the list"
+sahjanwa,7,1007,ओदार,"agri: link_d 78 > link_c 57 as printed (systematic) | agri link_d printed 78, corrected to 38 per AIG Registration order 09.01.2017 printed in the list"
+sahjanwa,10,1010,अलगटपुर,"agri: link_d 78 > link_c 57 as printed (systematic) | agri link_d printed 78, corrected to 38 per AIG Registration order 09.01.2017 printed in the list"
+sahjanwa,11,1011,इमिलडीहा,"agri: link_d 78 > link_c 57 as printed (systematic) | agri link_d printed 78, corrected to 38 per AIG Registration order 09.01.2017 printed in the list"
+sahjanwa,12,1012,इटार,"agri: link_d 78 > link_c 57 as printed (systematic) | agri link_d printed 78, corrected to 38 per AIG Registration order 09.01.2017 printed in the list"
+sahjanwa,13,1013,इटौवा,"agri: link_d 78 > link_c 57 as printed (systematic) | agri link_d printed 78, corrected to 38 per AIG Registration order 09.01.2017 printed in the list"
+sahjanwa,14,1014,इटवा,"agri: link_d 78 > link_c 57 as printed (systematic) | agri link_d printed 78, corrected to 38 per AIG Registration order 09.01.2017 printed in the list"
+sahjanwa,15,1015,उसका,"agri: link_d 78 > link_c 57 as printed (systematic) | agri link_d printed 78, corrected to 38 per AIG Registration order 09.01.2017 printed in the list"
+sahjanwa,17,1017,उज्जीखोर,"agri: link_d 78 > link_c 57 as printed (systematic) | agri link_d printed 78, corrected to 38 per AIG Registration order 09.01.2017 printed in the list"
+sahjanwa,18,1018,एकडंगा,agri: nh_c 300 (vs 426 elsewhere) as printed
+sahjanwa,19,1019,ककुआपार,"agri: link_d 78 > link_c 57 as printed (systematic) | agri link_d printed 78, corrected to 38 per AIG Registration order 09.01.2017 printed in the list"
+sahjanwa,21,1021,कविसा,"agri: link_d 78 > link_c 57 as printed (systematic) | agri link_d printed 78, corrected to 38 per AIG Registration order 09.01.2017 printed in the list"
+sahjanwa,22,1022,करमुआ,"agri: link_d 78 > link_c 57 as printed (systematic) | agri link_d printed 78, corrected to 38 per AIG Registration order 09.01.2017 printed in the list"
+sahjanwa,23,1023,कररिया,"agri: link_d 78 > link_c 57 as printed (systematic) | agri link_d printed 78, corrected to 38 per AIG Registration order 09.01.2017 printed in the list"
+sahjanwa,24,1024,कोठा,"agri: link_d 78 > link_c 57 as printed (systematic) | agri link_d printed 78, corrected to 38 per AIG Registration order 09.01.2017 printed in the list"
+sahjanwa,25,1025,कोठामाफी,"agri: link_d 78 > link_c 57 as printed (systematic) | agri link_d printed 78, corrected to 38 per AIG Registration order 09.01.2017 printed in the list"
+sahjanwa,26,1026,कोमा,"agri: link_d 78 > link_c 57 as printed (systematic) | agri link_d printed 78, corrected to 38 per AIG Registration order 09.01.2017 printed in the list"
+sahjanwa,27,1027,कोटिया,"agri: link_d 78 > link_c 57 as printed (systematic) | agri link_d printed 78, corrected to 38 per AIG Registration order 09.01.2017 printed in the list"
+sahjanwa,30,1030,कोहारभार,"agri: link_d 78 > link_c 57 as printed (systematic) | agri link_d printed 78, corrected to 38 per AIG Registration order 09.01.2017 printed in the list"
+sahjanwa,32,1032,कोड़रा,"agri: link_d 78 > link_c 57 as printed (systematic) | agri link_d printed 78, corrected to 38 per AIG Registration order 09.01.2017 printed in the list"
+sahjanwa,33,1033,कोडरी खुर्द,"agri: link_d 78 > link_c 57 as printed (systematic) | agri link_d printed 78, corrected to 38 per AIG Registration order 09.01.2017 printed in the list"
+sahjanwa,34,1034,कोडरीकला,"agri: link_d 78 > link_c 57 as printed (systematic) | agri link_d printed 78, corrected to 38 per AIG Registration order 09.01.2017 printed in the list"
+sahjanwa,35,1035,कोदरी,agri: other_d 31 with other_c 69 as printed
+sahjanwa,37,1037,कोल्हुई रेट,"agri: link_d 78 > link_c 57 as printed (systematic) | agri link_d printed 78, corrected to 38 per AIG Registration order 09.01.2017 printed in the list"
+sahjanwa,38,1038,कोल्हुई,"agri: link_d 78 > link_c 57 as printed (systematic) | agri link_d printed 78, corrected to 38 per AIG Registration order 09.01.2017 printed in the list"
+sahjanwa,39,1039,कॉट,"agri: link_d 78 > link_c 57 as printed (systematic) | agri link_d printed 78, corrected to 38 per AIG Registration order 09.01.2017 printed in the list"
+sahjanwa,40,1040,कालेसर मु0,road: serial 19 hand-overwritten on scan; V-code 1040 out of sequence as printed
+sahjanwa,41,1041,कसरौल,"road: r9to12=9200 clearly printed but out of pattern (siblings 2800/3000 -> 3400/3100); verify | agri: dist_a 320 / link_a 310 / other_a 240 lower than usual for this nh/dist_b set, as printed"
+sahjanwa,42,1042,कुसमौल,no row in road/comm/agri table
+sahjanwa,43,1043,कुरसा,no row in road/comm/agri table
+sahjanwa,44,1044,कुसम्ही,"agri: link_d 78 > link_c 57 as printed (systematic) | agri link_d printed 78, corrected to 38 per AIG Registration order 09.01.2017 printed in the list"
+sahjanwa,45,1045,कुसम्हा खुर्द,"agri: link_d 78 > link_c 57 as printed (systematic) | agri link_d printed 78, corrected to 38 per AIG Registration order 09.01.2017 printed in the list"
+sahjanwa,46,1046,कुसम्हाकला,"agri: link_d 78 > link_c 57 as printed (systematic); other_a 340 > link_a 250 as printed | agri link_d printed 78, corrected to 38 per AIG Registration order 09.01.2017 printed in the list"
+sahjanwa,47,1047,कुरमौल,"agri: link_d 78 > link_c 57 as printed (systematic) | agri link_d printed 78, corrected to 38 per AIG Registration order 09.01.2017 printed in the list"
+sahjanwa,48,1048,कुचडेहरी,"agri: link_d 78 > link_c 57 as printed (systematic) | agri link_d printed 78, corrected to 38 per AIG Registration order 09.01.2017 printed in the list"
+sahjanwa,51,1051,केशोकुरहा,"agri: link_d 78 > link_c 57 as printed (systematic) | agri link_d printed 78, corrected to 38 per AIG Registration order 09.01.2017 printed in the list"
+sahjanwa,56,1052,केवटहल,"agri: link_d 78 > link_c 57 as printed (systematic) | agri link_d printed 78, corrected to 38 per AIG Registration order 09.01.2017 printed in the list"
+sahjanwa,57,1053,कैली,"agri: link_d 78 > link_c 57 as printed (systematic) | agri link_d printed 78, corrected to 38 per AIG Registration order 09.01.2017 printed in the list"
+sahjanwa,59,1055,कटया,"agri: link_d 78 > link_c 57 as printed (systematic) | agri link_d printed 78, corrected to 38 per AIG Registration order 09.01.2017 printed in the list"
+sahjanwa,60,1056,कटका,"agri: link_d 78 > link_c 57 as printed (systematic) | agri link_d printed 78, corrected to 38 per AIG Registration order 09.01.2017 printed in the list"
+sahjanwa,63,1059,कूवावार,"agri: link_d 78 > link_c 57 as printed (systematic) | agri link_d printed 78, corrected to 38 per AIG Registration order 09.01.2017 printed in the list"
+sahjanwa,64,1060,खीरीडॉड,"agri: link_d 78 > link_c 57 as printed (systematic) | agri link_d printed 78, corrected to 38 per AIG Registration order 09.01.2017 printed in the list"
+sahjanwa,66,1062,खाड़पोतहरा,"agri: link_d 78 > link_c 57 as printed (systematic) | agri link_d printed 78, corrected to 38 per AIG Registration order 09.01.2017 printed in the list"
+sahjanwa,68,1064,खॉनीपुर,road: first digit of r2to5 partly covered by a hand tick mark; read 4100
+sahjanwa,69,1065,खेरिया उर्फ भीटी,"agri: link_d 78 > link_c 57 as printed (systematic) | agri link_d printed 78, corrected to 38 per AIG Registration order 09.01.2017 printed in the list"
+sahjanwa,71,0001,गीडा-सेक्टर संख्या-5,no row in agri table
+sahjanwa,72,0002,गीडा-सेक्टर संख्या-13,no row in agri table
+sahjanwa,73,0003,गीडा-सेक्टर संख्या-15,no row in agri table
+sahjanwa,74,0004,गीडा-सेक्टर संख्या-17,no row in agri table
+sahjanwa,75,0005,गीडा-सेक्टर संख्या-22,no row in agri table
+sahjanwa,76,0006,गीडा-सेक्टर संख्या-23,road: r2to5=11000 clearly printed but other GIDA sectors (rows 85-89) have 9900; verify | no row in agri table
+sahjanwa,77,1067,गोविन्दपुर,"agri: link_d 78 > link_c 57 as printed (systematic) | agri link_d printed 78, corrected to 38 per AIG Registration order 09.01.2017 printed in the list"
+sahjanwa,78,1068,गोविन्दपुर उ0 ह0,"agri: link_d 78 > link_c 57 as printed (systematic) | agri link_d printed 78, corrected to 38 per AIG Registration order 09.01.2017 printed in the list"
+sahjanwa,83,0031,गाहासांड,comm: shop_single_land partly obscured by signature (reads 27?00; 27500 per pattern)
+sahjanwa,84,1071,गोरैडीह,"agri: link_d 78 > link_c 57 as printed (systematic) | agri link_d printed 78, corrected to 38 per AIG Registration order 09.01.2017 printed in the list"
+sahjanwa,85,1072,गुलालचक,"agri: link_d 78 > link_c 57 as printed (systematic) | agri link_d printed 78, corrected to 38 per AIG Registration order 09.01.2017 printed in the list"
+sahjanwa,86,1073,गुलउर,"agri: link_d 78 > link_c 57 as printed (systematic) | agri link_d printed 78, corrected to 38 per AIG Registration order 09.01.2017 printed in the list"
+sahjanwa,87,1074,गनौरी,"agri: link_d 78 > link_c 57 as printed (systematic) | agri link_d printed 78, corrected to 38 per AIG Registration order 09.01.2017 printed in the list"
+sahjanwa,88,1075,गनौरा,"agri: link_d 78 > link_c 57 as printed (systematic) | agri link_d printed 78, corrected to 38 per AIG Registration order 09.01.2017 printed in the list"
+sahjanwa,89,1076,गायघाट,"agri: link_d 78 > link_c 57 as printed (systematic) | agri link_d printed 78, corrected to 38 per AIG Registration order 09.01.2017 printed in the list"
+sahjanwa,90,1077,गहिरा,"agri: link_d 78 > link_c 57 as printed (systematic) | agri link_d printed 78, corrected to 38 per AIG Registration order 09.01.2017 printed in the list"
+sahjanwa,91,1078,गाडर,"comm: serial jumps 90->109 as printed (91-108 not on page) | agri: link_d 78 > link_c 57 as printed (systematic) | agri link_d printed 78, corrected to 38 per AIG Registration order 09.01.2017 printed in the list"
+sahjanwa,93,1080,चकबैदपुरवां,"agri: link_d 78 > link_c 57 as printed (systematic) | agri link_d printed 78, corrected to 38 per AIG Registration order 09.01.2017 printed in the list"
+sahjanwa,95,1082,चकदाउद,"agri: link_d 78 > link_c 57 as printed (systematic) | agri link_d printed 78, corrected to 38 per AIG Registration order 09.01.2017 printed in the list"
+sahjanwa,98,1085,चकफत्ता,"agri: link_d 78 > link_c 57 as printed (systematic) | agri link_d printed 78, corrected to 38 per AIG Registration order 09.01.2017 printed in the list"
+sahjanwa,99,1086,चनियरा,"agri: link_d 78 > link_c 57 as printed (systematic) | agri link_d printed 78, corrected to 38 per AIG Registration order 09.01.2017 printed in the list"
+sahjanwa,100,1087,चपरहट,"agri: link_d 78 > link_c 57 as printed (systematic) | agri link_d printed 78, corrected to 38 per AIG Registration order 09.01.2017 printed in the list"
+sahjanwa,103,1090,चौरी,"agri: link_d 78 > link_c 57 as printed (systematic) | agri link_d printed 78, corrected to 38 per AIG Registration order 09.01.2017 printed in the list"
+sahjanwa,105,1092,चुरिहरा,"agri: link_d 78 > link_c 57 as printed (systematic) | agri link_d printed 78, corrected to 38 per AIG Registration order 09.01.2017 printed in the list"
+sahjanwa,106,1093,चेचुआपार,"agri: link_d 78 > link_c 57 as printed (systematic) | agri link_d printed 78, corrected to 38 per AIG Registration order 09.01.2017 printed in the list"
+sahjanwa,107,1094,चन्दहा,"agri: link_d 78 > link_c 57 as printed (systematic) | agri link_d printed 78, corrected to 38 per AIG Registration order 09.01.2017 printed in the list"
+sahjanwa,108,1095,छजनियां,"agri: link_d 78 > link_c 57 as printed (systematic) | agri link_d printed 78, corrected to 38 per AIG Registration order 09.01.2017 printed in the list"
+sahjanwa,110,1097,जंगलदीगर,"agri: link_d 78 > link_c 57 as printed (systematic) | agri link_d printed 78, corrected to 38 per AIG Registration order 09.01.2017 printed in the list"
+sahjanwa,111,1098,जबरैला विषखोहर,"agri: link_d 78 > link_c 57 as printed (systematic) | agri link_d printed 78, corrected to 38 per AIG Registration order 09.01.2017 printed in the list"
+sahjanwa,113,1100,जोन्हिया,"agri: link_d 78 > link_c 57 as printed (systematic) | agri link_d printed 78, corrected to 38 per AIG Registration order 09.01.2017 printed in the list"
+sahjanwa,115,1102,जाल्हेपार,"agri: link_d 78 > link_c 57 as printed (systematic) | agri link_d printed 78, corrected to 38 per AIG Registration order 09.01.2017 printed in the list"
+sahjanwa,119,1105,जूड़ाकोड़री,"agri: link_d 78 > link_c 57 as printed (systematic) | agri link_d printed 78, corrected to 38 per AIG Registration order 09.01.2017 printed in the list"
+sahjanwa,123,1109,जिगिना,"agri: link_d 78 > link_c 57 as printed (systematic); other_a 410 > link_a 250 as printed | agri link_d printed 78, corrected to 38 per AIG Registration order 09.01.2017 printed in the list"
+sahjanwa,124,1110,झुडिया,"agri: link_d 78 > link_c 57 as printed (systematic); other_a 410 > link_a 240 as printed | agri link_d printed 78, corrected to 38 per AIG Registration order 09.01.2017 printed in the list"
+sahjanwa,125,1111,झुगियां,agri: nh_c 337 / dist_c 227 as printed
+sahjanwa,126,1112,टिकरिया,"agri: link_d 78 > link_c 57 as printed (systematic) | agri link_d printed 78, corrected to 38 per AIG Registration order 09.01.2017 printed in the list"
+sahjanwa,127,1113,टिकरियाखोर,agri: other_a 150 as printed
+sahjanwa,128,1114,टिकरी,"agri: link_d 78 > link_c 57 as printed (systematic) | agri link_d printed 78, corrected to 38 per AIG Registration order 09.01.2017 printed in the list"
+sahjanwa,129,1115,टड़वा खुर्द,"agri: link_d 78 > link_c 57 as printed (systematic) | agri link_d printed 78, corrected to 38 per AIG Registration order 09.01.2017 printed in the list"
+sahjanwa,130,1116,टड़वाकला,"agri: link_d 78 > link_c 57 as printed (systematic) | agri link_d printed 78, corrected to 38 per AIG Registration order 09.01.2017 printed in the list"
+sahjanwa,131,1117,टडवॉमाफी,"agri: link_d 78 > link_c 57 as printed (systematic) | agri link_d printed 78, corrected to 38 per AIG Registration order 09.01.2017 printed in the list"
+sahjanwa,134,1120,ठाठेयारी,"agri: link_d 78 > link_c 57 as printed (systematic) | agri link_d printed 78, corrected to 38 per AIG Registration order 09.01.2017 printed in the list"
+sahjanwa,135,1121,डोमहरमाफी,agri: other_a 150 as printed
+sahjanwa,136,1122,डोमनडॉड,"agri: link_d 78 > link_c 57 as printed (systematic) | agri link_d printed 78, corrected to 38 per AIG Registration order 09.01.2017 printed in the list"
+sahjanwa,137,1123,डोहरिया खुर्द,"agri: link_d 78 > link_c 57 as printed (systematic) | agri link_d printed 78, corrected to 38 per AIG Registration order 09.01.2017 printed in the list"
+sahjanwa,139,1125,डुमरी,agri: other slabs not non-increasing as printed; other_a 150 < other_b 177 as printed
+sahjanwa,140,1126,ढ़ेलहा,"agri: link_d 78 > link_c 57 as printed (systematic) | agri link_d printed 78, corrected to 38 per AIG Registration order 09.01.2017 printed in the list"
+sahjanwa,141,1127,तारडीह,"agri: link_d 78 > link_c 57 as printed (systematic) | agri link_d printed 78, corrected to 38 per AIG Registration order 09.01.2017 printed in the list"
+sahjanwa,142,1128,तालनगरी,"agri: link_d 78 > link_c 57 as printed (systematic) | agri link_d printed 78, corrected to 38 per AIG Registration order 09.01.2017 printed in the list"
+sahjanwa,143,1129,तेलियाडीह,"agri: link_d 78 > link_c 57 as printed (systematic) | agri link_d printed 78, corrected to 38 per AIG Registration order 09.01.2017 printed in the list"
+sahjanwa,144,1130,तेतरिया,agri: other_d 31 as printed
+sahjanwa,145,0034,तेनुहारी तप्पा गाहांसाड,agri: other_d 31 (other_c 138) as printed
+sahjanwa,146,1131,तेनुहारी तप्पा उ0ह0,"agri: link_d 78 > link_c 57 as printed (systematic) | agri link_d printed 78, corrected to 38 per AIG Registration order 09.01.2017 printed in the list"
+sahjanwa,148,1133,तेनुअन,"agri: link_d 78 > link_c 57 as printed (systematic) | agri link_d printed 78, corrected to 38 per AIG Registration order 09.01.2017 printed in the list"
+sahjanwa,149,1134,तिवरान,"agri: link_d 78 > link_c 57 as printed (systematic) | agri link_d printed 78, corrected to 38 per AIG Registration order 09.01.2017 printed in the list"
+sahjanwa,150,1135,तितनपार,"agri: link_d 78 > link_c 57 as printed (systematic) | agri link_d printed 78, corrected to 38 per AIG Registration order 09.01.2017 printed in the list"
+sahjanwa,151,1136,तिनहरा,"agri: link_d 78 > link_c 57 as printed (systematic) | agri link_d printed 78, corrected to 38 per AIG Registration order 09.01.2017 printed in the list"
+sahjanwa,152,1137,तिलौरा,agri: other_d 46 as printed
+sahjanwa,154,1139,थवईपार,"agri: link_d 78 > link_c 57 as printed (systematic) | agri link_d printed 78, corrected to 38 per AIG Registration order 09.01.2017 printed in the list"
+sahjanwa,155,1140,दखिनवां,"agri: link_d 78 > link_c 57 as printed (systematic) | agri link_d printed 78, corrected to 38 per AIG Registration order 09.01.2017 printed in the list"
+sahjanwa,157,1142,दरघाट,"agri: link_d 78 > link_c 57 as printed (systematic) | agri link_d printed 78, corrected to 38 per AIG Registration order 09.01.2017 printed in the list"
+sahjanwa,158,1143,दफतरी,"agri: link_d 78 > link_c 57 as printed (systematic) | agri link_d printed 78, corrected to 38 per AIG Registration order 09.01.2017 printed in the list"
+sahjanwa,159,1144,दुल्टही,"agri: link_d 78 > link_c 57 as printed (systematic) | agri link_d printed 78, corrected to 38 per AIG Registration order 09.01.2017 printed in the list"
+sahjanwa,163,1148,धोवही,"agri: link_d 78 > link_c 57 as printed (systematic) | agri link_d printed 78, corrected to 38 per AIG Registration order 09.01.2017 printed in the list"
+sahjanwa,164,1149,धुरियापार,"agri: link_d 78 > link_c 57 as printed (systematic) | agri link_d printed 78, corrected to 38 per AIG Registration order 09.01.2017 printed in the list"
+sahjanwa,165,1150,नीवी,"agri: link_d 78 > link_c 57 as printed (systematic) | agri link_d printed 78, corrected to 38 per AIG Registration order 09.01.2017 printed in the list"
+sahjanwa,166,1151,नरायनपार,"agri: link_d 78 > link_c 57 as printed (systematic) | agri link_d printed 78, corrected to 38 per AIG Registration order 09.01.2017 printed in the list"
+sahjanwa,167,1152,नरौली,"agri: link_d 78 > link_c 57 as printed (systematic) | agri link_d printed 78, corrected to 38 per AIG Registration order 09.01.2017 printed in the list"
+sahjanwa,168,1153,नारंगपट्टी,"agri: link_d 78 > link_c 57 as printed (systematic) | agri link_d printed 78, corrected to 38 per AIG Registration order 09.01.2017 printed in the list"
+sahjanwa,169,1154,नरकटहा,"agri: link_d 78 > link_c 57 as printed (systematic) | agri link_d printed 78, corrected to 38 per AIG Registration order 09.01.2017 printed in the list"
+sahjanwa,170,1155,नचनी,"agri: link_d 78 > link_c 57 as printed (systematic); village name glyph unclear (नचनी / नचत्री?) | agri link_d printed 78, corrected to 38 per AIG Registration order 09.01.2017 printed in the list"
+sahjanwa,177,1162,पिपरही,"agri: link_d 78 > link_c 57 as printed (systematic) | agri link_d printed 78, corrected to 38 per AIG Registration order 09.01.2017 printed in the list"
+sahjanwa,178,1163,पिपरी,"agri: link_d 78 > link_c 57 as printed (systematic) | agri link_d printed 78, corrected to 38 per AIG Registration order 09.01.2017 printed in the list"
+sahjanwa,179,1164,पिपरा तप्पा सुरस,"agri: link_d 78 > link_c 57 as printed (systematic) | agri link_d printed 78, corrected to 38 per AIG Registration order 09.01.2017 printed in the list"
+sahjanwa,180,0035,पिपरा,comm: अर्धनगरीय but rural-level rates printed (13200/33000/31900); verified on scan
+sahjanwa,184,1169,पट्टी धरमदास,"agri: link_d 78 > link_c 57 as printed (systematic) | agri link_d printed 78, corrected to 38 per AIG Registration order 09.01.2017 printed in the list"
+sahjanwa,185,1170,पनिका,"agri: link_d 78 > link_c 57 as printed (systematic) | agri link_d printed 78, corrected to 38 per AIG Registration order 09.01.2017 printed in the list"
+sahjanwa,189,1174,पुण्डा,"agri: link_d printed 78; order dated 09.01.2017 (PDF p95) says 78 in col 16 is a typo for 38 | agri link_d printed 78, corrected to 38 per AIG Registration order 09.01.2017 printed in the list"
+sahjanwa,190,1175,पतेड़,"agri: link_d printed 78; order dated 09.01.2017 (PDF p95) says 78 in col 16 is a typo for 38 | agri link_d printed 78, corrected to 38 per AIG Registration order 09.01.2017 printed in the list"
+sahjanwa,192,1176,पल्हुआपार,"agri: link_d printed 78; order dated 09.01.2017 (PDF p95) says 78 in col 16 is a typo for 38 | agri link_d printed 78, corrected to 38 per AIG Registration order 09.01.2017 printed in the list"
+sahjanwa,193,1177,प्रानपुर,"agri: link_d printed 78; order dated 09.01.2017 (PDF p95) says 78 in col 16 is a typo for 38 | agri link_d printed 78, corrected to 38 per AIG Registration order 09.01.2017 printed in the list"
+sahjanwa,194,1178,फरसाडॉड,"agri: link_d printed 78; order dated 09.01.2017 (PDF p95) says 78 in col 16 is a typo for 38 | agri link_d printed 78, corrected to 38 per AIG Registration order 09.01.2017 printed in the list"
+sahjanwa,195,1179,बघौडा,"agri: link_d printed 78; order dated 09.01.2017 (PDF p95) says 78 in col 16 is a typo for 38 | agri link_d printed 78, corrected to 38 per AIG Registration order 09.01.2017 printed in the list"
+sahjanwa,196,1180,बढ़नी,"agri: link_d printed 78; order dated 09.01.2017 (PDF p95) says 78 in col 16 is a typo for 38 | agri link_d printed 78, corrected to 38 per AIG Registration order 09.01.2017 printed in the list"
+sahjanwa,197,1181,बंगलाखोर,"agri: link_d printed 78; order dated 09.01.2017 (PDF p95) says 78 in col 16 is a typo for 38 | agri link_d printed 78, corrected to 38 per AIG Registration order 09.01.2017 printed in the list"
+sahjanwa,198,1182,बसिया,"agri: link_d printed 78; order dated 09.01.2017 (PDF p95) says 78 in col 16 is a typo for 38 | agri link_d printed 78, corrected to 38 per AIG Registration order 09.01.2017 printed in the list"
+sahjanwa,199,1183,बहादुरपुर,"agri: link_d printed 78; order dated 09.01.2017 (PDF p95) says 78 in col 16 is a typo for 38 | agri link_d printed 78, corrected to 38 per AIG Registration order 09.01.2017 printed in the list"
+sahjanwa,201,1185,बरईपार तेतरिया,"agri: link_d printed 78; order dated 09.01.2017 (PDF p95) says 78 in col 16 is a typo for 38 | agri link_d printed 78, corrected to 38 per AIG Registration order 09.01.2017 printed in the list"
+sahjanwa,202,1186,बरसिहा,"agri: link_d printed 78; order dated 09.01.2017 (PDF p95) says 78 in col 16 is a typo for 38 | agri link_d printed 78, corrected to 38 per AIG Registration order 09.01.2017 printed in the list"
+sahjanwa,204,1188,बरौली,agri: other_a 380 exceeds dist_a/link_a (verified as printed)
+sahjanwa,208,1192,बरडाड़,agri: nh_d partly obscured by signature (reads 0)
+sahjanwa,209,1193,बाघनगर गोल्हिया,"agri: link_d printed 78; order dated 09.01.2017 (PDF p95) says 78 in col 16 is a typo for 38 | agri link_d printed 78, corrected to 38 per AIG Registration order 09.01.2017 printed in the list"
+sahjanwa,210,1194,बांसपार,road: name poorly printed (बांसपार?) | agri: other_a 340 exceeds link_a 330 (as printed)
+sahjanwa,211,1195,बांहिलपार,road: name poorly printed (बाछिलपार?)
+sahjanwa,212,0037,बोक्टा,road: name partly obscured by hand tick marks (बौक्टा?)
+sahjanwa,213,1196,बोगां,"agri: link_d printed 78; order dated 09.01.2017 (PDF p95) says 78 in col 16 is a typo for 38 | agri link_d printed 78, corrected to 38 per AIG Registration order 09.01.2017 printed in the list"
+sahjanwa,214,1197,बसन्तपुर,"agri: link_d printed 78; order dated 09.01.2017 (PDF p95) says 78 in col 16 is a typo for 38 | agri link_d printed 78, corrected to 38 per AIG Registration order 09.01.2017 printed in the list"
+sahjanwa,215,1198,बड़हाडूडा,"agri: link_d printed 78; order dated 09.01.2017 (PDF p95) says 78 in col 16 is a typo for 38 | agri link_d printed 78, corrected to 38 per AIG Registration order 09.01.2017 printed in the list"
+sahjanwa,217,1200,बड़गो,"agri: link_d printed 78; order dated 09.01.2017 (PDF p95) says 78 in col 16 is a typo for 38 | agri link_d printed 78, corrected to 38 per AIG Registration order 09.01.2017 printed in the list"
+sahjanwa,218,1201,बवड़रा,"agri: link_d printed 78; order dated 09.01.2017 (PDF p95) says 78 in col 16 is a typo for 38 | agri link_d printed 78, corrected to 38 per AIG Registration order 09.01.2017 printed in the list"
+sahjanwa,220,1203,बुधना,"agri: link_d printed 78; order dated 09.01.2017 (PDF p95) says 78 in col 16 is a typo for 38 | agri link_d printed 78, corrected to 38 per AIG Registration order 09.01.2017 printed in the list"
+sahjanwa,222,1205,बेलहर,"agri: link_d printed 78; order dated 09.01.2017 (PDF p95) says 78 in col 16 is a typo for 38 | agri link_d printed 78, corrected to 38 per AIG Registration order 09.01.2017 printed in the list"
+sahjanwa,224,1207,बेलवाडाड़ी,"agri: link_d printed 78; order dated 09.01.2017 (PDF p95) says 78 in col 16 is a typo for 38 | agri link_d printed 78, corrected to 38 per AIG Registration order 09.01.2017 printed in the list"
+sahjanwa,225,1208,बन्धुआ उर्फ बौरडीह,"agri: link_d printed 78; order dated 09.01.2017 (PDF p95) says 78 in col 16 is a typo for 38 | agri link_d printed 78, corrected to 38 per AIG Registration order 09.01.2017 printed in the list"
+sahjanwa,226,1209,बनकटिया,"agri: link_d printed 78; order dated 09.01.2017 (PDF p95) says 78 in col 16 is a typo for 38 | agri link_d printed 78, corrected to 38 per AIG Registration order 09.01.2017 printed in the list"
+sahjanwa,227,1210,बनकटा,"road: V-code printed as 12010 (5 digits; likely 1210) | comm: V-code printed as 12010 (sequence suggests 1210) | agri: link_d printed 78; order dated 09.01.2017 (PDF p95) says 78 in col 16 is a typo for 38 | agri link_d printed 78, corrected to 38 per AIG Registration order 09.01.2017 printed in the list"
+sahjanwa,228,1211,बन्हैता,"agri: link_d printed 78; order dated 09.01.2017 (PDF p95) says 78 in col 16 is a typo for 38 | agri link_d printed 78, corrected to 38 per AIG Registration order 09.01.2017 printed in the list"
+sahjanwa,229,1213,बनोहिया,"agri: link_d printed 78; order dated 09.01.2017 (PDF p95) says 78 in col 16 is a typo for 38 | agri link_d printed 78, corrected to 38 per AIG Registration order 09.01.2017 printed in the list"
+sahjanwa,230,1214,बनौली,"agri: link_d printed 78; order dated 09.01.2017 (PDF p95) says 78 in col 16 is a typo for 38 | agri link_d printed 78, corrected to 38 per AIG Registration order 09.01.2017 printed in the list"
+sahjanwa,233,1217,बनगांवा तप्पा भरसाड़,"agri: unusual pattern: dist_b 250/dist_c 240 high, link_a 260 < dist_a (as printed)"
+sahjanwa,234,1218,बलुआ मंझरिया,"agri: link_d printed 78; order dated 09.01.2017 (PDF p95) says 78 in col 16 is a typo for 38 | agri link_d printed 78, corrected to 38 per AIG Registration order 09.01.2017 printed in the list"
+sahjanwa,235,1219,बिड़ार,"agri: link_d printed 78; order dated 09.01.2017 (PDF p95) says 78 in col 16 is a typo for 38 | agri link_d printed 78, corrected to 38 per AIG Registration order 09.01.2017 printed in the list"
+sahjanwa,236,1220,भटवल,"agri: link_d printed 78; order dated 09.01.2017 (PDF p95) says 78 in col 16 is a typo for 38 | agri link_d printed 78, corrected to 38 per AIG Registration order 09.01.2017 printed in the list"
+sahjanwa,237,1221,भीमापार,"agri: link_d printed 78; order dated 09.01.2017 (PDF p95) says 78 in col 16 is a typo for 38 | agri link_d printed 78, corrected to 38 per AIG Registration order 09.01.2017 printed in the list"
+sahjanwa,238,1222,भीटी,"agri: other_a 380 exceeds dist_a/link_a (verified at 350dpi); link_d printed 78; order dated 09.01.2017 (PDF p95) says 78 in col 16 is a typo for 38 | agri link_d printed 78, corrected to 38 per AIG Registration order 09.01.2017 printed in the list"
+sahjanwa,242,1226,भरोहिया,"agri: link_d printed 78; order dated 09.01.2017 (PDF p95) says 78 in col 16 is a typo for 38 | agri link_d printed 78, corrected to 38 per AIG Registration order 09.01.2017 printed in the list"
+sahjanwa,243,1227,भर्राकाछ,"agri: link_d printed 78; order dated 09.01.2017 (PDF p95) says 78 in col 16 is a typo for 38 | agri link_d printed 78, corrected to 38 per AIG Registration order 09.01.2017 printed in the list"
+sahjanwa,245,1229,भरवल,"agri: link_d printed 78; order dated 09.01.2017 (PDF p95) says 78 in col 16 is a typo for 38 | agri link_d printed 78, corrected to 38 per AIG Registration order 09.01.2017 printed in the list"
+sahjanwa,246,1230,भरवल तप्पा- रेट,"agri: link_d printed 78; order dated 09.01.2017 (PDF p95) says 78 in col 16 is a typo for 38 | agri link_d printed 78, corrected to 38 per AIG Registration order 09.01.2017 printed in the list"
+sahjanwa,247,1231,भक्सा,"agri: link_d printed 78; order dated 09.01.2017 (PDF p95) says 78 in col 16 is a typo for 38 | agri link_d printed 78, corrected to 38 per AIG Registration order 09.01.2017 printed in the list"
+sahjanwa,248,1232,भुआ शहीद,"agri: link_d printed 78; order dated 09.01.2017 (PDF p95) says 78 in col 16 is a typo for 38 | agri link_d printed 78, corrected to 38 per AIG Registration order 09.01.2017 printed in the list"
+sahjanwa,249,1233,भैंसला,"agri: link_d printed 78; order dated 09.01.2017 (PDF p95) says 78 in col 16 is a typo for 38 | agri link_d printed 78, corrected to 38 per AIG Registration order 09.01.2017 printed in the list"
+sahjanwa,250,1234,भदेसरी,"agri: link_d printed 78; order dated 09.01.2017 (PDF p95) says 78 in col 16 is a typo for 38 | agri link_d printed 78, corrected to 38 per AIG Registration order 09.01.2017 printed in the list"
+sahjanwa,251,1235,भेलउर उर्फ डढ़ौली,"agri: link_d printed 78; order dated 09.01.2017 (PDF p95) says 78 in col 16 is a typo for 38 | agri link_d printed 78, corrected to 38 per AIG Registration order 09.01.2017 printed in the list"
+sahjanwa,253,1237,भगवानपुर,"agri: link_d printed 78; order dated 09.01.2017 (PDF p95) says 78 in col 16 is a typo for 38 | agri link_d printed 78, corrected to 38 per AIG Registration order 09.01.2017 printed in the list"
+sahjanwa,255,1239,भिखरा,"agri: link_d printed 78; order dated 09.01.2017 (PDF p95) says 78 in col 16 is a typo for 38 | agri link_d printed 78, corrected to 38 per AIG Registration order 09.01.2017 printed in the list"
+sahjanwa,256,1240,भिटहा,"agri: link_d printed 78; order dated 09.01.2017 (PDF p95) says 78 in col 16 is a typo for 38 | agri link_d printed 78, corrected to 38 per AIG Registration order 09.01.2017 printed in the list"
+sahjanwa,257,1241,भिटनी,comm: shop_single_land partly under signature (reads 13200)
+sahjanwa,258,1242,मधुवनडाड़ी,"agri: link_d printed 78; order dated 09.01.2017 (PDF p95) says 78 in col 16 is a typo for 38 | agri link_d printed 78, corrected to 38 per AIG Registration order 09.01.2017 printed in the list"
+sahjanwa,259,1243,मदुई,"agri: link_d printed 78; order dated 09.01.2017 (PDF p95) says 78 in col 16 is a typo for 38 | agri link_d printed 78, corrected to 38 per AIG Registration order 09.01.2017 printed in the list"
+sahjanwa,260,1244,मझौरा,"agri: link_d printed 78; order dated 09.01.2017 (PDF p95) says 78 in col 16 is a typo for 38 | agri link_d printed 78, corrected to 38 per AIG Registration order 09.01.2017 printed in the list"
+sahjanwa,261,1245,मझवा,"agri: link_d printed 78; order dated 09.01.2017 (PDF p95) says 78 in col 16 is a typo for 38 | agri link_d printed 78, corrected to 38 per AIG Registration order 09.01.2017 printed in the list"
+sahjanwa,262,1246,मंझरिया त0-पचौरी,"agri: link_d printed 78; order dated 09.01.2017 (PDF p95) says 78 in col 16 is a typo for 38 | agri link_d printed 78, corrected to 38 per AIG Registration order 09.01.2017 printed in the list"
+sahjanwa,263,1247,मेहरूकुण्डल,"agri: link_d printed 78; order dated 09.01.2017 (PDF p95) says 78 in col 16 is a typo for 38 | agri link_d printed 78, corrected to 38 per AIG Registration order 09.01.2017 printed in the list"
+sahjanwa,264,1248,मंझरिया त0 उ0ह0,road: first digit of r2to5 overlapped by signature; read 7400
+sahjanwa,265,1249,मंझरिया खुर्द,"agri: link_d printed 78; order dated 09.01.2017 (PDF p95) says 78 in col 16 is a typo for 38 | agri link_d printed 78, corrected to 38 per AIG Registration order 09.01.2017 printed in the list"
+sahjanwa,266,1250,मंझरिया महाजी,"agri: link_d printed 78; order dated 09.01.2017 (PDF p95) says 78 in col 16 is a typo for 38 | agri link_d printed 78, corrected to 38 per AIG Registration order 09.01.2017 printed in the list"
+sahjanwa,268,1252,मंझरिया तौफिर,"agri: link_d printed 78; order dated 09.01.2017 (PDF p95) says 78 in col 16 is a typo for 38 | agri link_d printed 78, corrected to 38 per AIG Registration order 09.01.2017 printed in the list"
+sahjanwa,269,1253,मंझरियां,"agri: link_d printed 78; order dated 09.01.2017 (PDF p95) says 78 in col 16 is a typo for 38 | agri link_d printed 78, corrected to 38 per AIG Registration order 09.01.2017 printed in the list"
+sahjanwa,270,1254,मइला,"agri: link_d printed 78; order dated 09.01.2017 (PDF p95) says 78 in col 16 is a typo for 38 | agri link_d printed 78, corrected to 38 per AIG Registration order 09.01.2017 printed in the list"
+sahjanwa,272,1256,ममउर,"agri: link_d printed 78; order dated 09.01.2017 (PDF p95) says 78 in col 16 is a typo for 38 | agri link_d printed 78, corrected to 38 per AIG Registration order 09.01.2017 printed in the list"
+sahjanwa,276,1260,महुआपार,"agri: link_d printed 78; order dated 09.01.2017 (PDF p95) says 78 in col 16 is a typo for 38 | agri link_d printed 78, corrected to 38 per AIG Registration order 09.01.2017 printed in the list"
+sahjanwa,278,1262,माधोपुर,"agri: link_d printed 78; order dated 09.01.2017 (PDF p95) says 78 in col 16 is a typo for 38 | agri link_d printed 78, corrected to 38 per AIG Registration order 09.01.2017 printed in the list"
+sahjanwa,281,1265,मोहनाग,"agri: link_d printed 78; order dated 09.01.2017 (PDF p95) says 78 in col 16 is a typo for 38 | agri link_d printed 78, corrected to 38 per AIG Registration order 09.01.2017 printed in the list"
+sahjanwa,282,1266,मॉट,"agri: link_d printed 78; order dated 09.01.2017 (PDF p95) says 78 in col 16 is a typo for 38 | agri link_d printed 78, corrected to 38 per AIG Registration order 09.01.2017 printed in the list"
+sahjanwa,283,1267,मदरहा,"agri: link_d printed 78; order dated 09.01.2017 (PDF p95) says 78 in col 16 is a typo for 38 | agri link_d printed 78, corrected to 38 per AIG Registration order 09.01.2017 printed in the list"
+sahjanwa,284,1268,मुण्डाकोड़रा,"agri: link_d printed 78; order dated 09.01.2017 (PDF p95) says 78 in col 16 is a typo for 38 | agri link_d printed 78, corrected to 38 per AIG Registration order 09.01.2017 printed in the list"
+sahjanwa,285,1269,मुडिला,"comm: shop_single_land partly under signature (reads 13200) | agri: link_d printed 78; order dated 09.01.2017 (PDF p95) says 78 in col 16 is a typo for 38 | agri link_d printed 78, corrected to 38 per AIG Registration order 09.01.2017 printed in the list"
+sahjanwa,286,1270,मुहम्मदपुर,"agri: link_d printed 78; order dated 09.01.2017 (PDF p95) says 78 in col 16 is a typo for 38 | agri link_d printed 78, corrected to 38 per AIG Registration order 09.01.2017 printed in the list"
+sahjanwa,287,1271,मुस्तफाबाद,"agri: link_d printed 78; order dated 09.01.2017 (PDF p95) says 78 in col 16 is a typo for 38 | agri link_d printed 78, corrected to 38 per AIG Registration order 09.01.2017 printed in the list"
+sahjanwa,291,1275,मेहदिया,"agri: link_d printed 78; order dated 09.01.2017 (PDF p95) says 78 in col 16 is a typo for 38 | agri link_d printed 78, corrected to 38 per AIG Registration order 09.01.2017 printed in the list"
+sahjanwa,294,1278,मक्टापार,"agri: name reading uncertain (मक्टापार/मव्टापार); link_d printed 78; order dated 09.01.2017 (PDF p95) says 78 in col 16 is a typo for 38 | agri link_d printed 78, corrected to 38 per AIG Registration order 09.01.2017 printed in the list"
+sahjanwa,295,1279,मल्हीपुर,agri: dist_c reads 125 (similar rows print 123; checked at 350dpi)
+sahjanwa,296,1280,मिश्रौलिया,"agri: link_d printed 78; order dated 09.01.2017 (PDF p95) says 78 in col 16 is a typo for 38 | agri link_d printed 78, corrected to 38 per AIG Registration order 09.01.2017 printed in the list"
+sahjanwa,301,1285,रामपुर,"agri: link_d printed 78; order dated 09.01.2017 (PDF p95) says 78 in col 16 is a typo for 38 | agri link_d printed 78, corrected to 38 per AIG Registration order 09.01.2017 printed in the list"
+sahjanwa,302,1286,रामपुर त0-भदेसरी,"agri: link_d printed 78; order dated 09.01.2017 (PDF p95) says 78 in col 16 is a typo for 38 | agri link_d printed 78, corrected to 38 per AIG Registration order 09.01.2017 printed in the list"
+sahjanwa,304,1288,रामडीहतोरनी,"agri: link_d printed 78; order dated 09.01.2017 (PDF p95) says 78 in col 16 is a typo for 38 | agri link_d printed 78, corrected to 38 per AIG Registration order 09.01.2017 printed in the list"
+sahjanwa,310,1294,रानूखोर,"agri: link_d printed 78; order dated 09.01.2017 (PDF p95) says 78 in col 16 is a typo for 38 | agri link_d printed 78, corrected to 38 per AIG Registration order 09.01.2017 printed in the list"
+sahjanwa,311,1295,रेहसजोत,"agri: link_d printed 78; order dated 09.01.2017 (PDF p95) says 78 in col 16 is a typo for 38 | agri link_d printed 78, corrected to 38 per AIG Registration order 09.01.2017 printed in the list"
+sahjanwa,312,1296,रेवडा,"agri: link_d printed 78; order dated 09.01.2017 (PDF p95) says 78 in col 16 is a typo for 38 | agri link_d printed 78, corrected to 38 per AIG Registration order 09.01.2017 printed in the list"
+sahjanwa,313,1297,रेट खास,"agri: link_d printed 78; order dated 09.01.2017 (PDF p95) says 78 in col 16 is a typo for 38 | agri link_d printed 78, corrected to 38 per AIG Registration order 09.01.2017 printed in the list"
+sahjanwa,314,1298,रन्दौली उर्फ मठिया,"agri: link_d printed 78; order dated 09.01.2017 (PDF p95) says 78 in col 16 is a typo for 38 | agri link_d printed 78, corrected to 38 per AIG Registration order 09.01.2017 printed in the list"
+sahjanwa,316,1300,लखनापार,"agri: link_d printed 78; order dated 09.01.2017 (PDF p95) says 78 in col 16 is a typo for 38 | agri link_d printed 78, corrected to 38 per AIG Registration order 09.01.2017 printed in the list"
+sahjanwa,317,1301,लहुरदेवा,"agri: link_d printed 78; order dated 09.01.2017 (PDF p95) says 78 in col 16 is a typo for 38 | agri link_d printed 78, corrected to 38 per AIG Registration order 09.01.2017 printed in the list"
+sahjanwa,318,1302,लोनिया,"agri: link_d printed 78; order dated 09.01.2017 (PDF p95) says 78 in col 16 is a typo for 38 | agri link_d printed 78, corrected to 38 per AIG Registration order 09.01.2017 printed in the list"
+sahjanwa,319,1303,लोहसड़ा,"agri: link_d printed 78; order dated 09.01.2017 (PDF p95) says 78 in col 16 is a typo for 38 | agri link_d printed 78, corrected to 38 per AIG Registration order 09.01.2017 printed in the list"
+sahjanwa,323,1304,विशुनपुर त0-उ0ह0,"agri: link_d printed 78; order dated 09.01.2017 (PDF p95) says 78 in col 16 is a typo for 38 | agri link_d printed 78, corrected to 38 per AIG Registration order 09.01.2017 printed in the list"
+sahjanwa,324,1305,विशुनपुर त0-सतगांवा,no row in road/comm/agri table
+sahjanwa,326,1307,विशुनपुर त0-सूरस,"agri: link_d printed 78; order dated 09.01.2017 (PDF p95) says 78 in col 16 is a typo for 38 | agri link_d printed 78, corrected to 38 per AIG Registration order 09.01.2017 printed in the list"
+sahjanwa,327,1308,विसरी,"agri: link_d printed 78; order dated 09.01.2017 (PDF p95) says 78 in col 16 is a typo for 38 | agri link_d printed 78, corrected to 38 per AIG Registration order 09.01.2017 printed in the list"
+sahjanwa,328,1309,विजौवा,"road: V-code printed 1309 (out of sequence; possibly 1209/1210) | comm: V-code 1309 out of local sequence (as printed) | agri: link_d printed 78; order dated 09.01.2017 (PDF p95) says 78 in col 16 is a typo for 38 | agri link_d printed 78, corrected to 38 per AIG Registration order 09.01.2017 printed in the list"
+sahjanwa,329,1310,वरउर,agri: link_d printed 76 (other rows 78; checked at 350dpi)
+sahjanwa,330,1311,वरनाटिकर,"agri: link_d printed 78; order dated 09.01.2017 (PDF p95) says 78 in col 16 is a typo for 38 | agri link_d printed 78, corrected to 38 per AIG Registration order 09.01.2017 printed in the list"
+sahjanwa,331,1312,वैदौली,"comm: V-code printed as 13012 (sequence suggests 1312) | agri: link_d printed 78; order dated 09.01.2017 (PDF p95) says 78 in col 16 is a typo for 38 | agri link_d printed 78, corrected to 38 per AIG Registration order 09.01.2017 printed in the list"
+sahjanwa,332,1313,वैजलपुर,"agri: link_d printed 78; order dated 09.01.2017 (PDF p95) says 78 in col 16 is a typo for 38 | agri link_d printed 78, corrected to 38 per AIG Registration order 09.01.2017 printed in the list"
+sahjanwa,333,1314,वनौडा,"agri: link_d printed 78; order dated 09.01.2017 (PDF p95) says 78 in col 16 is a typo for 38 | agri link_d printed 78, corrected to 38 per AIG Registration order 09.01.2017 printed in the list"
+sahjanwa,334,1315,शम्भू चकसेमरा,"agri: link_d printed 78; order dated 09.01.2017 (PDF p95) says 78 in col 16 is a typo for 38 | agri link_d printed 78, corrected to 38 per AIG Registration order 09.01.2017 printed in the list"
+sahjanwa,335,1316,शाहपुर,"agri: link_d printed 78; order dated 09.01.2017 (PDF p95) says 78 in col 16 is a typo for 38 | agri link_d printed 78, corrected to 38 per AIG Registration order 09.01.2017 printed in the list"
+sahjanwa,338,0041,सहबाजगंज,"road: large jump 9500->15000 between r2to5 and r5to9, clearly printed; verify | agri: dist_a 1500 much higher than link_a 950 (similar row 210 prints 960; verified as printed at 350dpi)"
+sahjanwa,339,1317,सहजूपार,"agri: link_d printed 78; order dated 09.01.2017 (PDF p95) says 78 in col 16 is a typo for 38 | agri link_d printed 78, corrected to 38 per AIG Registration order 09.01.2017 printed in the list"
+sahjanwa,340,1318,सीयर,"agri: link_d printed 78; order dated 09.01.2017 (PDF p95) says 78 in col 16 is a typo for 38 | agri link_d printed 78, corrected to 38 per AIG Registration order 09.01.2017 printed in the list"
+sahjanwa,344,1322,सोनबरसा,"agri: link_d printed 78; order dated 09.01.2017 (PDF p95) says 78 in col 16 is a typo for 38 | agri link_d printed 78, corrected to 38 per AIG Registration order 09.01.2017 printed in the list"
+sahjanwa,345,1323,सोनचार,"agri: link_d printed 78; order dated 09.01.2017 (PDF p95) says 78 in col 16 is a typo for 38 | agri link_d printed 78, corrected to 38 per AIG Registration order 09.01.2017 printed in the list | no row in comm table"
+sahjanwa,346,1324,सुथनी,"comm: serial 363 (and V-code 1323) absent from page; 362 is followed by 364 as printed | agri: link_d printed 78; order dated 09.01.2017 (PDF p95) says 78 in col 16 is a typo for 38 | agri link_d printed 78, corrected to 38 per AIG Registration order 09.01.2017 printed in the list"
+sahjanwa,347,1325,सुरदही,"agri: link_d printed 78; order dated 09.01.2017 (PDF p95) says 78 in col 16 is a typo for 38 | agri link_d printed 78, corrected to 38 per AIG Registration order 09.01.2017 printed in the list"
+sahjanwa,349,1327,सुरगहना,agri: other_d printed 31 (similar rows print 38; checked at 350dpi)
+sahjanwa,353,1331,सेहुड़ी,"agri: link_d printed 78; order dated 09.01.2017 (PDF p95) says 78 in col 16 is a typo for 38 | agri link_d printed 78, corrected to 38 per AIG Registration order 09.01.2017 printed in the list"
+sahjanwa,354,1332,सेहरी,"agri: link_d printed 78; order dated 09.01.2017 (PDF p95) says 78 in col 16 is a typo for 38 | agri link_d printed 78, corrected to 38 per AIG Registration order 09.01.2017 printed in the list"
+sahjanwa,355,1333,सेहुड़ा,"agri: link_d printed 78; order dated 09.01.2017 (PDF p95) says 78 in col 16 is a typo for 38 | agri link_d printed 78, corrected to 38 per AIG Registration order 09.01.2017 printed in the list"
+sahjanwa,356,1334,सैरा,"agri: link_d printed 78; order dated 09.01.2017 (PDF p95) says 78 in col 16 is a typo for 38 | agri link_d printed 78, corrected to 38 per AIG Registration order 09.01.2017 printed in the list"
+sahjanwa,357,1335,सजनापार,"agri: link_d printed 78; order dated 09.01.2017 (PDF p95) says 78 in col 16 is a typo for 38 | agri link_d printed 78, corrected to 38 per AIG Registration order 09.01.2017 printed in the list"
+sahjanwa,358,1336,सिरूआपार,"agri: link_d printed 78; order dated 09.01.2017 (PDF p95) says 78 in col 16 is a typo for 38 | agri link_d printed 78, corrected to 38 per AIG Registration order 09.01.2017 printed in the list"
+sahjanwa,359,1337,सिघौली,"agri: link_d printed 78; order dated 09.01.2017 (PDF p95) says 78 in col 16 is a typo for 38 | agri link_d printed 78, corrected to 38 per AIG Registration order 09.01.2017 printed in the list"
+sahjanwa,360,1338,सिंघवलियां,"agri: link_d printed 78; order dated 09.01.2017 (PDF p95) says 78 in col 16 is a typo for 38 | agri link_d printed 78, corrected to 38 per AIG Registration order 09.01.2017 printed in the list"
+sahjanwa,361,1339,सिहबरा,"agri: link_d printed 78; order dated 09.01.2017 (PDF p95) says 78 in col 16 is a typo for 38 | agri link_d printed 78, corrected to 38 per AIG Registration order 09.01.2017 printed in the list"
+sahjanwa,362,1340,सिहोरवा,"agri: link_d printed 78; order dated 09.01.2017 (PDF p95) says 78 in col 16 is a typo for 38 | agri link_d printed 78, corrected to 38 per AIG Registration order 09.01.2017 printed in the list"
+sahjanwa,365,1343,सिसई उर्फ कपसी,"agri: link_d printed 78; order dated 09.01.2017 (PDF p95) says 78 in col 16 is a typo for 38 | agri link_d printed 78, corrected to 38 per AIG Registration order 09.01.2017 printed in the list"
+sahjanwa,367,1345,सिगहा,"agri: link_d printed 78; order dated 09.01.2017 (PDF p95) says 78 in col 16 is a typo for 38 | agri link_d printed 78, corrected to 38 per AIG Registration order 09.01.2017 printed in the list"
+sahjanwa,368,1346,हरिवंशपुर,"agri: link_d printed 78; order dated 09.01.2017 (PDF p95) says 78 in col 16 is a typo for 38 | agri link_d printed 78, corrected to 38 per AIG Registration order 09.01.2017 printed in the list"
+sahjanwa,369,1347,हरपुर,road: r9to12=4300 clearly printed (similar 3100/3200 rows have 3500); verify
+sahjanwa,370,1348,हरदी,"agri: link_d printed 78; order dated 09.01.2017 (PDF p95) says 78 in col 16 is a typo for 38 | agri link_d printed 78, corrected to 38 per AIG Registration order 09.01.2017 printed in the list"
+sahjanwa,372,1350,हरनही,"agri: link_d printed 78; order dated 09.01.2017 (PDF p95) says 78 in col 16 is a typo for 38 | agri link_d printed 78, corrected to 38 per AIG Registration order 09.01.2017 printed in the list"
+sahjanwa,50,1046,कुसम्हाकला,only found in the road table (V-code or name printed differently elsewhere)
+sahjanwa,51,1047,कुरमौल,only found in the road table (V-code or name printed differently elsewhere)
+sahjanwa,91,0007,गीडा-सेक्टर संख्या-5,road: section=औद्योगिक भूखण्ड की दर | only found in the road table (V-code or name printed differently elsewhere)
+sahjanwa,92,0008,गीडा-सेक्टर संख्या-13,road: section=औद्योगिक भूखण्ड की दर | only found in the road table (V-code or name printed differently elsewhere)
+sahjanwa,93,0009,गीडा-सेक्टर संख्या-15,road: section=औद्योगिक भूखण्ड की दर | only found in the road table (V-code or name printed differently elsewhere)
+sahjanwa,94,0010,गीडा-सेक्टर संख्या-17,road: section=औद्योगिक भूखण्ड की दर | only found in the road table (V-code or name printed differently elsewhere)
+sahjanwa,95,0011,गीडा-सेक्टर संख्या-22,road: section=औद्योगिक भूखण्ड की दर | only found in the road table (V-code or name printed differently elsewhere)
+sahjanwa,96,0012,गीडा-सेक्टर संख्या-23,road: section=औद्योगिक भूखण्ड की दर | only found in the road table (V-code or name printed differently elsewhere)
+sahjanwa,97,0013,गीडा-सेक्टर संख्या-5,road: section=ट्रान्सपोर्ट एजेन्सी की दर | only found in the road table (V-code or name printed differently elsewhere)
+sahjanwa,98,0014,गीडा-सेक्टर संख्या-13,road: section=ट्रान्सपोर्ट एजेन्सी की दर | only found in the road table (V-code or name printed differently elsewhere)
+sahjanwa,99,0015,गीडा-सेक्टर संख्या-15,road: section=ट्रान्सपोर्ट एजेन्सी की दर | only found in the road table (V-code or name printed differently elsewhere)
+sahjanwa,100,0016,गीडा-सेक्टर संख्या-17,road: section=ट्रान्सपोर्ट एजेन्सी की दर | only found in the road table (V-code or name printed differently elsewhere)
+sahjanwa,101,0017,गीडा-सेक्टर संख्या-22,road: section=ट्रान्सपोर्ट एजेन्सी की दर | only found in the road table (V-code or name printed differently elsewhere)
+sahjanwa,102,0018,गीडा-सेक्टर संख्या-23,road: section=ट्रान्सपोर्ट एजेन्सी की दर | only found in the road table (V-code or name printed differently elsewhere)
+sahjanwa,103,0019,गीडा-सेक्टर संख्या-5,road: section=वाणिज्यिक भूखण्ड की दर | only found in the road table (V-code or name printed differently elsewhere)
+sahjanwa,104,0020,गीडा-सेक्टर संख्या-13,road: section=वाणिज्यिक भूखण्ड की दर | only found in the road table (V-code or name printed differently elsewhere)
+sahjanwa,105,0021,गीडा-सेक्टर संख्या-15,road: section=वाणिज्यिक भूखण्ड की दर | only found in the road table (V-code or name printed differently elsewhere)
+sahjanwa,106,0022,गीडा-सेक्टर संख्या-17,road: section=वाणिज्यिक भूखण्ड की दर | only found in the road table (V-code or name printed differently elsewhere)
+sahjanwa,107,0023,गीडा-सेक्टर संख्या-22,road: section=वाणिज्यिक भूखण्ड की दर | only found in the road table (V-code or name printed differently elsewhere)
+sahjanwa,108,0024,गीडा-सेक्टर संख्या-23,road: section=वाणिज्यिक भूखण्ड की दर | only found in the road table (V-code or name printed differently elsewhere)
+sahjanwa,345,1304,विशुनपुरा उ0ह0,road: V-code 1304 also printed for serial 226 (विशुनपुर तप्पा उ0 ह0) | only found in the road table (V-code or name printed differently elsewhere)
+sahjanwa,50,1046,कुसम्हाकला,only found in the comm table (V-code or name printed differently elsewhere)
+sahjanwa,51,1047,कुरमौल,only found in the comm table (V-code or name printed differently elsewhere)
+sahjanwa,345,1304,विशुनपुरा उ0ह0,comm: V-code 1304 also printed for serial 226 (as printed) | only found in the comm table (V-code or name printed differently elsewhere)
+sahjanwa,50,1046,कुसम्हाकला,"agri: link_d 78 > link_c 57 as printed (systematic) | agri link_d printed 78, corrected to 38 per AIG Registration order 09.01.2017 printed in the list | only found in the agri table (V-code or name printed differently elsewhere)"
+sahjanwa,51,1047,कुरमौल,only found in the agri table (V-code or name printed differently elsewhere)
+sahjanwa,321,1304,विशुनपुरा उ0ह0,"agri: V-code 1304 also printed for serial 202 (विशुनपुर तप्पा उ0 ह0); link_d printed 78; order dated 09.01.2017 (PDF p95) says 78 in col 16 is a typo for 38 | agri link_d printed 78, corrected to 38 per AIG Registration order 09.01.2017 printed in the list | only found in the agri table (V-code or name printed differently elsewhere)"
+chauri,5,1004,अवधपुर,agri: nh_a 440 < dist_a 480 as printed
+chauri,15,1014,कपरफोरवा,agri: name partly under signature
+chauri,17,1016,करमहा,agri: dist_a (col 9) blank in print while cols 10-12 filled
+chauri,30,1027,कोना सोनबरसा,agri: other_a 250 > link_a 240 as printed
+chauri,35,1032,गगडा,agri: name partly under signature
+chauri,39,1035,गोबडौर,agri: other_a 250 > link_a 240 as printed
+chauri,49,0005,चीक टोला,"road: name printed ""चीक टोला"" (likely misprint of चौक टोला; same V-code 0005 appears as ""चीक टोला वार्ड नं0 4"" on p58)"
+chauri,51,0006,चौक टोला,agri: link_c 178 clearly printed (similar rows 175/176)
+chauri,57,1050,"जगदीशपुर, तप्पा--केवटली",agri: name cut off at cell edges in print
+chauri,58,1051,"जगदीशपुर, तप्पा--राजधानी",agri: name cut off at cell edges in print
+chauri,60,1053,जंगल गौरी नं--2 उर्फ अमहिया,agri: name cut off at cell edges in print
+chauri,66,1059,जयपुर,agri: handwritten pen strokes under other_a/other_b (figures legible)
+chauri,70,1063,जोलहवारी,agri: other_a 130 > link_a 120 as printed
+chauri,78,1070,डुमरी खास,agri: handwritten tick marks near dist_b/link_b (figures legible)
+chauri,79,1071,डुमरी खुर्द,agri: nh_b first digit overwritten/blotted in ink; read 294 (checked 350dpi)
+chauri,89,1081,थुन्ही महोबचक,agri: handwritten arrow near link_d (figures legible)
+chauri,91,1083,दींवा,agri: name obscured by signature; best reading
+chauri,95,1087,देवकही,agri: other_a 260 > link_a 240 as printed
+chauri,103,1095,निबही,no row in road table
+chauri,104,1096,नौवाबारी,no row in road table
+chauri,105,1097,पकड़डीहा,no row in road table
+chauri,106,1098,पकड़पुरा,no row in road table
+chauri,107,1099,पकड़ी,no row in road table
+chauri,108,1100,पकड़ियार,no row in road table
+chauri,109,1101,पचदेवरी,no row in road table
+chauri,110,1102,परसौनी,no row in road table
+chauri,111,1103,पलिया,no row in road table
+chauri,112,1104,पंसरही,no row in road table
+chauri,113,1105,पाडर,no row in road table
+chauri,114,0009,पासी टोला,no row in road table
+chauri,115,1106,पिपरामन्नी,agri: other_a 140 > link_a 130 (as printed) | no row in road table
+chauri,116,1107,पुरनहा,no row in road table
+chauri,117,1108,पोखरभिण्डा,no row in road table
+chauri,118,1109,फुलवरिया,no row in road table
+chauri,119,1110,बकसुड़ी,no row in road table
+chauri,120,1111,बघाड़,"road: serials 103-119 absent: page 50 ends at 102, page 51 starts at 120 (page missing from PDF?)"
+chauri,130,1121,बहरामपुर,agri: tick marks printed/handwritten beside link_c 140 and other_d 48
+chauri,136,1127,बिशुनपुरा,agri: link_d 55 > dist_d 50 (as printed)
+chauri,143,1134,बैजूडीहा,road: r2to5 = r5to9 = 2400 as printed (verified at 350 dpi)
+chauri,144,1135,बैरवां,comm: office 12000 breaks usual 5000/12000/11000 pattern; verified at 350dpi as printed
+chauri,147,1138,भकुरहा,agri: other_a 140 > link_a 130 (as printed)
+chauri,150,0010,भगवानदास सभापति का टोला,comm: office 18000 breaks usual 20000/24000/22000 pattern; verified at 350dpi as printed | agri: name truncated in print (cell cut off both ends; likely भगवानदास सभापति का टोला)
+chauri,153,1143,भरतपुर,agri: link_b 146 > link_a 140 (confirmed at 350dpi)
+chauri,178,1168,मिर्जापुर,agri: p80 value rows print ~1 line low vs labels; mapped by row count (19 rows)
+chauri,181,1171,मुण्डेरा ठकुराई,road: r9to12 read 1800 (slightly smudged; verified at 350 dpi)
+chauri,182,0011,मुण्डेरी,basic: ward printed 09 here; prarup-1 index (p12) lists मुण्डेरी as वार्ड न0 03
+chauri,183,1172,मुहम्मदपुर,comm: office 10000 breaks usual 5000/12000/11000 pattern; verified at 350dpi as printed
+chauri,184,1173,मेहिया,comm: office 10000 breaks usual 5000/12000/11000 pattern; verified at 350dpi as printed
+chauri,187,1176,राघोपुर,agri: link_d 113 > dist_d 110 (confirmed at 350dpi)
+chauri,190,1179,रामनगर करजहां,comm: office 11000 breaks usual 20000/24000/22000 pattern (possible print error); verified at 350dpi as printed
+chauri,195,1184,रोहा,"agri: other_d 30 (glyph slightly unclear, could be 39; checked at 350dpi)"
+chauri,197,1186,रौतइनियासरदार,agri: other_d 34 unusually high vs similar rows (22); clear at 350dpi
+chauri,199,1188,लछुमनपुर तप्पा--केवटली,agri: name truncated in print (likely लछुमनपुर तप्पा-केवटली)
+chauri,200,1189,लछुमनपुर तप्पा--रसूलपुर,agri: name truncated in print (likely लछुमनपुर तप्पा-रसूलपुर)
+chauri,202,1191,लेडुआपार,basic: pargana printed रसूलपुर/हवेली here; prarup-1 index lists राजधानी/हवेली
+chauri,203,1192,लालापुर,agri: tick mark beside other_b 62
+gola,1,0001,अहिराना,agri: link_a first digit faint; read 790
+gola,4,1003,अजयपुरा,comm: low_rate_1000/8000/5000_as_printed
+gola,6,1005,ओझौली,road: pen stroke across r9to12 cell; figure still legible
+gola,7,1006,अतरौरा,road: pen stroke across r9to12 cell; figure still legible
+gola,12,1011,अमदेवा बुजुर्ग,agri: link_a first digit faint; read 300
+gola,14,1013,अरांव ज़गदीश,agri: link_a middle digit faint; read 260
+gola,15,1014,अरांव करन,basic: name partly smudged; read अरांव करन
+gola,20,1019,अवरा कोल,agri: village name 2nd letter broken; read अजरा कोल
+gola,21,1020,अवस्थी,agri: nh_b/nh_c overwritten by signature; read as -
+gola,32,0002,उत्तरी चौरा,agri: link_c 159 > dist_c 152 as printed
+gola,39,0003,कुम्हार टोला धोबी,agri: other_a 580 (rows 40-41 print 510) as printed
+gola,56,1050,ककरहीं,agri: nh_d 73 < dist_d 81 as printed
+gola,57,1051,ककरहीं,agri: nh_d 73 < dist_d 81 as printed
+gola,65,1059,कारोकान उर्फ बारानगर मु0,agri: link_d 70 > dist_d 66 as printed
+gola,77,1071,कोहड़ी बु0,agri: dist_a read 680 (could be 580; > nh_a 600); other_b 92 > other_c 59 as printed
+gola,82,1076,कौवाडील,agri: link_d 70 > dist_d 66 as printed
+gola,100,1094,कोड़ारी एहतमाली,comm: low_rate_1000/8000/5000_as_printed
+gola,103,1097,कुन्डा,comm: low_rate_1000/8000/5000_as_printed
+gola,106,1100,कृपालपुर,comm: low_rate_1000/8000/5000_as_printed
+gola,108,1102,कोटिया निरंजन,comm: low_rate_1000/8000/5000_as_printed
+gola,109,1103,कोटिया दीपशाह,comm: low_rate_1000/8000/5000_as_printed
+gola,110,1104,कल्यानपुर,agri: dist_c 116 < dist_d 120 and < link_c 180 as printed (clear)
+gola,111,1105,कृतपुरा,agri: dist_c 248 > nh_c 240 as printed
+gola,113,1107,कोलखास,comm: low_rate_1000/8000/5000_as_printed
+gola,132,1123,खुद्दीचक,comm: low_rate_1000/8000/5000_as_printed
+gola,134,1125,खैराटी,comm: low_rate_1000/8000/5000_as_printed
+gola,157,1148,गोरखपुरा,comm: low_rate_1000/8000/5000_as_printed
+gola,158,1149,गोनहा,comm: low_rate_1000/8000/5000_as_printed
+gola,160,1151,गोनघट,comm: low_rate_1000/8000/5000_as_printed
+gola,168,0031,चिल्लूपार,agri: link_d 132 > dist_d 126 as printed
+gola,173,1163,चक रूपैया,basic: pargana printed बेलघोट (likely बेलघाट)
+gola,175,1165,चिकनिया,agri: nh_d 115 < dist_d 166; link_b 317 > dist_b 290 as printed (clear)
+gola,179,1169,चचाईराम,agri: link_d 66 > dist_d 64 as printed
+gola,184,1174,चिलवा,agri: dist_b 106 > nh_b 103 as printed
+gola,204,0009,छोटी ब्यौरी मल्लाह टोली,agri: other_a 580 (row 203 prints 510) as printed
+gola,226,1211,जाईपार,road: r5to9 digit 4 overwritten by hand with initials; read 7400 | agri: dist_a handwritten correction 740 over print
+gola,229,1214,जैतपुर,comm: low_rate_1000/8000/5000_as_printed
+gola,230,1215,जयराम कोल,comm: low_rate_1000/8000/5000_as_printed
+gola,231,1216,जाईपार एह0,comm: low_rate_1000/8000/5000_as_printed
+gola,232,1217,ज्ञानकोल,comm: low_rate_1000/8000/5000_as_printed
+gola,235,1220,झाझा परसन,comm: low_rate_1000/8000/5000_as_printed
+gola,236,1221,झाझाशिव,comm: low_rate_1000/8000/5000_as_printed
+gola,252,1236,डेरवा,comm: low_rate_1000/8000/5000_as_printed
+gola,265,1247,तिवारीपुर,comm: low_rate_1000/8000/5000_as_printed
+gola,267,1249,ताल सोनवह,comm: low_rate_1000/8000/5000_as_printed
+gola,282,1261,देवकली,agri: link_c 64 > dist_c 61 as printed
+gola,283,1262,देवकली,agri: link_c/link_d exceed dist_c/dist_d as printed
+gola,286,1265,देवईपीपर एह0,agri: link_a 170 and other_a 140 printed (pattern elsewhere 43/40); verified at zoom
+gola,305,0033,धुनिया टोला,agri: nh_c 268 printed (266 in similar rows)
+gola,356,0019,पश्चिमी मल्लाह टोली,agri: link_c 152 printed (145 in similar rows)
+gola,357,0020,पक्का घाट,agri: link_c 152 printed (145 in similar rows)
+gola,390,1359,परनई उर्फ अर्जुनपुरा एह0,agri: dist_c print broken (98 vs 93); read 98 as row above
+gola,391,1360,परसिया,basic: name partly overwritten by signature
+gola,432,1397,ब्यौरी,"road: r5to9 hand-corrected in ink (4 overwritten on 2nd digit, initialed); read as 7400 | agri: dist_a printed figure overwritten by hand (740 with initials); best reading 740"
+gola,502,1467,बेलवा दाखिली,basic: pargana printed सिकन्दरमुर (sic)
+gola,507,1472,बैसुखिया खुर्द एहतमाली,agri: as printed: a-slab normal (170/140) but b-d slabs very low (20/15/12; 18/12/10); nh and dist blank
+gola,508,1473,बैसुखिया बुजुर्ग,agri: as printed: a-slab normal (170/140) but b-d slabs very low (20/15/12; 18/12/10); nh and dist blank
+gola,512,1477,बिहुआ मु0,basic: pargana printed सिकन्दपुर (sic)
+gola,514,1479,विरहुआ,basic: pargana printed सिकन्दपुर (sic)
+gola,522,1487,बारीडीहा,agri: dist_c 61 < link_c 66 as printed (re-checked zoom)
+gola,543,1506,भर्रोह,road: name_unclear:भरौंह/भर्रोह
+gola,566,0043,महदेवा मु0,road: name_check:मुं0 printed with dot
+gola,572,1531,मुन्ड़ाडीह,basic: rate 400 clearly printed (low vs neighbours)
+gola,579,1538,मोहन पौहरिया एहतमाली,basic: rate 400 clearly printed (low vs neighbours)
+gola,588,1547,मैभरा,basic: serial print looks like 583 (broken 8); read 588 by continuity
+gola,696,1654,लोहरा जमाल,comm: name: faint dot over ज likely speck (could read लोहरा जंमाल)
+gola,701,1659,लक्ष्मीपुर,agri: other_d 76 > other_c 66 and > link_d 72; verified as printed
+gola,706,1664,शेरपुर,basic: rate 400 clearly printed (low vs neighbours) | agri: no nh/dist rates printed; very low link/other rates as printed
+gola,709,1667,सिधुआपार,agri: dist_b 246 > nh_b 240; verified as printed
+gola,719,1677,सोहराभार बुजुर्ग,agri: other_b 52 < other_c 53; verified as printed
+gola,720,1678,सोहराभार एहतमाली,basic: rate 400 clearly printed (low vs neighbours) | agri: no nh/dist rates printed; very low link/other rates as printed
+gola,733,1691,सुकरौली,"agri: link_a printed with a dash-like mark before it (""-391""); read as 391"
+gola,762,1720,समदपुर,agri: link_d 46 > dist_d 45 as printed
+gola,784,1740,ज्ञानकोल,no row in comm table
+basgaon,6,1006,"असवनपार एहतमाली, तप्पा—मझवलिया",agri: name printed without tappa (trailing comma)
+basgaon,7,1007,"अहिरौली, तप्पा—मझवलिया",agri: name printed without tappa (trailing comma)
+basgaon,14,1014,"अतायर, तप्प—अठैसी",agri: nh_b 236 < dist_b 242 as printed
+basgaon,16,1016,"अरनी, तप्पा—कुसवासी",road: r9to12 printed as 500 (clearly legible) but lower than r5to9=4500; likely typo for 5000 - verify | agri: nh_b 116 < dist_b 140 and other_d 50 (similar rows 53) as printed
+basgaon,33,1033,"इटकौली, तप्पा—गुरम्ही",agri: dist_b-d 152/118/96 differ from nh-row pattern; verified on scan
+basgaon,44,1044,"कांटा, तप्पा—महसिन",agri: other 66/55/46 unusual; verified at 3x
+basgaon,68,1068,"कटया, तप्पा—कुशवासी",agri: link_d 73 (<86 typical); verified
+basgaon,87,1087,"कडहा चक, तप्पा—गगहा",agri: link_d 73; verified
+basgaon,88,1088,"कोठा मुस्तकिल, तप्पा— रामपुरकोठा",agri: link_d 73; verified
+basgaon,99,1099,"खजुरी बाबू, तप्पा— नर्रे",road: dotted line along row on scan (artifact? not a strike-out); values legible
+basgaon,109,1109,"गेरुआ उर्फ परसौना, तप्पा—महसिन",agri: dist_b-d 119/99/83 with dist_a 550 unusual; as printed
+basgaon,110,1110,"गोछरन, तप्पा—महसिन",agri: dist_b-d 140/117/96 with dist_a 160 unusual; as printed
+basgaon,121,1121,"गौरपार, तप्पा— नर्रे",agri: dist_b/c 130/108 unusual; verified at 2.5x
+basgaon,122,1122,"गोडसरी, तप्पा— पचीसी",road: dotted line along row on scan (artifact? not a strike-out); values legible
+basgaon,131,1131,"गजपुर एहतमाली, तप्पा—रामपुर कोठा",agri: dist_b 108 (>link-pattern 83); verified at zoom
+basgaon,132,1132,"गोबरईया, तप्पा—गगहा",agri: other_a 300 with link_a 460; verified
+basgaon,155,1155,"चिउटहा एह0, तप्पा—गुरम्ही",agri: dist_c 70 (71 elsewhere); verified
+basgaon,162,0001,चौखण्डी बॉसगॉव,basic: semi-urban row: V-code 0001 breaks sequence (printed as such); category अर्द्धनगरीय | road: col5=वार्ड नं0–10 | agri: vcode 0001 ward row (वार्ड नं0-1); dist_b 130 unusual; as printed
+basgaon,169,1168,"जमदरा, तप्प—अठैसी",road: dotted line along row on scan (artifact? not a strike-out); values legible
+basgaon,170,1169,"जमीन लौहरपुर, तप्पा—मजुरी",agri: link_c 104 (<114 pattern); verified
+basgaon,188,1187,"टेम्हा, तप्पा—कुशवासी","agri: dist_a 550 with b-d 119/99/83, link_a 500, other_a 300; verified"
+basgaon,191,1190,"टेकुआ दर्जी, तप्पा—गगहा",agri: link_a 400 (370 pattern); verified
+basgaon,192,1191,टेकुआ चतुर,road: name printed without तप्पा
+basgaon,208,1207,"डवरपार, तप्पा—कुशवासी",comm: shop_multi printed 31680 (other 28600-rate rows show 31700) - verified at zoom | agri: other_a 600 (500 in same-pattern rows); verified at 2.5x
+basgaon,214,1213,"ढरसी, तप्प—अठैसी",road: dotted line along row on scan (artifact? not a strike-out); values legible | comm: shop_multi printed 31680 (other 28600-rate rows show 31700)
+basgaon,219,1218,"तीयर, तप्पा—तीयर",agri: dist_d 99; verified
+basgaon,220,1219,"तिघरा पटवारी, तप्पा—पाली",agri: dist_d 99; verified
+basgaon,221,1220,"तिघरा रुद्रमन, तप्पा—पाली",agri: dist_d 99; verified
+basgaon,237,1236,"देवडार बाबू, तप्पा–महसिन",road: dotted line along row on scan (artifact? not a strike-out); values legible
+basgaon,241,1240,"दुबौली, तप्पा–तीयर",agri: dist_b 140 < dist_c 129 pattern oddity (151 expected); verified at 2x
+basgaon,254,0002,दोनखर पूर्वी,road: col5=वार्ड नं0 6 | agri: ward वार्ड नं0 6
+basgaon,255,0003,दोनखर पश्चिमी,road: col5=वार्ड नं0 5 | agri: ward वार्ड नं0 5
+basgaon,256,0004,दक्षिणी टोला बॉसगॉव,road: col5=वार्ड नं0 11 | agri: ward वार्ड नं0 1
+basgaon,257,1253,"धैबौली गहरवार, तप्पा–महसिन",agri: other_c 76 > pattern 63; verified
+basgaon,260,1256,"धुसुना, तप्पा–पाली",road: dotted line along row on scan (artifact? not a strike-out); values legible
+basgaon,268,1264,"नसीरपुर, तप्पा–पाली",agri: dist_d 86 (83 pattern); verified
+basgaon,276,1272,"नवापार, तप्पा–कुशवासी",agri: other_c 52 (54 pattern); verified
+basgaon,277,1273,"नैनिया, तप्पा–गुरम्ही",agri: other_c 52; verified
+basgaon,278,1274,"नीमडाड, तप्पा–गुरम्ही",agri: other_c 52; verified
+basgaon,284,1280,"नवाचक, तप्पा–गगहा",road: dotted line along row on scan (artifact? not a strike-out); values legible
+basgaon,303,1299,"पिछौरा, तप्प–अठैसी",comm: printed 220000/264000/231000 (10x neighbours; likely extra zero in source) - verified at zoom
+basgaon,318,1314,"परासी, तप्पा–गगहा",agri: link_d 73 atypical for this rate group (usually 86); as printed
+basgaon,324,1320,"बरपार पाण्डेय, तप्पा–महसिन",agri: link_c 116 > link_b 108 (usually 89); as printed
+basgaon,329,1325,"बहीडाडी, तप्पा–महसिन",road: r2to5 = r5to9 = 5500 as printed (verified zoom)
+basgaon,330,1326,"बैदौली मोहन सिंह, तप्पा–महसिन",road: dotted line along row on scan (artifact? not a strike-out); values legible
+basgaon,336,1332,"बिजुलिया, तप्पा–महसिन",basic: unusually low rate 500 (clearly printed)
+basgaon,353,1349,"विनयकटारी, तप्पा–कुशवासी",agri: other_a 300 > link_a 140 (usually 120); as printed
+basgaon,365,1361,"बलुआ बुजुर्ग, तप्पा– पचीसी",agri: dist_d 92 (usually 118 with this group); as printed
+basgaon,366,1362,"बलुआ खुर्द, तप्पा– पचीसी",agri: dist_d 92 (usually 118 with this group); as printed
+basgaon,383,0005,बहीडांड़ी बैलरी,agri: other_c 98 > other_b 95 (likely 76); as printed; category अर्द्धनगरीय
+basgaon,384,0006,बड़ावन लमोहिया,agri: other_c 98 > other_b 95 (likely 76); as printed
+basgaon,385,0007,बड़ावन पश्चिमी,agri: other_c 98 > other_b 95 (likely 76); as printed
+basgaon,392,1383,"भिटखोरी, तप्पा–महसिन",comm: office printed 28380 (tier elsewhere 28400); clearly legible
+basgaon,418,1409,"भरवलिया, तप्पा–गगहा",agri: other_a 400 > dist_a 160 and link_a 140 (mixed rate groups); as printed
+basgaon,454,1445,"मिश्रौली, तप्पा– पचीसी",comm: shop_multi printed 31680 and office 28380 (tier elsewhere 31700/28400); verified at zoom
+basgaon,477,1465,"रामनगर, तप्पा– नर्रे","agri: b > a in dist/link/other (a from 160/140/120 group, b-d from 242/217/132 group); as printed"
+basgaon,478,1466,"रानीपुर, तप्पा– पचीसी",road: r9to12 printed as 975 (likely 9750 misprint; kept as printed)
+basgaon,479,1467,"रुद्राईनपुर उफ मझगाँवा, तप्पा–कुशवासी",agri: b > a in dist/link/other (mixed groups); as printed
+basgaon,491,1479,"रकहट मुस्तकिल, तप्पा–गगहा",agri: other_a 300 > dist_a 160 and link_a 140; as printed
+basgaon,501,1489,"लेडुआवारी खुर्द, तप्पा–पाली",agri: link_b 108 (usually 129 in this group); as printed
+basgaon,512,1500,"साईताल, तप्पा–महसिन",agri: nh_a 900 printed but nh_b–nh_d are dashes; as printed
+basgaon,552,1540,"हटवार, तप्पा–महसिन",agri: other_a 400 > dist_a 160 and link_a 140; as printed
+basgaon,567,1555,"हरियर सीयर बुजुर्ग, तप्पा–गगहा",basic: serial 567 has handwritten overmark
+basgaon,568,1556,"पिपरा एहतमाली, तप्पा–गुरम्ही",agri: dist_b 108 (usually 83 in this group); as printed
+basgaon,569,1557,"कुसहा, तप्पा– गुरम्ही",agri: link_c 67 < link_d 73 (usually 89); as printed
+basgaon,571,1559,"चन्दर ए0, तप्पा– गुरम्ही",comm: category column prints भौवापार (a place name) instead of ग्रामीण/अर्द्धनगरीय | agri: b > a in dist/link/other (a=80/60/50); as printed
+basgaon,572,1560,"सुरवनिया, तप्पा– महसिन",basic: vcode last digit hand-corrected on scan (read 1560) | comm: category column prints उनवल (a place name) instead of ग्रामीण/अर्द्धनगरीय | agri: link_c 67 < link_d 74; name clipped at cell edge (likely महसिन); as printed
+khajni,14,1014,औराई,road: r5to9<r2to5 as printed
+khajni,29,1029,अलीपकड़ी,road: r5to9<r2to5 as printed
+khajni,31,1031,इन्नाडीह,road: r9to12 printed 2100 equals r5to9 (other rows have 0)
+khajni,38,1038,इन्नाडीह,agri: vcode hand-corrected on scan (printed code overwritten; corrected value = 1000+serial)
+khajni,39,1039,इमलीडीह,agri: vcode hand-corrected on scan (printed code overwritten; corrected value = 1000+serial)
+khajni,40,1040,इमलीडीह खुर्द,agri: vcode hand-corrected on scan (printed code overwritten; corrected value = 1000+serial)
+khajni,41,1041,इमलीडीह बुजुर्ग,agri: vcode hand-corrected on scan (printed code overwritten; corrected value = 1000+serial)
+khajni,42,1042,उनौला खास,agri: vcode hand-corrected on scan (printed code overwritten; corrected value = 1000+serial)
+khajni,43,1043,उफरौली,agri: vcode hand-corrected on scan (printed code overwritten; corrected value = 1000+serial)
+khajni,44,1044,उरूवा,agri: vcode hand-corrected on scan (printed code overwritten; corrected value = 1000+serial)
+khajni,45,1045,उसरापार,agri: vcode hand-corrected on scan (printed code overwritten; corrected value = 1000+serial)
+khajni,46,1046,उसवा,agri: vcode hand-corrected on scan (printed code overwritten; corrected value = 1000+serial)
+khajni,47,1047,उल्था खुर्द,agri: vcode hand-corrected on scan (printed code overwritten; corrected value = 1000+serial)
+khajni,48,1048,उल्था बुजुर्ग,agri: vcode hand-corrected on scan (printed code overwritten; corrected value = 1000+serial)
+khajni,49,1049,उसड़ी उर्फ रघुनाथपुर,agri: vcode hand-corrected on scan (printed code overwritten; corrected value = 1000+serial)
+khajni,50,1050,उसरैन,agri: vcode hand-corrected on scan (printed code overwritten; corrected value = 1000+serial); dist_a printed 9200 (out of pattern vs 860 link_a; possibly 920) - check
+khajni,51,1051,उसरीखास,agri: vcode hand-corrected on scan (printed code overwritten; corrected value = 1000+serial)
+khajni,52,1052,एकमा,agri: vcode hand-corrected on scan (printed code overwritten; corrected value = 1000+serial)
+khajni,53,1053,एकडंगा,agri: vcode hand-corrected on scan (printed code overwritten; corrected value = 1000+serial)
+khajni,54,1054,एकौना खुर्द,agri: vcode hand-corrected on scan (printed code overwritten; corrected value = 1000+serial)
+khajni,55,1055,एकौना बुजुर्ग,agri: vcode hand-corrected on scan (printed code overwritten; corrected value = 1000+serial)
+khajni,56,1056,ऐनवा,basic: rate 1500 is handwritten in the cell (replaces print) | agri: vcode hand-corrected on scan (printed code overwritten; corrected value = 1000+serial)
+khajni,57,1057,कुवरपार,agri: vcode hand-corrected on scan (printed code overwritten; corrected value = 1000+serial)
+khajni,58,1058,कुआ बुजुर्ग,agri: vcode hand-corrected on scan (printed code overwritten; corrected value = 1000+serial)
+khajni,59,1059,कुई कोल,agri: vcode hand-corrected on scan (printed code overwritten; corrected value = 1000+serial)
+khajni,60,1060,कुड़वा,agri: vcode hand-corrected on scan (printed code overwritten; corrected value = 1000+serial)
+khajni,61,1061,कुडा बुजुर्ग,agri: vcode hand-corrected on scan (printed code overwritten; corrected value = 1000+serial)
+khajni,62,1062,कुड़ाभरत,agri: vcode hand-corrected on scan (printed code overwritten; corrected value = 1000+serial)
+khajni,63,1063,कुआ खुर्द,agri: vcode hand-corrected on scan (printed code overwritten; corrected value = 1000+serial)
+khajni,64,1064,केवटली,agri: vcode hand-corrected on scan (printed code overwritten; corrected value = 1000+serial)
+khajni,65,1065,कैथवलिया शुक्ल,agri: vcode hand-corrected on scan (printed code overwritten; corrected value = 1000+serial)
+khajni,66,1066,कैथवलिया हरख सिंह,road: r5to9<r2to5 as printed | agri: vcode hand-corrected on scan (printed code overwritten; corrected value = 1000+serial)
+khajni,67,1067,कैराडीह,basic: printed 1400 (below the usual 1500 minimum) - verified at zoom | agri: vcode hand-corrected on scan (printed code overwritten; corrected value = 1000+serial)
+khajni,68,1068,कटघर,comm: shop_single_land 20000 lower than usual pattern with 30000/25000; as printed | agri: vcode hand-corrected on scan (printed code overwritten; corrected value = 1000+serial)
+khajni,69,1069,कटया तप्पा–बनकटा,agri: vcode hand-corrected on scan (printed code overwritten; corrected value = 1000+serial)
+khajni,70,1070,कटया तप्पा–हवेली,agri: vcode hand-corrected on scan (printed code overwritten; corrected value = 1000+serial)
+khajni,71,1071,कटवर,basic: printed 1500; handwritten '3300' with tick in right margin next to this row | comm: shop_single_land 24000 unusual (pattern 26000/30000/25000); as printed | agri: vcode hand-corrected on scan (printed code overwritten; corrected value = 1000+serial)
+khajni,72,1072,कठैचा विन्दन,road: r9to12 digit overwritten in scan (read 5600) | agri: vcode hand-corrected on scan (printed code overwritten; corrected value = 1000+serial)
+khajni,73,1073,कठैची,road: r5to9<r2to5 as printed | agri: vcode hand-corrected on scan (printed code overwritten; corrected value = 1000+serial)
+khajni,74,1074,कठौता,road: r5to9<r2to5 as printed | agri: vcode hand-corrected on scan (printed code overwritten; corrected value = 1000+serial)
+khajni,75,1075,कन्हौली,agri: vcode hand-corrected on scan (printed code overwritten; corrected value = 1000+serial)
+khajni,76,1076,करैला बारी,road: r5to9<r2to5 as printed | agri: vcode hand-corrected on scan (printed code overwritten; corrected value = 1000+serial)
+khajni,77,1077,करनपुरा,road: r5to9<r2to5 as printed | agri: vcode hand-corrected on scan (printed code overwritten; corrected value = 1000+serial)
+khajni,78,1078,करमदेवा खुर्द,agri: vcode hand-corrected on scan (printed code overwritten; corrected value = 1000+serial)
+khajni,79,1079,करमदेवा बुजुर्ग,agri: vcode hand-corrected on scan (printed code overwritten; corrected value = 1000+serial)
+khajni,80,1080,करमाखोर,agri: vcode hand-corrected on scan (printed code overwritten; corrected value = 1000+serial)
+khajni,81,1081,कलवारी माफी,basic: printed 1400 (below the usual 1500 minimum) | agri: vcode hand-corrected on scan (printed code overwritten; corrected value = 1000+serial)
+khajni,82,1082,कसिहरा,agri: vcode hand-corrected on scan (printed code overwritten; corrected value = 1000+serial)
+khajni,83,1083,कसबा संग्रामपुर,road: r9to12 second digit overwritten in scan (read 10200) | comm: shop_multi 24000 unusual (pattern 26000/30000/25000); as printed | agri: vcode hand-corrected on scan (printed code overwritten; corrected value = 1000+serial); dist_a printed 9200 (out of pattern vs 860 link_a; possibly 920) - check
+khajni,84,1084,कासिमपुर जिगनी,agri: vcode hand-corrected on scan (printed code overwritten; corrected value = 1000+serial)
+khajni,85,1085,कोठा,agri: vcode hand-corrected on scan (printed code overwritten; corrected value = 1000+serial)
+khajni,86,1086,कोल,agri: vcode hand-corrected on scan (printed code overwritten; corrected value = 1000+serial)
+khajni,87,1087,कोढ़ियाडाड़,agri: vcode hand-corrected on scan (printed code overwritten; corrected value = 1000+serial)
+khajni,88,1088,कोहटा घुरहू,agri: vcode hand-corrected on scan (printed code overwritten; corrected value = 1000+serial)
+khajni,89,1089,कोहटा रूप,agri: vcode hand-corrected on scan (printed code overwritten; corrected value = 1000+serial); unusual combination of values as printed
+khajni,90,1090,किठिउरी,agri: vcode hand-corrected on scan (printed code overwritten; corrected value = 1000+serial)
+khajni,91,1091,कुआं तप्पा–बेलघाट,agri: vcode hand-corrected on scan (printed code overwritten; corrected value = 1000+serial)
+khajni,92,1092,कुई खुर्द,road: r9to12 second digit overwritten in scan (read 10200) | agri: vcode hand-corrected on scan (printed code overwritten; corrected value = 1000+serial); dist_a printed 9200 (out of pattern vs 860 link_a; possibly 920) - check
+khajni,93,1093,कुई बुजुर्ग,road: r9to12 second digit overwritten in scan (read 10200) | agri: vcode hand-corrected on scan (printed code overwritten; corrected value = 1000+serial); dist_a printed 9200 (out of pattern vs 860 link_a; possibly 920) - check
+khajni,94,1094,कुड़हा,agri: vcode hand-corrected on scan (printed code overwritten; corrected value = 1000+serial)
+khajni,95,1095,कुरहरी,agri: vcode hand-corrected on scan (printed code overwritten; corrected value = 1000+serial)
+khajni,96,1096,कुरी बाजार,agri: vcode hand-corrected on scan (printed code overwritten; corrected value = 1000+serial); dist_a printed 9200 (out of pattern vs 860 link_a; possibly 920) - check
+khajni,97,1097,कुसमौली,agri: vcode hand-corrected on scan (printed code overwritten; corrected value = 1000+serial)
+khajni,98,1098,केराडीह,agri: vcode hand-corrected on scan (printed code overwritten; corrected value = 1000+serial)
+khajni,99,1099,केवलाचक,agri: vcode hand-corrected on scan (printed code overwritten; corrected value = 1000+serial)
+khajni,100,1100,केशोपुर,agri: vcode hand-corrected on scan (printed code overwritten; corrected value = 1000+serial)
+khajni,101,1101,कैथी बुजुर्ग,agri: vcode hand-corrected on scan (printed code overwritten; corrected value = 1000+serial)
+khajni,102,1102,कटका,agri: vcode hand-corrected on scan (printed code overwritten; corrected value = 1000+serial)
+khajni,103,1103,कटघरा,agri: vcode hand-corrected on scan (printed code overwritten; corrected value = 1000+serial)
+khajni,104,1104,कटया एहतमाली,agri: vcode hand-corrected on scan (printed code overwritten; corrected value = 1000+serial)
+khajni,105,1105,कटया मुस्तकिल,agri: vcode hand-corrected on scan (printed code overwritten; corrected value = 1000+serial)
+khajni,106,1106,कटहा बाबू,agri: vcode hand-corrected on scan (printed code overwritten; corrected value = 1000+serial)
+khajni,107,1107,करमेहटा,agri: vcode hand-corrected on scan (printed code overwritten; corrected value = 1000+serial)
+khajni,108,1108,कविलासपुर,agri: vcode hand-corrected on scan (printed code overwritten; corrected value = 1000+serial)
+khajni,109,1109,कास्त त्रिफला,agri: vcode hand-corrected on scan (printed code overwritten; corrected value = 1000+serial)
+khajni,110,1110,कास्त सुखदेव,agri: vcode hand-corrected on scan (printed code overwritten; corrected value = 1000+serial)
+khajni,111,1111,कास्तदेउर,agri: vcode hand-corrected on scan (printed code overwritten; corrected value = 1000+serial)
+khajni,112,1112,कास्तनेवरा,agri: vcode hand-corrected on scan (printed code overwritten; corrected value = 1000+serial)
+khajni,113,1113,कास्तभोज जोखन,agri: vcode hand-corrected on scan (printed code overwritten; corrected value = 1000+serial)
+khajni,114,1114,कास्तमितई तिवारी,basic: printed 1400 (below the usual 1500 minimum) | agri: vcode hand-corrected on scan (printed code overwritten; corrected value = 1000+serial); unusual combination of values as printed
+khajni,115,1115,कोटवा,agri: vcode hand-corrected on scan (printed code overwritten; corrected value = 1000+serial)
+khajni,116,1116,कोनी खुर्द,agri: vcode hand-corrected on scan (printed code overwritten; corrected value = 1000+serial)
+khajni,117,1117,कोनी बुजुर्ग,agri: vcode hand-corrected on scan (printed code overwritten; corrected value = 1000+serial)
+khajni,118,1118,कोटिया उर्फ गिरधरपुर,agri: vcode hand-corrected on scan (printed code overwritten; corrected value = 1000+serial)
+khajni,119,1119,कोटिया विशुनी,agri: vcode hand-corrected on scan (printed code overwritten; corrected value = 1000+serial)
+khajni,120,1120,कोटिया कोलाहल,agri: vcode hand-corrected on scan (printed code overwritten; corrected value = 1000+serial)
+khajni,121,1121,कोटिया पटटी,agri: vcode hand-corrected on scan (printed code overwritten; corrected value = 1000+serial)
+khajni,122,1122,किन्नूभार,agri: vcode hand-corrected on scan (printed code overwritten; corrected value = 1000+serial)
+khajni,123,1123,खड़ौहा,agri: vcode hand-corrected on scan (printed code overwritten; corrected value = 1000+serial)
+khajni,124,1124,खड़हादेउर,agri: vcode hand-corrected on scan (printed code overwritten; corrected value = 1000+serial)
+khajni,125,1125,खरकोन,agri: vcode hand-corrected on scan (printed code overwritten; corrected value = 1000+serial)
+khajni,126,1126,खरफर,agri: vcode hand-corrected on scan (printed code overwritten; corrected value = 1000+serial)
+khajni,127,1127,खरहरी तप्पा–महसीन,agri: vcode hand-corrected on scan (printed code overwritten; corrected value = 1000+serial)
+khajni,128,1128,खरहरी तप्पा–हवेली,agri: vcode hand-corrected on scan (printed code overwritten; corrected value = 1000+serial)
+khajni,129,1129,खुटभार,agri: vcode hand-corrected on scan (printed code overwritten; corrected value = 1000+serial)
+khajni,130,1130,खुटहना,agri: vcode hand-corrected on scan (printed code overwritten; corrected value = 1000+serial)
+khajni,131,1131,खैराटी,agri: vcode hand-corrected on scan (printed code overwritten; corrected value = 1000+serial)
+khajni,132,1132,खैरी,agri: vcode hand-corrected on scan (printed code overwritten; corrected value = 1000+serial)
+khajni,133,1133,खरसरदेउर,agri: vcode hand-corrected on scan (printed code overwritten; corrected value = 1000+serial)
+khajni,134,1134,खलिया,agri: vcode hand-corrected on scan (printed code overwritten; corrected value = 1000+serial)
+khajni,135,1135,खैराटी तप्पा–बेलघाट,agri: vcode hand-corrected on scan (printed code overwritten; corrected value = 1000+serial)
+khajni,136,1136,खाखर,agri: vcode hand-corrected on scan (printed code overwritten; corrected value = 1000+serial)
+khajni,137,1137,खान्सेचक,agri: vcode hand-corrected on scan (printed code overwritten; corrected value = 1000+serial)
+khajni,138,1138,खजुरी,agri: vcode hand-corrected on scan (printed code overwritten; corrected value = 1000+serial); unusual combination of values as printed
+khajni,139,1139,गजारी,agri: vcode hand-corrected on scan (printed code overwritten; corrected value = 1000+serial)
+khajni,140,1140,गठुआखोर,agri: vcode hand-corrected on scan (printed code overwritten; corrected value = 1000+serial)
+khajni,141,1141,गडैना,agri: vcode hand-corrected on scan (printed code overwritten; corrected value = 1000+serial)
+khajni,142,1142,गुलउर,agri: vcode hand-corrected on scan (printed code overwritten; corrected value = 1000+serial)
+khajni,143,1143,गहना,agri: vcode hand-corrected on scan (printed code overwritten; corrected value = 1000+serial)
+khajni,144,1144,गाजर जगदीश,agri: vcode hand-corrected on scan (printed code overwritten; corrected value = 1000+serial)
+khajni,145,1145,गाजर वंशमन,agri: vcode hand-corrected on scan (printed code overwritten; corrected value = 1000+serial)
+khajni,146,1146,गाजर नरसिंह,agri: vcode hand-corrected on scan (printed code overwritten; corrected value = 1000+serial)
+khajni,147,1147,गाहीपार,agri: vcode hand-corrected on scan (printed code overwritten; corrected value = 1000+serial)
+khajni,148,1148,गोन्दा,agri: vcode hand-corrected on scan (printed code overwritten; corrected value = 1000+serial)
+khajni,149,1149,गोनहा,agri: vcode hand-corrected on scan (printed code overwritten; corrected value = 1000+serial)
+khajni,150,1150,गोपालपुर,agri: vcode hand-corrected on scan (printed code overwritten; corrected value = 1000+serial)
+khajni,151,1151,गोपीपुर,agri: vcode hand-corrected on scan (printed code overwritten; corrected value = 1000+serial)
+khajni,152,1152,गोरसैरा,agri: vcode hand-corrected on scan (printed code overwritten; corrected value = 1000+serial)
+khajni,153,1153,गौर्रा,agri: vcode hand-corrected on scan (printed code overwritten; corrected value = 1000+serial)
+khajni,154,1154,गोविन्द चक उर्फ नकहा,agri: vcode hand-corrected on scan (printed code overwritten; corrected value = 1000+serial)
+khajni,155,1155,गोहली बसन्त,agri: vcode hand-corrected on scan (printed code overwritten; corrected value = 1000+serial)
+khajni,156,1156,गोहली सीतल,agri: vcode hand-corrected on scan (printed code overwritten; corrected value = 1000+serial)
+khajni,157,1157,गोसाईपुर तप्पा–बनकटा,agri: vcode hand-corrected on scan (printed code overwritten; corrected value = 1000+serial)
+khajni,158,1158,गौरापार,agri: vcode hand-corrected on scan (printed code overwritten; corrected value = 1000+serial); unusual combination of values as printed
+khajni,159,1159,गौरी खुर्द/बुजुर्ग,agri: vcode hand-corrected on scan (printed code overwritten; corrected value = 1000+serial)
+khajni,160,1160,गनेशपुर तप्पा–नकौड़ी,agri: vcode hand-corrected on scan (printed code overwritten; corrected value = 1000+serial)
+khajni,161,1161,गनेशपुर तप्पा–भदार,agri: vcode hand-corrected on scan (printed code overwritten; corrected value = 1000+serial)
+khajni,162,1162,गुलरहा,agri: vcode hand-corrected on scan (printed code overwritten; corrected value = 1000+serial)
+khajni,163,1163,गुवारी,agri: vcode hand-corrected on scan (printed code overwritten; corrected value = 1000+serial); dist_a 660 with dist_b 153 (unusual combination) as printed
+khajni,164,1164,गाइबेला,agri: vcode hand-corrected on scan (printed code overwritten; corrected value = 1000+serial)
+khajni,165,1165,गोधना,road: r5to9<r2to5 as printed | agri: vcode hand-corrected on scan (printed code overwritten; corrected value = 1000+serial)
+khajni,166,1166,गोपलापुर,agri: vcode hand-corrected on scan (printed code overwritten; corrected value = 1000+serial)
+khajni,167,1167,गेपलापुर तप्पा परसी,agri: vcode hand-corrected on scan (printed code overwritten; corrected value = 1000+serial)
+khajni,168,1168,गोबडौर,agri: vcode hand-corrected on scan (printed code overwritten; corrected value = 1000+serial)
+khajni,169,1169,गोविन्दपुर,agri: vcode hand-corrected on scan (printed code overwritten; corrected value = 1000+serial)
+khajni,170,1170,गोसाईपुर तप्पा वेलघाट,agri: vcode hand-corrected on scan (printed code overwritten; corrected value = 1000+serial)
+khajni,171,1171,गौरगंज,agri: vcode hand-corrected on scan (printed code overwritten; corrected value = 1000+serial)
+khajni,172,1172,गंगटही,agri: vcode hand-corrected on scan (printed code overwritten; corrected value = 1000+serial)
+khajni,173,1173,गेपाल देवरियर,agri: vcode hand-corrected on scan (printed code overwritten; corrected value = 1000+serial)
+khajni,174,1174,गिदहा,basic: rate printed in italic (different typeface from neighbours) | agri: vcode hand-corrected on scan (printed code overwritten; corrected value = 1000+serial)
+khajni,175,1175,घइसरा,agri: vcode hand-corrected on scan (printed code overwritten; corrected value = 1000+serial)
+khajni,176,1176,धमउर,basic: name printed with ध (sits in घ alphabetical run; possibly घमउर) | agri: vcode hand-corrected on scan (printed code overwritten; corrected value = 1000+serial)
+khajni,177,1177,घरसरिया,agri: vcode hand-corrected on scan (printed code overwritten; corrected value = 1000+serial)
+khajni,178,1178,घोडसारी,agri: vcode hand-corrected on scan (printed code overwritten; corrected value = 1000+serial)
+khajni,179,1179,घेरवा,agri: vcode hand-corrected on scan (printed code overwritten; corrected value = 1000+serial)
+khajni,180,1180,घुरमुलही,agri: vcode hand-corrected on scan (printed code overwritten; corrected value = 1000+serial)
+khajni,181,1181,चइतरा,agri: vcode hand-corrected on scan (printed code overwritten; corrected value = 1000+serial)
+khajni,182,1182,चकनकदह,agri: vcode hand-corrected on scan (printed code overwritten; corrected value = 1000+serial)
+khajni,183,1183,चकबैदपुरवा उर्फ मठिया,agri: vcode hand-corrected on scan (printed code overwritten; corrected value = 1000+serial)
+khajni,184,1184,चकबन्गला,agri: vcode hand-corrected on scan (printed code overwritten; corrected value = 1000+serial)
+khajni,185,1185,चकराजपुर,agri: vcode hand-corrected on scan (printed code overwritten; corrected value = 1000+serial)
+khajni,186,1186,चचउली,agri: vcode hand-corrected on scan (printed code overwritten; corrected value = 1000+serial)
+khajni,187,1187,चतुरबन्दुआरी,agri: vcode hand-corrected on scan (printed code overwritten; corrected value = 1000+serial)
+khajni,188,1188,चन्दलहा,agri: vcode hand-corrected on scan (printed code overwritten; corrected value = 1000+serial)
+khajni,189,1189,चनहर,agri: vcode hand-corrected on scan (printed code overwritten; corrected value = 1000+serial)
+khajni,190,1190,चरकहा,agri: vcode hand-corrected on scan (printed code overwritten; corrected value = 1000+serial)
+khajni,191,1191,चरनाद,agri: vcode hand-corrected on scan (printed code overwritten; corrected value = 1000+serial)
+khajni,192,1192,चौबरिया,agri: vcode hand-corrected on scan (printed code overwritten; corrected value = 1000+serial)
+khajni,193,1193,चॉचपार,agri: vcode hand-corrected on scan (printed code overwritten; corrected value = 1000+serial)
+khajni,194,1194,चिलौना,agri: vcode hand-corrected on scan (printed code overwritten; corrected value = 1000+serial)
+khajni,195,1195,चिहारी उर्फ काछी,agri: vcode hand-corrected on scan (printed code overwritten; corrected value = 1000+serial)
+khajni,196,1196,चक इनायत,agri: vcode hand-corrected on scan (printed code overwritten; corrected value = 1000+serial)
+khajni,197,1197,चकखानजहॉ,agri: vcode hand-corrected on scan (printed code overwritten; corrected value = 1000+serial)
+khajni,198,1198,चकखानमोहम्मद,agri: vcode hand-corrected on scan (printed code overwritten; corrected value = 1000+serial)
+khajni,199,1199,चकनूरवाफ,agri: vcode hand-corrected on scan (printed code overwritten; corrected value = 1000+serial)
+khajni,200,1200,चकफरीद,agri: vcode hand-corrected on scan (printed code overwritten; corrected value = 1000+serial)
+khajni,201,1201,चकभोला,agri: vcode hand-corrected on scan (printed code overwritten; corrected value = 1000+serial)
+khajni,202,1202,चकराधवदास,agri: vcode hand-corrected on scan (printed code overwritten; corrected value = 1000+serial)
+khajni,203,1203,चपरहट,agri: vcode hand-corrected on scan (printed code overwritten; corrected value = 1000+serial)
+khajni,204,1204,चकिया,agri: vcode hand-corrected on scan (printed code overwritten; corrected value = 1000+serial)
+khajni,205,1205,चोरभारी,agri: vcode hand-corrected on scan (printed code overwritten; corrected value = 1000+serial)
+khajni,206,1206,चौकडी,agri: vcode hand-corrected on scan (printed code overwritten; corrected value = 1000+serial)
+khajni,207,1207,चौतरापटटी तप्पा बेलघाट,agri: vcode hand-corrected on scan (printed code overwritten; corrected value = 1000+serial)
+khajni,208,1208,चौतरा बाबू,agri: vcode hand-corrected on scan (printed code overwritten; corrected value = 1000+serial)
+khajni,209,1209,चौतरा तिवारी,agri: vcode hand-corrected on scan (printed code overwritten; corrected value = 1000+serial)
+khajni,210,1210,चौडिया मसांन,agri: vcode hand-corrected on scan (printed code overwritten; corrected value = 1000+serial)
+khajni,211,1211,चॉदपार तप्पा भदार,agri: vcode hand-corrected on scan (printed code overwritten; corrected value = 1000+serial)
+khajni,212,1212,चौतरवा,agri: vcode hand-corrected on scan (printed code overwritten; corrected value = 1000+serial)
+khajni,213,1213,छेंदी डडवा,agri: vcode hand-corrected on scan (printed code overwritten; corrected value = 1000+serial)
+khajni,214,1214,छताई,agri: vcode hand-corrected on scan (printed code overwritten; corrected value = 1000+serial)
+khajni,215,1215,छपिया,agri: vcode hand-corrected on scan (printed code overwritten; corrected value = 1000+serial)
+khajni,216,1216,छातापार,agri: vcode hand-corrected on scan (printed code overwritten; corrected value = 1000+serial)
+khajni,217,1217,छपरा,agri: vcode hand-corrected on scan (printed code overwritten; corrected value = 1000+serial)
+khajni,218,1218,छतियारी,agri: vcode hand-corrected on scan (printed code overwritten; corrected value = 1000+serial)
+khajni,219,1219,छितौना,agri: vcode hand-corrected on scan (printed code overwritten; corrected value = 1000+serial)
+khajni,220,1220,छितौनी खुर्द,agri: vcode hand-corrected on scan (printed code overwritten; corrected value = 1000+serial)
+khajni,221,1221,छितौनी बुजुर्ग,agri: vcode hand-corrected on scan (printed code overwritten; corrected value = 1000+serial)
+khajni,222,1222,छितौनीभीम,agri: vcode hand-corrected on scan (printed code overwritten; corrected value = 1000+serial)
+khajni,223,1223,छपिया तप्पा खजुरी,agri: vcode hand-corrected on scan (printed code overwritten; corrected value = 1000+serial)
+khajni,224,1224,जगदीषपुर तप्पा महसीन,agri: vcode hand-corrected on scan (printed code overwritten; corrected value = 1000+serial)
+khajni,225,1225,जगन्नाथपुर,agri: vcode hand-corrected on scan (printed code overwritten; corrected value = 1000+serial)
+khajni,226,1226,जमौली खुर्द,agri: vcode hand-corrected on scan (printed code overwritten; corrected value = 1000+serial)
+khajni,227,1227,जमौली बुजुर्ग,agri: vcode hand-corrected on scan (printed code overwritten; corrected value = 1000+serial)
+khajni,228,1228,जैपालपार,agri: vcode hand-corrected on scan (printed code overwritten; corrected value = 1000+serial)
+khajni,229,1229,जैसर,agri: vcode hand-corrected on scan (printed code overwritten; corrected value = 1000+serial)
+khajni,230,1230,जाखा,agri: vcode hand-corrected on scan (printed code overwritten; corrected value = 1000+serial)
+khajni,231,1231,जिगिना बाबू,agri: vcode hand-corrected on scan (printed code overwritten; corrected value = 1000+serial)
+khajni,232,1232,जिगिना तिवारी,agri: vcode hand-corrected on scan (printed code overwritten; corrected value = 1000+serial)
+khajni,233,1233,जग्गाकोल,agri: vcode hand-corrected on scan (printed code overwritten; corrected value = 1000+serial)
+khajni,234,1234,जगदीशपुर उर्फ पाण्डेयपुर,agri: vcode hand-corrected on scan (printed code overwritten; corrected value = 1000+serial)
+khajni,235,1235,जगरन्नाथपुर तप्पा नकौडी,agri: vcode hand-corrected on scan (printed code overwritten; corrected value = 1000+serial)
+khajni,236,1236,जगरन्नाथपुर तप्पा शाहपुर,agri: vcode hand-corrected on scan (printed code overwritten; corrected value = 1000+serial)
+khajni,237,1237,जदवापुर,agri: vcode hand-corrected on scan (printed code overwritten; corrected value = 1000+serial)
+khajni,238,1238,जददूपटटी,agri: vcode hand-corrected on scan (printed code overwritten; corrected value = 1000+serial)
+khajni,239,1239,जमीन कैथी,agri: vcode hand-corrected on scan (printed code overwritten; corrected value = 1000+serial)
+khajni,240,1240,जमीनगोडौर,agri: vcode hand-corrected on scan (printed code overwritten; corrected value = 1000+serial)
+khajni,241,1241,जमीनविशुनपुर,agri: vcode hand-corrected on scan (printed code overwritten; corrected value = 1000+serial)
+khajni,242,1242,जूटीपुर,agri: vcode hand-corrected on scan (printed code overwritten; corrected value = 1000+serial)
+khajni,243,1243,जहोराबाद,agri: vcode hand-corrected on scan (printed code overwritten; corrected value = 1000+serial)
+khajni,244,1244,जैती तप्पा बेलघाट,agri: vcode hand-corrected on scan (printed code overwritten; corrected value = 1000+serial)
+khajni,245,1245,जैती तप्पा भदार,agri: vcode hand-corrected on scan (printed code overwritten; corrected value = 1000+serial)
+khajni,246,1246,जितवारपुर एहतमाली,agri: other_b..d 28/24/19 (low) as printed; vcode handwritten over printed code
+khajni,247,1247,जितवारपुर मुस्तकिल,agri: vcode handwritten over printed code
+khajni,248,1248,जिगनिया मुस्तकिल,agri: vcode handwritten over printed code
+khajni,249,1249,जिगिनियाडाड,agri: vcode handwritten over printed code
+khajni,250,1250,जलालाबाद,agri: vcode handwritten over printed code
+khajni,251,1251,जिगिना,agri: vcode handwritten over printed code
+khajni,252,1252,झरकटहा,agri: vcode handwritten over printed code
+khajni,253,1253,झुडिया तप्पा बनकटा,agri: vcode handwritten over printed code
+khajni,254,1254,झुडिया तप्पा हवेली,agri: vcode handwritten over printed code
+khajni,255,1255,झई,agri: vcode handwritten over printed code
+khajni,256,1256,झझवा,agri: vcode handwritten over printed code
+khajni,257,1257,झौवा खुर्द,agri: vcode handwritten over printed code
+khajni,258,1258,झौवा बुजुर्ग,agri: vcode handwritten over printed code
+khajni,259,1259,झिनखिनी,agri: vcode handwritten over printed code
+khajni,260,1260,झकही,road: r5to9<r2to5 as printed | agri: vcode handwritten over printed code
+khajni,261,1261,टेकवार,road: r5to9<r2to5 as printed | comm: unusual combination as printed (land 20000 with shop 30000/office 25000); verified at zoom | agri: dist_a 9200 as printed (other villages in same group 620-1100; likely 920?); vcode handwritten over printed code
+khajni,262,1262,टेगंरी,agri: vcode handwritten over printed code
+khajni,263,1263,टिकरिया दिगर,agri: vcode handwritten over printed code
+khajni,264,1264,टिकरियानाथ सिंह,agri: vcode handwritten over printed code
+khajni,265,1265,ठिकापुर,agri: other_b..d 28/24/19 (low) as printed; vcode handwritten over printed code
+khajni,266,1266,टिकुलियाडाड,agri: vcode handwritten over printed code
+khajni,267,1267,टिकरी खुर्द,agri: vcode handwritten over printed code
+khajni,268,1268,टिकरी बुजुर्ग,agri: vcode handwritten over printed code
+khajni,269,1269,टडवा,agri: vcode handwritten over printed code
+khajni,270,1270,ठेगंहा,agri: vcode handwritten over printed code
+khajni,271,1271,ठठउर,agri: vcode handwritten over printed code
+khajni,272,1272,ठाती,agri: vcode handwritten over printed code
+khajni,273,1273,डुमरैला,agri: vcode handwritten over printed code
+khajni,274,1274,डडवा,agri: vcode handwritten over printed code
+khajni,275,1275,डडवा तप्पा बनकटा,agri: vcode handwritten over printed code
+khajni,276,1276,डडवा रामचन्दर,agri: vcode handwritten over printed code
+khajni,277,1277,डडवा चतुर,agri: vcode handwritten over printed code
+khajni,278,1278,डोडो,comm: unusual combination as printed (land 26000 with shop 24000/office 25000); verified at zoom | agri: vcode handwritten over printed code
+khajni,279,1279,डोमरघाट,agri: vcode handwritten over printed code
+khajni,280,1280,डोहरिया प्राणनाथ,road: r9to12 overwritten/blotted (5?00); best reading 5600 | agri: vcode handwritten over printed code
+khajni,281,1281,डोहरिया बरगाह,agri: vcode handwritten over printed code
+khajni,282,1282,डोहरिया बास देव,agri: vcode handwritten over printed code
+khajni,283,1283,डिग्गा,agri: vcode handwritten over printed code
+khajni,284,1284,डिग्घी,agri: vcode handwritten over printed code
+khajni,285,1285,डागीपार,agri: vcode handwritten over printed code
+khajni,286,1286,डेहराटिकर,agri: vcode handwritten over printed code
+khajni,287,1287,डकही,agri: vcode handwritten over printed code
+khajni,288,1288,डडिहत,agri: vcode handwritten over printed code
+khajni,289,1289,डोमरिया,agri: vcode handwritten over printed code
+khajni,290,1290,डोहरिया,agri: vcode handwritten over printed code
+khajni,291,1291,डिगुरपुर,agri: vcode handwritten over printed code
+khajni,292,1292,ढढौना,agri: vcode handwritten over printed code
+khajni,293,1293,ढंढिया डीह,agri: vcode handwritten over printed code
+khajni,294,1294,ढोढई,agri: vcode handwritten over printed code
+khajni,295,1295,ढेकुनाथ,agri: other_b..d 95/73/42 with other_a 150 (unusual mix) as printed; vcode handwritten over printed code
+khajni,296,1296,ढेबरा बुजुर्ग,agri: vcode handwritten over printed code
+khajni,297,1297,ढेबराखुर्द,agri: vcode handwritten over printed code
+khajni,298,1298,ढखवा,agri: vcode handwritten over printed code
+khajni,299,1299,ढबिया,agri: vcode handwritten over printed code
+khajni,300,1300,ढोढईपार,agri: vcode handwritten over printed code
+khajni,301,1301,तडसर,agri: vcode handwritten over printed code
+khajni,302,1302,तुर्कवलिया तप्पा हवेली,agri: vcode handwritten over printed code
+khajni,303,1303,तुलसी ओझा,agri: vcode handwritten over printed code
+khajni,304,1304,तुलसी पाण्डेय,agri: vcode handwritten over printed code
+khajni,305,1305,तुलसी रतन,agri: vcode handwritten over printed code
+khajni,306,1306,तेतरिया,agri: vcode handwritten over printed code
+khajni,307,1307,तेनुआ उर्फ तुलसी,agri: vcode handwritten over printed code
+khajni,308,1308,तमा,agri: vcode handwritten over printed code
+khajni,309,1309,तफलकपुर,agri: vcode handwritten over printed code
+khajni,310,1310,तुर्कवलिया,agri: other_b 196 > other_a 150 as printed (likely 87?); vcode handwritten over printed code
+khajni,311,1311,तेलिया भार,agri: vcode handwritten over printed code
+khajni,312,1312,तेलियाभार उर्फ विशुनपुर,agri: vcode handwritten over printed code
+khajni,313,1313,तारखोप,agri: vcode handwritten over printed code
+khajni,314,1314,तिघरा,agri: vcode handwritten over printed code
+khajni,315,1315,तिवारीपुर,agri: vcode handwritten over printed code
+khajni,316,1316,तिवारीपुर तप्पा बेलघाट,agri: vcode handwritten over printed code
+khajni,317,1317,त्रिलोकपुर,agri: vcode handwritten over printed code
+khajni,318,1318,तुर्कवलिया,agri: vcode handwritten over printed code
+khajni,319,1319,दुघरा,agri: vcode handwritten over printed code
+khajni,320,1320,देवघटा,agri: vcode handwritten over printed code
+khajni,321,1321,देवनाथपुर,agri: vcode handwritten over printed code
+khajni,322,1322,देवराडतुला,agri: vcode handwritten over printed code
+khajni,323,1323,देवरिया,agri: vcode handwritten over printed code
+khajni,324,1324,दिलमनपुर,agri: vcode handwritten over printed code
+khajni,325,1325,दुधकुन्डा,agri: vcode handwritten over printed code
+khajni,326,1326,दुबौली,agri: vcode handwritten over printed code
+khajni,327,1327,देवडार,agri: vcode handwritten over printed code
+khajni,328,1328,ददौरा,agri: vcode handwritten over printed code
+khajni,329,1329,दाउदचक,agri: vcode handwritten over printed code
+khajni,330,1330,देवकली,agri: vcode handwritten over printed code
+khajni,331,1331,धनईपुर,agri: vcode handwritten over printed code
+khajni,332,1332,धनौजी,agri: vcode handwritten over printed code
+khajni,333,1333,धुवहॉ,agri: vcode handwritten over printed code
+khajni,334,1334,धाधूपार,agri: vcode handwritten over printed code
+khajni,335,1335,धोबौली,agri: vcode handwritten over printed code
+khajni,336,1336,धोबौली उर्फ धकरौली,agri: vcode handwritten over printed code
+khajni,337,1337,धन्नूजोत,agri: vcode handwritten over printed code
+khajni,338,1338,धनौजी तप्पा उसरी,agri: vcode handwritten over printed code
+khajni,339,1339,धमचिया,agri: vcode handwritten over printed code
+khajni,340,1340,धुनियापार,agri: vcode handwritten over printed code
+khajni,341,1341,धुरियाडीह,agri: vcode handwritten over printed code
+khajni,342,1342,धोबौली,agri: vcode handwritten over printed code
+khajni,343,1343,नटिनी,agri: vcode handwritten over printed code
+khajni,344,1344,नहरदेवा,agri: vcode handwritten over printed code
+khajni,345,1345,नेउसा,agri: vcode handwritten over printed code
+khajni,346,1346,नैपुरा,agri: vcode handwritten over printed code
+khajni,347,1347,नकौडी तप्पा नकौडी,agri: vcode handwritten over printed code
+khajni,348,1348,नकौडी तप्पा बेलघाट,agri: vcode handwritten over printed code
+khajni,349,1349,नगवा,agri: vcode handwritten over printed code
+khajni,350,1350,नगहरा,agri: vcode handwritten over printed code
+khajni,351,1351,नरगडा जग्गासिंह,agri: other_b..d 28/24/19 (low) as printed; vcode handwritten over printed code
+khajni,352,1352,नरगडा शिवदत्त सिंह,agri: other_b..d 28/24/19 (low) as printed; vcode handwritten over printed code
+khajni,353,1353,नराइचपार,agri: vcode handwritten over printed code
+khajni,354,1354,नरायनपुरभटट,agri: vcode handwritten over printed code
+khajni,355,1355,नरायनपुर मुस्तकील,agri: vcode handwritten over printed code
+khajni,356,1356,नरायनपुर तप्पा शाहपुर,agri: vcode handwritten over printed code
+khajni,357,1357,नरायनपुर एहतमाली,agri: vcode handwritten over printed code
+khajni,358,1358,नेवराखास,agri: vcode handwritten over printed code
+khajni,359,1359,नैठी,agri: vcode handwritten over printed code
+khajni,360,1360,नेउसा उर्फ नेवासमाफी,agri: vcode handwritten over printed code
+khajni,361,1361,पकडी दामोदर,agri: vcode handwritten over printed code
+khajni,362,1362,पगार,agri: vcode handwritten over printed code
+khajni,363,1363,परईडाड,agri: vcode handwritten over printed code
+khajni,364,1364,परसिया,comm: V-code printed with stray mark before it (-1364) | agri: vcode handwritten over printed code
+khajni,365,1365,परसौनी,agri: vcode handwritten over printed code
+khajni,366,1366,पल्हईपार बाबू,agri: vcode handwritten over printed code
+khajni,367,1367,पल्हईपार हरनहियॉ,agri: vcode handwritten over printed code
+khajni,368,1368,पडियापार,agri: vcode handwritten over printed code
+khajni,369,1369,पुरासपार,agri: vcode handwritten over printed code
+khajni,370,1370,पैसा,road: r5to9 printed 6800 clearly (unusual step vs 6200 pattern) | agri: vcode handwritten over printed code
+khajni,371,1371,पाकडघाट,agri: vcode handwritten over printed code
+khajni,372,1372,पानापार,agri: vcode handwritten over printed code
+khajni,373,1373,पिपरा,agri: vcode handwritten over printed code
+khajni,374,1374,पिपरागंगा,agri: vcode handwritten over printed code
+khajni,375,1375,पिपराबनवारी,agri: vcode handwritten over printed code
+khajni,376,1376,पिडिया,agri: vcode handwritten over printed code
+khajni,377,1377,पचहॉ,agri: vcode handwritten over printed code
+khajni,378,1378,पटखौली तप्पा परसी,agri: vcode handwritten over printed code
+khajni,379,1379,पटखौली तप्पा शाहपुर,agri: vcode handwritten over printed code
+khajni,380,1380,पडरी,agri: vcode handwritten over printed code
+khajni,381,1381,पडौली,agri: vcode handwritten over printed code
+khajni,382,1382,पथरहा मिश्र,agri: other_b..d 28/24/19 (low) as printed; vcode handwritten over printed code
+khajni,383,1383,पथरहा बाबू,agri: vcode handwritten over printed code
+khajni,384,1384,परसादीपुर,agri: vcode handwritten over printed code
+khajni,385,1385,परसीखास,agri: vcode handwritten over printed code
+khajni,386,1386,पल्टूपुर,agri: vcode handwritten over printed code
+khajni,387,1387,पतिसा,agri: vcode handwritten over printed code
+khajni,388,1388,पुरनहा तप्पा बेलघाट,agri: vcode handwritten over printed code
+khajni,389,1389,पुरवा तप्पा कुरमौट,agri: vcode handwritten over printed code
+khajni,390,1390,पुरवा तप्पा बेलघाट,agri: vcode handwritten over printed code
+khajni,391,1391,पिडरा,agri: vcode handwritten over printed code
+khajni,392,1392,पिडरी,agri: vcode handwritten over printed code
+khajni,393,1393,पिताम्बरपुर,road: r9to12 printed 2100 (equal to r5to9) | agri: vcode handwritten over printed code
+khajni,394,1394,पिपरहा,agri: vcode handwritten over printed code
+khajni,395,1395,पिपरसण्डी,agri: vcode handwritten over printed code
+khajni,396,1396,पिपरा खुर्द बुजुर्ग,agri: vcode handwritten over printed code
+khajni,397,1397,पिपरानेम,agri: vcode handwritten over printed code
+khajni,398,1398,पिपरी,agri: vcode handwritten over printed code
+khajni,399,1399,पचौरी,agri: vcode handwritten over printed code
+khajni,400,1400,पोखरा,agri: vcode handwritten over printed code
+khajni,401,1401,पिपराहेमा,agri: vcode handwritten over printed code
+khajni,402,1402,फरसाडाड,agri: vcode handwritten over printed code
+khajni,403,1403,फत्तेहपुर,agri: vcode handwritten over printed code
+khajni,404,1404,फरेन्दिया खुर्द,agri: vcode handwritten over printed code
+khajni,405,1405,फरेन्दिया बुजुर्ग,agri: vcode handwritten over printed code
+khajni,406,1406,बकुची,agri: vcode handwritten over printed code
+khajni,407,1407,बघैला तप्पा महसीन,agri: vcode handwritten over printed code
+khajni,408,1408,बघौडा,agri: vcode handwritten over printed code
+khajni,409,1409,वढनी,road: r9to12 first two digits overstruck/bold in scan; best reading 10200 | agri: dist_a 9200 as printed (likely 920?); vcode handwritten over printed code
+khajni,410,1410,बढैपुरवा,agri: vcode handwritten over printed code
+khajni,411,1411,बदरा,agri: vcode handwritten over printed code
+khajni,412,1412,बदरा तप्पा बनकटा,agri: vcode handwritten over printed code
+khajni,413,1413,बनहैता,agri: vcode handwritten over printed code
+khajni,414,1414,बभना,agri: vcode handwritten over printed code
+khajni,415,1415,बरईपार,agri: vcode handwritten over printed code
+khajni,416,1416,बरगदवा,agri: vcode handwritten over printed code
+khajni,417,1417,बरपारबरगाह,agri: vcode handwritten over printed code
+khajni,418,1418,बरी,agri: vcode handwritten over printed code
+khajni,419,1419,बरी बन्दुआरी,comm: unusual pattern (office 25000 with land 20000/shop 24000) - as printed | agri: vcode handwritten over printed code
+khajni,420,1420,बल्लोचक,agri: vcode handwritten over printed code
+khajni,421,1421,बनियापार,agri: vcode handwritten over printed code
+khajni,422,1422,बसियाखोर,agri: vcode handwritten over printed code
+khajni,423,1423,बुढौरा,agri: vcode handwritten over printed code
+khajni,424,1424,बहुरीपार खुर्द,comm: shop 24000 lower than usual 30000 for 26000/25000 row - as printed | agri: vcode handwritten over printed code
+khajni,425,1425,बहुरीपार बुजुर्ग,comm: shop 24000 lower than usual 30000 for 26000/25000 row - as printed | agri: vcode handwritten over printed code
+khajni,426,1426,बसडीला,agri: vcode handwritten over printed code
+khajni,427,1427,बसडिलिया,agri: vcode handwritten over printed code
+khajni,428,1428,बेनी,agri: vcode handwritten over printed code
+khajni,429,1429,वरूकागाड,agri: vcode handwritten over printed code
+khajni,430,1430,बेलडाड,agri: vcode handwritten over printed code
+khajni,431,1431,बेलभदराचक,agri: other_b 95 with other_c 66 (unusual) as printed; vcode handwritten over printed code
+khajni,432,1432,बेलूडीहा,agri: vcode handwritten over printed code
+khajni,433,1433,बगंलापाण्डेय,basic: name: dot over ग (बगंला) may be a speck | agri: vcode handwritten over printed code
+khajni,434,1434,बागेवाह,agri: vcode handwritten over printed code
+khajni,435,1435,बाभनभैसा,agri: vcode handwritten over printed code
+khajni,436,1436,बारीगाव,agri: mixed row: dist_a 490/link_a 460/other_a 330 with low b-d values as printed; vcode handwritten over printed code
+khajni,437,1437,वासपार,road: r5to9 printed 2300 clearly (pattern elsewhere 2100) | agri: vcode handwritten over printed code
+khajni,438,1438,बीकूभैसा,agri: vcode handwritten over printed code
+khajni,439,1439,बस्तिया,comm: shop 24000 lower than usual 30000 for 26000/25000 row - as printed | agri: vcode handwritten over printed code
+khajni,440,1440,बिनौका,road: r5to9 printed 2300 (pattern elsewhere 2100) | agri: vcode handwritten over printed code
+khajni,441,1441,बिहारी खुर्द,agri: vcode handwritten over printed code
+khajni,442,1442,बिहारी बुजुर्ग,agri: vcode handwritten over printed code
+khajni,443,1443,बघउर,agri: vcode handwritten over printed code
+khajni,444,1444,बघैला तप्पा बेलघाट,agri: vcode handwritten over printed code
+khajni,445,1445,बघाड,agri: vcode handwritten over printed code
+khajni,446,1446,बढैपुरवा,agri: vcode handwritten over printed code
+khajni,447,1447,बढयाडाड तप्पा बेलघाट,road: r2to5 printed 2200 clearly > r5to9 2100 (decreasing; likely misprint for 2000) | agri: vcode handwritten over printed code
+khajni,448,1448,बरीबन्दुआरी,agri: vcode handwritten over printed code
+khajni,449,1449,बनकट,agri: vcode handwritten over printed code
+khajni,450,1450,बनकटी खुर्द,agri: dist_a 9200 as printed (likely 920?); vcode handwritten over printed code
+khajni,451,1451,बनकटी बुजुर्ग,agri: dist_a 9200 as printed (likely 920?); vcode handwritten over printed code
+khajni,452,1452,बभनपुरा,agri: vcode handwritten over printed code
+khajni,453,1453,बभनपुरा तप्पा उसरी,agri: vcode handwritten over printed code
+khajni,454,1454,बभनौली तप्पा बभनौली,comm: shop 27000 (unusual value) - as printed | agri: vcode handwritten over printed code
+khajni,455,1455,बभनौली तप्पा बेलघाट,agri: vcode handwritten over printed code
+khajni,456,1456,बरपरवा,agri: vcode handwritten over printed code
+khajni,457,1457,बरपरवाबाबू एहतमाली,agri: vcode handwritten over printed code
+khajni,458,1458,बरपरवा बाबू मुस्तकिल,agri: vcode handwritten over printed code
+khajni,459,1459,बरपार,agri: vcode handwritten over printed code
+khajni,460,1460,बरला,agri: vcode handwritten over printed code
+khajni,461,1461,बरोली,agri: vcode handwritten over printed code
+khajni,462,1462,बलुआ उर्फ बलुसड,road: r9to12 third digit overstruck (6 over another digit); best reading 5600 | comm: land 20000 with shop 30000/office 25000 - as printed | agri: vcode handwritten over printed code
+khajni,463,1463,बलुआ उर्फ कुरमौठ,agri: vcode handwritten over printed code
+khajni,464,1464,बलुआ भवानी बक्स सिंह,agri: vcode handwritten over printed code
+khajni,465,1465,बडिहारी,agri: vcode handwritten over printed code
+khajni,466,1466,बुधनापार खुर्द,"agri: vcode printed 1406, pen stroke makes 1466"
+khajni,467,1467,बुधनापार बुजुर्ग,"agri: vcode printed 1407, pen stroke makes 1467"
+khajni,468,1468,बुलाकीचक,"agri: vcode printed 1408, pen stroke makes 1468"
+khajni,469,1469,बहादुरपुर खुर्द,"agri: vcode printed 1409, pen stroke makes 1469"
+khajni,470,1470,बहादुरपुर बुजुर्ग,agri: vcode handwritten over printed code
+khajni,471,1471,बसन्तपुर,agri: vcode handwritten over printed code
+khajni,472,1472,बसही एहतमाली,agri: other_b..d 28/24/19 (low) as printed; vcode handwritten over printed code
+khajni,473,1473,बसही मुस्तकिल,agri: vcode handwritten over printed code
+khajni,474,1474,बेलीकुण्ड,agri: vcode handwritten over printed code
+khajni,475,1475,बेलीखुर्द एहतमाली,agri: vcode handwritten over printed code; other_b/c/d 28/24/19 printed (peers 87/66/38)
+khajni,476,1476,बेलीखुर्द मुस्तकिल,agri: vcode handwritten over printed code
+khajni,477,1477,बेनी उर्फ विशुनपुर,agri: vcode handwritten over printed code
+khajni,478,1478,बेलदारीपुर तप्पा शाहपुर,agri: vcode handwritten over printed code
+khajni,479,1479,बेलदारीपुर तप्पा बभनौली,agri: vcode handwritten over printed code
+khajni,480,1480,बेलघाट,agri: vcode handwritten over printed code; dist_a 9200 as printed (likely 920; link_a 860)
+khajni,481,1481,बेलपार,agri: vcode handwritten over printed code
+khajni,482,1482,बलवा तिलकराम,agri: vcode handwritten over printed code
+khajni,483,1483,बेलवाडाडी तप्पा बेलघाट,agri: vcode handwritten over printed code
+khajni,484,1484,बेलसडी खुर्द,agri: vcode handwritten over printed code
+khajni,485,1485,बेलसडी बुजुर्ग,agri: vcode handwritten over printed code
+khajni,486,1486,बेला,agri: vcode handwritten over printed code
+khajni,487,1487,बेलाखुद्र,agri: vcode handwritten over printed code
+khajni,488,1488,बेला बुजुर्ग,agri: vcode handwritten over printed code
+khajni,489,1489,बेसहनी,agri: vcode handwritten over printed code
+khajni,490,1490,बैजन्था,agri: vcode handwritten over printed code
+khajni,491,1491,ब्रम्हदेवा,agri: vcode handwritten over printed code
+khajni,492,1492,बैरिया,agri: vcode handwritten over printed code
+khajni,493,1493,ब्रहमसारी,agri: vcode handwritten over printed code
+khajni,494,1494,बाघाकुण्डा,agri: vcode handwritten over printed code; other_b/c/d 28/24/19 printed
+khajni,495,1495,बंजरिया,agri: vcode handwritten over printed code
+khajni,496,1496,बारीपुर खुर्द/बुजुर्ग,agri: vcode handwritten over printed code
+khajni,497,1497,बालाचक,agri: vcode handwritten over printed code
+khajni,498,1498,बौरडीह,agri: vcode handwritten over printed code
+khajni,499,1499,बकुलही,agri: vcode handwritten over printed code
+khajni,500,1500,बडहरा,agri: vcode handwritten over printed code
+khajni,501,1501,भटौली,agri: vcode handwritten over printed code; dist_a 9200 as printed (likely 920; link_a 860)
+khajni,502,1502,भरवलिया,"road: r2to5 printed 2200 > r5to9 2100 (decreasing, as printed) | agri: vcode handwritten over printed code"
+khajni,503,1503,भरोहिया चौबे,"road: r2to5 printed 2200 > r5to9 2100 (decreasing, as printed) | agri: vcode handwritten over printed code"
+khajni,504,1504,भरोहिया,agri: vcode handwritten over printed code; dist_a 9200 as printed (likely 920; link_a 860)
+khajni,505,1505,भलुआन,agri: vcode handwritten over printed code
+khajni,506,1506,भटियारी,agri: vcode handwritten over printed code
+khajni,507,1507,भेउसा उर्फ बनकटा,agri: vcode handwritten over printed code
+khajni,508,1508,भैसानाथू,agri: vcode handwritten over printed code; dist_a 9200 as printed (likely 920; link_a 860)
+khajni,509,1509,भाटपार,agri: vcode handwritten over printed code
+khajni,510,1510,भिउरा खरगराम,agri: vcode handwritten over printed code
+khajni,511,1511,भिउरी,agri: vcode handwritten over printed code
+khajni,512,1512,भिटनी,agri: vcode handwritten over printed code; dist_a 9200 as printed (likely 920; link_a 860)
+khajni,513,1513,भिटहा,agri: vcode handwritten over printed code
+khajni,514,1514,भिटहा कुँवर,agri: vcode handwritten over printed code
+khajni,515,1515,भिटहा पाण्डेय,agri: vcode handwritten over printed code
+khajni,516,1516,भगवानचक,agri: vcode handwritten over printed code
+khajni,517,1517,भटपुरवा,agri: vcode handwritten over printed code
+khajni,518,1518,भटपुरवा तप्पा–उसरी,agri: vcode handwritten over printed code
+khajni,519,1519,भटौली खुर्द,agri: vcode handwritten over printed code
+khajni,520,1520,भटौली बुजुर्ग,agri: vcode handwritten over printed code
+khajni,521,1521,भदारखास,comm: shop 24000 lower than usual 30000 for 26000/25000 row - as printed | agri: vcode handwritten over printed code
+khajni,522,1522,भभया,agri: vcode handwritten over printed code
+khajni,523,1523,भरथरी,agri: vcode handwritten over printed code
+khajni,524,1524,भरवलीकरन,agri: vcode handwritten over printed code
+khajni,525,1525,भरवलिया खुर्द,agri: vcode handwritten over printed code
+khajni,526,1526,भरवलिया बुजुर्ग,agri: vcode handwritten over printed code
+khajni,527,1527,भरसी,agri: vcode handwritten over printed code
+khajni,528,1528,भरौली,agri: vcode handwritten over printed code; other_b=28 printed (peers 87); other_b<other_c
+khajni,529,1529,भवानीगढ़,agri: vcode handwritten over printed code
+khajni,530,1530,भूलनचक,agri: vcode handwritten over printed code; other_b/c/d 28/24/19 printed
+khajni,531,1531,भेड़ाचक,agri: vcode handwritten over printed code
+khajni,532,1532,भाट मंझरिया,agri: vcode handwritten over printed code
+khajni,533,1533,भाटाडीहा,agri: vcode handwritten over printed code
+khajni,534,1534,भीटी तप्पा–भदार,agri: vcode handwritten over printed code
+khajni,535,1535,भिटहा,agri: vcode handwritten over printed code
+khajni,536,1536,भिटहा तप्पा–भदार,agri: vcode handwritten over printed code
+khajni,537,1537,भिसिया बुजुर्ग,agri: vcode handwritten over printed code
+khajni,538,1538,भिसिया खुर्द,agri: vcode handwritten over printed code
+khajni,539,1539,भदरखी,agri: vcode handwritten over printed code
+khajni,540,1540,भलुआ,agri: vcode handwritten over printed code
+khajni,541,1541,भलुही,agri: vcode handwritten over printed code
+khajni,542,1542,भेउसा,agri: vcode handwritten over printed code
+khajni,543,1543,भेलाखरगराम,agri: vcode handwritten over printed code
+khajni,544,1544,भेलाभार,agri: vcode handwritten over printed code
+khajni,545,1545,भिटहा तप्पा–खजुरी,agri: vcode handwritten over printed code
+khajni,546,1546,मउधरमंगल,agri: vcode handwritten over printed code
+khajni,547,1547,मउमुक्तामन,agri: vcode handwritten over printed code
+khajni,548,1548,मखानी,agri: vcode handwritten over printed code
+khajni,549,1549,मचौली,agri: vcode handwritten over printed code
+khajni,550,1550,मझगांवा तप्पा–हवेली,agri: vcode handwritten over printed code
+khajni,551,1551,मझौवा,agri: vcode handwritten over printed code
+khajni,552,1552,मथौली,agri: vcode handwritten over printed code
+khajni,553,1553,मदनपुरा,agri: vcode handwritten over printed code
+khajni,554,1554,मरवटिया,agri: vcode handwritten over printed code
+khajni,555,1555,मल्हीपुर,agri: vcode handwritten over printed code
+khajni,556,1556,महिलवार,agri: vcode handwritten over printed code
+khajni,557,1557,मुड़देवाचक,agri: vcode handwritten over printed code
+khajni,558,1558,मुडदेवा बुजुर्ग,agri: vcode handwritten over printed code
+khajni,559,1559,मुडियारी,agri: vcode handwritten over printed code
+khajni,560,1560,मुहआडाड,agri: vcode handwritten over printed code
+khajni,561,1561,महुआपार,agri: vcode handwritten over printed code
+khajni,562,1562,महुलाखोर,agri: vcode handwritten over printed code
+khajni,563,1563,महमूदपुर,agri: vcode handwritten over printed code
+khajni,564,1564,मेउड़ी,agri: vcode handwritten over printed code
+khajni,565,1565,मंझरिया खुर्द,agri: vcode handwritten over printed code
+khajni,566,1566,मंझरिया बुजुर्ग,agri: vcode handwritten over printed code
+khajni,567,1567,माल्हनपार खुर्द,comm: land 20000 with shop 30000/office 25000 - as printed | agri: vcode handwritten over printed code
+khajni,568,1568,मउर,agri: vcode handwritten over printed code
+khajni,569,1569,मकरहा,agri: vcode handwritten over printed code
+khajni,570,1570,मझगांवा तप्पा–बेलघाट,agri: vcode handwritten over printed code
+khajni,571,1571,मठखेमकरन,agri: vcode handwritten over printed code
+khajni,572,1572,मठयादव,agri: vcode handwritten over printed code
+khajni,573,1573,मठरामगिरि एह0,agri: vcode handwritten over printed code; other_b/c/d 28/24/19 printed
+khajni,574,1574,मठरामगिरि मुस्तकिल,agri: vcode handwritten over printed code
+khajni,575,1575,मठविक्रम,agri: vcode handwritten over printed code
+khajni,576,1576,मठविहारीदासा,agri: vcode handwritten over printed code
+khajni,577,1577,मड़हा,agri: vcode handwritten over printed code
+khajni,578,1578,मथौली,agri: vcode handwritten over printed code
+khajni,579,1579,मलॉव,comm: shop printed 3000 (likely typo for 30000) - as printed | agri: vcode handwritten over printed code
+khajni,580,1580,मझिली,agri: vcode handwritten over printed code
+khajni,581,1581,मटियरिया,agri: vcode handwritten over printed code
+khajni,582,1582,मठिया तप्पा–कुरमौट,agri: vcode handwritten over printed code
+khajni,583,1583,मठिया तप्पा–भदार,agri: vcode handwritten over printed code
+khajni,584,1584,मठिया तप्पा–शाहपुर,agri: vcode handwritten over printed code
+khajni,585,1585,मनिकापार,agri: vcode handwritten over printed code
+khajni,586,1586,मसिदिया,agri: vcode handwritten over printed code
+khajni,587,1587,मसिदिया तप्पा–शाहपुर,agri: vcode handwritten over printed code
+khajni,588,1588,मुकारिमपुर,agri: vcode handwritten over printed code
+khajni,589,1589,मुसरद,agri: vcode handwritten over printed code
+khajni,590,1590,महुई खुर्द,road: r9to12 second digit overprinted (reads 10200; could be 18200) | agri: vcode handwritten over printed code; dist_a 9200 as printed (likely 920; link_a 860)
+khajni,591,1591,महुई बुजुर्ग,road: r9to12 second digit overprinted (reads 10200; could be 18200) | agri: vcode handwritten over printed code; dist_a 9200 as printed (likely 920; link_a 860); link_b/c 139/104 with dist_a 9200 (peers 150/112)
+khajni,592,1592,महुलिया,agri: vcode handwritten over printed code
+khajni,593,1593,मसुरिया,agri: vcode handwritten over printed code; dist_a 9200 as printed (likely 920; link_a 860); link_b/c 139/104 with dist_a 9200 (peers 150/112)
+khajni,594,1594,मसी,agri: vcode handwritten over printed code
+khajni,595,1595,मंझरिया,agri: vcode handwritten over printed code
+khajni,596,1596,मंझरिया तप्पा–बेलघाट,agri: vcode handwritten over printed code
+khajni,597,1597,मंझरिया दीगर,agri: vcode handwritten over printed code
+khajni,598,1598,मंझरिया तालुक ध्यानपुर,agri: vcode handwritten over printed code
+khajni,599,1599,माझा कम्हरिया,"agri: vcode handwritten over printed code; other_b/c=28/24 printed, other_d=38"
+khajni,600,1600,माधोपुर,agri: vcode handwritten over printed code
+khajni,601,1601,माधोपुर तप्पा–चोड़र,agri: vcode handwritten over printed code
+khajni,602,1602,माल्हनपार,agri: vcode handwritten over printed code; dist_b-d 169/131/69 and link_b/c 139/104 with dist_a 1100 (other 1100 rows 200/165/83)
+khajni,603,1603,मालपुर,agri: vcode handwritten over printed code
+khajni,604,1604,मोहनचक,agri: vcode handwritten over printed code
+khajni,605,1605,मीरपुर,agri: vcode handwritten over printed code; link_b/c 139/104 (peers 150/112)
+khajni,606,1606,मझौवा,agri: vcode handwritten over printed code
+khajni,607,1607,मदरिया,agri: vcode handwritten over printed code
+khajni,608,1608,महैता,agri: vcode handwritten over printed code
+khajni,609,1609,मियां पकड़ी,agri: vcode handwritten over printed code
+khajni,610,1610,यसवन्तपुर,agri: vcode handwritten over printed code
+khajni,611,1611,रेकुआ,agri: vcode handwritten over printed code
+khajni,612,1612,रक्सानार,agri: vcode handwritten over printed code
+khajni,613,1613,रक्साबाबू,agri: vcode handwritten over printed code
+khajni,614,1614,रक्सौरा,agri: vcode handwritten over printed code
+khajni,615,1615,रघुवाडीहा खुर्द,agri: vcode handwritten over printed code
+khajni,616,1616,रघुवाडीहा बुजुर्ग,agri: vcode handwritten over printed code
+khajni,617,1617,रजवल,agri: vcode handwritten over printed code
+khajni,618,1618,रतनपुरा बाबू,agri: vcode handwritten over printed code
+khajni,619,1619,रतसही,agri: vcode handwritten over printed code
+khajni,620,1620,रमपुरवा,agri: vcode handwritten over printed code
+khajni,621,1621,राजपुर,agri: vcode handwritten over printed code
+khajni,622,1622,रामपुर खुर्द,agri: vcode handwritten over printed code
+khajni,623,1623,रामपुर पाण्डेय,agri: vcode handwritten over printed code
+khajni,624,1624,रावत डाडी,agri: vcode handwritten over printed code
+khajni,625,1625,रोहुआ तप्पा–हवेली,agri: vcode handwritten over printed code
+khajni,626,1626,रूद्रपुर,agri: vcode handwritten over printed code
+khajni,627,1627,रूपनारी,agri: vcode handwritten over printed code
+khajni,628,1628,रग्घूपुर,agri: vcode handwritten over printed code
+khajni,629,1629,रंजीतगढ,agri: vcode handwritten over printed code
+khajni,630,1630,रतनपुरा तप्पा–बेलघाट,agri: vcode handwritten over printed code
+khajni,631,1631,रसूलपुर बाबू,agri: vcode handwritten over printed code
+khajni,632,1632,रसेत,agri: vcode handwritten over printed code
+khajni,633,1633,राईपुर एहतमाली,agri: vcode handwritten over printed code
+khajni,634,1634,राईपुर मुस्तकिल,agri: vcode handwritten over printed code
+khajni,635,1635,राउतपार,agri: vcode handwritten over printed code
+khajni,636,1636,रापतपुर,agri: vcode handwritten over printed code
+khajni,637,1637,रामडीह,agri: vcode handwritten over printed code
+khajni,638,1638,रामपुर तप्पा–बेलघाट,agri: vcode handwritten over printed code
+khajni,639,1639,रामपुर गोसाई,agri: vcode handwritten over printed code
+khajni,640,1640,रामपुर तप्पा–नकौड़ी,agri: vcode handwritten over printed code
+khajni,641,1641,रोहुआ,agri: vcode handwritten over printed code
+khajni,642,1642,रोहारी,agri: vcode handwritten over printed code
+khajni,643,1643,रिहिलपार,agri: vcode handwritten over printed code; other_b/c/d 95/73/42 with 210-profile (peers 87/66/38)
+khajni,644,1644,रकौली,"agri: vcode handwritten over printed code; dist_b partly under signature, read 169"
+khajni,645,1645,रानीडीह,agri: vcode handwritten over printed code
+khajni,646,1646,रानीपुर,agri: vcode handwritten over printed code; other_b/c/d 87/66/38 with 490-profile (peers 95/73/42)
+khajni,647,1647,लक्ष्मीपुर,agri: vcode handwritten over printed code
+khajni,648,1648,लमती,agri: vcode handwritten over printed code
+khajni,649,1649,लोनॉव,agri: vcode handwritten over printed code
+khajni,650,1650,लखुआपाकड़,comm: shop_multi 30000 with land 20000 (atypical combo; as printed) | agri: vcode handwritten over printed code
+khajni,651,1651,लच्छीचक,"agri: vcode handwritten over printed code; other_b/c=28/24 printed, other_d=38"
+khajni,652,1652,लाखुन खुर्द,agri: vcode handwritten over printed code
+khajni,653,1653,लाखुन बुजुर्ग,agri: vcode handwritten over printed code
+khajni,654,1654,लालचक,agri: vcode handwritten over printed code
+khajni,655,1655,लालपुर,agri: vcode handwritten over printed code
+khajni,656,1656,लालमनपुरा,agri: vcode handwritten over printed code; dist_a 9200 as printed (likely 920; link_a 860)
+khajni,657,1657,लोनानागर,agri: vcode handwritten over printed code
+khajni,658,1658,लाँनिया कोडर,road: name printed with doubled aa-matra (लाानिया) | agri: vcode handwritten over printed code; name matra unclear (लानिया/लाांनिया)
+khajni,659,1659,लौखरा,agri: vcode handwritten over printed code
+khajni,660,1660,लौहरपुर,agri: vcode handwritten over printed code
+khajni,661,1661,लटकना,agri: vcode handwritten over printed code
+khajni,662,1662,विगही,agri: vcode handwritten over printed code
+khajni,663,1663,विनवल,agri: vcode handwritten over printed code
+khajni,664,1664,विशुनपुरा,agri: vcode handwritten over printed code
+khajni,665,1665,विश्वनाथपुर,agri: vcode handwritten over printed code
+khajni,666,1666,बरपरवा काजी,agri: vcode handwritten over printed code
+khajni,667,1667,बलवा डाडी,agri: vcode handwritten over printed code
+khajni,668,1668,बेलाव उर्फ शाहपुर,agri: vcode handwritten over printed code
+khajni,669,1669,बेलाव उर्फ मुस्तकिल,agri: vcode handwritten over printed code
+khajni,670,1670,वंशीपुर उर्फ काछा,agri: vcode handwritten over printed code
+khajni,671,1671,विजौरा,agri: vcode handwritten over printed code
+khajni,672,1672,विधनापार,agri: vcode handwritten over printed code
+khajni,673,1673,विशुनपुर उर्फ शाहपुर,agri: vcode handwritten over printed code
+khajni,674,1674,बिठ्ठलपुर,agri: vcode handwritten over printed code
+khajni,675,1675,विस्तुई,agri: vcode handwritten over printed code
+khajni,676,1676,विसम्हरा,agri: vcode handwritten over printed code
+khajni,677,1677,शनिचरा,agri: vcode handwritten over printed code
+khajni,678,1678,शहीदाबाद,agri: vcode handwritten over printed code
+khajni,679,1679,शेषपुरवा,agri: vcode handwritten over printed code
+khajni,680,1680,शेषभिउरा,agri: vcode handwritten over printed code
+khajni,681,1681,शम्भूपुर,agri: vcode handwritten over printed code
+khajni,682,1682,शुक्लपुरा,agri: vcode handwritten over printed code
+khajni,683,1683,शंकरपुर,agri: vcode handwritten over printed code; dist_a 9200 as printed (likely 920; link_a 860)
+khajni,684,1684,शिवपुर,agri: vcode handwritten over printed code
+khajni,685,1685,सखरूआं,agri: vcode handwritten over printed code
+khajni,686,1686,सजनापार,agri: vcode handwritten over printed code
+khajni,687,1687,सतुआभार,comm: shop_multi 30000 with land 20000 (atypical combo; as printed) | agri: vcode handwritten over printed code
+khajni,688,1688,सतहरा मोहन,agri: vcode handwritten over printed code
+khajni,689,1689,सरबसी,agri: vcode handwritten over printed code
+khajni,690,1690,सरया तिवारी,agri: vcode handwritten over printed code
+khajni,691,1691,सराय चांदपार,agri: vcode handwritten over printed code
+khajni,692,1692,सवरूपुर,agri: vcode handwritten over printed code
+khajni,693,1693,सहिजना,agri: vcode handwritten over printed code
+khajni,694,1694,सुजनीपुर,agri: vcode handwritten over printed code
+khajni,695,1695,सुरैनी,agri: vcode handwritten over printed code
+khajni,696,1696,सूहोपार,agri: vcode handwritten over printed code; dist_a 9200 as printed (likely 920; link_a 860)
+khajni,697,1697,सहुलाखोर,agri: vcode handwritten over printed code
+khajni,698,1698,सहसपुर,agri: vcode handwritten over printed code
+khajni,699,1699,सहसी,comm: ink blot over 2nd digit of shop_single_land; read 26000 | agri: vcode handwritten over printed code
+khajni,700,1700,सेमरडाड़ी,agri: vcode handwritten over printed code
+khajni,701,1701,सेमरा,agri: vcode handwritten over printed code
+khajni,702,1702,सेमरिया,agri: vcode handwritten overwrite; read as 1702
+khajni,703,1703,सेमा,agri: vcode handwritten overwrite; read as 1703
+khajni,704,1704,सैरा,agri: vcode handwritten overwrite; read as 1704
+khajni,705,1705,साखडाड़ बाबू,agri: vcode handwritten overwrite; read as 1705
+khajni,706,1706,साखडाड़ पाण्डेय,agri: vcode handwritten overwrite; read as 1706
+khajni,707,1707,सोडा,agri: vcode handwritten overwrite; read as 1707
+khajni,708,1708,सोनारी रामचन्दर,agri: vcode handwritten overwrite; read as 1708
+khajni,709,1709,सोनारी शंकर,agri: vcode handwritten overwrite; read as 1709
+khajni,710,1710,सोपरा,agri: vcode handwritten overwrite; read as 1710
+khajni,711,1711,सोहरा,agri: vcode handwritten overwrite; read as 1711
+khajni,712,1712,सिगरा चौबे,agri: vcode handwritten overwrite; read as 1712
+khajni,713,1713,सिगरा,agri: vcode handwritten overwrite; read as 1713
+khajni,714,1714,सिरूआपार,agri: vcode handwritten overwrite; read as 1714
+khajni,715,1715,सिसई तप्पा–हवेली,agri: vcode handwritten overwrite; read as 1715; link_d=74 as printed
+khajni,716,1716,सिकरीडीह खुर्द,agri: vcode handwritten overwrite; read as 1716
+khajni,717,1717,सिकरीडीहं बुजुर्ग,agri: vcode handwritten overwrite; read as 1717; link_d=62 as printed (716 has 74)
+khajni,718,1718,सिघैरा,agri: vcode handwritten overwrite; read as 1718
+khajni,719,1719,सिसवॉ बाबू,agri: vcode handwritten overwrite; read as 1719
+khajni,720,1720,सई खुर्द,agri: vcode handwritten overwrite; read as 1720
+khajni,721,1721,सई बुजुर्ग,agri: vcode handwritten overwrite; read as 1721
+khajni,722,1722,सखौना,agri: vcode handwritten overwrite; read as 1722; dist_c=131 as printed
+khajni,723,1723,सतौरा,agri: vcode handwritten overwrite; read as 1723
+khajni,724,1724,सनेहा,agri: vcode handwritten overwrite; read as 1724
+khajni,725,1725,समवापुर,agri: vcode handwritten overwrite; read as 1725
+khajni,726,1726,समहुतापुर,agri: vcode handwritten overwrite; read as 1726; other_d=38 > other_c=24 as printed
+khajni,727,1727,सरसई कास्तपाठक,agri: vcode handwritten overwrite; read as 1727
+khajni,728,1728,सरसईकास्त उर्फ हरिप्रसाद,agri: vcode handwritten overwrite; read as 1728
+khajni,729,1729,सुअरहा,agri: vcode handwritten overwrite; read as 1729
+khajni,730,1730,सुकरौली,agri: vcode handwritten overwrite; read as 1730
+khajni,731,1731,सूती,agri: vcode handwritten overwrite; read as 1731
+khajni,732,1732,सुल्तानी,agri: vcode handwritten overwrite; read as 1732
+khajni,733,1733,सुगियापार,agri: vcode handwritten overwrite; read as 1733
+khajni,734,1734,सहुआ,agri: vcode handwritten overwrite; read as 1734
+khajni,735,1735,संहुआपार,road: r2to5 > r5to9 as printed (5000 vs 4900) | agri: vcode handwritten overwrite; read as 1735
+khajni,736,1736,सहसपार खुर्द,agri: vcode handwritten overwrite; read as 1736
+khajni,737,1737,सहसपार बुजुर्ग,agri: vcode handwritten overwrite; read as 1737
+khajni,738,1738,साउडीह खुर्द,agri: vcode handwritten overwrite; read as 1738
+khajni,739,1739,सांउडीह बुजुर्ग,agri: vcode handwritten overwrite; read as 1739
+khajni,740,1740,साउखोर खुर्द,agri: vcode handwritten overwrite; read as 1740
+khajni,741,1741,साउखोर बुजुर्ग,agri: vcode handwritten overwrite; read as 1741
+khajni,742,1742,सोपाई,agri: vcode handwritten overwrite; read as 1742; link_c=112 as printed
+khajni,743,1743,सोनाग,agri: vcode handwritten overwrite; read as 1743; link_c=104 as printed
+khajni,744,1744,सियर,agri: vcode handwritten overwrite; read as 1744
+khajni,745,1745,सिहपुर,agri: vcode handwritten overwrite; read as 1745
+khajni,746,1746,शिवापार उर्फ सियरही,agri: vcode handwritten overwrite; read as 1746
+khajni,747,1747,सिसई,agri: vcode handwritten overwrite; read as 1747
+khajni,748,1748,सिसवा,agri: vcode handwritten overwrite; read as 1748; dist_a=9200 as printed (likely 920?)
+khajni,749,1749,समुदा,agri: vcode handwritten overwrite; read as 1749
+khajni,750,1750,सहिजना,agri: vcode handwritten overwrite; read as 1750
+khajni,751,1751,सुरैना,agri: vcode handwritten overwrite; read as 1751
+khajni,752,1752,सुरसा,agri: vcode handwritten overwrite; read as 1752
+khajni,753,1753,सुरसी,agri: vcode handwritten overwrite; read as 1753
+khajni,754,1754,सेमरी,agri: vcode handwritten overwrite; read as 1754
+khajni,755,1755,सोनवरसा,agri: vcode handwritten overwrite; read as 1755; dist_a=9200 as printed (likely 920?)
+khajni,756,1756,हुडरा तप्पा हवेली,agri: vcode handwritten overwrite; read as 1756
+khajni,757,1757,हरदीचक,agri: vcode handwritten overwrite; read as 1757
+khajni,758,1758,हरदीजोत उर्फ बनकट,agri: vcode handwritten overwrite; read as 1758
+khajni,759,1759,हरनही,agri: vcode handwritten overwrite; read as 1759; dist_a=9200 as printed (likely 920?)
+khajni,760,1760,हरीहरभैसा,agri: vcode handwritten overwrite; read as 1760
+khajni,761,1761,हरीहरपुर,agri: vcode handwritten overwrite; read as 1761
+khajni,762,1762,हुडरा तप्पा भदार,agri: vcode handwritten overwrite; read as 1762
+khajni,763,1763,हुडरी,agri: vcode handwritten overwrite; read as 1763
+khajni,764,1764,हेमचउरा,agri: vcode handwritten overwrite; read as 1764
+khajni,765,1765,हराडाड खुर्द,agri: vcode handwritten overwrite; read as 1765
+khajni,766,1766,हराडाड बुजुर्ग,agri: vcode handwritten overwrite; read as 1766
+khajni,767,1767,हरेया उर्फ मथुरा,agri: vcode handwritten overwrite; read as 1767; other_b/c/d=95/73/42 with other_a=150 as printed
+khajni,768,1768,हरदत्तपुर,agri: vcode handwritten overwrite; read as 1768; dist_a=9200 as printed (likely 920?)
+khajni,769,1769,हरपुर,agri: vcode handwritten overwrite; read as 1769; other=310/87/66/38 as printed
+khajni,770,1770,हरलीलां,agri: vcode handwritten overwrite; read as 1770
+khajni,771,1771,हरिजनपुर,agri: vcode handwritten overwrite; read as 1771
+khajni,772,1772,हाटा खुर्द,agri: vcode handwritten overwrite; read as 1772
+khajni,773,1773,हाटा बुजुर्ग,agri: vcode handwritten overwrite; read as 1773
+khajni,774,1774,हरपुर उर्फ दुबरिया,agri: vcode handwritten overwrite; read as 1774
+khajni,775,1775,गायघाट,agri: vcode handwritten overwrite; read as 1775
+khajni,776,1776,जिगिनियॉ उर्फ शाहपुर एह0,agri: vcode handwritten overwrite; read as 1776
+khajni,777,1777,बेलाव खुर्द एहतमाली,agri: vcode handwritten overwrite; read as 1777
+khajni,778,1778,रसूलपुर मिश्र,comm: name printed श्रसूलपुर (likely रसूलपुर) | agri: vcode handwritten overwrite; read as 1778; name first letter partly covered by handwriting
+khajni,779,1779,मझदीप,comm: serial printed 789 (sequence expects 779); vcode 1779
+campier,2,0002,अब्दुल हमीद नगर,agri: link_a 860 (neighbours 830) - verified at 350dpi as printed
+campier,10,1007,अमवा उर्फ आमघाट,agri: name reading uncertain (अमया/अमवा)
+campier,17,1014,करमहवा,agri: link_a 420 > dist_b; as printed (verified)
+campier,25,1022,करीमनगर,agri: other_d 42 (similar rows 43) - verified
+campier,37,1034,खाझा,comm: name partly cut off in scan (top half of row missing); best reading
+campier,38,1035,खडखडिया,agri: other_a 190 - verified
+campier,42,1039,गौरैया,agri: other_a 120 with other_b 55 - verified as printed
+campier,50,1047,गेरुई खुर्द,agri: link_c 56 (similar rows 57) - verified
+campier,55,1052,घरभरिया,agri: other_a 120 with other_b 50 (similar rows 230) - verified as printed
+campier,66,1063,जंगल अगही,agri: other_a 230 (similar rows 120) - verified as printed
+campier,67,1064,जंगल झझवा,agri: dist_a 6600 as printed (likely misprint of 660); dist_d 147 vs 195 in row 68 - verified
+campier,68,1065,जंगल बिहुली,agri: dist_a 6600 as printed (likely misprint of 660) - verified
+campier,69,1066,जसवल,agri: dist_a 3500 as printed (likely misprint of 350) - verified
+campier,73,1070,जनकपुर,"agri: dist_b 87/dist_c 86, link_b=link_c 65, other_b=other_c 40 - verified as printed"
+campier,77,1074,ठाकुरनगर,"agri: link_b=link_c 81, other_a 251, other_b=other_c 50 - verified as printed"
+campier,103,1100,नयनसर,agri: link_a 330 link_b 88 - verified
+campier,109,1106,पोवा,basic: rate 1100 below 1200 rural floor; verified at 350dpi | road: r2to5 equals r5to9 (2800/2800) as printed; verified at 350dpi | agri: dist_c=dist_d 81 - verified
+campier,112,1109,पचमा,agri: dist_a 310 with dist_b 108 and link_a 300 (similar rows have 350/280) - verified as printed
+campier,125,1122,बैजनाथपुर,agri: dist_d 87 (similar rows 86) - verified
+campier,132,0004,बापू नगर,basic: ward printed 2 here; index p11 says वार्ड नं0 4
+campier,133,0005,बुद्ध नगर,basic: ward printed 4 here; index p11 says वार्ड नं0 8
+campier,139,1133,बिहारी,agri: name first letter unclear (बि/वि)
+campier,147,1141,बूढेली,agri: name reading uncertain (बूढेली/बूवेली)
+campier,152,1146,भमौर,road: name first letter भ/म unclear (read भमौर)
+campier,156,1150,भौराबारी,"road: name first letter भ/म unclear (read भौराबारी) | agri: dist_a 700 unusually high vs dist_b 107 (confirmed at 350dpi, as printed)"
+campier,160,1154,मुहम्मदपुर उर्फ जंगल बब्बन,"agri: dist_a 700 unusually high (confirmed at 350dpi, as printed); name last word uncertain"
+campier,164,1158,मझगांवा,agri: other_a 120 low relative to row pattern (as printed)
+campier,168,1162,मोहनाग,agri: name reading uncertain
+campier,170,1164,मडहा,comm: row partly cut by scan fold (lower half of figures missing); values read from partial glyphs
+campier,177,1171,मखनहा,agri: name reading uncertain
+campier,180,1174,मेझुका,agri: name reading uncertain
+campier,181,1175,राजपुर,"agri: dist_a 750 high; dist_b=dist_c 98 and link_b=link_c 74 (confirmed 350dpi, as printed)"
+campier,188,1182,रायपुर,agri: other_d 44 (confirmed 350dpi; similar rows print 45)
+campier,189,1183,रमवापुर तप्पा--सुम्हाखोर,comm: row partly cut by scan fold; name read from partial glyphs
+campier,192,1186,रमगढवा गैर आबाद,agri: name reading uncertain
+campier,201,1195,लक्ष्मीपुर तप्पा--पचवारा,road: serial last digit hand-corrected on scan | no row in comm table
+campier,202,1196,लक्ष्मीपुर तप्पा--मराछीचन्दौर,road: serial last digit hand-corrected on scan | comm: serial jumps 200->202 as printed (no 201; V-codes continuous) | agri: name reading uncertain
+campier,203,0007,लोहिया नगर,basic: ward printed 8 here; index p11 says वार्ड नं0 7 | road: serial last digit hand-corrected on scan
+campier,204,1197,विशुनपुर तप्पा--रिगौली,road: serial last digit hand-corrected on scan | no row in comm table
+campier,205,1198,विशुनपुर तप्पा--सुम्हाखोर,road: serial last digit hand-corrected on scan
+campier,206,1199,सरपतहा,comm: serial printed out of order (206 after 207)
+campier,207,1200,सेमरा गैर आबाद,road: serial last digit hand-corrected on scan
+campier,208,1201,सरहरी,"road: serial last digit hand-corrected on scan | comm: row partly cut by scan fold: serial reads 201 (sequence expects 209), name best reading, values from partial glyphs"
+campier,213,1206,साहबगंज,comm: ग्रामीण row with the अर्ध नगरीय rate set 50000/48000/43200 (clearly printed)
+campier,219,1212,सनगद,basic: name looks like समगद/सनगद in scan; index p22 has सनगद | agri: dist_d 83 > dist_c 68 (confirmed 350dpi as printed; likely misprint of 63)
+campier,220,0008,सुबाष नगर,basic: ward printed 7 here; index p11 says वार्ड नं0 11
+campier,221,0009,शक्ति नगर,basic: ward printed 11 here; index p11 says वार्ड नं0 6
+campier,224,0010,हनुमत नगर,basic: ward printed 6 here; index p11 says वार्ड नं0 2
+campier,227,1217,हरपुर,agri: unusual: only nh_a printed; high b/c/d values (as printed)
+campier,203,1196,लक्ष्मीपुर तप्पा– मराछीचन्दौर,only found in the comm table (V-code or name printed differently elsewhere)
+campier,207,1198,विशुनपुर तप्पा–सुम्हाखोर,"comm: serial printed 207 before 206 (order 207,206,208 as printed) | only found in the comm table (V-code or name printed differently elsewhere)"

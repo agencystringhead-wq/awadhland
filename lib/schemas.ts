@@ -414,15 +414,60 @@ const roadBandSchema = z
     /** metres; null where the band is open-ended (`minM: null` on the first, `maxM: null` on the last) */
     minM: z.number().nonnegative().nullable(),
     maxM: z.number().positive().nullable(),
+    /**
+     * Printed in a different table from the other bands, so it is not expected to sit in order
+     * with them. Gorakhpur's basic (no-road / narrow-road) rate comes from the basic-rate table
+     * while the width columns come from the road table, and in eight rows the basic rate prints
+     * higher than the 2–5 m one.
+     */
+    separateTable: z.boolean().optional(),
   })
   .strict();
 
-/** ₹ per sq m of carpet area. */
-const commercialSchema = z
+/**
+ * ₹ per sq m, keyed by commercial kind.
+ *
+ * Ayodhya and Lucknow print shop / office / godown. Gorakhpur prints a land rate for a single shop
+ * plus carpet-area rates for other shops and offices, and no godown. So, like the road bands, the
+ * keys are declared per schedule (`commercialKinds`, defaulting to shop/office/godown), and `shop`
+ * is the one every list has: what the headline figures and the derived schedule read.
+ */
+const commercialSchema = z.record(z.string().min(1), z.number().positive()).refine((m) => typeof m.shop === "number", {
+  message: "a commercial line must carry a shop rate",
+});
+
+/** One commercial column of a list, in printed order. */
+const commercialKindSchema = z
   .object({
-    shop: z.number().positive(),
-    office: z.number().positive(),
-    godown: z.number().positive(),
+    key: z.string().min(1),
+    labelEn: z.string().min(1),
+    labelHi: z.string().min(1),
+  })
+  .strict();
+
+/**
+ * Lakh ₹ per hectare by frontage and plot-size slab (Gorakhpur).
+ *
+ * Gorakhpur prices farmland on a grid: four frontages (NH or state highway, district road, link
+ * road, elsewhere) by four plot sizes. `slabsHa` are the three upper limits of the first three
+ * slabs as printed for this row's SRO (0.040/0.100/0.200 in most, 0.081/0.142/0.202 in Sadar-1
+ * and -2, 0.045/0.101/0.202 in Gola); the fourth slab is everything above the third. Null where
+ * the cell is a dash or a printed 0: a village with no national highway prints 0 under it, which
+ * is "not priced", not "free".
+ */
+const agriSlabRow = z.tuple([
+  z.number().positive().nullable(),
+  z.number().positive().nullable(),
+  z.number().positive().nullable(),
+  z.number().positive().nullable(),
+]);
+const agriGridSchema = z
+  .object({
+    slabsHa: z.tuple([z.number().positive(), z.number().positive(), z.number().positive()]),
+    nh: agriSlabRow,
+    district: agriSlabRow,
+    link: agriSlabRow,
+    other: agriSlabRow,
   })
   .strict();
 
@@ -443,8 +488,12 @@ export const rateRowSchema = z
     /** `${sro}-${vcode || 's'+serial}`, stable across re-imports */
     id: z.string().min(1),
     sro: slug,
-    /** printed page of the source PDF, shown in the source line */
-    page: z.string().min(1),
+    /**
+     * printed page of the source PDF, shown in the source line. Null where the transcription
+     * carries no page for the row (Gorakhpur's village rows); the source line then names the SRO
+     * and date only.
+     */
+    page: z.string().min(1).nullable(),
     serial: z.number().int().positive(),
     /** village code; null for Sadar, which prints none */
     vcode: z.string().min(1).nullable(),
@@ -464,6 +513,19 @@ export const rateRowSchema = z
     /** null on lists that do not price covered area (Ayodhya) */
     covered: coveredSchema.nullable(),
     agriLakhPerHa: agriSchema,
+    /**
+     * The full frontage × plot-size grid, on lists that print one (Gorakhpur). Where it is set,
+     * `agriLakhPerHa` carries only `general`, the "elsewhere, largest plots" cell, which is the
+     * figure the city-level summaries quote; everything else reads the grid.
+     */
+    agriGrid: agriGridSchema.nullable().optional(),
+    /**
+     * ₹ per sq m per month. Gorakhpur Sadar-2's 2015 list prices commercial property by monthly
+     * rent instead of a shop / office table, so its rows carry this and `commercial: null`.
+     */
+    commercialRent: z.number().positive().nullable().optional(),
+    /** Where the commercial rates come from a later amendment than the list (Campierganj, 2016-01-19). */
+    commercialFrom: isoDate.nullable().optional(),
     /** transcriber's flag on an oddly printed row. Internal only; never rendered. */
     note: z.string().min(1).nullable(),
   })
@@ -479,11 +541,19 @@ export const roadSegmentRowSchema = z
     villageHi: z.string().min(1),
     /** the RateRow this segment's village resolves to, or null when it matched nothing */
     rateRowId: z.string().min(1).nullable(),
-    /** ₹ per sq m; segment rates apply to non-agricultural land only (instruction 24) */
-    nonAgri: z.number().positive(),
-    shop: z.number().positive(),
-    office: z.number().positive(),
-    godown: z.number().positive(),
+    /**
+     * ₹ per sq m; segment rates apply to non-agricultural land only (instruction 24). Null where
+     * the stretch is printed with commercial rates only (Gorakhpur), and the commercial fields
+     * null where it is printed with a land rate only; validate requires at least one.
+     */
+    nonAgri: z.number().positive().nullable(),
+    shop: z.number().positive().nullable(),
+    office: z.number().positive().nullable(),
+    godown: z.number().positive().nullable(),
+    /** Gorakhpur: carpet-area rate for shops other than a single shop */
+    shopMulti: z.number().positive().nullable().optional(),
+    /** Gorakhpur Sadar-2: ₹ per sq m per month, where the stretch is priced by rent */
+    commercialRent: z.number().positive().nullable().optional(),
     note: z.string().min(1).nullable(),
   })
   .strict();
@@ -512,12 +582,27 @@ export const rateScheduleSchema = z
              */
             effectiveFrom: isoDate.optional(),
             orderDate: isoDate.optional(),
+            /**
+             * This SRO's own labels for the schedule's road bands, same keys in the same order.
+             * Gorakhpur's SROs print the same four columns under different widths: the first is
+             * "up to 2 m" in most, "up to 3 m" in Sadar-1 and -2, "no road" in Gola.
+             */
+            roadBands: z.array(roadBandSchema).min(1).optional(),
+            /** Overrides the schedule's inForceNote for this SRO. */
+            inForceNote: z.object({ en: z.string().min(1), hi: z.string().min(1) }).strict().optional(),
           })
           .strict(),
       )
       .min(1),
     /** The non-agricultural road-width columns this city's list prints, cheapest first. */
     roadBands: z.array(roadBandSchema).min(1),
+    /** Commercial columns, in printed order. Omitted means shop / office / godown. */
+    commercialKinds: z.array(commercialKindSchema).min(1).optional(),
+    /**
+     * A line every page of this city's rates carries, saying which list is in force and why.
+     * Gorakhpur's rates are from 2016, kept in force by a 2020 order; a reader has to know that.
+     */
+    inForceNote: z.object({ en: z.string().min(1), hi: z.string().min(1) }).strict().optional(),
     rows: z.array(rateRowSchema).min(1),
     roadSegments: z.array(roadSegmentRowSchema),
     ...recordBase,
@@ -650,20 +735,55 @@ export const valuationRuleSchema = z
     labelHi: z.string().min(1),
     description: z.string().min(1),
     descriptionHi: z.string().min(1),
+    /**
+     * A road width the list prints no column for, valued as another band plus `pct`. Gorakhpur's
+     * 2025 rule: land on a road wider than 12 m is the 9–12 m rate +30%. The calculator offers
+     * it as one more road width wherever the row prints `fromKey`.
+     */
+    band: z
+      .object({ key: z.string().min(1), fromKey: z.string().min(1), labelEn: z.string().min(1), labelHi: z.string().min(1) })
+      .strict()
+      .optional(),
     ...recordBase,
   })
   .strict();
 
-export const valuationRulesFileSchema = z
+const valuationRulesShape = {
+  effectiveFrom: isoDate,
+  /** the part of a non-agricultural plot above this area is valued at `largePlotPct` */
+  largePlotThresholdSqm: z.number().positive(),
+  largePlotPct: z.number().positive(),
+  /**
+   * Which kinds the large-plot discount applies to. Omitted means every non-agricultural kind,
+   * which is how Ayodhya's rule has always been applied. Gorakhpur's 2025 rule names land only.
+   */
+  largePlotKinds: z.array(z.enum(["non-agricultural", "commercial", "covered"])).min(1).optional(),
+  rules: z.array(valuationRuleSchema).min(1),
+  ...recordBase,
+};
+
+export const valuationRulesFileSchema = z.object(valuationRulesShape).strict();
+
+/**
+ * data/valuationRulesByCity.json — a city whose list has its own general instructions. Any city
+ * not in here is valued by data/valuationRules.json.
+ */
+export const cityValuationRulesSchema = z
   .object({
-    effectiveFrom: isoDate,
-    /** the part of a non-agricultural plot above this area is valued at `largePlotPct` */
-    largePlotThresholdSqm: z.number().positive(),
-    largePlotPct: z.number().positive(),
-    rules: z.array(valuationRuleSchema).min(1),
-    ...recordBase,
+    cityId: slug,
+    ...valuationRulesShape,
+    /** The orders the rules come from, per SRO where they took effect on different days. */
+    orders: z
+      .array(
+        z
+          .object({ sros: z.array(slug).min(1), orderDate: isoDate, effectiveFrom: isoDate })
+          .strict(),
+      )
+      .min(1),
   })
   .strict();
+
+export const cityValuationRulesFileSchema = z.array(cityValuationRulesSchema);
 
 /* ------------------------------------------------------------- stampDutyRules */
 
@@ -899,6 +1019,9 @@ export type FrontageFile = z.infer<typeof frontageFileSchema>;
 export type FrontagePlot = z.infer<typeof frontagePlotSchema>;
 export type Units = z.infer<typeof unitsFileSchema>;
 export type ValuationRules = z.infer<typeof valuationRulesFileSchema>;
+export type CityValuationRules = z.infer<typeof cityValuationRulesSchema>;
+export type AgriGrid = z.infer<typeof agriGridSchema>;
+export type CommercialKindDef = z.infer<typeof commercialKindSchema>;
 export type ValuationRule = z.infer<typeof valuationRuleSchema>;
 export type StampDutyRule = z.infer<typeof stampDutyRuleSchema>;
 export type Update = z.infer<typeof updateSchema>;
@@ -999,6 +1122,7 @@ export const dataFiles = {
   "tehsils.json": tehsilsFileSchema,
   "units.json": unitsFileSchema,
   "valuationRules.json": valuationRulesFileSchema,
+  "valuationRulesByCity.json": cityValuationRulesFileSchema,
   "stampDutyRules.json": stampDutyRulesFileSchema,
   "updates.json": updatesFileSchema,
   "priceObservations.json": priceObservationsFileSchema,

@@ -27,6 +27,7 @@ import { getGuides } from "@/lib/guides";
 import { formatNumber, localePath, pick, ui, type Locale } from "@/lib/i18n";
 import { builtSitePaths } from "@/lib/pages";
 import { getCurrentRateSchedule, getPublishedSros, getTehsilSummary } from "@/lib/rates";
+import { InForceNote } from "@/components/rates/InForceNote";
 import { rc } from "@/lib/rate-copy";
 import { rankLocalities } from "@/lib/scoring";
 import { builtLocalityIds, sameAlternate } from "@/lib/routes";
@@ -191,6 +192,7 @@ export function CityTemplate({ locale, cityId }: { locale: Locale; cityId: strin
       {/* 5b. Cities whose rates are published per sub-registrar rather than per locality. */}
       {sroSummaries.length > 0 && fullList && (
         <Section title={t.circleRates} aside={<a href={localePath(locale, `/${city.id}/circle-rates/`)}>{t.fullCircleRateTable} →</a>}>
+          <InForceNote locale={locale} cityId={city.id} className="mb-5" />
           <ul className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
             {sroSummaries.map((s) => (
               <li key={s.tehsil.id}>

@@ -1,6 +1,6 @@
 # Awadhland.com — Page-Type Inventory & Build Spec
 
-As of 2026-09-24. Source of truth for structure, templates, data model and SEO. Change this file first, then the code.
+As of 2026-09-25. Source of truth for structure, templates, data model and SEO. Change this file first, then the code.
 
 ## Overview
 
@@ -180,7 +180,8 @@ One per tehsil of a published list (`/<city>/circle-rates/<tehsil>/`), rendered 
 **Rules**
 
 - The table prerenders 100 rows and loads the rest from `public/rates/<city>-<tehsil>.json` on the first sort, filter or "show all". Section 3 is not paginated, so the link graph into the village pages never depends on JavaScript.
-- Every table carries its own source line: "IGRSUP list, `<SRO>`, effective `<date>`, printed page `<N>`". The five SROs publish separately and must never be merged into one citation.
+- Every table carries its own source line: "IGRSUP list, `<SRO>`, effective `<date>`, printed page `<N>`". The five SROs publish separately and must never be merged into one citation. Where the transcription carries no page for village rows (Gorakhpur), the line names the SRO and its own effective date only; road-segment lines keep their page.
+- A city whose SROs print the same columns under different widths (Gorakhpur: the first band is "up to 2 m", "up to 3 m" or "no road" by SRO) labels each SRO's table with its own widths. A city whose rates rest on an old list carries an in-force line on every rate page and the city hub (Gorakhpur: the 2016 list, kept in force by the Collector's order of 04-08-2020, rules updated in 2025; Sadar-2 and Campierganj: the 2015 list IGRSUP serves for them).
 - Always indexable.
 
 **SROs with only a khasra frontage list.** An SRO registered as `ratesStatus: "pending"` whose rate list has not arrived, but whose khasra road-frontage list has (Lucknow: Sadar-4, Bakshi Ka Talab, Malihabad), builds at the same URL as a village index instead: the line "Circle rates for this SRO are awaited.", every village in printed serial order with its count of khasra plots on a highway, a district road, a link road and next to the abadi, each linked to its village page, a link to the plot check tool, and the source line. It ships `noindex, follow` until the rate list lands, at which point the SRO leaves the frontage path and this template builds its rate table at the same URL. The city hub's card for such an SRO links here; a pending SRO without a frontage list stays an unlinked card.
@@ -200,6 +201,8 @@ One per row of a published list (`/<city>/circle-rates/<tehsil>/<village-slug>/`
 | 7 | Similar villages | Six nearest rows in the same tehsil by rate similarity | computed |
 | 8 | Covered by | Any site locality whose `rateRefs` include this row | `localities.json` |
 | 9 | Source stamp and lead form | Printed page named; form prefilled with city and village | `sources[]`, JotForm |
+
+**Lists shaped differently.** A section whose row prints nothing is omitted rather than shown as dashes: no commercial line, no farmland rates, no land rate (a Gorakhpur village printed only in its commercial or agricultural table). Gorakhpur replaces the six-frontage agricultural block with its full grid (four frontages by four plot sizes, lakh ₹/ha), shows a single-shop land rate beside carpet-area shop and office rates, shows Sadar-2's monthly commercial rent where its list prints no shop table, and notes under the land block the 2025 rule for roads wider than 12 m.
 
 **Indexing rule**
 
@@ -419,13 +422,17 @@ All entity data lives in `/data/*.json`, validated with Zod at build. A failed v
 }
 ```
 
-Units are exactly as published and are never converted in storage: `nonAgri.*` and `commercial.*` in ₹ per sq m, `agriLakhPerHa.*` in **lakh** ₹ per hectare, `null` where the printed row leaves the cell empty. `note` carries the transcriber's flag on an oddly printed row and is never rendered. Row ids are `${sro}-${vcode || 's'+serial}`; slugs are unique within a tehsil, with the ward or V-code appended when two rows share a name.
+Units are exactly as published and are never converted in storage: `nonAgri.*` and `commercial.*` in ₹ per sq m, `agriLakhPerHa.*` in **lakh** ₹ per hectare, `null` where the printed row leaves the cell empty.
+
+Lists vary, so several columns are declared per schedule rather than fixed. `roadBands` gives the non-agricultural columns (a band printed in a different table, like Gorakhpur's basic no-road rate, carries `separateTable` and is not order-checked against the rest), and `sourceDocs[].roadBands` gives one SRO's own labels for the same keys. `commercialKinds` gives the commercial columns (default shop / office / godown; Gorakhpur shop = single-shop land rate, shopMulti, office), and `shop` is required wherever a commercial line exists. `inForceNote` (`{en, hi}`, overridable per source doc) is the line a rate page carries about which list is in force. Optional row fields: `agriGrid` (`{slabsHa[3], nh[4], district[4], link[4], other[4]}`, lakh ₹/ha, Gorakhpur; `agriLakhPerHa.general` then holds only the "elsewhere, largest plots" cell for summaries), `commercialRent` (₹ per sq m per month, Gorakhpur Sadar-2), `commercialFrom` (Campierganj's 19-01-2016 amendment). `page` is null where the transcription has none. Road segments may print land only or commercial only, so `nonAgri`, `shop`, `office` and `godown` are nullable, with optional `shopMulti` and `commercialRent`; validate requires each to price something. `note` carries the transcriber's flag on an oddly printed row and is never rendered. Row ids are `${sro}-${vcode || 's'+serial}`; slugs are unique within a tehsil, with the ward or V-code appended when two rows share a name.
 
 **data/rates/indexable.json** — `rateRowIds[]`, the village rows opened to search beyond those a live locality references. See Template 5b.
 
 **data/frontage/`<city>`-`<effectiveFrom>`.json** and **…-plots.json** — khasra road-frontage lists, printed as part of a valuation list but carrying no ₹ figures. The first file has `sourceDocs[]` (`{sro, pageCount, igrsupUrl, archiveUrl, downloadDated}`) and `villages[]` (`{id, sro, serial, nameHi, nameEn, slug, counts, printedCounts, roadsHi[], notesHi[], pages}`): `counts` are distinct khasra numbers per heading (`nh`, `district`, `link`, `abadi`), `printedCounts` the transcription's own counts with repeats. The plots file maps each village id to `[khasra as printed, khasra_base, category, road index | null, uncertain | null]` tuples; only scripts read it. `npm run frontage:import` writes both from `data/sources/khasra-frontage/`, and `npm run frontage:chunks` (in `prebuild`) splits the plots into `public/frontage/<city>/<sro>/<slug>.json`.
 
 **units.json** — `sqmPerHectare`, and the local `bigha` with its size in sq m, its label and its source. Display conversions only; nothing converted is ever stored.
+
+**valuationRulesByCity.json** — an array of `{cityId, orders[], effectiveFrom, largePlotThresholdSqm, largePlotPct, largePlotKinds?, rules[]}` for a city whose list has its own general instructions; any other city is valued by `valuationRules.json`. A rule may carry `band` (`{key, fromKey, labelEn, labelHi}`), a road width the list prints no column for, valued as another band plus `pct`. Gorakhpur's 2025 orders: over 12 m = the 9–12 m rate +30%; farmland within 50 m of plotting or a colony +60%, 50–200 m +40%; non-agricultural land over 1,000 sq m, the excess at 85%. `orders[]` records which SROs each order covers and when it took effect (05-03-2025 for Sadar-1 and -2, 28-04-2025 for the rest). Carries `TODO legal-review`.
 
 **valuationRules.json** — `effectiveFrom`, `largePlotThresholdSqm`, `largePlotPct`, and `rules[]` (`{id, instruction, applies, pct, label, labelHi, description, descriptionHi}`) transcribed from the list's general-instruction pages. Carries `TODO legal-review`: the calculator that reads it is an estimate, and the file says so.
 
@@ -449,6 +456,8 @@ A `scripts/parse-circle-rates.ts` and `scripts/validate.ts` live alongside; pars
 npm run rates:import-list -- --city ayodhya --effective 2025-06-07 --order-date 2025-06-06 \
   --dir data/sources/circle-rates/ayodhya/transcribed-2025-06-07 [--dry-run]
 ```
+
+Lucknow and Gorakhpur have their own importers (`npm run rates:import-lucknow`, `npm run rates:import-gorakhpur`) because their lists are shaped differently; the generic one below is Ayodhya's. The Gorakhpur importer merges a village the transcription split across tables only when both halves agree on SRO, serial, V-code and name, skips a row that prints no figure at all, stores a printed 0 as null, and logs all three.
 
 Reads every `*-p4.csv` (village rows) and `*-p3.csv` (road segments) in the directory, normalises the categories, derives `nameEn` and `slug` (`lib/devanagari.ts`, overridden by `scripts/name-overrides.json`), writes `data/rates/<city>-<effectiveFrom>.json`, and sets `rateRefs` on the localities it can match. Matching is: `scripts/rate-aliases.json`, then exact Hindi name, then normalised Hindi. Always run `--dry-run` first: it reports rows per SRO, matched and unmatched localities with candidate ids, unmatched road segments and slug collisions, and writes nothing.
 
