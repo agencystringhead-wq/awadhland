@@ -29,5 +29,356 @@
     "todo": [
       "Seed entry: replace with a real dated notice, set sourceUrl to the notice itself and archiveUrl to the R2 copy"
     ]
+  },
+  {
+    "id": "2026-09-lda-varun-vihar-naimish-nagar-registration",
+    "date": "2026-09-23",
+    "title": "LDA opens registration for 3,105 plots in Varun Vihar and Naimish Nagar",
+    "titleHi": "एलडीए ने वरुण विहार और नैमिष नगर के 3,105 प्लॉटों का पंजीकरण खोला",
+    "agency": "LDA",
+    "type": "project",
+    "cityIds": [
+      "lucknow"
+    ],
+    "localityIds": [
+      "mohan-road",
+      "bakshi-ka-talab"
+    ],
+    "projectIds": [
+      "lda-plot-schemes"
+    ],
+    "summary": [
+      "Lucknow Development Authority is taking registrations from 24 September 2026 for 3,105 residential plots: 1,926 in Varun Vihar (Kailash Khand and Kashi Khand, along the Agra Expressway near Mohan Road) and 1,179 in Naimish Nagar (Brahma Khand and Bhoomi Khand, around IIM Road and Sitapur Road in Bakshi Ka Talab). Plots range from 72 to 450 sq m.",
+      "What it means for buyers: authority plots come with approved layouts and clear title, so they are a safer first buy. Check prices, eligibility and the payment schedule on the LDA portal before applying."
+    ],
+    "summaryHi": [
+      "लखनऊ विकास प्राधिकरण 24 सितंबर 2026 से 3,105 आवासीय प्लॉटों के लिए पंजीकरण ले रहा है: वरुण विहार में 1,926 (कैलाश खंड और काशी खंड, आगरा एक्सप्रेसवे के पास मोहान रोड) और नैमिष नगर में 1,179 (ब्रह्म खंड और भूमि खंड, बख्शी का तालाब में आईआईएम रोड व सीतापुर रोड के आसपास)। प्लॉट 72 से 450 वर्ग मीटर के हैं।",
+      "खरीदारों के लिए मतलब: प्राधिकरण के प्लॉट में स्वीकृत लेआउट और साफ़ मालिकाना हक़ होता है। आवेदन से पहले एलडीए पोर्टल पर कीमत, पात्रता और भुगतान योजना देख लें।"
+    ],
+    "sourceUrl": "https://www.outlookmoney.com/invest/lucknow-housing-scheme-lda-to-launch-3105-plots-on-september-24",
+    "sourceName": "Outlook Money",
+    "archiveUrl": null,
+    "officialUrl": "https://ldalucknow.in/",
+    "sources": [
+      {
+        "label": "Outlook Money",
+        "url": "https://www.outlookmoney.com/invest/lucknow-housing-scheme-lda-to-launch-3105-plots-on-september-24",
+        "accessedAt": "2026-09-25"
+      },
+      {
+        "label": "Lucknow Development Authority portal",
+        "url": "https://ldalucknow.in/",
+        "accessedAt": "2026-09-25"
+      }
+    ],
+    "updatedAt": "2026-09-25",
+    "todo": [
+      "sourceUrl is a news report. Add the original notice or order as sourceUrl (keep the report as a second source) and its R2 copy as archiveUrl."
+    ]
+  },
+  {
+    "id": "2026-08-gida-dhuriapar-2000-acre-township",
+    "date": "2026-08-17",
+    "title": "GIDA's 2,000-acre Dhuriapar industrial township takes shape between two expressways",
+    "titleHi": "दो एक्सप्रेसवे के बीच गीडा की 2,000 एकड़ की धुरियापार औद्योगिक टाउनशिप",
+    "agency": "other",
+    "agencyName": "GIDA",
+    "type": "project",
+    "cityIds": [
+      "gorakhpur"
+    ],
+    "localityIds": [
+      "gida"
+    ],
+    "projectIds": [
+      "gida-expansion"
+    ],
+    "summary": [
+      "Gorakhpur Industrial Development Authority is building a 2,000-acre industrial township at Dhuriapar, placed between the Purvanchal Expressway and the Gorakhpur Link Expressway. Around 115 acres have already been allotted to companies including Adani and Shreyas Distilleries.",
+      "What it means for buyers: jobs and new roads usually lift demand for residential plots in nearby villages of Khajni and Gola tehsils. Check the khasra is not inside the acquired or notified area before buying near it."
+    ],
+    "summaryHi": [
+      "गोरखपुर औद्योगिक विकास प्राधिकरण (गीडा) धुरियापार में 2,000 एकड़ की औद्योगिक टाउनशिप बना रहा है, जो पूर्वांचल एक्सप्रेसवे और गोरखपुर लिंक एक्सप्रेसवे के बीच है। अडानी और श्रेयस डिस्टिलरीज़ समेत कंपनियों को लगभग 115 एकड़ आवंटित हो चुका है।",
+      "खरीदारों के लिए मतलब: नौकरियां और नई सड़कें आसपास के गांवों में आवासीय प्लॉट की मांग बढ़ाती हैं। पास में ज़मीन लेने से पहले देख लें कि खसरा अधिग्रहीत या अधिसूचित क्षेत्र में न हो।"
+    ],
+    "sourceUrl": "https://www.business-standard.com/industry/news/gorakhpur-gets-industrial-boost-with-2-000-acre-township-land-bank-126081700888_1.html",
+    "sourceName": "Business Standard",
+    "archiveUrl": null,
+    "officialUrl": "https://gidagkp.in/",
+    "sources": [
+      {
+        "label": "Business Standard",
+        "url": "https://www.business-standard.com/industry/news/gorakhpur-gets-industrial-boost-with-2-000-acre-township-land-bank-126081700888_1.html",
+        "accessedAt": "2026-09-25"
+      },
+      {
+        "label": "Gorakhpur Industrial Development Authority portal",
+        "url": "https://gidagkp.in/",
+        "accessedAt": "2026-09-25"
+      }
+    ],
+    "updatedAt": "2026-09-25",
+    "todo": [
+      "sourceUrl is a news report. Add the original notice or order as sourceUrl (keep the report as a second source) and its R2 copy as archiveUrl."
+    ]
+  },
+  {
+    "id": "2026-02-up-aadhaar-biometric-registration",
+    "date": "2026-02-01",
+    "title": "Aadhaar biometric check now compulsory at every property registration in UP",
+    "titleHi": "यूपी में हर रजिस्ट्री पर अब आधार बायोमेट्रिक सत्यापन अनिवार्य",
+    "agency": "other",
+    "agencyName": "Stamps and Registration Department, UP",
+    "type": "policy",
+    "cityIds": [
+      "ayodhya",
+      "lucknow",
+      "gorakhpur"
+    ],
+    "localityIds": [],
+    "projectIds": [],
+    "summary": [
+      "From 1 February 2026, buyers, sellers and witnesses must all pass Aadhaar-based biometric authentication at the Sub-Registrar office before a sale deed is registered in Uttar Pradesh. The state says the aim is to stop impersonation and fake-seller frauds.",
+      "What it means for buyers: the recorded owner has to be physically present with a working Aadhaar, so power-of-attorney style 'sales' and proxy sellers become much harder. Make sure every co-owner's Aadhaar is linked and their fingerprints work before registry day."
+    ],
+    "summaryHi": [
+      "1 फरवरी 2026 से उत्तर प्रदेश में बैनामा रजिस्टर होने से पहले उप निबंधक कार्यालय में खरीदार, विक्रेता और गवाह, तीनों का आधार आधारित बायोमेट्रिक सत्यापन ज़रूरी है। सरकार का उद्देश्य फर्जी विक्रेता और धोखाधड़ी रोकना है।",
+      "खरीदारों के लिए मतलब: रिकॉर्ड में दर्ज मालिक को खुद आना होगा, इसलिए पावर ऑफ़ अटॉर्नी वाली 'बिक्री' और फर्जी विक्रेता मुश्किल हो जाते हैं। रजिस्ट्री से पहले सभी सह-स्वामियों का आधार और फिंगरप्रिंट ठीक काम कर रहे हों, यह पक्का कर लें।"
+    ],
+    "sourceUrl": "https://www.newsonair.gov.in/up-makes-aadhaar-authentication-mandatory-for-property-registration-from-feb-1-2026/",
+    "sourceName": "All India Radio News",
+    "archiveUrl": null,
+    "officialUrl": "https://igrsup.gov.in/",
+    "sources": [
+      {
+        "label": "All India Radio News",
+        "url": "https://www.newsonair.gov.in/up-makes-aadhaar-authentication-mandatory-for-property-registration-from-feb-1-2026/",
+        "accessedAt": "2026-09-25"
+      },
+      {
+        "label": "IGRSUP, Stamps and Registration Department portal",
+        "url": "https://igrsup.gov.in/",
+        "accessedAt": "2026-09-25"
+      }
+    ],
+    "updatedAt": "2026-09-25",
+    "todo": [
+      "sourceUrl is a news report. Add the original notice or order as sourceUrl (keep the report as a second source) and its R2 copy as archiveUrl."
+    ]
+  },
+  {
+    "id": "2025-12-gda-gurukul-city-naya-gorakhpur",
+    "date": "2025-12-02",
+    "title": "GDA fixes plot prices for Gurukul City township in Naya Gorakhpur",
+    "titleHi": "नया गोरखपुर में गुरुकुल सिटी टाउनशिप के प्लॉट की कीमत जीडीए ने तय की",
+    "agency": "GDA",
+    "type": "project",
+    "cityIds": [
+      "gorakhpur"
+    ],
+    "localityIds": [],
+    "projectIds": [
+      "gda-plot-schemes"
+    ],
+    "summary": [
+      "Gorakhpur Development Authority has set plot prices of about ₹25,000 to ₹30,000 per sq m for Gurukul City, a 400-acre-plus township in Naya Gorakhpur covering Maniram, Balapar and Rahmatnagar villages near the Gorakhpur–Sonauli highway. About 200 acres have been bought by registry, and acquisition in three villages along Kushinagar Road is under way.",
+      "What it means for buyers: if your plot is in these villages, check whether its khasra falls in the township or acquisition list before paying anything."
+    ],
+    "summaryHi": [
+      "गोरखपुर विकास प्राधिकरण ने गुरुकुल सिटी के प्लॉट की कीमत लगभग ₹25,000 से ₹30,000 प्रति वर्ग मीटर तय की है। यह 400 एकड़ से बड़ी टाउनशिप नया गोरखपुर में गोरखपुर-सोनौली हाईवे के पास मनीराम, बालापार और रहमतनगर गांवों में है। लगभग 200 एकड़ बैनामे से खरीदा जा चुका है और कुशीनगर रोड के तीन गांवों में अधिग्रहण चल रहा है।",
+      "खरीदारों के लिए मतलब: इन गांवों में प्लॉट ले रहे हैं तो पैसे देने से पहले देखें कि खसरा टाउनशिप या अधिग्रहण सूची में तो नहीं है।"
+    ],
+    "sourceUrl": "https://www.thedailyjagran.com/uttar-pradesh/gorakhpur-gda-sets-plot-prices-accelerates-land-acquisition-for-new-gurukul-city-township-40058747",
+    "sourceName": "The Daily Jagran",
+    "archiveUrl": null,
+    "officialUrl": "https://gdagkp.in/",
+    "sources": [
+      {
+        "label": "The Daily Jagran",
+        "url": "https://www.thedailyjagran.com/uttar-pradesh/gorakhpur-gda-sets-plot-prices-accelerates-land-acquisition-for-new-gurukul-city-township-40058747",
+        "accessedAt": "2026-09-25"
+      },
+      {
+        "label": "Gorakhpur Development Authority portal",
+        "url": "https://gdagkp.in/",
+        "accessedAt": "2026-09-25"
+      }
+    ],
+    "updatedAt": "2026-09-25",
+    "todo": [
+      "sourceUrl is a news report. Add the original notice or order as sourceUrl (keep the report as a second source) and its R2 copy as archiveUrl."
+    ]
+  },
+  {
+    "id": "2025-08-lucknow-circle-rates-revised",
+    "date": "2025-08-01",
+    "title": "Lucknow circle rates revised for the first time since 2015",
+    "titleHi": "लखनऊ के सर्किल रेट 2015 के बाद पहली बार बदले",
+    "agency": "other",
+    "agencyName": "Collector, Lucknow",
+    "type": "circle-rate",
+    "cityIds": [
+      "lucknow"
+    ],
+    "localityIds": [
+      "indira-nagar"
+    ],
+    "projectIds": [],
+    "summary": [
+      "New circle rates took effect across Lucknow on 1 August 2025, the first revision in ten years. Agricultural land went up about 15% and non-agricultural land 20 to 25% in most areas, with bigger jumps in places like Indiranagar Sector-1 and Gulistan Colony. The new lists also split land rates into four road-width bands and add covered-area construction rates.",
+      "What it means for buyers: stamp duty is charged on the higher of your price or this rate. Look up your mohalla in our Circle Rate Lookup."
+    ],
+    "summaryHi": [
+      "1 अगस्त 2025 से पूरे लखनऊ में नए सर्किल रेट लागू हुए, दस साल में पहला संशोधन। ज़्यादातर क्षेत्रों में कृषि भूमि लगभग 15% और अकृषि भूमि 20 से 25% बढ़ी, इंदिरानगर सेक्टर-1 और गुलिस्तां कॉलोनी जैसे इलाकों में इससे ज़्यादा। नई सूची में भूमि दर चार सड़क-चौड़ाई श्रेणियों में है और निर्माण (कवर्ड एरिया) दरें भी जुड़ी हैं।",
+      "खरीदारों के लिए मतलब: स्टाम्प ड्यूटी आपकी कीमत या इस दर में जो ज़्यादा हो उस पर लगती है। अपना मोहल्ला हमारे सर्किल रेट लुकअप में देखें।"
+    ],
+    "sourceUrl": "https://www.business-standard.com/industry/news/lucknow-property-prices-surge-up-to-25-as-revised-circle-rates-kick-in-125080101413_1.html",
+    "sourceName": "Business Standard",
+    "archiveUrl": null,
+    "officialUrl": "https://igrsup.gov.in/",
+    "internalLink": "/tools/circle-rate-lookup/",
+    "sources": [
+      {
+        "label": "Business Standard",
+        "url": "https://www.business-standard.com/industry/news/lucknow-property-prices-surge-up-to-25-as-revised-circle-rates-kick-in-125080101413_1.html",
+        "accessedAt": "2026-09-25"
+      },
+      {
+        "label": "IGRSUP, Stamps and Registration Department portal",
+        "url": "https://igrsup.gov.in/",
+        "accessedAt": "2026-09-25"
+      }
+    ],
+    "updatedAt": "2026-09-25",
+    "todo": [
+      "sourceUrl is a news report. Add the original notice or order as sourceUrl (keep the report as a second source) and its R2 copy as archiveUrl."
+    ]
+  },
+  {
+    "id": "2025-06-gida-600-acres-17-villages",
+    "date": "2025-06-26",
+    "title": "600 acres across 17 villages acquired for 'Greater GIDA' in Gorakhpur",
+    "titleHi": "गोरखपुर में 'ग्रेटर गीडा' के लिए 17 गांवों की 600 एकड़ ज़मीन अधिग्रहीत",
+    "agency": "other",
+    "agencyName": "GIDA",
+    "type": "project",
+    "cityIds": [
+      "gorakhpur"
+    ],
+    "localityIds": [
+      "gida"
+    ],
+    "projectIds": [
+      "gida-expansion"
+    ],
+    "summary": [
+      "The state acquired 600 acres across 17 villages for the Dhuriyapar industrial township, also called Greater GIDA. The master plan is approved and allotment across two industrial sectors was set to begin, with more acquisition planned to grow the land bank.",
+      "What it means for buyers: land inside acquired or notified areas can't be sold privately. Around Dhuriyapar, always ask for the khasra number and check it against the acquisition notification at the tehsil before paying a token."
+    ],
+    "summaryHi": [
+      "धुरियापार औद्योगिक टाउनशिप (ग्रेटर गीडा) के लिए सरकार ने 17 गांवों में 600 एकड़ ज़मीन अधिग्रहीत की। मास्टर प्लान स्वीकृत है, दो औद्योगिक सेक्टरों में आवंटन शुरू होना था और आगे और अधिग्रहण की योजना है।",
+      "खरीदारों के लिए मतलब: अधिग्रहीत या अधिसूचित ज़मीन निजी तौर पर नहीं बिक सकती। धुरियापार के आसपास बयाना देने से पहले खसरा नंबर लेकर तहसील में अधिग्रहण अधिसूचना से मिलान ज़रूर करें।"
+    ],
+    "sourceUrl": "https://www.business-standard.com/industry/agriculture/up-govt-acquires-600-acres-in-gorakhpur-for-new-industrial-township-125062601014_1.html",
+    "sourceName": "Business Standard",
+    "archiveUrl": null,
+    "officialUrl": "https://gidagkp.in/",
+    "sources": [
+      {
+        "label": "Business Standard",
+        "url": "https://www.business-standard.com/industry/agriculture/up-govt-acquires-600-acres-in-gorakhpur-for-new-industrial-township-125062601014_1.html",
+        "accessedAt": "2026-09-25"
+      },
+      {
+        "label": "Gorakhpur Industrial Development Authority portal",
+        "url": "https://gidagkp.in/",
+        "accessedAt": "2026-09-25"
+      }
+    ],
+    "updatedAt": "2026-09-25",
+    "todo": [
+      "sourceUrl is a news report. Add the original notice or order as sourceUrl (keep the report as a second source) and its R2 copy as archiveUrl."
+    ]
+  },
+  {
+    "id": "2025-06-ayodhya-circle-rates-up-to-200",
+    "date": "2025-06-09",
+    "title": "Ayodhya circle rates raised by up to 200%, sharpest near Ram Janmabhoomi",
+    "titleHi": "अयोध्या के सर्किल रेट 200% तक बढ़े, राम जन्मभूमि के पास सबसे ज़्यादा",
+    "agency": "other",
+    "agencyName": "Collector, Ayodhya",
+    "type": "circle-rate",
+    "cityIds": [
+      "ayodhya"
+    ],
+    "localityIds": [],
+    "projectIds": [],
+    "summary": [
+      "Ayodhya district's new circle rates came into force in June 2025, with increases of up to 200% and rises of over 150% within about 10 km of the Ram temple. Sadar, Sohawal, Bikapur, Milkipur and Rudauli all have new lists.",
+      "What it means for buyers: stamp duty on a plot near the temple can now be much higher than before, even if the agreed price hasn't changed. Check the exact village rate, and the road-width band, in our Circle Rate Lookup before fixing your budget."
+    ],
+    "summaryHi": [
+      "जून 2025 में अयोध्या जिले के नए सर्किल रेट लागू हुए, जिनमें 200% तक बढ़ोतरी हुई और राम मंदिर के लगभग 10 किमी दायरे में 150% से ज़्यादा। सदर, सोहावल, बीकापुर, मिल्कीपुर और रुदौली, सभी की नई सूची है।",
+      "खरीदारों के लिए मतलब: मंदिर के पास प्लॉट पर स्टाम्प ड्यूटी पहले से काफ़ी ज़्यादा हो सकती है, भले ही सौदे की कीमत वही हो। बजट तय करने से पहले हमारे सर्किल रेट लुकअप में अपने गांव की दर और सड़क-चौड़ाई श्रेणी देखें।"
+    ],
+    "sourceUrl": "https://www.deccanherald.com/india/uttar-pradesh/ayodhya-land-prices-soar-as-circle-rates-hiked-up-to-200-3577750",
+    "sourceName": "Deccan Herald",
+    "archiveUrl": null,
+    "officialUrl": "https://igrsup.gov.in/",
+    "internalLink": "/tools/circle-rate-lookup/",
+    "sources": [
+      {
+        "label": "Deccan Herald",
+        "url": "https://www.deccanherald.com/india/uttar-pradesh/ayodhya-land-prices-soar-as-circle-rates-hiked-up-to-200-3577750",
+        "accessedAt": "2026-09-25"
+      },
+      {
+        "label": "IGRSUP, Stamps and Registration Department portal",
+        "url": "https://igrsup.gov.in/",
+        "accessedAt": "2026-09-25"
+      }
+    ],
+    "updatedAt": "2026-09-25",
+    "todo": [
+      "sourceUrl is a news report. Add the original notice or order as sourceUrl (keep the report as a second source) and its R2 copy as archiveUrl."
+    ]
+  },
+  {
+    "id": "2025-04-gorakhpur-valuation-rules-2025",
+    "date": "2025-04-28",
+    "title": "Gorakhpur changes valuation rules, but keeps its 2016 circle rates",
+    "titleHi": "गोरखपुर में मूल्यांकन नियम बदले, सर्किल रेट 2016 वाले ही लागू",
+    "agency": "other",
+    "agencyName": "Collector, Gorakhpur",
+    "type": "policy",
+    "cityIds": [
+      "gorakhpur"
+    ],
+    "localityIds": [],
+    "projectIds": [],
+    "summary": [
+      "Collector's orders of 5 March 2025 (Sadar-1 and Sadar-2) and 26 April 2025 (Gola, Bansgaon, Khajni, Sahjanwa, Chauri Chaura, Campierganj) changed how property is valued, while the 2016 rate list stays in force. Land on roads wider than 12 m is valued 30% above the 9–12 m rate, farmland within 50 m of colonies or plotting gets 60% extra (40% up to 200 m), and non-agricultural land above 1,000 sq m gets 15% off on the excess.",
+      "What it means for buyers: the same plot can carry very different stamp duty depending on road width and nearby plotting."
+    ],
+    "summaryHi": [
+      "5 मार्च 2025 (सदर प्रथम व द्वितीय) और 26 अप्रैल 2025 (गोला, बांसगांव, खजनी, सहजनवां, चौरीचौरा, कैम्पियरगंज) के जिलाधिकारी आदेशों ने मूल्यांकन के नियम बदले, जबकि 2016 की दर सूची ही लागू है। 12 मीटर से चौड़ी सड़क पर ज़मीन 9–12 मीटर दर से 30% ज़्यादा पर आंकी जाएगी, कॉलोनी या प्लॉटिंग के 50 मीटर के भीतर कृषि भूमि पर 60% (200 मीटर तक 40%) वृद्धि होगी, और 1,000 वर्ग मीटर से ऊपर की अकृषि भूमि पर अतिरिक्त हिस्से में 15% कमी।",
+      "खरीदारों के लिए मतलब: सड़क की चौड़ाई और आसपास की प्लॉटिंग से एक ही प्लॉट की स्टाम्प ड्यूटी काफ़ी बदल सकती है।"
+    ],
+    "sourceUrl": "https://igrsup.gov.in/",
+    "sourceName": "Collector, Gorakhpur (orders on IGRSUP)",
+    "archiveUrl": null,
+    "officialUrl": "https://igrsup.gov.in/",
+    "internalLink": "/tools/circle-rate-lookup/",
+    "sources": [
+      {
+        "label": "Collector, Gorakhpur: orders no. 885(1-7) of 05-03-2025 and of 26-04-2025, published on IGRSUP",
+        "url": "https://igrsup.gov.in/",
+        "accessedAt": "2026-09-25"
+      }
+    ],
+    "updatedAt": "2026-09-25",
+    "todo": [
+      "archiveUrl is empty: upload the two Collector orders in data/sources/circle-rates/gorakhpur/ to R2 and link the copy here."
+    ]
   }
 ]

@@ -292,7 +292,7 @@ Every government notice, gazette, RERA update, circle rate revision and project 
 | # | Section | Content | Field(s) |
 | --- | --- | --- | --- |
 | 1 | Header | Title, date, agency, type chip, city chips | `title`, `date`, `agency`, `type`, `cityIds[]` |
-| 2 | Source | Link to the original notice or PDF, archived copy on R2 | `sourceUrl`, `archiveUrl` |
+| 2 | Source | Link to the original notice or PDF (or the report it came from, named by `sourceName`), the agency's official portal, archived copy on R2 | `sourceUrl`, `sourceName`, `officialUrl`, `archiveUrl` |
 | 3 | Plain-language summary | Three to six paragraphs: what it says, who it affects, what changes | `summary` |
 | 4 | Affected | Linked localities and projects | `localityIds[]`, `projectIds[]` |
 | 5 | Previous and next | Chronological navigation | computed |
@@ -443,7 +443,7 @@ Lists vary, so several columns are declared per schedule rather than fixed. `roa
 
 **stampDutyRules.json** — per buyer category: stamp duty %, registration fee % and cap, any rebate, `effectiveFrom`, `sourceUrl`.
 
-**updates.json** — `id`, `date`, `title`, `titleHi`, `agency`, `type`, `cityIds[]`, `localityIds[]`, `projectIds[]`, `summary`, `summaryHi`, `sourceUrl`, `archiveUrl`.
+**updates.json** — `id`, `date`, `title`, `titleHi`, `agency`, `type`, `cityIds[]`, `localityIds[]`, `projectIds[]`, `summary`, `summaryHi`, `sourceUrl`, `archiveUrl`. Optional: `sourceName` (publisher of `sourceUrl` when it is a report rather than the notice; labels the Source link, which is `nofollow` and opens in a new tab), `officialUrl` (the agency portal, linked as "Official portal"), `internalLink` (site path for a "Check circle rates" button).
 
 **priceObservations.json** — `localityId`, `date`, `low`, `high`, `unit`, `source` ("broker" | "listing" | "registry"). Feeds the trend charts. Starts small.
 
@@ -501,7 +501,7 @@ Design direction: probate.help's architecture adapted to land (measured tokens i
 | Meta descriptions | Per language, 140–155 chars, generated from record fields for data pages, hand-written for guides |
 | Canonical | Self-referencing on every page, absolute URL |
 | hreflang | `en-IN`, `hi-IN`, `x-default` (→ en) on every paired page |
-| JSON-LD | `Organization` + `RealEstateAgent` (site-wide), `BreadcrumbList` (all), `FAQPage` (locality, guide, tool, circle rate), `Article` (guide, update), `Place` with `geo` (locality), `Person` (broker) |
+| JSON-LD | `Organization` + `RealEstateAgent` (site-wide), `BreadcrumbList` (all), `FAQPage` (locality, guide, tool, circle rate), `Article` (guide), `NewsArticle` (update, `datePublished` = the entry date), `Place` with `geo` (locality), `Person` (broker) |
 | Sitemaps | `sitemap-index.xml` → `sitemap-en.xml`, `sitemap-hi.xml`, `sitemap-updates.xml`; `lastmod` from `updatedAt` |
 | robots.txt | Allow all; sitemap line; no crawl of `/api/` |
 | llms.txt | Plain index of the site for AI crawlers, regenerated at build |

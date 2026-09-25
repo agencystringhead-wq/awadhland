@@ -82,11 +82,13 @@ export type ArticleInput = {
   locale: Locale;
   author: { name: string; url?: string };
   image?: string;
+  /** NewsArticle for update entries (a dated notice); Article otherwise */
+  type?: "Article" | "NewsArticle";
 };
 
 export const article = (a: ArticleInput): JsonLdObject =>
   ctx({
-    "@type": "Article",
+    "@type": a.type ?? "Article",
     headline: a.headline,
     description: a.description,
     url: a.url,
