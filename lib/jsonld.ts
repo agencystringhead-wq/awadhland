@@ -45,7 +45,10 @@ export function person(broker: TeamMember, locale: Locale, reviews?: Reviews): J
     alternateName: locale === "hi" ? broker.name : broker.nameHi,
     jobTitle: broker.role,
     telephone: broker.phone,
-    image: broker.photo.startsWith("http") ? broker.photo : `${SITE_URL}${broker.photo}`,
+    // About-page portrait first when there is one, then the card photo.
+    image: [broker.portrait?.src, broker.photo]
+      .filter((x): x is string => Boolean(x))
+      .map((src) => (src.startsWith("http") ? src : `${SITE_URL}${src}`)),
     worksFor: { "@id": `${SITE_URL}/#agent` },
     ...(broker.reraNumber ? { identifier: { "@type": "PropertyValue", propertyID: "UP RERA", value: broker.reraNumber } } : {}),
     ...(sameAs.length ? { sameAs } : {}),

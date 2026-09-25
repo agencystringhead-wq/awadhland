@@ -877,6 +877,16 @@ export const teamMemberSchema = z
     phone: z.string().regex(/^\+91\d{10}$/, "expected +91 followed by 10 digits"),
     whatsapp: z.string().regex(/^91\d{10}$/, "expected wa.me format: 91 followed by 10 digits"),
     photo: z.string().min(1),
+    /** Larger portrait for the About page's "In his own words" block; WebP with a JPG fallback */
+    portrait: z
+      .object({
+        src: z.string().min(1),
+        fallback: z.string().min(1),
+        width: z.number().int().positive(),
+        height: z.number().int().positive(),
+      })
+      .strict()
+      .optional(),
     bio: z.string().min(1),
     bioHi: z.string().min(1),
     ...recordBase,
