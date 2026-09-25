@@ -10,7 +10,8 @@ import { SourceStamp } from "@/components/SourceStamp";
 import { updateTypeLabels } from "@/components/UpdateRow";
 import { UpdatesList } from "@/components/UpdatesList";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
-import { getBroker, getCities, getLocalities, getProject, getUpdate, getUpdates } from "@/lib/data";
+import { Button } from "@/components/ui/Button";
+import { getBroker, getBuildableProjects, getCities, getLocalities, getProject, getUpdate, getUpdates } from "@/lib/data";
 import { formatDate, localePath, pick, ui, whatsappText, type Locale } from "@/lib/i18n";
 import { agencyLabel } from "@/lib/labels";
 import { builtLocalityIds, sameAlternate } from "@/lib/routes";
@@ -86,9 +87,11 @@ export function UpdateTemplate({ locale, slug }: { locale: Locale; slug: string 
     const l = getLocalities().find((x) => x.id === id);
     return { id, cityId: l?.cityId, name: l ? pick(locale, l.name, l.nameHi) : id, built: built.has(id) };
   });
+  // Same rule as localities: a project without a page (source guard) is named, not linked.
+  const builtProjects = new Set(getBuildableProjects().buildable.map((p) => p.id));
   const affectedProjects = u.projectIds.map((id) => {
     const p = getProject(id);
-    return { id, name: p ? pick(locale, p.name, p.nameHi) : id };
+    return { id, name: p ? pick(locale, p.name, p.nameHi) : id, built: builtProjects.has(id) };
   });
 
   return (
@@ -102,6 +105,7 @@ export function UpdateTemplate({ locale, slug }: { locale: Locale; slug: string 
           dateModified: u.updatedAt,
           locale,
           author: { name: "Awadhland", url: `${SITE_URL}/` },
+          type: "NewsArticle",
         })}
       />
       {/* 1. Header */}
@@ -143,6 +147,11 @@ export function UpdateTemplate({ locale, slug }: { locale: Locale; slug: string 
                 <p key={i}>{para}</p>
               ))}
             </div>
+            {u.internalLink && (
+              <div className="mt-6">
+                <Button href={localePath(locale, u.internalLink)}>{t.checkCircleRates}</Button>
+              </div>
+            )}
           </div>
           <aside className="space-y-6">
             {/* 2. Source */}
@@ -150,10 +159,18 @@ export function UpdateTemplate({ locale, slug }: { locale: Locale; slug: string 
               <h2 className="text-base">{t.source}</h2>
               <ul className="mt-2 space-y-1.5 text-[15px]">
                 <li>
-                  <a href={u.sourceUrl} rel="noopener">
-                    {t.originalNotice}
+                  {/* Usually a news report, so nofollow; opens in a new tab */}
+                  <a href={u.sourceUrl} target="_blank" rel="nofollow noopener">
+                    {u.sourceName ?? t.originalNotice}
                   </a>
                 </li>
+                {u.officialUrl && u.officialUrl !== u.sourceUrl && (
+                  <li>
+                    <a href={u.officialUrl} rel="noopener">
+                      {t.officialPortal}
+                    </a>
+                  </li>
+                )}
                 {u.archiveUrl && (
                   <li>
                     <a href={u.archiveUrl} rel="noopener">
@@ -172,9 +189,7 @@ export function UpdateTemplate({ locale, slug }: { locale: Locale; slug: string 
                     <li key={l.id}>{l.built && l.cityId ? <a href={localePath(locale, `/${l.cityId}/${l.id}/`)}>{l.name}</a> : l.name}</li>
                   ))}
                   {affectedProjects.map((p) => (
-                    <li key={p.id}>
-                      <a href={localePath(locale, `/projects/${p.id}/`)}>{p.name}</a>
-                    </li>
+                    <li key={p.id}>{p.built ? <a href={localePath(locale, `/projects/${p.id}/`)}>{p.name}</a> : p.name}</li>
                   ))}
                 </ul>
               </div>

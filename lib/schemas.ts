@@ -830,7 +830,13 @@ export const updateSchema = z
     summary: z.array(z.string().min(1)).min(1),
     summaryHi: z.array(z.string().min(1)).min(1),
     sourceUrl: url,
+    /** Publisher of sourceUrl when it is a report rather than the notice itself; labels the "Source" link */
+    sourceName: z.string().min(1).optional(),
     archiveUrl: url.nullable(),
+    /** The agency's own portal, linked as "Official portal" */
+    officialUrl: url.optional(),
+    /** Site path for the "Check circle rates" button, e.g. /tools/circle-rate-lookup/ */
+    internalLink: z.string().regex(/^\/(?:[a-z0-9-]+\/)+$/, "expected a site path with a trailing slash").optional(),
     ...recordBase,
   })
   .strict()
