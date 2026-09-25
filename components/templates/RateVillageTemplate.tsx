@@ -6,11 +6,14 @@ import { JsonLd } from "@/components/JsonLd";
 import { LeadForm } from "@/components/LeadForm";
 import { Section } from "@/components/Section";
 import { SourceStamp } from "@/components/SourceStamp";
+import { InForceNote } from "@/components/rates/InForceNote";
 import { RateCalculator } from "@/components/rates/RateCalculator";
 import { getBroker, getBuildableLocalities, getCity, getStampDutyRules, getVillageNote } from "@/lib/data";
 import { formatDate, formatNumber, localePath, pick, ui, type Locale } from "@/lib/i18n";
 import { rc } from "@/lib/rate-copy";
 import {
+  baseRate,
+  getCommercialKinds,
   getCurrentRateSchedule,
   getRoadBands,
   getRoadSegmentsForRow,
@@ -19,6 +22,7 @@ import {
   getTehsil,
   getTehsilMedian,
   getValuationRules,
+  rowEffectiveFrom,
 } from "@/lib/rates";
 import { faqPage } from "@/lib/jsonld";
 import { sameAlternate } from "@/lib/routes";
@@ -27,11 +31,13 @@ import { applicableRule, toSqM } from "@/lib/stamp-duty";
 import {
   agriFrontageLabel,
   AGRI_FRONTAGES,
+  AGRI_GRID_FRONTAGES,
+  agriGridFrontageLabel,
+  agriSlabLabels,
   categoryText,
-  commercialKindLabel,
-  COMMERCIAL_KINDS,
   coveredGradeLabel,
   COVERED_GRADES,
+  extraRoadWidths,
   valuePlot,
 } from "@/lib/valuation";
 import { agriUnitLabel, lakhPerHaToRupeesPerBigha, lakhPerHaToRupeesPerSqm } from "@/lib/units";
@@ -107,7 +113,7 @@ export function RateVillageTemplate({
   const copy = content ? villageCopy(content, locale) : undefined;
   const note = getVillageNote(row.id);
   const noteText = note ? pick(locale, note.brokerNote, note.brokerNoteHi) : undefined;
-  const rules = getValuationRules();
+  const rules = getValuationRules(cityId);
   const dutyRules = getStampDutyRules();
   /*
    * The stretches through this village, from the rate file's own rateRowId. The content's
@@ -116,7 +122,12 @@ export function RateVillageTemplate({
    * where the whole stretch and its other villages are listed.
    */
   const segments = getRoadSegmentsForRow(cityId, row.id);
-  const roadBands = getRoadBands(cityId);
+  // This SRO's own labels for the columns: Gorakhpur's SROs print the same four under different widths.
+  const roadBands = getRoadBands(cityId, tehsilId);
+  const commercialKinds = getCommercialKinds(cityId);
+  const effectiveFrom = rowEffectiveFrom(schedule, row.sro);
+  const base = baseRate(row);
+  const hasLand = Object.keys(row.nonAgri).length > 0;
   const similar = getSimilarRows(cityId, row);
   const median = getTehsilMedian(cityId, tehsilId);
   const cityName = pick(locale, city.name, city.nameHi);
@@ -126,6 +137,11 @@ export function RateVillageTemplate({
   const other = pick(locale, row.nameHi, row.nameEn);
 
   const hasAgri = AGRI_FRONTAGES.some((f) => row.agriLakhPerHa[f] !== null);
+  // A list that prices farmland on a grid (Gorakhpur) shows the grid, and hides the block
+  // entirely on a row with none rather than printing an empty one.
+  const gridCity = schedule.rows.some((r) => r.agriGrid);
+  const grid = row.agriGrid ?? null;
+  const extraWidths = extraRoadWidths(rules, row);
 
 
   /*
@@ -143,20 +159,23 @@ export function RateVillageTemplate({
     .buildable.filter((l) => l.cityId === cityId)
     .filter((l) => (l.rateRefs ?? []).some((r) => r.rateRowId === row.id));
 
+  // Gorakhpur's rows carry no printed page; the line then names the SRO and date only.
   const sourceLine =
     locale === "hi"
-      ? `आईजीआरएसयूपी सूची, ${sro}, ${formatDate(schedule.effectiveFrom, locale)} से लागू, मुद्रित पृष्ठ ${row.page}`
-      : `IGRSUP list, ${sro}, effective ${formatDate(schedule.effectiveFrom, locale)}, printed page ${row.page}`;
+      ? `आईजीआरएसयूपी सूची, ${sro}, ${formatDate(effectiveFrom, locale)} से लागू${row.page ? `, मुद्रित पृष्ठ ${row.page}` : ""}`
+      : `IGRSUP list, ${sro}, effective ${formatDate(effectiveFrom, locale)}${row.page ? `, printed page ${row.page}` : ""}`;
 
-  /* Worked example: 1,000 sq ft on a road under 9 m, male and female buyer. */
+  /* Worked example: 1,000 sq ft in the first road band, male and female buyer. */
   const exampleSqm = toSqM(1000, "sqft");
-  const example = valuePlot({ row, kind: "non-agricultural", areaSqm: exampleSqm, rules, roadWidth: "lt9m" });
+  const example = valuePlot({ row, kind: "non-agricultural", areaSqm: exampleSqm, rules, roadWidth: roadBands[0]?.key });
+  const exampleLede =
+    roadBands[0]?.key === "lt9m" ? c.workedExampleLede : c.workedExampleLedeBand.replace("{band}", (locale === "hi" ? roadBands[0]?.labelHi : roadBands[0]?.labelEn)?.toLowerCase() ?? "");
   const duty = (buyer: "male" | "female") => {
     const { rule } = applicableRule(dutyRules, buyer, example.circleValue);
     return Math.round((example.circleValue * rule.stampDutyPct) / 100);
   };
 
-  const delta = median !== null ? Math.round(((row.nonAgri.lt9m - median) / median) * 100) : null;
+  const delta = median !== null && base > 0 ? Math.round(((base - median) / median) * 100) : null;
   const money = (n: number) => `₹${formatNumber(n)}`;
 
   return (
@@ -200,6 +219,7 @@ export function RateVillageTemplate({
               {row.vcode ? ` · ${c.vcode} ${row.vcode}` : ""}
             </span>
           </p>
+          <InForceNote locale={locale} cityId={cityId} sro={row.sro} className="mt-4" />
         </div>
       </section>
 
@@ -220,18 +240,48 @@ export function RateVillageTemplate({
           </div>
         ) : null}
         <div className="grid gap-4 md:grid-cols-3">
-          {/* One row per band this city prints, and only the ones this row fills. */}
-          <RateBlock
-            title={`${c.landRates} · ${c.perSqM}`}
-            rows={roadBands.map((b) => ({
-              label: locale === "hi" ? b.labelHi : b.labelEn,
-              value: typeof row.nonAgri[b.key] === "number" ? money(row.nonAgri[b.key]) : "—",
-            }))}
-          />
-          <RateBlock
-            title={`${c.commercialRates} · ${c.perSqM}`}
-            rows={COMMERCIAL_KINDS.map((k) => ({ label: commercialKindLabel[k][locale], value: row.commercial ? money(row.commercial[k]) : "—" }))}
-          />
+          {/* One row per band this SRO prints, and only the ones this row fills. */}
+          {hasLand ? (
+            <RateBlock
+              title={`${c.landRates} · ${c.perSqM}`}
+              rows={roadBands.map((b) => ({
+                label: locale === "hi" ? b.labelHi : b.labelEn,
+                value: typeof row.nonAgri[b.key] === "number" ? money(row.nonAgri[b.key]) : "—",
+              }))}
+              note={
+                // A width the list prints no column for, valued by the city's own rule (Gorakhpur: over 12 m).
+                extraWidths.length > 0
+                  ? extraWidths
+                      .map((w) => {
+                        const r = rules.rules.find((x) => x.band?.key === w.key)!;
+                        const v = Math.round((row.nonAgri[w.fromKey] * (100 + r.pct)) / 100);
+                        return `${locale === "hi" ? w.labelHi : w.labelEn}: ${money(v)} ${c.perSqM} (${c.rule2025})`;
+                      })
+                      .join(" · ")
+                  : undefined
+              }
+            />
+          ) : (
+            <div className="rounded-xl border border-line bg-card p-4">
+              <h3 className="caption-mono mb-3 text-muted">{c.landRates}</h3>
+              <p className="text-sm text-ink-soft">{c.noLandRate}</p>
+            </div>
+          )}
+          {/* Hidden where the row prints no commercial line: an all-dash block says nothing. */}
+          {row.commercial && (
+            <RateBlock
+              title={`${c.commercialRates} · ${c.perSqM}`}
+              rows={commercialKinds.map((k) => ({
+                label: locale === "hi" ? k.labelHi : k.labelEn,
+                value: typeof row.commercial![k.key] === "number" ? money(row.commercial![k.key]) : "—",
+              }))}
+              note={row.commercialFrom ? c.commercialAmended.replace("{date}", formatDate(row.commercialFrom, locale)) : undefined}
+            />
+          )}
+          {/* Sadar-2 (Gorakhpur) prices commercial property by monthly rent instead. */}
+          {row.commercialRent && (
+            <RateBlock title={c.rentTitle} rows={[{ label: c.rentUnit, value: money(row.commercialRent) }]} note={c.rentNote} />
+          )}
           {/* Construction rates, on lists that price covered area. Ayodhya prints no such column. */}
           {row.covered && (
             <RateBlock
@@ -239,7 +289,7 @@ export function RateVillageTemplate({
               rows={COVERED_GRADES.map((g) => ({ label: coveredGradeLabel[g][locale], value: money(row.covered![g]) }))}
             />
           )}
-          {hasAgri ? (
+          {grid ? null : hasAgri ? (
             <RateBlock
               title={`${c.agriRates} · ${agriUnitLabel["lakh-per-hectare"][locale]}`}
               rows={AGRI_FRONTAGES.map((f) => {
@@ -257,13 +307,58 @@ export function RateVillageTemplate({
                   : undefined
               }
             />
-          ) : (
+          ) : gridCity ? null : (
             <div className="rounded-xl border border-line bg-card p-4">
               <h3 className="caption-mono mb-3 text-muted">{c.agriRates}</h3>
               <p className="text-sm text-ink-soft">{c.noAgriHere}</p>
             </div>
           )}
         </div>
+        {/* Gorakhpur: farmland by frontage and plot size, all sixteen figures. */}
+        {grid && (
+          <div className="mt-4 rounded-xl border border-line bg-card p-4">
+            <h3 className="caption-mono mb-3 text-muted">
+              {c.agriRates} · {agriUnitLabel["lakh-per-hectare"][locale]}
+            </h3>
+            <div className="overflow-x-auto">
+              <table className="w-full min-w-[32rem] text-sm">
+                <thead>
+                  <tr>
+                    <th scope="col" className={th}>
+                      {c.frontage}
+                    </th>
+                    {agriSlabLabels(grid.slabsHa, locale).map((l) => (
+                      <th key={l} scope="col" className={`${th} ${numeric}`}>
+                        {l}
+                      </th>
+                    ))}
+                  </tr>
+                </thead>
+                <tbody>
+                  {AGRI_GRID_FRONTAGES.map((f) => (
+                    <tr key={f}>
+                      <th scope="row" className={`${th} border-t border-line font-normal text-ink-soft`}>
+                        {agriGridFrontageLabel[f][locale]}
+                      </th>
+                      {grid[f].map((v, i) => (
+                        <td key={i} className={`${td} ${numeric}`}>
+                          {v === null ? "—" : formatNumber(v)}
+                        </td>
+                      ))}
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+            <p className="mt-3 text-xs text-muted">
+              {c.agriGridNote}
+              {grid.other[3] !== null &&
+                (locale === "hi"
+                  ? ` अन्यत्र, सबसे बड़े प्लॉट ≈ ₹${formatNumber(Math.round(lakhPerHaToRupeesPerSqm(grid.other[3])))} ${c.perSqM} ≈ ₹${formatNumber(Math.round(lakhPerHaToRupeesPerBigha(grid.other[3])))} प्रति बीघा।`
+                  : ` Elsewhere, largest plots ≈ ₹${formatNumber(Math.round(lakhPerHaToRupeesPerSqm(grid.other[3])))} ${c.perSqM} ≈ ₹${formatNumber(Math.round(lakhPerHaToRupeesPerBigha(grid.other[3])))} per bigha.`)}
+            </p>
+          </div>
+        )}
         {copy?.commercialText && <p className="prose-site mt-6 max-w-3xl text-[17px] leading-relaxed">{copy.commercialText}</p>}
         {copy?.agriText && <p className="prose-site mt-4 max-w-3xl text-[17px] leading-relaxed">{copy.agriText}</p>}
         <p className="mt-6 text-sm text-muted">{sourceLine}</p>
@@ -318,7 +413,7 @@ export function RateVillageTemplate({
                     {c.segmentLand}
                   </th>
                   <th scope="col" className={`${th} ${numeric}`}>
-                    {commercialKindLabel.shop[locale]}
+                    {pick(locale, commercialKinds[0].labelEn, commercialKinds[0].labelHi)}
                   </th>
                 </tr>
               </thead>
@@ -328,8 +423,8 @@ export function RateVillageTemplate({
                     <td className={td}>
                       <a href={`${localePath(locale, `/${cityId}/circle-rates/${tehsilId}/`)}#segments`}>{s.segmentHi}</a>
                     </td>
-                    <td className={`${td} ${numeric}`}>{money(s.nonAgri)}</td>
-                    <td className={`${td} ${numeric}`}>{money(s.shop)}</td>
+                    <td className={`${td} ${numeric}`}>{s.nonAgri === null ? "—" : money(s.nonAgri)}</td>
+                    <td className={`${td} ${numeric}`}>{s.shop === null ? "—" : money(s.shop)}</td>
                   </tr>
                 ))}
               </tbody>
@@ -338,9 +433,10 @@ export function RateVillageTemplate({
         </Section>
       )}
 
-      {/* worked example */}
+      {/* worked example -- omitted on a row the list prints no land rate for */}
+      {base > 0 && (
       <Section id="example" title={c.workedExample}>
-        <p className="lede mb-5 max-w-2xl">{c.workedExampleLede}</p>
+        <p className="lede mb-5 max-w-2xl">{exampleLede}</p>
         <dl className="grid gap-4 sm:grid-cols-3">
           {[
             { k: c.circleValue, v: money(example.circleValue) },
@@ -355,6 +451,7 @@ export function RateVillageTemplate({
         </dl>
         <p className="mt-4 text-sm font-semibold">{c.estimateOnly}</p>
       </Section>
+      )}
 
       {/* the valuation instructions that apply here */}
       {copy?.rulesText?.length ? (
@@ -371,7 +468,15 @@ export function RateVillageTemplate({
 
       {/* calculator prefilled with this row */}
       <Section id="calculator" title={c.calculatorTitle} tone="sand">
-        <RateCalculator locale={locale} row={row} segments={segments} bands={roadBands} rules={rules} dutyRules={dutyRules} />
+        <RateCalculator
+          locale={locale}
+          row={row}
+          segments={segments}
+          bands={roadBands}
+          commercialKinds={commercialKinds}
+          rules={rules}
+          dutyRules={dutyRules}
+        />
       </Section>
 
       {/* questions people ask, also emitted as FAQPage */}
@@ -384,11 +489,11 @@ export function RateVillageTemplate({
 
       {/* comparison and neighbours */}
       <Section id="compare" title={c.comparedToTehsil}>
-        {median !== null && (
+        {median !== null && delta !== null && (
           <p className="lede max-w-2xl">
             {locale === "hi"
-              ? `${row.nameHi} की आधार दर ₹${formatNumber(row.nonAgri.lt9m)} ${c.perSqM} है। ${tehsilName} तहसील का मध्यक ₹${formatNumber(median)} है — यह गाँव ${delta === 0 ? c.atMedian : `${Math.abs(delta!)}% ${delta! > 0 ? c.aboveMedian : c.belowMedian}`}।`
-              : `${row.nameEn}'s base rate is ₹${formatNumber(row.nonAgri.lt9m)} ${c.perSqM}. The ${tehsilName} tehsil median is ₹${formatNumber(median)} — this village is ${delta === 0 ? c.atMedian : `${Math.abs(delta!)}% ${delta! > 0 ? c.aboveMedian : c.belowMedian}`}.`}
+              ? `${row.nameHi} की आधार दर ₹${formatNumber(base)} ${c.perSqM} है। ${tehsilName} तहसील का मध्यक ₹${formatNumber(median)} है — यह गाँव ${delta === 0 ? c.atMedian : `${Math.abs(delta!)}% ${delta! > 0 ? c.aboveMedian : c.belowMedian}`}।`
+              : `${row.nameEn}'s base rate is ₹${formatNumber(base)} ${c.perSqM}. The ${tehsilName} tehsil median is ₹${formatNumber(median)} — this village is ${delta === 0 ? c.atMedian : `${Math.abs(delta!)}% ${delta! > 0 ? c.aboveMedian : c.belowMedian}`}.`}
           </p>
         )}
 
@@ -399,7 +504,7 @@ export function RateVillageTemplate({
               {similar.map((s) => (
                 <li key={s.id} className="flex items-baseline justify-between gap-4 px-4 py-2.5">
                   <a href={localePath(locale, `/${cityId}/circle-rates/${tehsilId}/${s.slug}/`)}>{pick(locale, s.nameEn, s.nameHi)}</a>
-                  <span className="tabular-nums text-sm">{money(s.nonAgri.lt9m)}</span>
+                  <span className="tabular-nums text-sm">{money(baseRate(s))}</span>
                 </li>
               ))}
             </ul>
@@ -425,7 +530,7 @@ export function RateVillageTemplate({
             </a>
           </p>
         )}
-        <SourceStamp locale={locale} sources={schedule.sources} updatedAt={schedule.updatedAt} effectiveFrom={schedule.effectiveFrom} />
+        <SourceStamp locale={locale} sources={schedule.sources} updatedAt={schedule.updatedAt} effectiveFrom={effectiveFrom} />
       </Section>
 
       <Section id="enquiry" tone="sand">

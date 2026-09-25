@@ -151,16 +151,29 @@ async function main() {
         if (stray.length > 0) {
           errors.push(`${at}: ${r.id} (${r.nameHi}) has road band(s) ${stray.join(", ")} not declared in roadBands`);
         }
-        if (Object.keys(r.nonAgri).length === 0) errors.push(`${at}: ${r.id} (${r.nameHi}) has no land rate at all`);
+        // A row may print no land rate where it appears only in the commercial or agricultural table
+        // (Gorakhpur's partial rows); a row that prints nothing at all must not exist.
+        if (Object.keys(r.nonAgri).length === 0 && r.commercial === null && !r.commercialRent && !r.agriGrid && r.agriLakhPerHa.general === null) {
+          errors.push(`${at}: ${r.id} (${r.nameHi}) prints no rate at all`);
+        }
       }
 
       // Ordering sanity. A flagged row keeps the printed figure, so it warns rather than fails.
       let orderWarnings = 0;
       for (const r of s.rows) {
         // Across however many bands this city prints, each should cost at least the one before it.
-        const printed = s.roadBands.map((b) => r.nonAgri[b.key]).filter((v): v is number => typeof v === "number");
+        // A band printed in its own table (Gorakhpur's basic rate) is not ordered against the rest.
+        const printed = s.roadBands
+          .filter((b) => !b.separateTable)
+          .map((b) => r.nonAgri[b.key])
+          .filter((v): v is number => typeof v === "number");
         const landOut = printed.some((v, i) => i > 0 && v < printed[i - 1]);
-        const commOut = r.commercial !== null && !(r.commercial.shop >= r.commercial.office && r.commercial.office >= r.commercial.godown);
+        // Only on lists that print shop / office / godown. Gorakhpur's shop figure is a land rate
+        // for a single shop and its others are carpet-area rates, so no order holds between them.
+        const commOut =
+          r.commercial !== null &&
+          typeof r.commercial.godown === "number" &&
+          !(r.commercial.shop >= r.commercial.office && r.commercial.office >= r.commercial.godown);
         if (!landOut && !commOut) continue;
         const what = [landOut && "land rates do not rise with road width", commOut && "commercial is not shop ≥ office ≥ godown"]
           .filter(Boolean)
@@ -170,6 +183,23 @@ async function main() {
           warnings.push(`${msg} — transcriber flagged: ${r.note}`);
           orderWarnings++;
         } else errors.push(`${msg} — no transcriber flag, so this is a transcription error, not a printed oddity`);
+      }
+
+      // Per-SRO band labels must name exactly the schedule's columns, in its order.
+      for (const d of s.sourceDocs) {
+        if (d.roadBands && d.roadBands.map((b) => b.key).join() !== s.roadBands.map((b) => b.key).join()) {
+          errors.push(`${at}: sourceDocs ${d.sro} roadBands keys differ from the schedule's`);
+        }
+      }
+      // Commercial keys must be ones the schedule declares.
+      const commKeys = new Set((s.commercialKinds ?? [{ key: "shop" }, { key: "office" }, { key: "godown" }]).map((k) => k.key));
+      for (const r of s.rows) {
+        const stray = Object.keys(r.commercial ?? {}).filter((k) => !commKeys.has(k));
+        if (stray.length) errors.push(`${at}: ${r.id} (${r.nameHi}) has commercial kind(s) ${stray.join(", ")} not declared in commercialKinds`);
+      }
+      // A stretch must price something.
+      for (const g of s.roadSegments) {
+        if (g.nonAgri === null && g.shop === null && !g.commercialRent) errors.push(`${at}: road segment "${g.id}" prints no rate`);
       }
 
       // Road segments: either resolve to a village row, or be listed as unmatched.

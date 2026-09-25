@@ -18,16 +18,9 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { formatNumber, localePath, pick, type Locale } from "@/lib/i18n";
 import { rc } from "@/lib/rate-copy";
-import type { ChunkRow, RateChunk } from "@/lib/rate-chunks";
+import type { ChunkRow, RateChunk, TableColumn } from "@/lib/rate-chunks";
 import type { RateCategory, RoadBand } from "@/lib/schemas";
-import {
-  AGRI_FRONTAGES,
-  agriFrontageLabel,
-  categoryFilterLabel,
-  categoryText,
-  COMMERCIAL_KINDS,
-  commercialKindLabel,
-} from "@/lib/valuation";
+import { categoryFilterLabel, categoryText } from "@/lib/valuation";
 
 type View = "land" | "commercial" | "agricultural";
 type SortKey = "name" | "ward" | "category" | `v${number}`;
@@ -43,6 +36,8 @@ export function TehsilRateTable({
   tehsilId,
   firstRows,
   bands,
+  commercialColumns,
+  agriColumns,
   total,
   categories,
   wards,
@@ -54,6 +49,10 @@ export function TehsilRateTable({
   firstRows: ChunkRow[];
   /** this city's road-width columns, in the same order as each row's land array */
   bands: RoadBand[];
+  /** the list's commercial columns, in the same order as each row's `m` */
+  commercialColumns: TableColumn[];
+  /** the agricultural columns, in the same order as each row's `a` */
+  agriColumns: TableColumn[];
   total: number;
   categories: (RateCategory | null)[];
   wards: string[];
@@ -121,17 +120,11 @@ export function TehsilRateTable({
   const toggle = (key: SortKey) => setSort((s) => (s?.key === key ? { key, dir: s.dir === 1 ? -1 : 1 } : { key, dir: 1 }));
   const ariaSort = (key: SortKey) => (sort?.key === key ? (sort.dir === 1 ? "ascending" : "descending") : undefined);
 
-  // Land columns come from the schedule — three for Ayodhya, four for Lucknow — so this table
-  // never assumes a count. The other two views are fixed by the list's own printed columns.
-  const columns = view === "land" ? bands : view === "commercial" ? COMMERCIAL_KINDS : AGRI_FRONTAGES;
-  const columnLabel = (i: number) =>
-    view === "land"
-      ? locale === "hi"
-        ? bands[i].labelHi
-        : bands[i].labelEn
-      : view === "commercial"
-        ? commercialKindLabel[COMMERCIAL_KINDS[i]][locale]
-        : agriFrontageLabel[AGRI_FRONTAGES[i]][locale];
+  // Every view's columns come from the schedule -- three land bands for Ayodhya, four for
+  // Lucknow and Gorakhpur; Gorakhpur's own commercial kinds and farmland grid -- so this table
+  // never assumes a count.
+  const columns: { labelEn: string; labelHi: string }[] = view === "land" ? bands : view === "commercial" ? commercialColumns : agriColumns;
+  const columnLabel = (i: number) => (locale === "hi" ? columns[i].labelHi : columns[i].labelEn);
   const cellValue = (r: ChunkRow, i: number) => {
     const v = view === "land" ? r.r[i] : view === "commercial" ? (r.m?.[i] ?? null) : r.a[i];
     return v === null || v === undefined ? "—" : formatNumber(v);

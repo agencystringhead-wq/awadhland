@@ -16,17 +16,21 @@ import { useMemo, useState } from "react";
 import { formatNumber, ui, type Locale } from "@/lib/i18n";
 import { buyerCategoryLabels } from "@/lib/labels";
 import { rc } from "@/lib/rate-copy";
-import type { RateRow, RoadSegmentRow, StampDutyRule, ValuationRules, RoadBand } from "@/lib/schemas";
+import type { CommercialKindDef, RateRow, RoadSegmentRow, StampDutyRule, ValuationRules, RoadBand } from "@/lib/schemas";
 import { applicableRule, AREA_UNITS, toSqM, type AreaUnit, type BuyerCategory } from "@/lib/stamp-duty";
 import {
   AGRI_FRONTAGES,
+  AGRI_GRID_FRONTAGES,
   agriFrontageLabel,
-  COMMERCIAL_KINDS,
+  agriGridFrontageLabel,
+  agriSlabLabels,
   COVERED_GRADES,
   coveredGradeLabel,
-  commercialKindLabel,
+  extraRoadWidths,
+  hasRule,
   valuePlot,
   type AgriFrontage,
+  type ColonyDistance,
   type CommercialKind,
   type CoveredGrade,
   type LandKind,
@@ -41,6 +45,7 @@ export function RateCalculator({
   row,
   segments,
   bands,
+  commercialKinds,
   rules,
   dutyRules,
 }: {
@@ -48,23 +53,34 @@ export function RateCalculator({
   row: RateRow;
   /** road stretches through this village, if any */
   segments: RoadSegmentRow[];
-  /** the road-width columns this city prints, cheapest first */
+  /** the road-width columns this SRO prints, cheapest first */
   bands: RoadBand[];
+  /** the commercial columns this city's list prints */
+  commercialKinds: CommercialKindDef[];
   rules: ValuationRules;
   dutyRules: StampDutyRule[];
 }) {
   const c = rc(locale);
-  const [kind, setKind] = useState<LandKind>("non-agricultural");
+  const grid = row.agriGrid ?? null;
+  const hasLand = Object.keys(row.nonAgri).length > 0;
+  const hasAgri = grid !== null || AGRI_FRONTAGES.some((f) => row.agriLakhPerHa[f] !== null);
+  // Open on the first kind this row actually prices: a few Gorakhpur rows print no land rate.
+  const [kind, setKind] = useState<LandKind>(hasLand ? "non-agricultural" : row.commercial ? "commercial" : "agricultural");
   const [area, setArea] = useState("1000");
   const [unit, setUnit] = useState<AreaUnit>("sqft");
   const [buyer, setBuyer] = useState<BuyerCategory>("male");
   // Only the bands this row actually prints: Sadar-2 भरवारा has one of Lucknow&apos;s four.
   const rowBands = bands.filter((b) => typeof row.nonAgri[b.key] === "number");
-  const [roadWidth, setRoadWidth] = useState<RoadWidth>(rowBands[0]?.key ?? "lt9m");
+  // Plus any width the city's rules value off a printed band (Gorakhpur: over 12 m = 9–12 m +30%).
+  const widths = [...rowBands, ...extraRoadWidths(rules, row)];
+  const [roadWidth, setRoadWidth] = useState<RoadWidth>(rowBands[0]?.key ?? "");
+  const rowCommercialKinds = commercialKinds.filter((k) => typeof row.commercial?.[k.key] === "number");
   const [segmentId, setSegmentId] = useState("none");
   const [commercialKind, setCommercialKind] = useState<CommercialKind>("shop");
   const [coveredGrade, setCoveredGrade] = useState<CoveredGrade>("ordinary");
-  const [frontage, setFrontage] = useState<AgriFrontage>("general");
+  const gridFrontages = grid ? AGRI_GRID_FRONTAGES.filter((f) => grid[f].some((v) => v !== null)) : [];
+  const [frontage, setFrontage] = useState<AgriFrontage>(grid ? (gridFrontages.includes("other") ? "other" : (gridFrontages[0] ?? "other")) : "general");
+  const [colonyDistance, setColonyDistance] = useState<ColonyDistance>("none");
   const [nearCommercial, setNearCommercial] = useState(false);
   const [nearActivity, setNearActivity] = useState(false);
   const [adjoiningRoads, setAdjoiningRoads] = useState<0 | 1 | 2>(0);
@@ -72,7 +88,14 @@ export function RateCalculator({
 
   const areaNum = Number(area) > 0 ? Number(area) : 0;
   const segment = segments.find((s) => s.id === segmentId) ?? null;
-  const hasAgri = AGRI_FRONTAGES.some((f) => row.agriLakhPerHa[f] !== null);
+  // Offer only the adjustments this city's rules define: Ayodhya's instructions 17/20/22, or
+  // Gorakhpur's 2025 colony-distance rule.
+  const offers = {
+    nearCommercial: hasRule(rules, "nonagri-commercial-within-50m"),
+    nearActivity: hasRule(rules, "agri-activity-within-200m"),
+    roadsAndAbadi: hasRule(rules, "agri-one-road-and-abadi") || hasRule(rules, "agri-two-or-more-roads-only"),
+    colony: hasRule(rules, "agri-colony-within-50m") || hasRule(rules, "agri-colony-50-200m"),
+  };
 
   const result = useMemo(() => {
     const areaSqm = toSqM(areaNum, unit);
@@ -90,6 +113,7 @@ export function RateCalculator({
       nearActivity,
       adjoiningRoads,
       adjoiningAbadi,
+      colonyDistance,
     });
     // Instruction 24 is reported by valuePlot only when a segment was actually offered.
     const withNote =
@@ -114,6 +138,7 @@ export function RateCalculator({
     nearActivity,
     adjoiningRoads,
     adjoiningAbadi,
+    colonyDistance,
     dutyRules,
     buyer,
   ]);
@@ -130,7 +155,11 @@ export function RateCalculator({
           <span className={label}>{c.landKind}</span>
           <select className={select} value={kind} onChange={(e) => setKind(e.target.value as LandKind)}>
             {KINDS.map((k) => (
-              <option key={k} value={k} disabled={(k === "agricultural" && !hasAgri) || (k === "covered" && !row.covered)}>
+              <option
+                key={k}
+                value={k}
+                disabled={(k === "agricultural" && !hasAgri) || (k === "covered" && !row.covered) || (k === "commercial" && !row.commercial) || (k === "non-agricultural" && !hasLand)}
+              >
                 {k === "non-agricultural" ? c.kindNonAgri : k === "commercial" ? c.kindCommercial : k === "covered" ? c.kindCovered : c.kindAgri}
               </option>
             ))}
@@ -156,7 +185,7 @@ export function RateCalculator({
           <label className="block">
             <span className={label}>{c.roadWidth}</span>
             <select className={select} value={roadWidth} onChange={(e) => setRoadWidth(e.target.value as RoadWidth)} disabled={segment !== null}>
-              {rowBands.map((b) => (
+              {widths.map((b) => (
                 <option key={b.key} value={b.key}>
                   {locale === "hi" ? b.labelHi : b.labelEn}
                 </option>
@@ -183,9 +212,9 @@ export function RateCalculator({
           <label className="block">
             <span className={label}>{c.viewCommercial}</span>
             <select className={select} value={commercialKind} onChange={(e) => setCommercialKind(e.target.value as CommercialKind)}>
-              {COMMERCIAL_KINDS.map((k) => (
-                <option key={k} value={k}>
-                  {commercialKindLabel[k][locale]}
+              {rowCommercialKinds.map((k) => (
+                <option key={k.key} value={k.key}>
+                  {locale === "hi" ? k.labelHi : k.labelEn}
                 </option>
               ))}
             </select>
@@ -196,11 +225,17 @@ export function RateCalculator({
           <label className="block">
             <span className={label}>{c.frontage}</span>
             <select className={select} value={frontage} onChange={(e) => setFrontage(e.target.value as AgriFrontage)}>
-              {AGRI_FRONTAGES.filter((f) => row.agriLakhPerHa[f] !== null).map((f) => (
-                <option key={f} value={f}>
-                  {agriFrontageLabel[f][locale]}
-                </option>
-              ))}
+              {grid
+                ? gridFrontages.map((f) => (
+                    <option key={f} value={f}>
+                      {agriGridFrontageLabel[f][locale]}
+                    </option>
+                  ))
+                : AGRI_FRONTAGES.filter((f) => row.agriLakhPerHa[f] !== null).map((f) => (
+                    <option key={f} value={f}>
+                      {agriFrontageLabel[f][locale]}
+                    </option>
+                  ))}
             </select>
           </label>
         )}
@@ -233,18 +268,34 @@ export function RateCalculator({
         <fieldset className="sm:col-span-2">
           <legend className={label}>{c.rulesApplied}</legend>
           <div className="flex flex-col gap-2 text-sm">
-            {kind !== "agricultural" && (
+            {kind !== "agricultural" && offers.nearCommercial && (
               <label className="flex items-center gap-2">
                 <input type="checkbox" checked={nearCommercial} onChange={(e) => setNearCommercial(e.target.checked)} />
                 {c.nearCommercial}
               </label>
             )}
-            {kind === "agricultural" && (
+            {kind === "agricultural" && offers.colony && (
+              <label className="flex flex-wrap items-center gap-2">
+                {c.colonyDistance}
+                <select
+                  className="rounded-lg border border-line bg-card px-2 py-1"
+                  value={colonyDistance}
+                  onChange={(e) => setColonyDistance(e.target.value as ColonyDistance)}
+                >
+                  <option value="none">{c.colonyNone}</option>
+                  <option value="within50">{c.colonyWithin50}</option>
+                  <option value="50to200">{c.colony50to200}</option>
+                </select>
+              </label>
+            )}
+            {kind === "agricultural" && offers.nearActivity && (
+              <label className="flex items-center gap-2">
+                <input type="checkbox" checked={nearActivity} onChange={(e) => setNearActivity(e.target.checked)} />
+                {c.nearActivity}
+              </label>
+            )}
+            {kind === "agricultural" && offers.roadsAndAbadi && (
               <>
-                <label className="flex items-center gap-2">
-                  <input type="checkbox" checked={nearActivity} onChange={(e) => setNearActivity(e.target.checked)} />
-                  {c.nearActivity}
-                </label>
                 <label className="flex items-center gap-2">
                   <input type="checkbox" checked={adjoiningAbadi} onChange={(e) => setAdjoiningAbadi(e.target.checked)} />
                   {c.adjoiningAbadi}
@@ -305,7 +356,14 @@ export function RateCalculator({
         </dl>
 
         <ul className="mt-4 space-y-1 border-t border-line pt-3 text-xs text-muted">
-          {result.v.largePlot && <li>{c.largePlotNote}</li>}
+          {result.v.largePlot && (
+            <li>{c.largePlotNote.replace("{threshold}", formatNumber(result.v.largePlot.thresholdSqm)).replace("{pct}", String(result.v.largePlot.pct))}</li>
+          )}
+          {grid && kind === "agricultural" && result.v.slab !== undefined && (
+            <li>
+              {c.slabUsed}: {agriSlabLabels(grid.slabsHa, locale)[result.v.slab]}
+            </li>
+          )}
           {result.v.applied.map((r) => (
             <li key={r.id}>
               +{r.pct}% — {locale === "hi" ? r.labelHi : r.label} ({r.instruction})

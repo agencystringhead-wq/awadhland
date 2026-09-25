@@ -4,7 +4,8 @@ import { LeadForm } from "@/components/LeadForm";
 import { Section } from "@/components/Section";
 import { SourceStamp } from "@/components/SourceStamp";
 import { TehsilRateTable } from "@/components/rates/TehsilRateTable";
-import { toChunkRow } from "@/lib/rate-chunks";
+import { InForceNote } from "@/components/rates/InForceNote";
+import { tableColumns, toChunkRow } from "@/lib/rate-chunks";
 import { getBroker, getCity } from "@/lib/data";
 import { formatDate, formatNumber, localePath, pick, ui, type Locale } from "@/lib/i18n";
 import { rc } from "@/lib/rate-copy";
@@ -17,10 +18,10 @@ import {
   getRateBands,
   getRoadBands,
   getValuationRules,
+  rowEffectiveFrom,
 } from "@/lib/rates";
 import { sameAlternate } from "@/lib/routes";
 import { agriUnitLabel } from "@/lib/units";
-import { commercialKindLabel } from "@/lib/valuation";
 import { getFrontageOnlySros } from "@/lib/frontage";
 import { FrontageTehsilTemplate } from "./FrontageTemplates";
 import { PageShell } from "./PageShell";
@@ -54,9 +55,14 @@ export function RateTehsilTemplate({ locale, cityId, tehsilId }: { locale: Local
   const bands = getRateBands(cityId, tehsilId);
   // Road-width columns of this city’s list (three for Ayodhya, four for Lucknow). Distinct from
   // `bands` above, which groups rows that share an identical rate profile.
-  const roadBands = getRoadBands(cityId);
+  const roadBands = getRoadBands(cityId, tehsilId);
   const roadBandKeys = roadBands.map((b) => b.key);
-  const rules = getValuationRules();
+  const cols = tableColumns(schedule, tehsilId);
+  // "Shop" in Ayodhya and Lucknow; Gorakhpur's shop figure is the land rate for a single shop.
+  const shopLabel = cols.commercial.find((k) => k.key === "shop") ?? cols.commercial[0];
+  const rules = getValuationRules(cityId);
+  // The SRO's own date: Gorakhpur's Sadar-2 and Campierganj are on the 2015 list, the rest 2016.
+  const effectiveFrom = rowEffectiveFrom(schedule, tehsilId);
   const cityName = pick(locale, city.name, city.nameHi);
   const tehsilName = pick(locale, tehsil.name, tehsil.nameHi);
   const sro = pick(locale, tehsil.sroName, tehsil.sroNameHi);
@@ -65,10 +71,11 @@ export function RateTehsilTemplate({ locale, cityId, tehsilId }: { locale: Local
   /** "IGRSUP list, <SRO>, effective 7 June 2025, printed page N" */
   const sourceLine = (page?: string) =>
     locale === "hi"
-      ? `आईजीआरएसयूपी सूची, ${sro}, ${formatDate(schedule.effectiveFrom, locale)} से लागू${page ? `, मुद्रित पृष्ठ ${page}` : ""}`
-      : `IGRSUP list, ${sro}, effective ${formatDate(schedule.effectiveFrom, locale)}${page ? `, printed page ${page}` : ""}`;
+      ? `आईजीआरएसयूपी सूची, ${sro}, ${formatDate(effectiveFrom, locale)} से लागू${page ? `, मुद्रित पृष्ठ ${page}` : ""}`
+      : `IGRSUP list, ${sro}, effective ${formatDate(effectiveFrom, locale)}${page ? `, printed page ${page}` : ""}`;
 
-  const pages = [...new Set(rows.map((r) => r.page))].sort();
+  // Gorakhpur's village rows carry no printed page, so its line names the SRO and date only.
+  const pages = [...new Set(rows.flatMap((r) => (r.page ? [r.page] : [])))].sort();
   const segmentPages = [...new Set(segments.map((r) => r.page))].sort();
 
   return (
@@ -95,7 +102,7 @@ export function RateTehsilTemplate({ locale, cityId, tehsilId }: { locale: Local
             <span>{sro}</span>
             <span aria-hidden="true">·</span>
             <span>
-              {t.effective} <time dateTime={schedule.effectiveFrom}>{formatDate(schedule.effectiveFrom, locale)}</time>
+              {t.effective} <time dateTime={effectiveFrom}>{formatDate(effectiveFrom, locale)}</time>
             </span>
             <span aria-hidden="true">·</span>
             <span>
@@ -118,6 +125,7 @@ export function RateTehsilTemplate({ locale, cityId, tehsilId }: { locale: Local
               </>
             )}
           </p>
+          <InForceNote locale={locale} cityId={cityId} sro={tehsilId} className="mt-4" />
         </div>
       </section>
 
@@ -127,8 +135,10 @@ export function RateTehsilTemplate({ locale, cityId, tehsilId }: { locale: Local
           locale={locale}
           cityId={cityId}
           tehsilId={tehsilId}
-          firstRows={rows.slice(0, PRERENDERED_ROWS).map((r) => toChunkRow(r, roadBandKeys))}
+          firstRows={rows.slice(0, PRERENDERED_ROWS).map((r) => toChunkRow(r, cols))}
           bands={roadBands}
+          commercialColumns={cols.commercial}
+          agriColumns={cols.agri}
           total={rows.length}
           categories={[...new Set(rows.map((r) => r.category))]}
           wards={[...new Set(rows.flatMap((r) => (r.wardHi ? [r.wardHi] : [])))].sort((a, b) => a.localeCompare(b, "hi"))}
@@ -178,7 +188,7 @@ export function RateTehsilTemplate({ locale, cityId, tehsilId }: { locale: Local
                       {c.landRates} ₹{formatNumber(firstLow)}–{formatNumber(firstHigh)} {c.perSqM}
                     </span>
                     <span className="tabular-nums text-ink-soft">
-                      {commercialKindLabel.shop[locale]} ₹{first.commercial ? formatNumber(first.commercial.shop) : "—"}
+                      {pick(locale, shopLabel.labelEn, shopLabel.labelHi)} ₹{first.commercial ? formatNumber(first.commercial.shop) : "—"}
                     </span>
                     {first.agriLakhPerHa.general !== null && (
                       <span className="tabular-nums text-ink-soft">
@@ -242,8 +252,9 @@ export function RateTehsilTemplate({ locale, cityId, tehsilId }: { locale: Local
                           s.villageHi
                         )}
                       </td>
-                      <td className={`${td} ${numeric}`}>₹{formatNumber(s.nonAgri)}</td>
-                      <td className={`${td} ${numeric}`}>₹{formatNumber(s.shop)}</td>
+                      {/* A Gorakhpur stretch can print land only, or commercial only. */}
+                      <td className={`${td} ${numeric}`}>{s.nonAgri === null ? "—" : `₹${formatNumber(s.nonAgri)}`}</td>
+                      <td className={`${td} ${numeric}`}>{s.shop === null ? "—" : `₹${formatNumber(s.shop)}`}</td>
                     </tr>
                   );
                 })}

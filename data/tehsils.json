@@ -292,5 +292,141 @@
     "todo": [
       "Rate list not transcribed. What was received is a khasra list, not the मूल्यांकन सूची; the published list is dated 31-12-2025 and needs downloading from IGRSUP."
     ]
+  },
+  {
+    "id": "sadar1",
+    "cityId": "gorakhpur",
+    "name": "Sadar-1",
+    "nameHi": "सदर-1",
+    "sroName": "Sub-Registrar, Sadar-1",
+    "sroNameHi": "उप निबंधक, सदर-1",
+    "ratesStatus": "published",
+    "sources": [
+      {
+        "label": "IGRSUP मूल्यांकन दर-सूची, Gorakhpur district, effective 03-08-2016, kept in force by the Collector's order of 04-08-2020",
+        "url": "https://igrsup.gov.in/",
+        "accessedAt": "2026-09-25"
+      }
+    ],
+    "updatedAt": "2026-09-25"
+  },
+  {
+    "id": "sadar2",
+    "cityId": "gorakhpur",
+    "name": "Sadar-2",
+    "nameHi": "सदर-2",
+    "sroName": "Sub-Registrar, Sadar-2",
+    "sroNameHi": "उप निबंधक, सदर-2",
+    "ratesStatus": "published",
+    "sources": [
+      {
+        "label": "IGRSUP मूल्यांकन दर-सूची, Gorakhpur district, effective 01-08-2015, kept in force by the Collector's order of 04-08-2020",
+        "url": "https://igrsup.gov.in/",
+        "accessedAt": "2026-09-25"
+      }
+    ],
+    "updatedAt": "2026-09-25"
+  },
+  {
+    "id": "gola",
+    "cityId": "gorakhpur",
+    "name": "Gola",
+    "nameHi": "गोला",
+    "sroName": "Sub-Registrar, Gola",
+    "sroNameHi": "उप निबंधक, गोला",
+    "ratesStatus": "published",
+    "sources": [
+      {
+        "label": "IGRSUP मूल्यांकन दर-सूची, Gorakhpur district, effective 03-08-2016, kept in force by the Collector's order of 04-08-2020",
+        "url": "https://igrsup.gov.in/",
+        "accessedAt": "2026-09-25"
+      }
+    ],
+    "updatedAt": "2026-09-25"
+  },
+  {
+    "id": "khajni",
+    "cityId": "gorakhpur",
+    "name": "Khajni",
+    "nameHi": "खजनी",
+    "sroName": "Sub-Registrar, Khajni",
+    "sroNameHi": "उप निबंधक, खजनी",
+    "ratesStatus": "published",
+    "sources": [
+      {
+        "label": "IGRSUP मूल्यांकन दर-सूची, Gorakhpur district, effective 03-08-2016, kept in force by the Collector's order of 04-08-2020",
+        "url": "https://igrsup.gov.in/",
+        "accessedAt": "2026-09-25"
+      }
+    ],
+    "updatedAt": "2026-09-25"
+  },
+  {
+    "id": "bansgaon",
+    "cityId": "gorakhpur",
+    "name": "Bansgaon",
+    "nameHi": "बांसगांव",
+    "sroName": "Sub-Registrar, Bansgaon",
+    "sroNameHi": "उप निबंधक, बांसगांव",
+    "ratesStatus": "published",
+    "sources": [
+      {
+        "label": "IGRSUP मूल्यांकन दर-सूची, Gorakhpur district, effective 03-08-2016, kept in force by the Collector's order of 04-08-2020",
+        "url": "https://igrsup.gov.in/",
+        "accessedAt": "2026-09-25"
+      }
+    ],
+    "updatedAt": "2026-09-25"
+  },
+  {
+    "id": "sahjanwa",
+    "cityId": "gorakhpur",
+    "name": "Sahjanwa",
+    "nameHi": "सहजनवा",
+    "sroName": "Sub-Registrar, Sahjanwa",
+    "sroNameHi": "उप निबंधक, सहजनवा",
+    "ratesStatus": "published",
+    "sources": [
+      {
+        "label": "IGRSUP मूल्यांकन दर-सूची, Gorakhpur district, effective 03-08-2016, kept in force by the Collector's order of 04-08-2020",
+        "url": "https://igrsup.gov.in/",
+        "accessedAt": "2026-09-25"
+      }
+    ],
+    "updatedAt": "2026-09-25"
+  },
+  {
+    "id": "campierganj",
+    "cityId": "gorakhpur",
+    "name": "Campierganj",
+    "nameHi": "कैम्पियरगंज",
+    "sroName": "Sub-Registrar, Campierganj",
+    "sroNameHi": "उप निबंधक, कैम्पियरगंज",
+    "ratesStatus": "published",
+    "sources": [
+      {
+        "label": "IGRSUP मूल्यांकन दर-सूची, Gorakhpur district, effective 01-08-2015, kept in force by the Collector's order of 04-08-2020",
+        "url": "https://igrsup.gov.in/",
+        "accessedAt": "2026-09-25"
+      }
+    ],
+    "updatedAt": "2026-09-25"
+  },
+  {
+    "id": "chaurichaura",
+    "cityId": "gorakhpur",
+    "name": "Chauri Chaura",
+    "nameHi": "चौरी चौरा",
+    "sroName": "Sub-Registrar, Chauri Chaura",
+    "sroNameHi": "उप निबंधक, चौरी चौरा",
+    "ratesStatus": "published",
+    "sources": [
+      {
+        "label": "IGRSUP मूल्यांकन दर-सूची, Gorakhpur district, effective 03-08-2016, kept in force by the Collector's order of 04-08-2020",
+        "url": "https://igrsup.gov.in/",
+        "accessedAt": "2026-09-25"
+      }
+    ],
+    "updatedAt": "2026-09-25"
   }
 ]
