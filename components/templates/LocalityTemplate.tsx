@@ -181,9 +181,16 @@ export function LocalityTemplate({ locale, cityId, localityId }: { locale: Local
         </div>
       </section>
 
-      {/* 2. Key facts */}
+      {/* 2. Key facts, with the yield calculator prefilled with the locality's first rate row */}
       {facts.length > 0 && (
-        <Section title={t.keyFacts}>
+        <Section
+          title={t.keyFacts}
+          aside={
+            <a href={`${localePath(locale, "/tools/plot-yield-calculator/")}${hasRateRefs ? `?loc=${encodeURIComponent(l.rateRefs![0].rateRowId)}` : ""}`}>
+              {t.whatCouldThisEarn} →
+            </a>
+          }
+        >
           <KeyFacts facts={facts} />
         </Section>
       )}

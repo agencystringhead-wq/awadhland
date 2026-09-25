@@ -5,11 +5,12 @@ import { LeadForm } from "@/components/LeadForm";
 import { Section } from "@/components/Section";
 import { CircleRateLookup } from "@/components/CircleRateLookup";
 import { KhasraFrontageCheck } from "@/components/KhasraFrontageCheck";
+import { PlotYieldCalculator } from "@/components/PlotYieldCalculator";
 import { StampDutyCalculator } from "@/components/StampDutyCalculator";
 import { toolCopy } from "@/lib/content";
 import { fc } from "@/lib/frontage-copy";
-import { getBroker, getCity } from "@/lib/data";
-import { getCitiesWithRateList, getUnits } from "@/lib/rates";
+import { getBroker, getCity, getStampDutyRules } from "@/lib/data";
+import { getCitiesWithRateList, getUnits, getValuationRules } from "@/lib/rates";
 import { localePath, ui, type Locale } from "@/lib/i18n";
 import { sameAlternate } from "@/lib/routes";
 import { frontageCheckData, isToolSlug, stampDutyCalculatorData } from "@/lib/tools";
@@ -46,6 +47,25 @@ export function ToolTemplate({ locale, slug }: { locale: Locale; slug: string })
               return { id, name: locale === "hi" ? c.nameHi : c.name, href: localePath(locale, `/${id}/circle-rates/`) };
             })}
             plotCheckHref={localePath(locale, "/tools/khasra-frontage-check/")}
+            yieldHref={localePath(locale, "/tools/plot-yield-calculator/")}
+          />
+        );
+      }
+      case "plot-yield-calculator": {
+        // Duty rates, each city's valuation rules and the bigha all come from /data on the server;
+        // the client component imports none of them.
+        const cities = getCitiesWithRateList();
+        return (
+          <PlotYieldCalculator
+            locale={locale}
+            whatsapp={broker.whatsapp}
+            bighaSqm={getUnits().bigha.sqm}
+            dutyRules={getStampDutyRules()}
+            rulesByCity={Object.fromEntries(cities.map((id) => [id, getValuationRules(id)]))}
+            hubs={cities.map((id) => {
+              const c = getCity(id)!;
+              return { id, name: locale === "hi" ? c.nameHi : c.name, href: localePath(locale, `/${id}/circle-rates/`) };
+            })}
           />
         );
       }

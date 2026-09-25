@@ -1109,3 +1109,22 @@ summary::-webkit-details-marker {
 summary {
   list-style: none;
 }
+
+/*
+ * Plot yield calculator: "Download summary (PDF)" prints the results alone, so the browser's
+ * Save as PDF gives a one-document summary without a PDF library.
+ */
+@media print {
+  body:has(#yield-print) * {
+    visibility: hidden;
+  }
+  #yield-print,
+  #yield-print * {
+    visibility: visible;
+  }
+  #yield-print {
+    position: absolute;
+    inset: 0 0 auto 0;
+    padding: 12mm;
+  }
+}

@@ -9,7 +9,20 @@
  * the Awadh pakka bigha pending the broker's confirmation, which is why `bighaLabel` exists and
  * why every bigha figure must be rendered with it.
  */
-import { getUnits } from "./rates";
+import unitsJson from "../data/units.json";
+import type { Units } from "./schemas";
+
+/*
+ * Read straight from the JSON, not through lib/rates. This module is reachable from client
+ * components (lib/valuation -> the rate calculator, the yield calculator), and lib/rates imports
+ * every published rate list: going through it put all three cities' lists, 5 MB of JavaScript,
+ * into every circle-rate page. data/units.json is validated by scripts/validate.ts at build.
+ */
+const units = unitsJson as Units;
+const getUnits = () => units;
+
+/** m² in one local bigha, from data/units.json: the one place the factor is set. */
+export const BIGHA_SQM = units.bigha.sqm;
 
 export const LAKH = 100_000;
 export const SQM_PER_HECTARE = 10_000;

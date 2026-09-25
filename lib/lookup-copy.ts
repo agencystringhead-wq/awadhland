@@ -44,6 +44,7 @@ const copy = {
     noLand: "The list prints no land rate for this place; it appears only in its commercial or agricultural table.",
 
     calculate: "Calculate stamp duty for this plot",
+    yieldLink: "What could this plot earn?",
     openPage: "Open full page",
     share: "Share",
     copied: "Link copied",
@@ -94,6 +95,7 @@ const copy = {
     noLand: "सूची इस जगह की भूमि दर नहीं छापती; यह केवल व्यावसायिक या कृषि तालिका में है।",
 
     calculate: "इस प्लॉट की स्टाम्प ड्यूटी निकालें",
+    yieldLink: "यह प्लॉट कितना कमा सकता है?",
     openPage: "पूरा पेज खोलें",
     share: "शेयर करें",
     copied: "लिंक कॉपी हो गया",

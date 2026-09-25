@@ -14,21 +14,11 @@
  * circle-rate hubs link here that way). Picking a result rewrites ?id= so the address bar is the
  * share link.
  */
-import { useCallback, useEffect, useId, useMemo, useRef, useState } from "react";
+import { useEffect, useState } from "react";
+import { PlaceCombobox, useLookupData } from "@/components/PlaceSearch";
 import { whatsappHref } from "@/components/WhatsAppButton";
 import { formatDate, formatNumber, localePath, type Locale } from "@/lib/i18n";
-import {
-  hydrateIndex,
-  LOOKUP_INDEX_PATH,
-  lookupChunkPath,
-  perSqFt,
-  searchLookup,
-  type LookupChunk,
-  type LookupEntry,
-  type LookupHit,
-  type LookupIndex,
-  type LookupIndexWire,
-} from "@/lib/lookup";
+import { perSqFt, searchLookup, type LookupChunk, type LookupEntry, type LookupHit, type LookupIndex } from "@/lib/lookup";
 import { gridFrontageLabel, lc, lookupCategoryLabel, sixFrontageLabel, slabLabels } from "@/lib/lookup-copy";
 
 type Chunk = LookupChunk;
@@ -45,61 +35,22 @@ export type CircleRateLookupProps = {
   hubs: { id: string; name: string; href: string }[];
   /** the khasra plot-check tool, for SROs whose rates are awaited */
   plotCheckHref: string;
+  /** the plot yield calculator, which takes ?loc=<row id> */
+  yieldHref: string;
 };
 
 const field = "block w-full rounded-lg border border-line bg-card px-3 py-2.5 text-[16px] text-ink focus:border-accent";
 const label = "block text-sm font-medium text-ink-soft";
 const fmt = (s: string, vars: Record<string, string>) => s.replace(/\{(\w+)\}/g, (_, k: string) => vars[k] ?? "");
 
-export function CircleRateLookup({ locale, whatsapp, bighaSqm, bighaLabel, hubs, plotCheckHref }: CircleRateLookupProps) {
+export function CircleRateLookup({ locale, whatsapp, bighaSqm, bighaLabel, hubs, plotCheckHref, yieldHref }: CircleRateLookupProps) {
   const c = lc(locale);
   const hi = locale === "hi";
-  const uid = useId();
-  const listId = `${uid}-list`;
-  const inputRef = useRef<HTMLInputElement>(null);
-
-  const [index, setIndex] = useState<LookupIndex | null>(null);
-  const [indexState, setIndexState] = useState<"idle" | "loading" | "failed">("idle");
+  const { index, indexState, loadIndex, loadChunk, chunkFor, openById } = useLookupData();
   const [query, setQuery] = useState("");
   const [city, setCity] = useState("");
   const [sro, setSro] = useState("");
-  const [open, setOpen] = useState(false);
-  const [active, setActive] = useState(0);
   const [selected, setSelected] = useState<LookupEntry | null>(null);
-  const [chunks, setChunks] = useState<Record<string, Chunk | "loading" | "error">>({});
-
-  /* the index, loaded once, on first need */
-  const loadIndex = useCallback(async (): Promise<LookupIndex | null> => {
-    if (index) return index;
-    setIndexState("loading");
-    try {
-      const r = await fetch(LOOKUP_INDEX_PATH);
-      if (!r.ok) throw new Error(String(r.status));
-      const idx = hydrateIndex((await r.json()) as LookupIndexWire);
-      setIndex(idx);
-      setIndexState("idle");
-      return idx;
-    } catch {
-      setIndexState("failed");
-      return null;
-    }
-  }, [index]);
-
-  /* a result's SRO chunk */
-  const sroOf = useCallback((idx: LookupIndex, e: LookupEntry) => idx.sros[e[3]], []);
-  const loadChunk = useCallback(
-    (idx: LookupIndex, e: LookupEntry) => {
-      const s = sroOf(idx, e);
-      const url = lookupChunkPath(idx.cities[s.city].id, s.id);
-      if (chunks[url] !== undefined) return;
-      setChunks((m) => ({ ...m, [url]: "loading" }));
-      fetch(url)
-        .then((r) => (r.ok ? (r.json() as Promise<Chunk>) : Promise.reject(new Error(String(r.status)))))
-        .then((j) => setChunks((m) => ({ ...m, [url]: j })))
-        .catch(() => setChunks((m) => ({ ...m, [url]: "error" })));
-    },
-    [chunks, sroOf],
-  );
 
   /* deep links: ?id= opens a result, ?city= preselects the filter */
   useEffect(() => {
@@ -107,22 +58,9 @@ export function CircleRateLookup({ locale, whatsapp, bighaSqm, bighaLabel, hubs,
     const cityParam = q.get("city");
     if (cityParam) setCity(cityParam);
     const id = q.get("id");
-    if (!id) return;
-    void loadIndex().then((idx) => {
-      const e = idx?.entries.find((x) => x[0] === id);
-      if (idx && e) {
-        setSelected(e);
-        loadChunk(idx, e);
-      }
-    });
+    if (id) void openById(id).then((hit) => hit && setSelected(hit.e));
     // eslint-disable-next-line react-hooks/exhaustive-deps -- read once, on load
   }, []);
-
-  const hits: LookupHit[] = useMemo(
-    () => (index && query.trim().length >= 2 ? searchLookup(index, query, { city: city || undefined, sro: sro || undefined }) : []),
-    [index, query, city, sro],
-  );
-  useEffect(() => setActive(0), [query, city, sro]);
 
   const hrefFor = (idx: LookupIndex, e: LookupEntry) => {
     const s = idx.sros[e[3]];
@@ -137,7 +75,6 @@ export function CircleRateLookup({ locale, whatsapp, bighaSqm, bighaLabel, hubs,
       return;
     }
     setSelected(h.entry);
-    setOpen(false);
     setQuery(hi ? h.entry[1] : h.entry[2]);
     loadChunk(index, h.entry);
     const u = new URL(window.location.href);
@@ -145,34 +82,13 @@ export function CircleRateLookup({ locale, whatsapp, bighaSqm, bighaLabel, hubs,
     window.history.replaceState(null, "", u.toString());
   };
 
-  const onKey = (e: React.KeyboardEvent<HTMLInputElement>) => {
-    if (e.key === "ArrowDown") {
-      e.preventDefault();
-      setOpen(true);
-      setActive((a) => Math.min(a + 1, Math.max(hits.length - 1, 0)));
-    } else if (e.key === "ArrowUp") {
-      e.preventDefault();
-      setActive((a) => Math.max(a - 1, 0));
-    } else if (e.key === "Enter") {
-      if (open && hits[active]) {
-        e.preventDefault();
-        choose(hits[active]);
-      }
-    } else if (e.key === "Escape") {
-      setOpen(false);
-    }
-  };
-
   const sroOptions = index ? index.sros.map((s, i) => ({ s, i })).filter(({ s }) => !city || index.cities[s.city].id === city) : [];
-  const showList = open && query.trim().length >= 2 && index !== null;
 
   /* ---------------------------------------------------------------- result */
 
   const result = (() => {
     if (!selected || !index) return null;
-    const s = sroOf(index, selected);
-    const cityRec = index.cities[s.city];
-    const chunk = chunks[lookupChunkPath(cityRec.id, s.id)];
+    const chunk = chunkFor(index, selected);
     if (chunk === undefined || chunk === "loading") return <p className="mt-6 text-ink-soft">{c.resultLoading}</p>;
     if (chunk === "error") return <p className="mt-6 text-maroon">{c.loadFailed}</p>;
     return chunk.kind === "frontage" ? (
@@ -184,6 +100,7 @@ export function CircleRateLookup({ locale, whatsapp, bighaSqm, bighaLabel, hubs,
         index={index}
         chunk={chunk}
         pageHref={hrefFor(index, selected)}
+        yieldHref={`${yieldHref}?loc=${encodeURIComponent(selected[0])}`}
         whatsapp={whatsapp}
         bighaSqm={bighaSqm}
         bighaLabel={bighaLabel}
@@ -191,89 +108,33 @@ export function CircleRateLookup({ locale, whatsapp, bighaSqm, bighaLabel, hubs,
     );
   })();
 
-  const noMatch = index !== null && query.trim().length >= 2 && hits.length === 0 && !selected;
+  const noMatch =
+    index !== null && query.trim().length >= 2 && !selected && searchLookup(index, query, { city: city || undefined, sro: sro || undefined }).length === 0;
 
   return (
     <div data-component="CircleRateLookup" className="w-full">
       <div className="grid gap-4">
-        <div className="relative">
-          <label htmlFor={`${uid}-q`} className={label}>
-            {c.searchLabel}
-          </label>
-          <input
-            ref={inputRef}
-            id={`${uid}-q`}
-            type="search"
-            role="combobox"
-            aria-autocomplete="list"
-            aria-expanded={showList && hits.length > 0}
-            aria-controls={listId}
-            aria-activedescendant={showList && hits[active] ? `${uid}-opt-${active}` : undefined}
-            autoComplete="off"
-            spellCheck={false}
-            className={`${field} mt-1`}
-            placeholder={c.searchPlaceholder}
-            value={query}
-            onFocus={() => {
-              void loadIndex();
-              setOpen(true);
-            }}
-            onChange={(e) => {
-              setQuery(e.target.value);
-              setOpen(true);
-              if (selected) setSelected(null);
-            }}
-            onKeyDown={onKey}
-            onBlur={() => setTimeout(() => setOpen(false), 150)}
-          />
-          <p className="mt-1 text-xs text-muted">{indexState === "loading" ? c.loading : indexState === "failed" ? c.loadFailed : c.searchHint}</p>
-
-          {showList && hits.length > 0 && (
-            <ul
-              id={listId}
-              role="listbox"
-              aria-label={c.suggestionsLabel}
-              className="absolute left-0 right-0 z-20 mt-1 max-h-[26rem] overflow-y-auto rounded-xl border border-line bg-card shadow-lg"
-            >
-              {hits.map((h, i) => {
-                const s = index!.sros[h.type === "sro" ? h.sro : h.entry[3]];
-                const cityName = hi ? index!.cities[s.city].nameHi : index!.cities[s.city].name;
-                const sroName = hi ? s.nameHi : s.name;
-                return (
-                  <li
-                    key={h.type === "sro" ? `sro-${h.sro}` : h.entry[0]}
-                    id={`${uid}-opt-${i}`}
-                    role="option"
-                    aria-selected={i === active}
-                    className={`cursor-pointer px-4 py-2.5 ${i === active ? "bg-cream-deep" : ""}`}
-                    onMouseDown={(ev) => {
-                      ev.preventDefault();
-                      choose(h);
-                    }}
-                    onMouseEnter={() => setActive(i)}
-                  >
-                    {h.type === "sro" ? (
-                      <>
-                        <span className="font-semibold">{sroName}</span>
-                        <span className="block text-sm text-ink-soft">
-                          {c.sroSuggestion} · {cityName}
-                        </span>
-                      </>
-                    ) : (
-                      <>
-                        <span className="font-semibold">{hi ? h.entry[1] : h.entry[2]}</span>
-                        {h.entry[7] && <span className="ml-2 text-sm text-muted">{h.entry[7]}</span>}
-                        <span className="block text-sm text-ink-soft">
-                          {sroName} · {cityName}
-                        </span>
-                      </>
-                    )}
-                  </li>
-                );
-              })}
-            </ul>
-          )}
-        </div>
+        <PlaceCombobox
+          locale={locale}
+          index={index}
+          indexState={indexState}
+          onNeedIndex={() => void loadIndex()}
+          query={query}
+          onQuery={(q) => {
+            setQuery(q);
+            if (selected) setSelected(null);
+          }}
+          onPick={choose}
+          city={city}
+          sro={sro}
+          label={c.searchLabel}
+          placeholder={c.searchPlaceholder}
+          hint={c.searchHint}
+          loadingText={c.loading}
+          failedText={c.loadFailed}
+          sroSuggestionText={c.sroSuggestion}
+          listLabel={c.suggestionsLabel}
+        />
 
         <div className="grid gap-3 sm:grid-cols-2">
           <label className="block">
@@ -371,7 +232,21 @@ function CardHeader({ locale, entry, index, effectiveFrom, extra }: { locale: Lo
   );
 }
 
-function Actions({ locale, pageHref, calcHref, whatsapp, message }: { locale: Locale; pageHref: string; calcHref: string | null; whatsapp: string; message: string }) {
+function Actions({
+  locale,
+  pageHref,
+  calcHref,
+  yieldHref,
+  whatsapp,
+  message,
+}: {
+  locale: Locale;
+  pageHref: string;
+  calcHref: string | null;
+  yieldHref?: string;
+  whatsapp: string;
+  message: string;
+}) {
   const c = lc(locale);
   const [copied, setCopied] = useState(false);
   const share = async () => {
@@ -393,6 +268,11 @@ function Actions({ locale, pageHref, calcHref, whatsapp, message }: { locale: Lo
           {c.calculate}
         </a>
       )}
+      {yieldHref && (
+        <a href={yieldHref} className={`${btn} border border-line bg-card text-ink hover:bg-cream-deep`}>
+          {c.yieldLink}
+        </a>
+      )}
       <a href={pageHref} className={`${btn} border border-line bg-card text-ink hover:bg-cream-deep`}>
         {c.openPage}
       </a>
@@ -412,6 +292,7 @@ function RateCard({
   index,
   chunk,
   pageHref,
+  yieldHref,
   whatsapp,
   bighaSqm,
   bighaLabel,
@@ -421,6 +302,7 @@ function RateCard({
   index: LookupIndex;
   chunk: RatesChunk;
   pageHref: string;
+  yieldHref: string;
   whatsapp: string;
   bighaSqm: number;
   bighaLabel: string;
@@ -610,7 +492,7 @@ function RateCard({
         </section>
       )}
 
-      <Actions locale={locale} pageHref={pageHref} calcHref={`${pageHref}#calculator`} whatsapp={whatsapp} message={message} />
+      <Actions locale={locale} pageHref={pageHref} calcHref={`${pageHref}#calculator`} yieldHref={yieldHref} whatsapp={whatsapp} message={message} />
 
       <p className="mt-5 border-t border-line pt-3 text-xs text-muted">
         {fmt(c.finePrint, { sro: sroName, date: formatDate(chunk.effectiveFrom, locale) })}
