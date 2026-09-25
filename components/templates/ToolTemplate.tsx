@@ -3,11 +3,13 @@ import { Breadcrumb } from "@/components/Breadcrumb";
 import { FAQ } from "@/components/FAQ";
 import { LeadForm } from "@/components/LeadForm";
 import { Section } from "@/components/Section";
+import { CircleRateLookup } from "@/components/CircleRateLookup";
 import { KhasraFrontageCheck } from "@/components/KhasraFrontageCheck";
 import { StampDutyCalculator } from "@/components/StampDutyCalculator";
 import { toolCopy } from "@/lib/content";
 import { fc } from "@/lib/frontage-copy";
-import { getBroker } from "@/lib/data";
+import { getBroker, getCity } from "@/lib/data";
+import { getCitiesWithRateList, getUnits } from "@/lib/rates";
 import { localePath, ui, type Locale } from "@/lib/i18n";
 import { sameAlternate } from "@/lib/routes";
 import { frontageCheckData, isToolSlug, stampDutyCalculatorData } from "@/lib/tools";
@@ -29,6 +31,24 @@ export function ToolTemplate({ locale, slug }: { locale: Locale; slug: string })
     switch (slug) {
       case "stamp-duty-calculator":
         return <StampDutyCalculator locale={locale} data={stampDutyCalculatorData(locale)} whatsapp={broker.whatsapp} title={t.stampDuty} />;
+      case "circle-rate-lookup": {
+        // The bigha factor comes from data/units.json on the server: the client must not import
+        // lib/units, which reaches lib/rates and would bundle every rate list into this page.
+        const { bigha } = getUnits();
+        return (
+          <CircleRateLookup
+            locale={locale}
+            whatsapp={broker.whatsapp}
+            bighaSqm={bigha.sqm}
+            bighaLabel={locale === "hi" ? bigha.labelHi : bigha.label}
+            hubs={getCitiesWithRateList().map((id) => {
+              const c = getCity(id)!;
+              return { id, name: locale === "hi" ? c.nameHi : c.name, href: localePath(locale, `/${id}/circle-rates/`) };
+            })}
+            plotCheckHref={localePath(locale, "/tools/khasra-frontage-check/")}
+          />
+        );
+      }
       case "khasra-frontage-check":
         return <KhasraFrontageCheck locale={locale} data={frontageCheckData(locale)} whatsapp={broker.whatsapp} title={fc(locale).checkTitle} />;
     }

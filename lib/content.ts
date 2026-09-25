@@ -175,6 +175,8 @@ export type ToolCopy = {
   intro: string;
   /** 400–800 word explainer under the tool (spec Template 7) */
   explainer: string[];
+  /** meta description, where the intro is too long to be one (clamped to 140–155 characters) */
+  metaDescription?: string;
   faq: { q: string; a: string }[];
 };
 
@@ -182,7 +184,7 @@ export type ToolCopy = {
  * Tool page copy (spec Template 7), written per language. Keyed by tool slug; the slug list
  * that actually builds lives in lib/tools.ts.
  */
-export const toolCopy: Record<Locale, Record<"stamp-duty-calculator" | "khasra-frontage-check", ToolCopy>> = {
+export const toolCopy: Record<Locale, Record<"stamp-duty-calculator" | "khasra-frontage-check" | "circle-rate-lookup", ToolCopy>> = {
   en: {
     "stamp-duty-calculator": {
       title: "Stamp duty calculator for land in UP",
@@ -242,6 +244,43 @@ export const toolCopy: Record<Locale, Record<"stamp-duty-calculator" | "khasra-f
         {
           q: "Which villages does it cover?",
           a: "All 465 villages of the Sadar-4, Bakshi Ka Talab and Malihabad sub-registrar offices in Lucknow district, from the lists printed as part of the valuation list effective 1 August 2025.",
+        },
+      ],
+    },
+    "circle-rate-lookup": {
+      title: "Circle Rate Lookup – Ayodhya, Lucknow & Gorakhpur (2025)",
+      intro:
+        "A circle rate is the minimum value the Uttar Pradesh government sets for land in every village, mohalla and colony. The sub-registrar charges stamp duty on it, or on your agreed price if that is higher. Type a place name in Hindi or English to see its official rates from the IGRSUP valuation lists for Ayodhya, Lucknow and Gorakhpur: land by road width, commercial and agricultural, with the date each list took effect.",
+      metaDescription:
+        "Find the official circle rate for any village, mohalla or colony in Ayodhya, Lucknow or Gorakhpur. Search in Hindi or English. IGRSUP figures, dated.",
+      explainer: [
+        "Every district in Uttar Pradesh publishes a valuation list, the मूल्यांकन सूची, one for each sub-registrar office. It prices land village by village and mohalla by mohalla, and it is the floor the registry works from: stamp duty is charged on the list's value or on the price in the sale deed, whichever is higher. This lookup reads those lists as they are printed, for all three cities the site covers.",
+        "Search for a place the way you would write it. Hindi and English both work, and so do the spellings people actually use: Chinhat, chinhut and चिनहट all find the same place. Where one name appears under two sub-registrar offices, you get both, each labelled with its office and city, because the rates differ and the office decides which applies. The city and office filters narrow a long list when a name is common.",
+        "The result shows everything the list prints for that place. Non-agricultural land is priced by the width of the road the plot fronts, so there is one figure per road band, in the bands that city's list uses; each carries a per square foot figure underneath for comparison with asking prices. Commercial rates follow, then agricultural land in lakh rupees per hectare with the bigha figure under it. Gorakhpur prices farmland by both frontage and plot size, so it shows as a grid.",
+        "Some roads are listed by name. A plot on one of those stretches is valued at the stretch's rate, not the village's, and where the list names a stretch through the place you searched, it appears under Rates on main roads.",
+        "Every result names its sub-registrar office and the date that office's list took effect. The dates are not the same everywhere. Ayodhya's lists took effect on 7 June 2025 and Lucknow's on 1 August 2025. Gorakhpur has had no new list since 2016: the Collector's order of 4 August 2020 keeps the old one in force, and only the valuation rules changed in 2025. Three Lucknow offices, Sadar-4, Bakshi Ka Talab and Malihabad, are not on the site yet; their villages show as awaited, with a link to check whether a plot fronts a road.",
+        "Use the figure as a floor and a starting point. The calculator on each place's page turns it into stamp duty and registration fees for a plot size, and applies the list's own adjustments for road width, plot size and frontage. The sub-registrar's valuation is final, so confirm the figure at the office before you pay.",
+      ],
+      faq: [
+        {
+          q: "What is a circle rate?",
+          a: "The minimum value the state sets for land in each village or mohalla, published in the district's valuation list. Stamp duty is charged on it, or on the sale price if that is higher.",
+        },
+        {
+          q: "How often does the circle rate change?",
+          a: "When the district publishes a new list, usually once a year per district, though not always: Gorakhpur's 2016 list is still in force. Each result shows the date its list took effect.",
+        },
+        {
+          q: "Why is the circle rate different from the market price?",
+          a: "The circle rate is a government floor, set for a whole village at once. The market price is what a buyer and seller agree for one plot, and in a growing area it is often well above the floor.",
+        },
+        {
+          q: "Why are there several rates for one village?",
+          a: "Land is priced by the width of the road the plot fronts, so each village has a rate per road band, plus separate commercial and agricultural rates. Pick the band your plot's road falls in.",
+        },
+        {
+          q: "What if my village is not listed?",
+          a: "It may be spelled differently in the list, or fall under another sub-registrar office. Try another spelling or clear the filters. If it still does not appear, WhatsApp us the name and khasra number.",
         },
       ],
     },
@@ -305,6 +344,43 @@ export const toolCopy: Record<Locale, Record<"stamp-duty-calculator" | "khasra-f
         {
           q: "इसमें कौन से गाँव हैं?",
           a: "लखनऊ ज़िले के सदर-4, बख्शी का तालाब और मलिहाबाद उप निबंधक कार्यालयों के सभी 465 गाँव, 01.08.2025 से लागू मूल्यांकन सूची के भाग के रूप में छपी सूचियों से।",
+        },
+      ],
+    },
+    "circle-rate-lookup": {
+      title: "सर्किल रेट खोजें – अयोध्या, लखनऊ और गोरखपुर",
+      intro:
+        "सर्किल रेट वह न्यूनतम मूल्य है जो उत्तर प्रदेश सरकार हर गाँव, मोहल्ले और कॉलोनी की ज़मीन के लिए तय करती है। उप निबंधक इसी पर स्टाम्प ड्यूटी लेते हैं, या आपके तय दाम पर, अगर वह ज़्यादा हो। हिंदी या अंग्रेज़ी में जगह का नाम लिखें और अयोध्या, लखनऊ और गोरखपुर की आईजीआरएसयूपी मूल्यांकन सूचियों से उसकी सरकारी दरें देखें: सड़क की चौड़ाई के हिसाब से ज़मीन, व्यावसायिक और कृषि दरें, हर सूची की लागू तारीख़ के साथ।",
+      metaDescription:
+        "अयोध्या, लखनऊ या गोरखपुर के किसी भी गाँव, मोहल्ले या कॉलोनी का सरकारी सर्किल रेट खोजें। हिंदी या अंग्रेज़ी में नाम लिखें। आईजीआरएसयूपी की दरें, तारीख़ के साथ।",
+      explainer: [
+        "उत्तर प्रदेश का हर ज़िला मूल्यांकन सूची छापता है, हर उप निबंधक कार्यालय की अलग। यह गाँव-दर-गाँव और मोहल्ला-दर-मोहल्ला ज़मीन की दर तय करती है, और रजिस्ट्री इसी से शुरू होती है: स्टाम्प ड्यूटी सूची के मूल्य या बैनामे में लिखे दाम में से जो ज़्यादा हो, उस पर लगती है। यह खोज उन्हीं सूचियों को वैसे ही पढ़ती है जैसी वे छपी हैं, साइट के तीनों शहरों के लिए।",
+        "जगह का नाम वैसे ही लिखें जैसे आप लिखते हैं। हिंदी और अंग्रेज़ी दोनों चलते हैं, और लोग जो वर्तनी सच में लिखते हैं वह भी: चिनहट, Chinhat और chinhut तीनों एक ही जगह पर पहुँचते हैं। अगर एक नाम दो उप निबंधक कार्यालयों में है, तो दोनों दिखेंगे, अपने कार्यालय और शहर के साथ, क्योंकि दरें अलग हैं और कौन सी लगेगी यह कार्यालय तय करता है। शहर और कार्यालय के फ़िल्टर लंबी सूची को छोटा करते हैं।",
+        "नतीजे में सूची उस जगह के लिए जो कुछ छापती है वह सब है। अकृषिक ज़मीन की दर प्लॉट के सामने की सड़क की चौड़ाई से तय होती है, इसलिए हर सड़क-श्रेणी की एक दर है, उसी शहर की सूची की श्रेणियों में; हर दर के नीचे प्रति वर्ग फ़ुट का आँकड़ा है ताकि माँगे जा रहे दाम से तुलना हो सके। फिर व्यावसायिक दरें, और फिर कृषि भूमि लाख रुपये प्रति हेक्टेयर में, नीचे बीघा के हिसाब से। गोरखपुर कृषि भूमि को फ्रंटेज और प्लॉट के आकार दोनों से आँकता है, इसलिए वहाँ एक तालिका दिखती है।",
+        "कुछ सड़कें नाम से दर्ज हैं। ऐसी सड़क पर पड़ने वाले प्लॉट पर गाँव की नहीं, सड़क खंड की दर लगती है, और जहाँ सूची आपकी खोजी जगह से गुज़रने वाला कोई खंड बताती है, वह मुख्य सड़कों पर दरें में दिखता है।",
+        "हर नतीजा अपना उप निबंधक कार्यालय और उस कार्यालय की सूची की लागू तारीख़ बताता है। तारीख़ें हर जगह एक नहीं हैं। अयोध्या की सूचियाँ 07-06-2025 से और लखनऊ की 01-08-2025 से लागू हैं। गोरखपुर में 2016 के बाद कोई नई सूची नहीं आई: कलेक्टर का 04-08-2020 का आदेश पुरानी सूची को लागू रखता है, और 2025 में केवल मूल्यांकन के नियम बदले। लखनऊ के तीन कार्यालय, सदर-4, बख्शी का तालाब और मलिहाबाद, अभी साइट पर नहीं हैं; उनके गाँव प्रतीक्षा में दिखते हैं, साथ में यह जाँचने का लिंक कि गाटा सड़क से लगा है या नहीं।",
+        "इस आँकड़े को न्यूनतम सीमा और शुरुआत मानें। हर जगह के पेज पर कैलकुलेटर इसे प्लॉट के आकार के हिसाब से स्टाम्प ड्यूटी और रजिस्ट्री शुल्क में बदलता है, और सूची के अपने समायोजन लगाता है। उप निबंधक का मूल्यांकन ही अंतिम है, इसलिए भुगतान से पहले कार्यालय में आँकड़े की पुष्टि करें।",
+      ],
+      faq: [
+        {
+          q: "सर्किल रेट क्या है?",
+          a: "हर गाँव या मोहल्ले की ज़मीन का वह न्यूनतम मूल्य जो सरकार ज़िले की मूल्यांकन सूची में तय करती है। स्टाम्प ड्यूटी इसी पर लगती है, या बिक्री के दाम पर, अगर वह ज़्यादा हो।",
+        },
+        {
+          q: "सर्किल रेट कितनी बार बदलता है?",
+          a: "जब ज़िला नई सूची छापता है, आम तौर पर साल में एक बार, पर हमेशा नहीं: गोरखपुर की 2016 की सूची अब भी लागू है। हर नतीजा अपनी सूची की लागू तारीख़ दिखाता है।",
+        },
+        {
+          q: "सर्किल रेट बाज़ार दाम से अलग क्यों है?",
+          a: "सर्किल रेट सरकार की न्यूनतम सीमा है, पूरे गाँव के लिए एक साथ तय। बाज़ार दाम वह है जो ख़रीदार और बेचने वाला एक प्लॉट के लिए तय करते हैं, और बढ़ते इलाक़े में वह अक्सर इस सीमा से काफ़ी ऊपर होता है।",
+        },
+        {
+          q: "एक गाँव की कई दरें क्यों हैं?",
+          a: "ज़मीन की दर प्लॉट के सामने की सड़क की चौड़ाई से तय होती है, इसलिए हर गाँव में हर सड़क-श्रेणी की एक दर है, और व्यावसायिक व कृषि दरें अलग। अपने प्लॉट की सड़क जिस श्रेणी में आती है, वह चुनें।",
+        },
+        {
+          q: "अगर मेरा गाँव सूची में नहीं है तो?",
+          a: "हो सकता है सूची में उसकी वर्तनी अलग हो, या वह किसी दूसरे उप निबंधक कार्यालय में हो। दूसरी वर्तनी आज़माएँ या फ़िल्टर हटाएँ। फिर भी न मिले तो नाम और खसरा नंबर हमें व्हाट्सऐप करें।",
         },
       ],
     },
