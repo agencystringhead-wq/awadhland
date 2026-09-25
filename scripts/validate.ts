@@ -279,6 +279,21 @@ async function main() {
     }
   }
 
+  /* 3d. The land safety checklist PDFs: present, and generated from the lists as they are now. */
+  {
+    const { CHECKLIST_PDFS, CHECKLIST_PDF_LOCK, checklistContentHash } = await import("../lib/checklist");
+    for (const [locale, pdf] of Object.entries(CHECKLIST_PDFS)) {
+      if (!fs.existsSync(path.join(root, pdf.file))) errors.push(`${pdf.file}: missing; run npm run checklist:pdf`);
+      if (!fs.existsSync(path.join(root, "public", pdf.preview.src))) errors.push(`public${pdf.preview.src}: missing (${locale} preview); run npm run checklist:pdf`);
+    }
+    const lockFile = path.join(root, CHECKLIST_PDF_LOCK);
+    const lock = fs.existsSync(lockFile) ? (JSON.parse(fs.readFileSync(lockFile, "utf8")) as { contentHash?: string }) : null;
+    if (!lock) errors.push(`${CHECKLIST_PDF_LOCK}: missing; run npm run checklist:pdf`);
+    else if (lock.contentHash !== checklistContentHash()) {
+      errors.push(`lib/checklist.ts changed since the checklist PDFs were generated; run npm run checklist:pdf and commit the PDFs`);
+    } else console.log("ok   checklist PDFs match lib/checklist.ts");
+  }
+
   /* 4. Guides: frontmatter, references into /data, and MDX bodies. */
   const en = readGuides("en", root);
   const hi = readGuides("hi", root);
