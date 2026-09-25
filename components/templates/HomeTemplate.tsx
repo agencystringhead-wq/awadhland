@@ -13,7 +13,7 @@ import { getBroker, getBuildableLocalities, getCircleRateSchedules, getCities, g
 import { getGuides } from "@/lib/guides";
 import { formatDate, formatNumber, localePath, ui, type Locale } from "@/lib/i18n";
 import { brokerIsRegistered, withoutUnbackedReraClaim } from "@/lib/guards";
-import { isToolSlug } from "@/lib/tools";
+import { toolCardPath } from "@/lib/tools";
 import { sameAlternate } from "@/lib/routes";
 import { PageShell } from "./PageShell";
 
@@ -42,8 +42,11 @@ export function HomeTemplate({ locale }: { locale: Locale }) {
   // Link it only where it exists in this locale; elsewhere the card still states the situation.
   const guideSlugs = new Set(guides.map((g) => g.frontmatter.slug));
   const guideHref = (slug: string) => (guideSlugs.has(slug) ? localePath(locale, `/guides/${slug}/`) : null);
-  // The spec lists four tools; only the built ones are linked (lib/tools.ts TOOL_SLUGS).
-  const builtTool = (slug: string) => isToolSlug(slug);
+  // The spec lists four tools; only the built ones are linked (lib/tools.ts toolCardPath).
+  const toolHref = (slug: string) => {
+    const path = toolCardPath(slug);
+    return path ? localePath(locale, path) : null;
+  };
   const vars = { years: broker.yearsActive, phone: formatPhone(broker.phone) };
 
   /* C2. By the numbers: computed from /data on every build, never fetched. */
@@ -136,8 +139,8 @@ export function HomeTemplate({ locale }: { locale: Locale }) {
                 </svg>
               </span>
               <h3>
-                {builtTool(tool.slug) ? (
-                  <a href={localePath(locale, `/tools/${tool.slug}/`)} className="text-ink no-underline hover:text-accent-deep">
+                {toolHref(tool.slug) ? (
+                  <a href={toolHref(tool.slug)!} className="text-ink no-underline hover:text-accent-deep">
                     {tool.title}
                   </a>
                 ) : (
@@ -145,8 +148,8 @@ export function HomeTemplate({ locale }: { locale: Locale }) {
                 )}
               </h3>
               <p className="mt-2 text-[14.5px] leading-[1.5] text-ink-soft">{tool.body}</p>
-              {builtTool(tool.slug) ? (
-                <a href={localePath(locale, `/tools/${tool.slug}/`)} className={arrow}>
+              {toolHref(tool.slug) ? (
+                <a href={toolHref(tool.slug)!} className={arrow}>
                   {story.tools.tryIt}
                 </a>
               ) : (

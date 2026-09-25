@@ -15,6 +15,7 @@
  * share link.
  */
 import { useEffect, useState } from "react";
+import { BeforeYouBuyCard } from "@/components/BeforeYouBuyCard";
 import { PlaceCombobox, useLookupData } from "@/components/PlaceSearch";
 import { whatsappHref } from "@/components/WhatsAppButton";
 import { formatDate, formatNumber, localePath, type Locale } from "@/lib/i18n";
@@ -493,6 +494,7 @@ function RateCard({
       )}
 
       <Actions locale={locale} pageHref={pageHref} calcHref={`${pageHref}#calculator`} yieldHref={yieldHref} whatsapp={whatsapp} message={message} />
+      <BeforeYouBuyCard locale={locale} className="mt-4" />
 
       <p className="mt-5 border-t border-line pt-3 text-xs text-muted">
         {fmt(c.finePrint, { sro: sroName, date: formatDate(chunk.effectiveFrom, locale) })}

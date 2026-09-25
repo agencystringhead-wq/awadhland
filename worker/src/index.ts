@@ -29,7 +29,7 @@ export interface Env {
 
 const MAX_BODY = 8 * 1024;
 const LEAD_FIELDS = ["name", "phone", "email", "city", "purpose", "budget", "location", "message", "locality", "context", "page", "locale"] as const;
-const EVENTS = new Set(["lead_submit", "lead_fail", "whatsapp_click", "call_click", "digest_subscribe"]);
+const EVENTS = new Set(["lead_submit", "lead_fail", "whatsapp_click", "call_click", "digest_subscribe", "checklist_download"]);
 
 const json = (body: unknown, status = 200, headers: Record<string, string> = {}) =>
   new Response(JSON.stringify(body), { status, headers: { "content-type": "application/json; charset=utf-8", ...headers } });

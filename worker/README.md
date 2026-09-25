@@ -8,7 +8,7 @@ The site is a static export; this Worker is the only server-side piece. It takes
 | --- | --- | --- |
 | `POST /lead` | `{ name, phone, email?, city, purpose, budget?, location?, message?, locality?, context?, page, locale, website: "" }` | Validates (honeypot `website` must be empty, phone 10–15 digits, city required), creates a submission on the lead form, records `lead_submit` or `lead_fail` |
 | `POST /subscribe` | `{ email, page, locale, website: "" }` | Creates a submission on the digest form, records `digest_subscribe` |
-| `POST /event` | `{ event, path, locale, meta? }` | Writes one data point to Analytics Engine. Events: `lead_submit`, `lead_fail`, `whatsapp_click`, `call_click`, `digest_subscribe` |
+| `POST /event` | `{ event, path, locale, meta? }` | Writes one data point to Analytics Engine. Events: `lead_submit`, `lead_fail`, `whatsapp_click`, `call_click`, `digest_subscribe`, `checklist_download` |
 
 All routes require an `Origin` in `ALLOWED_ORIGINS`; anything else is 403. Bodies over 8 KB are rejected.
 

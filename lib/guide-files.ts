@@ -61,7 +61,17 @@ export function readGuides(locale: Locale, root = process.cwd()): { guides: Guid
  * Components a guide body may use (spec Template 6, section 3). The map in components/mdx
  * must cover exactly these names; validate.ts rejects any other capitalised tag.
  */
-export const GUIDE_COMPONENT_NAMES = ["CircleRate", "Distance", "ProjectCard", "Callout", "Checklist"] as const;
+export const GUIDE_COMPONENT_NAMES = [
+  "CircleRate",
+  "Distance",
+  "ProjectCard",
+  "Callout",
+  "Checklist",
+  // The land safety checklist page: its checks, its ItemList schema and the PDF download.
+  "SafetyChecklist",
+  "ChecklistSchema",
+  "ChecklistDownload",
+] as const;
 export type GuideComponentName = (typeof GUIDE_COMPONENT_NAMES)[number];
 
 /** Inserted by the renderer after the second H2 section (spec Template 6, section 4). Not for authors. */
@@ -208,6 +218,9 @@ export function checkGuideReferences(byLocale: Record<Locale, Guide[]>, refs: Gu
             errors.push(
               `${file}: <Distance to="${attrs.to}">: not an anchor of ${l.cityId} (${[...(refs.anchorsByCity.get(l.cityId) ?? [])].join(", ")})`,
             );
+        }
+        if (name === "SafetyChecklist" && !attrs.part && !/^[1-5]$/.test(attrs.stage ?? "")) {
+          errors.push(`${file}: <SafetyChecklist> needs stage={1..5} or part="redFlags" | "documents"`);
         }
         if (name === "ProjectCard") {
           if (!attrs.id) errors.push(`${file}: <ProjectCard> needs id="<project id>"`);

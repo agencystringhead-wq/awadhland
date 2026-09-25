@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
 import { Breadcrumb } from "@/components/Breadcrumb";
+import { BeforeYouBuyCard } from "@/components/BeforeYouBuyCard";
 import { BrokerNote } from "@/components/BrokerNote";
 import { FAQ } from "@/components/FAQ";
 import { JsonLd } from "@/components/JsonLd";
@@ -288,6 +289,11 @@ export function LocalityTemplate({ locale, cityId, localityId }: { locale: Local
           </ul>
         </Section>
       )}
+
+      {/* 8b. Before you buy: the 30-point land safety checklist */}
+      <Section>
+        <BeforeYouBuyCard locale={locale} className="max-w-2xl" />
+      </Section>
 
       {/* 9. Broker note */}
       {brokerNote && l.brokerNoteDate && (

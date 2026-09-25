@@ -1,4 +1,5 @@
 import { notFound } from "next/navigation";
+import { BeforeYouBuyCard } from "@/components/BeforeYouBuyCard";
 import { Breadcrumb } from "@/components/Breadcrumb";
 import { BrokerNote } from "@/components/BrokerNote";
 import { FAQ } from "@/components/FAQ";
@@ -536,6 +537,10 @@ export function RateVillageTemplate({
           </p>
         )}
         <SourceStamp locale={locale} sources={schedule.sources} updatedAt={schedule.updatedAt} effectiveFrom={effectiveFrom} />
+      </Section>
+
+      <Section>
+        <BeforeYouBuyCard locale={locale} className="max-w-2xl" />
       </Section>
 
       <Section id="enquiry" tone="sand">
