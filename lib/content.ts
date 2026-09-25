@@ -184,7 +184,7 @@ export type ToolCopy = {
  * Tool page copy (spec Template 7), written per language. Keyed by tool slug; the slug list
  * that actually builds lives in lib/tools.ts.
  */
-export const toolCopy: Record<Locale, Record<"stamp-duty-calculator" | "khasra-frontage-check" | "circle-rate-lookup", ToolCopy>> = {
+export const toolCopy: Record<Locale, Record<"stamp-duty-calculator" | "khasra-frontage-check" | "circle-rate-lookup" | "plot-yield-calculator", ToolCopy>> = {
   en: {
     "stamp-duty-calculator": {
       title: "Stamp duty calculator for land in UP",
@@ -281,6 +281,42 @@ export const toolCopy: Record<Locale, Record<"stamp-duty-calculator" | "khasra-f
         {
           q: "What if my village is not listed?",
           a: "It may be spelled differently in the list, or fall under another sub-registrar office. Try another spelling or clear the filters. If it still does not appear, WhatsApp us the name and khasra number.",
+        },
+      ],
+    },
+    "plot-yield-calculator": {
+      title: "Plot Yield & Land ROI Calculator – Ayodhya, Lucknow, Gorakhpur",
+      intro:
+        "Work out what a plot could return before you buy it. Enter the price, size and how long you plan to hold, pick the locality to bring in its official circle rate, and choose your own yearly growth rate. The calculator adds stamp duty, registration and costs, then shows your total cost in, value at exit, net profit, CAGR and IRR, a year-by-year table, and how the same money would have done in a fixed deposit.",
+      metaDescription:
+        "Plot ROI calculator for Ayodhya, Lucknow and Gorakhpur: stamp duty on the circle rate, holding costs, lease income, CAGR, IRR and an FD comparison.",
+      explainer: [
+        "Land does not pay a return the way a deposit does. Most of what a plot earns arrives in one go, when you sell, and much of what it costs is paid on the first day: the price, then stamp duty and registration at the sub-registrar's office, then the broker and the lawyer. This calculator puts those on one timeline so the result can be read as a yearly rate and set beside a fixed deposit.",
+        "Stamp duty is where most first estimates go wrong. The registry charges duty and registration on the higher of the price in the deed and the circle value, the plot's area multiplied by the government's circle rate for its road band. If you pick a locality, the calculator fetches that rate from the published valuation list, applies the list's own rules for road width and plot size, and uses the circle value whenever it is above your price. A note says so, because in that case the duty is on a figure you did not agree.",
+        "Everything about the future is your assumption, and the calculator treats it that way. The yearly appreciation you choose drives the value at exit; the three quick buttons are round numbers to start from, not a forecast. Farming lease or rent can be added as yearly income with its own growth, and the costs of holding a plot, a boundary wall, a guard, property tax, as a yearly outgoing. At the end, selling costs come off the sale value.",
+        "Two rates come out. CAGR is the steady yearly growth that turns your total cost into everything you got back. IRR does the same over the actual timing of each year's cash, so income received early counts for more than the same amount at the end. With no income they are the same number. The fixed deposit line compounds the same total cost at the rate you set, for the same years, which is the honest comparison for money you could have left in a bank.",
+        "The figures are before tax. Capital gains, and the tax treatment of farm and rental income, depend on where the land is and how long you hold it, so treat the result as an illustration of your own assumptions, not advice, and take the numbers that matter to a chartered accountant. Land prices can also fall; try a low growth rate as well as a high one before deciding.",
+      ],
+      faq: [
+        {
+          q: "How is the return on land calculated here?",
+          a: "Your total cost in is the price plus stamp duty, registration and broker and legal costs. The exit value is the price grown at your yearly rate, less selling costs. Net profit is everything you get back, including any income less holding costs, minus the total cost in.",
+        },
+        {
+          q: "Why is stamp duty charged on the circle rate and not my price?",
+          a: "UP charges stamp duty and registration on the higher of the deed price and the circle value. If you pay less than the circle value, the duty is still on the circle value, and the calculator shows that as a note.",
+        },
+        {
+          q: "What is the difference between IRR and CAGR?",
+          a: "CAGR is the steady yearly growth from your total cost to your total return. IRR also accounts for when each rupee arrives, so yearly income counts for more than the same money at the sale. With no income in between, the two are the same.",
+        },
+        {
+          q: "Is income from leasing farmland taxable?",
+          a: "Income from agriculture on agricultural land is generally treated differently from rent, and rent from a plot is generally taxable. The details depend on the land and the arrangement, so check with a chartered accountant.",
+        },
+        {
+          q: "How long should I hold land?",
+          a: "Long enough for the growth to outrun the day-one costs: stamp duty, registration and broker fees are paid up front, so a short hold needs strong growth just to break even. Try the holding period slider to see where your plot starts to beat the FD.",
         },
       ],
     },
@@ -381,6 +417,42 @@ export const toolCopy: Record<Locale, Record<"stamp-duty-calculator" | "khasra-f
         {
           q: "अगर मेरा गाँव सूची में नहीं है तो?",
           a: "हो सकता है सूची में उसकी वर्तनी अलग हो, या वह किसी दूसरे उप निबंधक कार्यालय में हो। दूसरी वर्तनी आज़माएँ या फ़िल्टर हटाएँ। फिर भी न मिले तो नाम और खसरा नंबर हमें व्हाट्सऐप करें।",
+        },
+      ],
+    },
+    "plot-yield-calculator": {
+      title: "प्लॉट रिटर्न और ज़मीन ROI कैलकुलेटर – अयोध्या, लखनऊ, गोरखपुर",
+      intro:
+        "ख़रीदने से पहले देखें कि प्लॉट कितना लौटा सकता है। दाम, आकार और कितने साल रखेंगे लिखें, इलाक़ा चुनें ताकि उसका सरकारी सर्किल रेट जुड़ जाए, और सालाना बढ़त का अपना अनुमान चुनें। कैलकुलेटर स्टाम्प ड्यूटी, रजिस्ट्री और बाक़ी ख़र्च जोड़कर कुल लागत, बेचते समय मूल्य, शुद्ध मुनाफ़ा, सीएजीआर और आईआरआर दिखाता है, साथ में साल-दर-साल तालिका और यह भी कि यही पैसा एफ़डी में कितना बनता।",
+      metaDescription:
+        "अयोध्या, लखनऊ और गोरखपुर के लिए प्लॉट रिटर्न कैलकुलेटर: सर्किल रेट पर स्टाम्प ड्यूटी, रखरखाव ख़र्च, पट्टे की आमदनी, सीएजीआर, आईआरआर और एफ़डी से तुलना।",
+      explainer: [
+        "ज़मीन डिपॉज़िट की तरह रिटर्न नहीं देती। प्लॉट की ज़्यादातर कमाई एक साथ आती है, बेचते समय, और ज़्यादातर ख़र्च पहले दिन होता है: दाम, फिर उप निबंधक कार्यालय में स्टाम्प ड्यूटी और रजिस्ट्री, फिर ब्रोकर और वकील। यह कैलकुलेटर इन सबको एक समय-रेखा पर रखता है ताकि नतीजा सालाना दर में पढ़ा जा सके और एफ़डी के साथ रखा जा सके।",
+        "पहले अनुमान में सबसे ज़्यादा ग़लती स्टाम्प ड्यूटी में होती है। रजिस्ट्री बैनामे के दाम और सर्किल मूल्य में से जो ज़्यादा हो उस पर ड्यूटी और रजिस्ट्री शुल्क लेती है; सर्किल मूल्य यानी प्लॉट का क्षेत्रफल गुणा उसकी सड़क-श्रेणी का सरकारी सर्किल रेट। इलाक़ा चुनें तो कैलकुलेटर प्रकाशित मूल्यांकन सूची से वह दर लाता है, सड़क की चौड़ाई और प्लॉट के आकार के सूची के नियम लगाता है, और जब सर्किल मूल्य आपके दाम से ऊपर हो तो वही लेता है। तब एक नोट दिखता है, क्योंकि ड्यूटी ऐसी रक़म पर लग रही है जो आपने तय नहीं की।",
+        "भविष्य के बारे में सब कुछ आपका अनुमान है, और कैलकुलेटर उसे ऐसे ही लेता है। आप जो सालाना बढ़त चुनते हैं उसी से बेचते समय का मूल्य बनता है; तीन तुरंत वाले बटन शुरुआत के गोल आँकड़े हैं, भविष्यवाणी नहीं। खेती का पट्टा या किराया सालाना आमदनी के रूप में उसकी अपनी बढ़त के साथ जोड़ा जा सकता है, और प्लॉट रखने के ख़र्च, बाउंड्री, चौकीदार, संपत्ति कर, सालाना ख़र्च के रूप में। अंत में बिक्री के मूल्य से बेचने का ख़र्च घटता है।",
+        "दो दरें निकलती हैं। सीएजीआर वह स्थिर सालाना बढ़त है जो आपकी कुल लागत को आपको मिली कुल रक़म में बदलती है। आईआरआर यही काम हर साल के नक़द के असली समय के साथ करता है, इसलिए जल्दी मिली आमदनी अंत में मिली उतनी ही रक़म से ज़्यादा गिनी जाती है। आमदनी न हो तो दोनों एक ही होती हैं। एफ़डी वाली पंक्ति वही कुल लागत आपकी चुनी दर पर उतने ही साल जोड़ती है, जो बैंक में रखे जा सकने वाले पैसे की ईमानदार तुलना है।",
+        "ये आँकड़े टैक्स से पहले के हैं। कैपिटल गेन और खेती या किराये की आमदनी पर टैक्स ज़मीन की जगह और कितने समय रखी गई इस पर निर्भर है, इसलिए नतीजे को अपने अनुमानों का उदाहरण मानें, सलाह नहीं, और ज़रूरी आँकड़े चार्टर्ड अकाउंटेंट को दिखाएँ। ज़मीन के दाम गिर भी सकते हैं; फ़ैसले से पहले ऊँची के साथ कम बढ़त भी आज़माएँ।",
+      ],
+      faq: [
+        {
+          q: "यहाँ ज़मीन का रिटर्न कैसे निकाला जाता है?",
+          a: "कुल लागत में दाम, स्टाम्प ड्यूटी, रजिस्ट्री और ब्रोकर व वकील का ख़र्च आता है। बेचते समय का मूल्य आपकी सालाना दर से बढ़ा दाम है, बिक्री का ख़र्च घटाकर। शुद्ध मुनाफ़ा वह सब है जो वापस मिला, आमदनी में से रखरखाव घटाकर, माइनस कुल लागत।",
+        },
+        {
+          q: "स्टाम्प ड्यूटी मेरे दाम पर नहीं, सर्किल रेट पर क्यों लगती है?",
+          a: "यूपी में स्टाम्प ड्यूटी और रजिस्ट्री शुल्क बैनामे के दाम और सर्किल मूल्य में से जो ज़्यादा हो उस पर लगता है। आप सर्किल मूल्य से कम दें तो भी ड्यूटी सर्किल मूल्य पर लगती है, और कैलकुलेटर इसे नोट में दिखाता है।",
+        },
+        {
+          q: "आईआरआर और सीएजीआर में क्या फ़र्क़ है?",
+          a: "सीएजीआर आपकी कुल लागत से कुल वापसी तक की स्थिर सालाना बढ़त है। आईआरआर यह भी देखता है कि हर रुपया कब आया, इसलिए सालाना आमदनी बिक्री के समय मिली उतनी ही रक़म से ज़्यादा गिनी जाती है। बीच में आमदनी न हो तो दोनों बराबर होते हैं।",
+        },
+        {
+          q: "क्या खेती की ज़मीन के पट्टे की आमदनी पर टैक्स लगता है?",
+          a: "कृषि भूमि पर खेती की आमदनी को आम तौर पर किराये से अलग तरह से देखा जाता है, और प्लॉट का किराया आम तौर पर टैक्स के दायरे में आता है। ब्योरा ज़मीन और व्यवस्था पर निर्भर है, इसलिए चार्टर्ड अकाउंटेंट से पूछें।",
+        },
+        {
+          q: "ज़मीन कितने समय रखनी चाहिए?",
+          a: "इतना कि बढ़त पहले दिन के ख़र्च से आगे निकल जाए: स्टाम्प ड्यूटी, रजिस्ट्री और ब्रोकर की फ़ीस शुरू में जाती है, इसलिए कम समय में बराबरी के लिए भी तेज़ बढ़त चाहिए। साल वाला स्लाइडर खिसकाकर देखें कि आपका प्लॉट एफ़डी से कब आगे निकलता है।",
         },
       ],
     },

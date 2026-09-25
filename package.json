@@ -30,7 +30,8 @@
     "frontage:import": "tsx scripts/import-khasra-frontage.ts",
     "frontage:chunks": "tsx scripts/build-frontage-chunks.ts",
     "rates:import-gorakhpur": "tsx scripts/import-gorakhpur-rates.ts",
-    "lookup:index": "tsx scripts/build-lookup-index.ts"
+    "lookup:index": "tsx scripts/build-lookup-index.ts",
+    "test": "tsx --test lib/yield.test.ts"
   },
   "dependencies": {
     "@fontsource-variable/fraunces": "^5.3.0",

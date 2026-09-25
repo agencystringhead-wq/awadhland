@@ -36,6 +36,7 @@ export function Footer({ locale, cities, localities, broker }: FooterProps) {
     { label: t.guides, href: `${localePath(locale, "/")}#guides` },
     { label: t.tools, href: `${localePath(locale, "/")}#tools` },
     { label: t.circleRateLookup, sitePath: "/tools/circle-rate-lookup/" },
+    { label: t.plotYieldCalculator, sitePath: "/tools/plot-yield-calculator/" },
     { label: t.updates, sitePath: "/updates/" },
     { label: t.about, sitePath: "/about/" },
     { label: t.methodology, sitePath: "/methodology/" },

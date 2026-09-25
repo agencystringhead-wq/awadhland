@@ -9,7 +9,7 @@ import { frontageChunkPath, getFrontageCities, getFrontageOnlySros, getFrontageV
 import { getTehsil } from "./rates";
 import type { StampDutyRule } from "./schemas";
 
-export const TOOL_SLUGS = ["stamp-duty-calculator", "khasra-frontage-check", "circle-rate-lookup"] as const;
+export const TOOL_SLUGS = ["stamp-duty-calculator", "khasra-frontage-check", "circle-rate-lookup", "plot-yield-calculator"] as const;
 export type ToolSlug = (typeof TOOL_SLUGS)[number];
 
 export const isToolSlug = (s: string): s is ToolSlug => (TOOL_SLUGS as readonly string[]).includes(s);

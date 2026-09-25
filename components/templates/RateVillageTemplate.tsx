@@ -467,7 +467,12 @@ export function RateVillageTemplate({
       ) : null}
 
       {/* calculator prefilled with this row */}
-      <Section id="calculator" title={c.calculatorTitle} tone="sand">
+      <Section
+        id="calculator"
+        title={c.calculatorTitle}
+        tone="sand"
+        aside={<a href={`${localePath(locale, "/tools/plot-yield-calculator/")}?loc=${encodeURIComponent(row.id)}`}>{t.whatCouldThisEarn} →</a>}
+      >
         <RateCalculator
           locale={locale}
           row={row}
