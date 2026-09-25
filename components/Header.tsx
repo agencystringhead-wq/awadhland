@@ -81,7 +81,7 @@ export function Header({ locale, alternate, nav, active, broker, pageLabel }: He
     <header data-component="Header" className="contents">
       {/* Tier 2: brand bar */}
       <div className="bar-brand">
-        <div className="container-site flex items-center justify-between gap-4 py-3.5">
+        <div className="container-site flex items-center justify-between gap-4 py-3.5 max-[399px]:gap-2">
           <span className="hidden lg:inline-flex">
             <Logo locale={locale} size="lg" />
           </span>
@@ -107,12 +107,13 @@ export function Header({ locale, alternate, nav, active, broker, pageLabel }: He
             </a>
           </div>
 
-          {/* Mobile cluster: phone icon, WhatsApp, menu */}
-          <div className="flex items-center gap-1.5 lg:hidden">
+          {/* Mobile cluster: phone icon, WhatsApp, menu. Below 400px the gaps and pill padding tighten
+              so the English label fits beside the logo at 360 (it overran the right gutter by 18.7px). */}
+          <div className="flex items-center gap-1.5 lg:hidden max-[399px]:gap-1">
             <a href={`tel:${broker.phone}`} aria-label={c.call} className="btn btn-outline-accent size-10 p-0">
               <PhoneIcon />
             </a>
-            <a href={wa} rel="noopener" className="btn btn-primary gap-2 px-4 py-2.5 text-[14px]">
+            <a href={wa} rel="noopener" className="btn btn-primary gap-2 px-4 py-2.5 text-[14px] max-[399px]:gap-1.5 max-[399px]:px-3">
               <WhatsAppIcon />
               {t.whatsapp}
             </a>
