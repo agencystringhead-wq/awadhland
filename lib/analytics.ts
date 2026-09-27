@@ -1,11 +1,12 @@
 /**
- * Google Analytics 4. Loaded by components/Analytics in both root layouts, production builds only,
- * so `next dev` and preview runs never report. GA sets its own _ga cookies; the privacy page says so.
+ * Google Analytics 4 and Microsoft Clarity. Loaded by components/Analytics in both root layouts,
+ * production builds only, so `next dev` and preview runs never report. GA sets its _ga cookies and
+ * Clarity its _clck and _clsk; the privacy page names all of them.
  * The first-party Worker events in lib/leads.ts keep running alongside.
  */
 export const GA_ID = "G-1S205V0N47";
-/** Microsoft Clarity, not yet set up. Nothing loads while it is empty. */
-export const CLARITY_ID = "";
+/** Microsoft Clarity project. Nothing loads while it is empty. */
+export const CLARITY_ID = "yosdebx5af";
 
 export const analyticsEnabled = process.env.NODE_ENV === "production";
 
