@@ -15,7 +15,7 @@ Read `docs/BUILD-SPEC.md` before any structural change. It is the source of trut
 - Localities missing the minimum field set (see spec, Template 3 rules) are excluded from `generateStaticParams` and the sitemap. Log the skipped ids at build.
 - Images: WebP (AVIF where supported), explicit width and height, re-encoded to roughly 60–115 KB at q90 before commit. Media hosted on Cloudflare R2.
 - Fonts self-hosted. Fraunces (display serif, weights 350–480) for headings, ledes and card titles, with Instrument Serif italic for the accent phrase; Inter 500–600 for body, buttons and labels; JetBrains Mono for eyebrows and captions. Noto Sans Devanagari at 600 for Hindi headings; body 17px English, 18px Hindi. Measured values in `docs/DESIGN-REFERENCE.md`.
-- No third-party scripts except JotForm on form load, Leaflet on map pages, and Google Analytics 4 (production builds only, `components/Analytics.tsx`).
+- No third-party scripts except JotForm on form load, Leaflet on map pages, Google Analytics 4 and Microsoft Clarity (production builds only, `components/Analytics.tsx`).
 - Titles and meta descriptions are written per language, not translated.
 
 ## When reporting back
