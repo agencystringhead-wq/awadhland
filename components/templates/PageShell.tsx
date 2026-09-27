@@ -26,6 +26,8 @@ export function PageShell({ locale, alternate, pageLabel, sitePath, children }: 
   const broker = getBroker();
   const path = sitePath ?? alternate.href.replace(/^\/hi(?=\/)/, "");
   const active = activeNavKey(path, cities, (id) => getProject(id)?.cityId);
+  // The city this page belongs to, for analytics: a city tree page or a project page. Empty elsewhere.
+  const city = active && cities.some((c) => c.id === active) ? active : active === "circle-rates" ? path.split("/")[1] : "";
   return (
     <>
       {/* Site-wide schema (spec "SEO and schema"): Organization + RealEstateAgent on every page */}
@@ -33,7 +35,7 @@ export function PageShell({ locale, alternate, pageLabel, sitePath, children }: 
       <TopStrip locale={locale} cities={cities} broker={broker} />
       <Header locale={locale} alternate={alternate} nav={getNav(locale)} active={active} broker={broker} pageLabel={pageLabel} />
       <main>{children}</main>
-      <LeadAnalytics locale={locale} />
+      <LeadAnalytics locale={locale} city={city} />
       <Footer locale={locale} cities={cities} localities={getBuildableLocalities(locale).buildable} broker={broker} />
     </>
   );

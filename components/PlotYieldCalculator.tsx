@@ -13,6 +13,7 @@
  * result, and ?loc=<row id> (from the lookup and the village pages) preselects the place.
  */
 import { useEffect, useMemo, useRef, useState } from "react";
+import { trackEvent } from "@/lib/analytics";
 import { BeforeYouBuyCard } from "@/components/BeforeYouBuyCard";
 import { PlaceCombobox, useLookupData } from "@/components/PlaceSearch";
 import { whatsappHref } from "@/components/WhatsAppButton";
@@ -290,6 +291,7 @@ export function PlotYieldCalculator({ locale, whatsapp, bighaSqm, dutyRules, rul
     setQuery(hi ? h.entry[1] : h.entry[2]);
     loadChunk(index, h.entry);
     set("loc", h.entry[0]);
+    trackEvent("tool_use", { tool_name: "plot_yield_calculator", city: index.cities[index.sros[h.entry[3]].city].id });
   };
   const clearPlace = () => {
     setEntry(null);

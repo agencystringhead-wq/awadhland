@@ -13,6 +13,7 @@
  * to a result.
  */
 import { useEffect, useMemo, useState } from "react";
+import { trackEvent } from "@/lib/analytics";
 import { Calculator } from "@/components/Calculator";
 import { whatsappHref } from "@/components/WhatsAppButton";
 import type { FrontageChunk } from "@/lib/frontage";
@@ -71,7 +72,7 @@ export type KhasraFrontageCheckProps = {
 export function KhasraFrontageCheck({ locale, data, whatsapp, title, defaultSro, defaultVillage }: KhasraFrontageCheckProps) {
   const c = fc(locale);
   // One city today (Lucknow). The pickers flatten across cities so a second list needs no new UI.
-  const sros = data.cities.flatMap((city) => city.sros.map((s) => ({ ...s, cityName: city.name })));
+  const sros = data.cities.flatMap((city) => city.sros.map((s) => ({ ...s, cityId: city.id, cityName: city.name })));
   const [sroId, setSroId] = useState(() => (sros.some((s) => s.id === defaultSro) ? defaultSro! : (sros[0]?.id ?? "")));
   const sro = sros.find((s) => s.id === sroId) ?? sros[0];
   const [villageSlug, setVillageSlug] = useState(() =>
@@ -139,6 +140,7 @@ export function KhasraFrontageCheck({ locale, data, whatsapp, title, defaultSro,
       onSubmit={(e) => {
         e.preventDefault();
         setSubmitted(khasra);
+        trackEvent("tool_use", { tool_name: "check_your_plot", city: sro?.cityId ?? "" });
       }}
     >
       <div>
