@@ -1,0 +1,58 @@
+url,title,title_len,description,desc_len_before_vars,h1
+/,"Buy land in Ayodhya, Lucknow and Gorakhpur | Awadhland",54,"Circle rates, plot prices and government projects for every locality in Ayodhya, Lucknow and Gorakhpur. Then a RERA-registered local broker on WhatsApp.",152,"Land in Ayodhya, Lucknow and Gorakhpur, checked before you pay"
+/hi/,"अयोध्या, लखनऊ, गोरखपुर में ज़मीन ख़रीदें | अवधलैंड",50,"अयोध्या, लखनऊ और गोरखपुर के हर इलाक़े का सर्किल रेट, प्लॉट के दाम और सरकारी प्रोजेक्ट। फिर रेरा-पंजीकृत स्थानीय ब्रोकर से व्हाट्सऐप पर सीधी बात।",144,"अयोध्या, लखनऊ और गोरखपुर में ज़मीन, पैसे देने से पहले जाँची हुई"
+/about/,"About Awadhland: Vichitra Mani Pandey, land broker",50,"Vichitra Mani Pandey has spent 12 years buying and selling land in Ayodhya, Lucknow and Gorakhpur. How he works, what he charges and how our data is sourced.",157,Meet the broker behind Awadhland
+/hi/about/,"अवधलैंड के बारे में: विचित्र मणि पांडेय, ज़मीन ब्रोकर",53,"विचित्र मणि पांडेय 12 साल से अयोध्या, लखनऊ और गोरखपुर में ज़मीन की ख़रीद-बिक्री करा रहे हैं। वे कैसे काम करते हैं, फ़ीस क्या है और हमारा डेटा कहाँ से आता है।",157,अवधलैंड के ब्रोकर से मिलिए
+/ayodhya/,Land in Ayodhya: plot prices and circle rates 2026,50,"Buying a plot in Ayodhya? Circle rates for {localities} localities, the airport and highway projects, price trends and a local broker who checks the papers first.",162,"Land in Ayodhya: prices, circle rates and projects"
+/hi/ayodhya/,अयोध्या में ज़मीन: प्लॉट के दाम और सर्किल रेट 2026,50,"अयोध्या में प्लॉट लेना है? {localities} इलाक़ों के सर्किल रेट, एयरपोर्ट और हाईवे प्रोजेक्ट, दाम का रुझान और ऐसा स्थानीय ब्रोकर जो पहले कागज़ जाँचता है।",151,"अयोध्या में ज़मीन: दाम, सर्किल रेट और प्रोजेक्ट"
+/lucknow/,Land in Lucknow: plot prices and circle rates 2026,50,"Buying a plot in Lucknow? Circle rates for {villages} villages and colonies across {sros} sub-registrar offices, LDA schemes and a local broker on WhatsApp.",156,"Land in Lucknow: prices, circle rates and projects"
+/hi/lucknow/,लखनऊ में ज़मीन: प्लॉट के दाम और सर्किल रेट 2026,47,"लखनऊ में प्लॉट लेना है? {sros} उप-निबंधक कार्यालयों के {villages} गाँवों और कॉलोनियों के सर्किल रेट, एलडीए की योजनाएँ और व्हाट्सऐप पर स्थानीय ब्रोकर।",149,"लखनऊ में ज़मीन: दाम, सर्किल रेट और प्रोजेक्ट"
+/gorakhpur/,Land in Gorakhpur: plot prices and circle rates 2026,52,"Buying a plot in Gorakhpur? Circle rates for {villages} villages across {sros} sub-registrar offices, GIDA and GDA projects, and a local broker on WhatsApp.",156,"Land in Gorakhpur: prices, circle rates and projects"
+/hi/gorakhpur/,गोरखपुर में ज़मीन: प्लॉट के दाम और सर्किल रेट 2026,50,"गोरखपुर में प्लॉट लेना है? {sros} उप-निबंधक कार्यालयों के {villages} गाँवों के सर्किल रेट, गीडा और जीडीए के प्रोजेक्ट, और व्हाट्सऐप पर स्थानीय ब्रोकर।",150,"गोरखपुर में ज़मीन: दाम, सर्किल रेट और प्रोजेक्ट"
+/ayodhya/circle-rates/,Ayodhya circle rate 2026: all villages and mohallas,51,"Official Ayodhya circle rates for {villages} villages and mohallas across {sros} sub-registrar offices, effective {date}. Find your village, then work out stamp duty.",166,Ayodhya circle rates 2026
+/hi/ayodhya/circle-rates/,अयोध्या सर्किल रेट 2026: सभी गाँव और मोहल्ले,44,"{sros} उप-निबंधक कार्यालयों के {villages} गाँवों और मोहल्लों के अयोध्या के आधिकारिक सर्किल रेट, {date} से लागू। अपना गाँव खोजें और स्टाम्प ड्यूटी निकालें।",154,अयोध्या सर्किल रेट 2026
+/lucknow/circle-rates/,Lucknow circle rate 2026: all villages and colonies,51,"Official Lucknow circle rates for {villages} villages and colonies across {sros} sub-registrar offices, effective {date}. Rates by road width, plus stamp duty.",159,Lucknow circle rates 2026
+/hi/lucknow/circle-rates/,लखनऊ सर्किल रेट 2026: सभी गाँव और कॉलोनियाँ,43,"{sros} उप-निबंधक कार्यालयों के {villages} गाँवों और कॉलोनियों के लखनऊ के आधिकारिक सर्किल रेट, {date} से लागू। सड़क की चौड़ाई के हिसाब से दर और स्टाम्प ड्यूटी।",158,लखनऊ सर्किल रेट 2026
+/gorakhpur/circle-rates/,"Gorakhpur circle rate 2026: all villages, 8 SROs",48,"Gorakhpur circle rates for {villages} villages across {sros} sub-registrar offices. The {date} list is still in force, with the 2025 valuation rules applied.",157,Gorakhpur circle rates 2026
+/hi/gorakhpur/circle-rates/,"गोरखपुर सर्किल रेट 2026: सभी गाँव, 8 उप-निबंधक कार्यालय",55,"{sros} उप-निबंधक कार्यालयों के {villages} गाँवों के गोरखपुर सर्किल रेट। {date} वाली सूची अब भी लागू है, 2025 के मूल्यांकन नियमों के साथ। स्टाम्प ड्यूटी भी देखें।",161,गोरखपुर सर्किल रेट 2026
+/tools/circle-rate-lookup/,"Circle rate lookup: Ayodhya, Lucknow, Gorakhpur 2026",52,"Find the official circle rate for any village, mohalla or colony in Ayodhya, Lucknow or Gorakhpur. Search in Hindi or English, with the effective date shown.",157,"Circle rate lookup for Ayodhya, Lucknow and Gorakhpur"
+/hi/tools/circle-rate-lookup/,"सर्किल रेट खोजें: अयोध्या, लखनऊ, गोरखपुर 2026",45,"अयोध्या, लखनऊ या गोरखपुर के किसी भी गाँव, मोहल्ले या कॉलोनी का आधिकारिक सर्किल रेट खोजें। हिंदी या अंग्रेज़ी में खोजें, लागू होने की तारीख़ के साथ।",147,"अयोध्या, लखनऊ और गोरखपुर के सर्किल रेट खोजें"
+/tools/khasra-frontage-check/,Khasra frontage check: is your Lucknow plot on a road?,54,"Type a khasra number from Sadar-4, Bakshi Ka Talab or Malihabad and see if the district list puts it on a highway, district road, link road or next to the abadi.",161,Is your khasra on a road or next to the abadi?
+/hi/tools/khasra-frontage-check/,खसरा जाँच: क्या आपका लखनऊ का प्लॉट सड़क पर है?,46,"सदर-4, बख्शी का तालाब या मलिहाबाद का खसरा नंबर डालें और देखें कि ज़िले की सूची उसे हाईवे, ज़िला सड़क, लिंक रोड पर या आबादी से लगा मानती है या नहीं।",147,क्या आपका खसरा सड़क पर या आबादी से लगा है?
+/tools/plot-yield-calculator/,"Plot ROI calculator: Ayodhya, Lucknow, Gorakhpur",48,"Work out the real return on a plot in Ayodhya, Lucknow or Gorakhpur: stamp duty on the circle rate, holding costs, lease income, CAGR, IRR and an FD comparison.",160,Plot yield and land ROI calculator
+/hi/tools/plot-yield-calculator/,"प्लॉट ROI कैलकुलेटर: अयोध्या, लखनऊ, गोरखपुर",43,"अयोध्या, लखनऊ या गोरखपुर में प्लॉट पर असली रिटर्न निकालें: सर्किल रेट पर स्टाम्प ड्यूटी, रखरखाव ख़र्च, पट्टे की आमदनी, सीएजीआर, आईआरआर और एफ़डी से तुलना।",153,प्लॉट रिटर्न और ज़मीन ROI कैलकुलेटर
+/tools/stamp-duty-calculator/,Stamp duty calculator UP 2026: land and plots,45,"Stamp duty, registration fee and the total you pay at the registry for a plot in Ayodhya, Lucknow or Gorakhpur, worked out from the official circle rate.",153,Stamp duty calculator for land in UP
+/hi/tools/stamp-duty-calculator/,स्टाम्प ड्यूटी कैलकुलेटर यूपी 2026: ज़मीन और प्लॉट,50,"अयोध्या, लखनऊ या गोरखपुर में प्लॉट की रजिस्ट्री पर स्टाम्प ड्यूटी, रजिस्ट्रेशन फ़ीस और कुल रक़म, आधिकारिक सर्किल रेट के आधार पर। महिलाओं की छूट भी शामिल।",153,यूपी में ज़मीन के लिए स्टाम्प ड्यूटी कैलकुलेटर
+/updates/,"Land news for Ayodhya, Lucknow and Gorakhpur",44,"Circle rate changes, master plans, authority plot schemes and new projects in Ayodhya, Lucknow and Gorakhpur, each with the date, the agency and what it means.",159,Land news and government notices for Awadh
+/hi/updates/,"अयोध्या, लखनऊ, गोरखपुर की ज़मीन से जुड़ी ख़बरें",47,"अयोध्या, लखनऊ और गोरखपुर में सर्किल रेट के बदलाव, मास्टर प्लान, प्राधिकरण की प्लॉट योजनाएँ और नए प्रोजेक्ट, तारीख़, एजेंसी और उनके मतलब के साथ।",143,अवध में ज़मीन की ख़बरें और सरकारी सूचनाएँ
+/projects/ayodhya-airport-expansion/,Ayodhya airport expansion: status and land nearby,49,"Where the Maharishi Valmiki International Airport expansion stands, what has been acquired, and what it means for buying land on the airport side of Ayodhya.",157,Ayodhya airport expansion
+/hi/projects/ayodhya-airport-expansion/,अयोध्या एयरपोर्ट विस्तार: स्थिति और आसपास की ज़मीन,50,"महर्षि वाल्मीकि अंतरराष्ट्रीय हवाई अड्डे का विस्तार कहाँ तक पहुँचा, कौन सी ज़मीन अधिग्रहीत हुई, और एयरपोर्ट की तरफ़ ज़मीन ख़रीदने वालों के लिए इसका क्या मतलब है।",161,अयोध्या एयरपोर्ट विस्तार
+/terms/,Terms of use | Awadhland,24,,0,
+/hi/terms/,इस्तेमाल की शर्तें | अवधलैंड,28,,0,
+/privacy/,Privacy policy | Awadhland,26,,0,
+/hi/privacy/,निजता नीति | अवधलैंड,20,,0,
+/guides/ayodhya-vs-lucknow-vs-gorakhpur-land-investment/,Ayodhya vs Lucknow vs Gorakhpur for land investment,51,,0,
+/guides/gram-sabha-ceiling-land-what-you-cannot-buy/,Gram Sabha and ceiling land: land you can't buy in UP,53,,0,
+/guides/how-to-check-if-land-in-up-is-safe-to-buy/,How to check if land in UP is safe to buy: 6 checks,51,,0,
+/guides/land-near-ayodhya-airport/,Land near Ayodhya airport: what's actually available,52,,0,
+/guides/land-safety-checklist/,Land safety checklist UP: 30 checks before token money,54,,0,
+/hi/guides/gram-sabha-ceiling-land-what-you-cannot-buy/,ग्राम सभा और सीलिंग की ज़मीन: यूपी में जो नहीं ख़रीद सकते,57,,0,
+/hi/guides/how-to-check-if-land-in-up-is-safe-to-buy/,यूपी में ज़मीन सुरक्षित है या नहीं: 6 ज़रूरी जाँचें,51,,0,
+/hi/guides/land-safety-checklist/,ज़मीन सुरक्षा चेकलिस्ट यूपी: टोकन से पहले 30 जाँचें,51,,0,
+/updates/2025-04-gorakhpur-valuation-rules-2025/,Gorakhpur valuation rules 2025: 2016 circle rates stay,54,,0,
+/updates/2025-06-ayodhya-circle-rates-up-to-200/,Ayodhya circle rates raised up to 200% (June 2025),50,,0,
+/updates/2025-06-gida-600-acres-17-villages/,600 acres in 17 villages acquired for Greater GIDA,50,,0,
+/updates/2025-08-lucknow-circle-rates-revised/,"Lucknow circle rates revised, first time since 2015",51,,0,
+/updates/2025-12-gda-gurukul-city-naya-gorakhpur/,GDA sets Gurukul City plot prices in Naya Gorakhpur,51,,0,
+/updates/2026-02-up-aadhaar-biometric-registration/,Aadhaar biometric now compulsory at every UP registry,53,,0,
+/updates/2026-08-gida-dhuriapar-2000-acre-township/,"GIDA's 2,000-acre Dhuriapar township, Gorakhpur",47,,0,
+/updates/2026-09-ayodhya-airport-expansion-tracking/,Ayodhya airport expansion: what it means for land,49,,0,
+/updates/2026-09-lda-varun-vihar-naimish-nagar-registration/,"LDA opens registration for 3,105 plots in Lucknow",49,,0,
+/hi/updates/2025-04-gorakhpur-valuation-rules-2025/,गोरखपुर के मूल्यांकन नियम 2025: सर्किल रेट 2016 वाले,52,,0,
+/hi/updates/2025-06-ayodhya-circle-rates-up-to-200/,अयोध्या के सर्किल रेट 200% तक बढ़े (जून 2025),45,,0,
+/hi/updates/2025-06-gida-600-acres-17-villages/,ग्रेटर गीडा के लिए 17 गाँवों की 600 एकड़ ज़मीन,46,,0,
+/hi/updates/2025-12-gda-gurukul-city-naya-gorakhpur/,"गुरुकुल सिटी, नया गोरखपुर: जीडीए ने प्लॉट के दाम तय किए",55,,0,
+/hi/updates/2026-02-up-aadhaar-biometric-registration/,यूपी की हर रजिस्ट्री पर आधार बायोमेट्रिक अनिवार्य,49,,0,
+/hi/updates/2026-08-gida-dhuriapar-2000-acre-township/,"गीडा की 2,000 एकड़ धुरियापार टाउनशिप, गोरखपुर",45,,0,
+/hi/updates/2026-09-ayodhya-airport-expansion-tracking/,अयोध्या एयरपोर्ट विस्तार: ज़मीन के लिए इसका मतलब,48,,0,
+/hi/updates/2026-09-lda-varun-vihar-naimish-nagar-registration/,"एलडीए ने लखनऊ में 3,105 प्लॉटों का पंजीकरण खोला",47,,0,
