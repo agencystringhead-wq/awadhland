@@ -14,10 +14,10 @@ export const metadata: Metadata = {
 export default function HindiRootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="hi-IN" className={fontClassNameHi}>
-      <body>
-        {children}
+      <head>
         <Analytics />
-      </body>
+      </head>
+      <body>{children}</body>
     </html>
   );
 }

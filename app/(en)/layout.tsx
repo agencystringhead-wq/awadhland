@@ -16,10 +16,10 @@ export const metadata: Metadata = {
 export default function EnglishRootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en-IN" className={fontClassNameEn}>
-      <body>
-        {children}
+      <head>
         <Analytics />
-      </body>
+      </head>
+      <body>{children}</body>
     </html>
   );
 }
