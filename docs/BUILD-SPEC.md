@@ -40,7 +40,7 @@ English lives at the root; Hindi lives under `/hi/` with identical paths. Every 
 - Slugs are English transliterations in both trees (`faizabad-road`, not Devanagari in URLs). Simpler to share, type and log.
 - Locality slugs are stable IDs. Renaming a locality changes its display name, never its slug.
 - Language toggle in the header: shows "हिंदी" on English pages and "English" on Hindi pages. It links to the same page in the other tree. If the Hindi page does not exist yet, link to the Hindi city hub and show a one-line notice.
-- Nothing remembers the choice, because nothing needs to. Locale comes from the route segment, is passed down as a prop, and every internal link is built with `localePath(locale, …)` — so a reader stays in their tree because the links they click are already in it. The site sets no cookies at all. Never switch language from a cookie, browser settings or IP.
+- Nothing remembers the choice, because nothing needs to. Locale comes from the route segment, is passed down as a prop, and every internal link is built with `localePath(locale, …)` — so a reader stays in their tree because the links they click are already in it. The site sets no cookies of its own; the only cookies are Google Analytics' `_ga` pair. Never switch language from a cookie, browser settings or IP.
 - `<html lang>` switches per tree. Hindi pages load Noto Sans Devanagari, body size 17px vs 16px for English. Same layout, same components, same colours.
 - Two sitemaps (`sitemap-en.xml`, `sitemap-hi.xml`) under one index. Titles and meta descriptions are written separately per language, not translated.
 - Trailing slashes on all URLs. Lowercase only. Redirect any uppercase or non-slash variant.
@@ -309,7 +309,7 @@ Entries are also the feed for the homepage "what changed" strip and the per-city
 | Methodology | `/methodology/` | The high-potential score explained signal by signal, weights shown, last recomputed date |
 | Contact | `/contact/` | Lead form, WhatsApp, call, office address, hours |
 | Disclaimer | `/disclaimer/` | Reference not advice; rates change; verify before paying; no guarantee of title; broker relationship disclosed |
-| Privacy | `/privacy/` | Form data handling, no cookies at all and so no consent banner, no data sold |
+| Privacy | `/privacy/` | Form data handling, Google Analytics and its cookies (the only ones), no data sold |
 | Terms | `/terms/` | Standard |
 | Sitemap | `/sitemap/` | Human-readable: every city, locality, project, guide, tool and update |
 | 404 | — | Search box plus links to the three city hubs |
@@ -507,7 +507,7 @@ Design direction: probate.help's architecture adapted to land (measured tokens i
 | llms.txt | Plain index of the site for AI crawlers, regenerated at build |
 | Internal linking | Every locality links to city hub, 6 nearest localities, nearby projects, circle rate page. Every project links to affected localities. Every update links to affected localities and projects. Guides link to at least 3 data pages via MDX components |
 | Images | WebP with AVIF fallback, explicit width/height, alt text per language, lazy below the fold |
-| Performance | Target Lighthouse 95+ mobile. No third-party scripts except JotForm on form load and Leaflet on map pages. Fonts self-hosted |
+| Performance | Target Lighthouse 95+ mobile. No third-party scripts except JotForm on form load, Leaflet on map pages, and Google Analytics 4 (`gtag.js`, `afterInteractive`, production builds only, from `components/Analytics.tsx` in both root layouts). Fonts self-hosted |
 | Internal links | Plain `<a href>`, never `next/link`. The site does no client-side routing, so `scripts/drop-flight-payloads.ts` removes the per-route `index.txt` RSC payloads in postbuild — 453 MB of an export nothing fetched. That script fails the build if `next/link` is reintroduced, because its navigation would need them back |
 | Thin-page guard | Localities missing the minimum field set — which requires a sourced land use and a real narrative, not seeded ones — are excluded from the build, the sitemap, the footer index and every counter |
 | Source guard | Projects without a real notification are excluded from the build, the sitemap, every card and every counter (Template 4) |

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
+import { Analytics } from "@/components/Analytics";
 import { SITE_URL } from "@/lib/i18n";
 import { fontClassNameEn } from "../fonts";
 import "../globals.css";
@@ -15,7 +16,10 @@ export const metadata: Metadata = {
 export default function EnglishRootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en-IN" className={fontClassNameEn}>
-      <body>{children}</body>
+      <body>
+        {children}
+        <Analytics />
+      </body>
     </html>
   );
 }

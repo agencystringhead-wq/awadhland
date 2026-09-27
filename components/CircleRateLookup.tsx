@@ -15,6 +15,7 @@
  * share link.
  */
 import { useEffect, useState } from "react";
+import { trackEvent } from "@/lib/analytics";
 import { BeforeYouBuyCard } from "@/components/BeforeYouBuyCard";
 import { PlaceCombobox, useLookupData } from "@/components/PlaceSearch";
 import { whatsappHref } from "@/components/WhatsAppButton";
@@ -78,6 +79,7 @@ export function CircleRateLookup({ locale, whatsapp, bighaSqm, bighaLabel, hubs,
     setSelected(h.entry);
     setQuery(hi ? h.entry[1] : h.entry[2]);
     loadChunk(index, h.entry);
+    trackEvent("tool_use", { tool_name: "circle_rate_lookup", city: index.cities[index.sros[h.entry[3]].city].id });
     const u = new URL(window.location.href);
     u.searchParams.set("id", h.entry[0]);
     window.history.replaceState(null, "", u.toString());

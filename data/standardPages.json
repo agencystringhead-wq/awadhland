@@ -4,10 +4,10 @@
     "sitePath": "/privacy/",
     "title": "Privacy on awadhland.com",
     "titleHi": "अवधलैंड पर आपकी निजता",
-    "description": "What we collect when you send an enquiry, where it goes, and why this site sets no cookies at all. Written from how the site actually behaves, not from a template.",
-    "descriptionHi": "आप जो फ़ॉर्म में लिखते हैं वही हमारे पास आता है, और वह कहाँ जाता है। यह साइट कोई कुकी सेट नहीं करती — भाषा भी यूआरएल से तय होती है।",
-    "lede": "This is a reference site. It does not ask you to sign in, it does not set a single cookie, and the only personal details it ever holds are the ones you type into an enquiry yourself.",
-    "ledeHi": "यह एक जानकारी की साइट है। न कोई लॉगिन, न कोई कुकी। आपका नाम और नंबर हमारे पास तभी आता है जब आप ख़ुद फ़ॉर्म भरकर भेजते हैं।",
+    "description": "What we collect when you send an enquiry, where it goes, and what Google Analytics counts about visits. Written from how the site behaves, not a template.",
+    "descriptionHi": "आप जो फ़ॉर्म में लिखते हैं वही हमारे पास आता है, और वह कहाँ जाता है। साइट के इस्तेमाल को समझने के लिए हम गूगल एनालिटिक्स चलाते हैं — वह क्या गिनता है, यहाँ लिखा है।",
+    "lede": "This is a reference site. It does not ask you to sign in, the only cookies it sets are Google Analytics' own, and the only personal details it ever holds are the ones you type into an enquiry yourself.",
+    "ledeHi": "यह एक जानकारी की साइट है। न कोई लॉगिन, और कुकी सिर्फ़ गूगल एनालिटिक्स की। आपका नाम और नंबर हमारे पास तभी आता है जब आप ख़ुद फ़ॉर्म भरकर भेजते हैं।",
     "sections": [
       {
         "heading": "What we collect",
@@ -34,14 +34,14 @@
         ]
       },
       {
-        "heading": "Cookies: none",
-        "headingHi": "कुकी: एक भी नहीं",
+        "heading": "Cookies: Google Analytics only",
+        "headingHi": "कुकी: सिर्फ़ गूगल एनालिटिक्स की",
         "body": [
-          "This site sets no cookies. There is no consent banner because there is nothing to consent to.",
+          "The only cookies on this site are Google Analytics' own, named _ga and _ga_ followed by an id. They hold a random number so that a repeat visit from the same browser is counted once; they carry nothing you type. Blocking them, or blocking Google Analytics altogether, does not break any page.",
           "The language you see comes from the address itself — English pages sit under the site root and Hindi pages under /hi/. We never switch your language from a cookie, your browser settings or your IP address. If you want the other language, you use the toggle, and the address changes with it."
         ],
         "bodyHi": [
-          "यह साइट कोई कुकी सेट नहीं करती। सहमति वाला बैनर इसलिए नहीं है क्योंकि सहमति देने को कुछ है ही नहीं।",
+          "इस साइट पर कुकी सिर्फ़ गूगल एनालिटिक्स की हैं, जिनके नाम _ga और _ga_ के बाद एक आईडी होते हैं। इनमें एक बेतरतीब नंबर रहता है ताकि एक ही ब्राउज़र से दोबारा आना एक ही बार गिना जाए; आप जो लिखते हैं वह इनमें नहीं जाता। इन्हें या पूरे गूगल एनालिटिक्स को ब्लॉक करने से कोई पेज नहीं टूटता।",
           "आपको कौन-सी भाषा दिखेगी यह पते से तय होता है — अंग्रेज़ी पेज साइट की जड़ में और हिंदी पेज /hi/ के नीचे। हम आपकी भाषा कभी कुकी, ब्राउज़र की सेटिंग या आईपी पते से नहीं बदलते। दूसरी भाषा चाहिए तो टॉगल दबाइए, और पता भी उसी के साथ बदल जाएगा।"
         ]
       },
@@ -50,11 +50,13 @@
         "headingHi": "हम क्या गिनते हैं",
         "body": [
           "Two clicks: the WhatsApp button and the call button. For each one we record the name of the event, which language the page was in, and the name of the block the button sat in — the header, the hero, a lead form. That is the whole record.",
-          "There is no identifier in it, nothing that can be traced back to a person, and no third-party analytics script anywhere on the site."
+          "There is no identifier in it and nothing that can be traced back to a person.",
+          "We also use Google Analytics to understand how the site is used: which pages are read, roughly which region and device visits come from, and a few actions — a WhatsApp click, a checklist download, a run of one of the tools, with the city it concerned. Google receives your IP address and browser details to do this; we see only the totals."
         ],
         "bodyHi": [
           "दो क्लिक: व्हाट्सऐप बटन और कॉल बटन। हर बार सिर्फ़ इतना दर्ज होता है कि कौन-सी घटना हुई, पेज किस भाषा में था, और बटन किस हिस्से में था — हेडर, ऊपर का बैनर, या कोई फ़ॉर्म। पूरा रिकॉर्ड बस इतना।",
-          "इसमें कोई पहचान नहीं होती, किसी व्यक्ति तक पहुँचने का कोई रास्ता नहीं, और साइट पर कहीं भी बाहरी एनालिटिक्स स्क्रिप्ट नहीं है।"
+          "इसमें कोई पहचान नहीं होती, और किसी व्यक्ति तक पहुँचने का कोई रास्ता नहीं।",
+          "साइट का इस्तेमाल समझने के लिए हम गूगल एनालिटिक्स भी चलाते हैं: कौन-से पेज पढ़े जाते हैं, लोग मोटे तौर पर किस इलाक़े और किस डिवाइस से आते हैं, और कुछ काम — व्हाट्सऐप बटन दबाना, चेकलिस्ट डाउनलोड करना, कोई टूल चलाना, और वह किस शहर के लिए था। इसके लिए आपका आईपी पता और ब्राउज़र की जानकारी गूगल तक जाती है; हमें सिर्फ़ कुल गिनती दिखती है।"
         ]
       },
       {
@@ -62,36 +64,37 @@
         "headingHi": "नक़्शे",
         "body": [
           "Pages that show a map load Leaflet and fetch the map tiles from tile.openstreetmap.org. That means your IP address reaches OpenStreetMap's servers while the map draws, as it would on any site that uses their tiles. We send them nothing about you beyond that request.",
-          "Leaflet on map pages and the form path described above are the only places anything leaves this site."
+          "Leaflet on map pages, Google Analytics and the form path described above are the only places anything leaves this site."
         ],
         "bodyHi": [
           "जिन पेजों पर नक़्शा है वे लीफ़लेट लोड करते हैं और नक़्शे के टुकड़े tile.openstreetmap.org से लाते हैं। इसका मतलब है कि नक़्शा बनते समय आपका आईपी पता ओपनस्ट्रीटमैप के सर्वर तक जाता है, जैसा उनके टाइल इस्तेमाल करने वाली हर साइट पर होता है। उस अनुरोध के अलावा आपके बारे में हम उन्हें कुछ नहीं भेजते।",
-          "नक़्शे वाला लीफ़लेट और ऊपर बताया हुआ फ़ॉर्म का रास्ता — इन्हीं दो जगहों से कुछ भी इस साइट से बाहर जाता है।"
+          "नक़्शे वाला लीफ़लेट, गूगल एनालिटिक्स और ऊपर बताया हुआ फ़ॉर्म का रास्ता — इन्हीं तीन जगहों से कुछ भी इस साइट से बाहर जाता है।"
         ]
       },
       {
         "heading": "What we never do",
         "headingHi": "हम क्या कभी नहीं करते",
         "body": [
-          "We do not sell your details, pass them to a list, or hand them to another broker. We do not run advertising networks, tracking pixels or retargeting. We do not build a profile of you across visits, because we have nothing to build one from.",
+          "We do not sell your details, pass them to a list, or hand them to another broker. We do not run advertising networks, advertising pixels or retargeting. We do not build a profile of you: nothing Google Analytics counts is tied to your name or number.",
           "If you have sent us an enquiry and want it deleted, say so on WhatsApp using the button on any page, and we will remove it."
         ],
         "bodyHi": [
-          "हम आपकी जानकारी न बेचते हैं, न किसी सूची में डालते हैं, न किसी दूसरे ब्रोकर को देते हैं। न कोई विज्ञापन नेटवर्क, न ट्रैकिंग पिक्सल, न रीटार्गेटिंग। आपकी कोई प्रोफ़ाइल भी नहीं बनती, क्योंकि बनाने के लिए हमारे पास कुछ है ही नहीं।",
+          "हम आपकी जानकारी न बेचते हैं, न किसी सूची में डालते हैं, न किसी दूसरे ब्रोकर को देते हैं। न कोई विज्ञापन नेटवर्क, न विज्ञापन पिक्सल, न रीटार्गेटिंग। आपकी कोई प्रोफ़ाइल भी नहीं बनती: गूगल एनालिटिक्स जो गिनता है वह आपके नाम या नंबर से नहीं जुड़ता।",
           "अगर आपने पूछताछ भेजी है और उसे हटवाना चाहते हैं, तो किसी भी पेज पर व्हाट्सऐप बटन से कह दीजिए, हम हटा देंगे।"
         ]
       }
     ],
-    "updatedAt": "2026-09-23",
+    "updatedAt": "2026-09-27",
     "sources": [
       {
-        "label": "Behaviour of this codebase: lib/i18n.ts (locale from the route segment), components/LeadAnalytics.tsx, lib/leads.ts, components/LocalityMap.tsx",
+        "label": "Behaviour of this codebase: lib/i18n.ts (locale from the route segment), components/LeadAnalytics.tsx, lib/leads.ts, lib/analytics.ts, components/Analytics.tsx, components/LocalityMap.tsx",
         "url": "https://github.com/agencystringhead-wq/awadhland",
-        "accessedAt": "2026-09-23"
+        "accessedAt": "2026-09-27"
       }
     ],
     "todo": [
       "Editorial draft: accurate to how the site behaves today, but not reviewed by a lawyer. Have it checked against the DPDP Act before launch.",
+      "Google Analytics sets cookies and there is no consent banner. Decide with the lawyer whether the DPDP Act needs one for analytics cookies.",
       "Name the data fiduciary and a grievance contact once the broker record is real; DPDP requires a named contact and this page currently points only at the WhatsApp button.",
       "State a retention period for enquiries once one is decided."
     ]

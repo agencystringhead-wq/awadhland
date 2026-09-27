@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
+import { Analytics } from "@/components/Analytics";
 import { SITE_URL } from "@/lib/i18n";
 import { fontClassNameHi } from "../fonts";
 import "../globals.css";
@@ -13,7 +14,10 @@ export const metadata: Metadata = {
 export default function HindiRootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="hi-IN" className={fontClassNameHi}>
-      <body>{children}</body>
+      <body>
+        {children}
+        <Analytics />
+      </body>
     </html>
   );
 }
