@@ -1,6 +1,6 @@
 # awadhland-leads worker
 
-The site is a static export; this Worker is the only server-side piece. It takes enquiry and digest forms from the site, validates them, and creates JotForm submissions through JotForm's API, so no JotForm script ever loads on the site. It also records first-party analytics events.
+The site is a static export; this Worker is the only server-side piece. It takes enquiry and digest forms from the site, validates them, and forwards each as a JotForm submission through the form's own public submit endpoint (`https://submit.jotform.com/submit/{formId}`), the same URL a browser hits when a visitor fills out the JotForm-hosted page directly. That endpoint is public and unauthenticated, so no JotForm API key is stored or needed anywhere. No JotForm script ever loads on the site. It also records first-party analytics events.
 
 ## Endpoints
 
@@ -17,11 +17,20 @@ All routes require an `Origin` in `ALLOWED_ORIGINS`; anything else is 403. Bodie
 ```bash
 cd worker
 npx wrangler login
-npx wrangler secret put JOTFORM_API_KEY
 npx wrangler deploy
 ```
 
-Then in `wrangler.toml`: set `JOTFORM_LEAD_FORM_ID` and the `JOTFORM_LEAD_FIELDS` map (question ids from the JotForm form's "Get form questions" API), optionally the digest form, and uncomment `routes` with the custom domain (`lead.awadhland.com`). Set `NEXT_PUBLIC_LEAD_ENDPOINT=https://lead.awadhland.com` in the Cloudflare Pages build environment so the site posts to it. Without that variable the site's forms fall back to composing a WhatsApp message and analytics is a no-op.
+No secrets to set: JotForm's submit endpoint needs no API key. `wrangler.toml` already has `JOTFORM_LEAD_FORM_ID` and `JOTFORM_LEAD_FIELDS` filled in for the live hero enquiry form. Uncomment `routes` with the custom domain (`lead.awadhland.com`) before deploying to production, then set `NEXT_PUBLIC_LEAD_ENDPOINT=https://lead.awadhland.com` in the Cloudflare Pages build environment so the site posts to it. Without that variable the site's forms fall back to composing a WhatsApp message and analytics is a no-op.
+
+### Wiring a new or changed JotForm form
+
+No JotForm account or API key required, just the form's own public page:
+
+1. Open the form's `form.jotform.com/{id}` URL and view its page source (or a browser's element inspector).
+2. For each field, find its rendered `<input>`/`<select>`/`<textarea>` and read the `name="q{QID}_..."` attribute exactly as written — that whole string is the "real input name".
+3. Set `JOTFORM_LEAD_FORM_ID` to the id from the URL, and `JOTFORM_LEAD_FIELDS` to a JSON map from our field name to each real input name, e.g. `{"name":"q9_name","phone":"q10_phone"}`.
+4. If a radio or checkbox field's option text differs from the site's own labels (or the site sends a locale-neutral slug, as city/purpose do), add a translation table in `worker/src/index.ts` near `CITY_LABELS`/`PURPOSE_LABELS` so the value sent matches the option text on the form exactly.
+5. **Every field marked required on the live JotForm form must be present in every submission the Worker can send, or JotForm rejects it.** The current form (`262671761366060`) marks Email required, but the site's "band" variant (`components/LeadForm.tsx`, used on most data pages) never collects an email — only the homepage hero form does. Until the JotForm form's Email field is made optional, submissions from the band variant will fail upstream (site still falls back to WhatsApp, JotForm delivery just won't happen for those).
 
 ## Rate limiting
 

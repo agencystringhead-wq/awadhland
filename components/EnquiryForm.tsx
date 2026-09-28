@@ -93,9 +93,13 @@ export function EnquiryForm({ locale, variant, copy, whatsapp, phoneDisplay, tru
     const form = e.currentTarget;
     const f = new FormData(form);
     const wa = whatsappHref(whatsapp, whatsappMessage(f));
+    // Open the pre-filled WhatsApp chat immediately, in the same gesture as the submit click, so
+    // browsers do not treat it as a blocked popup. This always fires, JotForm or not: the visitor
+    // still has to tap Send inside WhatsApp themselves (a wa.me link cannot send on its own), while
+    // the JotForm submission below is silent and automatic.
+    window.open(wa, "_blank", "noopener");
     if (!leadsEnabled) {
-      // No Worker configured (preview builds): compose the message on WhatsApp instead.
-      window.open(wa, "_blank", "noopener");
+      // No Worker configured (preview builds): WhatsApp is all there is.
       setStatus("sent");
       return;
     }
