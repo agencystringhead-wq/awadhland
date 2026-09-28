@@ -162,7 +162,6 @@ export function Footer({ locale, cities, localities, broker }: FooterProps) {
             {" · "}
             {t.footerTagline}
           </p>
-          <p className="serif-italic mt-2 text-xs text-muted">{t.builtBy}</p>
         </div>
       </div>
     </footer>
