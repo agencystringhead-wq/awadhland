@@ -33,9 +33,19 @@ type Status = "idle" | "sending" | "sent" | "failed";
 
 const label = "label-mono mb-2 block";
 
-function Select({ id, name, options, defaultValue }: { id: string; name: string; options: Option[]; defaultValue?: string }) {
+/** Marks a label/legend as mandatory. Visual only — the `required` attribute on the field itself
+ * is what screen readers announce, so this stays out of the accessibility tree. */
+function Req() {
   return (
-    <select id={id} name={name} className="input select" defaultValue={defaultValue ?? options[0]?.value}>
+    <span aria-hidden="true" className="text-maroon">
+      *
+    </span>
+  );
+}
+
+function Select({ id, name, options, defaultValue, required }: { id: string; name: string; options: Option[]; defaultValue?: string; required?: boolean }) {
+  return (
+    <select id={id} name={name} required={required} className="input select" defaultValue={defaultValue ?? options[0]?.value}>
       {options.map((o) => (
         <option key={o.value} value={o.value}>
           {o.label}
@@ -138,47 +148,45 @@ export function EnquiryForm({ locale, variant, copy, whatsapp, phoneDisplay, tru
       <div className={band ? "contents" : "grid gap-3.5 sm:grid-cols-2"}>
         <div>
           <label htmlFor={id("name")} className={label}>
-            {copy.name}
+            {copy.name} <Req />
           </label>
           <input id={id("name")} name="name" required minLength={2} autoComplete="name" className="input" />
         </div>
         <div>
           <label htmlFor={id("phone")} className={label}>
-            {copy.phone}
+            {copy.phone} <Req />
           </label>
           <input id={id("phone")} name="phone" required type="tel" inputMode="tel" autoComplete="tel" defaultValue="+91 " className="input tabular-nums" />
         </div>
-        {!band && (
-          <div>
-            <label htmlFor={id("email")} className={label}>
-              {copy.email}
-            </label>
-            <input id={id("email")} name="email" type="email" autoComplete="email" className="input" />
-          </div>
-        )}
+        <div>
+          <label htmlFor={id("email")} className={label}>
+            {copy.email} <Req />
+          </label>
+          <input id={id("email")} name="email" required type="email" autoComplete="email" className="input" />
+        </div>
         <div>
           <label htmlFor={id("city")} className={label}>
-            {copy.city}
+            {copy.city} <Req />
           </label>
-          <Select id={id("city")} name="city" options={copy.cityOptions} defaultValue={cityDefault} />
+          <Select id={id("city")} name="city" required options={copy.cityOptions} defaultValue={cityDefault} />
         </div>
         {band && (
-          <div>
+          <div className="sm:col-span-2">
             <label htmlFor={id("budget")} className={label}>
-              {copy.budget}
+              {copy.budget} <Req />
             </label>
-            <Select id={id("budget")} name="budget" options={copy.budgetOptions} />
+            <Select id={id("budget")} name="budget" required options={copy.budgetOptions} />
           </div>
         )}
       </div>
 
       <fieldset className={band ? "sm:col-span-2" : "mt-4"}>
         <legend className="label-mono mb-2">
-          {copy.lookingFor} <span className="serif-italic normal-case tracking-normal text-[13px] font-normal text-muted">{copy.pickClosest}</span>
+          {copy.lookingFor} <Req /> <span className="serif-italic normal-case tracking-normal text-[13px] font-normal text-muted">{copy.pickClosest}</span>
         </legend>
         <div className="flex flex-wrap gap-[7px]">
           {copy.purposes.map((p, i) => (
-            <PillRadio key={p.value} name="purpose" value={p.value} label={p.label} defaultChecked={i === 0} />
+            <PillRadio key={p.value} name="purpose" value={p.value} label={p.label} defaultChecked={i === 0} required />
           ))}
         </div>
       </fieldset>
@@ -186,18 +194,20 @@ export function EnquiryForm({ locale, variant, copy, whatsapp, phoneDisplay, tru
       {band && (
         <>
           <fieldset className="sm:col-span-2">
-            <legend className="label-mono mb-2">{copy.location}</legend>
+            <legend className="label-mono mb-2">
+              {copy.location} <Req />
+            </legend>
             <div className="flex flex-wrap gap-[7px]">
               {copy.locationOptions.map((o, i) => (
-                <PillRadio key={o.value} name="location" value={o.value} label={o.label} defaultChecked={i === 0} />
+                <PillRadio key={o.value} name="location" value={o.value} label={o.label} defaultChecked={i === 0} required />
               ))}
             </div>
           </fieldset>
           <div className="sm:col-span-2">
             <label htmlFor={id("message")} className={label}>
-              {copy.message}
+              {copy.message} <Req />
             </label>
-            <textarea id={id("message")} name="message" rows={3} className="input min-h-[96px] resize-y" />
+            <textarea id={id("message")} name="message" required rows={3} className="input min-h-[96px] resize-y" />
           </div>
         </>
       )}
