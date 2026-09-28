@@ -68,6 +68,7 @@ export function EnquiryForm({ locale, variant, copy, whatsapp, phoneDisplay, tru
 
   const read = (f: FormData): LeadPayload => ({
     kind: "lead",
+    variant,
     locale,
     page: window.location.pathname,
     name: String(f.get("name") ?? ""),

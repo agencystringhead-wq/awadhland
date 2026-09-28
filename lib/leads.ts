@@ -8,6 +8,8 @@
  */
 export type LeadPayload = {
   kind: "lead";
+  /** Which JotForm form this goes to — see functions/api/lead.ts. */
+  variant: "hero" | "band";
   locale: string;
   page: string;
   name: string;
