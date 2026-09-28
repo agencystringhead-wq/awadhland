@@ -1,19 +1,22 @@
 "use client";
 
 /**
- * Monthly digest signup on the updates index (spec Template 8, section 4). Posts the email to the
- * Worker's /subscribe, which creates the JotForm submission. Without an endpoint the block shows
- * the WhatsApp fallback only.
+ * Monthly digest signup on the updates index (spec Template 8, section 4). Posts the email to
+ * /api/subscribe (functions/api/subscribe.ts), which forwards it to a digest JotForm form.
+ * Hidden entirely until that form actually exists — see functions/api/subscribe.ts.
  */
 import { useId, useState, type FormEvent } from "react";
 import { ui, type Locale } from "@/lib/i18n";
-import { leadsEnabled, subscribeDigest } from "@/lib/leads";
+import { subscribeDigest } from "@/lib/leads";
+
+// Flip to true once functions/api/subscribe.ts has a real FORM_ID and FIELD map.
+const digestReady = false;
 
 export function SubscribeForm({ locale }: { locale: Locale }) {
   const t = ui[locale];
   const id = useId();
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "failed">("idle");
-  if (!leadsEnabled) return null;
+  if (!digestReady) return null;
 
   async function onSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();

@@ -1,17 +1,18 @@
 "use client";
 
 /**
- * Enquiry form (hero card, the lead-form band and every LeadForm block). Posts JSON to the
- * awadhland-leads Worker (lib/leads.ts), which creates the JotForm submission; JotForm's own
- * script never loads. With no endpoint configured, or when the post fails, submitting composes a
- * WhatsApp message from the fields instead, so no enquiry is lost. With JavaScript off the form
- * does nothing; the WhatsApp and Call links beside it still work.
+ * Enquiry form (hero card, the lead-form band and every LeadForm block). Posts JSON to
+ * /api/lead (functions/api/lead.ts, a same-origin Cloudflare Pages Function), which forwards it
+ * to JotForm; JotForm's own script never loads. Submitting always also opens a pre-filled
+ * WhatsApp chat, so both channels get the lead regardless of whether the JotForm post succeeds —
+ * no enquiry is lost. With JavaScript off the form does nothing; the WhatsApp and Call links
+ * beside it still work.
  */
 import { useId, useState, type FormEvent } from "react";
 import { whatsappHref } from "@/components/WhatsAppButton";
 import type { FormCopy, Option } from "@/lib/content";
 import { ui, type Locale } from "@/lib/i18n";
-import { leadsEnabled, submitLead, track, type LeadPayload } from "@/lib/leads";
+import { submitLead, type LeadPayload } from "@/lib/leads";
 import { PillRadio } from "./ui/Pill";
 
 export type EnquiryFormProps = {
@@ -108,11 +109,6 @@ export function EnquiryForm({ locale, variant, copy, whatsapp, phoneDisplay, tru
     // still has to tap Send inside WhatsApp themselves (a wa.me link cannot send on its own), while
     // the JotForm submission below is silent and automatic.
     window.open(wa, "_blank", "noopener");
-    if (!leadsEnabled) {
-      // No Worker configured (preview builds): WhatsApp is all there is.
-      setStatus("sent");
-      return;
-    }
     setStatus("sending");
     const res = await submitLead(read(f));
     if (res.ok) {
@@ -122,7 +118,6 @@ export function EnquiryForm({ locale, variant, copy, whatsapp, phoneDisplay, tru
     } else {
       setStatus("failed");
       setFallbackHref(wa);
-      track("lead_fail", locale, res.error ?? "");
     }
   }
 

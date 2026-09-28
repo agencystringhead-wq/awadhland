@@ -1,12 +1,11 @@
 /**
- * Client-side lead and analytics helpers (step 7). The endpoint is the awadhland-leads Worker
- * (worker/), read from NEXT_PUBLIC_LEAD_ENDPOINT at build. When it is unset the forms fall back
- * to composing a WhatsApp message and tracking is a no-op, so a preview build never posts anywhere.
- * Nothing here runs at build; every function is called from client components.
+ * Client-side lead helpers. Posts to same-origin Cloudflare Pages Functions (functions/api/lead.ts,
+ * functions/api/subscribe.ts) — no separate Worker, no endpoint to configure. Those Functions only
+ * run on a real Cloudflare deploy, not under `next dev`, so a local run gets a 404 and the form
+ * shows its normal failure state; the enquiry form still always opens WhatsApp regardless, so no
+ * enquiry is lost either way. Nothing here runs at build; every function is called from client
+ * components.
  */
-export const LEAD_ENDPOINT = (process.env.NEXT_PUBLIC_LEAD_ENDPOINT ?? "").replace(/\/$/, "");
-export const leadsEnabled = LEAD_ENDPOINT.length > 0;
-
 export type LeadPayload = {
   kind: "lead";
   locale: string;
@@ -25,11 +24,9 @@ export type LeadPayload = {
   website: string;
 };
 
-export type LeadEvent = "lead_submit" | "lead_fail" | "whatsapp_click" | "call_click" | "digest_subscribe" | "checklist_download";
-
 async function post(path: string, body: unknown): Promise<{ ok: boolean; error?: string }> {
   try {
-    const res = await fetch(`${LEAD_ENDPOINT}${path}`, {
+    const res = await fetch(path, {
       method: "POST",
       headers: { "content-type": "application/json" },
       body: JSON.stringify(body),
@@ -41,21 +38,5 @@ async function post(path: string, body: unknown): Promise<{ ok: boolean; error?:
   }
 }
 
-export const submitLead = (payload: LeadPayload) => post("/lead", payload);
-export const subscribeDigest = (email: string, locale: string, page: string) => post("/subscribe", { email, locale, page, website: "" });
-
-/**
- * Fire-and-forget beacon. Sends event, path and locale only; no personal data. The body goes as
- * text/plain because browsers refuse cross-origin sendBeacon with a JSON content type; the Worker
- * parses the JSON regardless of the declared type.
- */
-export function track(event: LeadEvent, locale: string, meta = ""): void {
-  if (!leadsEnabled || typeof window === "undefined") return;
-  const body = JSON.stringify({ event, path: window.location.pathname, locale, meta });
-  try {
-    if (navigator.sendBeacon && navigator.sendBeacon(`${LEAD_ENDPOINT}/event`, new Blob([body], { type: "text/plain;charset=UTF-8" }))) return;
-  } catch {
-    /* fall through */
-  }
-  void fetch(`${LEAD_ENDPOINT}/event`, { method: "POST", headers: { "content-type": "text/plain;charset=UTF-8" }, body, keepalive: true }).catch(() => {});
-}
+export const submitLead = (payload: LeadPayload) => post("/api/lead", payload);
+export const subscribeDigest = (email: string, locale: string, page: string) => post("/api/subscribe", { email, locale, page, website: "" });

@@ -8,6 +8,8 @@ next-env.d.ts
 .DS_Store
 .claude/
 .playwright-mcp/
+# Local cache from `npx wrangler pages dev`, used to test functions/ before a real deploy
+.wrangler/
 
 # dev-only placeholder media, never shipped (scripts/check-dev-assets.ts fails a CI build that references it)
 /public/dev/

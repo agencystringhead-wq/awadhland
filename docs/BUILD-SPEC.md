@@ -14,7 +14,7 @@ awadhland.com is a land-buying authority site for Ayodhya, Lucknow and Gorakhpur
 - Stack: Next.js static export (`output: 'export'`), Node 22, Cloudflare Pages, GitHub under agencystringhead-wq, feature branches + PRs into main.
 - Content lives in `/data` as JSON (entities) and `/content` as MDX (guides, tools copy). No CMS at launch.
 - Every data point carries a `source` URL and `updatedAt` date, rendered on the page.
-- Lead capture: JotForm via Cloudflare Worker proxy (existing pattern), plus WhatsApp deep link and tel: link in a sticky header.
+- Lead capture: JotForm via a Cloudflare Pages Function (`functions/api/lead.ts`, deploys with the site itself, no separate Worker), plus WhatsApp deep link and tel: link in a sticky header.
 - Media on Cloudflare R2. Images re-encoded to ~60–115 KB at q90 before commit.
 
 ## URL structure and language
@@ -475,7 +475,7 @@ Once the scans are uploaded, `npm run rates:set-archive-urls -- --base <bucket o
 | Component | Used on | Notes |
 | --- | --- | --- |
 | `Header` | all | Sticky, language toggle, WhatsApp + Call. Collapses to logo + Menu + WhatsApp on mobile |
-| `LeadForm` | all templates | JotForm embed via Worker; accepts `city`, `locality`, `context` props for prefill |
+| `LeadForm` | all templates | Posts to JotForm via `/api/lead` (a same-origin Cloudflare Pages Function); accepts `city`, `locality`, `context` props for prefill |
 | `WhatsAppButton` | all | Builds `wa.me` link with page-aware prefilled text |
 | `LocalityMap` | city hub, locality, project | Leaflet + OSM; markers from `localities.json`; optional GeoJSON overlay |
 | `KeyFacts` | locality | Definition-list table with source footnotes |
@@ -507,7 +507,7 @@ Design direction: probate.help's architecture adapted to land (measured tokens i
 | llms.txt | Plain index of the site for AI crawlers, regenerated at build |
 | Internal linking | Every locality links to city hub, 6 nearest localities, nearby projects, circle rate page. Every project links to affected localities. Every update links to affected localities and projects. Guides link to at least 3 data pages via MDX components |
 | Images | WebP with AVIF fallback, explicit width/height, alt text per language, lazy below the fold |
-| Performance | Target Lighthouse 95+ mobile. No third-party scripts except JotForm on form load, Leaflet on map pages, and Google Analytics 4 (`gtag.js` as a plain `async` script in `<head>`, production builds only, from `components/Analytics.tsx` in both root layouts), and Microsoft Clarity (`next/script` `afterInteractive`, same component and rules). Fonts self-hosted |
+| Performance | Target Lighthouse 95+ mobile. No third-party scripts except Leaflet on map pages, and Google Analytics 4 (`gtag.js` as a plain `async` script in `<head>`, production builds only, from `components/Analytics.tsx` in both root layouts), and Microsoft Clarity (`next/script` `afterInteractive`, same component and rules). JotForm's own script never loads — submissions go server-side, from `/api/lead` to JotForm's public submit endpoint. Fonts self-hosted |
 | Internal links | Plain `<a href>`, never `next/link`. The site does no client-side routing, so `scripts/drop-flight-payloads.ts` removes the per-route `index.txt` RSC payloads in postbuild — 453 MB of an export nothing fetched. That script fails the build if `next/link` is reintroduced, because its navigation would need them back |
 | Thin-page guard | Localities missing the minimum field set — which requires a sourced land use and a real narrative, not seeded ones — are excluded from the build, the sitemap, the footer index and every counter |
 | Source guard | Projects without a real notification are excluded from the build, the sitemap, every card and every counter (Template 4) |
@@ -542,7 +542,7 @@ The village rate pages sit outside that trajectory on purpose: they all build, b
 4. Guide template with MDX components and two sample guides.
 5. Tool shell and the stamp duty calculator.
 6. SEO layer: metadata, JSON-LD, sitemaps, hreflang, OG image generation, llms.txt.
-7. Lead form via JotForm + Worker, WhatsApp button, analytics.
+7. Lead form via JotForm + a Cloudflare Pages Function, WhatsApp button, analytics.
 8. Content load: real `localities.json` and `circleRates.json` from parsed PDFs, projects, updates, guides. This is the long pole and runs in parallel with 4–7.
 9. Full circle-rate model: `tehsils.json`, `data/rates/` per published schedule, the import and derive scripts, Templates 5a and 5b, the valuation rules and the calculator rebuilt on them.
 10. Cloudflare Pages deploy from GitHub, `NODE_VERSION=22`, `.in` → `.com` redirect, custom domain, Search Console for both trees.
