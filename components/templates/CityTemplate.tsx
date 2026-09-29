@@ -26,7 +26,7 @@ import {
 import { getGuides } from "@/lib/guides";
 import { formatNumber, localePath, pick, ui, type Locale } from "@/lib/i18n";
 import { builtSitePaths } from "@/lib/pages";
-import { getCurrentRateSchedule, getPublishedSros, getTehsilSummary } from "@/lib/rates";
+import { getCurrentRateSchedule, getPublishedSros, getTehsilSummary, getVillageCount } from "@/lib/rates";
 import { InForceNote } from "@/components/rates/InForceNote";
 import { rc } from "@/lib/rate-copy";
 import { rankLocalities } from "@/lib/scoring";
@@ -92,7 +92,10 @@ export function CityTemplate({ locale, cityId }: { locale: Locale; cityId: strin
   }
 
   const counters = [
-    { value: formatNumber(stats.localityCount), label: t.localities },
+    // No published locality pages: count the villages in the SRO lists instead of printing 0.
+    stats.localityCount > 0 || getVillageCount(city.id) === 0
+      ? { value: formatNumber(stats.localityCount), label: t.localities }
+      : { value: formatNumber(getVillageCount(city.id)), label: t.villagesWithRates },
     { value: formatNumber(stats.projectCount), label: t.projectsTracked },
   ];
 

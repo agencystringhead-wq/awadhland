@@ -30,6 +30,7 @@ import {
   getRowsByTehsil,
   getTehsilSummary,
   getTehsilsByCity,
+  getVillageCount,
   hasUniqueRateProfile,
   isRowIndexable,
   rowEffectiveFrom,
@@ -297,16 +298,24 @@ export function getPages(locale: Locale): PageEntry[] {
     const ranges = cityLocalities.flatMap((l) => (l.askingRange ? [l.askingRange] : []));
     const range = ranges.length ? `₹${formatNumber(Math.min(...ranges.map((r) => r.low)))}–${formatNumber(Math.max(...ranges.map((r) => r.high)))}` : null;
     const projectCount = getPublishedProjectsByCity(c.id).length;
+    // What the city has to count. With no published locality pages it is the villages in its SRO
+    // lists (lib/rates.ts), and with neither there is no count to print -- never "0 localities".
+    const villageCount = cityLocalities.length === 0 ? getVillageCount(c.id) : 0;
+    const coverage = cityLocalities.length > 0
+      ? { hi: n(cityLocalities.length, "इलाक़े", "इलाक़ों"), en: n(cityLocalities.length, "locality", "localities"), ogHi: `${cityLocalities.length} इलाक़े`, ogEn: `${cityLocalities.length} localities` }
+      : villageCount > 0
+        ? { hi: `${formatNumber(villageCount)} गाँवों`, en: `${formatNumber(villageCount)} villages`, ogHi: `${formatNumber(villageCount)} गाँव`, ogEn: `${formatNumber(villageCount)} villages` }
+        : null;
     add({
       kind: "city",
       sitePath: `/${c.id}/`,
       title: hi ? `${name} में ज़मीन: सर्किल रेट, इलाक़े और प्रोजेक्ट ${YEAR} · ${site}` : `${name} land: circle rates, localities and projects ${YEAR} · ${site}`,
       description: hi
-        ? `${name} के ${n(cityLocalities.length, "इलाक़े", "इलाक़ों")} का सर्किल रेट। ${range ? `माँगा जा रहा दाम ${range} प्रति वर्ग फ़ुट। ` : ""}${n(projectCount, "सरकारी प्रोजेक्ट", "सरकारी प्रोजेक्ट")}, दाम का रुझान और ब्रोकर की बात।`
-        : `Circle rates for ${n(cityLocalities.length, "locality", "localities")} in ${name}. ${range ? `Asking ${range} per sq ft. ` : ""}${n(projectCount, "government project", "government projects")}, a price trend and the broker's note.`,
+        ? `${name} ${coverage ? `के ${coverage.hi} का` : "का"} सर्किल रेट। ${range ? `माँगा जा रहा दाम ${range} प्रति वर्ग फ़ुट। ` : ""}${n(projectCount, "सरकारी प्रोजेक्ट", "सरकारी प्रोजेक्ट")}, दाम का रुझान और ब्रोकर की बात।`
+        : `Circle rates${coverage ? ` for ${coverage.en}` : ""} in ${name}. ${range ? `Asking ${range} per sq ft. ` : ""}${n(projectCount, "government project", "government projects")}, a price trend and the broker's note.`,
       lastmod: newest([c.updatedAt, ...cityLocalities.map((l) => l.updatedAt)]),
       alternate: sameAlternate(locale, `/${c.id}/`),
-      og: { title: name, subtitle: hi ? `${cityLocalities.length} इलाक़े · ${projectCount} प्रोजेक्ट` : `${cityLocalities.length} localities · ${projectCount} projects`, chip: range ? `${range} ${hi ? "प्रति वर्ग फ़ुट" : "per sq ft"}` : undefined },
+      og: { title: name, subtitle: hi ? `${coverage ? `${coverage.ogHi} · ` : ""}${projectCount} प्रोजेक्ट` : `${coverage ? `${coverage.ogEn} · ` : ""}${projectCount} projects`, chip: range ? `${range} ${hi ? "प्रति वर्ग फ़ुट" : "per sq ft"}` : undefined },
       ogSlug: c.id,
     });
 

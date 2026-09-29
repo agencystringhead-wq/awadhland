@@ -80,7 +80,7 @@ export function Footer({ locale, cities, localities, broker }: FooterProps) {
                   </a>
                 </h2>
                 <p className="mb-4 border-b border-line pb-3.5 pt-1 text-[11.5px] leading-[1.35] text-muted">
-                  {list.length > 0 ? `${list.length} ${t.localities}` : `${getPublishedSros(c.id).length} ${t.sroLists}`}
+                  {list.length > 0 ? `${list.length} ${t.localities}` : getPublishedSros(c.id).length > 0 ? `${getPublishedSros(c.id).length} ${t.sroLists}` : null}
                   {/* Only cities whose schedule is sourced have a rate page (lib/guards.ts). */}
                   {built.has(`/${c.id}/circle-rates/`) && (
                     <>
