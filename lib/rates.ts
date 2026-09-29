@@ -372,6 +372,9 @@ export function getPublishedSros(cityId: string): { id: string; name: string; na
     .filter((t) => t.rowCount > 0);
 }
 
+/** Villages and colonies with a circle rate in a city: the rows of its published SRO lists. */
+export const getVillageCount = (cityId: string): number => getPublishedSros(cityId).reduce((n, s) => n + s.rowCount, 0);
+
 export const getIndexableRowIds = () => indexableIds;
 
 /* ------------------------------------------------------- locality rate view */

@@ -1,5 +1,6 @@
 import type { Locale } from "@/lib/i18n";
 import { formatNumber, localePath, pick, ui } from "@/lib/i18n";
+import type { getPublishedSros } from "@/lib/rates";
 import { rankLocalities } from "@/lib/scoring";
 import type { City, Locality } from "@/lib/schemas";
 
@@ -11,6 +12,12 @@ export type CityCardProps = {
     askingRange: { low: number; high: number } | null;
     topLocalities: Locality[];
   };
+  /**
+   * A city with no published locality pages falls back to its sub-registrar data (lib/rates.ts
+   * getPublishedSros / getVillageCount): `sros` are the top offices by row count that have a built
+   * page, `sroCount` how many offices there are in all.
+   */
+  sroFallback?: { villageCount: number; sroCount: number; sros: ReturnType<typeof getPublishedSros> };
   /** Ayodhya renders first and spans two columns (spec Template 1, section 4) */
   hero?: boolean;
   labels: { seeCity: string; topAreas: string; priceBand: string };
@@ -18,10 +25,11 @@ export type CityCardProps = {
 
 /** City card: name in both scripts, two-line market read, asking range, three areas, link.
  * The areas are numbered and carry a score only when one can be computed (lib/scoring.ts). */
-export function CityCard({ locale, city, stats, hero = false, labels }: CityCardProps) {
+export function CityCard({ locale, city, stats, sroFallback, hero = false, labels }: CityCardProps) {
   const t = ui[locale];
   const areas = rankLocalities(stats.topLocalities);
   const name = pick(locale, city.name, city.nameHi);
+  const useSros = stats.localityCount === 0 && sroFallback !== undefined && sroFallback.villageCount > 0;
   return (
     <article data-component="CityCard" className={`card flex flex-col p-7 ${hero ? "md:col-span-2" : ""}`}>
       <div className="flex flex-wrap items-baseline gap-x-3">
@@ -45,11 +53,29 @@ export function CityCard({ locale, city, stats, hero = false, labels }: CityCard
           </div>
         )}
         <div className="flex flex-col-reverse gap-1">
-          <dt className="caption-mono">{t.localities}</dt>
-          <dd className="stat-number">{stats.localityCount}</dd>
+          <dt className="caption-mono">{useSros ? t.villagesWithRates : t.localities}</dt>
+          <dd className="stat-number">{formatNumber(useSros ? sroFallback!.villageCount : stats.localityCount)}</dd>
         </div>
       </dl>
-      {areas.list.length > 0 && (
+      {useSros && sroFallback!.sros.length > 0 && (
+        <div className="mt-5">
+          <p className="caption-mono">{t.sroOffices}</p>
+          <ul className="mt-2 divide-y divide-line">
+            {sroFallback!.sros.map((s) => (
+              <li key={s.id} className="flex items-baseline gap-3 py-2 text-[15px]">
+                <a href={localePath(locale, `/${city.id}/circle-rates/${s.id}/`)} className="text-ink no-underline hover:text-accent-deep">
+                  {pick(locale, s.name, s.nameHi)}
+                </a>
+                <span className="ml-auto font-mono text-xs text-muted tabular-nums">{formatNumber(s.rowCount)}</span>
+              </li>
+            ))}
+          </ul>
+          <a href={localePath(locale, `/${city.id}/circle-rates/`)} className="mt-2 inline-block text-[13px] text-accent-deep no-underline hover:underline">
+            {t.allOffices.replace("{n}", formatNumber(sroFallback!.sroCount))}
+          </a>
+        </div>
+      )}
+      {!useSros && areas.list.length > 0 && (
         <div className="mt-5">
           <p className="caption-mono">{areas.ranked ? labels.topAreas : t.areas}</p>
           <ol className="mt-2 divide-y divide-line">

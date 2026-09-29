@@ -4,7 +4,7 @@
  * typed. The Header, MegaMenu, mobile menu and Footer all read from here.
  */
 import { getBroker, getBuildableLocalities, getCities, getCurrentCircleRateSchedule, getPublishedProjects, getReviews, getUpdates } from "./data";
-import { getCurrentRateSchedule, getPublishedSros } from "./rates";
+import { getCurrentRateSchedule, getPublishedSros, getVillageCount } from "./rates";
 import { getGuides, heroImageSrc } from "./guides";
 import { formatDate, formatNumber, localePath, pick, ui, type Locale } from "./i18n";
 import type { City, TeamMember } from "./schemas";
@@ -36,7 +36,7 @@ export type NavItem = {
 export type NavCopy = {
   strip: { taking: string; hours: string; sourced: string; rera: string; years: string };
   brand: { est: string; whatsappLabel: string; call: string; whatsapp: string; menu: string };
-  cells: { localities: (n: number) => string; rows: (n: number) => string; rateList: (n: number) => string; circleRates: string; circleRatesSub: (n: number) => string; guides: string; guidesSub: (n: number) => string; tools: string; toolsSub: string; updates: string; updatesSub: string; about: string; aboutSub: (first: string) => string };
+  cells: { localities: (n: number) => string; villages: (n: number) => string; rows: (n: number) => string; rateList: (n: number) => string; circleRates: string; circleRatesSub: (n: number) => string; guides: string; guidesSub: (n: number) => string; tools: string; toolsSub: string; updates: string; updatesSub: string; about: string; aboutSub: (first: string) => string };
   panel: { top: string; byArea: string; sros: string; projectsRates: string; all: (n: number) => string; seeAll: string; allProjects: string; circleRatesOf: (c: string) => string; fullTable: string; calculator: string; revisions: string; how: string; effective: string; buying: string; legal: string; investment: string; allGuides: string; tryIt: string; allUpdates: string; byCity: string; byType: string; methodology: string; howWeWork: string; reviews: string; contact: string; updated: string };
 };
 
@@ -47,6 +47,7 @@ export const navCopy: Record<Locale, NavCopy> = {
     cells: {
       localities: (n) => `${n} ${n === 1 ? "locality" : "localities"}`,
       rows: (n) => `${n} ${n === 1 ? "row" : "rows"}`,
+      villages: (n) => `${formatNumber(n)} ${n === 1 ? "village" : "villages"} with circle rates`,
       rateList: (n) => `${n} sub-registrar ${n === 1 ? "list" : "lists"}`,
       circleRates: "Circle rates",
       circleRatesSub: (n) => `${n} ${n === 1 ? "city" : "cities"}, sourced`,
@@ -94,6 +95,7 @@ export const navCopy: Record<Locale, NavCopy> = {
     cells: {
       localities: (n) => `${n} इलाक़े`,
       rows: (n) => `${n} पंक्तियाँ`,
+      villages: (n) => `सर्किल रेट वाले ${formatNumber(n)} गाँव`,
       rateList: (n) => `${n} उप निबंधक सूचियाँ`,
       circleRates: "सर्किल रेट",
       circleRatesSub: (n) => `${n} शहर, स्रोत सहित`,
@@ -219,7 +221,8 @@ export function getNav(locale: Locale): NavItem[] {
     items.push({
       key: city.id,
       label: name,
-      sub: ls.length > 0 ? c.cells.localities(ls.length) : sroColumn ? c.cells.rateList(sroColumn.links.length) : c.cells.localities(0),
+      // Never "0 localities": a city with none falls back to its SRO lists, and with neither has no sublabel.
+      sub: ls.length > 0 ? c.cells.localities(ls.length) : sroColumn && sroColumn.links.length > 0 ? c.cells.rateList(sroColumn.links.length) : "",
       href: p(`/${city.id}/`),
       panel: {
         kind: "columns",
@@ -237,7 +240,11 @@ export function getNav(locale: Locale): NavItem[] {
         image: {
           src: `/images/cities/${city.id}.webp`,
           alt: name,
-          caption: `${range ? `${range} ${locale === "hi" ? "प्रति वर्ग फ़ुट" : "per sq ft"} · ` : ""}${c.cells.localities(ls.length)} · ${c.panel.updated} ${formatDate(lastmod, locale)}`,
+          caption: [
+            range ? `${range} ${locale === "hi" ? "प्रति वर्ग फ़ुट" : "per sq ft"}` : null,
+            ls.length > 0 ? c.cells.localities(ls.length) : getVillageCount(city.id) > 0 ? c.cells.villages(getVillageCount(city.id)) : null,
+            `${c.panel.updated} ${formatDate(lastmod, locale)}`,
+          ].filter(Boolean).join(" · "),
           href: p(`/${city.id}/`),
         },
       },

@@ -11,6 +11,8 @@ import { WhyWeExist } from "@/components/WhyWeExist";
 import { fill, homeCopy, homeStory } from "@/lib/content";
 import { getBroker, getBuildableLocalities, getCircleRateSchedules, getCities, getCityStats, getPublishedProjects, getReviews, getUpdates } from "@/lib/data";
 import { getGuides } from "@/lib/guides";
+import { builtSitePaths } from "@/lib/pages";
+import { getPublishedSros, getVillageCount } from "@/lib/rates";
 import { formatDate, formatNumber, localePath, ui, type Locale } from "@/lib/i18n";
 import { brokerIsRegistered, withoutUnbackedReraClaim } from "@/lib/guards";
 import { toolCardPath } from "@/lib/tools";
@@ -86,9 +88,13 @@ export function HomeTemplate({ locale }: { locale: Locale }) {
       {/* C4. Cities in one row: Ayodhya spans two of four columns, Lucknow and Gorakhpur one each */}
       <Section size="lg" tone="surface" hairline {...story.cities}>
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-          {cities.map((c, i) => (
-            <CityCard key={c.id} locale={locale} city={c} stats={getCityStats(c.id, locale)} hero={i === 0} labels={story.cities} />
-          ))}
+          {cities.map((c, i) => {
+            // Only offices with a built page are linked, so the card never points at a 404.
+            const built = builtSitePaths(locale);
+            const offices = getPublishedSros(c.id).filter((s) => built.has(`/${c.id}/circle-rates/${s.id}/`));
+            const sroFallback = { villageCount: getVillageCount(c.id), sroCount: offices.length, sros: [...offices].sort((a, b) => b.rowCount - a.rowCount).slice(0, 3) };
+            return <CityCard key={c.id} locale={locale} city={c} stats={getCityStats(c.id, locale)} sroFallback={sroFallback} hero={i === 0} labels={story.cities} />;
+          })}
         </div>
       </Section>
 
