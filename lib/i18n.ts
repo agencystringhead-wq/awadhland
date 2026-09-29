@@ -242,6 +242,10 @@ export const ui = {
     toolFallback: "The calculator needs JavaScript. The circle rates it uses are on the city's circle-rate page, and the stamp duty rules are in the table below it.",
     howThisToolWorks: "How this calculator works",
     hours: "Mon–Sat 9a–7p",
+    address: "Address",
+    officeHours: "Hours",
+    getDirections: "Get directions →",
+    contactLede: "One office, one broker, one phone number. Call, WhatsApp, email or leave your details below — a real person replies within the hour.",
     allLocalitiesIn: "All localities in",
     footerBlurb: "Circle rates, asking prices, distances and government projects for every locality in Awadh, each with a source and a date. Then a UP RERA-registered broker on WhatsApp.",
     /** Same blurb without the registration claim, used while no UP RERA number is on record. */
@@ -435,6 +439,10 @@ export const ui = {
     toolFallback: "कैलकुलेटर के लिए जावास्क्रिप्ट चाहिए। इसमें लगने वाले सर्किल रेट शहर के सर्किल रेट पेज पर हैं, और स्टाम्प ड्यूटी के नियम उसके नीचे की तालिका में।",
     howThisToolWorks: "यह कैलकुलेटर कैसे काम करता है",
     hours: "सोम–शनि 9–7",
+    address: "पता",
+    officeHours: "समय",
+    getDirections: "रास्ता देखें →",
+    contactLede: "एक दफ़्तर, एक ब्रोकर, एक फ़ोन नंबर। कॉल करें, व्हाट्सऐप करें, ईमेल भेजें या नीचे अपनी जानकारी छोड़ें — असली व्यक्ति एक घंटे में जवाब देगा।",
     allLocalitiesIn: "सभी इलाक़े:",
     footerBlurb: "अवध के हर इलाक़े का सर्किल रेट, माँगा जा रहा दाम, दूरी और सरकारी प्रोजेक्ट, हर एक स्रोत और तारीख़ के साथ। फिर व्हाट्सऐप पर यूपी रेरा पंजीकृत ब्रोकर।",
     footerBlurbUnregistered:

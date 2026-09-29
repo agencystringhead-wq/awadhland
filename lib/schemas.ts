@@ -882,6 +882,22 @@ export const teamMemberSchema = z
     yearsActive: z.number().int().min(0),
     phone: z.string().regex(/^\+91\d{10}$/, "expected +91 followed by 10 digits"),
     whatsapp: z.string().regex(/^91\d{10}$/, "expected wa.me format: 91 followed by 10 digits"),
+    email: z.string().email(),
+    /** Office location for the Contact page and the RealEstateAgent JSON-LD's PostalAddress. */
+    officeAddress: z
+      .object({
+        street: z.string().min(1),
+        streetHi: z.string().min(1),
+        locality: z.string().min(1),
+        localityHi: z.string().min(1),
+        district: z.string().min(1),
+        districtHi: z.string().min(1),
+        state: z.string().min(1),
+        stateHi: z.string().min(1),
+        postalCode: z.string().regex(/^\d{6}$/, "expected a 6-digit PIN code"),
+        country: z.literal("IN"),
+      })
+      .strict(),
     photo: z.string().min(1),
     /** Larger portrait for the About page's "In his own words" block; WebP with a JPG fallback */
     portrait: z

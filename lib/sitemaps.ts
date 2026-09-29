@@ -57,6 +57,7 @@ export function llmsTxt(): string {
     { kind: "updates", en: "Updates", hi: "अपडेट" },
     { kind: "update", en: "Update entries", hi: "अपडेट एंट्री" },
     { kind: "about", en: "About", hi: "हमारे बारे में" },
+    { kind: "contact", en: "Contact", hi: "संपर्क" },
   ];
   const lines: string[] = [
     "# Awadhland",

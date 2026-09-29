@@ -62,6 +62,7 @@ export type PageKind =
   | "updates"
   | "update"
   | "about"
+  | "contact"
   /** hand-written standard pages whose copy is data: /privacy/, /terms/ */
   | "standard";
 
@@ -252,6 +253,25 @@ export function getPages(locale: Locale): PageEntry[] {
       chip: reraOk ? "UP RERA" : `${broker.yearsActive} ${hi ? "वर्ष" : "years"}`,
     },
     ogSlug: "about",
+  });
+
+  /* contact */
+  add({
+    kind: "contact",
+    sitePath: "/contact/",
+    title: hi
+      ? `${site} से संपर्क करें: फ़ोन, व्हाट्सऐप, ईमेल और अयोध्या ऑफ़िस का पता`
+      : `Contact ${site}: phone, WhatsApp, email and the Ayodhya office address`,
+    description: hi
+      ? `अयोध्या में ${site} का दफ़्तर: पता, फ़ोन, व्हाट्सऐप और ईमेल, साथ ही प्लॉट के बारे में पूछने का फ़ॉर्म। असली व्यक्ति एक घंटे में जवाब देता है, सोम–शनि 9–7।`
+      : `${site}'s Ayodhya office: address, phone, WhatsApp and email, plus a form to ask about a plot. A real person replies within the hour, Mon–Sat 9a–7p IST.`,
+    lastmod: broker.updatedAt,
+    alternate: sameAlternate(locale, "/contact/"),
+    og: {
+      title: hi ? "संपर्क करें" : "Contact Awadhland",
+      subtitle: hi ? "फ़ोन, व्हाट्सऐप, ईमेल और पता" : "Phone, WhatsApp, email and address",
+    },
+    ogSlug: "contact",
   });
 
   /* standard pages (privacy, terms) — copy lives in data/standardPages.json */

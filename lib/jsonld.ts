@@ -22,12 +22,28 @@ export const organization = (): JsonLdObject =>
 
 export function realEstateAgent(broker: TeamMember, cities: Pick<City, "name" | "district" | "state">[], reviews?: Reviews): JsonLdObject {
   const sameAs = [broker.reraUrl, reviews?.profileUrl].filter((x): x is string => Boolean(x));
+  const a = broker.officeAddress;
   return ctx({
     "@type": "RealEstateAgent",
     "@id": `${SITE_URL}/#agent`,
     name: "Awadhland",
     url: `${SITE_URL}/`,
     telephone: broker.phone,
+    email: broker.email,
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: a.street,
+      addressLocality: a.locality,
+      addressRegion: a.state,
+      postalCode: a.postalCode,
+      addressCountry: a.country,
+    },
+    openingHoursSpecification: {
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+      opens: "09:00",
+      closes: "19:00",
+    },
     employee: { "@id": `${SITE_URL}/about/#broker` },
     areaServed: cities.map((c) => ({ "@type": "City", name: c.name, containedInPlace: { "@type": "State", name: "Uttar Pradesh" } })),
     parentOrganization: { "@id": `${SITE_URL}/#organization` },
