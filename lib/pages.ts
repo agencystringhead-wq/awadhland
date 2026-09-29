@@ -63,6 +63,8 @@ export type PageKind =
   | "update"
   | "about"
   | "contact"
+  /** /sitemap/, the human-readable index of every indexable page */
+  | "sitemap"
   /** hand-written standard pages whose copy is data: /privacy/, /terms/ */
   | "standard";
 
@@ -600,6 +602,20 @@ export function getPages(locale: Locale): PageEntry[] {
       ogSlug: `update--${u.id}`,
     });
   }
+
+  /* sitemap: the human-readable index; lists every indexable page, so lastmod is the newest of them */
+  add({
+    kind: "sitemap",
+    sitePath: "/sitemap/",
+    title: hi ? `साइटमैप: ${site} के सभी शहर, इलाक़े, प्रोजेक्ट, गाइड और टूल` : `Sitemap: every city, locality, project, guide and tool on ${site}`,
+    description: hi
+      ? `${site} के हर शहर, इलाक़े, सर्किल रेट पेज, सरकारी प्रोजेक्ट, गाइड, टूल और अपडेट की एक सूची। हर पेज सीधे खोलें, स्रोत और तारीख़ के साथ।`
+      : `One list of every city, locality, circle-rate page, government project, guide, tool and update on ${site}. Open any page directly, each with its source and date.`,
+    lastmod: newest(entries.filter((e) => !e.noindex).map((e) => e.lastmod)),
+    alternate: sameAlternate(locale, "/sitemap/"),
+    og: { title: hi ? "साइटमैप" : "Sitemap", subtitle: hi ? "साइट के सभी पेज एक जगह" : "Every page on the site, in one list" },
+    ogSlug: "sitemap",
+  });
 
   cache.set(locale, entries);
   return entries;

@@ -47,6 +47,7 @@ export function Footer({ locale, cities, localities, broker }: FooterProps) {
     { label: t.disclaimer, sitePath: "/disclaimer/" },
     { label: t.privacy, sitePath: "/privacy/" },
     { label: t.terms, sitePath: "/terms/" },
+    { label: t.sitemap, sitePath: "/sitemap/" },
   ]);
   const col = "md:border-l md:border-line md:px-6";
   const link = "text-[13.5px] leading-[1.32] text-ink-soft no-underline hover:text-accent-deep";
