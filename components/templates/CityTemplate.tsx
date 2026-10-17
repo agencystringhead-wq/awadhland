@@ -191,7 +191,7 @@ export function CityTemplate({ locale, cityId }: { locale: Locale; cityId: strin
             linkableLocalityIds={[...builtLocalityIds(locale)]}
             compact
           />
-          <SourceStamp locale={locale} sources={schedule.sources} updatedAt={schedule.updatedAt} effectiveFrom={schedule.effectiveFrom} />
+          <SourceStamp locale={locale} sources={schedule.sources} updatedAt={schedule.updatedAt} effectiveFrom={schedule.effectiveFrom} ratesAsOf />
         </Section>
       )}
 
@@ -219,7 +219,7 @@ export function CityTemplate({ locale, cityId }: { locale: Locale; cityId: strin
               </li>
             ))}
           </ul>
-          <SourceStamp locale={locale} sources={fullList.sources} updatedAt={fullList.updatedAt} effectiveFrom={fullList.effectiveFrom} />
+          <SourceStamp locale={locale} sources={fullList.sources} updatedAt={fullList.updatedAt} effectiveFrom={fullList.effectiveFrom} ratesAsOf />
         </Section>
       )}
 

@@ -8,11 +8,18 @@ export type SourceStampProps = {
   updatedAt: string;
   /** e.g. circle rate effectiveFrom */
   effectiveFrom?: string;
+  /**
+   * Label the date "Circle rates as of …" instead of "Page updated". For a rate section on a page that
+   * has its own page-level stamp (the city hub), so two stamps never both claim to be the page's date.
+   */
+  ratesAsOf?: boolean;
 };
 
 /** "Source · effective date · page updated". Required on every data page (CLAUDE.md). */
-export function SourceStamp({ locale, sources, updatedAt, effectiveFrom }: SourceStampProps) {
+export function SourceStamp({ locale, sources, updatedAt, effectiveFrom, ratesAsOf }: SourceStampProps) {
   const t = ui[locale];
+  const [before, after] = t.ratesAsOf.split("{date}");
+  const date = <time dateTime={updatedAt}>{formatDate(updatedAt, locale)}</time>;
   return (
     <p data-component="SourceStamp" className="mt-8 border-t border-line pt-4 text-sm text-muted">
       {t.source}:{" "}
@@ -30,7 +37,18 @@ export function SourceStamp({ locale, sources, updatedAt, effectiveFrom }: Sourc
           · {t.effective} <time dateTime={effectiveFrom}>{formatDate(effectiveFrom, locale)}</time>
         </>
       )}{" "}
-      · {t.pageUpdated} <time dateTime={updatedAt}>{formatDate(updatedAt, locale)}</time>
+      ·{" "}
+      {ratesAsOf ? (
+        <>
+          {before}
+          {date}
+          {after}
+        </>
+      ) : (
+        <>
+          {t.pageUpdated} {date}
+        </>
+      )}
     </p>
   );
 }
