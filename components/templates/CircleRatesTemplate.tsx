@@ -72,7 +72,7 @@ export function CircleRatesTemplate({ locale, cityId }: { locale: Locale; cityId
   const listJoin = (xs: string[], l: Locale) => (xs.length < 2 ? xs.join("") : `${xs.slice(0, -1).join(", ")} ${l === "hi" ? "और" : "and"} ${xs.at(-1)}`);
 
   return (
-    <PageShell locale={locale} alternate={sameAlternate(locale, `/${city.id}/circle-rates/`)} pageLabel={pageLabel}>
+    <PageShell locale={locale} alternate={sameAlternate(locale, `/${city.id}/circle-rates/`)} pageLabel={pageLabel} lastUpdated={!current}>
       {/* 1. Header */}
       <section className="border-b border-line bg-cream-deep/60">
         <div className="container-site pb-8 md:pb-10">

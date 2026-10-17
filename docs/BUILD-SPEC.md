@@ -86,7 +86,8 @@ One per city (`/ayodhya/`, `/lucknow/`, `/gorakhpur/`). Hand-authored intro and 
 | 8 | Guides for this city | Guides tagged with `cityId` | MDX frontmatter |
 | 9 | Recent updates | Last 5 archive entries tagged with `cityId` | `updates.json` |
 | 10 | All localities | Alphabetical link grid, grouped by tehsil or zone | `localities.json` |
-| 11 | Lead form | Prefilled with city | JotForm |
+| 11 | FAQ | Five Q&As, asked only where the city has the data to answer (circle rates, coverage, what to check, NRIs, contact), rendered as FAQPage schema | `cityFaq` in `lib/faq.ts` |
+| 12 | Lead form | Prefilled with city | JotForm |
 
 **High-potential score (published on `/methodology/`)**
 
@@ -323,6 +324,8 @@ All standard pages exist in both languages. The disclaimer and RERA disclosure a
 
 Trust is built in two places: a set of blocks that repeat across the site, and a full About page at `/about/` (Hindi at `/hi/about/`). Modelled on probate.help, where the named person, licence number, plain-English promise and third-party reviews all sit on the homepage, and the About page goes deeper.
 
+**Entity block.** The About page opens with one sentence defining the business (`entityDescription` in `lib/entity.ts`, the same text as the Organization `description` and the llms.txt summary), then what we do, the cities, who we help, how to contact us and a short FAQ with FAQPage schema. The Hindi text is written, not translated, and should be read by the broker.
+
 **Trust blocks (shared components, used on homepage, city hubs and guides)**
 
 | Block | Content | Placement |
@@ -504,10 +507,10 @@ Design direction: probate.help's architecture adapted to land (measured tokens i
 | Meta descriptions | Per language, 140–155 chars, generated from record fields for data pages, hand-written for guides |
 | Canonical | Self-referencing on every page, absolute URL |
 | hreflang | `en-IN`, `hi-IN`, `x-default` (→ en) on every paired page |
-| JSON-LD | `Organization` + `RealEstateAgent` (site-wide), `BreadcrumbList` (all), `FAQPage` (locality, guide, tool, circle rate), `Article` (guide), `NewsArticle` (update, `datePublished` = the entry date), `Place` with `geo` (locality), `Person` (broker) |
+| JSON-LD | One business node, `@id` `/#organization`, typed `Organization` + `RealEstateAgent` (site-wide, with `name`, `alternateName`, `description`, `telephone`, `areaServed` as City entities, `knowsAbout`, `sameAs`; everything else refers to it by that `@id`), `WebPage` with `dateModified` (every page, from the same `lastmod` as the sitemap), `BreadcrumbList` (all), `FAQPage` (city, locality, guide, tool, circle rate, update article, About), `Article` (guide), `NewsArticle` (update, `datePublished` = the entry date), `Place` with `geo` (locality), `Person` (broker) |
 | Sitemaps | `sitemap-index.xml` → `sitemap-en.xml`, `sitemap-hi.xml`, `sitemap-updates.xml`; `lastmod` from `updatedAt` |
-| robots.txt | Allow all; sitemap line; no crawl of `/api/` |
-| llms.txt | Plain index of the site for AI crawlers, regenerated at build |
+| robots.txt | Search and AI crawlers named and allowed (Googlebot, Bingbot, GPTBot, OAI-SearchBot, ChatGPT-User, ClaudeBot, Claude-SearchBot, Claude-User, PerplexityBot, Perplexity-User, Google-Extended, Applebot, Applebot-Extended); `*` allowed; sitemap line; no crawl of `/api/` |
+| llms.txt | Short markdown summary (what AwadhLand is, the cities, key pages in English and Hindi), regenerated at build; the full page index is `/llms-full.txt` |
 | Internal linking | Every locality links to city hub, 6 nearest localities, nearby projects, circle rate page. Every project links to affected localities. Every update links to affected localities and projects. Guides link to at least 3 data pages via MDX components |
 | Images | WebP with AVIF fallback, explicit width/height, alt text per language, lazy below the fold |
 | Performance | Target Lighthouse 95+ mobile. No third-party scripts except Leaflet on map pages, and Google Analytics 4 (`gtag.js` as a plain `async` script in `<head>`, production builds only, from `components/Analytics.tsx` in both root layouts), and Microsoft Clarity (`next/script` `afterInteractive`, same component and rules). JotForm's own script never loads — submissions go server-side, from `/api/lead` to JotForm's public submit endpoint. Fonts self-hosted |

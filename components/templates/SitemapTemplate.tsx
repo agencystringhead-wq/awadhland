@@ -44,7 +44,7 @@ export function SitemapTemplate({ locale }: { locale: Locale }) {
   const sub = "label-mono mb-3 mt-7";
 
   return (
-    <PageShell locale={locale} alternate={sameAlternate(locale, "/sitemap/")} pageLabel={t.sitemap}>
+    <PageShell locale={locale} alternate={sameAlternate(locale, "/sitemap/")} pageLabel={t.sitemap} lastUpdated>
       <section className="border-b border-line bg-cream-deep/60">
         <div className="container-site pb-8 md:pb-10">
           <Breadcrumb items={[{ label: t.home, href: localePath(locale, "/") }, { label: t.sitemap }]} />

@@ -159,3 +159,72 @@ export function circleRateFaq(city: City, schedule: CircleRateSchedule, revision
         },
       ];
 }
+
+/**
+ * City hub Q&As (FAQPage on every city page). Only questions the record can answer are asked: the
+ * circle-rate and coverage answers depend on what is published for that city, so a city with no
+ * rate page never claims one. The checks and contact answers are the same for every city.
+ */
+export function cityFaq(
+  city: City,
+  locale: Locale,
+  data: { localityNames: string[]; villageCount: number; sroCount: number; effectiveFrom?: string; hasRatesPage: boolean; phone: string; email: string },
+): FAQItem[] {
+  const name = pick(locale, city.name, city.nameHi);
+  const hi = locale === "hi";
+  const items: FAQItem[] = [];
+
+  if (data.hasRatesPage) {
+    items.push(
+      hi
+        ? {
+            q: `${name} में सर्किल रेट कहाँ देखें?`,
+            a: `AwadhLand के ${name} सर्किल रेट पेज पर ज़िले के प्रकाशित रेट हर एक के स्रोत और तारीख़ के साथ मिलते हैं${data.effectiveFrom ? ` (लागू: ${formatDate(data.effectiveFrom, "hi")})` : ""}। किसी गाँव या इलाक़े का रेट सीधे खोजने के लिए सर्किल रेट लुकअप भी है।`,
+          }
+        : {
+            q: `Where can I check circle rates in ${name}?`,
+            a: `AwadhLand's ${name} circle rate page lists the rates published for the district, each with its source and date${data.effectiveFrom ? `, effective ${formatDate(data.effectiveFrom, "en")}` : ""}. You can also search a village or locality directly in the circle rate lookup.`,
+          },
+    );
+  }
+
+  if (data.localityNames.length > 0) {
+    const sample = data.localityNames.slice(0, 3).join(", ");
+    items.push(
+      hi
+        ? { q: `AwadhLand ${name} के किन इलाक़ों को कवर करता है?`, a: `${name} के ${formatNumber(data.localityNames.length)} इलाक़ों के पेज हैं, जैसे ${sample}। हर इलाक़े के पेज पर सर्किल रेट, दूरी और आसपास के सरकारी प्रोजेक्ट स्रोत और तारीख़ के साथ दिए हैं।` }
+        : { q: `Which areas of ${name} does AwadhLand cover?`, a: `AwadhLand has pages for ${formatNumber(data.localityNames.length)} localities in ${name}, including ${sample}. Each locality page gives the circle rate, distances and nearby government projects, with sources and dates.` },
+    );
+  } else if (data.villageCount > 0) {
+    items.push(
+      hi
+        ? { q: `AwadhLand ${name} में कितने गाँवों के सर्किल रेट देता है?`, a: `${name} के ${formatNumber(data.sroCount)} उप निबंधक कार्यालयों की सूचियों से ${formatNumber(data.villageCount)} गाँवों के सर्किल रेट, हर एक के स्रोत और तारीख़ के साथ।` }
+        : { q: `How many villages in ${name} does AwadhLand list circle rates for?`, a: `${formatNumber(data.villageCount)} villages across ${formatNumber(data.sroCount)} sub-registrar offices in ${name}, each rate with its source and date.` },
+    );
+  }
+
+  items.push(
+    hi
+      ? {
+          q: `${name} में ज़मीन ख़रीदने से पहले क्या जाँचना चाहिए?`,
+          a: `टाइटल किसके नाम है, मास्टर प्लान में भू-उपयोग क्या है, सर्किल रेट और उसके हिसाब से स्टाम्प ड्यूटी, और रास्ता क़ानूनी है या नहीं। AwadhLand ये जाँचें आपके पैसा देने से पहले आपके साथ करता है।`,
+        }
+      : {
+          q: `What should I check before buying land in ${name}?`,
+          a: `Who holds the title, what the land use is on the master plan, the circle rate and the stamp duty that follows, and whether the road access is legal. AwadhLand runs these checks with you before you pay.`,
+        },
+    hi
+      ? {
+          q: `क्या NRI ${name} में AwadhLand की मदद से ज़मीन ख़रीद सकते हैं?`,
+          a: `जी हाँ, NRI उन ख़रीदारों में हैं जिनकी हम मदद करते हैं। NRI कौन-सी ज़मीन ख़रीद सकता है, यह ज़मीन की श्रेणी और लागू नियमों पर निर्भर करता है, इसलिए हर प्लॉट के लिए हम यह पहले पक्का करते हैं।`,
+        }
+      : {
+          q: `Can NRIs buy land in ${name} with AwadhLand's help?`,
+          a: `Yes, NRIs are among the buyers we help. What an NRI may buy depends on the category of the land and the rules in force, so we confirm that for each plot first.`,
+        },
+    hi
+      ? { q: `${name} की ज़मीन के बारे में AwadhLand से संपर्क कैसे करें?`, a: `${data.phone} पर कॉल या व्हाट्सऐप करें, या ${data.email} पर लिखें। हम व्हाट्सऐप पर एक घंटे के भीतर जवाब देते हैं।` }
+      : { q: `How do I contact AwadhLand about land in ${name}?`, a: `Call or WhatsApp ${data.phone}, or write to ${data.email}. We reply on WhatsApp within the hour.` },
+  );
+  return items;
+}

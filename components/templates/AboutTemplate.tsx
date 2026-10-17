@@ -1,3 +1,4 @@
+import { AboutEntity } from "@/components/AboutEntity";
 import { Badges } from "@/components/Badges";
 import { Breadcrumb } from "@/components/Breadcrumb";
 import { BrokerCard } from "@/components/BrokerCard";
@@ -38,9 +39,11 @@ export function AboutTemplate({ locale }: { locale: Locale }) {
       <div className="container-site">
         <Breadcrumb items={[{ label: t.home, href: localePath(locale, "/") }, { label: t.about }]} />
         <h1>{t.about}</h1>
-        <div className="mt-4">
-          <TrustBar locale={locale} broker={broker} />
-        </div>
+      </div>
+      {/* The definition opens the page; the trust bar follows it rather than sitting between the heading and the sentence. */}
+      <AboutEntity locale={locale} broker={broker} cities={cities} />
+      <div className="container-site">
+        <TrustBar locale={locale} broker={broker} />
       </div>
       <Section>
         <div className="max-w-2xl">

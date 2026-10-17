@@ -4,6 +4,8 @@
  * app/*.xml and app/llms.txt, prerendered at build. Localities that fail the thin-page guard are
  * not in lib/pages.ts, so they never reach a sitemap.
  */
+import { getCities } from "./data";
+import { entityDescription } from "./entity";
 import { SITE_URL } from "./i18n";
 import { getIndexablePages as getPages, type PageEntry } from "./pages";
 
@@ -40,10 +42,86 @@ export function sitemapIndex(): string {
   return `<?xml version="1.0" encoding="UTF-8"?>\n<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${rows.join("\n")}\n</sitemapindex>\n`;
 }
 
-export const robotsTxt = () => `User-agent: *\nAllow: /\nDisallow: /api/\n\nSitemap: ${SITE_URL}/sitemap-index.xml\n`;
+/**
+ * Crawlers named explicitly so the intent is on the record: search engines, AI search and AI
+ * assistants, and the user-triggered fetchers behind them. Everything public is allowed; /api/ holds
+ * only form and feed endpoints. The crawlers share one group, so each gets the same rules (a bot
+ * with its own group ignores the "*" group, so /api/ is repeated here rather than left to it).
+ */
+export const ALLOWED_CRAWLERS = [
+  "Googlebot",
+  "Bingbot",
+  "GPTBot",
+  "OAI-SearchBot",
+  "ChatGPT-User",
+  "ClaudeBot",
+  "Claude-SearchBot",
+  "Claude-User",
+  "PerplexityBot",
+  "Perplexity-User",
+  "Google-Extended",
+  "Applebot",
+  "Applebot-Extended",
+] as const;
 
-/** Plain index of the site for AI crawlers, regenerated at build. */
+export const robotsTxt = () =>
+  [
+    ...ALLOWED_CRAWLERS.map((bot) => `User-agent: ${bot}`),
+    "Allow: /",
+    "Disallow: /api/",
+    "",
+    "User-agent: *",
+    "Allow: /",
+    "Disallow: /api/",
+    "",
+    `Sitemap: ${SITE_URL}/sitemap-index.xml`,
+    "",
+  ].join("\n");
+
+/**
+ * llms.txt: a short markdown summary for AI systems (llmstxt.org shape): what AwadhLand is, the
+ * cities, and the key pages in both languages. The complete page index is /llms-full.txt.
+ */
 export function llmsTxt(): string {
+  const find = (locale: "en" | "hi", kind: PageEntry["kind"], sitePath?: string) =>
+    getPages(locale).find((p) => p.kind === kind && (!sitePath || p.sitePath === sitePath));
+  const cities = getCities();
+  const bullet = (p: PageEntry | undefined, label: string, note: string) => (p ? `- [${label}](${p.url}): ${note}` : null);
+  const section = (locale: "en" | "hi") => {
+    const hi = locale === "hi";
+    const cityLinks = cities.map((c) => bullet(find(locale, "city", `/${c.id}/`), hi ? c.nameHi : c.name, hi ? `${c.nameHi} में ज़मीन, सर्किल रेट और इलाक़े` : `Land, circle rates and localities in ${c.name}`));
+    return [
+      `## ${hi ? "हिंदी" : "English"}`,
+      "",
+      bullet(find(locale, "home"), hi ? "होम" : "Home", hi ? "अयोध्या, लखनऊ और गोरखपुर में ज़मीन" : "Land in Ayodhya, Lucknow and Gorakhpur"),
+      bullet(find(locale, "about"), hi ? "हमारे बारे में" : "About", hi ? "AwadhLand क्या है, किसकी मदद करता है, संपर्क" : "What AwadhLand is, who it helps, how to contact it"),
+      ...cityLinks,
+      bullet(find(locale, "updates"), hi ? "अपडेट" : "Updates", hi ? "ज़मीन को हिलाने वाली हर सरकारी सूचना और रिपोर्ट" : "Government notices and market reports that move land in Awadh"),
+      bullet(find(locale, "contact"), hi ? "संपर्क" : "Contact", hi ? "फ़ोन, व्हाट्सऐप और ईमेल" : "Phone, WhatsApp and email"),
+      "",
+    ].filter((l): l is string => l !== null);
+  };
+  return `${[
+    "# AwadhLand",
+    "",
+    `> ${entityDescription.en}`,
+    "",
+    `Hindi: ${entityDescription.hi}`,
+    "",
+    "AwadhLand covers Ayodhya, Lucknow and Gorakhpur in Uttar Pradesh. Every rate, distance and project on the site carries its source and the date it was last updated. English pages are at the root, Hindi pages under /hi/.",
+    "",
+    ...section("en"),
+    ...section("hi"),
+    "## Optional",
+    "",
+    `- [Full page index](${SITE_URL}/llms-full.txt): every indexable page in both languages`,
+    `- [Sitemap](${SITE_URL}/sitemap-index.xml)`,
+    "",
+  ].join("\n").trimEnd()}\n`;
+}
+
+/** The complete page index (the earlier llms.txt): every indexable page, both languages, with its description. */
+export function llmsFullTxt(): string {
   const kinds: { kind: PageEntry["kind"]; en: string; hi: string }[] = [
     { kind: "home", en: "Home", hi: "होम" },
     { kind: "city", en: "Cities", hi: "शहर" },

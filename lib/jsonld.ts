@@ -5,6 +5,7 @@
  * serialises them.
  */
 import { SITE_URL, type Locale } from "./i18n";
+import { BRAND_NAME, BRAND_NAME_HI, entityDescription, knowsAbout } from "./entity";
 import { SOCIAL_URLS } from "./social";
 import type { City, Locality, Reviews, TeamMember } from "./schemas";
 
@@ -12,24 +13,22 @@ export type JsonLdObject = Record<string, unknown>;
 
 const ctx = (o: JsonLdObject): JsonLdObject => ({ "@context": "https://schema.org", ...o });
 
-export const organization = (): JsonLdObject =>
-  ctx({
-    "@type": "Organization",
-    "@id": `${SITE_URL}/#organization`,
-    name: "Awadhland",
-    url: `${SITE_URL}/`,
-    logo: `${SITE_URL}/icon.svg`,
-    sameAs: SOCIAL_URLS,
-  });
-
-export function realEstateAgent(broker: TeamMember, cities: Pick<City, "name" | "district" | "state">[], reviews?: Reviews): JsonLdObject {
-  const sameAs = [broker.reraUrl, reviews?.profileUrl].filter((x): x is string => Boolean(x));
+/**
+ * The business, once. One node with one @id (`/#organization`), typed as both Organization and
+ * RealEstateAgent, emitted site-wide by PageShell; the broker (`worksFor`), articles (`publisher`)
+ * and every other node refer to it by that @id instead of describing it again.
+ */
+export function organization(broker: TeamMember, cities: Pick<City, "name" | "nameHi">[], locale: Locale, reviews?: Reviews): JsonLdObject {
+  const sameAs = [...SOCIAL_URLS, broker.reraUrl, reviews?.profileUrl].filter((x): x is string => Boolean(x));
   const a = broker.officeAddress;
   return ctx({
-    "@type": "RealEstateAgent",
-    "@id": `${SITE_URL}/#agent`,
-    name: "Awadhland",
+    "@type": ["Organization", "RealEstateAgent"],
+    "@id": `${SITE_URL}/#organization`,
+    name: BRAND_NAME,
+    alternateName: BRAND_NAME_HI,
     url: `${SITE_URL}/`,
+    logo: `${SITE_URL}/icon.svg`,
+    description: entityDescription[locale],
     telephone: broker.phone,
     email: broker.email,
     address: {
@@ -47,9 +46,9 @@ export function realEstateAgent(broker: TeamMember, cities: Pick<City, "name" | 
       closes: "19:00",
     },
     employee: { "@id": `${SITE_URL}/about/#broker` },
-    areaServed: cities.map((c) => ({ "@type": "City", name: c.name, containedInPlace: { "@type": "State", name: "Uttar Pradesh" } })),
-    parentOrganization: { "@id": `${SITE_URL}/#organization` },
-    ...(sameAs.length ? { sameAs } : {}),
+    areaServed: cities.map((c) => ({ "@type": "City", name: c.name, alternateName: c.nameHi, containedInPlace: { "@type": "State", name: "Uttar Pradesh" } })),
+    knowsAbout: knowsAbout[locale],
+    sameAs,
     // AggregateRating only once data/reviews.json holds real, synced values (spec Template 9 rules).
   });
 }
@@ -67,11 +66,25 @@ export function person(broker: TeamMember, locale: Locale, reviews?: Reviews): J
     image: [broker.portrait?.src, broker.photo]
       .filter((x): x is string => Boolean(x))
       .map((src) => (src.startsWith("http") ? src : `${SITE_URL}${src}`)),
-    worksFor: { "@id": `${SITE_URL}/#agent` },
+    worksFor: { "@id": `${SITE_URL}/#organization` },
     ...(broker.reraNumber ? { identifier: { "@type": "PropertyValue", propertyID: "UP RERA", value: broker.reraNumber } } : {}),
     ...(sameAs.length ? { sameAs } : {}),
   });
 }
+
+/** Every page's WebPage node: the page's own URL, language and the date it was last updated. */
+export const webPage = (w: { url: string; name: string; description: string; dateModified: string; locale: Locale }): JsonLdObject =>
+  ctx({
+    "@type": "WebPage",
+    "@id": `${w.url}#webpage`,
+    url: w.url,
+    name: w.name,
+    description: w.description,
+    inLanguage: w.locale === "hi" ? "hi-IN" : "en-IN",
+    dateModified: w.dateModified,
+    isPartOf: { "@type": "WebSite", "@id": `${SITE_URL}/#website`, url: `${SITE_URL}/`, name: BRAND_NAME },
+    publisher: { "@id": `${SITE_URL}/#organization` },
+  });
 
 /** Items in order; the last item may omit `url` (the current page). */
 export const breadcrumbList = (items: { name: string; url?: string }[]): JsonLdObject =>

@@ -36,7 +36,7 @@ export async function GuideTemplate({ locale, slug }: { locale: Locale; slug: st
   const { content, headings } = await renderGuideBody(guide.body, { locale, broker, pageLabel });
 
   return (
-    <PageShell locale={locale} alternate={guideAlternate(locale, fm.pairedSlug, fm.cityIds)} pageLabel={pageLabel}>
+    <PageShell locale={locale} alternate={guideAlternate(locale, fm.pairedSlug, fm.cityIds)} pageLabel={pageLabel} sitePath={`/guides/${fm.slug}/`}>
       <JsonLd
         data={article({
           headline: fm.title,
@@ -63,11 +63,10 @@ export async function GuideTemplate({ locale, slug }: { locale: Locale; slug: st
               <span>
                 {t.published} <time dateTime={fm.publishedAt}>{formatDate(fm.publishedAt, locale)}</time>
               </span>
-              {fm.updatedAt !== fm.publishedAt && (
-                <span>
-                  {t.updated} <time dateTime={fm.updatedAt}>{formatDate(fm.updatedAt, locale)}</time>
-                </span>
-              )}
+              {/* Always shown, even when it equals the published date: every page states when it was last updated. */}
+              <span>
+                {t.updated} <time dateTime={fm.updatedAt}>{formatDate(fm.updatedAt, locale)}</time>
+              </span>
               <span>
                 {guide.readTimeMin} {t.readTime}
               </span>

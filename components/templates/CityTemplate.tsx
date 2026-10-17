@@ -2,6 +2,8 @@ import { notFound } from "next/navigation";
 import { Breadcrumb } from "@/components/Breadcrumb";
 import { BrokerNote } from "@/components/BrokerNote";
 import { CircleRateTable } from "@/components/CircleRateTable";
+import { FAQ } from "@/components/FAQ";
+import { formatPhone } from "@/components/Hero";
 import { GuideCard } from "@/components/GuideCard";
 import { LeadForm } from "@/components/LeadForm";
 import { LocalityMap, type MapLocality } from "@/components/LocalityMap";
@@ -23,6 +25,7 @@ import {
   getPublishedProjectsByCity,
   getUpdates,
 } from "@/lib/data";
+import { cityFaq } from "@/lib/faq";
 import { getGuides } from "@/lib/guides";
 import { formatNumber, localePath, pick, ui, type Locale } from "@/lib/i18n";
 import { builtSitePaths } from "@/lib/pages";
@@ -278,7 +281,23 @@ export function CityTemplate({ locale, cityId }: { locale: Locale; cityId: strin
         </Section>
       )}
 
-      {/* 11. Lead form, prefilled with city */}
+      {/* 11. FAQ: FAQPage schema on every city hub, asked only where the record has the answer */}
+      <Section>
+        <FAQ
+          title={t.faq}
+          items={cityFaq(city, locale, {
+            localityNames: localities.map((l) => pick(locale, l.name, l.nameHi)),
+            villageCount: getVillageCount(city.id),
+            sroCount: getPublishedSros(city.id).length,
+            effectiveFrom: schedule?.effectiveFrom ?? fullList?.effectiveFrom,
+            hasRatesPage: builtSitePaths(locale).has(`/${city.id}/circle-rates/`),
+            phone: formatPhone(broker.phone),
+            email: broker.email,
+          })}
+        />
+      </Section>
+
+      {/* 12. Lead form, prefilled with city */}
       <Section>
         <LeadForm locale={locale} broker={broker} pageLabel={pageLabel} city={city.id} />
         <SourceStamp locale={locale} sources={city.sources} updatedAt={city.updatedAt} />

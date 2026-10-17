@@ -75,7 +75,7 @@ export function ToolTemplate({ locale, slug }: { locale: Locale; slug: string })
   })();
 
   return (
-    <PageShell locale={locale} alternate={sameAlternate(locale, `/tools/${slug}/`)} pageLabel={pageLabel}>
+    <PageShell locale={locale} alternate={sameAlternate(locale, `/tools/${slug}/`)} pageLabel={pageLabel} lastUpdated>
       <section className="border-b border-line bg-cream-deep/60">
         <div className="container-site pb-8 md:pb-10">
           <Breadcrumb items={[{ label: t.home, href: localePath(locale, "/") }, { label: t.tools, href: `${localePath(locale, "/")}#tools` }, { label: copy.title }]} />

@@ -26,7 +26,7 @@ export function UpdatesIndexTemplate({ locale }: { locale: Locale }) {
   const updates = getUpdates();
   const cities = getCities();
   return (
-    <PageShell locale={locale} alternate={sameAlternate(locale, "/updates/")} pageLabel={t.updates}>
+    <PageShell locale={locale} alternate={sameAlternate(locale, "/updates/")} pageLabel={t.updates} lastUpdated>
       {/* 1. Header */}
       <section className="border-b border-line bg-cream-deep/60">
         <div className="container-site pb-8 md:pb-10">
