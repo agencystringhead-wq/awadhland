@@ -23,3 +23,7 @@ Read `docs/BUILD-SPEC.md` before any structural change. It is the source of trut
 - List files touched.
 - For any CSS or layout change, report before and after values so they can be tuned by number.
 - Note every deviation from `docs/BUILD-SPEC.md` and why.
+
+## Dates
+
+- When you change a page's visible content (copy, FAQ, sections), bump the matching record's `updatedAt` in `data/` in the same commit. Don't bump dates for code-only or styling changes.

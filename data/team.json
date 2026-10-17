@@ -43,7 +43,7 @@
         "accessedAt": "2026-09-29"
       }
     ],
-    "updatedAt": "2026-09-29",
+    "updatedAt": "2026-10-18",
     "todo": [
       "reraNumber and reraUrl are empty because the registration is new and the number has not been supplied yet. While they are empty, lib/guards.ts withholds the UP RERA disclosure, the trust badge, the \"RERA registered\" stat, the structured-data identifier, four page titles, the footer blurb and the description tails. Add the number together with the URL of his own record on up-rera.in — not the portal home page — and restore role to \"UP RERA registered agent\" at the same time.",
       "bio and bioHi are drafted from facts he supplied and written in his voice; the Hindi is written as Hindi, not translated. Two things in them go past what he stated and need his sign-off or removal: that Ayodhya has been repriced twice since 2019 (the site's own city intro says so, but it is his voice here), and the closing line about telling a buyer when a plot is not worth their money.",

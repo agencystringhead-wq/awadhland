@@ -56,7 +56,7 @@
         "accessedAt": "2026-09-10"
       }
     ],
-    "updatedAt": "2026-09-10",
+    "updatedAt": "2026-10-18",
     "todo": [
       "Seed record: verify anchor coordinates on the ground; ring-road and nh-27 are single reference points on a corridor, pick the nearest access point per locality in step 3",
       "brokerNote and brokerNoteHi are placeholder copy; replace with the broker's own words, Hindi written by a person"
@@ -119,7 +119,7 @@
         "accessedAt": "2026-09-18"
       }
     ],
-    "updatedAt": "2026-09-18",
+    "updatedAt": "2026-10-18",
     "todo": [
       "Seed record: verify anchor coordinates; intro is editorial draft, brokerNote is a TODO placeholder"
     ]
@@ -181,7 +181,7 @@
         "accessedAt": "2026-09-18"
       }
     ],
-    "updatedAt": "2026-09-18",
+    "updatedAt": "2026-10-18",
     "todo": [
       "Seed record: verify anchor coordinates; intro is editorial draft, brokerNote is a TODO placeholder"
     ]
