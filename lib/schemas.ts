@@ -53,7 +53,7 @@ export const landUse = z.enum(["residential", "commercial", "mixed", "agricultur
 export const agency = z.enum(["ADA", "LDA", "GDA", "UPEIDA", "NHAI", "UPSIDA", "other"]);
 export const projectStatus = z.enum(["announced", "approved", "under-construction", "partially-open", "complete", "stalled"]);
 export const impactLevel = z.enum(["strong", "moderate", "mild"]);
-export const updateType = z.enum(["circle-rate", "master-plan", "project", "rera", "policy", "court"]);
+export const updateType = z.enum(["circle-rate", "master-plan", "project", "rera", "policy", "court", "market-report"]);
 export const buyerCategory = z.enum(["male", "female", "joint"]);
 export const observationSource = z.enum(["broker", "listing", "registry"]);
 

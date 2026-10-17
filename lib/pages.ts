@@ -37,7 +37,8 @@ import {
 } from "./rates";
 import { formatDate, formatNumber, localePath, pick, SITE_URL, type Locale } from "./i18n";
 import { landUseLabels } from "./labels";
-import { guideAlternate, localityAlternate, sameAlternate, type Alternate } from "./routes";
+import { guideAlternate, localityAlternate, sameAlternate, updateArticleAlternate, type Alternate } from "./routes";
+import { getUpdateArticle } from "./update-articles";
 import type { Locality, RateRow, RoadBand } from "./schemas";
 import { TOOL_SLUGS } from "./tools";
 import { getVillageContent, villageCopy, villageContentIndexableIds } from "./village-content";
@@ -194,7 +195,7 @@ export function getPages(locale: Locale): PageEntry[] {
   const updates = getUpdates();
   const guides = getGuides(locale);
   const entries: PageEntry[] = [];
-  const add = (e: Omit<PageEntry, "locale" | "path" | "url" | "ogPath" | "description" | "noindex"> & { description: string; ogSlug: string; noindex?: boolean }) => {
+  const add = (e: Omit<PageEntry, "locale" | "path" | "url" | "ogPath" | "description" | "noindex"> & { description: string; ogSlug: string; noindex?: boolean; verbatimDescription?: boolean }) => {
     const path = localePath(locale, e.sitePath);
     entries.push({
       locale,
@@ -203,7 +204,8 @@ export function getPages(locale: Locale): PageEntry[] {
       path,
       url: `${SITE_URL}${path}`,
       title: e.title,
-      description: clampDescription(e.description, locale),
+      // An article's meta_description is written for that article; clamping would pad or cut it.
+      description: e.verbatimDescription ? e.description : clampDescription(e.description, locale),
       lastmod: e.lastmod,
       alternate: e.alternate,
       og: e.og,
@@ -600,13 +602,16 @@ export function getPages(locale: Locale): PageEntry[] {
   for (const u of updates) {
     const title = pick(locale, u.title, u.titleHi);
     const cityNames = u.cityIds.map((id) => { const c = cities.find((x) => x.id === id); return c ? pick(locale, c.name, c.nameHi) : id; });
+    // A long-form article brings its own title, description and hreflang pair (lib/update-articles.ts).
+    const art = getUpdateArticle(locale, u.id);
     add({
       kind: "update",
       sitePath: `/updates/${u.id}/`,
-      title: title.length > 55 ? title : `${title} · ${site}`,
-      description: pick(locale, u.summary, u.summaryHi)[0],
+      title: art ? art.frontmatter.meta_title : title.length > 55 ? title : `${title} · ${site}`,
+      description: art ? art.frontmatter.meta_description : pick(locale, u.summary, u.summaryHi)[0],
+      verbatimDescription: Boolean(art),
       lastmod: u.updatedAt,
-      alternate: sameAlternate(locale, `/updates/${u.id}/`),
+      alternate: art ? updateArticleAlternate(locale, art) : sameAlternate(locale, `/updates/${u.id}/`),
       og: { title, subtitle: `${formatDate(u.date, locale)} · ${cityNames.join(", ")}`, chip: updateTypeLabels[u.type][locale] },
       ogSlug: `update--${u.id}`,
     });

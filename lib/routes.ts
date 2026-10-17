@@ -10,6 +10,7 @@ import { getCitiesWithRateList, getRowsByTehsil, getTehsilsByCity } from "./rate
 import { getFrontageCities, getFrontageOnlySros, getFrontageVillages } from "./frontage";
 import { localePath, otherLocale, type Locale } from "./i18n";
 import { TOOL_SLUGS } from "./tools";
+import { getUpdateArticle, type UpdateArticle } from "./update-articles";
 
 /**
  * With output: 'export', Next fails an empty generateStaticParams with a misleading
@@ -147,3 +148,9 @@ export function guideAlternate(locale: Locale, pairedSlug: string | null, cityId
   }
   return { href: localePath(other, cityIds[0] ? `/${cityIds[0]}/` : "/"), missing: true };
 }
+
+/** Update articles pair through the hreflang_pair in their frontmatter; missing only if the other tree lacks the file. */
+export const updateArticleAlternate = (locale: Locale, article: UpdateArticle): Alternate => ({
+  href: article.frontmatter.hreflang_pair,
+  missing: !getUpdateArticle(otherLocale(locale), article.id),
+});

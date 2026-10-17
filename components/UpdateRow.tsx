@@ -9,6 +9,7 @@ export const updateTypeLabels: Record<Update["type"], Record<Locale, string>> = 
   rera: { en: "RERA", hi: "रेरा" },
   policy: { en: "Policy", hi: "नीति" },
   court: { en: "Court", hi: "अदालत" },
+  "market-report": { en: "Market report", hi: "मार्केट रिपोर्ट" },
 };
 
 export type UpdateRowProps = {

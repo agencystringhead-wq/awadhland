@@ -283,7 +283,7 @@ Every government notice, gazette, RERA update, circle rate revision and project 
 | # | Section | Content |
 | --- | --- | --- |
 | 1 | Header | "Every notice that moves land in Awadh", entry count, last entry date |
-| 2 | Filters | City, agency, type (circle rate / master plan / project / RERA / policy / court), year. Client-side over the static list |
+| 2 | Filters | City, agency, type (circle rate / master plan / project / RERA / policy / court / market report), year. Client-side over the static list |
 | 3 | List | Newest first: date, title, city and agency chips, one-line summary |
 | 4 | Subscribe | Email field for a monthly digest (JotForm) |
 
@@ -297,6 +297,8 @@ Every government notice, gazette, RERA update, circle rate revision and project 
 | 4 | Affected | Linked localities and projects | `localityIds[]`, `projectIds[]` |
 | 5 | Previous and next | Chronological navigation | computed |
 | 6 | Lead CTA | "Ask us what this means for your plot" | component |
+
+**Long-form articles.** An entry may carry an article: one Markdown file per language, `content/updates/<slug>.md` (en) and `content/hi/updates/<slug>.md` (hi), paired by the record id `<yyyy-mm>-<slug>`. The record in `updates.json` still supplies the listing row (`summary[0]` is the article's `meta_description`), chips, previous/next and the sitemap entry; the article supplies the page. Frontmatter: `slug`, `lang`, `hreflang_pair` (site path of the other language, `/hi/updates/<id>/` or `/updates/<id>/`), `date`, `city`, `category`, optional `deadline`, `meta_title`, `meta_description`, `primary_keyword`, `secondary_keywords` and `schema` (both accepted, never rendered), `sources[]`. The canonical is the page's own URL. Layout: deadline banner (open until the `deadline` date, India time, then "registration has closed"; re-checked in the browser because the site is static), H1, chips, highlighted key takeaways, contents list from the H2s, body, FAQ, sources (new tab, `rel="noopener nofollow"`), lead form and the number in large type. Schema: `NewsArticle`, `FAQPage` (from the H3 questions under the FAQ H2) and `BreadcrumbList`. The first mention of each city in the body links to its city page. The article text is rendered as written; `scripts/validate.ts` fails the build on a missing FAQ section, a record or date mismatch, or an unpaired language.
 
 Entries are also the feed for the homepage "what changed" strip and the per-city and per-project "recent updates" blocks. One entry, three placements.
 

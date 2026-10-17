@@ -1,5 +1,83 @@
 [
   {
+    "id": "2026-10-lda-varun-vihar-naimish-nagar-yojana-2026",
+    "date": "2026-10-17",
+    "title": "LDA Varun Vihar and Naimish Nagar Yojana 2026: Plots, Rates, Registration and Last Date",
+    "titleHi": "LDA वरुण विहार और नैमिष नगर योजना 2026: प्लॉट, रेट, रजिस्ट्रेशन और अंतिम तिथि",
+    "agency": "LDA",
+    "type": "project",
+    "cityIds": [
+      "lucknow"
+    ],
+    "localityIds": [
+      "bakshi-ka-talab"
+    ],
+    "projectIds": [],
+    "summary": [
+      "LDA Varun Vihar and Naimish Nagar Yojana 2026: plot sizes, reported rates, ₹1,100 registration, lottery process, last date 24 October and what to check before applying."
+    ],
+    "summaryHi": [
+      "LDA वरुण विहार और नैमिष नगर योजना 2026: प्लॉट साइज, रेट, ₹1,100 रजिस्ट्रेशन, लॉटरी प्रक्रिया, अंतिम तिथि 24 अक्टूबर और आवेदन से पहले क्या जांचें।"
+    ],
+    "sourceUrl": "https://registration.ldalucknow.in",
+    "archiveUrl": null,
+    "officialUrl": "https://ldalucknow.in/",
+    "sources": [
+      {
+        "label": "LDA Registration Portal",
+        "url": "https://registration.ldalucknow.in",
+        "accessedAt": "2026-10-17"
+      },
+      {
+        "label": "Lucknow Development Authority (official site)",
+        "url": "https://ldalucknow.in/",
+        "accessedAt": "2026-10-17"
+      },
+      {
+        "label": "LDA Varun Vihar Yojana 2026: Registration, Lottery and Legal Checklist (Advon Pandey)",
+        "url": "https://www.advonpandey.com/articles/lda-varun-vihar-yojana-2026-registration-lottery-legal-guide",
+        "accessedAt": "2026-10-17"
+      },
+      {
+        "label": "LDA Varun Vihar Yojna listing (SarkariProperty)",
+        "url": "https://www.sarkariproperty.com/scheme/lda-varun-vihar-yojna/",
+        "accessedAt": "2026-10-17"
+      }
+    ],
+    "updatedAt": "2026-10-17"
+  },
+  {
+    "id": "2026-10-ayodhya-land-prices-2026-report",
+    "date": "2026-10-17",
+    "title": "Ayodhya Land Prices in 2026: What the Latest Report Says and Where the City Is Heading",
+    "titleHi": "अयोध्या में जमीन का रेट 2026: नई रिपोर्ट क्या कहती है और शहर किस ओर जा रहा है",
+    "agency": "other",
+    "agencyName": "Liases Foras",
+    "type": "market-report",
+    "cityIds": [
+      "ayodhya"
+    ],
+    "localityIds": [],
+    "projectIds": [],
+    "summary": [
+      "Ayodhya land prices are up 25 to 40% since 2019. See the latest 2026 report, Master Plan 2031, top growth areas and a checklist before buying land in Ayodhya."
+    ],
+    "summaryHi": [
+      "2019 से अयोध्या में जमीन के दाम 25 से 40% बढ़े। नई रिपोर्ट, मास्टर प्लान 2031, नव्य अयोध्या और अयोध्या में प्लॉट खरीदने से पहले की पूरी चेकलिस्ट।"
+    ],
+    "sourceUrl": "https://www.prnewswire.com/in/news-releases/ayodhya-2-0-faith-tourism-and-the-next-investment-capital-302908240.html",
+    "sourceName": "PR Newswire (Liases Foras report)",
+    "archiveUrl": null,
+    "sources": [
+      {
+        "label": "PR Newswire: AYODHYA 2.0: Faith, Tourism and the Next Investment Capital (Liases Foras, 14 Oct 2026)",
+        "url": "https://www.prnewswire.com/in/news-releases/ayodhya-2-0-faith-tourism-and-the-next-investment-capital-302908240.html",
+        "accessedAt": "2026-10-17"
+      }
+    ],
+    "updatedAt": "2026-10-17"
+  },
+  {
     "id": "2026-09-ayodhya-airport-expansion-tracking",
     "date": "2026-09-10",
     "title": "Ayodhya airport expansion: what we are tracking and why it matters for land nearby",

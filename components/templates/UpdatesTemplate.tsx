@@ -15,7 +15,9 @@ import { getBroker, getBuildableProjects, getCities, getLocalities, getProject, 
 import { formatDate, localePath, pick, ui, whatsappText, type Locale } from "@/lib/i18n";
 import { agencyLabel } from "@/lib/labels";
 import { builtLocalityIds, sameAlternate } from "@/lib/routes";
+import { getUpdateArticle } from "@/lib/update-articles";
 import { PageShell } from "./PageShell";
+import { UpdateArticleTemplate } from "./UpdateArticleTemplate";
 
 /** Template 8 index: every notice, newest first, with client-side filters. */
 export function UpdatesIndexTemplate({ locale }: { locale: Locale }) {
@@ -70,6 +72,9 @@ export function UpdatesIndexTemplate({ locale }: { locale: Locale }) {
 export function UpdateTemplate({ locale, slug }: { locale: Locale; slug: string }) {
   const update = getUpdate(slug);
   if (!update) notFound();
+  // A record with a long-form article in this language renders as that article (UpdateArticleTemplate).
+  const longForm = getUpdateArticle(locale, update.id);
+  if (longForm) return <UpdateArticleTemplate locale={locale} article={longForm} />;
   const u = update;
   const t = ui[locale];
   const broker = getBroker();

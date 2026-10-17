@@ -13,6 +13,7 @@ import { dataFiles, frontageFileSchema, frontagePlotsFileSchema, indexableRatesF
 import { checkIntegrity, type Dataset } from "../lib/integrity";
 import { checkGuideBodies, checkGuideReferences, dataPageLinks, readGuides } from "../lib/guide-files";
 import { partitionLocalities, partitionProjects } from "../lib/guards";
+import { checkUpdateArticleBodies, checkUpdateArticles, readUpdateArticles } from "../lib/update-articles";
 
 /** Spec "Internal linking": guides link to at least this many data pages via MDX components. */
 const MIN_DATA_PAGE_LINKS = 3;
@@ -306,6 +307,19 @@ async function main() {
     errors.push(...checkGuideReferences({ en: en.guides, hi: hi.guides }, guideDataRefs()));
   }
   errors.push(...(await checkGuideBodies(guides)));
+
+  /* 4b. Update articles: frontmatter, record and hreflang pairing, and Markdown bodies. */
+  {
+    const aEn = readUpdateArticles("en", root);
+    const aHi = readUpdateArticles("hi", root);
+    errors.push(...aEn.errors, ...aHi.errors);
+    if (dataset) {
+      const updates = new Map(dataset.updates.map((u) => [u.id, { date: u.date }]));
+      errors.push(...checkUpdateArticles({ en: aEn.articles, hi: aHi.articles }, { updates }));
+    }
+    errors.push(...(await checkUpdateArticleBodies([...aEn.articles, ...aHi.articles])));
+    console.log(`ok   ${aEn.articles.length} en + ${aHi.articles.length} hi update articles`);
+  }
 
   /*
    * Village page content (step 9b, point 6). Here rather than in lib/integrity.ts because that
