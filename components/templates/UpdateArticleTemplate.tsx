@@ -12,6 +12,7 @@ import { formatDate, localePath, pick, SITE_URL, ui, type Locale } from "@/lib/i
 import { agencyLabel } from "@/lib/labels";
 import { article as newsArticle, faqPage } from "@/lib/jsonld";
 import { renderUpdateArticle } from "@/lib/mdx";
+import { getPage } from "@/lib/pages";
 import { updateArticleAlternate } from "@/lib/routes";
 import type { UpdateArticle } from "@/lib/update-articles";
 import { PageShell } from "./PageShell";
@@ -50,6 +51,8 @@ export async function UpdateArticleTemplate({ locale, article }: { locale: Local
             dateModified: u.updatedAt,
             locale,
             author: { name: "Awadhland", url: `${SITE_URL}/` },
+            // The same build-time card the page declares in og:image; Google asks Article markup for an image.
+            image: getPage(locale, `/updates/${u.id}/`)?.ogPath,
             type: "NewsArticle",
           }),
           faqPage(article.faq),
