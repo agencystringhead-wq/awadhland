@@ -15,6 +15,7 @@ awadhland.com is a land-buying authority site for Ayodhya, Lucknow and Gorakhpur
 - Content lives in `/data` as JSON (entities) and `/content` as MDX (guides, tools copy). No CMS at launch.
 - Every data point carries a `source` URL and `updatedAt` date, rendered on the page.
 - Lead capture: JotForm via a Cloudflare Pages Function (`functions/api/lead.ts`, deploys with the site itself, no separate Worker), plus WhatsApp deep link and tel: link in a sticky header.
+- Social: four profiles (Facebook, Instagram, X, YouTube) in `lib/social.ts`, shown in the footer and listed in the Organization `sameAs`. A site-wide Instagram scroller sits above the footer: build-time posts from `data/instagram-fallback.json`, swapped for the live feed from `functions/api/instagram-feed.ts` (token in KV, 6-hour cache). Details and setup in `docs/instagram-feed.md`; it is the one runtime fetch on the site.
 - Media on Cloudflare R2. Images re-encoded to ~60–115 KB at q90 before commit.
 
 ## URL structure and language

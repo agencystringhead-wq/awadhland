@@ -9,6 +9,7 @@
     "dev": "next dev",
     "validate": "tsx scripts/validate.ts",
     "og": "tsx scripts/generate-og.ts",
+    "instagram:refresh": "tsx scripts/refresh-instagram-fallback.ts",
     "seed:cities": "tsx scripts/seed-cities.ts",
     "rates:import": "tsx scripts/parse-circle-rates.ts",
     "images:cities": "tsx scripts/placeholder-city-images.ts",

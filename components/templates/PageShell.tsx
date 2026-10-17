@@ -1,10 +1,11 @@
 import type { ReactNode } from "react";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
+import { InstagramScroller } from "@/components/InstagramScroller";
 import { JsonLd } from "@/components/JsonLd";
 import { LeadAnalytics } from "@/components/LeadAnalytics";
 import { TopStrip } from "@/components/TopStrip";
-import { getBroker, getBuildableLocalities, getCities, getProject, getReviews } from "@/lib/data";
+import { getBroker, getBuildableLocalities, getCities, getInstagramFallback, getProject, getReviews } from "@/lib/data";
 import type { Locale } from "@/lib/i18n";
 import { organization, realEstateAgent } from "@/lib/jsonld";
 import { activeNavKey, getNav } from "@/lib/nav";
@@ -35,6 +36,8 @@ export function PageShell({ locale, alternate, pageLabel, sitePath, children }: 
       <TopStrip locale={locale} cities={cities} broker={broker} />
       <Header locale={locale} alternate={alternate} nav={getNav(locale)} active={active} broker={broker} pageLabel={pageLabel} />
       <main>{children}</main>
+      {/* Site-wide, directly above the footer: build-time posts now, live posts swapped in near the viewport */}
+      <InstagramScroller locale={locale} initial={getInstagramFallback()} />
       <LeadAnalytics locale={locale} city={city} />
       <Footer locale={locale} cities={cities} localities={getBuildableLocalities(locale).buildable} broker={broker} />
     </>

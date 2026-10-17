@@ -851,6 +851,30 @@ export const updateSchema = z
 
 export const updatesFileSchema = z.array(updateSchema);
 
+/* ------------------------------------------------------------ instagram fallback */
+
+/**
+ * Build-time copy of the Instagram feed: what the section renders before (and without) the live
+ * /api/instagram-feed response. Written by scripts/refresh-instagram-fallback.ts. Images are local
+ * files under /public/images/instagram, so the section never depends on Instagram's CDN to paint.
+ */
+export const instagramMediaType = z.enum(["IMAGE", "VIDEO", "CAROUSEL_ALBUM"]);
+
+export const instagramPostSchema = z
+  .object({
+    image: z.string().regex(/^\/images\/instagram\/[\w.-]+$/, "expected a path under /images/instagram/"),
+    caption: z.string(),
+    permalink: url,
+    timestamp: z.iso.datetime({ offset: true }),
+    media_type: instagramMediaType,
+    /** Set on stand-in entries; scripts/validate.ts warns while any remain */
+    placeholder: z.boolean().optional(),
+  })
+  .strict();
+
+export const instagramFallbackSchema = z.array(instagramPostSchema).min(1).max(8);
+export type InstagramPostFallback = z.infer<typeof instagramPostSchema>;
+
 /* ---------------------------------------------------------- priceObservations */
 
 export const priceObservationSchema = z
@@ -1164,6 +1188,7 @@ export const dataFiles = {
   "standardPages.json": standardPagesFileSchema,
   "villageNotes.json": villageNotesFileSchema,
   "villageSlugs.json": villageSlugsFileSchema,
+  "instagram-fallback.json": instagramFallbackSchema,
 } as const;
 
 export type DataFileName = keyof typeof dataFiles;

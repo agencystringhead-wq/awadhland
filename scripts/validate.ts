@@ -62,6 +62,16 @@ async function main() {
     console.log(`ok   data/${file} (${count} record${count === 1 ? "" : "s"})`);
   }
 
+  /* 1b. Instagram fallback: every image exists on disk; stand-ins are warned about, not failed. */
+  {
+    const posts = parsed["instagram-fallback.json"];
+    for (const post of posts ?? []) {
+      if (!fs.existsSync(path.join(root, "public", post.image))) errors.push(`data/instagram-fallback.json: public${post.image} is missing`);
+    }
+    const stand = (posts ?? []).filter((p) => p.placeholder).length;
+    if (stand > 0) warnings.push(`data/instagram-fallback.json: ${stand} of ${posts!.length} posts are placeholders; run npm run instagram:refresh once the token is set up`);
+  }
+
   /* 2. Any JSON file in /data without a schema is an error: unvalidated data must not ship. */
   for (const file of fs.readdirSync(dataDir).filter((f) => f.endsWith(".json"))) {
     if (!(file in dataFiles)) errors.push(`data/${file}: no schema registered in lib/schemas.ts dataFiles`);

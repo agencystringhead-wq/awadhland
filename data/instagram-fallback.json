@@ -1,0 +1,66 @@
+[
+  {
+    "image": "/images/instagram/post-1.webp",
+    "caption": "PLACEHOLDER 1 of 8. Not a real post. Run npm run instagram:refresh once the token is set up to replace this with the latest real post.",
+    "permalink": "https://www.instagram.com/awadhland/",
+    "timestamp": "2026-10-16T06:00:00.000Z",
+    "media_type": "IMAGE",
+    "placeholder": true
+  },
+  {
+    "image": "/images/instagram/post-2.webp",
+    "caption": "PLACEHOLDER 2 of 8. Not a real post. Run npm run instagram:refresh once the token is set up to replace this with the latest real post.",
+    "permalink": "https://www.instagram.com/awadhland/",
+    "timestamp": "2026-10-15T06:00:00.000Z",
+    "media_type": "IMAGE",
+    "placeholder": true
+  },
+  {
+    "image": "/images/instagram/post-3.webp",
+    "caption": "PLACEHOLDER 3 of 8. Not a real post. Run npm run instagram:refresh once the token is set up to replace this with the latest real post.",
+    "permalink": "https://www.instagram.com/awadhland/",
+    "timestamp": "2026-10-14T06:00:00.000Z",
+    "media_type": "VIDEO",
+    "placeholder": true
+  },
+  {
+    "image": "/images/instagram/post-4.webp",
+    "caption": "PLACEHOLDER 4 of 8. Not a real post. Run npm run instagram:refresh once the token is set up to replace this with the latest real post.",
+    "permalink": "https://www.instagram.com/awadhland/",
+    "timestamp": "2026-10-13T06:00:00.000Z",
+    "media_type": "IMAGE",
+    "placeholder": true
+  },
+  {
+    "image": "/images/instagram/post-5.webp",
+    "caption": "PLACEHOLDER 5 of 8. Not a real post. Run npm run instagram:refresh once the token is set up to replace this with the latest real post.",
+    "permalink": "https://www.instagram.com/awadhland/",
+    "timestamp": "2026-10-12T06:00:00.000Z",
+    "media_type": "CAROUSEL_ALBUM",
+    "placeholder": true
+  },
+  {
+    "image": "/images/instagram/post-6.webp",
+    "caption": "PLACEHOLDER 6 of 8. Not a real post. Run npm run instagram:refresh once the token is set up to replace this with the latest real post.",
+    "permalink": "https://www.instagram.com/awadhland/",
+    "timestamp": "2026-10-11T06:00:00.000Z",
+    "media_type": "IMAGE",
+    "placeholder": true
+  },
+  {
+    "image": "/images/instagram/post-7.webp",
+    "caption": "PLACEHOLDER 7 of 8. Not a real post. Run npm run instagram:refresh once the token is set up to replace this with the latest real post.",
+    "permalink": "https://www.instagram.com/awadhland/",
+    "timestamp": "2026-10-10T06:00:00.000Z",
+    "media_type": "IMAGE",
+    "placeholder": true
+  },
+  {
+    "image": "/images/instagram/post-8.webp",
+    "caption": "PLACEHOLDER 8 of 8. Not a real post. Run npm run instagram:refresh once the token is set up to replace this with the latest real post.",
+    "permalink": "https://www.instagram.com/awadhland/",
+    "timestamp": "2026-10-09T06:00:00.000Z",
+    "media_type": "IMAGE",
+    "placeholder": true
+  }
+]

@@ -5,6 +5,7 @@
  * serialises them.
  */
 import { SITE_URL, type Locale } from "./i18n";
+import { SOCIAL_URLS } from "./social";
 import type { City, Locality, Reviews, TeamMember } from "./schemas";
 
 export type JsonLdObject = Record<string, unknown>;
@@ -18,6 +19,7 @@ export const organization = (): JsonLdObject =>
     name: "Awadhland",
     url: `${SITE_URL}/`,
     logo: `${SITE_URL}/icon.svg`,
+    sameAs: SOCIAL_URLS,
   });
 
 export function realEstateAgent(broker: TeamMember, cities: Pick<City, "name" | "district" | "state">[], reviews?: Reviews): JsonLdObject {

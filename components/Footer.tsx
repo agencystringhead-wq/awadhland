@@ -5,7 +5,9 @@ import { getPublishedSros } from "@/lib/rates";
 import { localePath, pick, ui, whatsappText } from "@/lib/i18n";
 import type { City, Locality, TeamMember } from "@/lib/schemas";
 import { Logo } from "./Header";
+import { SOCIAL_LINKS } from "@/lib/social";
 import { Button, PhoneIcon, WhatsAppIcon } from "./ui/Button";
+import { SocialIcon } from "./ui/SocialIcons";
 import { whatsappHref } from "./WhatsAppButton";
 
 export type FooterProps = {
@@ -66,6 +68,26 @@ export function Footer({ locale, cities, localities, broker }: FooterProps) {
               <Button href={`tel:${broker.phone}`} variant="soft" size="sm" icon={<PhoneIcon />}>
                 {t.call}
               </Button>
+            </div>
+            {/* Follow us: 44px targets, accent fill on hover, the global focus ring on keyboard focus */}
+            <div className="mt-6">
+              <p className="caption-mono text-muted">{t.followUs}</p>
+              <ul className="mt-2 flex flex-wrap gap-2">
+                {SOCIAL_LINKS.map((s) => (
+                  <li key={s.id}>
+                    <a
+                      href={s.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={s.label[locale]}
+                      title={s.label[locale]}
+                      className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-line bg-card text-ink-soft no-underline transition-colors hover:border-accent hover:bg-accent hover:text-white focus-visible:border-accent focus-visible:bg-accent focus-visible:text-white"
+                    >
+                      <SocialIcon id={s.id} />
+                    </a>
+                  </li>
+                ))}
+              </ul>
             </div>
           </div>
 

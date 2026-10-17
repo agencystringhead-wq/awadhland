@@ -17,6 +17,7 @@ import scoringJson from "../data/scoring.json";
 import reviewsJson from "../data/reviews.json";
 import standardPagesJson from "../data/standardPages.json";
 import villageNotesJson from "../data/villageNotes.json";
+import instagramFallbackJson from "../data/instagram-fallback.json";
 import { dataFiles, type DataFileName, type Locale } from "./schemas";
 import { checkIntegrity, type Dataset } from "./integrity";
 import { partitionLocalities, partitionProjects, publishableBroker, scheduleIsSourced } from "./guards";
@@ -50,6 +51,9 @@ if (integrityErrors.length > 0) {
 }
 
 const byDateDesc = <T extends { date: string }>(a: T, b: T) => b.date.localeCompare(a.date);
+
+/** Build-time Instagram posts for the section above the footer (see components/InstagramScroller). */
+export const getInstagramFallback = () => parse("instagram-fallback.json", instagramFallbackJson);
 
 /* cities */
 export const getCities = () => dataset.cities;
