@@ -3,8 +3,9 @@
  *
  * Cloudflare Pages Function at /api/instagram-feed, same origin as the site. Calls the Instagram API
  * with Instagram Login (graph.instagram.com/me/media), returns the newest 8 posts as clean JSON and
- * keeps the response in the Cloudflare Cache API for 6 hours, so Instagram is called a few times a
- * day, not once per page view.
+ * keeps the response in the Cloudflare Cache API for 1 hour, so Instagram is called about once an
+ * hour, not once per page view. Browsers are told to keep it for only 5 minutes, so a new post
+ * shows within the hour.
  *
  * The long-lived access token lives only in a KV namespace bound to this project as IG_KV:
  *   IG_ACCESS_TOKEN   the token itself
@@ -38,7 +39,8 @@ const API = "https://graph.instagram.com";
 const FIELDS = "id,caption,media_type,media_url,thumbnail_url,permalink,timestamp";
 const COUNT = 8;
 const CAPTION_MAX = 120;
-const CACHE_SECONDS = 6 * 60 * 60;
+const CACHE_SECONDS = 60 * 60;
+const BROWSER_SECONDS = 5 * 60;
 const REFRESH_AFTER_DAYS = 50;
 const TOKEN_KEY = "IG_ACCESS_TOKEN";
 const ISSUED_KEY = "IG_TOKEN_ISSUED";
@@ -52,6 +54,13 @@ const respond = (body: unknown, cacheSeconds: number, source: "live" | "fallback
       "X-Feed-Source": source,
     },
   });
+
+/** Copy of a response whose Cache-Control is the short browser lifetime (the edge copy keeps CACHE_SECONDS). */
+function forBrowser(res: Response): Response {
+  const out = new Response(res.body, res);
+  out.headers.set("Cache-Control", `public, max-age=${BROWSER_SECONDS}`);
+  return out;
+}
 
 /** Build-time posts, shaped like live ones (the `placeholder` flag is not part of the response). */
 function fallbackResponse(): Response {
@@ -114,7 +123,7 @@ export async function onRequestGet({ request, env, waitUntil }: Ctx): Promise<Re
   const cache = (caches as unknown as { default: Cache }).default;
   const cacheKey = new Request(new URL("/api/instagram-feed", request.url).toString(), { method: "GET" });
   const hit = await cache.match(cacheKey);
-  if (hit) return hit;
+  if (hit) return forBrowser(hit);
 
   try {
     if (!env.IG_KV) return fallbackResponse();
@@ -136,7 +145,7 @@ export async function onRequestGet({ request, env, waitUntil }: Ctx): Promise<Re
 
     const live = respond({ source: "live", posts: posts.slice(0, COUNT) }, CACHE_SECONDS, "live");
     waitUntil(cache.put(cacheKey, live.clone()));
-    return live;
+    return forBrowser(live);
   } catch {
     return fallbackResponse();
   }
