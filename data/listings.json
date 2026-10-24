@@ -21,7 +21,7 @@
     "highlightHi": "होटल और दुकानों के लिए उपयुक्त",
     "confirmedAt": "2026-10-24",
     "featured": true,
-    "image": null
+    "image": { "src": "/images/listings/ayd-001.webp", "width": 960, "height": 600 }
   },
   {
     "id": "AYD-002",
@@ -45,7 +45,7 @@
     "highlightHi": "अभी चालू है",
     "confirmedAt": "2026-10-24",
     "featured": true,
-    "image": null
+    "image": { "src": "/images/listings/ayd-002.webp", "width": 960, "height": 600 }
   },
   {
     "id": "AYD-003",
@@ -69,7 +69,7 @@
     "highlightHi": "होटल और बड़े प्रोजेक्ट के लिए उपयुक्त",
     "confirmedAt": "2026-10-24",
     "featured": true,
-    "image": null
+    "image": { "src": "/images/listings/ayd-003.webp", "width": 960, "height": 600 }
   },
   {
     "id": "GKP-001",
@@ -93,6 +93,6 @@
     "highlightHi": "व्यावसायिक उपयोग के लिए उपयुक्त",
     "confirmedAt": "2026-10-24",
     "featured": true,
-    "image": null
+    "image": { "src": "/images/listings/gkp-001.webp", "width": 960, "height": 600 }
   }
 ]
