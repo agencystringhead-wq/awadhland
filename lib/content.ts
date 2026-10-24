@@ -3,6 +3,7 @@
  * not translated. Guide and tool slugs come from the spec's launch lists; the pages exist from
  * build steps 4 and 5.
  */
+import type { FeaturedListingsLabels } from "@/components/FeaturedListings";
 import type { Locale } from "./schemas";
 
 /**
@@ -510,6 +511,7 @@ export type HomeStory = {
     lastUpdated: string;
   };
   changed: Framing & { all: string };
+  listings: Framing & FeaturedListingsLabels;
   cities: Framing & { seeCity: string; topAreas: string; priceBand: string };
   why: Framing & { pillars: { title: string; body: string }[] };
   situations: Framing & { open: string };
@@ -594,6 +596,19 @@ export const homeStory: Record<Locale, HomeStory> = {
       lastUpdated: "Last updated",
     },
     changed: { eyebrow: "What changed", heading: "Every notice that", accent: "moves land.", all: "All updates →" },
+    listings: {
+      eyebrow: "For sale now",
+      heading: "Plots and property",
+      accent: "on our books.",
+      lede: "A few of the properties our broker can show you this month. The exact location is shared on WhatsApp after a short call.",
+      kinds: { "commercial-plot": "Commercial plot", "residential-plot": "Residential plot", "commercial-land": "Commercial land", "agricultural-land": "Agricultural land", hotel: "Operating hotel" },
+      negotiable: "Negotiable",
+      confirmed: "Confirmed available",
+      ask: "WhatsApp about",
+      representative: "Representative image",
+      message: "Hi, I'm interested in property {id} on awadhland.com. Can you share the details?",
+      footnote: "Asking prices as given by the seller, on the date shown. Check the documents before you pay anything.",
+    },
     cities: {
       eyebrow: "Three cities",
       heading: "Ayodhya first.",
@@ -738,6 +753,19 @@ export const homeStory: Record<Locale, HomeStory> = {
       lastUpdated: "आख़िरी अपडेट",
     },
     changed: { eyebrow: "क्या बदला", heading: "हर वह सूचना जो", accent: "ज़मीन को हिलाती है।", all: "सभी अपडेट →" },
+    listings: {
+      eyebrow: "अभी बिक्री पर",
+      heading: "हमारे पास उपलब्ध",
+      accent: "प्लॉट और प्रॉपर्टी।",
+      lede: "कुछ प्रॉपर्टी जो हमारे ब्रोकर इस महीने दिखा सकते हैं। सही लोकेशन एक छोटी बातचीत के बाद व्हाट्सऐप पर बताई जाती है।",
+      kinds: { "commercial-plot": "व्यावसायिक प्लॉट", "residential-plot": "रिहायशी प्लॉट", "commercial-land": "व्यावसायिक ज़मीन", "agricultural-land": "कृषि भूमि", hotel: "चालू होटल" },
+      negotiable: "मोलभाव संभव",
+      confirmed: "उपलब्धता जाँची गई",
+      ask: "व्हाट्सऐप करें",
+      representative: "सांकेतिक तस्वीर",
+      message: "नमस्ते, मुझे awadhland.com पर प्रॉपर्टी {id} में रुचि है। क्या आप जानकारी भेज सकते हैं?",
+      footnote: "विक्रेता द्वारा बताई गई क़ीमत, दिखाई गई तारीख़ के अनुसार। कोई भी भुगतान करने से पहले काग़ज़ात ज़रूर जाँचें।",
+    },
     cities: {
       eyebrow: "तीन शहर",
       heading: "पहले अयोध्या।",
