@@ -1,5 +1,6 @@
 import { CityCard } from "@/components/CityCard";
 import { EnquiryForm } from "@/components/EnquiryForm";
+import { FeaturedListings } from "@/components/FeaturedListings";
 import { GuideCard } from "@/components/GuideCard";
 import { Hero, formatPhone } from "@/components/Hero";
 import { HowWeWork } from "@/components/HowWeWork";
@@ -11,6 +12,7 @@ import { WhyWeExist } from "@/components/WhyWeExist";
 import { fill, homeCopy, homeStory } from "@/lib/content";
 import { getBroker, getBuildableLocalities, getCircleRateSchedules, getCities, getCityStats, getPublishedProjects, getReviews, getUpdates } from "@/lib/data";
 import { getGuides } from "@/lib/guides";
+import { getFeaturedListings } from "@/lib/listings";
 import { builtSitePaths } from "@/lib/pages";
 import { getPublishedSros, getVillageCount } from "@/lib/rates";
 import { formatDate, formatNumber, localePath, ui, type Locale } from "@/lib/i18n";
@@ -37,6 +39,7 @@ export function HomeTemplate({ locale }: { locale: Locale }) {
   const reviews = getReviews();
   const hasReviews = reviews.rating !== null && reviews.reviews.length > 0;
   const updates = getUpdates();
+  const listings = getFeaturedListings();
   const guides = getGuides(locale);
   const localities = getBuildableLocalities(locale).buildable;
   const pageLabel = t.siteName;
@@ -77,6 +80,13 @@ export function HomeTemplate({ locale }: { locale: Locale }) {
 
       {/* C2. By the numbers */}
       <StatGrid stats={stats} columns={8} />
+
+      {/* C2b. For sale now: up to four featured listings, hidden when none are fresh (lib/listings.ts) */}
+      {listings.length > 0 && (
+        <Section size="base" tone="surface" hairline {...story.listings}>
+          <FeaturedListings locale={locale} listings={listings} whatsapp={broker.whatsapp} labels={story.listings} />
+        </Section>
+      )}
 
       {/* C3. What changed */}
       {updates.length > 0 && (
