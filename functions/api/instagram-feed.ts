@@ -62,9 +62,9 @@ function forBrowser(res: Response): Response {
   return out;
 }
 
-/** Build-time posts, shaped like live ones (the `placeholder` flag is not part of the response). */
+/** Build-time posts, shaped like live ones. Stand-ins (`placeholder: true`) are never sent. */
 function fallbackResponse(): Response {
-  const posts = (fallbackJson as (Post & { placeholder?: boolean })[]).map(({ image, caption, permalink, timestamp, media_type }) => ({
+  const posts = (fallbackJson as (Post & { placeholder?: boolean })[]).filter((p) => !p.placeholder).map(({ image, caption, permalink, timestamp, media_type }) => ({
     image,
     caption,
     permalink,

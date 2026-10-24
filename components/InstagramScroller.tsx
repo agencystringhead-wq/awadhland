@@ -32,8 +32,8 @@ function usable(posts: unknown): posts is InstagramPost[] {
 }
 
 /**
- * Instagram scroller above the footer. The build renders the fallback posts (data/instagram-fallback.json),
- * so the section is never empty or waiting on a network call. When it nears the viewport the browser asks
+ * Instagram scroller above the footer. The build renders the real fallback posts (data/instagram-fallback.json,
+ * stand-ins filtered out by PageShell). With no real posts yet, it renders a slim follow strip with no tiles. When it nears the viewport the browser asks
  * /api/instagram-feed once and swaps the live posts in. Tiles are fixed-ratio squares, so the swap moves nothing.
  */
 export function InstagramScroller({ locale, initial }: { locale: Locale; initial: InstagramPost[] }) {
@@ -78,10 +78,11 @@ export function InstagramScroller({ locale, initial }: { locale: Locale; initial
     if (track) track.scrollBy({ left: dir * track.clientWidth * 0.8, behavior: "smooth" });
   }, []);
 
+  const hasPosts = posts.length > 0;
   const arrow = "hidden h-11 w-11 items-center justify-center rounded-full border border-line bg-card text-ink transition-colors hover:border-accent hover:bg-accent hover:text-white md:inline-flex";
 
   return (
-    <section ref={sectionRef} data-component="InstagramScroller" aria-labelledby="instagram-heading" className="border-t border-line bg-cream-deep/60 py-14 md:py-20">
+    <section ref={sectionRef} data-component="InstagramScroller" aria-labelledby="instagram-heading" className={`border-t border-line bg-cream-deep/60 ${hasPosts ? "py-14 md:py-20" : "py-10 md:py-12"}`}>
       <div className="container-site">
         <div className="flex flex-wrap items-end justify-between gap-x-8 gap-y-5">
           <div>
@@ -91,20 +92,25 @@ export function InstagramScroller({ locale, initial }: { locale: Locale; initial
             <p className="mt-1.5 font-mono text-sm text-muted">{INSTAGRAM_HANDLE}</p>
           </div>
           <div className="flex items-center gap-2">
-            <button type="button" onClick={() => scrollBy(-1)} aria-label={t.instagramPrev} className={arrow}>
-              <span aria-hidden="true">←</span>
-            </button>
-            <button type="button" onClick={() => scrollBy(1)} aria-label={t.instagramNext} className={arrow}>
-              <span aria-hidden="true">→</span>
-            </button>
+            {hasPosts && (
+              <>
+                <button type="button" onClick={() => scrollBy(-1)} aria-label={t.instagramPrev} className={arrow}>
+                  <span aria-hidden="true">←</span>
+                </button>
+                <button type="button" onClick={() => scrollBy(1)} aria-label={t.instagramNext} className={arrow}>
+                  <span aria-hidden="true">→</span>
+                </button>
+              </>
+            )}
             <Button href={INSTAGRAM_URL} target="_blank" rel="noopener noreferrer" variant="primary" size="sm" icon={<SocialIcon id="instagram" size={18} />}>
               {t.instagramFollow}
             </Button>
           </div>
         </div>
 
-        <ul
-          ref={trackRef}
+        {hasPosts && (
+          <ul
+            ref={trackRef}
           className="-mx-4 mt-8 flex snap-x snap-mandatory gap-3 overflow-x-auto scroll-smooth px-4 pb-3 md:-mx-0 md:gap-4 md:px-0 [scrollbar-width:thin]"
           tabIndex={0}
           aria-label={t.instagramHeading}
@@ -146,7 +152,8 @@ export function InstagramScroller({ locale, initial }: { locale: Locale; initial
               </a>
             </li>
           ))}
-        </ul>
+          </ul>
+        )}
       </div>
     </section>
   );

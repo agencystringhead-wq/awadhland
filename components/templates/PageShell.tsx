@@ -36,8 +36,13 @@ export function PageShell({ locale, alternate, pageLabel, sitePath, children }: 
       <TopStrip locale={locale} cities={cities} broker={broker} />
       <Header locale={locale} alternate={alternate} nav={getNav(locale)} active={active} broker={broker} pageLabel={pageLabel} />
       <main>{children}</main>
-      {/* Site-wide, directly above the footer: build-time posts now, live posts swapped in near the viewport */}
-      <InstagramScroller locale={locale} initial={getInstagramFallback()} />
+      {/* Site-wide, directly above the footer: real build-time posts now (stand-ins never ship), live posts swapped in near the viewport */}
+      <InstagramScroller
+        locale={locale}
+        initial={getInstagramFallback()
+          .filter((p) => !p.placeholder)
+          .map(({ image, caption, permalink, timestamp, media_type }) => ({ image, caption, permalink, timestamp, media_type }))}
+      />
       <LeadAnalytics locale={locale} city={city} />
       <Footer locale={locale} cities={cities} localities={getBuildableLocalities(locale).buildable} broker={broker} />
     </>
