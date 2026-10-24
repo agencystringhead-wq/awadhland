@@ -607,7 +607,7 @@ export const homeStory: Record<Locale, HomeStory> = {
       ask: "WhatsApp about",
       representative: "Representative image",
       message: "Hi, I'm interested in property {id} on awadhland.com. Can you share the details?",
-      footnote: "Asking prices as given by the seller, on the date shown. Check the documents before you pay anything.",
+      footnote: "Images are for demonstration only; the actual property may vary. Asking prices as given by the seller, on the date shown. Check the documents before you pay anything.",
     },
     cities: {
       eyebrow: "Three cities",
@@ -764,7 +764,7 @@ export const homeStory: Record<Locale, HomeStory> = {
       ask: "व्हाट्सऐप करें",
       representative: "सांकेतिक तस्वीर",
       message: "नमस्ते, मुझे awadhland.com पर प्रॉपर्टी {id} में रुचि है। क्या आप जानकारी भेज सकते हैं?",
-      footnote: "विक्रेता द्वारा बताई गई क़ीमत, दिखाई गई तारीख़ के अनुसार। कोई भी भुगतान करने से पहले काग़ज़ात ज़रूर जाँचें।",
+      footnote: "तस्वीरें केवल उदाहरण के लिए हैं; असली प्रॉपर्टी अलग हो सकती है। विक्रेता द्वारा बताई गई क़ीमत, दिखाई गई तारीख़ के अनुसार। कोई भी भुगतान करने से पहले काग़ज़ात ज़रूर जाँचें।",
     },
     cities: {
       eyebrow: "तीन शहर",
