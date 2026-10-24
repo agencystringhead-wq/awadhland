@@ -101,7 +101,8 @@ export type ArticleInput = {
   author: { name: string; url?: string };
   image?: string;
   /** NewsArticle for update entries (a dated notice); Article otherwise */
-  type?: "Article" | "NewsArticle";
+  type?: "Article" | "NewsArticle" | "BlogPosting";
+  keywords?: string[];
 };
 
 export const article = (a: ArticleInput): JsonLdObject =>
@@ -114,6 +115,7 @@ export const article = (a: ArticleInput): JsonLdObject =>
     datePublished: a.datePublished,
     dateModified: a.dateModified,
     inLanguage: a.locale === "hi" ? "hi-IN" : "en-IN",
+    ...(a.keywords?.length ? { keywords: a.keywords.join(", ") } : {}),
     author: { "@type": "Person", name: a.author.name, ...(a.author.url ? { url: a.author.url } : {}) },
     publisher: { "@id": `${SITE_URL}/#organization` },
     ...(a.image ? { image: a.image.startsWith("http") ? a.image : `${SITE_URL}${a.image}` } : {}),

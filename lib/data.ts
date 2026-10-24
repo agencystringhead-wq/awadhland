@@ -50,7 +50,8 @@ if (integrityErrors.length > 0) {
   throw new Error(`Data integrity check failed:\n- ${integrityErrors.join("\n- ")}`);
 }
 
-const byDateDesc = <T extends { date: string }>(a: T, b: T) => b.date.localeCompare(a.date);
+const byDateDesc = <T extends { date: string; publishedAt?: string }>(a: T, b: T) =>
+  b.date.localeCompare(a.date) || (b.publishedAt ?? "").localeCompare(a.publishedAt ?? "");
 
 /** Build-time Instagram posts for the section above the footer (see components/InstagramScroller). */
 export const getInstagramFallback = () => parse("instagram-fallback.json", instagramFallbackJson);

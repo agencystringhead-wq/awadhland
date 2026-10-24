@@ -47,13 +47,14 @@ export async function UpdateArticleTemplate({ locale, article }: { locale: Local
             headline: article.title,
             description: fm.meta_description,
             url: pageUrl,
-            datePublished: u.date,
+            datePublished: u.publishedAt ?? u.date,
             dateModified: u.updatedAt,
             locale,
             author: { name: "Awadhland", url: `${SITE_URL}/` },
             // The same build-time card the page declares in og:image; Google asks Article markup for an image.
             image: getPage(locale, `/updates/${u.id}/`)?.ogPath,
-            type: "NewsArticle",
+            type: fm.schema_type ?? "NewsArticle",
+            keywords: [fm.primary_keyword, ...(fm.secondary_keywords ?? [])],
           }),
           faqPage(article.faq),
         ]}
@@ -80,11 +81,9 @@ export async function UpdateArticleTemplate({ locale, article }: { locale: Local
             </div>
           )}
           <h1 className="max-w-4xl">{article.title}</h1>
-          {article.dateline && (
-            <p className="mt-3 text-sm text-muted">
-              <time dateTime={u.date}>{article.dateline}</time>
-            </p>
-          )}
+          <p className="mt-3 text-sm text-muted">
+            <time dateTime={u.date}>{article.dateline || formatDate(u.date, locale)}</time>
+          </p>
           <p className="mt-3 flex flex-wrap gap-1.5">
             <span className="chip bg-cream-deep">{updateTypeLabels[u.type][locale]}</span>
             <span className="chip bg-cream-deep">{agencyLabel(u.agency, u.agencyName)}</span>

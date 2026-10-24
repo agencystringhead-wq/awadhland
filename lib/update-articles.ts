@@ -35,6 +35,10 @@ export const articleFrontmatterSchema = z
     meta_description: z.string().min(1),
     primary_keyword: z.string().min(1),
     secondary_keywords: z.array(z.string()).optional(),
+    /** Schema.org type of the page's article markup; NewsArticle unless the piece is an explainer or guide */
+    schema_type: z.enum(['NewsArticle', 'BlogPosting']).optional(),
+    /** Marks the pillar page of a topic cluster; other pieces link up to it. Not rendered. */
+    pillar: z.boolean().optional(),
     schema: z.array(z.string()).optional(),
     sources: z.array(z.object({ title: z.string().min(1), url }).strict()).min(1, "every article needs at least one source"),
   })

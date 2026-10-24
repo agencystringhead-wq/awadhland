@@ -164,7 +164,7 @@ Use this before you pay even a token amount:
 
 1. **Title check:** verify the ownership chain and khatauni (record of rights). Make sure the seller is the actual recorded owner.
 2. **Land use:** confirm the plot's use under Master Plan 2031. Agricultural land needs proper conversion before construction.
-3. **Circle rate:** compare the asking price with the official circle rate for that area. Registration and stamp duty are calculated on it.
+3. **Circle rate:** compare the asking price with the [official circle rate for that area](/updates/2026-10-ayodhya-circle-rates-explained-stamp-duty-guide/). Registration and stamp duty are calculated on it.
 4. **Recent registered deals:** look at what nearby plots actually sold for, not just asking prices.
 5. **Acquisition check:** make sure the land isn't marked for government acquisition, road widening or a reserved use.
 6. **Access:** confirm road access is legal and on record, not just a path used informally.

@@ -818,6 +818,8 @@ export const updateSchema = z
   .object({
     id: z.string().regex(/^\d{4}-\d{2}-[a-z0-9]+(?:-[a-z0-9]+)*$/, "expected <yyyy-mm>-<slug>"),
     date: isoDate,
+    /** Exact publish time, only to order entries that share a date (newest first) and as datePublished */
+    publishedAt: z.iso.datetime({ offset: true }).optional(),
     title: z.string().min(1),
     titleHi: z.string().min(1),
     agency,

@@ -1,5 +1,265 @@
 [
   {
+    "id": "2026-10-lda-naimish-nagar-registration-extended-27-october-2026",
+    "date": "2026-10-25",
+    "publishedAt": "2026-10-25T09:00:00+05:30",
+    "title": "LDA Naimish Nagar Yojana 2026: Registration Extended to 27 October, Here's What You Need to Know",
+    "titleHi": "एलडीए नैमिष नगर योजना 2026: रजिस्ट्रेशन की आखिरी तारीख 27 अक्टूबर तक बढ़ी, पूरी जानकारी",
+    "agency": "LDA",
+    "type": "project",
+    "cityIds": [
+      "lucknow"
+    ],
+    "localityIds": [
+      "bakshi-ka-talab"
+    ],
+    "projectIds": [
+      "lda-plot-schemes"
+    ],
+    "summary": [
+      "LDA has extended Naimish Nagar Yojana registration to 27 October 2026. 1,673 plots on Sitapur Road, Lucknow at ₹3,800 per sq ft. Steps, documents and tips.",
+      "Missed the 24 October deadline? LDA has given plot buyers three extra days for Naimish Nagar Yojana. Here's how to apply before it closes."
+    ],
+    "summaryHi": [
+      "एलडीए ने नैमिष नगर योजना का रजिस्ट्रेशन 27 अक्टूबर 2026 तक बढ़ाया। सीतापुर रोड, लखनऊ में 1,673 प्लॉट, ₹3,800 प्रति वर्ग फुट। प्रक्रिया और जरूरी बातें।",
+      "24 अक्टूबर की तारीख निकल गई? एलडीए ने नैमिष नगर योजना के लिए तीन दिन और दिए हैं। जानिए कैसे करें आवेदन।"
+    ],
+    "sourceUrl": "https://registration.ldalucknow.in",
+    "archiveUrl": null,
+    "officialUrl": "https://ldalucknow.in/",
+    "sources": [
+      {
+        "label": "LDA Registration Portal",
+        "url": "https://registration.ldalucknow.in",
+        "accessedAt": "2026-10-25"
+      },
+      {
+        "label": "Lucknow Development Authority (official site)",
+        "url": "https://ldalucknow.in/",
+        "accessedAt": "2026-10-25"
+      }
+    ],
+    "updatedAt": "2026-10-25"
+  },
+  {
+    "id": "2026-10-gda-khorabar-medicity-plots-auction-november-2026",
+    "date": "2026-10-25",
+    "publishedAt": "2026-10-25T08:50:00+05:30",
+    "title": "GDA Khorabar Township and Medicity Plots: Register by 27 October, Auction on 3 November",
+    "titleHi": "जीडीए खोराबार टाउनशिप और मेडिसिटी प्लॉट: 27 अक्टूबर तक रजिस्ट्रेशन, 3 नवंबर को नीलामी",
+    "agency": "GDA",
+    "type": "project",
+    "cityIds": [
+      "gorakhpur"
+    ],
+    "localityIds": [
+      "khorabar"
+    ],
+    "projectIds": [
+      "gda-plot-schemes"
+    ],
+    "summary": [
+      "GDA is re-offering plots in Khorabar Township and Medicity, Gorakhpur. Registration closes 27 October 2026 and e-auction bidding starts 3 November. How it works and what to check.",
+      "Gorakhpur buyers have a short window to get into GDA's Khorabar and Medicity plot e-auction. Here's a plain guide to how it works."
+    ],
+    "summaryHi": [
+      "जीडीए गोरखपुर की खोराबार टाउनशिप और मेडिसिटी में प्लॉट फिर से पेश कर रहा है। रजिस्ट्रेशन 27 अक्टूबर 2026 तक, ई-नीलामी 3 नवंबर से। पूरी जानकारी।",
+      "गोरखपुर में जीडीए की खोराबार और मेडिसिटी प्लॉट ई-नीलामी के लिए कम समय बचा है। आसान भाषा में पूरी प्रक्रिया।"
+    ],
+    "sourceUrl": "https://gdagkp.in/",
+    "archiveUrl": null,
+    "sources": [
+      {
+        "label": "Gorakhpur Development Authority (official site)",
+        "url": "https://gdagkp.in/",
+        "accessedAt": "2026-10-25"
+      }
+    ],
+    "updatedAt": "2026-10-25"
+  },
+  {
+    "id": "2026-10-how-to-check-legal-plot-ayodhya-ada-illegal-plotting",
+    "date": "2026-10-25",
+    "publishedAt": "2026-10-25T08:40:00+05:30",
+    "title": "ADA Bulldozes Illegal Plotting in Ayodhya Again: How to Check a Plot Is Legal Before You Buy",
+    "titleHi": "अयोध्या में अवैध प्लॉटिंग पर फिर चला एडीए का बुलडोजर: खरीदने से पहले ऐसे जांचें प्लॉट वैध है या नहीं",
+    "agency": "ADA",
+    "type": "policy",
+    "cityIds": [
+      "ayodhya"
+    ],
+    "localityIds": [],
+    "projectIds": [],
+    "summary": [
+      "Ayodhya Development Authority demolished illegal plotting on about 320 biswa in September 2026. A practical checklist to make sure your Ayodhya plot is legal before you pay.",
+      "Every few months, ADA bulldozers flatten unapproved colonies in Ayodhya. Here's how to make sure your plot isn't the next one."
+    ],
+    "summaryHi": [
+      "सितंबर 2026 में अयोध्या विकास प्राधिकरण ने लगभग 320 बिस्वा पर अवैध प्लॉटिंग गिराई। अयोध्या में प्लॉट खरीदने से पहले वैधता जांचने की पूरी चेकलिस्ट।",
+      "हर कुछ महीनों में एडीए का बुलडोजर अयोध्या में अवैध कॉलोनियां गिराता है। जानिए कैसे पक्का करें कि आपका प्लॉट सुरक्षित है।"
+    ],
+    "sourceUrl": "https://igrsup.gov.in/",
+    "archiveUrl": null,
+    "sources": [
+      {
+        "label": "UP Stamps and Registration Department (IGRSUP)",
+        "url": "https://igrsup.gov.in/",
+        "accessedAt": "2026-10-25"
+      }
+    ],
+    "updatedAt": "2026-10-25"
+  },
+  {
+    "id": "2026-10-gda-gurukul-city-township-new-gorakhpur",
+    "date": "2026-10-25",
+    "publishedAt": "2026-10-25T08:30:00+05:30",
+    "title": "GDA Gurukul City: What the New 400-Acre Township Means for Land Buyers in Gorakhpur",
+    "titleHi": "जीडीए गुरुकुल सिटी: 400 एकड़ की नई टाउनशिप गोरखपुर में जमीन खरीदने वालों के लिए क्या मायने रखती है",
+    "agency": "GDA",
+    "type": "project",
+    "cityIds": [
+      "gorakhpur"
+    ],
+    "localityIds": [],
+    "projectIds": [
+      "gda-plot-schemes"
+    ],
+    "summary": [
+      "GDA has finalised plans for Gurukul City, a 400-acre township on Sonauli Road under New Gorakhpur, covering Maniram, Balapar and Rahmatnagar. What it means for land prices.",
+      "Gorakhpur is getting another planned township along Sonauli Road. Here's what we know about Gurukul City and why the corridor is worth watching."
+    ],
+    "summaryHi": [
+      "जीडीए ने न्यू गोरखपुर के तहत सोनौली रोड पर 400 एकड़ की गुरुकुल सिटी टाउनशिप की योजना तय की है। मानीराम, बालापार, रहमतनगर। जमीन खरीदारों के लिए क्या मतलब।",
+      "सोनौली रोड पर गोरखपुर को एक और प्लान्ड टाउनशिप मिलने वाली है। जानिए गुरुकुल सिटी के बारे में और यह इलाका क्यों अहम है।"
+    ],
+    "sourceUrl": "https://gdagkp.in/",
+    "archiveUrl": null,
+    "sources": [
+      {
+        "label": "Gorakhpur Development Authority (official site)",
+        "url": "https://gdagkp.in/",
+        "accessedAt": "2026-10-25"
+      }
+    ],
+    "updatedAt": "2026-10-25"
+  },
+  {
+    "id": "2026-10-lda-varun-vihar-vs-naimish-nagar-lucknow-2026",
+    "date": "2026-10-25",
+    "publishedAt": "2026-10-25T08:20:00+05:30",
+    "title": "Varun Vihar vs Naimish Nagar: Which LDA Plot Scheme in Lucknow Is Better for You?",
+    "titleHi": "वरुण विहार बनाम नैमिष नगर: लखनऊ की कौन-सी एलडीए प्लॉट योजना आपके लिए बेहतर है?",
+    "agency": "LDA",
+    "type": "project",
+    "cityIds": [
+      "lucknow"
+    ],
+    "localityIds": [
+      "bakshi-ka-talab",
+      "mohan-road"
+    ],
+    "projectIds": [
+      "lda-plot-schemes"
+    ],
+    "summary": [
+      "Varun Vihar (₹2,800/sq ft, Agra Expressway) vs Naimish Nagar (₹3,800/sq ft, Sitapur Road). An honest comparison of location, price, size and who each LDA scheme suits.",
+      "Two big LDA townships launched on the same day, at very different prices. Here's how Varun Vihar and Naimish Nagar actually compare."
+    ],
+    "summaryHi": [
+      "वरुण विहार (₹2,800/वर्ग फुट, आगरा एक्सप्रेसवे) बनाम नैमिष नगर (₹3,800/वर्ग फुट, सीतापुर रोड)। लोकेशन, कीमत और किसके लिए कौन-सी योजना सही है, पूरी तुलना।",
+      "एक ही दिन लॉन्च हुई दो बड़ी एलडीए टाउनशिप, लेकिन कीमतों में बड़ा फर्क। जानिए वरुण विहार और नैमिष नगर में असली अंतर।"
+    ],
+    "sourceUrl": "https://registration.ldalucknow.in",
+    "archiveUrl": null,
+    "officialUrl": "https://ldalucknow.in/",
+    "sources": [
+      {
+        "label": "LDA Registration Portal",
+        "url": "https://registration.ldalucknow.in",
+        "accessedAt": "2026-10-25"
+      },
+      {
+        "label": "Lucknow Development Authority (official site)",
+        "url": "https://ldalucknow.in/",
+        "accessedAt": "2026-10-25"
+      }
+    ],
+    "updatedAt": "2026-10-25"
+  },
+  {
+    "id": "2026-10-lda-it-city-lucknow-land-pooling-smaller-plots-2026",
+    "date": "2026-10-25",
+    "publishedAt": "2026-10-25T08:10:00+05:30",
+    "title": "LDA IT City Lucknow: 800 More Plots Allotted to Farmers, and Smaller Plot Sizes Are Coming",
+    "titleHi": "एलडीए आईटी सिटी लखनऊ: किसानों को 800 और प्लॉट आवंटित, अब छोटे साइज के प्लॉट भी",
+    "agency": "LDA",
+    "type": "project",
+    "cityIds": [
+      "lucknow"
+    ],
+    "localityIds": [],
+    "projectIds": [
+      "lda-plot-schemes"
+    ],
+    "summary": [
+      "On 13 October 2026, LDA allotted 800 developed plots to 534 farmers in Lucknow IT City under land pooling. Smaller plots of 35 to 288 sq m are planned. What it means for buyers.",
+      "LDA's IT City is moving fast under land pooling, and smaller plot sizes could make it accessible to a lot more buyers. Here's where things stand."
+    ],
+    "summaryHi": [
+      "13 अक्टूबर 2026 को एलडीए ने लैंड पूलिंग के तहत लखनऊ आईटी सिटी में 534 किसानों को 800 विकसित प्लॉट दिए। 35 से 288 वर्ग मीटर के छोटे प्लॉट भी आएंगे।",
+      "लैंड पूलिंग के तहत एलडीए की आईटी सिटी तेजी से आगे बढ़ रही है, और छोटे प्लॉट से ज्यादा लोग खरीद पाएंगे। जानिए ताजा स्थिति।"
+    ],
+    "sourceUrl": "https://registration.ldalucknow.in",
+    "archiveUrl": null,
+    "officialUrl": "https://ldalucknow.in/",
+    "sources": [
+      {
+        "label": "LDA Registration Portal",
+        "url": "https://registration.ldalucknow.in",
+        "accessedAt": "2026-10-25"
+      },
+      {
+        "label": "Lucknow Development Authority (official site)",
+        "url": "https://ldalucknow.in/",
+        "accessedAt": "2026-10-25"
+      }
+    ],
+    "updatedAt": "2026-10-25"
+  },
+  {
+    "id": "2026-10-ayodhya-circle-rates-explained-stamp-duty-guide",
+    "date": "2026-10-25",
+    "publishedAt": "2026-10-25T08:00:00+05:30",
+    "title": "Ayodhya Circle Rates Explained: What Changed, What It Costs You, and How to Check Your Plot's Rate",
+    "titleHi": "अयोध्या सर्किल रेट पूरी जानकारी: क्या बदला, आपकी जेब पर कितना असर, और अपने प्लॉट का रेट कैसे देखें",
+    "agency": "other",
+    "agencyName": "UP Stamps and Registration Department",
+    "type": "circle-rate",
+    "cityIds": [
+      "ayodhya"
+    ],
+    "localityIds": [],
+    "projectIds": [],
+    "summary": [
+      "Ayodhya circle rates rose 30% to 200% in the June 2025 revision, with rates near Ram Mandir now ₹26,600 to ₹27,900 per sq m. What it means for stamp duty and land buyers.",
+      "Circle rates decide your stamp duty in Ayodhya, and they've jumped sharply. Here's a plain-English guide to what changed and how it affects your purchase."
+    ],
+    "summaryHi": [
+      "जून 2025 में अयोध्या के सर्किल रेट 30% से 200% तक बढ़े। राम मंदिर के पास अब ₹26,600 से ₹27,900 प्रति वर्ग मीटर। स्टांप ड्यूटी और खरीदारों पर असर।",
+      "अयोध्या में स्टांप ड्यूटी सर्किल रेट से तय होती है, और ये तेजी से बढ़े हैं। आसान भाषा में समझिए क्या बदला और आपकी खरीद पर क्या असर होगा।"
+    ],
+    "sourceUrl": "https://igrsup.gov.in/",
+    "archiveUrl": null,
+    "sources": [
+      {
+        "label": "UP Stamps and Registration Department (IGRSUP)",
+        "url": "https://igrsup.gov.in/",
+        "accessedAt": "2026-10-25"
+      }
+    ],
+    "updatedAt": "2026-10-25"
+  },
+  {
     "id": "2026-10-lda-varun-vihar-naimish-nagar-yojana-2026",
     "date": "2026-10-17",
     "title": "LDA Varun Vihar and Naimish Nagar Yojana 2026: Plots, Rates, Registration and Last Date",
