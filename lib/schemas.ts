@@ -875,6 +875,64 @@ export const instagramPostSchema = z
 export const instagramFallbackSchema = z.array(instagramPostSchema).min(1).max(8);
 export type InstagramPostFallback = z.infer<typeof instagramPostSchema>;
 
+/* ------------------------------------------------------------ featured listings */
+
+/**
+ * Properties the broker has for sale, shown as cards on the homepage. Public fields only:
+ * the repo is published, so a village name, khasra/gata number, owner or exact location never
+ * goes in this file. Location is a broad area plus a distance range; the exact spot is shared
+ * on WhatsApp. A listing older than LISTING_MAX_AGE_DAYS (lib/listings.ts) is hidden at build.
+ */
+export const listingKind = z.enum(["commercial-plot", "residential-plot", "commercial-land", "agricultural-land", "hotel"]);
+
+export const listingSchema = z
+  .object({
+    /** Shown on the card and in the WhatsApp message: AYD-001, LKO-001, GKP-001 */
+    id: z.string().regex(/^(AYD|LKO|GKP)-\d{3}$/, "expected AYD-001, LKO-001 or GKP-001"),
+    cityId: z.enum(["ayodhya", "lucknow", "gorakhpur"]),
+    kind: listingKind,
+    /** Broad area only, e.g. "Ayodhya" or "Gorakhpur region" */
+    area: z.string().min(1),
+    areaHi: z.string().min(1),
+    /** A range or "within X km" of a landmark, never an exact spot */
+    proximity: z.string().min(1),
+    proximityHi: z.string().min(1),
+    size: z.string().min(1),
+    sizeHi: z.string().min(1),
+    priceMinInr: z.number().int().positive(),
+    priceMaxInr: z.number().int().positive().nullable(),
+    ratePerSqFtMin: z.number().int().positive(),
+    ratePerSqFtMax: z.number().int().positive().nullable(),
+    /** "built-up" when the rate is per sq ft of built area (a hotel), not land */
+    rateBasis: z.enum(["plot", "built-up"]),
+    priceNote: z.string().min(1).nullable(),
+    priceNoteHi: z.string().min(1).nullable(),
+    negotiable: z.boolean(),
+    highlight: z.string().min(1),
+    highlightHi: z.string().min(1),
+    /** Date the broker last confirmed it is still for sale */
+    confirmedAt: isoDate,
+    featured: z.boolean(),
+    /** Representative image (labelled as such on the card), or null for the illustrated header */
+    image: z
+      .object({ src: z.string().regex(/^\/images\/listings\/[\w.-]+\.(webp|avif)$/), width: z.number().int().positive(), height: z.number().int().positive() })
+      .strict()
+      .nullable(),
+  })
+  .strict()
+  .refine((l) => l.priceMaxInr === null || l.priceMaxInr >= l.priceMinInr, { message: "priceMaxInr is below priceMinInr" })
+  .refine((l) => l.ratePerSqFtMax === null || l.ratePerSqFtMax >= l.ratePerSqFtMin, { message: "ratePerSqFtMax is below ratePerSqFtMin" })
+  .refine((l) => (l.priceNote === null) === (l.priceNoteHi === null), { message: "priceNote and priceNoteHi must both be set or both be null" });
+
+export const listingsFileSchema = z.array(listingSchema).superRefine((rows, ctx) => {
+  const seen = new Set<string>();
+  rows.forEach((r, i) => {
+    if (seen.has(r.id)) ctx.addIssue({ code: "custom", path: [i, "id"], message: `duplicate listing id ${r.id}` });
+    seen.add(r.id);
+  });
+});
+export type Listing = z.infer<typeof listingSchema>;
+
 /* ---------------------------------------------------------- priceObservations */
 
 export const priceObservationSchema = z
@@ -1189,6 +1247,7 @@ export const dataFiles = {
   "villageNotes.json": villageNotesFileSchema,
   "villageSlugs.json": villageSlugsFileSchema,
   "instagram-fallback.json": instagramFallbackSchema,
+  "listings.json": listingsFileSchema,
 } as const;
 
 export type DataFileName = keyof typeof dataFiles;
